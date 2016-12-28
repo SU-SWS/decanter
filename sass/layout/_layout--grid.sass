@@ -1,0 +1,113 @@
+// Layout
+// ------
+// Using a negative margin technique, adapted from ZEN. The page is loaded by
+// this order:
+
+// 1. Header
+// 2. Content
+// 3. Navigation menus
+// 4. Sidebar Left
+// 5. Sideabr Right
+//
+// Layout rules.
+// (Disclaimer: do not change if you're not sure you know what you're doing.)
+
+.container
+  @include outer-container
+  margin-left: auto
+  margin-right: auto
+  width: auto
+
+#content
+  .no-sidebars &
+    // 100% width for small screens.
+    @include fill-parent
+    // Same logic for medium screens.
+    @include media($medium-screen-up)
+      @include span-columns(8)
+    // Same logic for large screens.
+    @include media($large-screen-up)
+      @include span-columns(12)
+
+  .one-sidebar.sidebar-second &
+    // 100% width for small screens.
+    @include fill-parent
+    // Span this div 6 columns wide for medium screens.
+    @include media($medium-screen-up)
+      @include span-columns(6)
+    // Span this div 8 columns wide for large screens.
+    @include media($large-screen-up)
+      @include span-columns(8)
+
+  .one-sidebar.sidebar-first &
+    // 100% width for small screens.
+    @include fill-parent
+    // Span this div 6 columns wide for medium screens.
+    @include media($medium-screen-up)
+      @include span-columns(6)
+      @include shift(2)
+    // Span this div 9 columns wide for large screens.
+    @include media($large-screen-up)
+      @include span-columns(9)
+      @include shift(3)
+
+  .two-sidebars &
+    // 100% width for small screens.
+    @include fill-parent
+    // Span this div 4 columns wide for medium screens.
+    @include media($medium-screen-up)
+      @include span-columns(4)
+      @include shift(2)
+    // Span this div 5 columns wide for large screens.
+    @include media($large-screen-up)
+      @include span-columns(5)
+      @include shift(3)
+
+#sidebar-first
+  // 100% width for small screens.
+  @include fill-parent
+  // Span this div 2 columns wide for medium screens.
+  @include media($medium-screen-up)
+    @include span-columns(2)
+    // Shift it to the left to place it in the far left column. Different shift for two-sidebar and one-sidebar layout.
+    @include shift(-6)
+    .one-sidebar.sidebar-first &
+      @include shift(-8)
+  @include media($large-screen-up)
+    // Span this div 3 columns wide for large screens.
+    @include span-columns(3)
+    // Shift it to the left to place it in the far left column. Different shift for two-sidebar and one-sidebar layout.
+    @include shift(-8)
+    .one-sidebar.sidebar-first &
+      @include shift(-12)
+
+#sidebar-second
+  // 100% width for small screens.
+  @include fill-parent
+  // Span this div 2 columns wide for medium screens.
+  @include media($medium-screen-up)
+    @include span-columns(2)
+    @include shift(0)
+  @include media($large-screen-up)
+    // Span this div 4 columns wide for large screens.
+    @include span-columns(4)
+    @include shift(0)
+
+#footer
+  float: none
+  clear: both
+
+// Region Colors. delete when starting a new theme.
+#header, #footer,
+#sidebar-first,
+#sidebar-second,
+#navigation
+  background: rgba(#aaa, 0.2)
+
+// Layout Helpers
+#header,
+#footer,
+.mission,
+.breadcrumb,
+.node
+  clear: both

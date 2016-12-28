@@ -1,0 +1,69 @@
+// Variables
+// -----------
+// Use the same color all over the place? Need to do some math with height and
+// width and text size? Sass supports variables as well as basic math operations
+// and many useful functions.
+
+// For complete documentation:
+// http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#variables_
+
+// Available variables:
+// SASS:    http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#variables_
+// Bourbon: http://bourbon.io/docs/
+
+// Margin/Padding.
+$margin: $gutter
+$padding: $gutter
+
+// Typography.
+$base-font-family: $helvetica
+$heading-font-family: $base-font-family
+
+// Font Sizes.
+$base-font-size: $font-size
+
+// Line height.
+$base-line-height: 1.5
+$heading-line-height: 1.3
+
+// Letter spacing.
+$base-letter-spacing: 0.03em
+
+// Other Sizes.
+$base-border-radius: 2px
+$base-spacing: $base-line-height * 1em
+$small-spacing: $base-spacing / 2
+$base-z-index: 0
+
+// Colors.
+$dark-gray: #333
+$medium-gray: #999
+$light-gray: #ddd
+
+// Brand Colors.
+$primary-color: #555
+
+// Action Colors.
+$status-color: #8dbe51
+$warning-color: #ddc44f
+$error-color: #cd4533
+
+// Font Colors.
+$base-font-color: $dark-gray
+$action-color: $primary-color
+
+// Border.
+$base-border-color: $light-gray
+$base-border: 1px solid $base-border-color
+
+// Background Colors.
+$base-background-color: #fff
+$secondary-background-color: tint($base-border-color, 75%)
+
+// Forms.
+$form-box-shadow: inset 0 1px 3px rgba(#000, 0.06)
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3)
+
+// Animations.
+$base-duration: 150ms
+$base-timing: ease

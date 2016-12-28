@@ -1,0 +1,31 @@
+// Bourbon grid display. Set to "true" to turn on.
+// $visual-grid: false
+// $visual-grid-color: #EEEEEE
+// $visual-grid-index: back
+// $visual-grid-opacity: 0.4
+
+// Set to false if you'd like to remove the responsiveness
+$responsive: true
+
+// Neat Overrides
+$column: 60px
+$gutter: 20px
+$grid-columns: 4
+// We set the max width of the page using the px to em function in Bourbon.
+// the first value is the pixel value of the width and the second is the base font size of your theme.
+// In this instance we want the max width to be 1200px and on Line 11 below we have reset the base
+// font size to 16px so the first value would be 1200 and the second 16
+// ex. em(1200, 16)
+$font-size:     16px
+$max-width-px:  1200px
+$max-width:     em($max-width-px, $font-size)
+
+// Breakpoints
+$small-screen:  320px
+$medium-screen: 720px
+$large-screen:  960px
+
+// Define your mobile first breakpoints using min-width
+$small-screen-up:   new-breakpoint(min-width em($small-screen, $font-size) 4)
+$medium-screen-up:  new-breakpoint(min-width em($medium-screen, $font-size) 8)
+$large-screen-up:   new-breakpoint(min-width em($large-screen, $font-size) 12)

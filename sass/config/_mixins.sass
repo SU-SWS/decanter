@@ -1,0 +1,19 @@
+// Mixins
+// --------
+// Mixins allow you to define styles that can be re-used / throughout the
+// stylesheet without needing to resort to / non-semantic classes like .float-
+// left. Mixins can also / contain full CSS rules, and anything else allowed /
+// elsewhere in a Sass document. They can even take / arguments which allows you
+// to produce a wide variety / of styles with very few mixins.
+
+// For complete documentation:
+// Sass mixins: http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#mixins
+// Bourbon mixins: http://bourbon.io/docs/
+
+// Omega Reset for Bourbon Neat grid
+// Read more: http://www.joshfry.me/blog/2013/05/13/omega-reset-for-bourbon-neat
+@mixin omega-reset($nth)
+  &:nth-child(#{$nth})
+    margin-right: flex-gutter()
+  &:nth-child(#{$nth}+1)
+    clear: none

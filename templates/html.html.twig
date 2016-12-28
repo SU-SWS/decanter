@@ -1,0 +1,81 @@
+{#
+/**
+ * @file
+ * Default theme implementation for the basic structure of a single Drupal page.
+ *
+ * Variables:
+ * - logged_in: A flag indicating if user is logged in.
+ * - root_path: The root path of the current page (e.g., node, admin, user).
+ * - node_type: The content type for the current node, if the page is a node.
+ * - css: A list of CSS files for the current page.
+ * - head: Markup for the HEAD element (including meta tags, keyword tags, and
+ *   so on).
+ * - head_title: A modified version of the page title, for use in the TITLE tag.
+ * - head_title_array: List of text elements that make up the head_title
+ *   variable. May contain or more of the following:
+ *   - title: The title of the page.
+ *   - name: The name of the site.
+ *   - slogan: The slogan of the site.
+ * - page_top: Initial rendered markup. This should be printed before 'page'.
+ * - page: The rendered page markup.
+ * - page_bottom: Closing rendered markup. This variable should be printed after
+ *   'page'.
+ * - styles: Style tags necessary to import all necessary CSS files in the head.
+ * - scripts: Script tags necessary to load the JavaScript files and settings
+ *   in the head.
+ * - db_offline: A flag indicating if the database is offline.
+ *
+ * @see template_preprocess_html()
+ *
+ * @ingroup themeable
+ */
+#}
+<!DOCTYPE html>
+{% if ie_enabled_versions.ie8 %}
+  {{- attach_library('basic/ie8') }}
+{% endif %}
+{% if ie_enabled_versions.ie9 or ie_enabled_versions.ie8 %}
+  <!--[if lt IE 7]>     <html{{ html_attributes.addClass('no-js', 'lt-ie9', 'lt-ie8', 'lt-ie7') }}><![endif]-->
+  <!--[if IE 7]>        <html{{ html_attributes.removeClass('lt-ie7') }}><![endif]-->
+  <!--[if IE 8]>        <html{{ html_attributes.removeClass('lt-ie8') }}><![endif]-->
+  <!--[if gt IE 8]><!--><html{{ html_attributes.removeClass('lt-ie9') }}><!--<![endif]-->
+{% else -%}
+  <html{{ html_attributes }}>
+{% endif %}
+  <head>
+    <head-placeholder token="{{ placeholder_token }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+    <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
+  </head>
+  {% set classes = [] %}
+  {% for role in user.roles %}
+    {% set classes = classes|merge(['role--' ~ role|clean_class]) %}
+  {% endfor %}
+
+  {% set sidebar_first = page.sidebar_first|render %}
+  {% set sidebar_second = page.sidebar_second|render %}
+  <body{{ attributes.addClass(classes,
+    not is_front ? 'with-subnav',
+    sidebar_first ? 'sidebar-first',
+    sidebar_second ? 'sidebar-second',
+    (sidebar_first and not sidebar_second) or (sidebar_second and not sidebar_first) ? 'one-sidebar',
+    (sidebar_first and sidebar_second) ? 'two-sidebars',
+    (not sidebar_first and not sidebar_second) ? 'no-sidebar'
+  ) }}>
+    <div id="skip">
+      <a href="#main-menu" class="visually-hidden focusable skip-link">
+        {{ 'Skip to main navigation'|t }}
+      </a>
+    </div>
+    {{ page_top }}
+    {{ page }}
+    {{ page_bottom }}
+    <js-bottom-placeholder token="{{ placeholder_token }}">
+    {% if browser_sync.enabled %}
+      <script id="__bs_script__">
+      document.write("<script async src='http://{{ browser_sync.host }}:{{ browser_sync.port }}/browser-sync/browser-sync-client.js'><\/script>".replace("HOST", location.hostname));
+      </script>
+    {% endif %}
+  </body>
+</html>

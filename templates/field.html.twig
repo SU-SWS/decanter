@@ -1,0 +1,19 @@
+{% extends "@stable/field/field.html.twig" %}
+
+{# Create classes array #}
+{% set classes = [] %}
+
+{# BEM inspired class syntax: https://en.bem.info/
+   Enable this code if you would like field classes like "article__tags", where article is the content type and field_tags is the field name.
+{% set classes = classes|merge([
+  bundle ~ '__' ~ field_name|replace({'field_' : ''})|clean_class
+]) %}
+#}
+
+{% set attributes = attributes.addClass(classes) %}
+
+{#
+  Ensures that the visually hidden option for field labels works correctly.
+  @todo: Remove when https://www.drupal.org/node/2779919 is resolved.
+#}
+{% set title_attributes = title_attributes.addClass(label_display == 'visually_hidden' ? 'visually-hidden') %}

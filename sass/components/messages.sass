@@ -1,0 +1,33 @@
+@import "../config/config"
+
+// Messages.
+.messages
+  padding: 9px
+  margin: 1em 0
+  color: darken($light-gray, 30%)
+  background-color: $light-gray
+  border: 1px solid darken($light-gray, 10%)
+  word-wrap: break-word
+  pre
+    border: 0
+
+.messages--warning
+  color: darken($error-color, 15%)
+  background-color: $warning-color
+  border-color: darken($warning-color, 10%)
+  pre
+    background-color: darken($warning-color, 10%)
+
+.messages--error
+  color: white
+  background-color: $error-color
+  border-color: darken($error-color, 10%)
+  pre
+    background-color: darken($error-color, 10%)
+
+.messages--status
+  color: darken($status-color, 35%)
+  background-color: $status-color
+  border-color: darken($status-color, 10%)
+  pre
+    background-color: darken($status-color, 10%)

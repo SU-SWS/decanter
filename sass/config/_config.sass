@@ -1,0 +1,37 @@
+// Config
+// ---------
+// Use the same color all over the place? Need to do
+// some math with height and width and text size?
+// Sass supports variables as well as basic math
+// operations and many useful functions.
+//
+// For setting variables, see:
+// /sass/config/_variables.sass
+//
+// For setting mixins:
+// /sass/config/_mixins.sass
+//
+// For complete documentation:
+// http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#variables_
+//
+// Available functions:
+// http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html
+
+// Available functions:
+// SASS: http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html
+// Bourbon: http://bourbon.io/docs/
+// Bourbon Neat (grid): https://github.com/thoughtbot/neat#using-the-grid
+
+// Import variables and mixins to be used (Bourbon)
+@import "../../node_modules/bourbon/app/assets/stylesheets/bourbon"
+@import "../../node_modules/bourbon-neat/app/assets/stylesheets/neat-helpers"
+
+// Import grid to be used (Bourbon Neat)
+@import "grid-settings"
+
+// We load this after we provide our overrides: https://github.com/thoughtbot/neat#changing-the-defaults
+@import "../../node_modules/bourbon-neat/app/assets/stylesheets/neat"
+
+// Import local files
+@import "variables"
+@import "mixins"
