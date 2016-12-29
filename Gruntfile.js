@@ -97,7 +97,7 @@ module.exports = function(grunt) {
           // 'css/drupal/theme/theme.css':           'scss/drupal/theme/theme.scss',
 
           // Base Drupal Styles.
-          'css/drupal/all.css':                   'scss/drupal/all.scss'
+          'css/drupal/all.css':                   'scss/drupal/all.scss',
           'css/drupal/theme/print.css':           'scss/drupal/theme/print.scss',
 
           // Pattern library compiled styles.
@@ -107,7 +107,7 @@ module.exports = function(grunt) {
           // Custom tweaks and glue code for the base Drupal styles and the
           // pattern library. Also, Additional themes can be added there.
 
-          // Basic theme Glue Code.
+          // Basic theme glue code.
           'css/themes/basic/all.css':             'scss/themes/basic/all.scss'
 
           // Example sub style/theme.

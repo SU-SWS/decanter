@@ -4,7 +4,7 @@ body > header {
   // Local Variables
   $background-color: $header-background-color;
   $foreground-color: $header-foreground-color;
-  
+
   @include centered-section(jumbo, 0px);
 
   background-color: $background-color;
@@ -22,7 +22,7 @@ body > header {
 
   #skiplinks {
     @extend %hidden-print;
-    @include grid-container;
+    @include outer-container;
     @include padding(0);
     background-color: $background-color;
     color: $background-color;
@@ -30,8 +30,8 @@ body > header {
     font-weight: 300;
     min-height: 10px;
 
-    a, 
-    a:hover, 
+    a,
+    a:hover,
     a:visited {
       position: absolute;
       left: 0px;
@@ -51,10 +51,10 @@ body > header {
 
 
   #header-content {
-    @include grid-container;
+    @include outer-container;
     @include padding(12px 0 29px);
     // text-align: center;
-    
+
     @media print {
       @include padding(0 0 1em 0);
     }

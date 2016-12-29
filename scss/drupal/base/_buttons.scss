@@ -1,19 +1,17 @@
 #{$all-buttons} {
-  $button-color: $action-color;
-  $text-color: $white;
   appearance: none;
-  background-color: $button-color;
+  background-color: $action-color;
   border: 0;
   border-radius: $base-border-radius;
-  color: $text-color;
+  color: #fff;
   cursor: pointer;
   display: inline-block;
   font-family: $base-font-family;
-  font-size: $BASE-FONT-SIZE;
+  font-size: $base-font-size;
   -webkit-font-smoothing: antialiased;
   font-weight: 600;
   line-height: 1;
-  padding: $spacing-sm $base-spacing;
+  padding: $small-spacing $base-spacing;
   text-decoration: none;
   transition: background-color $base-duration $base-timing;
   user-select: none;
@@ -22,8 +20,8 @@
 
   &:hover,
   &:focus {
-    background-color: shade($button-color, 20%);
-    color: $white;
+    background-color: shade($action-color, 20%);
+    color: #fff;
   }
 
   &:disabled {
@@ -31,7 +29,7 @@
     opacity: .5;
 
     &:hover {
-      background-color: $button-color;
+      background-color: $action-color;
     }
   }
 }

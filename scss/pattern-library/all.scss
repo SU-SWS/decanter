@@ -6,7 +6,7 @@
 // In other words, `default` directives scope in reverse order.
 
 // Normalize default styles and browser inconsistencies. see https://necolas.github.io/normalize.css/
-	@import "node_modules/normalize-scss/sass/normalize";
+	@import "../../node_modules/normalize-scss/sass/normalize";
 
 // CONSTANTS
 	@import 'base/CONSTANTS'; // Modifying these constants has framework-wide implications. Tread carefully.
@@ -20,15 +20,17 @@
 // @import 'themes/your-custom-theme';
 // ========================================================
 
-// Import Bourbon, Neat & Bitters
-	//@import 'bourbon';
-	// Grid settings sets up basic breakpoints, as well as the 12 column grid.
-	@import 'base/grid-settings';
-	// Neat sets up the mixins necessary to generate responsive 12 column grids.
-	//@import 'neat';
+// Import variables and mixins to be used (Bourbon)
+	@import "../../node_modules/bourbon/core/bourbon";
+
+// Import grid to be used (Bourbon Neat)
+	@import "base/grid-settings";
+
+// We load this after we provide our overrides: https://github.com/thoughtbot/neat#changing-the-defaults
+	@import "../../node_modules/bourbon-neat/core/neat";
 
 // Font Awesome
-	//@import 'font-awesome';
+	@import '../../node_modules/font-awesome/scss/font-awesome';
 
 // Datasets
 	@import 'base/maps'; // configuration maps for various mixins, components and functions
@@ -47,7 +49,7 @@
 
 // Mixins
 	@import 'abstracts/mixins/trailing-hovers';
-
+	@import 'abstracts/mixins/outer-container';
 	@import 'abstracts/mixins/media';
 	@import 'abstracts/mixins/per-row';
 	@import 'abstracts/mixins/flex-container';

@@ -11,6 +11,15 @@ $neat-grid: (
 );
 
 // Content container definitions:
+
+// We set the max width of the page using the px to em function in Bourbon.
+// the first value is the pixel value of the width and the second is the base font size of your theme.
+// In this instance we want the max width to be 1200px and on Line 11 below we have reset the base
+// font size to 16px so the first value would be 1200 and the second 16
+// ex. em(1200, 16)
+$font-size: 16px;
+$max-width-px: 1200px;
+$max-width: em($max-width-px, $font-size);
 $max-container-width: $max-width + (strip-unit($gutter * 2) * $REM-BASE) !default; // bootstrap default
 
 // ------------------------------------------------------------
@@ -24,7 +33,7 @@ $screen-xs:               0px !default;
 $screen-sm:               544px !default;
 $screen-md:               768px !default;
 $screen-lg:               992px !default;
-$screen-xl:               $max-container-width !default;
+$screen-xl:               strip-unit($max-container-width) !default;
 
 // Utility Breakpoints:
 $screen-xs-max:           $screen-sm - 1px;
@@ -40,7 +49,7 @@ $screen-lg-max:           $screen-xl - 1px;
 // sm | sm-up | sm-only | sm-to-md | sm-to-lg
 // md | md-up | md-only | md-to-lg
 // lg | lg-up | lg-only | lg-max
-// xl | xl-up | xl-only 
+// xl | xl-up | xl-only
 // screen | print
 
 // -------------------------------------------------------
