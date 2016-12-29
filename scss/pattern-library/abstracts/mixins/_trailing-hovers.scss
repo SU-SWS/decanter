@@ -1,0 +1,13 @@
+// -------------------------------------------------------------------
+// Trailing Hovers
+// -------------------------------------------------------------------
+
+@mixin trailing-hovers {
+  transition: all .3s;
+  transition-property: background-color, color, border-color;
+
+  &:hover,
+  &:active {
+    transition: 0s;
+  }
+}

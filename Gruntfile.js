@@ -30,7 +30,7 @@ module.exports = function(grunt) {
         }
       },
       css: {
-        files: ['sass/{,*/}*.{scss,sass}'],
+        files: ['sass/{,*/}*.{scss,sass}', 'scss/{,*/}*.{scss,sass}'],
         tasks: ['sass']
       }
     },
@@ -88,13 +88,30 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'css/base/base.css': 'sass/base/base.sass',
-          'css/components/components.css': 'sass/components/components.sass',
-          'css/components/tabs.css': 'sass/components/tabs.sass',
-          'css/components/messages.css': 'sass/components/messages.sass',
-          'css/layout/layout.css': 'sass/layout/layout.sass',
-          'css/theme/theme.css': 'sass/theme/theme.sass',
-          'css/theme/print.css': 'sass/theme/print.sass'
+          // Uncomment to render each part individually.
+          // 'css/drupal/base/base.css':             'scss/drupal/base/base.scss',
+          // 'css/drupal/components/components.css': 'scss/drupal/components/components.scss',
+          // 'css/drupal/components/tabs.css':       'scss/drupal/components/tabs.scss',
+          // 'css/drupal/components/messages.css':   'scss/drupal/components/messages.scss',
+          // 'css/drupal/layout/layout.css':         'scss/drupal/layout/layout.scss',
+          // 'css/drupal/theme/theme.css':           'scss/drupal/theme/theme.scss',
+
+          // Base Drupal Styles.
+          'css/drupal/all.css':                   'scss/drupal/all.scss'
+          'css/drupal/theme/print.css':           'scss/drupal/theme/print.scss',
+
+          // Pattern library compiled styles.
+          'css/pattern-library/all.css':          'scss/pattern-library/all.scss',
+          'css/pattern-library/print.css':        'scss/pattern-library/print.scss',
+
+          // Custom tweaks and glue code for the base Drupal styles and the
+          // pattern library. Also, Additional themes can be added there.
+
+          // Basic theme Glue Code.
+          'css/themes/basic/all.css':             'scss/themes/basic/all.scss'
+
+          // Example sub style/theme.
+          // 'css/themes/basic-light/all.css':    'scss/themes/basic-light/all.scss'
         }
       }
     },
@@ -127,6 +144,7 @@ module.exports = function(grunt) {
       }
     }
   });
+
   // This is where we tell Grunt we plan to use this plug-in.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
@@ -135,12 +153,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-available-tasks');
-  // Now that we've loaded the package.json and the node_modules we set the base path
-  // for the actual execution of the tasks
-  // grunt.file.setBase('/')
+
+  // My tasks.
+  grunt.registerTask('devmode', "Watch and BrowserSync all in one.", ['browserSync', 'watch']);
+
   // This is where we tell Grunt what to do when we type "grunt" into the terminal.
   // Note: if you'd like to run and of the tasks individually you can do so by typing 'grunt mytaskname' alternatively
   // you can type 'grunt watch' to automatically track your files for changes.
-  grunt.registerTask('devmode', "Watch and BrowserSync all in one.", ['browserSync', 'watch']);
   grunt.registerTask('default', ['availabletasks']);
 };

@@ -1,0 +1,9 @@
+@mixin media($_query: screen, $_max: null) {
+	@if map-has-key($breakpoints, $_query) {
+  	@media #{map-get($breakpoints, $_query)} {
+    	@content;
+  	}
+	} @else {
+		@debug "Unknown `#{$_query}` in $breakpoints";
+	}
+}

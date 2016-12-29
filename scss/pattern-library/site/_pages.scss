@@ -1,0 +1,132 @@
+// --------------------------------------------------------------------
+// Page Layout Overrides
+// --------------------------------------------------------------------
+
+// Home
+// --------------------------------------------------------------------
+
+#home {
+  // CSS That only applies to this page goes here.
+}
+
+// Examples
+// --------------------------------------------------------------------
+
+#examples {
+  #header2 {
+    @include centered-section(wide);
+  }
+  #header3 {
+    @include centered-section(narrow);
+  }
+
+//=======================================================
+// CENTERED SECTION &
+// ADJUST WIDTH
+// DEMO
+//=======================================================
+
+  
+  
+//=======================================================
+//=======================================================
+
+  .centered-code {
+    text-align: center;
+    margin-bottom: $spacing-lg;
+
+    code {
+      text-align: left;
+    }
+  }
+}
+
+// Grid
+// --------------------------------------------------------------------
+#grid {
+  section#neat-grid {
+    
+  }    
+}
+
+// Centered Section & Adjust Width Mixin demo
+// --------------------------------------------------------------------
+.content-background {
+  background-color: $aqua;
+  padding-bottom: $spacing-sm;
+  padding-top: $spacing-sm;
+}
+
+.styler {
+  background-color: $navy;
+  padding: $spacing-sm;
+  color: $light-gray;
+  text-align: center;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.bouncer {
+  background-color: $blue;
+  color: $light-gray;
+  text-align: center;
+  padding: $spacing-sm;
+  margin-top: $gutter / 2;
+  margin-bottom: $gutter / 2;
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+section.narrow {
+  @include centered-section(narrow);
+  .medium {
+    @include adjust-width(narrow-to-medium);
+  }
+  .wide {
+    @include adjust-width(narrow-to-wide);
+  }
+  .jumbo {
+    @include adjust-width(narrow-to-jumbo);
+  }
+}
+
+section.medium {
+  @include centered-section(medium);
+  .narrow {
+    @include adjust-width(medium-to-narrow);
+  }
+  .wide {
+    @include adjust-width(medium-to-wide);
+  }
+  .jumbo {
+    @include adjust-width(medium-to-jumbo);
+  }
+}
+
+section.wide {
+  @include centered-section(wide);
+  .narrow {
+    @include adjust-width(wide-to-narrow);
+  }
+  .medium {
+    @include adjust-width(wide-to-medium);
+  }
+  .jumbo {
+    @include adjust-width(wide-to-jumbo);
+  }
+}
+
+section.jumbo {
+  @include centered-section(jumbo);
+  .narrow {
+    @include adjust-width(jumbo-to-narrow);
+  }
+  .medium {
+    @include adjust-width(jumbo-to-medium);
+  }
+  .wide {
+    @include adjust-width(jumbo-to-wide);
+  }
+}

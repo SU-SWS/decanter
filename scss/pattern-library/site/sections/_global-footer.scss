@@ -1,0 +1,135 @@
+@charset 'UTF-8';
+
+body > footer {
+  @extend %hidden-print;
+  
+  @include centered-section(jumbo, $gutter);
+  
+  background-color: $su-red;
+  box-shadow: inset 0 4px 8px -2px rgba($black, .2); // Horizontal offset , vertical offset, blur, internal spacing
+  color: tint($su-beige, 70%);
+  font-family: $source-sans;
+}
+// Global Footer and Copyright
+#global-footer {
+  @include grid-collapse;
+  clear: both;
+  color: inherit;
+  margin-top: 0;
+  position: relative;
+
+  a {
+    color: $su-beige-30;
+    font-weight: 400;
+    text-decoration: none;
+
+    &:hover,
+    &:active {
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    &.copyright {
+      color: $su-beige-30;
+      font-size: $small-font-size;
+      line-height: 1.5em;
+      margin: 0;
+      text-align: left;
+
+      @media only screen and (min-width: $screen-md) {
+        @include grid-column(9);
+      }
+
+      @media only screen and (max-width: $screen-sm-max) {
+        @include grid-column(12);
+        margin-top: $spacing-md;
+        text-align: center;
+      }
+    }
+  }
+}
+
+#termsofuse {
+  font-size: 12px;
+  margin-left: 10px;
+
+  @media only screen and (max-width: $screen-sm-max) {
+    display: block;
+  }
+}
+
+#bottom-logo {
+  @include margin(0);
+  display: block;
+
+  @media only screen and (max-width: $screen-sm-max) {
+    @include grid-column(12);
+    margin-top: $spacing-sm;
+    margin-bottom: $spacing-md;
+  }
+
+  @media only screen and (min-width: $screen-sm) {
+    @include grid-column(3);
+    margin-top:-5px;
+    margin-bottom: 1em;
+  }
+
+  img, object {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+#bottom-text {
+  margin-left: auto;
+  margin-right: auto;
+  @media only screen and (max-width: $screen-sm-max) {
+    @include grid-column(12);
+  }
+
+  @media only screen and (min-width: $screen-sm) {
+    @include grid-column(9);
+  }
+
+  ul {
+    line-height: 1em;
+    margin: 0 auto;
+    padding: 0;
+    display: block;
+
+    @media only screen and (max-width: $screen-xs-max) {
+      max-width: 300px;
+    }
+
+    @media only screen and (max-width: $screen-sm-max) {
+      margin: 0 auto;
+      column-count: 2;
+      column-gap: $gutter;
+      max-width: 300px;
+    }
+
+    @media only screen and (min-width: $screen-sm) and (max-width: $screen-sm-max) {
+      margin: -#{$spacing-xs} auto 0;
+    }
+
+    li {
+      display: block;
+      list-style: none;
+      margin: 0 auto;
+      padding-top: 10px;
+
+      @media only screen and (min-width: $screen-md) {
+        display: inline-block;
+        margin: 3px 13px 0 0;
+        padding-top:0;
+        width: auto;
+      }
+    }
+
+    li a {
+      font-size: 15px;
+      line-height: 20px;
+    }
+  }
+}

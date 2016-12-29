@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+// Gutter defaults to base font size. It cascades to spacing variables as well.
+$gutter : (rem($base-font-size) * 1.5) !default;
+$grid-columns: 12 !default;
+
+// Default Neat Grid:
+$neat-grid: (
+ columns: $grid-columns,
+ gutter:  $gutter
+);
+
+// Content container definitions:
+$max-container-width: $max-width + (strip-unit($gutter * 2) * $REM-BASE) !default; // bootstrap default
+
+// ------------------------------------------------------------
+// Match Neat breakpoints to Bootstrap for better
+// compatibility with existing themes.
+// ------------------------------------------------------------
+
+// Bootstrap 4 Responsive Breakpoints
+// ----------------------------------------
+$screen-xs:               0px !default;
+$screen-sm:               544px !default;
+$screen-md:               768px !default;
+$screen-lg:               992px !default;
+$screen-xl:               $max-container-width !default;
+
+// Utility Breakpoints:
+$screen-xs-max:           $screen-sm - 1px;
+$screen-sm-max:           $screen-md - 1px;
+$screen-md-max:           $screen-lg - 1px;
+$screen-lg-max:           $screen-xl - 1px;
+
+// Media Query Map
+// Refer to base/maps to extend or modify media query maps.
+// Availabe breapoints, used with `@include media(breakpoint) {}`
+// Breakpoints:
+// xs | xs-only
+// sm | sm-up | sm-only | sm-to-md | sm-to-lg
+// md | md-up | md-only | md-to-lg
+// lg | lg-up | lg-only | lg-max
+// xl | xl-up | xl-only 
+// screen | print
+
+// -------------------------------------------------------
+// Spacing
+// -------------------------------------------------------
+$base-spacing: rem($base-font-size) !default;
+
+$spacing-xxl:               $base-spacing * 2.5 !default; // 45 px
+$spacing-xl:                $base-spacing * 2 !default; // 36 px
+$spacing-lg:                $base-spacing * 1.44444444 !default; // 26 px
+$spacing-md:                $base-spacing !default; // 18 px
+$spacing-sm:                $base-spacing * .5 !default; // 9 px
+$spacing-xs:                $base-spacing * .33333333 !default; // 6px
+$spacing-xxs:               $base-spacing * .1666666667 !default; // 3px

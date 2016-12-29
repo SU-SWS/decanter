@@ -1,0 +1,93 @@
+@charset 'UTF-8';
+// -------------------------------------------------------
+// Brunch at Stanford Variables
+// -------------------------------------------------------
+// Note: !Default settings are overridable. You can create
+// your own variables file and pass it different variables
+// in order to modify this for your own use.
+
+
+// -------------------------------------------------------
+// Brunch at Stanford Variables
+// -------------------------------------------------------
+
+// Font Declarations
+// -------------------------------------------------------
+$font-family-sans-serif:            $source-sans !default; // imported in _google-fonts.scss
+$font-family-serif:                 $bitter !default; // imported in _google-fonts.scss
+$font-family-monospace:             $source-code !default; // imported in _google-fonts.scss
+
+// Base Fonts
+// -------------------------------------------------------
+$base-font-family:                  $font-family-sans-serif !default;
+$heading-font-family:               $font-family-serif !default;
+
+// Font Sizes
+$BASE-FONT-SIZE:                    rem($BASE-FONT-SIZE); // 18pt
+$small-font-size:                   rem(15) !default; //15pt
+
+// Line height
+$base-line-height:                  28 / $em-base !default;
+$heading-line-height:               20 / $em-base !default;
+
+// Other Sizes
+$base-border-radius:                4px !default;
+$base-z-index:                      0 !default;
+
+
+// Font Colors
+// -------------------------------------------------------
+$base-font-color:                   $su-black !default;
+$action-color:                      $su-red-text !default;
+$meta-color:                        $su-red !default;
+
+// Background Colors
+// -------------------------------------------------------
+$base-background-color:             $white !default;
+$secondary-background-color:        $su-beige-10 !default;
+$su-beige-bg:                       $su-beige-10 !default;
+
+// -------------------------------------------------------
+// Elements
+// -------------------------------------------------------
+
+// Borders
+// -------------------------------------------------------
+$base-border-color:                 $light-gray !default;
+$base-border:                       1px solid $base-border-color !default;
+
+
+// Forms
+// -------------------------------------------------------
+$form-box-shadow:                   inset 0 1px 3px rgba($black, .06) !default;
+$form-box-shadow-focus:             $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -.3) !default;
+
+// Animations
+// -------------------------------------------------------
+$base-duration:                     150ms !default;
+$base-timing:                       ease-out !default;
+
+// Code blocks
+// -------------------------------------------------------
+$code-color:                        tint($su-cool-gray, 95%) !default;
+
+// -------------------------------------------------------
+// Components
+// -------------------------------------------------------
+
+// Header
+// -------------------------------------------------------
+$header-background-color:            $su-red !default;
+$header-foreground-color:            $secondary-background-color !default;
+
+// Nav
+// -------------------------------------------------------
+$primary-nav_background-color:              $secondary-background-color !default;
+$primary-nav_background-hover-color:        $base-background-color !default;
+
+$primary-nav_foreground-color:              $su-black !default;
+$primary-nav_foreground-active-color:       $su-red !default;
+$primary-nav_foreground-hover-color:        $su-black !default;
+
+$primary-nav_border-color: 									darken($base-border-color, 30%) !default;
+$primary-nav_current-border-color: 					$su-red !default;

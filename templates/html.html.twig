@@ -56,12 +56,7 @@
   {% set sidebar_first = page.sidebar_first|render %}
   {% set sidebar_second = page.sidebar_second|render %}
   <body{{ attributes.addClass(classes,
-    not is_front ? 'with-subnav',
-    sidebar_first ? 'sidebar-first',
-    sidebar_second ? 'sidebar-second',
-    (sidebar_first and not sidebar_second) or (sidebar_second and not sidebar_first) ? 'one-sidebar',
-    (sidebar_first and sidebar_second) ? 'two-sidebars',
-    (not sidebar_first and not sidebar_second) ? 'no-sidebar'
+    not is_front ? 'with-subnav'
   ) }}>
     <div id="skip">
       <a href="#main-menu" class="visually-hidden focusable skip-link">

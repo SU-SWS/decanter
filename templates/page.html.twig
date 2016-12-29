@@ -60,25 +60,16 @@
 
         </div><!-- /#content-header -->
 
-        <div id="content-area">
-          {{ page.content }}
-        </div>
-
       </section><!-- /#content -->
 
-      {% if page.sidebar_first|render %}
-        <aside id="sidebar-first" class="column sidebar first">
-          {{ page.sidebar_first }}
-        </aside><!-- /#sidebar-first -->
-      {% endif %}
-
-      {% if page.sidebar_second|render %}
-        <aside id="sidebar-second" class="column sidebar second">
-          {{ page.sidebar_second }}
-        </aside><!-- /#sidebar-second -->
-      {% endif %}
     </div><!-- /.container -->
   </div><!-- /#main -->
+
+  <!-- ______________________ FULL WIDTH _______________________ -->
+
+  <div id="flexible-area">
+    {{ page.content }}
+  </div>
 
   <!-- ______________________ FOOTER _______________________ -->
 
@@ -91,7 +82,3 @@
   {% endif %}
 
 </div><!-- /.layout-container -->
-
-<script id="__bs_script__">//<![CDATA[
-    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.18.5'><\/script>".replace("HOST", location.hostname));
-//]]></script>

@@ -1,0 +1,76 @@
+@charset 'UTF-8';
+
+// Variables scope in the order of this document, starting at the top, and moving down.
+// Variables lower in the stack take precedence, UNLESS defined as `!default`.
+// The `!default` directive sets a variable, unless it's been defined earlier.
+// In other words, `default` directives scope in reverse order.
+
+// Normalize default styles and browser inconsistencies. see https://necolas.github.io/normalize.css/
+	@import "node_modules/normalize-scss/sass/normalize";
+
+// CONSTANTS
+	@import 'base/CONSTANTS'; // Modifying these constants has framework-wide implications. Tread carefully.
+
+// Core Functions
+	@import 'abstracts/functions/rem';
+	@import 'abstracts/functions/em';
+
+// ========================================================
+// Theme Overrides
+// @import 'themes/your-custom-theme';
+// ========================================================
+
+// Import Bourbon, Neat & Bitters
+	//@import 'bourbon';
+	// Grid settings sets up basic breakpoints, as well as the 12 column grid.
+	@import 'base/grid-settings';
+	// Neat sets up the mixins necessary to generate responsive 12 column grids.
+	//@import 'neat';
+
+// Font Awesome
+	//@import 'font-awesome';
+
+// Datasets
+	@import 'base/maps'; // configuration maps for various mixins, components and functions
+
+// Base
+	@import 'base/color-library';
+	@import 'base/google-fonts'; // Imports our fonts, conditionally
+	@import 'base/variables';
+
+// Helper Functions
+	@import 'abstracts/functions/set-container-padding';
+	@import 'abstracts/functions/set-container-margin';
+
+// Placeholders and Utility classes
+	@import 'components/utility'; // Utility Classes & Placeholders
+
+// Mixins
+	@import 'abstracts/mixins/trailing-hovers';
+
+	@import 'abstracts/mixins/media';
+	@import 'abstracts/mixins/per-row';
+	@import 'abstracts/mixins/flex-container';
+
+// Elements
+	@import 'base/elements/buttons';
+	@import 'base/elements/forms';
+	@import 'base/elements/lists';
+	@import 'base/elements/media';
+	@import 'base/elements/tables';
+	@import 'base/elements/typography';
+	@import 'base/elements/print';
+
+// Components
+	@import 'components/centered-section';
+	@import 'components/adjust-width';
+	@import 'components/item-grid';
+
+// Sections
+	@import 'site/sections/header';
+	@import 'site/sections/nav';
+	@import 'site/sections/global-footer';
+
+// Layout
+	@import 'site/layout';
+	@import 'site/pages';

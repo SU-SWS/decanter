@@ -1,0 +1,46 @@
+@charset "UTF-8";
+// Creates a flexbox container with children
+// See: https://css-tricks.com/snippets/css/a-guide-to-flexbox for flexbox property explanations.
+
+@mixin flex-container
+       (
+        $_flex: flex, // flex | inline-flex
+        // Parent properties
+        $_flex-direction: row, // row | row-reverse | column | column-reverse
+        $_flex-wrap: wrap, // nowrap | wrap | wrap-reverse
+        $_justify-content: flex-start, // flex-start | flex-end | center | space-between | space-around
+        // Change $_align-items from `flex-start` to `stretch` for equal heights
+        $_align-items: flex-start, //  flex-start | flex-end | center | baseline | stretch
+        $_align-content: flex-start, // flex-start | flex-end | center | space-between | space-around | stretch
+        // Children properties
+    //  $_order: <integer>  // Note that this should be set as  
+        $_flex-grow: 0,
+        $_flex-shrink: 0,
+        $_flex-basis: auto,
+        $_align-self: flex-start
+       )
+{
+  // Inherited properties from mixin
+  display:          flex;
+  flex-flow:        $_flex-direction $_flex-wrap; // default: flex-flow: row wrap;
+  justify-content:  $_justify-content; // default: justify-content: flex-start;
+  align-items:      $_align-items; // default: align-items: flex-start;
+  align-content:    $_align-content; // default: align-content: flex-start;
+  
+  // Opinionated properties
+  box-sizing: border-box;
+
+  // Applies the direct children
+  > * {
+    // Inherited properties from mixin
+    flex: $_flex-grow $_flex-shrink $_flex-basis; // default: flex: 0 0 auto;
+    align-self: $_align-self; // default: align-self: flex-start;
+    
+    //Opinionated properties
+    box-sizing: inherit;
+
+    > :last-child {
+        margin-bottom: 0;
+      }
+  }
+}

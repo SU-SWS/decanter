@@ -1,0 +1,191 @@
+$link-color: $action-color !default;
+
+body {
+  color: $base-font-color;
+  font-family: $base-font-family;
+  font-size: $BASE-FONT-SIZE;
+  line-height: $base-line-height;
+  font-size-adjust: .475;
+}
+
+h2,
+h3 {
+  font-family: $heading-font-family;
+  text-align: center;
+  margin-left: -#{$spacing-xxs};
+}
+
+h4,
+h5,
+h6 {
+  font-family: $heading-font-family;
+  margin-left: -#{$spacing-xxs};
+  text-align: center;
+  font-weight: 600;
+}
+
+// Responsive Typography
+h1 {
+  font-family: $heading-font-family;
+  font-size: em(42);
+  margin-top: 0;
+  margin-bottom: $spacing-sm;
+  margin-left: -#{$spacing-xxs};
+  line-height: $heading-line-height;
+
+  // Medium screens
+  @media screen and (min-width: $screen-md) and (max-width: $screen-md-max) {
+    // font-size: em(42);
+  }
+
+  // Large screens
+  @media screen and (min-width: $screen-lg) and (max-width: $screen-lg-max) {
+    // font-size: em(48);
+  }
+  // Extra Large screens
+  @media screen and (min-width: $screen-xl) {
+    font-size: em(44);
+  }
+}
+h1 + .subhead {
+  font-weight: normal;
+  font-style: italic;
+  font-family: $heading-font-family;
+  font-size: rem(20);
+  margin-top: $spacing-sm * -1;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: $spacing-md;
+  
+  // Medium screens
+  @media screen and (min-width: $screen-md) and (max-width: $screen-md-max) {
+    // font-size: em(26);
+  }
+  // Large screens
+  @media screen and (min-width: $screen-lg) {
+    font-size: em(36);
+  }
+}
+
+h3 {
+  margin-top: $spacing-xxl;
+  margin-bottom: $spacing-md;
+  // font-size: em(19);
+  
+  // Medium screens
+  @media screen and (min-width: $screen-md) and (max-width: $screen-md-max) {
+    // font-size: em(22);
+  }
+  // Large screens
+  @media screen and (min-width: $screen-lg) {
+    font-size: em(28);
+  }
+}
+
+h4 {
+  margin-top: $spacing-sm;
+  margin-bottom: $spacing-md;
+  // font-size: em(17);
+  
+  // Medium screens
+  @media screen and (min-width: $screen-md) and (max-width: $screen-md-max) {
+    // font-size: em(18);
+  }
+  // Large screens
+  @media screen and (min-width: $screen-lg) {
+    font-size: em(20);
+  }
+}
+
+p, ul, ol, dd, h5, h6 {
+  font-size: $BASE-FONT-SIZE;
+  line-height: $base-line-height;
+  margin-bottom: $spacing-md;
+  margin-top: 0;
+  
+  // Large screens
+  @media screen and (min-width: $screen-lg) and (max-width: $screen-lg-max) {
+    // font-size: em(17);
+  }
+  
+  // Extra Large screens
+  @media screen and (min-width: $screen-xl) {
+    // font-size: em(17);
+  }
+}
+
+blockquote {
+  font-family: $bitter;
+  font-weight: normal;
+  font-style: italic;
+}
+
+// Helper Classes
+%meta {
+  $meta-color: $su-red !default !global;
+
+  color: $meta-color;
+  font-family: $font-family-sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.meta, time {
+  @extend %meta;
+}
+
+time + h1,
+time + h2,
+time + h3,
+time + h4,
+time + h5,
+time + h6,
+.meta + h1,
+.meta + h2,
+.meta + h3,
+.meta + h4,
+.meta + h5,
+.meta + h6,{
+  // margin-top: 0;
+}
+
+%link {
+  color: $link-color;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color $base-duration $base-timing;
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: shade($link-color, 20%);
+    text-decoration: underline;
+  }
+}
+
+%link-alternate {
+  @extend %link;
+
+  color: $su-black;
+  &:active,
+  &:focus,
+  &:hover {
+    color: $link-color;
+  }
+}
+
+a {
+  @extend %link;
+}
+
+a.alternate {
+  @extend %link-alternate;
+}
+
+hr {
+  border-bottom: $base-border;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+}

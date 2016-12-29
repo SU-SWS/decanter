@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+// Google Fonts
+// -------------------------------------------------------
+// Font weights and variants:
+// Extra-Light: 200; Light: 300; Regular: 400; Semi-Bold: 600; Bold: 700; Extra Bold: 800; Black: 900
+// Italic variants: 200i, 300i, etc.
+// Full font families:
+// $google-source-code: 'https://fonts.googleapis.com/css?family=Source+Code+Pro' !global;
+// $google-source-serif: 'https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700' !global;
+// $google-source-sans: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i' !global;
+// $google-bitter: 'https://fonts.googleapis.com/css?family=Bitter:400,400i,700' !global;
+
+// Start with only a subset. We can add more styles as we find we need it. This is nicer for mobile devices.
+$google-source-sans: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' !global;
+$google-source-code: 'https://fonts.googleapis.com/css?family=Source+Code+Pro' !global;
+$google-bitter: 'https://fonts.googleapis.com/css?family=Bitter:400,400i,700' !global;
+
+// Conditional Declarations
+// -------------------------------------------------------
+@if(global-variable-exists(google-source-code)) {
+    @import url($google-source-code);
+    $source-code: 'Source Code Pro', $font-stack-monaco !global;
+}
+@if(global-variable-exists(google-source-serif)) {
+    @import url($google-source-serif);
+    $source-serif: 'Source Serif Pro', $font-stack-georgia !global;
+}
+@if(global-variable-exists(google-source-sans)) {
+    @import url($google-source-sans);
+    $source-sans: 'Source Sans Pro', $font-stack-helvetica !global;
+}
+@if(global-variable-exists(google-bitter)) {
+    @import url($google-bitter);
+    $bitter: 'Bitter', $font-stack-georgia !global;
+}
