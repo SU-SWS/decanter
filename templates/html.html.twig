@@ -52,9 +52,6 @@
   {% for role in user.roles %}
     {% set classes = classes|merge(['role--' ~ role|clean_class]) %}
   {% endfor %}
-
-  {% set sidebar_first = page.sidebar_first|render %}
-  {% set sidebar_second = page.sidebar_second|render %}
   <body{{ attributes.addClass(classes,
     not is_front ? 'with-subnav'
   ) }}>
@@ -66,6 +63,7 @@
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}
+    {% include directory ~ "/templates/global-footer.html.twig" %}
     <js-bottom-placeholder token="{{ placeholder_token }}">
     {% if browser_sync.enabled %}
       <script id="__bs_script__">

@@ -2,21 +2,23 @@ global:
   version: VERSION
   css:
     base:
-      css/base/base.css: {}
-    layout:
-      css/layout/layout.css: {}
-    component:
-      css/components/components.css: {}
+      css/drupal/all.css:
+      css/drupal/print.css: { media: print }
+    # layout:
+    #   css/layout/all.css: {}
+    # component:
+    #   css/components/components.css: {}
     theme:
-      css/theme/theme.css: {}
-      css/theme/print.css: { media: print }
-      css/theme/brunch.css: {}
+      css/pattern-library/all.css: {}
+      css/themes/basic/all.css: {}
+      css/themes/basic/print.css: { media: print }
   js:
-    js/modernizr.js: {}
-  #   js/build/scripts.js: {}
-  # dependencies:
-  #   - core/drupal
-  #   - core/jquery
+    js/vendor/modernizr.js: {}
+    js/vendor/selectivizr-min.js: {}
+    js/build/scripts.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
 
   # Uncomment the code above to load scripts.js file on all pages. This file also requires JQuery to be
   # loaded on all pages. Consider implimenting your scripts through theme libraries if you wish to
@@ -26,16 +28,16 @@ tabs:
   version: VERSION
   css:
     component:
-      css/components/tabs.css: {}
+      css/drupal/components/tabs.css: {}
 
 messages:
   version: VERSION
   css:
     component:
-      css/components/messages.css: {}
+      css/drupal/components/messages.css: {}
 
 ie8:
   version: VERSION
   header: true
   js:
-    js/selectivizr-min.js: { browsers: { IE: 'lte IE 8', '!IE': false }, minified: true, preprocess: false }
+    js/vendor/selectivizr-min.js: { browsers: { IE: 'lte IE 8', '!IE': false }, minified: true, preprocess: false }

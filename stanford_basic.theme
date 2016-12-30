@@ -44,6 +44,9 @@ function stanford_basic_preprocess_html(&$variables) {
     ->applyTo($variables);
   // Union all theme setting variables to the html.html.twig template.
   $variables += $theme_settings->getOriginal();
+
+  // The base path.
+  $variables['base_path'] = base_path();
 }
 
 /**
