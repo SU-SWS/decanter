@@ -88,30 +88,21 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          // Uncomment to render each part individually.
-          // 'css/drupal/base/base.css':             'scss/drupal/base/base.scss',
-          // 'css/drupal/components/components.css': 'scss/drupal/components/components.scss',
-          // 'css/drupal/layout/layout.css':         'scss/drupal/layout/layout.scss',
-          // 'css/drupal/theme/theme.css':           'scss/drupal/theme/theme.scss',
-
           // Base Drupal Styles.
-          'css/drupal/components/tabs.css':       'scss/drupal/components/tabs.scss',
-          'css/drupal/components/messages.css':   'scss/drupal/components/messages.scss',
-          'css/drupal/all.css':                   'scss/drupal/all.scss',
-          'css/drupal/print.css':                 'scss/drupal/theme/print.scss',
-
-          // Pattern library compiled styles.
-          'css/pattern-library/all.css':          'scss/pattern-library/all.scss',
-          'css/pattern-library/print.css':        'scss/pattern-library/print.scss',
-
-          // Custom tweaks and glue code for the base Drupal styles and the
-          // pattern library. Also, Additional themes can be added there.
-
-          // Basic theme glue code.
-          'css/themes/basic/all.css':             'scss/themes/basic/all.scss'
-
-          // Example sub style/theme.
-          // 'css/themes/basic-light/all.css':    'scss/themes/basic-light/all.scss'
+          'css/drupal/base/base.css':                       'scss/drupal/base/base.scss',
+          'css/drupal/components/components.css':           'scss/drupal/components/components.scss',
+          'css/drupal/components/tabs.css':                 'scss/drupal/components/tabs.scss',
+          'css/drupal/components/messages.css':             'scss/drupal/components/messages.scss',
+          'css/drupal/layout/layout.css':                   'scss/drupal/layout/layout.scss',
+          'css/drupal/theme/theme.css':                     'scss/drupal/theme/theme.scss',
+          'css/drupal/theme/print.css':                     'scss/drupal/theme/print.scss',
+          // Theme compiled styles.
+          'css/themes/basic/base/base.css':                 'scss/themes/basic/base/base.scss',
+          'css/themes/basic/components/components.css':     'scss/themes/basic/components/components.scss',
+          'css/themes/basic/layout/layout.css':             'scss/themes/basic/layout/layout.scss',
+          'css/themes/basic/states/states.css':             'scss/themes/basic/states/states.scss',
+          'css/themes/basic/theme/theme.css':               'scss/themes/basic/theme/theme.scss',
+          'css/themes/basic/theme/print.css':               'scss/themes/basicy/theme/print.scss'
         }
       }
     },
