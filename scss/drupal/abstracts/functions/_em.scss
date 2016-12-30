@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+$em-base: $REM-BASE !default;
+
+@function em($pxval, $base: $em-base) {
+  @if not unitless($pxval) {
+    $pxval: strip-unit($pxval); // updated strip-unit from strip-units to reflect latest bourbon version
+  }
+  @if not unitless($base) {
+    $base: strip-unit($base);
+  }
+  @return ($pxval / $base) * 1em;
+}

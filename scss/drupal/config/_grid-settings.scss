@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 // Bourbon grid display. Set to "true" to turn on.
 // $visual-grid: false
 // $visual-grid-color: #EEEEEE
@@ -8,25 +10,210 @@
 $responsive: true;
 
 // Neat Overrides
-$column: 60px;
-$gutter: 20px;
-$grid-columns: 4;
+//$column: 60px;
+
+// Gutter defaults to base font size. It cascades to spacing variables as well.
+$gutter : (rem($BASE-FONT-SIZE, $REM-BASE) * 1.5) !default;
+$grid-columns: 12 !default;
+
+// Default Neat Grid:
+$neat-grid: (
+ columns: $grid-columns,
+ gutter:  $gutter
+);
 
 // We set the max width of the page using the px to em function in Bourbon.
 // the first value is the pixel value of the width and the second is the base font size of your theme.
 // In this instance we want the max width to be 1200px and on Line 11 below we have reset the base
 // font size to 16px so the first value would be 1200 and the second 16
 // ex. em(1200, 16)
-$font-size: 16px;
-$max-width-px: 1200px;
+$font-size: 18px;
+$max-width-px: 1158px;
 $max-width: em($max-width-px, $font-size);
+$max-container-width: $max-width + (strip-unit($gutter * 2) * $REM-BASE) !default; // bootstrap default
 
-// Breakpoints
-$small-screen: 320px;
-$medium-screen: 720px;
-$large-screen: 960px;
+// ------------------------------------------------------------
+// Match Neat breakpoints to Bootstrap for better
+// compatibility with existing themes.
+// ------------------------------------------------------------
 
-// Define your mobile first breakpoints using min-width
-$small-screen-up: new-breakpoint(min-width em($small-screen, $font-size) 4);
-$medium-screen-up: new-breakpoint(min-width em($medium-screen, $font-size) 8);
-$large-screen-up: new-breakpoint(min-width em($large-screen, $font-size) 12);
+// Bootstrap 4 Responsive Breakpoints
+// ----------------------------------------
+$screen-xs:               0px !default;
+$screen-sm:               544px !default;
+$screen-md:               768px !default;
+$screen-lg:               992px !default;
+$screen-xl:               strip-unit($max-container-width) !default;
+
+// Utility Breakpoints:
+$screen-xs-max:           $screen-sm - 1px;
+$screen-sm-max:           $screen-md - 1px;
+$screen-md-max:           $screen-lg - 1px;
+$screen-lg-max:           $screen-xl - 1px;
+
+// Media Query Map
+// Refer to base/maps to extend or modify media query maps.
+// Availabe breapoints, used with `@include media(breakpoint) {}`
+// Breakpoints:
+// xs | xs-only
+// sm | sm-up | sm-only | sm-to-md | sm-to-lg
+// md | md-up | md-only | md-to-lg
+// lg | lg-up | lg-only | lg-max
+// xl | xl-up | xl-only
+// screen | print
+
+// -------------------------------------------------------
+// Spacing
+// -------------------------------------------------------
+$base-spacing: rem($BASE-FONT-SIZE, $REM-BASE) !default;
+
+$spacing-xxl:               $base-spacing * 2.5 !default; // 45 px
+$spacing-xl:                $base-spacing * 2 !default; // 36 px
+$spacing-lg:                $base-spacing * 1.44444444 !default; // 26 px
+$spacing-md:                $base-spacing !default; // 18 px
+$spacing-sm:                $base-spacing * .5 !default; // 9 px
+$spacing-xs:                $base-spacing * .33333333 !default; // 6px
+$spacing-xxs:               $base-spacing * .1666666667 !default; // 3px
+
+$breakpoints: (
+  xs: 'only screen and (max-width: #{$screen-xs-max})',
+  xs-only: 'only screen and (max-width: #{$screen-xs-max})',
+
+  sm: 'only screen and (min-width: #{$screen-sm})',
+  sm-up: 'only screen and (min-width: #{$screen-sm})',
+  sm-only: 'only screen and (min-width: #{$screen-sm}) and (max-width: #{$screen-sm-max})',
+  sm-to-md: 'only screen and (min-width: #{$screen-sm}) and (max-width: #{$screen-md-max})',
+  sm-to-lg: 'only screen and (min-width: #{$screen-sm}) and (max-width: #{$screen-lg-max})',
+
+  md: 'only screen and (min-width: #{$screen-md})',
+  md-up: 'only screen and (min-width: #{$screen-md})',
+  md-only: 'only screen and (min-width: #{$screen-md}) and (max-width: #{$screen-md-max})',
+  md-to-lg: 'only screen and (min-width: #{$screen-md}) and (max-width: #{$screen-lg-max})',
+
+  lg: 'only screen and (min-width: #{$screen-lg})',
+  lg-up: 'only screen and (min-width: #{$screen-lg})',
+  lg-only: 'only screen and (min-width: #{$screen-lg}) and (max-width: #{$screen-lg-max})',
+  lg-max: 'only screen and (max-width: #{$screen-lg-max})',
+
+  xl: 'only screen and (min-width: #{$screen-xl})',
+  xl-up: 'only screen and (min-width: #{$screen-xl})',
+  xl-only: 'only screen and (min-width: #{$screen-xl})',
+
+  screen: 'only screen',
+  print: 'only print',
+);
+
+// ===================================================
+// Section map.
+// Used by components/centered-section
+$sections: (
+  mobile: (
+    xs-only: ( columns: 9.5, max-width: false ),
+  ),
+  narrow: (
+      xs-only: ( columns: 9.5, max-width: false ),
+      sm-only: ( columns: 6.5, max-width: false ),
+      md-only: ( columns: 6.5, max-width: false ),
+      lg-only: ( columns: 6, max-width: false ),
+      xl: ( columns: 6, max-width: true ),
+  ),
+  medium: (
+      xs-only: ( columns: 12, max-width: false ),
+      sm-only: ( columns: 8, max-width: false ),
+      md-only: ( columns: 7.5, max-width: false ),
+      lg-only: ( columns: 7, max-width: false ),
+      xl: ( columns: 7, max-width: true ),
+  ),
+  wide: (
+      xs-only: ( columns: 12, max-width: false ),
+      sm-only: ( columns: 10, max-width: false ),
+      md-only: ( columns: 9.5, max-width: false ),
+      lg-only: ( columns: 9, max-width: false ),
+      xl: ( columns: 9, max-width: true ),
+  ),
+  jumbo: (
+      xs-only: ( columns: 12, max-width: false ),
+      sm-only: ( columns: 12, max-width: false ),
+      md-only: ( columns: 12, max-width: false ),
+      lg-max: ( columns: 12, max-width: false ),
+      xl: ( columns: 12, max-width: true ),
+  ),
+) !default;
+
+// ===================================================
+// Adjustments map.
+// Used by components/adjust-width
+$adjustments: (
+  narrow-to-medium: (
+      xs-only:        ( columns: 2.5,   max-width: false ),
+      sm-only:        ( columns: 1.5,   max-width: false ),
+      md-to-lg:       ( columns: 1,     max-width: false ),
+      xl:             ( columns: 1,     max-width: true ),
+                    ),
+  narrow-to-wide:   (
+      xs-only:        ( columns: 2.5,   max-width: false ),
+      sm-only:        ( columns: 3.5,   max-width: false ),
+      md-to-lg:       ( columns: 3,     max-width: false ),
+      xl:             ( columns: 3,     max-width: true ),
+                    ),
+  narrow-to-jumbo:  (
+      xs-only:        ( columns: 2.5,   max-width: false ),
+      sm-to-md:       ( columns: 5.5,   max-width: false ),
+      lg-only:        ( columns: 6,     max-width: false ),
+      xl:             ( columns: 6,     max-width: true ),
+                    ),
+  medium-to-narrow: (
+      xs-only:        ( columns: -2.5,  max-width: false ),
+      sm-only:        ( columns: -1.5,  max-width: false ),
+      md-to-lg:       ( columns: -1,    max-width: false),
+      xl:             ( columns: -1,    max-width: true ),
+                    ),
+  medium-to-wide:   (
+      sm-to-lg:       ( columns: 2,     max-width: false ),
+      xl:             ( columns: 2,     max-width: true ),
+                    ),
+  medium-to-jumbo:  (
+      sm-only:        ( columns: 4,     max-width: false ),
+      md-only:        ( columns: 4.5,   max-width: false ),
+      lg-only:        ( columns: 5,     max-width: false ),
+      xl:             ( columns: 5,     max-width: true ),
+                    ),
+  wide-to-narrow:   (
+      xs-only:        ( columns: -2.5,  max-width: false ),
+      sm-only:        ( columns: -3.5,  max-width: false ),
+      md-to-lg:       ( columns: -3,    max-width: false ),
+      xl:             ( columns: -3,    max-width: true ),
+                    ),
+  wide-to-medium:   (
+      sm-to-lg:       ( columns: -2,    max-width: false ),
+      xl:             ( columns: -2,    max-width: true ),
+                    ),
+  wide-to-jumbo:    (
+      sm-only:        ( columns: 2,     max-width: false ),
+      md-only:        ( columns: 2.5,   max-width: false ),
+      lg-only:        ( columns: 3,     max-width: false ),
+      xl:             ( columns: 3,     max-width: true ),
+                    ),
+  jumbo-to-medium:  (
+      sm-only:        ( columns: -4,    max-width: false ),
+      md-only:        ( columns: -4.5,  max-width: false ),
+      lg-only:        ( columns: -5,    max-width: false ),
+      xl:             ( columns: -5,    max-width: true ),
+                    ),
+  jumbo-to-wide:    (
+      sm-only:        ( columns: -2,    max-width: false ),
+      md-only:        ( columns: -2.5,  max-width: false ),
+      lg-only:        ( columns: -3,    max-width: false ),
+      xl:             ( columns: -3,    max-width: true ),
+                    ),
+  jumbo-to-narrow:  (
+      xs-only:        ( columns: -2.5,  max-width: false ),
+      sm-only:        ( columns: -5.5,  max-width: false ),
+      md-only:        ( columns: -5.5,  max-width: false ),
+      lg-only:        ( columns: -6,    max-width: false ),
+      xl:             ( columns: -6,    max-width: true ),
+                    ),
+  mobile:           (
+      xs-only:        ( columns: -2.5,  max-width: false ),
+                    ),
+) !default;
