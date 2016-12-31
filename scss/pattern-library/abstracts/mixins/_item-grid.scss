@@ -1,0 +1,23 @@
+@charset "UTF-8";
+// Creates a grid of items, optionally configure flexbox arguments
+
+@mixin item-grid
+			 (
+			 	$_items: 1,
+			 	$_v-space: $gutter,
+			 	$_grid-columns: $grid-columns,
+			 	$_flex: flex,
+			 	$_flex-args...) {
+	$_columns: $_grid-columns / $_items;
+  @include clearfix;
+
+  @if $_flex != null {
+  	@include flex-container($_flex-args);
+  }
+
+
+  > * {
+    @include grid-column($_columns);
+    margin-bottom: $_v-space;
+  }
+}

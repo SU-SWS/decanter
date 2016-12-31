@@ -30,7 +30,7 @@ module.exports = function(grunt) {
         }
       },
       css: {
-        files: ['sass/{,*/}*.{scss,sass}', 'scss/{,*/}*.{scss,sass}'],
+        files: ['scss/{,*/}*.{scss}', 'sass/{,*/}*.{sass}', ],
         tasks: ['sass']
       }
     },
@@ -89,12 +89,9 @@ module.exports = function(grunt) {
       dist: {
         files: {
           // Base Drupal Styles.
-          'css/drupal/base/base.css':                       'scss/drupal/base/base.scss',
           'css/drupal/components/components.css':           'scss/drupal/components/components.scss',
           'css/drupal/components/tabs.css':                 'scss/drupal/components/tabs.scss',
           'css/drupal/components/messages.css':             'scss/drupal/components/messages.scss',
-          'css/drupal/layout/layout.css':                   'scss/drupal/layout/layout.scss',
-          'css/drupal/theme/theme.css':                     'scss/drupal/theme/theme.scss',
           'css/drupal/theme/print.css':                     'scss/drupal/theme/print.scss',
           // Theme compiled styles.
           'css/themes/basic/base/base.css':                 'scss/themes/basic/base/base.scss',

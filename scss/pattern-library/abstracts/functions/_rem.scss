@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@function rem($pxval, $base: $REM-BASE) {
+@function rem($pxval, $base) {
   @if not unitless($pxval) {
     $pxval: strip-unit($pxval); // updated strip-unit from strip-units to reflect latest bourbon version
   }

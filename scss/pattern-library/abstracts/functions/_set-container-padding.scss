@@ -14,15 +14,15 @@
 @function set-container-padding
           (
             $_cols: $grid-columns,
-            $_v-space: $gutter * 2, 
+            $_v-space: $gutter * 2,
             $_h-space: $gutter,
             $_max-width: default
           )
 {
 
   //Checks to see if we need to add a max-width.
-  @if    $_max-width == null  
-      or $_max-width == default 
+  @if    $_max-width == null
+      or $_max-width == default
       or $_max-width == false
   {
     // Checks to see if we need to calculate a gutter
@@ -39,6 +39,6 @@
     $_container-width: (($max-container-width / 24) * $_cols);
     // Then returns the falculated value
     @return $_v-space calc((50vw - #{$_container-width}) + #{$_h-space});
-  
+
   }
 }
