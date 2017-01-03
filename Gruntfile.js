@@ -81,6 +81,12 @@ module.exports = function(grunt) {
       // This will compile all of our sass files
       // Additional configuration options can be found at https://github.com/sindresorhus/grunt-sass
       options: {
+        includePaths: [
+          "node_modules/bourbon/core",
+          "node_modules/bourbon-neat/core",
+          "node_modules/stanford_pattern_library",
+          "node_modules/font-awesome/scss"
+        ],
         sourceMap: true,
         // This controls the compiled css and can be changed to nested, compact or compressed.
         outputStyle: 'expanded',
