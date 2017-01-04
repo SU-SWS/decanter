@@ -9,29 +9,36 @@ module.exports = function(grunt) {
     watch: {
       // This is where we set up all the tasks we'd like grunt to watch for changes.
       scripts: {
-        files: ['js/source/{,*/}*.js'],
+        files: ['js/source/**/*.js'],
         tasks: ['uglify'],
         options: {
           spawn: false,
         },
       },
       images: {
-        files: ['images/source/{,*/}*.{png,jpg,gif}'],
+        files: ['images/source/*.{png,jpg,gif}'],
         tasks: ['imagemin'],
         options: {
           spawn: false,
         }
       },
       vector: {
-        files: ['images/source/{,*/}*.svg'],
+        files: ['images/source/**/*.svg'],
         tasks: ['svgmin'],
         options: {
           spawn: false,
         }
       },
       css: {
-        files: ['scss/{,*/}*.{scss}', 'sass/{,*/}*.{sass}', ],
-        tasks: ['sass']
+        files: ['scss/**/*.scss'],
+        tasks: ['sass'],
+        options: {
+          interrupt: true
+        }
+      },
+      twig: {
+        files: ['templates/**/*.html.twig'],
+        tasks: ['uglify', 'svgmin', 'imagemin', 'sass']
       }
     },
     uglify: {
@@ -54,9 +61,9 @@ module.exports = function(grunt) {
       dynamic: {
         files: [{
           expand: true,
-          cwd: 'images/source/',
+          cwd: 'img/source/',
           src: ['{,*/}*.{png,jpg,gif}' ],
-          dest: 'images/optimized/'
+          dest: 'img/optimized/'
         }]
       }
     },
@@ -84,8 +91,8 @@ module.exports = function(grunt) {
         includePaths: [
           "node_modules/bourbon/core",
           "node_modules/bourbon-neat/core",
-          "node_modules/stanford_pattern_library",
-          "node_modules/font-awesome/scss"
+          "node_modules/font-awesome/scss",
+          "node_modules"
         ],
         sourceMap: true,
         // This controls the compiled css and can be changed to nested, compact or compressed.
