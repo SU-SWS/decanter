@@ -3748,13 +3748,6 @@ code.centered-block {
 }
 
 /**
- * Overrides and tweaks to the global footer found in stanford_pattern_library
- */
-#global-footer {
-  background-color: #8c1515;
-}
-
-/**
  * Global Header
  * Red full width stripe with stanford logo.
  */
@@ -3762,16 +3755,60 @@ code.centered-block {
   background-color: #8c1515;
   box-shadow: rgba(0, 0, 0, 0.2) 0px -4px 8px -2px inset;
   color: #fff;
+  vertical-align: middle;
+}
+
+#global-header .container::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+@media only screen and (max-width: 543px) {
+  #global-header .container {
+    padding: 2px 20px;
+  }
+}
+
+@media only screen and (min-width: 544px) and (max-width: 767px) {
+  #global-header .container {
+    padding: 2px 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  #global-header .container {
+    padding: 2px 20px;
+  }
+}
+
+@media only screen and (max-width: 1919px) {
+  #global-header .container {
+    padding: 2px 20px;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  #global-header .container {
+    padding: 2px calc((50vw - 960px) + 20px);
+  }
 }
 
 #global-header #top-logo {
   max-height: 30px;
-  vertical-align: middle;
 }
 
 #global-header #top-logo img {
   width: 153px;
   height: 22px;
+}
+
+/**
+ * .block-lockup
+ */
+.block--lockup .site-logo {
+  max-width: 280px;
+  display: block;
 }
 
 /*# sourceMappingURL=components.css.map */
