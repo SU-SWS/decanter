@@ -1,5 +1,20 @@
 @charset "UTF-8";
 /**
+ * Component — discrete, reusable UI elements.
+ *
+ * Components should not be responsible for their positioning or layout within
+ * the site. Never apply widths or heights except to elements that natively have
+ * these properties (e.g. images have these properties, so it's okay to use CSS
+ * to modify their width and height). Within components, separate structural
+ * rules from stylistic rules.
+ *
+ * Component Naming Convention
+ * .component-name
+ * .component-name--variant
+ * .component-name__sub-object
+ *
+ **/
+/**
  * Configuration Settings.
  */
 /*!
@@ -9,15 +24,19 @@
 /* FONT PATH
  * -------------------------- */
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
+@import url("https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600");
 @import url("https://fonts.googleapis.com/css?family=Bitter:400,400i,700");
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
+@import url("https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600");
 @import url("https://fonts.googleapis.com/css?family=Bitter:400,400i,700");
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
+@import url("https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600");
 @import url("https://fonts.googleapis.com/css?family=Bitter:400,400i,700");
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
+@import url("https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700");
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600");
 @import url("https://fonts.googleapis.com/css?family=Bitter:400,400i,700");
 @font-face {
@@ -3063,6 +3082,12 @@
 }
 
 /**
+ * Organisms are groups of molecules joined together to form a relatively
+ * complex, distinct section of an interface.
+ *
+ * http://bradfrost.com/blog/post/atomic-web-design/#organisms
+ */
+/**
  * @param $pxval string
  *   The pixel value of the em size to convert.
  * @param $base string
@@ -3125,42 +3150,6 @@ body > footer {
   box-shadow: inset 0 4px 8px -2px rgba(17, 17, 17, 0.2);
   color: #e2dfd5;
   font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-}
-
-body > footer::after {
-  clear: both;
-  content: "";
-  display: block;
-}
-
-@media only screen and (max-width: 543px) {
-  body > footer {
-    padding: 20px 20px;
-  }
-}
-
-@media only screen and (min-width: 544px) and (max-width: 767px) {
-  body > footer {
-    padding: 20px 20px;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  body > footer {
-    padding: 20px 20px;
-  }
-}
-
-@media only screen and (max-width: 1919px) {
-  body > footer {
-    padding: 20px 20px;
-  }
-}
-
-@media only screen and (min-width: 1920px) {
-  body > footer {
-    padding: 20px calc((50vw - 960px) + 20px);
-  }
 }
 
 #global-footer {
@@ -3751,47 +3740,47 @@ code.centered-block {
  * Global Header
  * Red full width stripe with stanford logo.
  */
-#global-header {
-  background-color: #8c1515;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px -4px 8px -2px inset;
-  color: #fff;
-  vertical-align: middle;
-}
-
-#global-header .container::after {
+body > header::after {
   clear: both;
   content: "";
   display: block;
 }
 
 @media only screen and (max-width: 543px) {
-  #global-header .container {
-    padding: 2px 20px;
+  body > header {
+    padding: 0px 20px;
   }
 }
 
 @media only screen and (min-width: 544px) and (max-width: 767px) {
-  #global-header .container {
-    padding: 2px 20px;
+  body > header {
+    padding: 0px 20px;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  #global-header .container {
-    padding: 2px 20px;
+  body > header {
+    padding: 0px 20px;
   }
 }
 
-@media only screen and (max-width: 1919px) {
-  #global-header .container {
-    padding: 2px 20px;
+@media only screen and (min-width: 992px) and (max-width: 1919px) {
+  body > header {
+    padding: 0px 20px;
   }
 }
 
 @media only screen and (min-width: 1920px) {
-  #global-header .container {
-    padding: 2px calc((50vw - 960px) + 20px);
+  body > header {
+    padding: 0px calc((50vw - 720px) + 20px);
   }
+}
+
+#global-header {
+  background-color: #8c1515;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px -4px 8px -2px inset;
+  color: #fff;
+  vertical-align: middle;
 }
 
 #global-header #top-logo {
@@ -3801,6 +3790,45 @@ code.centered-block {
 #global-header #top-logo img {
   width: 153px;
   height: 22px;
+}
+
+/**
+ * Overrides go here.
+ */
+body > footer::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+@media only screen and (max-width: 543px) {
+  body > footer {
+    padding: 8px 20px;
+  }
+}
+
+@media only screen and (min-width: 544px) and (max-width: 767px) {
+  body > footer {
+    padding: 8px 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  body > footer {
+    padding: 8px 20px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1919px) {
+  body > footer {
+    padding: 8px 20px;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  body > footer {
+    padding: 8px calc((50vw - 720px) + 20px);
+  }
 }
 
 /**

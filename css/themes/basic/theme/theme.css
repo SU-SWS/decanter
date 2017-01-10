@@ -1,5 +1,89 @@
+@charset "UTF-8";
+/**
+ * 5. Theme — purely visual styling (“look-and-feel”) for a component.
+ *
+ * Purely visual styling, such as border, box-shadow, colors and backgrounds,
+ * font properties, etc. Ideally, these should be separated enough from a
+ * component’s structure to be “swappable”, and omitting these entirely should
+ * not break the component’s functionality or basic usability.
+ */
 /**
  * Configuration Settings.
  */
+/**
+ * Missing description.
+ * @type {[type]}
+ */
+#header::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+@media only screen and (max-width: 543px) {
+  #header {
+    padding: 0px 20px;
+  }
+}
+
+@media only screen and (min-width: 544px) and (max-width: 767px) {
+  #header {
+    padding: 0px 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  #header {
+    padding: 0px 20px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1919px) {
+  #header {
+    padding: 0px 20px;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  #header {
+    padding: 0px calc((50vw - 720px) + 20px);
+  }
+}
+
+#global-header .container::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+@media only screen and (max-width: 543px) {
+  #global-header .container {
+    padding: 0px 20px;
+  }
+}
+
+@media only screen and (min-width: 544px) and (max-width: 767px) {
+  #global-header .container {
+    padding: 0px 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  #global-header .container {
+    padding: 0px 20px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1919px) {
+  #global-header .container {
+    padding: 0px 20px;
+  }
+}
+
+@media only screen and (min-width: 1920px) {
+  #global-header .container {
+    padding: 0px calc((50vw - 720px) + 20px);
+  }
+}
 
 /*# sourceMappingURL=theme.css.map */

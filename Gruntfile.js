@@ -10,7 +10,7 @@ module.exports = function(grunt) {
       // This is where we set up all the tasks we'd like grunt to watch for changes.
       scripts: {
         files: ['js/source/**/*.js'],
-        tasks: ['uglify'],
+        tasks: ['uglify', 'drush:ccall'],
         options: {
           spawn: false,
         },
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
       },
       twig: {
         files: ['templates/**/*.html.twig'],
-        tasks: ['uglify', 'svgmin', 'imagemin', 'sass']
+        tasks: ['uglify', 'svgmin', 'imagemin', 'sass', 'drush:ccall']
       }
     },
     uglify: {
@@ -116,21 +116,29 @@ module.exports = function(grunt) {
         }
       }
     },
+    drush: {
+      ccall: {
+        args: ['cache-rebuild', 'all']
+      }
+    },
     browserSync: {
       dev: {
         bsFiles: {
           src : [
-            'css/{,*/}*.css',
-            'templates/{,*/}*.twig',
-            'images/optimized/{,*/}*.{png,jpg,gif,svg}',
-            'js/build/{,*/}*.js',
+            'css/**/*.css',
+            'templates/**/*.twig',
+            'images/optimized/**/*.{png,jpg,gif,svg}',
+            'js/build/**/*.js',
             '*.theme'
           ]
         },
         options: {
           watchTask: true,
-          // Change this to "true" if you'd like the css to be injected rather than a browser refresh. In order for this to work with Drupal you will need to install https://drupal.org/project/link_css keep in mind though that this should not be run on a production site.
-          injectChanges: false
+          // reloadDelay: 1000,
+          // reloadDebounce: 500,
+          reloadOnRestart: true,
+          logConnections: true,
+          injectChanges: false // Depends on enabling the link_css module
         }
       }
     },
@@ -154,6 +162,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-available-tasks');
+  grunt.loadNpmTasks('grunt-drush');
 
   // My tasks.
   grunt.registerTask('devmode', "Watch and BrowserSync all in one.", ['browserSync', 'watch']);
