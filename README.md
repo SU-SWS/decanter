@@ -1,3 +1,29 @@
+## Front-end Architecture
+
+This project uses:
+
+- Sass, with Bourbon
+- [BEM]-style CSS class names
+  - `library/`: Global variables, mixins and functions; all non-rendering Sass
+  - `base/`: Unclassed HTML elements (e.g. `a {}`, `input {}`)
+  - `patterns/`: Abstractions, highly reusable pieces of style that are used in
+    any number of unrelated contexts (e.g. `.media {}`)
+  - `components/`: Discrete, implementation-specific piece of UI
+    (e.g. `.site-nav {}`)
+  - `views/`: An object who's styles are modified by the view's body class
+    (e.g. `.page-index {}`)
+- Autoprefixer
+- SCSS-Lint, with Hound ([configuration](.scss-lint.yml))
+- A variety of CSS units:
+  - `em` for typographical-related elements
+  - `rem` for lengths related to components
+  - `px` for borders, text shadows, etc.
+  - `vw`/`vh` for lengths that should be relational to the viewport
+- `modular-scale()` (which outputs `em` values) for font sizes
+
+[BEM]: http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax
+
+
 
 =====================
 Introduction to Basic
