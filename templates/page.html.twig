@@ -1,22 +1,15 @@
 {% set main_menu = page.primary_menu|render %}
 {% set secondary_menu = page.secondary_menu|render %}
-<div{{ attributes.addClass(
-  'layout-container',
-  main_menu or secondary_menu ? 'with-navigation',
-  secondary_menu ? 'with-subnav'
-) }}>
 
   <!-- ______________________ HEADER _______________________ -->
 
+  {% if page.header %}
   <header id="header">
     <div class="container">
-      {% if page.header %}
-        <div id="header-region">
-          {{ page.header }}
-        </div>
-      {% endif %}
+      {{ page.header }}
     </div>
   </header><!-- /#header -->
+  {% endif %}
 
   {% if main_menu or secondary_menu %}
     <nav id="navigation" class="menu{% if main_menu %} with-primary{% endif %}{% if secondary_menu %} with-secondary{% endif %}">
@@ -60,16 +53,18 @@
 
         </div><!-- /#content-header -->
 
+        {{ page.content }}
+
       </section><!-- /#content -->
 
     </div><!-- /.container -->
   </div><!-- /#main -->
 
-  <!-- ______________________ FULL WIDTH _______________________ -->
-
-  <div id="full-width-always">
-    {{ page.content }}
+  {% if page.free_form|render %}
+  <div id="free-form">
+    {{ page.free_form }}
   </div>
+  {% endif %}
 
   <!-- ______________________ FOOTER _______________________ -->
 
@@ -80,5 +75,3 @@
       </div>
     </footer><!-- /#footer -->
   {% endif %}
-
-</div><!-- /.layout-container -->
