@@ -60,7 +60,9 @@ function stanford_basic_preprocess_field(&$variables, $hook) {
 /**
  * Prepares special regions
  */
-
-function stanford_basicpreprocess_region(&$variables, $hook) {
-  var_dump($variables);
+function stanford_basic_preprocess_region(&$variables, $hook) {
+  // Elements in the free form region will supply their own containers.
+  if ($variables['region'] !== "free_form") {
+    $variables['attributes']['class'] = "container";
+  }
 }
