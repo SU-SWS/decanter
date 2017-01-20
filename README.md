@@ -22,4 +22,4 @@ Developer Conventions
   - Everything is a pull request
   - Master should always be stable
   - Github issue queue to track issues and work
-  
+- SCSS not SASS
