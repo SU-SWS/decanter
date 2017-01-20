@@ -23,3 +23,11 @@ Developer Conventions
   - Master should always be stable
   - Github issue queue to track issues and work
 - .scss files not .sass
+
+# Main file (master.scss)
+
+This project uses the [7-1 architecture pattern](http://sass-guidelin.es/#architecture), sticking to [Sass Guidelines](http://sass-guidelin.es) writing conventions.
+
+The main file (usually labelled `main.scss`) should be the only Sass file from the whole code base not to begin with an underscore. This file should not contain anything but `@import` and comments.
+
+Reference: [Sass Guidelines](http://sass-guidelin.es/) > [Architecture](http://sass-guidelin.es/#architecture) > [Main file](http://sass-guidelin.es/#main-file)
