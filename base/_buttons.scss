@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+// buttons.scss
+// This file contains all styles related to the button element.
+// see http://bitters.bourbon.io
+// dependent on utilities/color.scss
+// -----------------------------------------------------------------------------
+
+
+// Variables in use on this file.
+// Variables are defined with !default flags, and can be overwritten in
+// `utilities/_variables.scss`
+// -----------------------------------------------------------------------------
+$action-color: color(generic, blue) !default;
+$reverse-font-color: color(generic, white) !default;
+$base-border-radius: 8px !default;
+$base-font-family: sans-serif !default;
+$base-font-size: 1em !default;
+$base-line-height: 1.5 !default;
+$base-spacing: $base-line-height * 1em !default;
+$small-spacing: $base-spacing / 2 !default;
+$base-duration: 150ms !default;
+$base-timing: ease !default;
+
+// All buttons styling
+// -----------------------------------------------------------------------------
+#{$all-buttons} {
+  appearance: none;
+  background-color: $action-color;
+  border: 0;
+  border-radius: $base-border-radius;
+  color: $reverse-font-color;
+  cursor: pointer;
+  display: inline-block;
+  font-family: $base-font-family;
+  font-size: $base-font-size;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 600;
+  line-height: 1;
+  padding: $small-spacing $base-spacing;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color $base-duration $base-timing;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: shade($action-color, 20%);
+    color: $reverse-font-color;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .5;
+
+    &:hover {
+      background-color: $action-color;
+    }
+  }
+}

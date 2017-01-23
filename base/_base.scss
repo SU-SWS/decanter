@@ -1,0 +1,28 @@
+@charset "UTF-8";
+// -----------------------------------------------------------------------------
+// This file contains very basic styles.
+// -----------------------------------------------------------------------------
+
+// Variables in use on this file.
+// Variables are defined with !default flags, and can be overwritten in
+// `utilities/_variables.scss`
+// -----------------------------------------------------------------------------
+$root-font-size: 16px !default;
+
+// Set up a decent box model on the root element
+// -----------------------------------------------------------------------------
+html {
+  box-sizing: border-box;
+  font-size: $root-font-size;
+}
+
+// Make all elements from the DOM inherit from the parent box-sizing
+// Since `*` has a specificity of 0, it does not override the `html` value
+// making all elements inheriting from the root box-sizing value
+// See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+// -----------------------------------------------------------------------------
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
