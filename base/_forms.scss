@@ -21,8 +21,8 @@ input,
 select,
 textarea {
   display: block;
-  font-family: $base-font-family;
-  font-size: $base-font-size;
+  font-family: $text-font-family;
+  font-size: $text-font-size;
 }
 
 #{$all-text-inputs} {
@@ -37,14 +37,8 @@ textarea {
   transition: border-color $base-duration $base-timing;
   width: 100%;
 
-  &:hover {
+  @include on-event {
     border-color: shade($base-border-color, 20%);
-  }
-
-  &:focus {
-    border-color: $action-color;
-    box-shadow: $form-box-shadow-focus;
-    outline: none;
   }
 
   &:disabled {
