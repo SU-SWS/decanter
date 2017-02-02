@@ -13,7 +13,7 @@ module.exports = function(grunt) {
       options: {
         configFile: '.sass-lint.yml'
       },
-      target: ['node_modules/sass-lint/tests/sass/*.scss']
+      target: ['\*\*/\*.scss']
     }
   });
 
