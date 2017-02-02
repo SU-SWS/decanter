@@ -24,6 +24,23 @@ Developer Conventions
   - Github issue queue to track issues and work
 - .scss files not .sass
 
+
+-----
+
+- Remove sass-once
+- All items outside of the theme and base will be either a function, mixin, or variable
+- Normalize will be bundled at the vendor level and included in master.scss
+- Fontawesome will be bundled at the vendor level and included in master.scss
+- All modules/files will declare their dependencies at @imports at the top of each file
+- All variables will be set to !default
+- Sensible defaults at the module level, Stanford branding declared at variables.scss
+- The examples will be generic colors without the Stanford branding.
+- We need an examples folder. (html and css)
+  - Build a compiler in to Grunt.
+  
+
+
+
 # Main file (master.scss)
 
 This project uses the [7-1 architecture pattern](http://sass-guidelin.es/#architecture), sticking to [Sass Guidelines](http://sass-guidelin.es) writing conventions.
