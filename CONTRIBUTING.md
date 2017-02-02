@@ -24,10 +24,8 @@ Guidelines for bug reports:
 
 1. **Use the GitHub issue search** – check if the issue has already been
    reported.
-
 2. **Check if the issue has been fixed** – try to reproduce it using the
    latest `master` branch in the repository.
-
 3. **Isolate the problem** – create a live example (e.g., on
    [Codepen](http://codepen.io)) of a [reduced test
    case](http://css-tricks.com/6263-reduced-test-cases/).
@@ -92,41 +90,35 @@ project:
    # Assign the original repo to a remote called "upstream"
    git remote add upstream https://github.com/SU-SWS/decanter
    ```
-
 2. If you cloned a while ago, get the latest changes from upstream:
 
    ```bash
    git checkout master
    git pull upstream master
    ```
-
 3. Never work directly on `master`. Create a new topic branch (off the latest
    version of `master`) to contain your feature, change, or fix:
 
    ```bash
    git checkout -b <topic-branch-name>
    ```
-
 4. Commit your changes in logical chunks. Use Git's
    [interactive rebase](https://help.github.com/articles/interactive-rebase)
    feature to tidy up your commits before making them public.
 
    Be sure to compile the css before submitting.
    Be sure to lint the scss before submitting.
-
 5. Locally rebase the upstream development branch into your topic branch:
 
    ```bash
    git pull --rebase upstream master
    ```
-
 6. Push your topic branch up to your fork:
 
    ```bash
    git push origin <topic-branch-name>
    ```
-
-10. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
+7. [Open a Pull Request](https://help.github.com/articles/using-pull-requests/)
     with a clear title and description.
 
 **IMPORTANT**: By submitting a patch, you agree to allow the project owner to
