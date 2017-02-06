@@ -1,50 +1,89 @@
+#[Decanter](https://github.com/SU-SWS/decanter)
+##### Version: 0.0.0
+
+Maintainers: [kgcreative](https://github.com/kgcreative), [sherakama](https://github.com/sherakama)  
+
+Changelog: [CHANGELOG.md](CHANGELOG.md)
+
+Description
+---
+
+Decanter is a collection of SASS and CSS patterns that you can include in any project. This project is based off of bourbon, neat, and bitters.
+The goal of this project is to generic css patterns that you can use in any of your projects.
+
+Accessibility
+---
+[![WCAG Conformance 2.0 AA Badge](https://www.w3.org/WAI/wcag2AA-blue.png)](https://www.w3.org/TR/WCAG20/)
+Evaluation Date: 201X-XX-XX  
+This project conforms to level AA WCAG 2.0 standards as required by the university's accessibility policy. For more information on the policy please visit: [https://ucomm.stanford.edu/policies/accessibility-policy.html](https://ucomm.stanford.edu/policies/accessibility-policy.html).
+
+Installation
+---
+
+You can require this project as part of your project through NPM.
+
+```
+npm install su-sws/decanter --save-dev
+```
+
+If you are using a node based compiler you can tell the sass compiler to look
+in to node_modules when using @import statements. Please see:
+[https://github.com/sass/node-sass#includepaths](https://github.com/sass/node-sass#includepaths)
+
+Grunt Example:
+```javascript
+module.exports = function(grunt) {
+  grunt.initConfig({
+    sass: {
+      // This will compile all of our sass files
+      // Additional configuration options can be found at https://github.com/sindresorhus/grunt-sass
+      options: {
+        includePaths: [
+          "node_modules/bourbon/core",
+          "node_modules/bourbon-neat/core",
+          "node_modules" // <-- this one will allow you to import decanter.
+        ],
+        sourceMap: true,
+        // This controls the compiled css and can be changed to nested, compact or compressed.
+        outputStyle: 'expanded',
+        precision: 5
+      },
+      dist: {
+        files: {
+          'css/my-stylesheet.css': 'scss/my-sass-sheet.scss'
+        }
+      }
+    }
+  })
+};
+```
+
+Then in your sass files you can import any part of the project.
+
+Example:
+
+```sass
+  // Everything.
+  @import "decanter/main";
+
+  // Just a component.
+  @import "decanter/components/my-component";
+```
+
+Configuration
+---
+
+Please see _VARIABLES.scss_ configuration document.
 
 
+Troubleshooting
+---
 
-Developer Conventions
+If you are experiencing issues with this please have a look at the examples section first. If the examples fail to provide you the answer you are looking for please have a visit to the Github issue tracker. The issue tracker is not a personal support queue but rather, a place to post reproducible bugs.
 
-- Releases will be using semantic versioning
-- Will be using npm
-- Use css linting TBD on tests
-- 7-1 SASS architecture organization
-- Bourbon & Neat ~2.0
-- No compilers in this repo
-- SASS doc style documentation
-- No global variables in function calls
-- No globally overridden variables in partials
-- Formatting conventions
-  - https://sass-guidelin.es/#syntax--formatting
-  - https://github.com/brigade/scss-lint
-- Workflow
-  - Master branch is master NO COMMITTING DIRECTLY
-  - Releases go off master branch or a release branch
-  - Following NPM semantic versioning
-  - Everything is a pull request
-  - Master should always be stable
-  - Github issue queue to track issues and work
-- .scss files not .sass
+Developer
+---
 
+If you wish to contribute to this project please see the [CONTRIBUTING.md](CONTRIBUTING.md) document for more information.
 
------
-
-- Remove sass-once
-- All items outside of the theme and base will be either a function, mixin, or variable
-- Normalize will be bundled at the vendor level and included in master.scss
-- Fontawesome will be bundled at the vendor level and included in master.scss
-- All modules/files will declare their dependencies at @imports at the top of each file
-- All variables will be set to !default
-- Sensible defaults at the module level, Stanford branding declared at variables.scss
-- The examples will be generic colors without the Stanford branding.
-- We need an examples folder. (html and css)
-  - Build a compiler in to Grunt.
-  
-
-
-
-# Main file (master.scss)
-
-This project uses the [7-1 architecture pattern](http://sass-guidelin.es/#architecture), sticking to [Sass Guidelines](http://sass-guidelin.es) writing conventions.
-
-The main file (usually labelled `main.scss`) should be the only Sass file from the whole code base not to begin with an underscore. This file should not contain anything but `@import` and comments.
-
-Reference: [Sass Guidelines](http://sass-guidelin.es/) > [Architecture](http://sass-guidelin.es/#architecture) > [Main file](http://sass-guidelin.es/#main-file)
+The development standards and best practices can be found in the (docs)[docs] section.  
