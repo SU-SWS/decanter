@@ -1,11 +1,16 @@
+@charset "UTF-8";
+
+// Dependencies
+@import '../utilities/settings';
+
 // -----------------------------------------------------------------------------
 // This file contains Site-wide typography
 // -----------------------------------------------------------------------------
 body {
-  color: color(homesite, text);
-  font-family: $text-font-family;
-  font-size: $text-font-size;
-  line-height: $text-line-height;
+  color: color(text);
+  font-family: $base-font-family;
+  @include font-size(18px, 10px);
+  line-height: $base-line-height;
 }
 
 h1,
@@ -15,9 +20,29 @@ h4,
 h5,
 h6 {
   font-family: $heading-font-family;
-  font-size: modular-scale(1);
   line-height: $heading-line-height;
   margin: 0 0 $small-spacing;
+  font-weight: 700;
+}
+
+h2 {
+  @include font-size(modular-scale(4));
+}
+
+h3 {
+  @include font-size(modular-scale(3));
+}
+
+h4 {
+  @include font-size(modular-scale(2));
+}
+
+h5 {
+  @include font-size(modular-scale(1));
+}
+
+h6 {
+  @include font-size(modular-scale(0));
 }
 
 p {
@@ -43,10 +68,10 @@ address {
 }
 
 pre {
-  background: $color__background-pre;
+  background: shade(color(border), 10%);
   font-family: $font-family-monospace;
-  @include font-size(0.9375);
-  line-height: $font__line-height-pre;
+  @include font-size(16px);
+  line-height: $base-line-height;
   margin-bottom: 1.6em;
   max-width: 100%;
   overflow: auto;
@@ -55,30 +80,53 @@ pre {
 
 code, kbd, tt, var {
   font-family: $font-family-monospace;
-  @include font-size(0.9375);
+  @include font-size(16px);;
 }
 
 abbr, acronym {
-  border-bottom: 1px dotted $color__border-abbr;
+  border-bottom: 1px dotted color(border);
   cursor: help;
 }
 
-mark, ins {
-  background: $color__background-ins;
+mark, ins, del {
+  padding: 0 .25em .15em
+}
+
+del {
+  color: color(text);
+  background: color(light-red);
+  dext-decoration: line-through;
+  text-decoration-color: color(light-red);
+}
+
+ins {
+  color: color(text);
+  background: color(light-green);
   text-decoration: none;
 }
 
-big {
-  font-size: 125%;
+mark {
+  color: color(text);
+  background: color(light-yellow);
+  text-decoration: none;
+}
+
+small,
+.small-text {
+  @include font-size(modular-scale(-1, $ratio: 1.125));
+}
+
+big,
+.large-text {
+  @include font-size(modular-scale(1));
 }
 
 a {
-  color: color(homesite, action);
+  color: color(action);
   text-decoration: none;
-  transition: color $base-duration $base-timing;
 
   @include on-event {
-    color: shade(color(homesite, action), 35%);
+    color: color(action-active);
     text-decoration: underline;
   }
 }

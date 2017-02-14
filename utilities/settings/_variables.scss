@@ -1,227 +1,175 @@
-////
-/// This file contains all application-wide Sass variables.
-/// No CSS is generated here. Only variables and maps.
-/// Load order imported and modified from Bitters v.1.5.0
-///
-/// @link http://bitters.bourbon.io
-/// @group settings
-////
+@charset "UTF-8";
 
 // -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// No CSS is generated here. Only variables and maps.
+// Load order imported and modified from Bitters v.1.5.0
+//
 //  1.  Breakpoints
-//  2.  Typography
-//  3.  Font Sizes
-//  4.  Line Heights
-//  5.  Other Sizes
-//  6.  Colors
-//  7.  Font Colors
-//  8.  Background Colors
-//  9.  Borders
-// 10.  Forms
-// 11.  Animation
-// 12.  Site & Layout
-// 13.  Components
+//  2.  Colors
+//  3.  Typography
+//  4.  Vertical Rhythm
+//  5.  Borders
+//  6.  Forms
+//  7.  Animation
+//  8.  Site & Layout
+//  9.  Components
+//
 // -----------------------------------------------------------------------------
 
 
 // -----------------------------------------------------------------------------
 // 1. Breakpoints
 // -----------------------------------------------------------------------------
-
+//
 /// Breakpoint Boundaries
-/// These correspond to the Bootstrap 4 Responsive Breakpoints
 /// @type length
+// These correspond to the Bootstrap 4 Responsive Breakpoints
 
 // Lower boundaries
-$screen-xs-min:               0 !default;
+$screen-xs-min:               0px !default;
 $screen-sm-min:               576px !default;
 $screen-md-min:               768px !default;
 $screen-lg-min:               992px !default;
-$screen-xl-min:               $max-container-width !default;
+$screen-xl-min:               $max-width !default;
 
 // Upper boundaries
-$screen-xs-max:           $screen-sm-min - 1px !default;
-$screen-sm-max:           $screen-md-min - 1px !default;
-$screen-md-max:           $screen-lg-min - 1px !default;
-$screen-lg-max:           $screen-xl-min - 1px !default;
+$screen-xs-max:               $screen-sm-min - 1px !default;
+$screen-sm-max:               $screen-md-min - 1px !default;
+$screen-md-max:               $screen-lg-min - 1px !default;
+$screen-lg-max:               $screen-xl-min - 1px !default;
 
-/// Breakpoints map
-/// @prop {String} keys - Keys are identifiers mapped to a given length
-/// @prop {Map} values - Values are long-form breakpoint definitions as strings.
-/// Use with mixin @include media($_query) { @content }
-$breakpoints: (
-    xs-only:              'only screen and (max-width: #{$screen-xs-max})',
-    xs-max:               'only screen and (max-width: #{$screen-xs-max})',
-
-    sm-up:                'only screen and (min-width: #{$screen-sm-min})',
-    sm-only:              'only screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})',
-    sm-to-md:             'only screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-md-max})',
-    sm-to-lg:             'only screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-lg-max})',
-
-    md-up:                'only screen and (min-width: #{$screen-md-min})',
-    md-only:              'only screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})',
-    md-to-lg:             'only screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-lg-max})',
-
-    lg-up:                'only screen and (min-width: #{$screen-lg-min})',
-    lg-only:              'only screen and (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max})',
-    lg-max:               'only screen and (max-width: #{$screen-lg-max})',
-
-    xl-up:                'only screen and (min-width: #{$screen-xl-min})',
-    xl-only:              'only screen and (min-width: #{$screen-xl-min})',
-
-    screen:               'only screen',
-    print:                'only print',
-) !default;
 
 // -----------------------------------------------------------------------------
-// 2. Typography
+// 2. Colors
+// -----------------------------------------------------------------------------
+
+/// This variable is a sass map that overrides our generic color map.
+/// Use this to define your project's color palette.
+///
+/// @type map
+///
+/// @group settings
+///
+/// @name Colors
+///
+/// @property {color} color [null]
+///   The color value retrieved by the color function
+///
+/// @example scss
+///   $colors: (
+///     brand: #8c1515,
+///     text: #333,
+///     link: #ff4136,
+///     link-hover: 82121B,
+///     red: #ff4136,
+///   );
+$colors: (
+  // Decanter Colors
+    brand:                        #004fdc,
+    action:                       #004991,
+    action-active:                #005ddc,
+    background:                   #fff,
+    background-secondary:         #ddd,
+    border:                       #999,
+    text:                         #112,
+    text-active:                  #808080,
+    reverse-text:                 #fff,
+    reverse-text-active:          #dceefe,
+) !default;
+
+/// If you would like to have multiple color palettes in a single project, you can do
+/// this by defining a new map stored within a variable of your choosing. This
+/// variable can then be passed directly to the color() function, such as
+/// `color(red, $my-custom-colors)`.
+///
+/// @type map
+///
+/// @group settings
+///
+/// @name Custom color palettes
+///
+/// @property {color} color [null]
+///   The color value retrieved by the color function
+///
+/// @example scss
+///   $my-custom-palette: (
+///     brand: #ff4136,
+///     text: #333,
+///     action: #ff4136,
+///     action-hover: 82121B,
+///     red: #ff4136,
+///   );
+
+$custom-colors: () !default;
+
+
+
+// -----------------------------------------------------------------------------
+// 3. Typography
 // -----------------------------------------------------------------------------
 
 // Individual Font family definitions
-$source-code: 'Source Code Pro', $font-stack-monaco !default;
-$noto-sans: 'Noto Sans', $font-stack-helvetica !default;
-$noto-serif: 'Noto Serif', $font-stack-georgia !default;
+$font-stack-monospace: 'Source Code Pro', $font-stack-monaco !default;
+$monospace-source: 'https://fonts.googleapis.com/css?family=Source+Code+Pro';
+
+$font-stack-sans-serif: 'Noto Sans', $font-stack-helvetica !default;
+$sans-serif-source: 'https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i';
+
+$font-stack-serif: 'Noto Serif', $font-stack-georgia !default;
+$serif-source: 'https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i';
+
 
 // Generic definitions
-$font-family-serif: $noto-serif !default;
-$font-family-sans-serif: $noto-sans !default;
-$font-family-monospace: $source-code !default;
+$font-family-serif: $font-stack-serif !default;
+$font-family-sans-serif: $font-stack-sans-serif !default;
+$font-family-monospace: $font-stack-monospace !default;
 
 // Semantic definitions
 $base-font-family: $font-family-sans-serif !default;
 $heading-font-family: $font-family-serif !default;
 $code-font-family: $font-family-monospace !default;
 
-// -----------------------------------------------------------------------------
-// 3. Font Sizes
-// -----------------------------------------------------------------------------
-$root-font-size: 16px !default; //declared in utilities/constants
-$base-font-size: 1em !default;
-
-
-// -----------------------------------------------------------------------------
-// 4. Line Height
-// -----------------------------------------------------------------------------
+// Line Heights
 $base-line-height: 1.5 !default;
 $heading-line-height: 1.2 !default;
 
+// -----------------------------------------------------------------------------
+// 4. Vertical Rhythm
+// -----------------------------------------------------------------------------
+$base-spacing:                modular-scale(0) !default;
+$small-spacing:               modular-scale(-1) !default;
+
 
 // -----------------------------------------------------------------------------
-// 5. Other Sizes
+// 5. Borders
 // -----------------------------------------------------------------------------
-$max-width: 1158px !default;
 $base-border-radius: 3px !default;
-$base-spacing: $base-line-height * 1em !default;
-$small-spacing: $base-spacing / 2 !default;
-$base-z-index: 0 !default;
+$base-border: 1px solid color(border) !default;
 
 
 // -----------------------------------------------------------------------------
-// 6. Colors
+// 6. Forms
 // -----------------------------------------------------------------------------
-/// Color map
-/// A map of generic, primary and supporting hex color values. This list is a
-/// living document that is meant to be extended.
-/// @prop {Map} colors.color-palette.color.values value - Values are actual colors expressed as HEX values
-/// @prop {Map} colors.color-palette.color keys - Keys are identifiers mapped to a given color name inside a specific pallette
-/// @prop {String} colors.color-palette keys - Keys are identifiers mapped to a given color pallette
-
-$colors: (
-  // Default, Unbranded Color Palette
-  // see http://clrs.cc
-  // -------------------------------------------------------
-  generic: (
-      navy:               #001f3f,
-      blue:               #0074d9,
-      aqua:               #7fdbff,
-      teal:               #39cccc,
-      olive:              #3d9970,
-      green:              #2ecc40,
-      lime:               #01ff70,
-      yellow:             #ffdc00,
-      orange:             #ff851b,
-      red:                #ff4136,
-      fuchsia:            #f012be,
-      purple:             #b10dc9,
-      maroon:             #85144b,
-      white:              #fff,
-      silver:             #ddd,
-      grey:               #aaa,
-      dark-grey:          #333,
-      medium-grey:        #999,
-      light-grey:         #ddd,
-      black:              #111,
-  ),
-  default: (
-      brand:              #8c1515,
-      text:               #221111,
-      reverse-text:       #fff,
-      background:         #fff,
-  ),
-  social: (
-      facebook-blue:      #4767b1,
-      twitter-blue:       #55acee,
-      instagram-blue:     #125688,
-  )
-) !default;
-
-/// Main brand color
-/// @type Color
-$brand-color:             color(default, brand) !default;
+$form-box-shadow: inset 0 1px 3px rgba(color(black), 0.06) !default;
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color(color(blue), $lightness: -5%, $alpha: -0.3) !default;
 
 
 // -----------------------------------------------------------------------------
-// 7. Font Colors
+// 7. Animations
 // -----------------------------------------------------------------------------
-$base-font-color:         color(default, text) !default;
-$action-color:            color(default, brand) !default;
-$reverse-font-color:      color(default, reverse-text) !default;
-
-
-// -----------------------------------------------------------------------------
-// 8. Background Colors
-// -----------------------------------------------------------------------------
-$base-background-color: color(default, background) !default;
-$secondary-background-color: tint(color(generic, silver), 75%) !default;
-
-
-// -----------------------------------------------------------------------------
-// 9. Borders
-// -----------------------------------------------------------------------------
-$base-border-color: color(generic, silver) !default;
-$base-border: 1px solid $base-border-color !default;
-
-
-// -----------------------------------------------------------------------------
-// 10. Forms
-// -----------------------------------------------------------------------------
-$form-box-shadow: inset 0 1px 3px rgba(color(generic,black), 0.06) !default;
-$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color($action-color, $lightness: -5%, $alpha: -0.3) !default;
-
-
-// -----------------------------------------------------------------------------
-// 11. Animations
-// -----------------------------------------------------------------------------
-$base-duration: 150ms !default;
-$base-timing: ease !default;
+$base-property: all !default;
+$base-delay: null !default;
+$base-duration: 250ms !default;
+$base-timing: ease-in-out !default;
+$base-transition: $base-property $base-duration $base-timing !default;
 
 
 // -------------------------------------------------------
-// 12. Site & Layout
+// 8. Site & Layout
 // -------------------------------------------------------
 
-// Skiplinks
-$skiplinks__background-color: color(generic, blue) !default;
-$skiplinks__foreground-color: $reverse-font-color !default;
-
-// Header
-$header__background-color: color(generic, navy) !default;
-$header__foreground-color: $reverse-font-color !default;
-
-// Footer
-$footer__background-color: color(generic, navy) !default;
-$footer__foreground-color: $reverse-font-color !default;
 
 // -------------------------------------------------------
-// 13. Components
+// 9. Components
 // -------------------------------------------------------

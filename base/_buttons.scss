@@ -1,63 +1,95 @@
 @charset "UTF-8";
 
-// buttons.scss
+@import '../utilities/settings';
+
+// -----------------------------------------------------------------------------
 // This file contains all styles related to the button element.
-// see http://bitters.bourbon.io
-// dependent on utilities/color.scss
 // -----------------------------------------------------------------------------
 
 
-// Variables in use on this file.
-// Variables are defined with !default flags, and can be overwritten in
-// `utilities/_variables.scss`
-// -----------------------------------------------------------------------------
-$action-color: color(generic, blue) !default;
-$reverse-font-color: color(generic, white) !default;
-$base-border-radius: 8px !default;
-$base-font-family: sans-serif !default;
-$base-font-size: 1em !default;
-$base-line-height: 1.5 !default;
-$base-spacing: $base-line-height * 1em !default;
-$small-spacing: $base-spacing / 2 !default;
-$base-duration: 150ms !default;
-$base-timing: ease !default;
+%button__generic {
+  $_font-family: $base-font-family;
+  $_line-height: $base-line-height;
+  $_transition: $base-transition;
+  $_spacing: $small-spacing;
 
-// All buttons styling
-// -----------------------------------------------------------------------------
-#{$all-buttons} {
+  @include material-shadow(flat);
+
   appearance: none;
-  background-color: $action-color;
-  border: 0;
-  border-radius: $base-border-radius;
-  color: $reverse-font-color;
+  background-color: color(action-active);
+  border: none;
+  color: color(reverse-text);
   cursor: pointer;
   display: inline-block;
-  font-family: $base-font-family;
-  font-size: $base-font-size;
+  font-family: $_font-family;
+  font-size: inherit;
   -webkit-font-smoothing: antialiased;
-  font-weight: 600;
-  line-height: 1;
-  padding: $small-spacing $base-spacing;
+  font-weight: inherit;
+  line-height: $_line-height;
+  padding: em(6px) em($_spacing) em(7px);
   text-align: center;
   text-decoration: none;
-  transition: background-color $base-duration $base-timing;
   user-select: none;
   vertical-align: middle;
-  white-space: nowrap;
+  transition: $_transition;
 
   &:hover,
   &:focus,
   &:active {
-    background-color: shade($action-color, 20%);
-    color: $reverse-font-color;
+    background-color: color(action);
+    color: color(reverse-text);
+    text-decoration: none;
   }
 
-  &:disabled {
+  &:disabled,
+  &.disabled {
+    background-color: color(action);
+    color: color(reverse-text);
     cursor: not-allowed;
     opacity: .5;
 
     &:hover {
-      background-color: $action-color;
+      cursor: not-allowed;
     }
   }
+}
+
+%button__primary {
+  $_spacing: $base-spacing;
+
+  @extend %button__generic;
+
+  background-color: color(action-active);
+  color: color(reverse-text);
+  font-weight: 600;
+  padding: em(10px) em($_spacing) em(12px);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: color(action);
+  }
+}
+
+%button__secondary {
+  $_spacing: $base-spacing;
+
+  @extend %button__generic;
+  background-color: inherit;
+  border: $base-border;
+  color: color(text);
+  font-weight: 600;
+  padding: em(7px) em($_spacing) em(9px);
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: inherit;
+    border-color: color(action-active);
+    color: color(action-active);
+  }
+}
+
+#{$all-buttons} {
+  @extend %button__generic;
 }

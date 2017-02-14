@@ -1,39 +1,18 @@
+@charset "UTF-8";
+
+// Dependencies
+@import '../utilities/settings';
+
 // -----------------------------------------------------------------------------
 // This file contains all @font-face declarations, if any.
 // -----------------------------------------------------------------------------
 
-
-// Google Fonts
-// -------------------------------------------------------
-// Font weights and variants:
-// Extra-Light: 200; Light: 300; Regular: 400; Semi-Bold: 600; Bold: 700; Extra Bold: 800; Black: 900
-// Italic variants: 200i, 300i, etc.
-// Full font families:
-// $google-source-code: 'https://fonts.googleapis.com/css?family=Source+Code+Pro';
-// $google-source-serif: 'https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700';
-// $google-source-sans: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i';
-// $google-noto-sans: 'https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i';
-// $google-noto-serif: 'https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i';
-// Conditional Declarations
-// -------------------------------------------------------
-
-@if(global-variable-exists(source-code)) {
-  $google-source-code: 'https://fonts.googleapis.com/css?family=Source+Code+Pro';
-  @import url($google-source-code);
+@if(global-variable-exists(monospace-source)) {
+  @import url($monospace-source);
 }
-@if(global-variable-exists(source-serif)) {
-  $google-source-serif: 'https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700';
-  @import url($google-source-serif);
+@if(global-variable-exists(sans-serif-source)) {
+  @import url($sans-serif-source);
 }
-@if(global-variable-exists(source-sans)) {
-  $google-source-sans: 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900';
-  @import url($google-source-sans);
-}
-@if(global-variable-exists(noto-sans)) {
-  $google-noto-sans: 'https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i';
-  @import url($google-noto-sans);
-}
-@if(global-variable-exists(noto-serif)) {
-  $google-noto-serif: 'https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i';
-  @import url($google-noto-serif);
+@if(global-variable-exists(serif-source)) {
+  @import url($serif-source);
 }
