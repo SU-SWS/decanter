@@ -21,7 +21,7 @@ h5,
 h6 {
   font-family: $heading-font-family;
   line-height: $heading-line-height;
-  margin: 0 0 $small-spacing;
+  margin: modular-scale(-1) 0 modular-scale(-3);
   font-weight: 700;
 }
 
@@ -46,7 +46,7 @@ h6 {
 }
 
 p {
-  margin: 0 0 $small-spacing;
+  margin: 0 0 modular-scale(1);
 }
 
 dfn, cite, em, i {
@@ -54,7 +54,7 @@ dfn, cite, em, i {
 }
 
 blockquote, q {
-  margin: 0 $base-spacing;
+  margin: 0 modular-scale(2);
   quotes: "" "";
 
   &:before,
@@ -64,7 +64,7 @@ blockquote, q {
 }
 
 address {
-  margin: 0 0 $base-spacing;
+  margin: 0 0 modular-scale(2);
 }
 
 pre {
@@ -72,7 +72,7 @@ pre {
   font-family: $font-family-monospace;
   @include font-size(16px);
   line-height: $base-line-height;
-  margin-bottom: 1.6em;
+  margin-bottom: modular-scale(2);
   max-width: 100%;
   overflow: auto;
   padding: 1.6em;
@@ -136,5 +136,5 @@ hr {
   border-right: 0;
   border-bottom: $base-border;
   border-left: 0;
-  margin: $base-spacing 0;
+  margin: modular-scale(1) 0;
 }
