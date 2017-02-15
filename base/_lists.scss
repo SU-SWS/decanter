@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+// Dependencies
+@import '../utilities/settings';
+
+ul.plain,
+ol.plain {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+dl.plain {
+  margin: 0;
+}
+
+dt.plain {
+  font-weight: 600;
+  margin: 0;
+}
+
+dd.plain {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0 0 modular-scale(0) modular-scale(1);
+  padding-left: 0;
+  li {
+    margin-bottom: modular-scale(-5);
+  }
+}
+
+ul {
+  list-style: disc;
+  ul {
+    list-style: circle;
+    ul {
+      list-style: square;
+    }
+  }
+}
+
+ol {
+  list-style: decimal;
+
+  li {
+    padding-left: em(4px);
+    margin-left: em(-4px);
+  }
+
+  ol {
+    list-style: upper-alpha;
+    ol {
+      list-style: lower-roman;
+      ol {
+        list-style: lower-alpha;
+      }
+    }
+  }
+}
+
+li > ul,
+li > ol {
+  margin-top: modular-scale(-5);
+  margin-bottom: modular-scale(-5);
+  margin-left: modular-scale(1);
+}
+
+dl {
+  margin: 0 0 modular-scale(-5);
+}
+dt {
+  font-weight: 600;
+}
+
+dd {
+  margin: 0 0 $base-spacing;
+}
