@@ -41,7 +41,8 @@ module.exports = function(grunt) {
         includePaths: [
           "node_modules/bourbon/core",
           "node_modules/bourbon-neat/core",
-          "node_modules" // <-- this one will allow you to import decanter.
+          "node_modules/decanter/src", // <-- this one will allow you to import decanter.
+          "node_modules"
         ],
         sourceMap: true,
         // This controls the compiled css and can be changed to nested, compact or compressed.
@@ -73,7 +74,7 @@ Example:
 Configuration
 ---
 
-Please see _VARIABLES.scss_ configuration document.
+Please see [docs/CONFIGURATION.md](docs/CONFIGURATION.md) document.
 
 
 Troubleshooting
