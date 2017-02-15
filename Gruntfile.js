@@ -13,11 +13,11 @@ module.exports = function(grunt) {
       options: {
         configFile: '.sass-lint.yml'
       },
-      target: ['src/\*\*/\*.scss']
+      target: ['core/\*\*/\*.scss']
     },
     sassdoc: {
       default: {
-        src: 'src',
+        src: 'core',
       }
     }
   });

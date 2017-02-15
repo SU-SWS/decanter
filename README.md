@@ -41,7 +41,7 @@ module.exports = function(grunt) {
         includePaths: [
           "node_modules/bourbon/core",
           "node_modules/bourbon-neat/core",
-          "node_modules/decanter/src", // <-- this one will allow you to import decanter.
+          "node_modules/decanter/core", // <-- this one will allow you to import decanter.
           "node_modules"
         ],
         sourceMap: true,
