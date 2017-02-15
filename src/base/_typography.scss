@@ -1,12 +1,16 @@
 ////
-/// typography base styles.
-/// This file contains Site-wide typography
-/// @group base
+/// This file contains Site-wide typography base styles.
+/// @group html
 ////
 
 @charset "UTF-8";
-@import '../utilities/settings';
+@import '../utilities/settings/settings';
 
+/// Body font styles.
+/// @require {function} color
+/// @require {function} font-size
+/// @require {variable} $base-font-family
+/// @require {variable} $base-line-height
 body {
   color: color(text);
   font-family: $base-font-family;
@@ -14,6 +18,10 @@ body {
   line-height: $base-line-height;
 }
 
+/// Heading base styles.
+/// @require {variable} $heading-font-family
+/// @require {variable} $heading-line-height
+/// @require {variable} $small-spacing
 h1,
 h2,
 h3,
@@ -26,26 +34,37 @@ h6 {
   font-weight: 700;
 }
 
+/// @require {function} font-size
+/// @require {function} modular-scale
 h2 {
   @include font-size(modular-scale(4));
 }
 
+/// @require {function} font-size
+/// @require {function} modular-scale
 h3 {
   @include font-size(modular-scale(3));
 }
 
+/// @require {function} font-size
+/// @require {function} modular-scale
 h4 {
   @include font-size(modular-scale(2));
 }
 
+/// @require {function} font-size
+/// @require {function} modular-scale
 h5 {
   @include font-size(modular-scale(1));
 }
 
+/// @require {function} font-size
+/// @require {function} modular-scale
 h6 {
   @include font-size(modular-scale(0));
 }
 
+/// @require {variable} $small-spacing
 p {
   margin: 0 0 $small-spacing;
 }
@@ -54,6 +73,7 @@ dfn, cite, em, i {
   font-style: italic;
 }
 
+/// @require {variable} $base-spacing
 blockquote, q {
   margin: 0 $base-spacing;
   quotes: "" "";
@@ -64,10 +84,15 @@ blockquote, q {
   }
 }
 
+/// @require {variable} $base-spacing
 address {
   margin: 0 0 $base-spacing;
 }
 
+/// @require {function} shade
+/// @require {function} color
+/// @require {variable} $font-family-monospace
+/// @require {variable} $base-line-height
 pre {
   background: shade(color(border), 10%);
   font-family: $font-family-monospace;
@@ -79,11 +104,14 @@ pre {
   padding: 1.6em;
 }
 
+/// @require {variable} $font-family-monospace
+/// @require {function} font-size
 code, kbd, tt, var {
   font-family: $font-family-monospace;
   @include font-size(16px);;
 }
 
+/// @require {function} color
 abbr, acronym {
   border-bottom: 1px dotted color(border);
   cursor: help;
@@ -93,35 +121,45 @@ mark, ins, del {
   padding: 0 .25em .15em
 }
 
+/// @require {function} color
 del {
   color: color(text);
   background: color(light-red);
-  dext-decoration: line-through;
+  text-decoration: line-through;
   text-decoration-color: color(light-red);
 }
 
+/// @require {function} color
 ins {
   color: color(text);
   background: color(light-green);
   text-decoration: none;
 }
 
+/// @require {function} color
 mark {
   color: color(text);
   background: color(light-yellow);
   text-decoration: none;
 }
 
+/// @require {function} font-size
+/// @require {function} modular-scale
+/// @require {variable} $ratio
 small,
 .small-text {
   @include font-size(modular-scale(-1, $ratio: 1.125));
 }
 
+/// @require {function} font-size
+/// @require {function} modular-scale
 big,
 .large-text {
   @include font-size(modular-scale(1));
 }
 
+/// @require {function} color
+/// @require {mixin} on-event
 a {
   color: color(action);
   text-decoration: none;
@@ -132,6 +170,8 @@ a {
   }
 }
 
+// @require {variable} $base-border
+// @require {variable} $base-spacing
 hr {
   border-top: 0;
   border-right: 0;

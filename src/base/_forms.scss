@@ -1,11 +1,12 @@
 ////
 /// Form base styles.
-/// @group base
+/// @group html
 ////
 
 @charset "UTF-8";
-@import '../utilities/settings';
+@import '../utilities/settings/settings';
 
+// Fieldset defaults.
 fieldset {
   background-color: transparent;
   border: 0;
@@ -13,6 +14,8 @@ fieldset {
   padding: 0;
 }
 
+/// Legend defaults.
+/// @require {variable} $small-spacing
 legend {
   $_spacing: $small-spacing;
   font-weight: 600;
@@ -20,6 +23,8 @@ legend {
   padding: 0;
 }
 
+/// Label defaults.
+/// @require {variable} $small-spacing
 label {
   $_spacing: $small-spacing;
   display: block;
@@ -27,6 +32,8 @@ label {
   margin-bottom: $_spacing / 2;
 }
 
+/// Input defaults.
+/// @require {variable} $base-font-family
 input,
 select,
 textarea {
@@ -35,6 +42,18 @@ textarea {
   font-family: $_font-family;
 }
 
+/// All Text Input defaults.
+/// @require {variable} $base-border
+/// @require {variable} $base-border-radius
+/// @require {variable} $form-box-shadow
+/// @require {variable} $base-spacing
+/// @require {variable} $base-duration
+/// @require {variable} $base-timing
+/// @require {function} color
+/// @require {function} shade
+/// @require {function} tint
+/// @require {mixin} on-event
+/// @group base
 #{$all-text-inputs} {
   $_border: $base-border;
   $_border-radius: $base-border-radius;
@@ -73,10 +92,13 @@ textarea {
   }
 }
 
+// Text area styles.
 textarea {
   resize: vertical;
 }
 
+/// Checkboxes and radios
+/// @require {variable} $small-spacing
 [type="checkbox"],
 [type="radio"] {
   $_spacing: $small-spacing;
@@ -84,12 +106,16 @@ textarea {
   margin-right: $_spacing / 2;
 }
 
+/// File fields.
+/// @require {variable} $small-spacing
 [type="file"] {
   $_spacing: $small-spacing;
   margin-bottom: $_spacing;
   width: 100%;
 }
 
+/// Select styles.
+/// @require {variable} $small-spacing
 select {
   $_spacing: $small-spacing;
   margin-bottom: $_spacing;

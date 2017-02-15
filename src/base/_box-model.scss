@@ -1,26 +1,28 @@
 ////
 /// Box model default styles.
-/// @group base
+/// @group html
 ////
 
 @charset "UTF-8";
-@import '../utilities/settings';
+@import '../utilities/settings/settings';
 
-/// Set up a decent box model on the root element.
+// Set up a decent box model on the root element.
 html {
   font-size: 62.5%; // 1rem = 10px;
   box-sizing: border-box;
 }
 
-/// Make all elements from the DOM inherit from the parent box-sizing
-/// Since `*` has a specificity of 0, it does not override the `html` value
-/// making all elements inheriting from the root box-sizing value
-/// See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+// Make all elements from the DOM inherit from the parent box-sizing
+// Since `*` has a specificity of 0, it does not override the `html` value
+// making all elements inheriting from the root box-sizing value
+// See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
 *, *::before, *::after {
   box-sizing: inherit;
 }
 
 /// Set the base body font size.
+/// @require {function} em Relative unit function
+/// @require {variable} $base-font-size Base font size
 body {
   font-size: em($base-font-size, 10px);
 }

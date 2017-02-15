@@ -1,11 +1,12 @@
 ////
 /// List base styles.
-/// @group base
+/// @group html
 ////
 
 @charset "UTF-8";
-@import '../utilities/settings';
+@import '../utilities/settings/settings';
 
+// List classes.
 ul.plain,
 ol.plain {
   list-style-type: none;
@@ -26,6 +27,8 @@ dd.plain {
   margin: 0;
 }
 
+/// List styles.
+/// @require {function} modular-scale
 ul,
 ol {
   margin: 0 0 modular-scale(0) modular-scale(1);
@@ -45,6 +48,8 @@ ul {
   }
 }
 
+/// Ordered List styles
+/// @require {function} em
 ol {
   list-style: decimal;
 
@@ -64,6 +69,8 @@ ol {
   }
 }
 
+/// Nested list styles.
+/// @require modular-scale
 li > ul,
 li > ol {
   margin-top: modular-scale(-5);
@@ -71,6 +78,8 @@ li > ol {
   margin-left: modular-scale(1);
 }
 
+/// Definition list styles.
+/// @require {function} modular-scale
 dl {
   margin: 0 0 modular-scale(-5);
 }
@@ -78,6 +87,8 @@ dt {
   font-weight: 600;
 }
 
+/// DD list styles.
+/// @require {variable} $base-spacing
 dd {
   margin: 0 0 $base-spacing;
 }

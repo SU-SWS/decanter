@@ -62,6 +62,10 @@
 }
 
 /// Primary Button Styles.
+/// @require {function} em normalized relative values.
+/// @require {function} color Returns a color from the color map.
+/// @require {placeholder} button__generic
+/// @require {variable} $base-spacing
 %button__primary {
   $_spacing: $base-spacing;
 
@@ -80,6 +84,10 @@
 }
 
 /// Secondary Button Styles.
+/// @require {function} em normalized relative values.
+/// @require {function} color Returns a color from the color map.
+/// @require {placeholder} button__generic
+/// @require {variable} $base-spacing
 %button__secondary {
   $_spacing: $base-spacing;
 
@@ -100,6 +108,7 @@
 }
 
 /// Apply all button styles.
+/// @require {placeholder} button__generic
 #{$all-buttons} {
   @extend %button__generic;
 }
