@@ -20,11 +20,21 @@ engines:
   scss-lint:
     enabled: true
     checks:
-      ColorVariable:
+      DeclarationOrder:
         enabled: false
       PropertySortOrder:
         enabled: false
+      StringQuotes:
+        enabled: false
+      ColorVariable:
+        enabled: false
+      ColorKeyword:
+        enabled: false
+      HexLength:
+        enabled: false
       LeadingZero:
+        enabled: false
+      NameFormat:
         enabled: false
   phpcodesniffer:
     enabled: false
@@ -63,4 +73,5 @@ exclude_paths:
 - "test"
 - "tests"
 - "vendor"
+- "vendors"
 - "node_modules"
