@@ -1,14 +1,12 @@
-@charset "UTF-8";
-/// @access public
-
 ////
 /// Box model default styles.
 /// @group base
 ////
 
+@charset "UTF-8";
 @import '../utilities/settings';
 
-/// Set up a decent box model on the root element
+/// Set up a decent box model on the root element.
 html {
   font-size: 62.5%; // 1rem = 10px;
   box-sizing: border-box;
@@ -22,6 +20,7 @@ html {
   box-sizing: inherit;
 }
 
+/// Set the base body font size.
 body {
   font-size: em($base-font-size, 10px);
 }

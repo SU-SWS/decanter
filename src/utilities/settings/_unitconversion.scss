@@ -92,7 +92,7 @@ $root-font-size: 16px !default;
 @function hz($input){ @return to-unit(hz, $input);}
 @function khz($input){ @return to-unit(khz, $input); }
 
-// Relative lengths
+/// Convert unites to relative lengths.
 @function em($input...){
   $em: to-unit(em, nth($input,1));
   // Adjust for compounds (visual size)

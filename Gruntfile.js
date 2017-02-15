@@ -17,7 +17,7 @@ module.exports = function(grunt) {
     },
     sassdoc: {
       default: {
-        src: 'src'
+        src: 'src',
       }
     }
   });

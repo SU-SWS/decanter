@@ -1,14 +1,19 @@
-@charset "UTF-8";
-/// @access public
-
 ////
 /// Button base styles.
 /// @group base
 ////
 
-@import '../utilities/settings';
+@charset "UTF-8";
+@import '../utilities/utilities';
 
-
+/// Generic Button Styles.
+/// @require {function} color Returns a color from the color map.
+/// @require {function} em normalized relative values.
+/// @require {mixin} material-shadow adds a shadow.
+/// @require {variable} $base-font-family The default base font styles.
+/// @require {variable} $base-line-height Base line height setting.
+/// @require {variable} $base-transition Base transition setting.
+/// @require {variable} $small-spacing Base small space setting.
 %button__generic {
   $_font-family: $base-font-family;
   $_line-height: $base-line-height;
@@ -56,6 +61,7 @@
   }
 }
 
+/// Primary Button Styles.
 %button__primary {
   $_spacing: $base-spacing;
 
@@ -73,6 +79,7 @@
   }
 }
 
+/// Secondary Button Styles.
 %button__secondary {
   $_spacing: $base-spacing;
 
@@ -92,6 +99,7 @@
   }
 }
 
+/// Apply all button styles.
 #{$all-buttons} {
   @extend %button__generic;
 }
