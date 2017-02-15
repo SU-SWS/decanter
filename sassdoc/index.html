@@ -1,0 +1,305 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Decanter - v0.1.0-alpha1</title><link rel="stylesheet" href="assets/css/main.css"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="Decanter - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="<p>A collection of SCSS patterns for theme development.</p>
+"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title"><a href="https://github.com/su-sws/decanter">Decanter - v0.1.0-alpha1</a></h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="base"><a href="#base">base</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="base-css"><a href="#base-css">csss</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="base" data-name="html" data-type="css"><a href="#base-css-html">html</a></li><li class="sidebar__item sassdoc__item" data-group="base" data-name="*, *::before, *::after" data-type="css"><a href="#base-css-*, *::before, *::after">*, *::before, *::after</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="core functions"><a href="#core functions">core functions</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="core functions-function"><a href="#core functions-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="core functions" data-name="color" data-type="function"><a href="#core functions-function-color">color</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="settings"><a href="#settings">settings</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="settings-variable"><a href="#settings-variable">variables</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="settings" data-name="root-font-size" data-type="variable"><a href="#settings-variable-root-font-size">root-font-size</a></li><li class="sidebar__item sassdoc__item" data-group="settings" data-name="base-font-size" data-type="variable"><a href="#settings-variable-base-font-size">base-font-size</a></li><li class="sidebar__item sassdoc__item" data-group="settings" data-name="Bourbon Settings" data-type="variable"><a href="#settings-variable-Bourbon Settings">Bourbon Settings</a></li><li class="sidebar__item sassdoc__item" data-group="settings" data-name="max-width" data-type="variable"><a href="#settings-variable-max-width">max-width</a></li><li class="sidebar__item sassdoc__item" data-group="settings" data-name="gutter" data-type="variable"><a href="#settings-variable-gutter">gutter</a></li><li class="sidebar__item sassdoc__item" data-group="settings" data-name="grid-columns" data-type="variable"><a href="#settings-variable-grid-columns">grid-columns</a></li><li class="sidebar__item sassdoc__item" data-group="settings" data-name="Neat grid" data-type="variable"><a href="#settings-variable-Neat grid">Neat grid</a></li><li class="sidebar__item sassdoc__item" data-group="settings" data-name="max-content-width" data-type="variable"><a href="#settings-variable-max-content-width">max-content-width</a></li><li class="sidebar__item sassdoc__item" data-group="settings" data-name="Colors" data-type="variable"><a href="#settings-variable-Colors">Colors</a></li><li class="sidebar__item sassdoc__item" data-group="settings" data-name="Custom color palettes" data-type="variable"><a href="#settings-variable-Custom color palettes">Custom color palettes</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="undefined"><a href="#undefined">General</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-css"><a href="#undefined-css">csss</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="////
+/// Box model default styles.
+/// @group base
+////
+
+@import &#39;../utilities/settings&#39;;
+
+/// Set up a decent box model on the root element
+html" data-type="css"><a href="#undefined-css-////
+/// Box model default styles.
+/// @group base
+////
+
+@import &#39;../utilities/settings&#39;;
+
+/// Set up a decent box model on the root element
+html">//// /// Box model default styles. /// @group base //// @import &#39;../utilities/settings&#39;; /// Set up a decent box model on the root element html</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="// These correspond to the Bootstrap 4 Responsive Breakpoints
+
+// Lower boundaries
+$screen-xs-min:               0px !default;
+$screen-sm-min:               576px !default;
+$screen-md-min:               768px !default;
+$screen-lg-min:               992px !default;
+$screen-xl-min:               $max-width !default;
+
+// Upper boundaries
+$screen-xs-max:               $screen-sm-min - 1px !default;
+$screen-sm-max:               $screen-md-min - 1px !default;
+$screen-md-max:               $screen-lg-min - 1px !default;
+$screen-lg-max:               $screen-xl-min - 1px !default;
+
+
+// -----------------------------------------------------------------------------
+// 2. Colors
+// -----------------------------------------------------------------------------
+
+/// This variable is a sass map that overrides our generic color map.
+/// Use this to define your project&#39;s color palette.
+///
+/// @type map
+///
+/// @group settings
+///
+/// @name Colors
+///
+/// @property" data-type="css"><a href="#undefined-css-// These correspond to the Bootstrap 4 Responsive Breakpoints
+
+// Lower boundaries
+$screen-xs-min:               0px !default;
+$screen-sm-min:               576px !default;
+$screen-md-min:               768px !default;
+$screen-lg-min:               992px !default;
+$screen-xl-min:               $max-width !default;
+
+// Upper boundaries
+$screen-xs-max:               $screen-sm-min - 1px !default;
+$screen-sm-max:               $screen-md-min - 1px !default;
+$screen-md-max:               $screen-lg-min - 1px !default;
+$screen-lg-max:               $screen-xl-min - 1px !default;
+
+
+// -----------------------------------------------------------------------------
+// 2. Colors
+// -----------------------------------------------------------------------------
+
+/// This variable is a sass map that overrides our generic color map.
+/// Use this to define your project&#39;s color palette.
+///
+/// @type map
+///
+/// @group settings
+///
+/// @name Colors
+///
+/// @property">// These correspond to the Bootstrap 4 Responsive Breakpoints // Lower boundaries $screen-xs-min: 0px !default; $screen-sm-min: 576px !default; $screen-md-min: 768px !default; $screen-lg-min: 992px !default; $screen-xl-min: $max-width !default; // Upper boundaries $screen-xs-max: $screen-sm-min - 1px !default; $screen-sm-max: $screen-md-min - 1px !default; $screen-md-max: $screen-lg-min - 1px !default; $screen-lg-max: $screen-xl-min - 1px !default; // ----------------------------------------------------------------------------- // 2. Colors // ----------------------------------------------------------------------------- /// This variable is a sass map that overrides our generic color map. /// Use this to define your project&#39;s color palette. /// /// @type map /// /// @group settings /// /// @name Colors /// /// @property</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="base"><div class="container">base</div></h1><section class="main__sub-section" id="base-css"><h2 class="main__heading--secondary"><div class="container">csss</div></h2><section class="main__item container item" id="base-css-html"><h3 class="item__heading"><a class="item__name" href="#css-html">html</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@css html() {  }" data-collapsed="@css html() { ... }"><code>@css html() { ... }</code></pre></div></section><section class="main__item container item" id="base-css-*, *::before, *::after"><h3 class="item__heading"><a class="item__name" href="#css-*, *::before, *::after">*, *::before, *::after</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@css *, *::before, *::after() {  }" data-collapsed="@css *, *::before, *::after() { ... }"><code>@css *, *::before, *::after() { ... }</code></pre></div></section></section></section><section class="main__section"><h1 class="main__heading" id="core functions"><div class="container">core functions</div></h1><section class="main__sub-section" id="core functions-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="core functions-function-color"><h3 class="item__heading"><a class="item__name" href="#function-color">color</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function color($color-palette, $color) { 
+  @return retrieve-color($color, $palette);
+ }" data-collapsed="@function color($color-palette, $color) { ... }"><code>@function color($color-palette, $color) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Return a color from the color map.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$color-palette</code></th><td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td><td data-label="type"><code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$color</code></th><td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Returns</h3><div class="item__description item__description--inline"><code>String</code> &mdash;<p>color hex value</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>background-color: color(white);</code></pre></div><div class="item__example example"><pre class="example__code language-css"><code>background-color: #fff;</code></pre></div></section></section></section><section class="main__section"><h1 class="main__heading" id="settings"><div class="container">settings</div></h1><section class="main__sub-section" id="settings-variable"><h2 class="main__heading--secondary"><div class="container">variables</div></h2><section class="main__item container item" id="settings-variable-root-font-size"><h3 class="item__heading"><a class="item__name" href="#variable-root-font-size">root-font-size</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$root-font-size: 10px !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Root font size in pixels. Used for converting rem to pixels.</p></div><h3 class="item__sub-heading">Type</h3><p><code>Length</code></p></section><section class="main__item container item" id="settings-variable-base-font-size"><h3 class="item__heading"><a class="item__name" href="#variable-base-font-size">base-font-size</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$base-font-size: 18px !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Base font size in pixels. Used for converting between em and absolute lengths.</p></div><h3 class="item__sub-heading">Type</h3><p><code>Length</code></p></section><section class="main__item container item" id="settings-variable-Bourbon Settings"><h3 class="item__heading"><a class="item__name" href="#variable-Bourbon Settings">Bourbon Settings</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$Bourbon Settings: (
+    &quot;modular-scale-ratio&quot;: 1.25,
+) !default;</code></pre></div><h3 class="item__sub-heading">Type</h3><p><code>Map</code></p><h3 class="item__sub-heading">Map structure</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">map key </span>Name</th><th scope="col"><span class="visually-hidden">map key </span>Description</th><th scope="col"><span class="visually-hidden">map key </span>Type</th><th scope="col"><span class="visually-hidden">map key </span>Value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>contrast-switch-dark-color</code></th><td data-label="desc"><p>Global dark color for the <code>contrast-switch</code> function.</p></td><td data-label="type"><code>Color</code></td><td data-label="default"><code class="color-preview--inline" style="background: #000; color: #fff">#000</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>contrast-switch-light-color</code></th><td data-label="desc"><p>Global light color for the <code>contrast-switch</code> function.</p></td><td data-label="type"><code>Color</code></td><td data-label="default"><code class="color-preview--inline" style="background: #fff; color: #000">#fff</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>global-font-file-formats</code></th><td data-label="desc"><p>Global font file formats for the <code>font-face</code> mixin.</p></td><td data-label="type"><code>List</code></td><td data-label="default"><code>(&quot;ttf&quot;, &quot;woff2&quot;, &quot;woff&quot;)</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>modular-scale-base</code></th><td data-label="desc"><p>Global base value for the <code>modular-scale</code> function.</p></td><td data-label="type"><code>Number (with unit)</code></td><td data-label="default"><code>1em</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>modular-scale-ratio</code></th><td data-label="desc"><p>Global base ratio for the <code>modular-scale</code> function.</p></td><td data-label="type"><code>Number (unitless)</code></td><td data-label="default"><code>$major-third (1.25)</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>rails-asset-pipeline</code></th><td data-label="desc"><p>Set this to <code>true</code> when using the Rails Asset Pipeline and Bourbon will write asset paths using <a href="https://github.com/rails/sass-rails#asset-helpers">sass-rails’ asset helpers</a>.</p></td><td data-label="type"><code>Boolean</code></td><td data-label="default"><code>false</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>$bourbon: (
+  &quot;contrast-switch-dark-color&quot;: #000,
+  &quot;contrast-switch-light-color&quot;: #fff,
+  &quot;global-font-file-formats&quot;: (&quot;ttf&quot;, &quot;woff2&quot;, &quot;woff&quot;),
+  &quot;modular-scale-base&quot;: 1em,
+  &quot;modular-scale-ratio&quot;: $major-third,
+  &quot;rails-asset-pipeline&quot;: false,
+);</code></pre></div></section><section class="main__item container item" id="settings-variable-max-width"><h3 class="item__heading"><a class="item__name" href="#variable-max-width">max-width</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$max-width: 1200px !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Max-container width, including horizontal gutters. This is also used to generate our XL breakpoint.</p></div><h3 class="item__sub-heading">Type</h3><p><code>Length (with unit)</code></p></section><section class="main__item container item" id="settings-variable-gutter"><h3 class="item__heading"><a class="item__name" href="#variable-gutter">gutter</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$gutter: 20px !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Gutter</p></div><h3 class="item__sub-heading">Type</h3><p><code>Length (with unit) the space on the left and right of grid elements</code></p></section><section class="main__item container item" id="settings-variable-grid-columns"><h3 class="item__heading"><a class="item__name" href="#variable-grid-columns">grid-columns</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$grid-columns: 12 !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Grid Columns</p></div><h3 class="item__sub-heading">Type</h3><p><code>Number (unitless) how many columns in a grid</code></p></section><section class="main__item container item" id="settings-variable-Neat grid"><h3 class="item__heading"><a class="item__name" href="#variable-Neat grid">Neat grid</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$Neat grid: (
+    columns: $grid-columns,
+    gutter:  $gutter,
+    media: null,
+    color: rgba(#00d4ff, 0.25),
+    direction: ltr,
+) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>This variable is a sass map that overrides Neat&#39;s default grid settings. Use this to define your project&#39;s grid properties incluting gutters and total column count.</p></div><h3 class="item__sub-heading">Type</h3><p><code>Map</code></p><h3 class="item__sub-heading">Map structure</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">map key </span>Name</th><th scope="col"><span class="visually-hidden">map key </span>Description</th><th scope="col"><span class="visually-hidden">map key </span>Type</th><th scope="col"><span class="visually-hidden">map key </span>Value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>columns</code></th><td data-label="desc"><p>Default number of the total grid columns.</p></td><td data-label="type"><code>Number (unitless)</code></td><td data-label="default"><code>12</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>gutter</code></th><td data-label="desc"><p>Default grid gutter width between columns.</p></td><td data-label="type"><code>Number (with unit)</code></td><td data-label="default"><code>20px</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>media</code></th><td data-label="desc"><p>Grid media query.</p></td><td data-label="type"><code>String</code> or <code>Number (with unit)</code></td><td data-label="default"><code>null</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>color</code></th><td data-label="desc"><p>Default visual grid color.</p></td><td data-label="type"><code>Color</code></td><td data-label="default"><code>rgba(#00d4ff, 0.25)</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>$neat-grid: (
+  columns: 12,
+  gutter: 20px,
+);</code></pre></div></section><section class="main__item container item" id="settings-variable-max-content-width"><h3 class="item__heading"><a class="item__name" href="#variable-max-content-width">max-content-width</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$max-content-width: $max-width - ($gutter * 2) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Max Content Width</p></div><h3 class="item__sub-heading">Type</h3><p><code>Length removes gutters from the max-width constant to give us a computed content-width.</code></p></section><section class="main__item container item" id="settings-variable-Colors"><h3 class="item__heading"><a class="item__name" href="#variable-Colors">Colors</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$Colors: (
+  // Decanter Colors
+    brand:                        #004fdc,
+    action:                       #004991,
+    action-active:                #005ddc,
+    background:                   #fff,
+    background-secondary:         #ddd,
+    border:                       #999,
+    text:                         #112,
+    text-active:                  #808080,
+    reverse-text:                 #fff,
+    reverse-text-active:          #dceefe,
+) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>This variable is a sass map that overrides our generic color map. Use this to define your project&#39;s color palette.</p></div><h3 class="item__sub-heading">Type</h3><p><code>Map</code></p><h3 class="item__sub-heading">Map structure</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">map key </span>Name</th><th scope="col"><span class="visually-hidden">map key </span>Description</th><th scope="col"><span class="visually-hidden">map key </span>Type</th><th scope="col"><span class="visually-hidden">map key </span>Value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>color</code></th><td data-label="desc"><p>The color value retrieved by the color function</p></td><td data-label="type"><code>Color</code></td><td data-label="default"><code>null</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>$colors: (
+  brand: #8c1515,
+  text: #333,
+  link: #ff4136,
+  link-hover: 82121B,
+  red: #ff4136,
+);</code></pre></div></section><section class="main__item container item" id="settings-variable-Custom color palettes"><h3 class="item__heading"><a class="item__name" href="#variable-Custom color palettes">Custom color palettes</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$Custom color palettes: () !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>If you would like to have multiple color palettes in a single project, you can do this by defining a new map stored within a variable of your choosing. This variable can then be passed directly to the color() function, such as <code>color(red, $my-custom-colors)</code>.</p></div><h3 class="item__sub-heading">Type</h3><p><code>Map</code></p><h3 class="item__sub-heading">Map structure</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">map key </span>Name</th><th scope="col"><span class="visually-hidden">map key </span>Description</th><th scope="col"><span class="visually-hidden">map key </span>Type</th><th scope="col"><span class="visually-hidden">map key </span>Value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>color</code></th><td data-label="desc"><p>The color value retrieved by the color function</p></td><td data-label="type"><code>Color</code></td><td data-label="default"><code>null</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>$my-custom-palette: (
+  brand: #ff4136,
+  text: #333,
+  action: #ff4136,
+  action-hover: 82121B,
+  red: #ff4136,
+);</code></pre></div></section></section></section><section class="main__section"><h1 class="main__heading" id="undefined"><div class="container">General</div></h1><section class="main__sub-section" id="undefined-css"><h2 class="main__heading--secondary"><div class="container">csss</div></h2><section class="main__item container item" id="undefined-css-////
+/// Box model default styles.
+/// @group base
+////
+
+@import &#39;../utilities/settings&#39;;
+
+/// Set up a decent box model on the root element
+html"><h3 class="item__heading"><a class="item__name" href="#css-////
+/// Box model default styles.
+/// @group base
+////
+
+@import &#39;../utilities/settings&#39;;
+
+/// Set up a decent box model on the root element
+html">//// /// Box model default styles. /// @group base //// @import &#39;../utilities/settings&#39;; /// Set up a decent box model on the root element html</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@css ////
+/// Box model default styles.
+/// @group base
+////
+
+@import &#39;../utilities/settings&#39;;
+
+/// Set up a decent box model on the root element
+html() {  }" data-collapsed="@css ////
+/// Box model default styles.
+/// @group base
+////
+
+@import &#39;../utilities/settings&#39;;
+
+/// Set up a decent box model on the root element
+html() { ... }"><code>@css ////
+/// Box model default styles.
+/// @group base
+////
+
+@import &#39;../utilities/settings&#39;;
+
+/// Set up a decent box model on the root element
+html() { ... }</code></pre></div></section><section class="main__item container item" id="undefined-css-// These correspond to the Bootstrap 4 Responsive Breakpoints
+
+// Lower boundaries
+$screen-xs-min:               0px !default;
+$screen-sm-min:               576px !default;
+$screen-md-min:               768px !default;
+$screen-lg-min:               992px !default;
+$screen-xl-min:               $max-width !default;
+
+// Upper boundaries
+$screen-xs-max:               $screen-sm-min - 1px !default;
+$screen-sm-max:               $screen-md-min - 1px !default;
+$screen-md-max:               $screen-lg-min - 1px !default;
+$screen-lg-max:               $screen-xl-min - 1px !default;
+
+
+// -----------------------------------------------------------------------------
+// 2. Colors
+// -----------------------------------------------------------------------------
+
+/// This variable is a sass map that overrides our generic color map.
+/// Use this to define your project&#39;s color palette.
+///
+/// @type map
+///
+/// @group settings
+///
+/// @name Colors
+///
+/// @property"><h3 class="item__heading"><a class="item__name" href="#css-// These correspond to the Bootstrap 4 Responsive Breakpoints
+
+// Lower boundaries
+$screen-xs-min:               0px !default;
+$screen-sm-min:               576px !default;
+$screen-md-min:               768px !default;
+$screen-lg-min:               992px !default;
+$screen-xl-min:               $max-width !default;
+
+// Upper boundaries
+$screen-xs-max:               $screen-sm-min - 1px !default;
+$screen-sm-max:               $screen-md-min - 1px !default;
+$screen-md-max:               $screen-lg-min - 1px !default;
+$screen-lg-max:               $screen-xl-min - 1px !default;
+
+
+// -----------------------------------------------------------------------------
+// 2. Colors
+// -----------------------------------------------------------------------------
+
+/// This variable is a sass map that overrides our generic color map.
+/// Use this to define your project&#39;s color palette.
+///
+/// @type map
+///
+/// @group settings
+///
+/// @name Colors
+///
+/// @property">// These correspond to the Bootstrap 4 Responsive Breakpoints // Lower boundaries $screen-xs-min: 0px !default; $screen-sm-min: 576px !default; $screen-md-min: 768px !default; $screen-lg-min: 992px !default; $screen-xl-min: $max-width !default; // Upper boundaries $screen-xs-max: $screen-sm-min - 1px !default; $screen-sm-max: $screen-md-min - 1px !default; $screen-md-max: $screen-lg-min - 1px !default; $screen-lg-max: $screen-xl-min - 1px !default; // ----------------------------------------------------------------------------- // 2. Colors // ----------------------------------------------------------------------------- /// This variable is a sass map that overrides our generic color map. /// Use this to define your project&#39;s color palette. /// /// @type map /// /// @group settings /// /// @name Colors /// /// @property</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@css // These correspond to the Bootstrap 4 Responsive Breakpoints
+
+// Lower boundaries
+$screen-xs-min:               0px !default;
+$screen-sm-min:               576px !default;
+$screen-md-min:               768px !default;
+$screen-lg-min:               992px !default;
+$screen-xl-min:               $max-width !default;
+
+// Upper boundaries
+$screen-xs-max:               $screen-sm-min - 1px !default;
+$screen-sm-max:               $screen-md-min - 1px !default;
+$screen-md-max:               $screen-lg-min - 1px !default;
+$screen-lg-max:               $screen-xl-min - 1px !default;
+
+
+// -----------------------------------------------------------------------------
+// 2. Colors
+// -----------------------------------------------------------------------------
+
+/// This variable is a sass map that overrides our generic color map.
+/// Use this to define your project&#39;s color palette.
+///
+/// @type map
+///
+/// @group settings
+///
+/// @name Colors
+///
+/// @property() {  }" data-collapsed="@css // These correspond to the Bootstrap 4 Responsive Breakpoints
+
+// Lower boundaries
+$screen-xs-min:               0px !default;
+$screen-sm-min:               576px !default;
+$screen-md-min:               768px !default;
+$screen-lg-min:               992px !default;
+$screen-xl-min:               $max-width !default;
+
+// Upper boundaries
+$screen-xs-max:               $screen-sm-min - 1px !default;
+$screen-sm-max:               $screen-md-min - 1px !default;
+$screen-md-max:               $screen-lg-min - 1px !default;
+$screen-lg-max:               $screen-xl-min - 1px !default;
+
+
+// -----------------------------------------------------------------------------
+// 2. Colors
+// -----------------------------------------------------------------------------
+
+/// This variable is a sass map that overrides our generic color map.
+/// Use this to define your project&#39;s color palette.
+///
+/// @type map
+///
+/// @group settings
+///
+/// @name Colors
+///
+/// @property() { ... }"><code>@css // These correspond to the Bootstrap 4 Responsive Breakpoints
+
+// Lower boundaries
+$screen-xs-min:               0px !default;
+$screen-sm-min:               576px !default;
+$screen-md-min:               768px !default;
+$screen-lg-min:               992px !default;
+$screen-xl-min:               $max-width !default;
+
+// Upper boundaries
+$screen-xs-max:               $screen-sm-min - 1px !default;
+$screen-sm-max:               $screen-md-min - 1px !default;
+$screen-md-max:               $screen-lg-min - 1px !default;
+$screen-lg-max:               $screen-xl-min - 1px !default;
+
+
+// -----------------------------------------------------------------------------
+// 2. Colors
+// -----------------------------------------------------------------------------
+
+/// This variable is a sass map that overrides our generic color map.
+/// Use this to define your project&#39;s color palette.
+///
+/// @type map
+///
+/// @group settings
+///
+/// @name Colors
+///
+/// @property() { ... }</code></pre></div></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --> <a class="project-info__name" href="https://github.com/su-sws/decanter">Decanter</a><!-- Version --> <span class="project-info__version">- v0.1.0-alpha1</span><!-- License --> <span class="project-info__license">, under GPLV2</span></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>
