@@ -1,0 +1,41 @@
+////
+/// Media base styles.
+/// @group html
+////
+
+@charset "UTF-8";
+@import '../utilities/settings/settings';
+
+/// Table styles.
+/// @require {variable} $small-spacing
+table {
+  border-collapse: collapse;
+  margin: $small-spacing 0;
+  table-layout: fixed;
+  width: 100%;
+}
+
+/// TH Styles.
+/// @require {function} shade
+/// @require {function} color
+/// @require {variable} $small-spacing
+th {
+  border-bottom: 1px solid shade(color(border), 25%);
+  font-weight: 600;
+  padding: $small-spacing 0;
+  text-align: left;
+}
+
+/// TD styles.
+/// @require {variable} $base-border
+/// @require {variable} $small-spacing
+td {
+  border-bottom: $base-border;
+  padding: $small-spacing 0;
+}
+
+tr,
+td,
+th {
+  vertical-align: middle;
+}

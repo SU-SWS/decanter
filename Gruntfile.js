@@ -13,13 +13,19 @@ module.exports = function(grunt) {
       options: {
         configFile: '.sass-lint.yml'
       },
-      target: ['\*\*/\*.scss']
+      target: ['core/\*\*/\*.scss']
+    },
+    sassdoc: {
+      default: {
+        src: 'core',
+      }
     }
   });
 
   // This is where we tell Grunt we plan to use this plug-in.
   grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-available-tasks');
+  grunt.loadNpmTasks('grunt-sassdoc');
 
   // This is where we tell Grunt what to do when we type "grunt" into the terminal.
   grunt.registerTask('default', ['availabletasks']);

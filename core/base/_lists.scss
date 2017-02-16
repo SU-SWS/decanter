@@ -1,0 +1,94 @@
+////
+/// List base styles.
+/// @group html
+////
+
+@charset "UTF-8";
+@import '../utilities/settings/settings';
+
+// List classes.
+ul.plain,
+ol.plain {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+dl.plain {
+  margin: 0;
+}
+
+dt.plain {
+  font-weight: 600;
+  margin: 0;
+}
+
+dd.plain {
+  margin: 0;
+}
+
+/// List styles.
+/// @require {function} modular-scale
+ul,
+ol {
+  margin: 0 0 modular-scale(0) modular-scale(1);
+  padding-left: 0;
+  li {
+    margin-bottom: modular-scale(-5);
+  }
+}
+
+ul {
+  list-style: disc;
+  ul {
+    list-style: circle;
+    ul {
+      list-style: square;
+    }
+  }
+}
+
+/// Ordered List styles
+/// @require {function} em
+ol {
+  list-style: decimal;
+
+  li {
+    padding-left: em(4px);
+    margin-left: em(-4px);
+  }
+
+  ol {
+    list-style: upper-alpha;
+    ol {
+      list-style: lower-roman;
+      ol {
+        list-style: lower-alpha;
+      }
+    }
+  }
+}
+
+/// Nested list styles.
+/// @require modular-scale
+li > ul,
+li > ol {
+  margin-top: modular-scale(-5);
+  margin-bottom: modular-scale(-5);
+  margin-left: modular-scale(1);
+}
+
+/// Definition list styles.
+/// @require {function} modular-scale
+dl {
+  margin: 0 0 modular-scale(-5);
+}
+dt {
+  font-weight: 600;
+}
+
+/// DD list styles.
+/// @require {variable} $base-spacing
+dd {
+  margin: 0 0 $base-spacing;
+}

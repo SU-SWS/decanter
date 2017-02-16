@@ -1,0 +1,29 @@
+/// Creates a material-design style shadow. May be flat, shallow, medium, or deep.
+///
+/// @author Kevin Garcia
+/// @group mixins
+///
+/// @arg {strong} $_depth [medium] - how deep the shadow appears to be. May be flat, shallow, medium, or deep.
+///
+/// @require {function} rgba
+///
+/// @example scss
+///   .element {
+///     @include material-shadow(shallow);
+///   }
+///
+/// @example css
+///   .element {
+///     box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.10), 2px 4px 7px 0px rgba(0,0,0,0.15);
+///   }
+@mixin material-shadow( $_depth: medium ) {
+  @if $_depth == 'flat' {
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.05);
+  } @else if $_depth == 'shallow' {
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.10), 2px 3px 6px 0px rgba(0,0,0,0.15);
+  } @else if $_depth == 'medium' {
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.10), 4px 6px 8px 0px rgba(0,0,0,0.15);
+  } @else if $_depth == 'deep'{
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.10), 8px 9px 10px 0px rgba(0,0,0,0.15);
+  }
+}

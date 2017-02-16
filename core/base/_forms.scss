@@ -1,0 +1,123 @@
+////
+/// Form base styles.
+/// @group html
+////
+
+@charset "UTF-8";
+@import '../utilities/settings/settings';
+
+// Fieldset defaults.
+fieldset {
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/// Legend defaults.
+/// @require {variable} $small-spacing
+legend {
+  $_spacing: $small-spacing;
+  font-weight: 600;
+  margin-bottom: $_spacing / 2;
+  padding: 0;
+}
+
+/// Label defaults.
+/// @require {variable} $small-spacing
+label {
+  $_spacing: $small-spacing;
+  display: block;
+  font-weight: 600;
+  margin-bottom: $_spacing / 2;
+}
+
+/// Input defaults.
+/// @require {variable} $base-font-family
+input,
+select,
+textarea {
+  $_font-family: $base-font-family;
+  display: block;
+  font-family: $_font-family;
+}
+
+/// All Text Input defaults.
+/// @require {variable} $base-border
+/// @require {variable} $base-border-radius
+/// @require {variable} $form-box-shadow
+/// @require {variable} $base-spacing
+/// @require {variable} $base-duration
+/// @require {variable} $base-timing
+/// @require {function} color
+/// @require {function} shade
+/// @require {function} tint
+/// @require {mixin} on-event
+/// @group base
+#{$all-text-inputs} {
+  $_border: $base-border;
+  $_border-radius: $base-border-radius;
+  $_box-shadow: $form-box-shadow;
+  $_spacing: $base-spacing;
+  $_small-spacing: $base-spacing;
+  $_duration: $base-duration;
+  $_timing: $base-timing;
+
+  appearance: none;
+  background-color: color(background);
+  border: $_border;
+  border-radius: $_border-radius;
+  box-shadow: $_box-shadow;
+  box-sizing: border-box;
+  margin-bottom: $_small-spacing;
+  padding: $_spacing / 3;
+  transition: border-color $_duration $_timing;
+  width: 100%;
+
+  @include on-event {
+    border-color: shade(color(border), 20%);
+  }
+
+  &:disabled {
+    background-color: shade(color(background), 5%);
+    cursor: not-allowed;
+
+    &:hover {
+      border: $_border;
+    }
+  }
+
+  &::placeholder {
+    color: tint(color(text), 40%);
+  }
+}
+
+// Text area styles.
+textarea {
+  resize: vertical;
+}
+
+/// Checkboxes and radios
+/// @require {variable} $small-spacing
+[type="checkbox"],
+[type="radio"] {
+  $_spacing: $small-spacing;
+  display: inline;
+  margin-right: $_spacing / 2;
+}
+
+/// File fields.
+/// @require {variable} $small-spacing
+[type="file"] {
+  $_spacing: $small-spacing;
+  margin-bottom: $_spacing;
+  width: 100%;
+}
+
+/// Select styles.
+/// @require {variable} $small-spacing
+select {
+  $_spacing: $small-spacing;
+  margin-bottom: $_spacing;
+  width: 100%;
+}
