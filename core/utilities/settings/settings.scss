@@ -4,23 +4,10 @@
 /// @group utilities
 ////
 
-@import 'global-settings';
-@import 'unitconversion';
-@import 'color';
-
-// Conditional Bourbon Import
-@if function_exists(modular-scale) {
-  @debug 'bourbon already imported';
-} else {
-  @import 'bourbon';
-}
-
-// Conditional Neat Import
-@if function_exists(grid-column) {
-  @debug 'neat already imported';
-} else {
-  @import 'neat';
-}
-
-// Import variables after bourbon/neat
-@import 'variables';
+@import
+'global-settings',
+'unitconversion',
+'color',
+'bourbon',
+'neat',
+'variables';
