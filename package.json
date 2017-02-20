@@ -1,59 +1,19 @@
 {
-  "_args": [
-    [
-      {
-        "raw": "git://github.com/SU-SWS/decanter.git#integration2",
-        "scope": null,
-        "escapedName": null,
-        "name": null,
-        "rawSpec": "git://github.com/SU-SWS/decanter.git#integration2",
-        "spec": "git://github.com/SU-SWS/decanter.git#integration2",
-        "type": "hosted",
-        "hosted": {
-          "type": "github",
-          "ssh": "git@github.com:SU-SWS/decanter.git#integration2",
-          "sshUrl": "git+ssh://git@github.com/SU-SWS/decanter.git#integration2",
-          "httpsUrl": "git+https://github.com/SU-SWS/decanter.git#integration2",
-          "gitUrl": "git://github.com/SU-SWS/decanter.git#integration2",
-          "shortcut": "github:SU-SWS/decanter#integration2",
-          "directUrl": "https://raw.githubusercontent.com/SU-SWS/decanter/integration2/package.json"
-        }
-      },
-      "/httpdocs/j8/web/themes/stanford/stanford_basic"
-    ]
+  "name": "decanter",
+  "description": "A collection of SCSS patterns for theme development.",
+  "version": "0.1.0-alpha1",
+  "homepage": "https://github.com/su-sws/decanter",
+  "license": "GPLV2",
+  "keywords": [
+    "css",
+    "mixins",
+    "sass",
+    "scss"
   ],
-  "_from": "git://github.com/SU-SWS/decanter.git#integration2",
-  "_id": "decanter@0.1.0-alpha1",
-  "_inCache": true,
-  "_location": "/decanter",
-  "_phantomChildren": {},
-  "_requested": {
-    "raw": "git://github.com/SU-SWS/decanter.git#integration2",
-    "scope": null,
-    "escapedName": null,
-    "name": null,
-    "rawSpec": "git://github.com/SU-SWS/decanter.git#integration2",
-    "spec": "git://github.com/SU-SWS/decanter.git#integration2",
-    "type": "hosted",
-    "hosted": {
-      "type": "github",
-      "ssh": "git@github.com:SU-SWS/decanter.git#integration2",
-      "sshUrl": "git+ssh://git@github.com/SU-SWS/decanter.git#integration2",
-      "httpsUrl": "git+https://github.com/SU-SWS/decanter.git#integration2",
-      "gitUrl": "git://github.com/SU-SWS/decanter.git#integration2",
-      "shortcut": "github:SU-SWS/decanter#integration2",
-      "directUrl": "https://raw.githubusercontent.com/SU-SWS/decanter/integration2/package.json"
-    }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/su-sws/decanter.git"
   },
-  "_requiredBy": [
-    "#DEV:/",
-    "#USER"
-  ],
-  "_resolved": "git://github.com/SU-SWS/decanter.git#57eae35a1572698e73131abd05eb1cec58e3b4fc",
-  "_shasum": "9a0a8d0c58f9729e1b8ec13097ff07407d0d9983",
-  "_shrinkwrap": null,
-  "_spec": "git://github.com/SU-SWS/decanter.git#integration2",
-  "_where": "/httpdocs/j8/web/themes/stanford/stanford_basic",
   "bugs": {
     "url": "https://github.com/su-sws/decanter/issues"
   },
@@ -63,29 +23,11 @@
     "font-awesome": "~4.7.0",
     "normalize.css": "^5.0.0"
   },
-  "description": "A collection of SCSS patterns for theme development.",
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-available-tasks": "^0.6.3",
     "grunt-sass-lint": "^0.2.2",
     "grunt-sassdoc": "^2.0.2"
   },
-  "gitHead": "57eae35a1572698e73131abd05eb1cec58e3b4fc",
-  "homepage": "https://github.com/su-sws/decanter",
-  "keywords": [
-    "css",
-    "mixins",
-    "sass",
-    "scss"
-  ],
-  "license": "GPLV2",
-  "name": "decanter",
-  "optionalDependencies": {},
-  "readme": "#[Decanter](https://github.com/SU-SWS/decanter)\n##### Version: 0.0.0\n\nMaintainers: [kgcreative](https://github.com/kgcreative), [sherakama](https://github.com/sherakama)  \n\nChangelog: [CHANGELOG.md](CHANGELOG.md)\n\nDescription\n---\n\nDecanter is a collection of SASS and CSS patterns that you can include in any project. This project is based off of bourbon, neat, and bitters.\nThe goal of this project is to generic css patterns that you can use in any of your projects.\n\nAccessibility\n---\n[![WCAG Conformance 2.0 AA Badge](https://www.w3.org/WAI/wcag2AA-blue.png)](https://www.w3.org/TR/WCAG20/)\nEvaluation Date: 201X-XX-XX  \nThis project conforms to level AA WCAG 2.0 standards as required by the university's accessibility policy. For more information on the policy please visit: [https://ucomm.stanford.edu/policies/accessibility-policy.html](https://ucomm.stanford.edu/policies/accessibility-policy.html).\n\nInstallation\n---\n\nYou can require this project as part of your project through NPM.\n\n```\nnpm install su-sws/decanter --save-dev\n```\n\nIf you are using a node based compiler you can tell the sass compiler to look\nin to node_modules when using @import statements. Please see:\n[https://github.com/sass/node-sass#includepaths](https://github.com/sass/node-sass#includepaths)\n\nGrunt Example:\n```javascript\nmodule.exports = function(grunt) {\n  grunt.initConfig({\n    sass: {\n      // This will compile all of our sass files\n      // Additional configuration options can be found at https://github.com/sindresorhus/grunt-sass\n      options: {\n        includePaths: [\n          \"node_modules/bourbon/core\",\n          \"node_modules/bourbon-neat/core\",\n          \"node_modules/decanter/core\", // <-- this one will allow you to import decanter.\n          \"node_modules\"\n        ],\n        sourceMap: true,\n        // This controls the compiled css and can be changed to nested, compact or compressed.\n        outputStyle: 'expanded',\n        precision: 5\n      },\n      dist: {\n        files: {\n          'css/my-stylesheet.css': 'scss/my-sass-sheet.scss'\n        }\n      }\n    }\n  })\n};\n```\n\nThen in your sass files you can import any part of the project.\n\nExample:\n\n```sass\n  // Everything.\n  @import \"decanter/main\";\n\n  // Just a component.\n  @import \"decanter/components/my-component\";\n```\n\nConfiguration\n---\n\nPlease see [docs/CONFIGURATION.md](docs/CONFIGURATION.md) document.\n\n\nTroubleshooting\n---\n\nIf you are experiencing issues with this please have a look at the examples section first. If the examples fail to provide you the answer you are looking for please have a visit to the Github issue tracker. The issue tracker is not a personal support queue but rather, a place to post reproducible bugs.\n\nDeveloper\n---\n\nIf you wish to contribute to this project please see the [CONTRIBUTING.md](CONTRIBUTING.md) document for more information.\n\nThe development standards and best practices can be found in the (docs)[docs] section.  \n",
-  "readmeFilename": "README.md",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/su-sws/decanter.git"
-  },
-  "version": "0.1.0-alpha1"
+  "optionalDependencies": {}
 }
