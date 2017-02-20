@@ -92,6 +92,7 @@ module.exports = function(grunt) {
           "node_modules/bourbon/core",
           "node_modules/bourbon-neat/core",
           "node_modules/font-awesome/scss",
+          "node_modules/decanter/core",
           "node_modules"
         ],
         sourceMap: true,
