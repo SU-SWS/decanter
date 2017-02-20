@@ -8,35 +8,3 @@
 // component’s structure to be “swappable”, and omitting these entirely should
 // not break the component’s functionality or basic usability.
 //
-
-//@import "../config/config";
-//@import "../config/grid-settings";
-
-$neat-grid: (
-  gutter: 2rem,
-  columns: 12,
-);
-
-@import "neat";
-
-#header,
-#main,
-#footer {
-  margin-left: auto;
-  margin-right: auto;
-  width: 1200px;
-}
-
-body > * > .container {
-  @include grid-container;
-}
-
-.block-stanford-basic-branding {
-  @include grid-column(3);
-  background: #BADA55;
-}
-
-nav.menu--main {
-  @include grid-column(12 of 12);
-  background: #55ADAB;
-}
