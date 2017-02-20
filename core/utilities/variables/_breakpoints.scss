@@ -1,0 +1,89 @@
+@charset 'UTF-8';
+
+////
+/// Breakpoints
+////
+
+/// Max-container width, including horizontal gutters. This is also used to generate our XL breakpoint.
+/// @type length (with unit)
+///
+/// @group settings
+$max-width: 1200px !default;
+
+// Breakpoint Boundaries
+// @type length
+// These correspond to the Bootstrap 4 Responsive Breakpoints
+
+// Lower boundaries
+// ----------------
+
+/// Screen XS Min
+$screen-xs-min:               0px !default;
+
+/// Screen SM Min
+$screen-sm-min:               576px !default;
+
+/// Screen MD Min
+$screen-md-min:               768px !default;
+
+/// Screen LG Min
+$screen-lg-min:               992px !default;
+
+/// Screen XL Min
+$screen-xl-min:               $max-width !default;
+
+// Upper boundaries
+// ----------------
+
+/// Screen XS Max
+$screen-xs-max:               $screen-sm-min - 1px !default;
+
+/// Screen SM Max
+$screen-sm-max:               $screen-md-min - 1px !default;
+
+/// Screen MD Max
+$screen-md-max:               $screen-lg-min - 1px !default;
+
+/// Screen LG Max
+$screen-lg-max:               $screen-xl-min - 1px !default;
+
+
+/// Media query mixin. Uses breakpoints map to access individual breakpoints.
+/// @author Kevin Garcia
+/// @param {String} Named media query, or min-width if named media query fails
+/// @param {String} Optional max-width when named media query fails.
+///
+/// Programatic breakpoint map.
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are long-form breakpoint definitions as strings. in mixins.
+/// Use with mixin @include media($_query) { @content }
+$breakpoints: (
+    xs-only:       (min: null,            max: $screen-xs-max,  media: 'screen'),
+    xs-max:        (min: null,            max: $screen-xs-max,  media: 'screen'),
+
+    sm-min:        (min: $screen-sm-min,  max: null,            media: 'screen'),
+    sm-up:         (min: $screen-sm-min,  max: null,            media: 'screen'),
+    sm-only:       (min: $screen-sm-min,  max: $screen-sm-max,  media: 'screen'),
+    sm-to-md:      (min: $screen-sm-min,  max: $screen-md-max,  media: 'screen'),
+    sm-to-lg:      (min: $screen-sm-min,  max: $screen-lg-max,  media: 'screen'),
+    sm-max:        (min: null,            max: $screen-sm-max,  media: 'screen'),
+
+    md-min:        (min: $screen-md-min,  max: null,            media: 'screen'),
+    md-up:         (min: $screen-md-min,  max: null,            media: 'screen'),
+    md-only:       (min: $screen-md-min,  max: $screen-md-max,  media: 'screen'),
+    md-to-lg:      (min: $screen-md-min,  max: $screen-lg-max,  media: 'screen'),
+    md-max:        (min: null,            max: $screen-md-max,  media: 'screen'),
+
+    lg-min:        (min: $screen-lg-min,  max: null,            media: 'screen'),
+    lg-up:         (min: $screen-lg-min,  max: null,            media: 'screen'),
+    lg-only:       (min: $screen-lg-min,  max: $screen-lg-max,  media: 'screen'),
+    lg-max:        (min: null,            max: $screen-lg-max,  media: 'screen'),
+
+    xl-min:        (min: $screen-xl-min,  max: null,            media: 'screen'),
+    xl-up:         (min: $screen-xl-min,  max: null,            media: 'screen'),
+    xl-only:       (min: $screen-xl-min,  max: null,            media: 'screen'),
+    xl:            (min: $screen-xl-min,  max: null,            media: 'screen'),
+
+    screen:        (min: null,            max: null,            media: 'only screen'),
+    print:         (min: null,            max: null,            media: 'only print'),
+)!default;

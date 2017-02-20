@@ -1,43 +1,12 @@
-/// Media query mixin. Uses breakpoints map to access individual breakpoints.
-/// @author Kevin Garcia
-/// @param {String} Named media query, or min-width if named media query fails
-/// @param {String} Optional max-width when named media query fails.
+@charset 'UTF-8';
 
-/// Programatic breakpoint map.
-/// @prop {String} keys - Keys are identifiers mapped to a given length
-/// @prop {Map} values - Values are long-form breakpoint definitions as strings. in mixins.
-/// Use with mixin @include media($_query) { @content }
-$breakpoints: (
-    xs-only:       (min: null,            max: $screen-xs-max,  media: 'screen'),
-    xs-max:        (min: null,            max: $screen-xs-max,  media: 'screen'),
+////
+/// File level comment.
+////
 
-    sm-min:        (min: $screen-sm-min,  max: null,            media: 'screen'),
-    sm-up:         (min: $screen-sm-min,  max: null,            media: 'screen'),
-    sm-only:       (min: $screen-sm-min,  max: $screen-sm-max,  media: 'screen'),
-    sm-to-md:      (min: $screen-sm-min,  max: $screen-md-max,  media: 'screen'),
-    sm-to-lg:      (min: $screen-sm-min,  max: $screen-lg-max,  media: 'screen'),
-    sm-max:        (min: null,            max: $screen-sm-max,  media: 'screen'),
-
-    md-min:        (min: $screen-md-min,  max: null,            media: 'screen'),
-    md-up:         (min: $screen-md-min,  max: null,            media: 'screen'),
-    md-only:       (min: $screen-md-min,  max: $screen-md-max,  media: 'screen'),
-    md-to-lg:      (min: $screen-md-min,  max: $screen-lg-max,  media: 'screen'),
-    md-max:        (min: null,            max: $screen-md-max,  media: 'screen'),
-
-    lg-min:        (min: $screen-lg-min,  max: null,            media: 'screen'),
-    lg-up:         (min: $screen-lg-min,  max: null,            media: 'screen'),
-    lg-only:       (min: $screen-lg-min,  max: $screen-lg-max,  media: 'screen'),
-    lg-max:        (min: null,            max: $screen-lg-max,  media: 'screen'),
-
-    xl-min:        (min: $screen-xl-min,  max: null,            media: 'screen'),
-    xl-up:         (min: $screen-xl-min,  max: null,            media: 'screen'),
-    xl-only:       (min: $screen-xl-min,  max: null,            media: 'screen'),
-    xl:            (min: $screen-xl-min,  max: null,            media: 'screen'),
-
-    screen:        (min: null,            max: null,            media: 'only screen'),
-    print:         (min: null,            max: null,            media: 'only print'),
-)!default;
-
+///
+/// Media Mixin
+/// 
 @mixin media($_min: screen, $_max: null, $_media: 'screen') {
 
   @if map-has-key($breakpoints, $_min) {

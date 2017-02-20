@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+////
+/// Colors
+////
+
+/// This variable is a sass map that overrides our generic color map.
+/// Use this to define your project's color palette.
+///
+/// @type map
+///
+/// @group settings
+///
+/// @name Colors
+///
+/// @property {color} color [null]
+///   The color value retrieved by the color function
+///
+/// @example scss
+///   $colors: (
+///     brand: #8c1515,
+///     text: #333,
+///     link: #ff4136,
+///     link-hover: 82121B,
+///     red: #ff4136,
+///   );
+$colors: (
+  // Decanter Colors
+    brand:                        #004fdc,
+    action:                       #004991,
+    action-active:                #005ddc,
+    background:                   #fff,
+    background-secondary:         #ddd,
+    border:                       #999,
+    text:                         #112,
+    text-active:                  #808080,
+    reverse-text:                 #fff,
+    reverse-text-active:          #dceefe,
+) !default;
+
+/// Custom Colors Map
+/// If you would like to have multiple color palettes in a single project, you can do
+/// this by defining a new map stored within a variable of your choosing. This
+/// variable can then be passed directly to the color() function, such as
+/// `color(red, $my-custom-colors)`.
+///
+/// @type map
+///
+/// @group settings
+///
+/// @name Custom color palettes
+///
+/// @property {color} color [null]
+///   The color value retrieved by the color function
+///
+/// @example scss
+///   $my-custom-palette: (
+///     brand: #ff4136,
+///     text: #333,
+///     action: #ff4136,
+///     action-hover: 82121B,
+///     red: #ff4136,
+///   );
+$custom-colors: () !default;

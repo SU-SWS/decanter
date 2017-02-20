@@ -1,0 +1,28 @@
+@charset 'UTF-8';
+
+////
+/// NEEDS DESCRIPTION
+////
+
+$colors: () !default;
+
+/// Return a color from the color map.
+///
+/// @group core functions
+///
+/// @name color
+///
+/// @argument {map} $color-palette
+///
+/// @argument {string} $color
+///
+/// @return {string} color hex value
+///
+/// @example scss
+///   background-color: color(white);
+///
+/// @example css
+///   background-color: #fff;
+@function color($color: null, $palette: $colors) {
+  @return retrieve-color($color, $palette);
+}
