@@ -43,6 +43,15 @@ module.exports = function(grunt) {
         }
       }
     },
+    watch: {
+      css: {
+        files: ['examples/**/scss/**/*.scss'],
+        tasks: ['sass'],
+        options: {
+          interrupt: true
+        }
+      }
+    }
   });
 
   // This is where we tell Grunt we plan to use this plug-in.
@@ -50,6 +59,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sassdoc');
   grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-sass');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   // This is where we tell Grunt what to do when we type "grunt" into the terminal.
   grunt.registerTask('default', ['availabletasks']);

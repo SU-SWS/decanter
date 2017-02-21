@@ -6,8 +6,8 @@
 
 ///
 /// Media Mixin
-/// 
-@mixin media($_min: screen, $_max: null, $_media: 'screen') {
+///
+@mixin media($_min: screen, $_max: null, $breakpoints: (), $_media: 'screen') {
 
   @if map-has-key($breakpoints, $_min) {
 
