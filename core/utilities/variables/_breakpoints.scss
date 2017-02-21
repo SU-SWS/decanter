@@ -43,8 +43,10 @@ $screen-lg-max:               $screen-xl-min - 1px !default;
 
 /// Custom neat grids:
 
-/// Media XS
-$media-xs: (
+/// Custom neat grids:
+
+/// Media XS only
+$media-xs-only: (
     columns: 6,
     media: 'only screen and (max-width: #{$screen-xs-max})',
 );
@@ -52,20 +54,58 @@ $media-xs: (
 /// Media SM
 $media-sm: (
     columns: 12,
+    media: $screen-sm-min,
+);
+
+/// Media SM only
+$media-sm-only: (
+    columns: 12,
     media: 'only screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})',
+);
+
+/// Media SM max
+$media-sm-max: (
+    columns: 12,
+    media: 'only screen and (max-width: #{$screen-sm-max})',
 );
 
 /// Media MD
 $media-md: (
     columns: 12,
+    media: $screen-md-min,
+);
+
+/// Media MD only
+$media-md-only: (
+    columns: 12,
     media: 'only screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})',
+);
+
+/// Media MD max
+$media-md-max: (
+    columns: 12,
+    media: 'only screen and (max-width: #{$screen-md-max})',
 );
 
 /// Media LG
 $media-lg: (
     columns: 12,
     gutter: 30px,
+    media: $screen-lg-min,
+);
+
+/// Media LG only
+$media-lg-only: (
+    columns: 12,
+    gutter: 30px,
     media: 'only screen and (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max})',
+);
+
+/// Media LG max
+$media-lg-max: (
+    columns: 12,
+    gutter: 30px,
+    media: 'only screen and (max-width: #{$screen-lg-max})',
 );
 
 /// Media XL
@@ -73,4 +113,11 @@ $media-xl: (
     columns: 12,
     gutter: 40px,
     media: $screen-xl-min,
+);
+
+/// Media print
+$media-print: (
+    columns: 12,
+    gutter: .25in,
+    media: 'only print',
 );
