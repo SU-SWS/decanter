@@ -1,0 +1,23 @@
+@charset 'UTF-8';
+
+////
+/// Centered Grid Container
+////
+
+@mixin centered-container($breakpoints) {
+  @include grid-container;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include media("sm-min", null, $breakpoints) {
+    width: 600px;
+  }
+
+  @include media("md-min", null, $breakpoints) {
+    width: 780px;
+  }
+
+  @include media("lg-min", null, $breakpoints) {
+    width: 1000px;
+  }
+}
