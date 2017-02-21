@@ -14,8 +14,8 @@
 @function set-container-padding
 (
   $_cols: $grid-columns,
-  $_v-space: $gutter * 2,
-  $_h-space: $gutter,
+  $_v-space: modular-scale(1),
+  $_h-space: _retrieve-neat-setting($neat-grid, gutter),
   $_include-max-width: false
 )
 {
