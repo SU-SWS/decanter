@@ -1,10 +1,10 @@
+@charset "UTF-8";
 ////
 /// This file contains Site-wide typography base styles.
 /// @group html
 ////
 
-@charset "UTF-8";
-@import '../utilities/settings/settings';
+// @import '../utilities/settings/settings';
 
 /// Body font styles.
 /// @require {function} color
@@ -14,7 +14,7 @@
 body {
   color: color(text);
   font-family: $base-font-family;
-  @include font-size(18px, 10px);
+  @include font-size($base-font-size, $root-font-size);
   line-height: $base-line-height;
 }
 

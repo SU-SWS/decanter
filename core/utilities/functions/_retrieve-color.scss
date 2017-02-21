@@ -1,5 +1,13 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
+////
+/// File comment here
+////
+
+
+///
+/// Retrieve Color Function comment
+///
 @function retrieve-color($color, $palette) {
   $_default-color-palette: map-merge((
     // Unbranded, default color palette
@@ -44,25 +52,4 @@
   ), $colors);
   $_color-palette: map-merge($_default-color-palette, $palette);
   @return map-get($_color-palette, $color);
-}
-
-/// Return a color from the color map.
-///
-/// @group core functions
-///
-/// @name color
-///
-/// @argument {map} $color-palette
-///
-/// @argument {string} $color
-///
-/// @return {string} color hex value
-///
-/// @example scss
-///   background-color: color(white);
-///
-/// @example css
-///   background-color: #fff;
-@function color($color: null, $palette: $colors) {
-  @return retrieve-color($color, $palette);
 }

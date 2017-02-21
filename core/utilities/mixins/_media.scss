@@ -1,0 +1,60 @@
+@charset 'UTF-8';
+
+////
+/// File level comment.
+////
+
+///
+/// Media Mixin
+///
+@mixin media($_min: screen, $_max: null, $breakpoints: (), $_media: 'screen') {
+
+  @if map-has-key($breakpoints, $_min) {
+
+    // Create a map of the properties from the breakpoint
+    $_breakpoint: map-get($breakpoints, $_min);
+
+    // map local variables to breakpoint map
+    $__min:       map-get($_breakpoint, min);
+    $__max:       map-get($_breakpoint, max);
+    $__media:     map-get($_breakpoint, media);
+
+    @if ($__min) and ($__max) and ($__media) {
+      @media #{$__media} and (min-width: #{$__min}) and (max-width: #{$__max}) {
+        @content
+      }
+    } @elseif ($__media) and ($__min) and ($__max) == null {
+      @media #{$__media} and (min-width: #{$__min}) {
+        @content
+      }
+    } @elseif ($__min == null) and ($__max) and ($__media) {
+      @media #{$__media} and (max-width: #{$__max}) {
+        @content
+      }
+    } @elseif ($__min == null) and ($__max == null) and ($__media) {
+      @media #{$__media} {
+        @content
+      }
+    }
+
+  } @else {
+
+    @if ($_max) and ($_min) and ($_media) {
+      @media #{$_media} and (min-width: $_min) and (max-width: $_max) {
+        @content;
+      }
+    } @else if ($_min) and ($_max) == null and ($_media) {
+      @media #{$_media} and (min-width: $_min) {
+        @content;
+      }
+    } @else if ($_min) == null and ($_max) and ($_media) {
+      @media #{$_media} and (max-width: $_max) {
+        @content;
+      }
+    } @else if ($_min) == null and ($_max) == null and ($_media) {
+      @media #{$_media} {
+        @content;
+      }
+    }
+  }
+}

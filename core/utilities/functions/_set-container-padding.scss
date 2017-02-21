@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+// ========================================================
+// function set-container-padding()
+//
+// This function is called by the centered-section mixin.
+// It's important to note that the intended use of this,
+// along with the companion set-container-margin function
+// is to modify a container that occupies the entire width
+// of the browser, and not a nested container with it's own
+// margin.
+// ========================================================
+
+@function set-container-padding
+(
+  $_cols: $grid-columns,
+  $_v-space: modular-scale(1),
+  $_h-space: _retrieve-neat-setting($neat-grid, gutter),
+  $_include-max-width: false
+)
+{
+
+  //Checks to see if we need to add a max-width.
+  @if $_include-max-width == false
+  {
+    // Checks to see if we need to calculate a gutter
+    @if $grid-columns >= $_cols {
+
+      $_multiplier: $grid-columns - $_cols;
+      @return $_v-space calc(((100vw/24) * #{$_multiplier}) + #{$_h-space});
+
+    } @else {
+
+      @return $_v-space $_h-space;
+
+    }
+
+  } @else if type_of($_include-max-width) == number {
+    $_container-width: px(($_include-max-width / 24) * $_cols);
+    @return $_v-space calc(50vw - #{$_container-width} + #{$_h-space});
+  } @else if ($_include-max-width == true) {
+    $_container-width: px(($max-width / 24) * $_cols);
+    @return $_v-space calc(50vw - #{$_container-width} + #{$_h-space});
+  }
+}

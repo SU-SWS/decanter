@@ -1,6 +1,6 @@
 // ____________________________________________________________________________
 //
-//    Unit Conversion v.2.1.2
+//    Unit Conversion v.2.1.3
 //    https://github.com/jakob-e/unitconversion
 // ____________________________________________________________________________
 //
@@ -63,6 +63,7 @@
 
 // Base font size in pixel for converting em and rem to absolute lengths.
 $root-font-size: 16px !default;
+$base-font-size: $root-font-size !default;
 
 
 // Absolute lengths
@@ -92,7 +93,7 @@ $root-font-size: 16px !default;
 @function hz($input){ @return to-unit(hz, $input);}
 @function khz($input){ @return to-unit(khz, $input); }
 
-/// Convert unites to relative lengths.
+// Relative lengths
 @function em($input...){
   $em: to-unit(em, nth($input,1));
   // Adjust for compounds (visual size)
@@ -103,7 +104,7 @@ $root-font-size: 16px !default;
   }
   @return $em;
 }
-@function rem($input){ @return to-unit(rem, num(em($input))); }
+@function rem($input){ @return to-unit(rem, $input); }
 
 // Inconvertible relative lengths – depends on font
 @function ex($input){ @return to-unit(ex, $input); }
@@ -139,14 +140,14 @@ $root-font-size: 16px !default;
 @function to-unit($unit, $input){
   // Test against valid CSS units
   $to-unit: map-get((
-          px: 0px, pt: 0pt, pc: 0pc, in: 0in, mm: 0mm, cm: 0cm, // absolute length
-          em: 0em, rem: 0rem, ch: 0ch, ex: 0ex,                 // relative length - font based
-          vw: 0vw, vh: 0vh, vmin: 0vmin, vmax: 0vmax,           // relative length - viewport based
-          deg: 0deg, turn: 0turn, grad: 0grad, rad: 0rad,       // angle
-          s: 0s, ms: 0ms,                                       // time
-          hz: 0Hz, khz: 0kHz,                                   // frequency
-          dpi: 0dpi, dpcm: 0dpcm, dppx: 0dppx,                  // resolution
-          pct: 0%, percent: 0%, num: 0, number: 0               // percent or number
+      px: 0px, pt: 0pt, pc: 0pc, in: 0in, mm: 0mm, cm: 0cm, // absolute length
+      em: 0em, rem: 0rem, ch: 0ch, ex: 0ex,                 // relative length - font based
+      vw: 0vw, vh: 0vh, vmin: 0vmin, vmax: 0vmax,           // relative length - viewport based
+      deg: 0deg, turn: 0turn, grad: 0grad, rad: 0rad,       // angle
+      s: 0s, ms: 0ms,                                       // time
+      hz: 0Hz, khz: 0kHz,                                   // frequency
+      dpi: 0dpi, dpcm: 0dpcm, dppx: 0dppx,                  // resolution
+      pct: 0%, percent: 0%, num: 0, number: 0               // percent or number
   ), $unit);
 
   // Error handling – wrong $unit
@@ -161,11 +162,20 @@ $root-font-size: 16px !default;
     $value: num($input);
   }
 
-  // EM/REM convertion using px as base
-  @if index(em rem, unit($input)) {
+  // EM convertion using px as base
+  @if index(em, unit($input)) {
+    $input: 0px + num($input) * $base-font-size/1px;
+  }
+  @if index(em, $unit) and not unitless($input) {
+    $input: 0px + px($input);
+    $input: num($input) * 1px/$base-font-size;
+  }
+
+  // REM convertion using px as base
+  @if index(rem, unit($input)) {
     $input: 0px + num($input) * $root-font-size/1px;
   }
-  @if index(em rem, $unit) and not unitless($input) {
+  @if index(rem, $unit) and not unitless($input) {
     $input: 0px + $input;
     $input: num($input) * 1px/$root-font-size;
   }

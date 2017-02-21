@@ -1,10 +1,11 @@
+@charset "UTF-8";
+
 ////
 /// Box model default styles.
 /// @group html
 ////
 
-@charset "UTF-8";
-@import '../utilities/settings/settings';
+// @import '../utilities/settings/settings';
 
 // Set up a decent box model on the root element.
 html {
@@ -24,5 +25,5 @@ html {
 /// @require {function} em Relative unit function
 /// @require {variable} $base-font-size Base font size
 body {
-  font-size: em($base-font-size, 10px);
+  @include font-size($base-font-size, $root-font-size);
 }
