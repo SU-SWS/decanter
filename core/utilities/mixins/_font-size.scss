@@ -7,15 +7,14 @@
 ///
 /// Function font-size
 ///
+
+@import '../functions/unitconversion';
+
 @mixin font-size($_size: $base-font-size, $_base: null) {
   @if $_base == null {
     font-size: em($_size);
   } @else {
-    $_desired: strip-unit(px($_size));
-    $_multiplier: strip-unit(px($_base));
-    $_ratio:  $_desired / $_multiplier;
-    $_output: $_desired * $_ratio * 1px;
-
-    font-size: em($_output);
+    font-size: em($_size, $_base);
   }
 }
+
