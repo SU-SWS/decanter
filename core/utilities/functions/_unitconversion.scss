@@ -1,6 +1,6 @@
 // ____________________________________________________________________________
 //
-//    Unit Conversion v.2.1.2
+//    Unit Conversion v.2.1.3
 //    https://github.com/jakob-e/unitconversion
 // ____________________________________________________________________________
 //
@@ -62,7 +62,8 @@
 // ____________________________________________________________________________
 
 // Base font size in pixel for converting em and rem to absolute lengths.
-$base-font-size: 16px !default;
+$root-font-size: 16px !default;
+$base-font-size: $root-font-size !default;
 
 
 // Absolute lengths
@@ -103,7 +104,7 @@ $base-font-size: 16px !default;
   }
   @return $em;
 }
-@function rem($input){ @return to-unit(rem, num(em($input))); }
+@function rem($input){ @return to-unit(rem, $input); }
 
 // Inconvertible relative lengths – depends on font
 @function ex($input){ @return to-unit(ex, $input); }
@@ -161,13 +162,22 @@ $base-font-size: 16px !default;
     $value: num($input);
   }
 
-  // EM/REM convertion using px as base
-  @if index(em rem, unit($input)) {
+  // EM convertion using px as base
+  @if index(em, unit($input)) {
     $input: 0px + num($input) * $base-font-size/1px;
   }
-  @if index(em rem, $unit) and not unitless($input) {
-    $input: 0px + $input;
+  @if index(em, $unit) and not unitless($input) {
+    $input: 0px + px($input);
     $input: num($input) * 1px/$base-font-size;
+  }
+
+  // REM convertion using px as base
+  @if index(rem, unit($input)) {
+    $input: 0px + num($input) * $root-font-size/1px;
+  }
+  @if index(rem, $unit) and not unitless($input) {
+    $input: 0px + $input;
+    $input: num($input) * 1px/$root-font-size;
   }
 
   // Bug fix – resolution units seems to be flipped

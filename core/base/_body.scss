@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+////
+/// Root html element styles for the body and main elements.
+////
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+// We rely on source order for mobile-first approach
+// in this case:
+//
+//  -50   header
+//  -40   nav
+//    1   main
+//   50   footer
+//
+
+body > header { order: -50; }
+body > nav { order: -40; }
+body > main { order: 1; }
+body > footer { order: 50; }
+
+main {
+  overflow: hidden;
+  background-color: color(background);
+  flex: 1;
+
+  @media print {
+    background: transparent;
+  }
+}

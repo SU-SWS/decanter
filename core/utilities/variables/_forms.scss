@@ -1,0 +1,13 @@
+@charset 'UTF-8';
+
+////
+/// Forms
+////
+
+/// Form box shadow default.
+/// @requires {function} rbga
+/// @requires {function} color
+$form-box-shadow: inset 0 1px 3px rgba(color(black), 0.06) !default;
+
+/// Form box shadow focus default.
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px adjust-color(color(blue), $lightness: -5%, $alpha: -0.3) !default;

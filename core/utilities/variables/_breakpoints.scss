@@ -1,0 +1,123 @@
+@charset 'UTF-8';
+
+////
+/// Breakpoints
+////
+
+// Breakpoint Boundaries
+// @type length
+// These correspond to the Bootstrap 4 Responsive Breakpoints
+
+// Lower boundaries
+// ----------------
+
+/// Screen XS Min
+$screen-xs-min:               0px !default;
+
+/// Screen SM Min
+$screen-sm-min:               576px !default;
+
+/// Screen MD Min
+$screen-md-min:               768px !default;
+
+/// Screen LG Min
+$screen-lg-min:               992px !default;
+
+/// Screen XL Min
+$screen-xl-min:               $max-width !default;
+
+// Upper boundaries
+// ----------------
+
+/// Screen XS Max
+$screen-xs-max:               $screen-sm-min - 1px !default;
+
+/// Screen SM Max
+$screen-sm-max:               $screen-md-min - 1px !default;
+
+/// Screen MD Max
+$screen-md-max:               $screen-lg-min - 1px !default;
+
+/// Screen LG Max
+$screen-lg-max:               $screen-xl-min - 1px !default;
+
+/// Custom neat grids:
+
+/// Custom neat grids:
+
+/// Media XS only
+$media-xs-only: (
+    columns: 6,
+    media: 'only screen and (max-width: #{$screen-xs-max})',
+);
+
+/// Media SM
+$media-sm: (
+    columns: 12,
+    media: $screen-sm-min,
+);
+
+/// Media SM only
+$media-sm-only: (
+    columns: 12,
+    media: 'only screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})',
+);
+
+/// Media SM max
+$media-sm-max: (
+    columns: 12,
+    media: 'only screen and (max-width: #{$screen-sm-max})',
+);
+
+/// Media MD
+$media-md: (
+    columns: 12,
+    media: $screen-md-min,
+);
+
+/// Media MD only
+$media-md-only: (
+    columns: 12,
+    media: 'only screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})',
+);
+
+/// Media MD max
+$media-md-max: (
+    columns: 12,
+    media: 'only screen and (max-width: #{$screen-md-max})',
+);
+
+/// Media LG
+$media-lg: (
+    columns: 12,
+    gutter: 30px,
+    media: $screen-lg-min,
+);
+
+/// Media LG only
+$media-lg-only: (
+    columns: 12,
+    gutter: 30px,
+    media: 'only screen and (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max})',
+);
+
+/// Media LG max
+$media-lg-max: (
+    columns: 12,
+    gutter: 30px,
+    media: 'only screen and (max-width: #{$screen-lg-max})',
+);
+
+/// Media XL
+$media-xl: (
+    columns: 12,
+    gutter: 40px,
+    media: $screen-xl-min,
+);
+
+/// Media print
+$media-print: (
+    columns: 12,
+    gutter: .25in,
+    media: 'only print',
+);
