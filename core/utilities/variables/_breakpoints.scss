@@ -43,81 +43,107 @@ $screen-lg-max:               $screen-xl-min - 1px !default;
 
 /// Custom neat grids:
 
-/// Custom neat grids:
-
 /// Media XS only
 $media-xs-only: (
     columns: 6,
     media: 'only screen and (max-width: #{$screen-xs-max})',
-);
+) !default;
 
 /// Media SM
 $media-sm: (
     columns: 12,
     media: $screen-sm-min,
-);
+) !default;
 
 /// Media SM only
 $media-sm-only: (
     columns: 12,
     media: 'only screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})',
-);
+) !default;
 
 /// Media SM max
 $media-sm-max: (
     columns: 12,
     media: 'only screen and (max-width: #{$screen-sm-max})',
-);
+) !default;
 
 /// Media MD
 $media-md: (
     columns: 12,
     media: $screen-md-min,
-);
+) !default;
 
 /// Media MD only
 $media-md-only: (
     columns: 12,
     media: 'only screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})',
-);
+) !default;
 
 /// Media MD max
 $media-md-max: (
     columns: 12,
     media: 'only screen and (max-width: #{$screen-md-max})',
-);
+) !default;
 
 /// Media LG
 $media-lg: (
     columns: 12,
     gutter: 30px,
     media: $screen-lg-min,
-);
+) !default;
 
 /// Media LG only
 $media-lg-only: (
     columns: 12,
     gutter: 30px,
     media: 'only screen and (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max})',
-);
+) !default;
 
 /// Media LG max
 $media-lg-max: (
     columns: 12,
     gutter: 30px,
     media: 'only screen and (max-width: #{$screen-lg-max})',
-);
+) !default;
 
 /// Media XL
 $media-xl: (
     columns: 12,
     gutter: 40px,
     media: $screen-xl-min,
-);
+) !default;
 
 /// Media print
 $media-print: (
     columns: 12,
     gutter: .25in,
     media: 'only print',
-);
+) !default;
+
+/// Sections map. Used by the Centered Section Mixin. Dependent on media queries.
+$sections: (
+    content: (
+        screen-xs: ( columns: 12, max-width: false, grid-media: $media-xs-only ),
+        screen-sm: ( columns: 9, max-width: false, grid-media: $media-sm-only ),
+        screen-md: ( columns: 8, max-width: false, grid-media: $media-md-only ),
+        screen-lg: ( columns: 7.5, max-width: false, grid-media: $media-lg-only ),
+        screen-xl: ( columns: 7, max-width: true, grid-media: $media-xl ),
+        print: ( columns: 12, max-width: true, grid-media: $media-print),
+    ),
+    full: (
+        screen-xs: ( columns: 12, max-width: false, grid-media: $media-xs-only ),
+        screen-sm: ( columns: 12, max-width: false, grid-media: $media-sm-only ),
+        screen-md: ( columns: 12, max-width: false, grid-media: $media-md-only ),
+        screen-lg: ( columns: 12, max-width: false, grid-media: $media-lg-only ),
+        screen-xl: ( columns: 12, max-width: true, grid-media: $media-xl ),
+        print: ( columns: 12, max-width: true, grid-media: $media-print),
+    ),
+    edge-to-edge: (
+        screen-xs: ( columns: 12, max-width: false, grid-media: $media-xs-only ),
+        screen-sm: ( columns: 12, max-width: false, grid-media: $media-sm-only ),
+        screen-md: ( columns: 12, max-width: false, grid-media: $media-md-only ),
+        screen-lg: ( columns: 12, max-width: false, grid-media: $media-lg-only ),
+        screen-xl: ( columns: 12, max-width: false, grid-media: $media-xl ),
+        print: ( columns: 12, max-width: false, grid-media: $media-print),
+    ),
+) !default;
