@@ -42,6 +42,7 @@ module.exports = function(grunt) {
         files: {
           'examples/css/index.css': 'examples/scss/index.scss',
           'examples/layout/one-column-centered/css/one-column-centered.css': 'examples/layout/one-column-centered/scss/one-column-centered.scss',
+          'examples/layout/two-column-centered/css/two-column-centered.css': 'examples/layout/two-column-centered/scss/two-column-centered.scss'
         }
       }
     },
