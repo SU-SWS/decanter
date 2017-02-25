@@ -3,7 +3,7 @@
 /// Creates a wrapper-less centered section using padding
 /// centered-section mixin
 @mixin centered-section(
-  $_cols: full,
+  $_section,
   $_grid: (),
   $_v-space: 1em,
   $_max-width: false,
@@ -11,20 +11,24 @@
 )
 {
   @include grid-container;
-  @if map-get($sections, $_cols) {
-    $section: map-get($sections, $_cols);
-    @each $breakpoint, $_map in $section {
-      @include grid-media(map-get($_map, grid-media)) {
-        $_gutter: _retrieve-neat-setting(map-get($_map, grid-media), gutter);
-        padding: set-container-padding(map-get($_map, columns), $_v-space, $_gutter, map-get($_map, max-width));
+
+    @each $breakpoint, $_map in $_section {
+
+      $_media: map-get($_map, grid-media);
+      $_cols: map-get($_map, columns);
+      $_max_width: map-get($_map, max-width);
+
+      @include grid-media($_media) {
+        padding: set-container-padding($_cols, $_v-space, $_grid, $_max_width);
         @if $_grid-collapse == true {
           @include grid-collapse;
         }
       }
+
     }
-  } @else if type-of($_cols) == number {
-    $_gutter: _retrieve-neat-setting($_grid, gutter);
-    padding: set-container-padding($_cols, $_v-space, $_gutter, $_max-width);
+
+  if type-of($_cols) == number {
+    padding: set-container-padding($_cols, $_v-space, $_grid, $_max-width);
     @if $_grid-collapse == true {
       @include grid-collapse;
     }

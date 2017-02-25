@@ -3990,13 +3990,48 @@ hr {
 
 .layout-two-column-centered {
   background: #FDF;
-  padding: 1em calc(50vw - 600px + 20px);
 }
 
 .layout-two-column-centered::after {
   clear: both;
   content: "";
   display: block;
+}
+
+@media only screen and (max-width: 575px) {
+  .layout-two-column-centered {
+    padding: 1.25em calc(((100vw/24) * 0) + 20px);
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .layout-two-column-centered {
+    padding: 1.25em calc(((100vw/24) * 0) + 20px);
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .layout-two-column-centered {
+    padding: 1.25em calc(((100vw/24) * 0) + 20px);
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .layout-two-column-centered {
+    padding: 1.25em calc(((100vw/24) * 0) + 20px);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .layout-two-column-centered {
+    padding: 1.25em calc(50vw - 600px + 20px);
+  }
+}
+
+@media only print {
+  .layout-two-column-centered {
+    padding: 1.25em calc(50vw - 600px + 20px);
+  }
 }
 
 .layout-two-column-centered .layout-column-first,
