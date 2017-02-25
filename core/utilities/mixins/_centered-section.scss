@@ -22,8 +22,7 @@
         }
       }
     }
-  }
-  @else if type-of($_cols) == number {
+  } @else if type-of($_cols) == number {
     $_gutter: _retrieve-neat-setting($_grid, gutter);
     padding: set-container-padding($_cols, $_v-space, $_gutter, $_max-width);
     @if $_grid-collapse == true {
