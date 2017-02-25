@@ -1,10 +1,9 @@
 @charset 'UTF-8';
 
 ////
-/// NEEDS DESCRIPTION
+/// Do we need this function? Seems like we are just passing through?
 ////
 
-$colors: () !default;
 
 /// Return a color from the color map.
 ///
@@ -23,6 +22,6 @@ $colors: () !default;
 ///
 /// @example css
 ///   background-color: #fff;
-@function color($color: null, $palette: $colors) {
+@function color($color: null, $palette: null) {
   @return retrieve-color($color, $palette);
 }
