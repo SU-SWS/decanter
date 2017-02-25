@@ -12,12 +12,11 @@ $base-font-size: 36px;
 
   .layout-column-first,
   .layout-column-second  {
-      @include grid-column(6 of 12);
+    @include grid-column(6 of 12);
+    border: dashed 3px #0F0;
 
-      @include grid-media($media-xs-only) {
-        @include grid-column(1 of 1);
-      }
-
+    @include grid-media($media-xs-only) {
+      @include grid-column(1 of 1);
+    }
   }
-
 }
