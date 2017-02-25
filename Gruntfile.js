@@ -41,12 +41,17 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'examples/css/index.css': 'examples/scss/index.scss',
+          'examples/layout/one-column-centered/css/one-column-centered.css': 'examples/layout/one-column-centered/scss/one-column-centered.scss',
         }
       }
     },
     watch: {
       css: {
-        files: ['examples/**/scss/**/*.scss'],
+        files: [
+          'core/**/*.scss',
+          'examples/**/*.scss',
+          'examples/**/*.html'
+        ],
         tasks: ['sass'],
         options: {
           interrupt: true

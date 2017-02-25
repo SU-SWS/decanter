@@ -3543,7 +3543,7 @@ html {
 }
 
 body {
-  font-size: 1em;
+  font-size: 1.8em;
 }
 
 button, [type='button'], [type='reset'], [type='submit'] {
@@ -3559,7 +3559,7 @@ button, [type='button'], [type='reset'], [type='submit'] {
   -webkit-font-smoothing: antialiased;
   font-weight: inherit;
   line-height: 1.5;
-  padding: 0.375em 0.8em 0.4375em;
+  padding: 0.16667em 0.8em 0.19444em;
   text-align: center;
   text-decoration: none;
   user-select: none;
@@ -3708,8 +3708,8 @@ ol {
 }
 
 ol li {
-  padding-left: 0.25em;
-  margin-left: -0.25em;
+  padding-left: 0.11111em;
+  margin-left: -0.11111em;
 }
 
 ol ol {
@@ -3779,7 +3779,7 @@ th {
 body {
   color: #112;
   font-family: "Noto Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-  font-size: 1em;
+  font-size: 1.8em;
   line-height: 1.5;
 }
 
@@ -3839,7 +3839,7 @@ address {
 pre {
   background: #8a8a8a;
   font-family: "Source Code Pro", "Monaco", "Consolas", "Lucida Console", monospace;
-  font-size: 1em;
+  font-size: 0.44444em;
   line-height: 1.5;
   margin-bottom: 1.5625em;
   max-width: 100%;
@@ -3849,7 +3849,7 @@ pre {
 
 code, kbd, tt, var {
   font-family: "Source Code Pro", "Monaco", "Consolas", "Lucida Console", monospace;
-  font-size: 1em;
+  font-size: 0.44444em;
 }
 
 abbr, acronym {
@@ -3988,4 +3988,19 @@ hr {
   }
 }
 
-/*# sourceMappingURL=index.css.map */
+.layout-one-column-centered {
+  background: #FDF;
+  padding: 1em calc(50vw - 300px + 20px);
+}
+
+.layout-one-column-centered::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.layout-one-column-centered > * {
+  border: dashed 3px #0F0;
+}
+
+/*# sourceMappingURL=one-column-centered.css.map */
