@@ -12,25 +12,27 @@
 {
   @include grid-container;
 
-    @each $breakpoint, $_map in $_section {
+  @each $breakpoint, $_map in $_section {
 
-      $_media: map-get($_map, grid-media);
-      $_cols: map-get($_map, columns);
-      $_max_width: map-get($_map, max-width);
+    $_media: map-get($_map, grid-media);
+    $_cols: map-get($_map, columns);
+    $_max_width: map-get($_map, max-width);
 
-      @include grid-media($_media) {
-        padding: set-container-padding($_cols, $_v-space, $_grid, $_max_width);
-        @if $_grid-collapse == true {
-          @include grid-collapse;
-        }
+    @include grid-media($_media) {
+      padding: set-container-padding($_cols, $_v-space, $_grid, $_max_width);
+      @if $_grid-collapse == true {
+        @include grid-collapse;
       }
-
     }
 
-  if type-of($_cols) == number {
-    padding: set-container-padding($_cols, $_v-space, $_grid, $_max-width);
-    @if $_grid-collapse == true {
-      @include grid-collapse;
-    }
   }
+
+  // // In case the user wants to just send in cols.
+  // if type-of($_cols) == number {
+  //   padding: set-container-padding($_cols, $_v-space, $_grid, $_max-width);
+  //   @if $_grid-collapse == true {
+  //     @include grid-collapse;
+  //   }
+  // }
+
 }
