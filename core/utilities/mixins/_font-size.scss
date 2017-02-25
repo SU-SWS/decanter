@@ -10,11 +10,11 @@
 
 @import '../functions/unitconversion';
 
-@mixin font-size($_size: $base-font-size, $_base: null) {
+@mixin font-size($_size: 16px, $_base: null) {
   @if $_base == null {
     font-size: em($_size);
-  } @else {
+  }
+  @else {
     font-size: em($_size, $_base);
   }
 }
-
