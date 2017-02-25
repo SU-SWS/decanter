@@ -39,32 +39,32 @@
       }
     }
 
-    @include media(0, $screen-xs-max) {
+    @include grid-media($media-xs-only) {
       background-color: color(blue);
 
       &:after {
         content: "xs";
       }
     }
-    @include media($screen-sm-min, $screen-sm-max) {
+    @include grid-media($media-sm-only) {
       background-color: color(olive);
       &:after {
         content: "sm";
       }
     }
-    @include media($screen-md-min, $screen-md-max) {
+    @include grid-media($media-md-only) {
       background-color: color(orange);
       &:after {
         content: "md";
       }
     }
-    @include media($screen-lg-min, $screen-lg-max) {
+    @include grid-media($media-lg-only) {
       background-color: color(red);
       &:after {
         content: "lg";
       }
     }
-    @include media($screen-xl-min) {
+    @include grid-media($media-xl) {
       background-color: color(purple);
       &:after {
         content: "xl";
