@@ -21,14 +21,11 @@
 @mixin material-shadow( $_depth: medium ) {
   @if $_depth == 'flat' {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.05);
-  }
-  @else if $_depth == 'shallow' {
+  } @else if $_depth == 'shallow' {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.10), 2px 3px 6px 0px rgba(0,0,0,0.15);
-  }
-  @else if $_depth == 'medium' {
+  } @else if $_depth == 'medium' {
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.10), 4px 6px 8px 0px rgba(0,0,0,0.15);
-  }
-  @else if $_depth == 'deep'{
+  } @else if $_depth == 'deep'{
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.10), 8px 9px 10px 0px rgba(0,0,0,0.15);
   }
 }

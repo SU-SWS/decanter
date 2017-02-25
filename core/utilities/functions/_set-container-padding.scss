@@ -26,17 +26,14 @@
       $_multiplier: $grid-columns - $_cols;
       @return $_v-space calc(((100vw/24) * #{$_multiplier}) + #{$_gutter});
 
-    }
-    @else {
+    } @else {
       @return $_v-space $_gutter;
     }
 
-  }
-  @else if type_of($_max-width) == number {
+  } @else if type_of($_max-width) == number {
     $_container-width: px(($_max-width / 24) * $_cols);
     @return $_v-space calc(50vw - #{$_container-width} + #{$_gutter});
-  }
-  @else if ($_max-width == true) {
+  } @else if ($_max-width == true) {
     $_container-width: px(($max-width / 24) * $_cols);
     @return $_v-space calc(50vw - #{$_container-width} + #{$_gutter});
   }
