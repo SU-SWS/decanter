@@ -15,31 +15,29 @@
 (
   $_cols: $grid-columns,
   $_v-space: modular-scale(1),
-  $_h-space: _retrieve-neat-setting($neat-grid, gutter),
-  $_include-max-width: false
+  $_gutter: _retrieve-neat-setting($neat-grid, gutter),
+  $_max-width: false
 )
 {
 
   //Checks to see if we need to add a max-width.
-  @if $_include-max-width == false
+  @if $_max-width == false
   {
     // Checks to see if we need to calculate a gutter
     @if $grid-columns >= $_cols {
 
       $_multiplier: $grid-columns - $_cols;
-      @return $_v-space calc(((100vw/24) * #{$_multiplier}) + #{$_h-space});
+      @return $_v-space calc(((100vw/24) * #{$_multiplier}) + #{$_gutter});
 
     } @else {
-
-      @return $_v-space $_h-space;
-
+      @return $_v-space $_gutter;
     }
 
-  } @else if type_of($_include-max-width) == number {
-    $_container-width: px(($_include-max-width / 24) * $_cols);
-    @return $_v-space calc(50vw - #{$_container-width} + #{$_h-space});
-  } @else if ($_include-max-width == true) {
+  } @else if type_of($_max-width) == number {
+    $_container-width: px(($_max-width / 24) * $_cols);
+    @return $_v-space calc(50vw - #{$_container-width} + #{$_gutter});
+  } @else if ($_max-width == true) {
     $_container-width: px(($max-width / 24) * $_cols);
-    @return $_v-space calc(50vw - #{$_container-width} + #{$_h-space});
+    @return $_v-space calc(50vw - #{$_container-width} + #{$_gutter});
   }
 }

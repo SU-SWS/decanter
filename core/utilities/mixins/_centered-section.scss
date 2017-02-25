@@ -6,15 +6,11 @@
   $_cols: full,
   $_grid: $neat-grid,
   $_v-space: modular-scale(1),
-  $_include_max-width: false,
+  $_max-width: false,
   $_grid-collapse: false
 )
 {
   @include grid-container;
-
-  @if $_cols == edge-to-edge {
-    @include grid-collapse;
-  }
 
   @if map-get($sections, $_cols) {
 
@@ -23,16 +19,16 @@
     @each $breakpoint, $_map in $section {
 
       @include grid-media(map-get($_map, grid-media)) {
-        $_h-space: _retrieve-neat-setting(map-get($_map, grid-media), gutter);
-        padding: set-container-padding(map-get($_map, columns), $_v-space, $_h-space, map-get($_map, max-width));
+        $_gutter: _retrieve-neat-setting(map-get($_map, grid-media), gutter);
+        padding: set-container-padding(map-get($_map, columns), $_v-space, $_gutter, map-get($_map, max-width));
         @if $_grid-collapse == true {
           @include grid-collapse;
         }
       }
     }
   } @else if type-of($_cols) == number {
-    $_h-space: _retrieve-neat-setting($_grid, gutter);
-    padding: set-container-padding($_cols, $_v-space, $_h-space, $_include_max-width);
+    $_gutter: _retrieve-neat-setting($_grid, gutter);
+    padding: set-container-padding($_cols, $_v-space, $_gutter, $_max-width);
     @if $_grid-collapse == true {
       @include grid-collapse;
     }
