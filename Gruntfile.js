@@ -29,6 +29,7 @@ module.exports = function(grunt) {
           "node_modules/bourbon-neat/core",
           "node_modules/font-awesome/scss",
           "node_modules/normalize.css",
+          "node_modules/neat-omega",
           "node_modules",
           "core"
         ],

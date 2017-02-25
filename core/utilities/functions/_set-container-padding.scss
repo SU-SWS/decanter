@@ -15,11 +15,11 @@
 (
   $_cols: $grid-columns,
   $_v-space: modular-scale(1),
-  $_gutter: _retrieve-neat-setting($neat-grid, gutter),
+  $_grid: $neat-grid,
   $_max-width: false
 )
 {
-
+  $_gutter: _retrieve-neat-setting($_grid, gutter);
   //Checks to see if we need to add a max-width.
   @if $_max-width == false
   {
