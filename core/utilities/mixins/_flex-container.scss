@@ -1,32 +1,43 @@
 @charset "UTF-8";
-// Creates a flexbox container with children
-// See: https://css-tricks.com/snippets/css/a-guide-to-flexbox for flexbox property explanations.
 
+/// Creates a flexbox container with children
+/// See: https://css-tricks.com/snippets/css/a-guide-to-flexbox for flexbox property explanations.
+///
+/// $_selector: *,
+/// $_flex: flex, // flex | inline-flex
+///
+/// // Parent properties
+/// $_flex-direction: row, // row | row-reverse | column | column-reverse
+/// $_flex-wrap: wrap, // nowrap | wrap | wrap-reverse
+///
+/// // Change $_justify-content from 'center' to 'flex-start' to left align wrapped orphans
+/// $_justify-content: center, // flex-start | flex-end | center | space-between | space-around
+///
+/// // Change $_align-items from `flex-start` to `stretch` for equal heights
+/// $_align-items: flex-start, //  flex-start | flex-end | center | baseline | stretch
+///
+/// $_align-content: center, // flex-start | flex-end | center | space-between | space-around | stretch
+/// // Children properties
+/// $_flex-grow: 0,
+/// $_flex-shrink: 0,
+/// $_flex-basis: auto
+/// //  $_order: <integer>  // Note that this should be set at the element level
+/// // $_align-self: flex-start // Note that this should be set at the element level
 @mixin flex-container
 (
   $_selector: *,
-  $_flex: flex, // flex | inline-flex
-
-  // Parent properties
-  $_flex-direction: row, // row | row-reverse | column | column-reverse
-  $_flex-wrap: wrap, // nowrap | wrap | wrap-reverse
-
-  // Change $_justify-content from 'center' to 'flex-start' to left align wrapped orphans
-  $_justify-content: center, // flex-start | flex-end | center | space-between | space-around
-
-  // Change $_align-items from `flex-start` to `stretch` for equal heights
-  $_align-items: flex-start, //  flex-start | flex-end | center | baseline | stretch
-
-  $_align-content: center, // flex-start | flex-end | center | space-between | space-around | stretch
-  // Children properties
+  $_flex: flex,
+  $_flex-direction: row,
+  $_flex-wrap: wrap,
+  $_justify-content: center,
+  $_align-items: flex-start,
+  $_align-content: center,
   $_flex-grow: 0,
   $_flex-shrink: 0,
   $_flex-basis: auto
-  //  $_order: <integer>  // Note that this should be set at the element level
-  // $_align-self: flex-start // Note that this should be set at the element level
 )
 {
-  // Inherited properties from mixin
+  // Inherited properties from mixin.
   display:          $_flex;
   flex-flow:        $_flex-direction $_flex-wrap; // default: row wrap;
   justify-content:  $_justify-content; // default: flex-start;
