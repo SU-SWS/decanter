@@ -6,15 +6,7 @@
   $section: null
 )
 {
-  $_default-container: map-merge((
-      xs:       ( columns: 12, grid-media: $media-xs,     v-space: 1em, max-width: false, grid-collapse: false ),
-      xl:       ( columns: 12, grid-media: $media-xl,     v-space: 1em, max-width: true,  grid-collapse: false ),
-      print:    ( columns: 12, grid-media: $media-print,  v-space: 1em, max-width: false, grid-collapse: false ),
-  ), $default-container);
-
-  $_responsive-container: map-merge($_default-container, $section);
-
-  @each $breakpoint, $_map in $_responsive-container {
+  @each $breakpoint, $_map in $section {
     $_cols: map-get($_map, columns);
     $_grid: map-get($_map, grid-media);
     $_v-space: map-get($_map, v-space);
