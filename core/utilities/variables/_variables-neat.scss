@@ -5,32 +5,6 @@
 /// @group settings
 ////
 
-/// Max-container width, including horizontal gutters. This is also used to generate our XL breakpoint.
-/// @type length (with unit)
-///
-/// @group settings
-$max-width: 1200px !default;
-
-/// Gutter
-///
-/// @type length (with unit)
-///
-/// The space on the left and right of grid elements
-///
-/// @group settings
-$gutter: 20px !default;
-
-
-/// Grid Columns
-///
-/// @type number (unitless)
-///
-/// How many columns in a grid
-///
-/// @group settings
-$grid-columns: 12 !default;
-
-
 /// This variable is a sass map that overrides Neat's default grid settings.
 /// Use this to define your project's grid properties incluting gutters and
 /// total column count.
@@ -65,13 +39,3 @@ $neat-grid: (
     color: rgba(#00d4ff, 0.25),
     direction: ltr,
 ) !default;
-
-
-/// Max Content Width
-///
-/// @type length
-///
-/// Removes gutters from the max-width constant to give us a computed content-width.
-///
-/// @group settings
-$max-content-width: $max-width - ($gutter * 2) !default;

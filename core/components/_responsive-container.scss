@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/// Creates a wrapper-less centered section using padding
+/// centered-section mixin
+$_default-container: (
+    screen-xs: ( columns: 12, grid-media: $media-xs-only, v-space: 1em, max-width: false, grid-collapse: false ),
+    screen-sm: ( columns: 9, grid-media: $media-sm-only, v-space: 1em, max-width: false, grid-collapse: false ),
+    screen-md: ( columns: 8, grid-media: $media-md-only, v-space: 1em, max-width: false, grid-collapse: false ),
+    screen-lg: ( columns: 7.5, grid-media: $media-lg-only, v-space: 1em, max-width: false, grid-collapse: false ),
+    screen-xl: ( columns: 7, grid-media: $media-xl, v-space: 1em, max-width: true, grid-collapse: false ),
+    print: ( columns: 12, grid-media: $media-print, v-space: 1em, max-width: true, grid-collapse: false ),
+) !default;
+
+@mixin responsive-container(
+  $section: $_default-container;
+)
+{
+  @each $breakpoint, $_map in $section {
+    $_cols: map-get($_map, columns);
+    $_grid: map-get($_map, grid-media);
+    $_v-space: map-get($_map, v-space);
+    $_max-width: map-get($_map, max-width);
+    $_grid-collapse: map-get($_map, grid-collapse);
+
+    @include grid-media(map-get($_map, grid-media)) {
+      @include centered-container($_cols, $_grid, $_v-space, $_max-width, $_grid-collapse);
+    }
+  }
+}
