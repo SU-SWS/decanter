@@ -1,22 +1,25 @@
 @charset "UTF-8";
 
-$_default-container: (
-    screen-xs: ( columns: 12, grid-media: $media-xs-only, v-space: 1em, max-width: false, grid-collapse: false ),
-    screen-sm: ( columns: 9, grid-media: $media-sm-only, v-space: 1em, max-width: false, grid-collapse: false ),
-    screen-md: ( columns: 8, grid-media: $media-md-only, v-space: 1em, max-width: false, grid-collapse: false ),
-    screen-lg: ( columns: 7.5, grid-media: $media-lg-only, v-space: 1em, max-width: false, grid-collapse: false ),
-    screen-xl: ( columns: 7, grid-media: $media-xl, v-space: 1em, max-width: true, grid-collapse: false ),
-    print: ( columns: 12, grid-media: $media-print, v-space: 1em, max-width: true, grid-collapse: false ),
-) !default;
-
+$default-container: () !default;
 
 /// Creates a wrapper-less centered section using padding
 /// centered-section mixin
 @mixin responsive-container(
-  $section: $_default-container
+  $section: null
 )
 {
-  @each $breakpoint, $_map in $section {
+  $_default-container: map-merge((
+      screen-xs: ( columns: 12, grid-media: $media-xs-only, v-space: 1em, max-width: false, grid-collapse: false ),
+      screen-sm: ( columns: 9, grid-media: $media-sm-only, v-space: 1em, max-width: false, grid-collapse: false ),
+      screen-md: ( columns: 8, grid-media: $media-md-only, v-space: 1em, max-width: false, grid-collapse: false ),
+      screen-lg: ( columns: 7.5, grid-media: $media-lg-only, v-space: 1em, max-width: false, grid-collapse: false ),
+      screen-xl: ( columns: 7, grid-media: $media-xl, v-space: 1em, max-width: true, grid-collapse: false ),
+      print: ( columns: 12, grid-media: $media-print, v-space: 1em, max-width: true, grid-collapse: false ),
+  ), $default-container);
+
+  $_responsive-container: map-merge($_default-container, $section);
+
+  @each $breakpoint, $_map in $_responsive-container {
     $_cols: map-get($_map, columns);
     $_grid: map-get($_map, grid-media);
     $_v-space: map-get($_map, v-space);
