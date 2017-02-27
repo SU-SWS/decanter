@@ -7,9 +7,9 @@
 )
 {
   $_default-container: map-merge((
-      screen-xs: ( columns: 12, grid-media: $media-xs, v-space: 1em, max-width: false, grid-collapse: false ),
-      screen-xl: ( columns: 12, grid-media: $media-xl, v-space: 1em, max-width: true, grid-collapse: false ),
-      print: ( columns: 12, grid-media: $media-print, v-space: 1em, max-width: false, grid-collapse: false ),
+      xs:       ( columns: 12, grid-media: $media-xs,     v-space: 1em, max-width: false, grid-collapse: false ),
+      xl:       ( columns: 12, grid-media: $media-xl,     v-space: 1em, max-width: true,  grid-collapse: false ),
+      print:    ( columns: 12, grid-media: $media-print,  v-space: 1em, max-width: false, grid-collapse: false ),
   ), $default-container);
 
   $_responsive-container: map-merge($_default-container, $section);
