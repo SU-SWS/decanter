@@ -1,7 +1,5 @@
 @charset "UTF-8";
 
-/// Creates a wrapper-less centered section using padding
-/// centered-section mixin
 $_default-container: (
     screen-xs: ( columns: 12, grid-media: $media-xs-only, v-space: 1em, max-width: false, grid-collapse: false ),
     screen-sm: ( columns: 9, grid-media: $media-sm-only, v-space: 1em, max-width: false, grid-collapse: false ),
@@ -11,8 +9,11 @@ $_default-container: (
     print: ( columns: 12, grid-media: $media-print, v-space: 1em, max-width: true, grid-collapse: false ),
 ) !default;
 
+
+/// Creates a wrapper-less centered section using padding
+/// centered-section mixin
 @mixin responsive-container(
-  $section: $_default-container;
+  $section: $_default-container
 )
 {
   @each $breakpoint, $_map in $section {
