@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+/// Responsive container
+/// Creates a responsive container on each grid media as specified by the specified map
+@mixin responsive-container(
+  $section: null
+)
+{
+  @each $breakpoint, $_map in $section {
+    $_cols: map-get($_map, columns);
+    $_grid: map-get($_map, grid-media);
+    $_v-space: map-get($_map, v-space);
+    $_max-width: map-get($_map, max-width);
+    $_grid-collapse: map-get($_map, grid-collapse);
+
+    @include grid-media(map-get($_map, grid-media)) {
+      @include centered-container($_cols, $_grid, $_v-space, $_max-width, $_grid-collapse);
+    }
+  }
+}
