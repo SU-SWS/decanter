@@ -29,7 +29,7 @@
     @return $v-space calc((50vw - #{$_container-width}) + #{$_grid-gutter});
     // Finally, if max width is set to true, we use the project's "max-container-width" configuration option.
   } @else if ($max-width == true) {
-    $_container-width: px(($max-container-width / #{$_grid-columns * 2}) * $columns);
+    $_container-width: (($max-container-width / #{$_grid-columns * 2}) * $columns);
     @return $v-space calc((50vw - #{$_container-width}) + #{$_grid-gutter});
   }
 }
