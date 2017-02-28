@@ -19,7 +19,7 @@
     // Checks to see if we need to calculate a gutter
     @if $_grid-columns >= $columns {
       $_column-multiplier: $_grid-columns - $columns;
-      @return $v-space calc(((100vw/#{$_grid-columns * 2}) * #{$_column-multiplier}) + #{$_grid-gutter});
+      @return $v-space calc(((100vw /#{$_grid-columns * 2}) * #{$_column-multiplier}) + #{$_grid-gutter});
     } @else {
       @return $v-space $_grid-gutter;
     }
