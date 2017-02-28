@@ -1,15 +1,8 @@
 @charset "UTF-8";
 
-// ========================================================
-// function set-container-padding()
-//
-// This function is called by the centered-section mixin.
-// It's important to note that the intended use of this,
-// along with the companion set-container-margin function
-// is to modify a container that occupies the entire width
-// of the browser, and not a nested container with it's own
-// margin.
-// ========================================================
+/// Set Container padding
+/// Creates a fluid container of a certain number of columns.
+// Can be constrained to a specific max width, or to the project's global `$max-container-width`.
 
 @function _set-container-padding(
   $columns: null,
@@ -33,10 +26,10 @@
     // Otherwise we calculate the max width in pixels
   } @else if type_of($max-width) == number {
     $_container-width: (px($max-width) / #{$_grid-columns * 2}) * $columns;
-    @return $v-space calc(50vw - #{$_container-width} + #{$_grid-gutter});
+    @return $v-space calc((50vw - #{$_container-width}) + #{$_grid-gutter});
     // Finally, if max width is set to true, we use the project's "max-container-width" configuration option.
   } @else if ($max-width == true) {
     $_container-width: (px($max-container-width) / #{$_grid-columns * 2}) * $columns;
-    @return $v-space calc(50vw - #{$_container-width} + #{$_grid-gutter});
+    @return $v-space calc((50vw - #{$_container-width}) + #{$_grid-gutter});
   }
 }
