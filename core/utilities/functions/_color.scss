@@ -1,7 +1,7 @@
 @charset 'UTF-8';
 
 ////
-/// Do we need this function? Seems like we are just passing through?
+/// File comment here
 ////
 
 
@@ -22,6 +22,59 @@
 ///
 /// @example css
 ///   background-color: #fff;
-@function color($color: "#FFF", $palette: ()) {
-  @return retrieve-color($color, $palette);
+
+@function color($color, $palette: ()) {
+  // First, we marge this default color palette with the decanter color palette we set up in `variables/color`
+  $_default-color-palette: map-merge((
+    // Unbranded, default color palette
+      brand:                        #004fdc,
+      action:                       #004991,
+      action-active:                #005ddc,
+      background:                   #fff,
+      background-secondary:         #ddd,
+      border:                       #999,
+      text:                         #112,
+      text-active:                  #808080,
+      reverse-text:                 #fff,
+      reverse-text-active:          #dceefe,
+
+    // Generic Color Palette
+    // see http://clrs.cc
+    // ---------------------------------------------------------------------------
+      navy:                         #001f3f,
+      blue:                         #0074d9,
+      aqua:                         #7fdbff,
+      teal:                         #39cccc,
+      olive:                        #3d9970,
+      green:                        #2ecc40,
+      lime:                         #01ff70,
+      yellow:                       #ffdc00,
+      orange:                       #ff851b,
+      red:                          #ff4136,
+      fuchsia:                      #f012be,
+      purple:                       #b10dc9,
+      maroon:                       #85144b,
+      white:                        #fff,
+      silver:                       #ddd,
+      grey:                         #aaa,
+      dark-grey:                    #333,
+      medium-grey:                  #999,
+      light-grey:                   #ddd,
+      black:                        #111,
+    // Decanter variants
+      light-red:                    #ffcdcd,
+      light-yellow:                 #fafa55,
+      light-green:                  #90ff90,
+  ), $colors);
+
+  // Then, we merge the $_default-color-palette we just merged with the palette that was specified by the mixin.
+  $_color-palette: map-merge($_default-color-palette, $palette);
+
+  // Finally, we return the requested color value from our combined merge. This allows custom color maps to be able to
+  // only specify colors that we want to specifically differ from the base map.
+  // As an example, the decanter color map does not include any of the generic colors, but if I created a custom map
+  // that only had a `background: #880000` value, I could still call `color: color(brand, $custom-map)`, which
+  // would return the brand value from the `$colors` map. Additionally, if I call `color: color(lime, $custom-map)`
+  // it will return the lime color from the generic palette from the default map.
+  @return map-get($_color-palette, $color);
 }

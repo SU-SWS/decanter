@@ -18,7 +18,41 @@ $root-font-size: 10px !default;
 /// @group settings
 $base-font-size: 18px !default;
 
-/// Breakpoint Helper
+/// Grid Columns
+///
+/// @type number (unitless)
+///
+/// How many columns in the default grid
+///
+/// @group settings
+$grid-columns: 12 !default;
+
+/// Gutter
+///
+/// @type length (with unit)
+///
+/// The space on the left and right of default grid elements
+///
+/// @group settings
+$gutter: 20px !default;
+
+/// Max width, including horizontal gutters.
+//  This is also used to generate our XL breakpoint.
+/// @type length (with unit)
+///
+/// @group settings
+$max-container-width: 1200px !default;
+
+/// Max Content Width
+///
+/// @type length
+///
+/// Removes gutters from the max-container-width constant to give us a computed content-width.
+///
+/// @group settings
+$max-content-width: $max-container-width - ($gutter * 2) !default;
+
+/// Breakpoint Helper. Generates a set of configurable breakpoint visual prompts to aid during development.
 /// @type bool
 /// @group settings
 $breakpoint-helper: true;

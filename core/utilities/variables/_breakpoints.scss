@@ -24,7 +24,7 @@ $screen-md-min:               768px !default;
 $screen-lg-min:               992px !default;
 
 /// Screen XL Min
-$screen-xl-min:               $max-width !default;
+$screen-xl-min:               $max-container-width !default;
 
 // Upper boundaries
 // ----------------
@@ -44,8 +44,13 @@ $screen-lg-max:               $screen-xl-min - 1px !default;
 /// Custom neat grids:
 
 /// Media XS only
+$media-xs: (
+    columns: 12,
+    media: $screen-xs-min,
+) !default;
+
 $media-xs-only: (
-    columns: 6,
+    columns: 12,
     media: 'only screen and (max-width: #{$screen-xs-max})',
 ) !default;
 
@@ -118,32 +123,4 @@ $media-print: (
     columns: 12,
     gutter: .25in,
     media: 'only print',
-) !default;
-
-/// Sections map. Used by the Centered Section Mixin. Dependent on media queries.
-$sections: (
-    content: (
-        screen-xs: ( columns: 12, max-width: false, grid-media: $media-xs-only ),
-        screen-sm: ( columns: 9, max-width: false, grid-media: $media-sm-only ),
-        screen-md: ( columns: 8, max-width: false, grid-media: $media-md-only ),
-        screen-lg: ( columns: 7.5, max-width: false, grid-media: $media-lg-only ),
-        screen-xl: ( columns: 7, max-width: true, grid-media: $media-xl ),
-        print: ( columns: 12, max-width: true, grid-media: $media-print),
-    ),
-    full: (
-        screen-xs: ( columns: 12, max-width: false, grid-media: $media-xs-only ),
-        screen-sm: ( columns: 12, max-width: false, grid-media: $media-sm-only ),
-        screen-md: ( columns: 12, max-width: false, grid-media: $media-md-only ),
-        screen-lg: ( columns: 12, max-width: false, grid-media: $media-lg-only ),
-        screen-xl: ( columns: 12, max-width: true, grid-media: $media-xl ),
-        print: ( columns: 12, max-width: true, grid-media: $media-print),
-    ),
-    edge-to-edge: (
-        screen-xs: ( columns: 12, max-width: false, grid-media: $media-xs-only ),
-        screen-sm: ( columns: 12, max-width: false, grid-media: $media-sm-only ),
-        screen-md: ( columns: 12, max-width: false, grid-media: $media-md-only ),
-        screen-lg: ( columns: 12, max-width: false, grid-media: $media-lg-only ),
-        screen-xl: ( columns: 12, max-width: false, grid-media: $media-xl ),
-        print: ( columns: 12, max-width: false, grid-media: $media-print),
-    ),
 ) !default;
