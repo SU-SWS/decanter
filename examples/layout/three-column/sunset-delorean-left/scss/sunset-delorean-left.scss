@@ -5,12 +5,7 @@ $base-font-size: 36px;
 // Decant.
 @import "decanter";
 
-
 .layout--sunset-delorean--left {
-
-  > div {
-    border: solid 1px #00F;
-  }
 
   > div > div > div {
     border: dashed 1px #F0F;
@@ -23,19 +18,21 @@ $base-font-size: 36px;
   background: #FDF;
   @include responsive-container($default-container);
   @include grid-container;
-  @include grid-collapse;
+
+  @include grid-media($media-md) {
+    @include grid-collapse;
+  }
 
   // Main Content.
   .column--first {
-    @include grid-container;
-
+    @include grid-visual;
     @include grid-media($media-md) {
       @include grid-column(8 of 12);
     }
 
     // The full width of region header.
     .column--first-header {
-      @include grid-column(1 of 1);
+      @include grid-column(12 of 12);
     }
 
     // Two columns in right content region.
@@ -52,8 +49,7 @@ $base-font-size: 36px;
 
   // Sidebar
   .column--second {
-    @include grid-container;
-
+    @include grid-visual;
     @include grid-media($media-md) {
       @include grid-column(4 of 12);
     }

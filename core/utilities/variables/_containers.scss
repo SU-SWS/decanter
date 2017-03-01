@@ -5,7 +5,15 @@ $default-container: (
   xs: ( columns: 12, grid-media: $media-xs,       v-space: 1em, max-width: false, grid-collapse: false ),
   lg: ( columns: 12, grid-media: $media-lg-only,  v-space: 1em, max-width: false, grid-collapse: false ),
   xl: ( columns: 12, grid-media: $media-xl,       v-space: 1em, max-width: true,  grid-collapse: false ),
-  print: ( columns: 12, grid-media: $media-print,    v-space: 1em, max-width: false, grid-collapse: false ),
+  print: ( columns: 12, grid-media: $media-print, v-space: 1em, max-width: false, grid-collapse: false ),
+) !default;
+
+/// Default Collapsed Responsive Container
+$default-container-collapsed: (
+  xs: ( columns: 12, grid-media: $media-xs,       v-space: 1em, max-width: false, grid-collapse: true ),
+  lg: ( columns: 12, grid-media: $media-lg-only,  v-space: 1em, max-width: false, grid-collapse: true ),
+  xl: ( columns: 12, grid-media: $media-xl,       v-space: 1em, max-width: true,  grid-collapse: true ),
+  print: ( columns: 12, grid-media: $media-print, v-space: 1em, max-width: false, grid-collapse: true ),
 ) !default;
 
 /// You can create any number of custom responsive containers
