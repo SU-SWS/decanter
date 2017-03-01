@@ -7,12 +7,6 @@ $base-font-size: 36px;
 
 .layout--sunset-delorean--right {
 
-  .grid-helper {
-    @include grid-visual;
-    @include grid-collapse;
-    width: 100%;
-  }
-
   > div {
     border: solid 1px #00F;
   }
@@ -27,6 +21,7 @@ $base-font-size: 36px;
 
   background: #FDF;
   @include responsive-container($default-container);
+  @include grid-visual;
   @include grid-container;
 
   @include grid-media($media-md) {
@@ -35,12 +30,8 @@ $base-font-size: 36px;
   }
 
   // Main Content.
-  header {
-    @include grid-column(1 of 1);
-  }
-  main {
+  .column--first {
     order: 10;
-    background-color: transparent;
     @include grid-media($media-md) {
       @include grid-column(8 of 12);
     }
@@ -63,7 +54,7 @@ $base-font-size: 36px;
   }
 
   // Sidebar
-  aside {
+  .column--second {
     order: 1;
     @include grid-media($media-md) {
       @include grid-column(4 of 12);
