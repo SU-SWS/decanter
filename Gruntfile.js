@@ -43,8 +43,8 @@ module.exports = function(grunt) {
           'examples/css/index.css': 'examples/scss/index.scss',
           'examples/layout/one-column/basic/css/basic.css': 'examples/layout/one-column/basic/scss/basic.scss',
           'examples/layout/two-column/toucan/css/toucan.css': 'examples/layout/two-column/toucan/scss/toucan.scss',
-          'examples/layout/three-column/sunset-delorean-left/css/sunset-delorean-left.css': 'examples/layout/three-column/sunset-delorean-left/scss/sunset-delorean-left.scss',
-          'examples/layout/three-column/sunset-delorean-right/css/sunset-delorean-right.css': 'examples/layout/three-column/sunset-delorean-right/scss/sunset-delorean-right.scss'
+          'examples/layout/three-column/sunset-delorean/left/css/sunset-delorean-left.css': 'examples/layout/three-column/sunset-delorean/left/scss/sunset-delorean-left.scss',
+          'examples/layout/three-column/sunset-delorean/right/css/sunset-delorean-right.css': 'examples/layout/three-column/sunset-delorean/right/scss/sunset-delorean-right.scss'
         }
       }
     },
