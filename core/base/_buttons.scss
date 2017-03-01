@@ -24,7 +24,7 @@
   @include material-shadow(flat);
 
   appearance: none;
-  background-color: color(action-active);
+  background-color: color(action);
   border: none;
   color: color(reverse-text);
   cursor: pointer;
@@ -44,14 +44,14 @@
   &:hover,
   &:focus,
   &:active {
-    background-color: color(action);
+    background-color: color(action-active);
     color: color(reverse-text);
     text-decoration: none;
   }
 
   &:disabled,
   &.disabled {
-    background-color: color(action);
+    background-color: color(action-active);
     color: color(reverse-text);
     cursor: not-allowed;
     opacity: .5;
@@ -72,7 +72,7 @@
 
   @extend %button__generic;
 
-  background-color: color(action-active);
+  background-color: color(action);
   color: color(reverse-text);
   font-weight: 600;
   padding: em(10px) em($_spacing) em(12px);
@@ -80,7 +80,7 @@
   &:hover,
   &:focus,
   &:active {
-    background-color: color(action);
+    background-color: color(action-active);
   }
 }
 
