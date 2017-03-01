@@ -6,10 +6,9 @@ $base-font-size: 36px;
 @import "decanter";
 
 
-.layout-two-column-centered {
+.layout-two-column-centered {  
   background: #FDF;
-  $full: map-get($sections, full);
-  @include centered-section($full, $neat-grid, modular-scale(1), true);
+  @include responsive-container($default-container);
 
   .layout-column-first,
   .layout-column-second  {
