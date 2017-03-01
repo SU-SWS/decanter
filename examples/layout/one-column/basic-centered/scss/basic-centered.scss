@@ -6,17 +6,10 @@ $base-font-size: 36px;
 @import "decanter";
 
 
-.layout-two-column-centered {  
+.layout--basic {
   background: #FDF;
   @include responsive-container($default-container);
-
-  .layout-column-first,
-  .layout-column-second  {
-    @include grid-column(6 of 12);
+  > * {
     border: dashed 3px #0F0;
-
-    @include grid-media($media-xs-only) {
-      @include grid-column(1 of 1);
-    }
   }
 }

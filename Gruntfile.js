@@ -41,8 +41,10 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'examples/css/index.css': 'examples/scss/index.scss',
-          'examples/layout/one-column-centered/css/one-column-centered.css': 'examples/layout/one-column-centered/scss/one-column-centered.scss',
-          'examples/layout/two-column-centered/css/two-column-centered.css': 'examples/layout/two-column-centered/scss/two-column-centered.scss'
+          'examples/layout/one-column/basic-centered/css/basic-centered.css': 'examples/layout/one-column/basic-centered/scss/basic-centered.scss',
+          'examples/layout/two-column/toucan/css/toucan.css': 'examples/layout/two-column/toucan/scss/toucan.scss',
+          'examples/layout/three-column/sunset-delorean-left/css/sunset-delorean-left.css': 'examples/layout/three-column/sunset-delorean-left/scss/sunset-delorean-left.scss',
+          'examples/layout/three-column/sunset-delorean-right/css/sunset-delorean-right.css': 'examples/layout/three-column/sunset-delorean-right/scss/sunset-delorean-right.scss'
         }
       }
     },

@@ -1,0 +1,73 @@
+// I like big fonts I cannot lie.
+$root-font-size: 20px;
+$base-font-size: 36px;
+
+// Decant.
+@import "decanter";
+
+
+.layout--sunset-delorean--right {
+
+  > div {
+    border: solid 1px #00F;
+  }
+
+  > div > div {
+    border: dashed 1px #F0F;
+  }
+
+  background: #FDF;
+  @include responsive-container($default-container);
+
+  // Main Content.
+  .column--first {
+
+    @include grid-media($media-sm-max) {
+      @include grid-container;
+      @include grid-collapse;
+    }
+
+    @include grid-media($media-md) {
+      @include grid-column(8 of 12, $nested-grid-one);
+      @include grid-shift(4);
+    }
+
+    // The full width of region header.
+    .column--first-header {
+      @include grid-column(1 of 1);
+    }
+
+    // Two columns in right content region.
+    .column--first-first,
+    .column--first-second {
+      @include grid-column(1 of 1);
+
+      @include grid-media($media-sm) {
+        @include grid-column(1 of 2);
+      }
+
+    }
+  }
+
+  // Sidebar
+  .column--second {
+
+    @include grid-media($media-sm-max) {
+      @include grid-container;
+      @include grid-collapse;
+    }
+
+    @include grid-media($media-md) {
+      @include grid-column(4 of 12);
+      @include grid-shift(-8);
+    }
+
+    .column--second-first {
+      @include grid-media($media-sm-max) {
+        @include grid-column(1 of 1);
+      }
+    }
+
+  }
+
+}
