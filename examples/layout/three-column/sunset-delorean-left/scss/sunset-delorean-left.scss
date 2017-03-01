@@ -5,27 +5,23 @@ $base-font-size: 36px;
 // Decant.
 @import "decanter";
 
+.nested-grid {
+  @include grid-collapse;
+}
+
 .layout--sunset-delorean--left {
 
-  > div > div > div {
-    border: dashed 1px #F0F;
-  }
-
-  .collapse {
-    @include grid-collapse;
-  }
-
-  background: #FDF;
   @include responsive-container($default-container);
   @include grid-container;
+  background: #FDF;
 
   @include grid-media($media-md) {
     @include grid-collapse;
   }
 
   // Main Content.
-  .column--first {
-    @include grid-visual;
+  > main {
+    background-color: transparent;
     @include grid-media($media-md) {
       @include grid-column(8 of 12);
     }
@@ -48,8 +44,7 @@ $base-font-size: 36px;
   }
 
   // Sidebar
-  .column--second {
-    @include grid-visual;
+  > aside {
     @include grid-media($media-md) {
       @include grid-column(4 of 12);
     }
