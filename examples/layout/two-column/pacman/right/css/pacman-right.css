@@ -3989,15 +3989,27 @@ hr {
   }
 }
 
-.layout--toucan {
+.grid-collapse {
+  margin-left: -20px;
+  margin-right: -20px;
+  width: calc(100% + 40px);
+}
+
+.grid-collapse::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.layout--pacman--right {
   background: #FDF;
 }
 
 @media only screen and (min-width: 0px) {
-  .layout--toucan {
+  .layout--pacman--right {
     padding: 1em calc(((50vw /12) * 0) + 20px);
   }
-  .layout--toucan::after {
+  .layout--pacman--right::after {
     clear: both;
     content: "";
     display: block;
@@ -4005,10 +4017,10 @@ hr {
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .layout--toucan {
+  .layout--pacman--right {
     padding: 1em calc(((50vw /12) * 0) + 30px);
   }
-  .layout--toucan::after {
+  .layout--pacman--right::after {
     clear: both;
     content: "";
     display: block;
@@ -4016,10 +4028,10 @@ hr {
 }
 
 @media only screen and (min-width: 1200px) {
-  .layout--toucan {
+  .layout--pacman--right {
     padding: 1em calc((50vw - 600px) + 30px);
   }
-  .layout--toucan::after {
+  .layout--pacman--right::after {
     clear: both;
     content: "";
     display: block;
@@ -4027,34 +4039,54 @@ hr {
 }
 
 @media only print {
-  .layout--toucan {
+  .layout--pacman--right {
     padding: 1em calc(((50vw /12) * 0) + 0.25in);
   }
-  .layout--toucan::after {
+  .layout--pacman--right::after {
     clear: both;
     content: "";
     display: block;
   }
 }
 
-.layout--toucan::after {
+.layout--pacman--right::after {
   clear: both;
   content: "";
   display: block;
 }
 
-.layout--toucan .column--first,
-.layout--toucan .column--second {
+.layout--pacman--right > header,
+.layout--pacman--right > footer,
+.layout--pacman--right > section > div {
   border: dashed 3px #0F0;
 }
 
+.layout--pacman--right .column--first {
+  width: calc(100% - 40px);
+  float: left;
+  margin-left: 20px;
+}
+
 @media only screen and (min-width: 576px) {
-  .layout--toucan .column--first,
-  .layout--toucan .column--second {
-    width: calc(50% - 30px);
+  .layout--pacman--right .column--first {
+    width: calc(66.6666666667% - 33.3333333333px);
     float: left;
     margin-left: 20px;
   }
 }
 
-/*# sourceMappingURL=toucan.css.map */
+.layout--pacman--right .column--second {
+  width: calc(100% - 40px);
+  float: left;
+  margin-left: 20px;
+}
+
+@media only screen and (min-width: 576px) {
+  .layout--pacman--right .column--second {
+    width: calc(33.3333333333% - 26.6666666667px);
+    float: left;
+    margin-left: 20px;
+  }
+}
+
+/*# sourceMappingURL=pacman-right.css.map */

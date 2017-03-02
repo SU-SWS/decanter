@@ -3989,15 +3989,15 @@ hr {
   }
 }
 
-.layout--toucan {
+.layout--wedge--left {
   background: #FDF;
 }
 
 @media only screen and (min-width: 0px) {
-  .layout--toucan {
+  .layout--wedge--left {
     padding: 1em calc(((50vw /12) * 0) + 20px);
   }
-  .layout--toucan::after {
+  .layout--wedge--left::after {
     clear: both;
     content: "";
     display: block;
@@ -4005,10 +4005,10 @@ hr {
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .layout--toucan {
+  .layout--wedge--left {
     padding: 1em calc(((50vw /12) * 0) + 30px);
   }
-  .layout--toucan::after {
+  .layout--wedge--left::after {
     clear: both;
     content: "";
     display: block;
@@ -4016,10 +4016,10 @@ hr {
 }
 
 @media only screen and (min-width: 1200px) {
-  .layout--toucan {
+  .layout--wedge--left {
     padding: 1em calc((50vw - 600px) + 30px);
   }
-  .layout--toucan::after {
+  .layout--wedge--left::after {
     clear: both;
     content: "";
     display: block;
@@ -4027,34 +4027,64 @@ hr {
 }
 
 @media only print {
-  .layout--toucan {
+  .layout--wedge--left {
     padding: 1em calc(((50vw /12) * 0) + 0.25in);
   }
-  .layout--toucan::after {
+  .layout--wedge--left::after {
     clear: both;
     content: "";
     display: block;
   }
 }
 
-.layout--toucan::after {
+.layout--wedge--left::after {
   clear: both;
   content: "";
   display: block;
 }
 
-.layout--toucan .column--first,
-.layout--toucan .column--second {
+@media only screen and (min-width: 576px) {
+  .layout--wedge--left {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: center;
+    box-sizing: border-box;
+  }
+  .layout--wedge--left > * {
+    flex: 0 0 auto;
+    box-sizing: inherit;
+  }
+}
+
+.layout--wedge--left .column--first,
+.layout--wedge--left .column--second {
   border: dashed 3px #0F0;
 }
 
+.layout--wedge--left .column--first {
+  order: 10;
+}
+
 @media only screen and (min-width: 576px) {
-  .layout--toucan .column--first,
-  .layout--toucan .column--second {
-    width: calc(50% - 30px);
+  .layout--wedge--left .column--first {
+    width: calc(75% - 35px);
     float: left;
     margin-left: 20px;
   }
 }
 
-/*# sourceMappingURL=toucan.css.map */
+.layout--wedge--left .column--second {
+  order: 1;
+}
+
+@media only screen and (min-width: 576px) {
+  .layout--wedge--left .column--second {
+    width: calc(25% - 25px);
+    float: left;
+    margin-left: 20px;
+  }
+}
+
+/*# sourceMappingURL=wedge-left.css.map */

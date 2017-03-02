@@ -41,8 +41,21 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'examples/css/index.css': 'examples/scss/index.scss',
+
           'examples/layout/one-column/basic/css/basic.css': 'examples/layout/one-column/basic/scss/basic.scss',
+
           'examples/layout/two-column/toucan/css/toucan.css': 'examples/layout/two-column/toucan/scss/toucan.scss',
+          'examples/layout/two-column/donies/css/donies.css': 'examples/layout/two-column/donies/scss/donies.scss',
+          'examples/layout/two-column/frogger/css/frogger.css': 'examples/layout/two-column/frogger/scss/frogger.scss',
+          'examples/layout/two-column/pacman/left/css/pacman-left.css': 'examples/layout/two-column/pacman/left/scss/pacman-left.scss',
+          'examples/layout/two-column/pacman/right/css/pacman-right.css': 'examples/layout/two-column/pacman/right/scss/pacman-right.scss',
+          'examples/layout/two-column/plakes/left/css/plakes-left.css': 'examples/layout/two-column/plakes/left/scss/plakes-left.scss',
+          'examples/layout/two-column/plakes/right/css/plakes-right.css': 'examples/layout/two-column/plakes/right/scss/plakes-right.scss',
+          'examples/layout/two-column/trunks/left/css/trunks-left.css': 'examples/layout/two-column/trunks/left/scss/trunks-left.scss',
+          'examples/layout/two-column/trunks/right/css/trunks-right.css': 'examples/layout/two-column/trunks/right/scss/trunks-right.scss',
+          'examples/layout/two-column/wedge/left/css/wedge-left.css': 'examples/layout/two-column/wedge/left/scss/wedge-left.scss',
+          'examples/layout/two-column/wedge/right/css/wedge-right.css': 'examples/layout/two-column/wedge/right/scss/wedge-right.scss',
+
           'examples/layout/three-column/sunset-delorean/left/css/sunset-delorean-left.css': 'examples/layout/three-column/sunset-delorean/left/scss/sunset-delorean-left.scss',
           'examples/layout/three-column/sunset-delorean/right/css/sunset-delorean-right.css': 'examples/layout/three-column/sunset-delorean/right/scss/sunset-delorean-right.scss'
         }
