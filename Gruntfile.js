@@ -56,6 +56,18 @@ module.exports = function(grunt) {
           'examples/layout/two-column/wedge/left/css/wedge-left.css': 'examples/layout/two-column/wedge/left/scss/wedge-left.scss',
           'examples/layout/two-column/wedge/right/css/wedge-right.css': 'examples/layout/two-column/wedge/right/scss/wedge-right.scss',
 
+          'examples/layout/three-column/bars/css/bars.css': 'examples/layout/three-column/bars/scss/bars.scss',
+          'examples/layout/three-column/battleship/css/battleship.css': 'examples/layout/three-column/battleship/scss/battleship.scss',
+          'examples/layout/three-column/blastila/left/css/blastila-left.css': 'examples/layout/three-column/blastila/left/scss/blastila-left.scss',
+          'examples/layout/three-column/blastila/right/css/blastila-right.css': 'examples/layout/three-column/blastila/right/scss/blastila-right.scss',
+          'examples/layout/three-column/chess/css/chess.css': 'examples/layout/three-column/chess/scss/chess.scss',
+          'examples/layout/three-column/cuttoner/left/css/cuttoner-left.css': 'examples/layout/three-column/cuttoner/left/scss/blastila-left.scss',
+          'examples/layout/three-column/cuttoner/right/css/cuttoner-right.css': 'examples/layout/three-column/cuttoner/right/scss/blastila-right.scss',
+          'examples/layout/three-column/percles/left/css/percles-left.css': 'examples/layout/three-column/percles/left/scss/percles-left.scss',
+          'examples/layout/three-column/percles/right/css/percles-right.css': 'examples/layout/three-column/percles/right/scss/percles-right.scss',
+          'examples/layout/three-column/robot/css/robot.css': 'examples/layout/three-column/robot/scss/robot.scss',
+          'examples/layout/three-column/space-invader/css/space-invader.css': 'examples/layout/three-column/space-invader/scss/space-invader.scss',
+          'examples/layout/three-column/strigges/css/strigges.css': 'examples/layout/three-column/strigges/scss/strigges.scss',
           'examples/layout/three-column/sunset-delorean/left/css/sunset-delorean-left.css': 'examples/layout/three-column/sunset-delorean/left/scss/sunset-delorean-left.scss',
           'examples/layout/three-column/sunset-delorean/right/css/sunset-delorean-right.css': 'examples/layout/three-column/sunset-delorean/right/scss/sunset-delorean-right.scss'
         }

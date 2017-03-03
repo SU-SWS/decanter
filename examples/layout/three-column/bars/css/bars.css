@@ -3989,15 +3989,27 @@ hr {
   }
 }
 
-.layout--trunks--right {
+.grid-collapse {
+  margin-left: -20px;
+  margin-right: -20px;
+  width: calc(100% + 40px);
+}
+
+.grid-collapse::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.layout--bars {
   background: #FDF;
 }
 
 @media only screen and (min-width: 0px) {
-  .layout--trunks--right {
+  .layout--bars {
     padding: 1em calc(((50vw /12) * 0) + 20px);
   }
-  .layout--trunks--right::after {
+  .layout--bars::after {
     clear: both;
     content: "";
     display: block;
@@ -4005,10 +4017,10 @@ hr {
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .layout--trunks--right {
+  .layout--bars {
     padding: 1em calc(((50vw /12) * 0) + 30px);
   }
-  .layout--trunks--right::after {
+  .layout--bars::after {
     clear: both;
     content: "";
     display: block;
@@ -4016,10 +4028,10 @@ hr {
 }
 
 @media only screen and (min-width: 1200px) {
-  .layout--trunks--right {
+  .layout--bars {
     padding: 1em calc((50vw - 600px) + 30px);
   }
-  .layout--trunks--right::after {
+  .layout--bars::after {
     clear: both;
     content: "";
     display: block;
@@ -4027,41 +4039,32 @@ hr {
 }
 
 @media only print {
-  .layout--trunks--right {
+  .layout--bars {
     padding: 1em calc(((50vw /12) * 0) + 0.25in);
   }
-  .layout--trunks--right::after {
+  .layout--bars::after {
     clear: both;
     content: "";
     display: block;
   }
 }
 
-.layout--trunks--right::after {
+.layout--bars::after {
   clear: both;
   content: "";
   display: block;
 }
 
-.layout--trunks--right .column--first,
-.layout--trunks--right .column--second {
+.layout--bars .column {
   border: dashed 3px #0F0;
 }
 
 @media only screen and (min-width: 576px) {
-  .layout--trunks--right .column--first {
-    width: calc(66.6666666667% - 33.3333333333px);
-    float: left;
-    margin-left: 20px;
-  }
-}
-
-@media only screen and (min-width: 576px) {
-  .layout--trunks--right .column--second {
+  .layout--bars .column {
     width: calc(33.3333333333% - 26.6666666667px);
     float: left;
     margin-left: 20px;
   }
 }
 
-/*# sourceMappingURL=trunks-right.css.map */
+/*# sourceMappingURL=bars.css.map */

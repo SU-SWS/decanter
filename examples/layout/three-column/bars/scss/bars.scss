@@ -7,27 +7,23 @@ $base-font-size: 36px;
 // Decant.
 @import "decanter";
 
+.grid-collapse {
+  @include grid-collapse;
+  @include clearfix;
+}
 
-.layout--trunks--right {
+.layout--bars {
   @include responsive-container($default-container);
   @include grid-container;
   background: #FDF;
 
-  .column--first,
-  .column--second {
+  .column {
     border: dashed 3px #0F0;
-  }
 
-  .column--first {
     @include grid-media($media-sm) {
-      @include grid-column(8 of 12);
+      @include grid-column(1 of 3);
     }
-  }
 
-  .column--second {
-    @include grid-media($media-sm) {
-      @include grid-column(4 of 12);
-    }
   }
 
 }
