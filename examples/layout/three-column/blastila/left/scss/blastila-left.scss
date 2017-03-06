@@ -8,8 +8,10 @@ $base-font-size: 36px;
 @import "decanter";
 
 .grid-collapse {
-  @include grid-collapse;
-  @include clearfix;
+  @include grid-media($media-md) {
+    @include grid-collapse;
+    @include clearfix;
+  }
 }
 
 .layout--blastila--left {
@@ -22,20 +24,28 @@ $base-font-size: 36px;
   }
 
   .column--second {
-    @include grid-column(4 of 12);
+    @include grid-media($media-md) {
+      @include grid-column(4 of 12);
+    }
   }
 
   .column--third {
-    @include grid-column(8 of 12);
+    @include grid-media($media-md) {
+      @include grid-column(8 of 12);
+    }
   }
 
   .column--third--first {
-    @include grid-column(1 of 1);
+    @include grid-media($media-md) {
+      @include grid-column(1 of 1);
+    }
   }
 
   .column--third-second,
   .column--third-third {
-    @include grid-column(1 of 2);
+    @include grid-media($media-md) {
+      @include grid-column(1 of 2);
+    }
   }
 
 }
