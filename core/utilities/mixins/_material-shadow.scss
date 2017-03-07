@@ -5,7 +5,7 @@
 /// @author Kevin Garcia
 /// @group mixins
 ///
-/// @arg {strong} $_depth [medium] - how deep the shadow appears to be. May be flat, shallow, medium, or deep.
+/// @arg {strong} $depth [flat | shallow | medium | deep] - how deep the shadow appears to be. May be flat, shallow, medium, or deep.
 ///
 /// @require {function} rgba
 ///
@@ -18,14 +18,18 @@
 ///   .element {
 ///     box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.10), 2px 4px 7px 0px rgba(0,0,0,0.15);
 ///   }
-@mixin material-shadow( $_depth: medium ) {
-  @if $_depth == 'flat' {
+@mixin material-shadow
+(
+  $depth:     shallow
+) {
+  @if $depth == 'flat' {
+    // Box Shadow: offset-x | offset-y | blur-radius | spread-radius | color
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.05);
-  } @else if $_depth == 'shallow' {
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.10), 2px 3px 6px 0px rgba(0,0,0,0.15);
-  } @else if $_depth == 'medium' {
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.10), 4px 6px 8px 0px rgba(0,0,0,0.15);
-  } @else if $_depth == 'deep'{
+  } @else if $depth == 'shallow' {
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.05), 0px 3px 3px 1px rgba(0,0,0,0.05);
+  } @else if $depth == 'medium' {
+    box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.09), 0px 8px 12px 0px rgba(0,0,0,0.15);
+  } @else if $depth == 'deep'{
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.10), 8px 9px 10px 0px rgba(0,0,0,0.15);
   }
 }
