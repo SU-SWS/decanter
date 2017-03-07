@@ -3989,28 +3989,44 @@ hr {
   }
 }
 
-@media only screen and (min-width: 576px) {
-  .grid-collapse {
-    margin-left: -20px;
-    margin-right: -20px;
-    width: calc(100% + 40px);
-  }
-  .grid-collapse::after {
-    clear: both;
-    content: "";
-    display: block;
-  }
+.grid-collapse {
+  margin-left: -20px;
+  margin-right: -20px;
+  width: calc(100% + 40px);
 }
 
-.layout--space-invader {
+.grid-collapse::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.full-width {
+  background: #FDF;
+  clear: both;
+}
+
+.full-width img {
+  width: 100%;
+  min-width: 100%;
+}
+
+.full-width::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.layout--bricks {
+  clear: both;
   background: #FDF;
 }
 
 @media only screen and (min-width: 0px) {
-  .layout--space-invader {
+  .layout--bricks {
     padding: 1em calc(((50vw /12) * 0) + 20px);
   }
-  .layout--space-invader::after {
+  .layout--bricks::after {
     clear: both;
     content: "";
     display: block;
@@ -4018,10 +4034,10 @@ hr {
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .layout--space-invader {
+  .layout--bricks {
     padding: 1em calc(((50vw /12) * 0) + 30px);
   }
-  .layout--space-invader::after {
+  .layout--bricks::after {
     clear: both;
     content: "";
     display: block;
@@ -4029,10 +4045,10 @@ hr {
 }
 
 @media only screen and (min-width: 1200px) {
-  .layout--space-invader {
+  .layout--bricks {
     padding: 1em calc((50vw - 600px) + 30px);
   }
-  .layout--space-invader::after {
+  .layout--bricks::after {
     clear: both;
     content: "";
     display: block;
@@ -4040,41 +4056,34 @@ hr {
 }
 
 @media only print {
-  .layout--space-invader {
+  .layout--bricks {
     padding: 1em calc(((50vw /12) * 0) + 0.25in);
   }
-  .layout--space-invader::after {
+  .layout--bricks::after {
     clear: both;
     content: "";
     display: block;
   }
 }
 
-.layout--space-invader::after {
+.layout--bricks::after {
   clear: both;
   content: "";
   display: block;
 }
 
-.layout--space-invader .column {
-  border: dashed 3px #0F0;
+.layout--bricks::after {
+  clear: both;
+  content: "";
+  display: block;
 }
 
 @media only screen and (min-width: 576px) {
-  .layout--space-invader .column--second {
-    width: calc(33.3333333333% - 26.6666666667px);
+  .layout--bricks .column {
+    width: calc(50% - 30px);
     float: left;
     margin-left: 20px;
   }
 }
 
-@media only screen and (min-width: 576px) {
-  .layout--space-invader .column--first,
-  .layout--space-invader .column--third {
-    width: calc(33.3333333333% - 26.6666666667px);
-    float: left;
-    margin-left: 20px;
-  }
-}
-
-/*# sourceMappingURL=space-invader.css.map */
+/*# sourceMappingURL=bricks.css.map */

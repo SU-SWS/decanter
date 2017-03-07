@@ -69,7 +69,15 @@ module.exports = function(grunt) {
           'examples/layout/three-column/space-invader/css/space-invader.css': 'examples/layout/three-column/space-invader/scss/space-invader.scss',
           'examples/layout/three-column/strigges/css/strigges.css': 'examples/layout/three-column/strigges/scss/strigges.scss',
           'examples/layout/three-column/sunset-delorean/left/css/sunset-delorean-left.css': 'examples/layout/three-column/sunset-delorean/left/scss/sunset-delorean-left.scss',
-          'examples/layout/three-column/sunset-delorean/right/css/sunset-delorean-right.css': 'examples/layout/three-column/sunset-delorean/right/scss/sunset-delorean-right.scss'
+          'examples/layout/three-column/sunset-delorean/right/css/sunset-delorean-right.css': 'examples/layout/three-column/sunset-delorean/right/scss/sunset-delorean-right.scss',
+          'examples/layout/three-column/thions/top/css/thions-top.css': 'examples/layout/three-column/thions/top/scss/thions-top.scss',
+          'examples/layout/three-column/thions/bottom/css/thions-bottom.css': 'examples/layout/three-column/thions/bottom/scss/thions-bottom.scss',
+          'examples/layout/three-column/valmer/left/css/valmer-left.css': 'examples/layout/three-column/valmer/left/scss/valmer-left.scss',
+          'examples/layout/three-column/valmer/right/css/valmer-right.css': 'examples/layout/three-column/valmer/right/scss/valmer-right.scss',
+
+          'examples/layout/four-column/molive/css/molive.css': 'examples/layout/four-column/molive/scss/molive.scss',
+
+          'examples/layout/full-width/bricks/css/bricks.css': 'examples/layout/full-width/bricks/scss/bricks.scss'
         }
       }
     },

@@ -14,7 +14,7 @@ $base-font-size: 36px;
   }
 }
 
-.layout--space-invader {
+.layout--molive {
   @include responsive-container($default-container);
   @include grid-container;
   background: #FDF;
@@ -23,16 +23,15 @@ $base-font-size: 36px;
     border: dashed 3px #0F0;
   }
 
-  .column--second {
-    @include grid-media($media-sm) {
-      @include grid-column(4 of 12);
-    }
-  }
-
   .column--first,
-  .column--third {
+  .column--second,
+  .column--third,
+  .column--fourth {
     @include grid-media($media-sm) {
-      @include grid-column(4 of 12);
+      @include grid-column(2 of 4);
+    }
+    @include grid-media($media-md) {
+      @include grid-column(1 of 4);
     }
   }
 

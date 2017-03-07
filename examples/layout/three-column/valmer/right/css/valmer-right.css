@@ -4002,15 +4002,15 @@ hr {
   }
 }
 
-.layout--space-invader {
+.layout--valmer-right {
   background: #FDF;
 }
 
 @media only screen and (min-width: 0px) {
-  .layout--space-invader {
+  .layout--valmer-right {
     padding: 1em calc(((50vw /12) * 0) + 20px);
   }
-  .layout--space-invader::after {
+  .layout--valmer-right::after {
     clear: both;
     content: "";
     display: block;
@@ -4018,10 +4018,10 @@ hr {
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .layout--space-invader {
+  .layout--valmer-right {
     padding: 1em calc(((50vw /12) * 0) + 30px);
   }
-  .layout--space-invader::after {
+  .layout--valmer-right::after {
     clear: both;
     content: "";
     display: block;
@@ -4029,10 +4029,10 @@ hr {
 }
 
 @media only screen and (min-width: 1200px) {
-  .layout--space-invader {
+  .layout--valmer-right {
     padding: 1em calc((50vw - 600px) + 30px);
   }
-  .layout--space-invader::after {
+  .layout--valmer-right::after {
     clear: both;
     content: "";
     display: block;
@@ -4040,41 +4040,79 @@ hr {
 }
 
 @media only print {
-  .layout--space-invader {
+  .layout--valmer-right {
     padding: 1em calc(((50vw /12) * 0) + 0.25in);
   }
-  .layout--space-invader::after {
+  .layout--valmer-right::after {
     clear: both;
     content: "";
     display: block;
   }
 }
 
-.layout--space-invader::after {
+.layout--valmer-right::after {
   clear: both;
   content: "";
   display: block;
 }
 
-.layout--space-invader .column {
+.layout--valmer-right .column {
   border: dashed 3px #0F0;
 }
 
 @media only screen and (min-width: 576px) {
-  .layout--space-invader .column--second {
-    width: calc(33.3333333333% - 26.6666666667px);
-    float: left;
-    margin-left: 20px;
+  .layout--valmer-right section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: center;
+    box-sizing: border-box;
+  }
+  .layout--valmer-right section > * {
+    flex: 0 0 auto;
+    box-sizing: inherit;
   }
 }
 
 @media only screen and (min-width: 576px) {
-  .layout--space-invader .column--first,
-  .layout--space-invader .column--third {
-    width: calc(33.3333333333% - 26.6666666667px);
+  .layout--valmer-right .column--first {
+    width: calc(100% - 40px);
     float: left;
     margin-left: 20px;
   }
 }
 
-/*# sourceMappingURL=space-invader.css.map */
+@media only screen and (min-width: 768px) {
+  .layout--valmer-right .column--first {
+    order: 10;
+    width: calc(50% - 30px);
+    float: left;
+    margin-left: 20px;
+  }
+}
+
+.layout--valmer-right .column--second,
+.layout--valmer-right .column--third {
+  order: 1;
+}
+
+@media only screen and (min-width: 576px) {
+  .layout--valmer-right .column--second,
+  .layout--valmer-right .column--third {
+    width: calc(50% - 30px);
+    float: left;
+    margin-left: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .layout--valmer-right .column--second,
+  .layout--valmer-right .column--third {
+    width: calc(25% - 25px);
+    float: left;
+    margin-left: 20px;
+  }
+}
+
+/*# sourceMappingURL=valmer-right.css.map */
