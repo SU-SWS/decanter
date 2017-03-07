@@ -26,10 +26,10 @@
     // Otherwise we calculate the max width in pixels
   } @else if type_of($max-width) == number {
     $_container-width: ((px($max-width) / ($_grid-columns * 2)) * $_columns);
-    @return $v-space calc(50vw - #{$_container-width});
+    @return $v-space calc((50vw - #{$_container-width}) + #{$_grid-gutter});
     // Finally, if max width is set to true, we use the project's "max-container-width" configuration option.
   } @else if ($max-width == true) {
     $_container-width: (($max-container-width / ($_grid-columns * 2)) * $_columns);
-    @return $v-space calc(50vw - #{$_container-width});
+    @return $v-space calc((50vw - #{$_container-width}) + #{$_grid-gutter});
   }
 }
