@@ -8,8 +8,10 @@ $base-font-size: 36px;
 @import "decanter";
 
 .grid-collapse {
-  @include grid-collapse;
-  @include clearfix;
+  @include grid-media($media-sm) {
+    @include grid-collapse;
+    @include clearfix;
+  }
 }
 
 .layout--donies {
@@ -24,7 +26,9 @@ $base-font-size: 36px;
 
   .column--first,
   .column--second {
-    @include grid-column(1 of 2);
+    @include grid-media($media-sm) {
+      @include grid-column(1 of 2);
+    }
     border: dashed 3px #0F0;
   }
 

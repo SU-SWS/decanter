@@ -3989,16 +3989,17 @@ hr {
   }
 }
 
-.grid-collapse {
-  margin-left: -20px;
-  margin-right: -20px;
-  width: calc(100% + 40px);
-}
-
-.grid-collapse::after {
-  clear: both;
-  content: "";
-  display: block;
+@media only screen and (min-width: 576px) {
+  .grid-collapse {
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+  }
+  .grid-collapse::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
 }
 
 .layout--frogger {
@@ -4063,10 +4064,16 @@ hr {
 
 .layout--frogger .column--first,
 .layout--frogger .column--second {
-  width: calc(50% - 30px);
-  float: left;
-  margin-left: 20px;
   border: dashed 3px #0F0;
+}
+
+@media only screen and (min-width: 576px) {
+  .layout--frogger .column--first,
+  .layout--frogger .column--second {
+    width: calc(50% - 30px);
+    float: left;
+    margin-left: 20px;
+  }
 }
 
 /*# sourceMappingURL=frogger.css.map */

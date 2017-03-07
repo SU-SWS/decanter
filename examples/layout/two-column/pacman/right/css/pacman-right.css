@@ -3989,16 +3989,17 @@ hr {
   }
 }
 
-.grid-collapse {
-  margin-left: -20px;
-  margin-right: -20px;
-  width: calc(100% + 40px);
-}
-
-.grid-collapse::after {
-  clear: both;
-  content: "";
-  display: block;
+@media only screen and (min-width: 576px) {
+  .grid-collapse {
+    margin-left: -20px;
+    margin-right: -20px;
+    width: calc(100% + 40px);
+  }
+  .grid-collapse::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
 }
 
 .layout--pacman--right {
@@ -4055,16 +4056,8 @@ hr {
   display: block;
 }
 
-.layout--pacman--right > header,
-.layout--pacman--right > footer,
-.layout--pacman--right > section > div {
+.layout--pacman--right .column {
   border: dashed 3px #0F0;
-}
-
-.layout--pacman--right .column--first {
-  width: calc(100% - 40px);
-  float: left;
-  margin-left: 20px;
 }
 
 @media only screen and (min-width: 576px) {
@@ -4073,12 +4066,6 @@ hr {
     float: left;
     margin-left: 20px;
   }
-}
-
-.layout--pacman--right .column--second {
-  width: calc(100% - 40px);
-  float: left;
-  margin-left: 20px;
 }
 
 @media only screen and (min-width: 576px) {

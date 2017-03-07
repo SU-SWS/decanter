@@ -8,8 +8,10 @@ $base-font-size: 36px;
 @import "decanter";
 
 .grid-collapse {
-  @include grid-collapse;
-  @include clearfix;
+  @include grid-media($media-sm) {
+    @include grid-collapse;
+    @include clearfix;
+  }
 }
 
 .layout--pacman--left {
@@ -17,24 +19,17 @@ $base-font-size: 36px;
   @include grid-container;
   background: #FDF;
 
-  > header,
-  > footer,
-  > section > div {
+  .column {
     border: dashed 3px #0F0;
   }
 
   .column--first {
-    @include grid-column(1 of 1);
-
     @include grid-media($media-sm) {
       @include grid-column(4 of 12);
     }
-
   }
 
   .column--second {
-    @include grid-column(1 of 1);
-
     @include grid-media($media-sm) {
       @include grid-column(8 of 12);
     }
