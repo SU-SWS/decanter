@@ -1,0 +1,51 @@
+@charset 'UTF-8';
+
+// I like big fonts I cannot lie.
+$root-font-size: 20px;
+$base-font-size: 36px;
+
+// Decant.
+@import "decanter";
+
+.grid-collapse {
+  @include grid-media($media-md) {
+    @include grid-collapse;
+    @include clearfix;
+  }
+}
+
+.layout--blastila--left {
+  @include responsive-container($default-container);
+  @include grid-container;
+  background: #FDF;
+
+  .column {
+    border: dashed 3px #0F0;
+  }
+
+  .column--second {
+    @include grid-media($media-md) {
+      @include grid-column(4 of 12);
+    }
+  }
+
+  .column--third {
+    @include grid-media($media-md) {
+      @include grid-column(8 of 12);
+    }
+  }
+
+  .column--third--first {
+    @include grid-media($media-md) {
+      @include grid-column(1 of 1);
+    }
+  }
+
+  .column--third-second,
+  .column--third-third {
+    @include grid-media($media-md) {
+      @include grid-column(1 of 2);
+    }
+  }
+
+}

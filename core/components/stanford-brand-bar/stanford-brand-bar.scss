@@ -1,0 +1,18 @@
+@charset 'UTF-8';
+
+////
+/// Stanford Global Brand Bar.
+/// A thin red stripe with the stanford logo.
+////
+
+@mixin stanford-brand-bar {
+  @include responsive-container($default-container);
+  background: color('brand', $palette-stanford);
+  height: 30px;
+  max-height: 30px;
+  img {
+    position: relative;
+    top: -4px;
+    width: 153px;
+  }
+}
