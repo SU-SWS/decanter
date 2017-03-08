@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Decanter Examples | Items per row</title>
+  <link href="css/style.css" media="all" rel="stylesheet" />
+</head>
+<body>
+<header>
+  <h1>Items per row Demo</h1>
+</header>
+<main>
+  <section id="centered-container">
+    <div class="example-wrapper"> <!-- This is only used to give the background and boundaries. In a normal layout, this would not exist -->
+      <p><code>@include centered-container(10);</code></p>
+      <h5>Items-per-row example</h5>
+      <p><code>@include grid-container;</code><br />
+      <code>@include grid-collapse;</code><br />
+      <code>@include items-per-row(4, '.item');</code></p>
+      <div class="item-grid--4">
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+      </div>
+      <br />
+      <h5>Example with custom selector</h5>
+      <p><code>@include grid-container;</code><br />
+        <code>@include grid-collapse;</code><br />
+        <code>@include items-per-row(5, 'article');</code></p>
+      <section class="item-grid--5">
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+      </section>
+  </section>
+
+</main>
+<aside id="breakpoint-helper"></aside>
+</body>
+</html>

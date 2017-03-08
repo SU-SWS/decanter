@@ -1,0 +1,18 @@
+@charset "UTF-8";
+// Creates a grid of items, optionally configure flexbox arguments
+// Depends on Decanter
+
+@mixin items-per-row
+(
+  $items: 1,
+  $selector: '*',
+  $grid: $neat-grid
+) {
+
+  > #{$selector} {
+    $_gutter: _retrieve-neat-setting($grid, gutter);
+    @include grid-column(1 of $items);
+    @include nth-alpha('#{$items}n+1');
+    margin-bottom: $_gutter;
+  }
+}

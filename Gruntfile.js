@@ -77,7 +77,8 @@ module.exports = function(grunt) {
 
           'examples/layout/four-column/molive/css/molive.css': 'examples/layout/four-column/molive/scss/molive.scss',
 
-          'examples/layout/full-width/bricks/css/bricks.css': 'examples/layout/full-width/bricks/scss/bricks.scss'
+          'examples/layout/full-width/bricks/css/bricks.css': 'examples/layout/full-width/bricks/scss/bricks.scss',
+          'examples/mixins/items-per-row/css/style.css': 'examples/mixins/items-per-row/scss/style.scss'
         }
       }
     },
