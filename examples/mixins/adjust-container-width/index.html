@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Decanter Examples | Adjust Container Width</title>
+  <link href="css/adjust-container-width.css" media="all" rel="stylesheet" />
+</head>
+<body>
+<header>
+  <h1>Adjust Container Width Demo</h1>
+</header>
+<main>
+  <section id="centered-container">
+    <div class="example-wrapper"> <!-- This is only used to give the background and boundaries. In a normal layout, this would not exist -->
+      <h3>Centered Container</h3>
+      <p><code>@include centered-container(8);</code></p>
+      <div class="adjust-plus-2">
+        <h5>Adjusted Container (+2)</h5>
+        <p><code>@include adjust-container-width(2);</code></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <div class="adjust-minus-2">
+        <h5>Adjusted Container (-2)</h5>
+        <p><code>@include adjust-container-width(-2);</code></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+          non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+      <h5>Return to regular flow.</h5>
+      <p>Excepteur sint occaecat cupidatat
+        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </section>
+
+</main>
+<aside id="breakpoint-helper"></aside>
+</body>
+</html>

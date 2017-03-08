@@ -1,0 +1,19 @@
+@charset "UTF-8";
+// Adjust the current container by insetting or breaking out by X columns
+// Can accept negative numbers
+// todo: documentation.
+
+@mixin adjust-container-width
+(
+  $columns: 2,
+  $grid: $neat-grid,
+  $max-width: false,
+  $grid-collapse: false
+)
+{
+  $_margin: _adjust-container-margin($columns, $grid, $max-width, $grid-collapse);
+
+  margin-#{_neat-float-direction($grid)}: $_margin;
+  margin-#{_neat-opposite-direction($grid)}: $_margin;
+  width: auto;
+}
