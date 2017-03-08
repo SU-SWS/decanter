@@ -35,6 +35,39 @@ body > header {
     }
   }
 
+  .flex-item-grid--4 {
+    background-color: tint(color(maroon), 40%);
+    @include grid-container;
+    @include grid-collapse;
+    @include flex-items-per-row(4, '.item', $center-grid: true, $equal-heights: true);
+
+    .item {
+      background-color: tint(color(maroon), 20%);
+    }
+  }
+
+  .flex-item-grid--5-centered {
+    background-color: tint(color(purple), 40%);
+    @include grid-container;
+    @include grid-collapse;
+    @include flex-items-per-row(5, 'article', $center-grid: true, $equal-heights: false);
+
+    article {
+      background-color: tint(color(purple), 20%);
+    }
+  }
+
+  .flex-item-grid--5 {
+    background-color: tint(color(aqua), 40%);
+    @include grid-container;
+    @include grid-collapse;
+    @include flex-items-per-row(5, 'article', $center-grid: false, $equal-heights: true);
+
+    article {
+      background-color: tint(color(aqua), 20%);
+    }
+  }
+
   .example-wrapper {
     @include grid-container;
     background-color: shade(color(light-grey), 10%);
