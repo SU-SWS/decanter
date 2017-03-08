@@ -6,13 +6,16 @@
 (
   $items: 1,
   $selector: '*',
-  $grid: $neat-grid
+  $grid: $neat-grid,
+  $clear: true
 ) {
 
   > #{$selector} {
     $_gutter: _retrieve-neat-setting($grid, gutter);
     @include grid-column(1 of $items);
-    @include nth-alpha('#{$items}n+1');
+    @if $clear == true {
+      @include nth-alpha('#{$items}n+1');
+    }
     margin-bottom: $_gutter;
   }
 }
