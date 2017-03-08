@@ -1,11 +1,12 @@
 @charset 'UTF-8';
+
+// I like big fonts I cannot lie.
+$root-font-size: 20px;
+$base-font-size: 36px;
+
+// Decant.
 @import "decanter";
 
-
-main {
-  @include centered-container($breakpoints);
-}
-
-.wrapper {
-  @include grid-column(12 of 12);
+.layout--basic {
+  @include responsive-container($default-container);
 }

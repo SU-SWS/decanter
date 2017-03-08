@@ -1,0 +1,36 @@
+@charset 'UTF-8';
+
+// I like big fonts I cannot lie.
+$root-font-size: 20px;
+$base-font-size: 36px;
+
+// Decant.
+@import "decanter";
+
+.grid-collapse {
+  @include grid-media($media-sm) {
+    @include grid-collapse;
+    @include clearfix;
+  }
+}
+
+.layout--frogger {
+  @include responsive-container($default-container);
+  @include grid-container;
+  background: #FDF;
+
+  > header,
+  > footer,
+  > div {
+    border: dashed 3px #0F0;
+  }
+
+  .column--first,
+  .column--second {
+    @include grid-media($media-sm) {
+      @include grid-column(1 of 2);
+    }
+    border: dashed 3px #0F0;
+  }
+
+}
