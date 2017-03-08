@@ -1,0 +1,40 @@
+$breakpoint-helper: true;
+
+@import "decanter";
+
+body > header {
+  @include centered-container;
+  background-color: color(aqua);
+  text-align: center;
+}
+
+#centered-container {
+
+  @include centered-container(8);
+  background-color: color(light-grey);
+
+  .adjust-plus-2 {
+    @include adjust-container-width(2);
+    background-color: tint(color(light-grey), 30%);
+    border-color: color(green);
+    border-width: 1px;
+    border-style: dashed;
+
+  }
+
+  .adjust-minus-2 {
+    @include adjust-container-width(-2);
+    background-color: tint(color(light-grey), 30%);
+    border-color: color(orange);
+    border-width: 1px;
+    border-style: dashed;
+  }
+
+  .example-wrapper {
+    @include grid-container;
+    background-color: shade(color(light-grey), 10%);
+    border-color: color(purple);
+    border-width: 1px;
+    border-style: dashed;
+  }
+}
