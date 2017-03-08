@@ -1,0 +1,78 @@
+$breakpoint-helper: true;
+
+@import "decanter";
+
+body > header {
+  @include centered-container;
+  background-color: color(aqua);
+  text-align: center;
+}
+
+#centered-container {
+
+  @include centered-container(10);
+  background-color: color(light-grey);
+
+  .item-grid--4 {
+    background-color: tint(color(olive), 40%);
+    @include grid-container;
+    @include grid-collapse;
+    @include items-per-row(4, '.item');
+
+    .item {
+      background-color: tint(color(olive), 20%);
+    }
+  }
+
+  .item-grid--5 {
+    background-color: tint(color(red), 40%);
+    @include grid-container;
+    @include grid-collapse;
+    @include items-per-row(5, 'article');
+
+    article {
+      background-color: tint(color(red), 20%);
+    }
+  }
+
+  .flex-item-grid--4 {
+    background-color: tint(color(maroon), 40%);
+    @include grid-container;
+    @include grid-collapse;
+    @include flex-items-per-row(4, '.item', $center-grid: true, $equal-heights: true);
+
+    .item {
+      background-color: tint(color(maroon), 20%);
+    }
+  }
+
+  .flex-item-grid--5-centered {
+    background-color: tint(color(purple), 40%);
+    @include grid-container;
+    @include grid-collapse;
+    @include flex-items-per-row(5, 'article', $center-grid: true, $equal-heights: false);
+
+    article {
+      background-color: tint(color(purple), 20%);
+    }
+  }
+
+  .flex-item-grid--5 {
+    background-color: tint(color(aqua), 40%);
+    @include grid-container;
+    @include grid-collapse;
+    @include flex-items-per-row(5, 'article', $center-grid: false, $equal-heights: true);
+
+    article {
+      background-color: tint(color(aqua), 20%);
+    }
+  }
+
+  .example-wrapper {
+    @include grid-container;
+    background-color: shade(color(light-grey), 10%);
+    border-color: color(purple);
+    border-width: 1px;
+    border-style: dashed;
+  }
+}

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Decanter Examples | Items per row</title>
+  <link href="css/style.css" media="all" rel="stylesheet" />
+</head>
+<body>
+<header>
+  <h1>Items per row Demo</h1>
+</header>
+<main>
+  <section id="centered-container">
+    <div class="example-wrapper"> <!-- This is only used to give the background and boundaries. In a normal layout, this would not exist -->
+      <p><code>@include centered-container(10);</code></p>
+      <h5>Items-per-row example</h5>
+      <p><code>@include grid-container;</code><br />
+      <code>@include grid-collapse;</code><br />
+      <code>@include items-per-row(4, '.item');</code></p>
+      <div class="item-grid--4">
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+          <p>Some items have two lines</p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+      </div>
+      <br />
+      <h5>Items-per-row, custom selector</h5>
+      <p><code>@include grid-container;</code><br />
+        <code>@include grid-collapse;</code><br />
+        <code>@include items-per-row(5, 'article');</code></p>
+      <section class="item-grid--5">
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+          <p>Some items have two lines</p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+      </section>
+      <br />
+      <h5>Flex-Items-per-row, centered with equal heights</h5>
+      <p><code>@include grid-container;</code><br />
+        <code>@include grid-collapse;</code><br />
+        <code>@include flex-items-per-row(4, '.item', $center-grid: true, $equal-heights: true);</code></p>
+      <div class="flex-item-grid--4">
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+          <p>Some items have two lines</p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+        <div class="item">
+          <p><code>.item</code></p>
+        </div>
+      </div>
+      <br />
+      <h5>Flex items per row, centered without equal heights</h5>
+      <p><code>@include grid-container;</code><br />
+        <code>@include grid-collapse;</code><br />
+        <code>@include items-per-row(5, 'article', $center-grid: true, $equal-heights: false);</code></p>
+      <section class="flex-item-grid--5-centered">
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+          <p>Some items have two lines</p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+      </section>
+      <br />
+      <h5>Flex items per row, not centered with equal heights</h5>
+      <p><code>@include grid-container;</code><br />
+        <code>@include grid-collapse;</code><br />
+        <code>@include items-per-row(5, 'article', $center-grid: false, $equal-heights: true);</code></p>
+      <section class="flex-item-grid--5">
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+          <p>Some items have two lines</p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+        <article>
+          <p><code>article</code></p>
+        </article>
+      </section>
+  </section>
+
+</main>
+<aside id="breakpoint-helper"></aside>
+</body>
+</html>
