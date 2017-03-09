@@ -109,6 +109,9 @@ body > header {
       print:  ( columns: 9,   grid-media: $media-print,   v-space: $_vspace, max-width: true,  grid-collapse: false ),
   );
   @include responsive-container($_container);
+  span {
+    transition: all .3s ease;
+  }
 
   @include grid-media($media-xs-only) {
     $_gutter: _retrieve-neat-setting($neat-grid, gutter);
@@ -117,8 +120,8 @@ body > header {
       background-color: tint(color(blue), 25%);
       padding: 1em;
       display: block;
-      transition: all .3s ease;
       margin: -1em (-$_gutter * 1.5);
+      transition: all .3s ease .25s;
       @include material-shadow(medium);
     }
   }
@@ -129,8 +132,8 @@ body > header {
       background-color: tint(color(olive), 35%);
       padding: $_gutter;
       display: block;
-      transition: all .3s ease;
       margin: -1em (-$_gutter * 1.5);
+      transition: all .3s ease .25s;
       @include material-shadow(medium);
     }
   }
@@ -141,8 +144,8 @@ body > header {
       background-color: tint(color(orange), 35%);
       padding: $_gutter;
       display: block;
-      transition: all .3s ease;
       margin: -1em (-$_gutter * 2);
+      transition: all .3s ease .25s;
       @include material-shadow(medium);
     }
   }
@@ -153,8 +156,8 @@ body > header {
       background-color: tint(color(red), 35%);
       padding: $_gutter;
       display: block;
-      transition: all .3s ease;
       margin: -1em (-$_gutter * 1.5);
+      transition: all .3s ease .25s;
       @include material-shadow(medium);
     }
   }
@@ -165,8 +168,8 @@ body > header {
       background-color: tint(color(purple), 35%);
       padding: $_gutter;
       display: block;
-      transition: all .3s ease;
       margin: -1em (-$_gutter * 1.5);
+      transition: all .3s ease .25s;
       @include material-shadow(medium);
     }
   }
@@ -177,7 +180,7 @@ body > header {
       background-color: shade(color(light-grey), 15%);
       padding: $_gutter;
       display: block;
-      transition: all .3s ease;
+      transition: null;
       margin: -1em (-$_gutter * 1.5);
       @include material-shadow(shallow);
     }
