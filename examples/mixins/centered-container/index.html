@@ -33,14 +33,14 @@
   </section>
   <section id="example-3">
     <div class="example-wrapper"> <!-- This is only used to give the background and boundaries. In a normal layout, this would not exist -->
-      <h4>Centered-container (with max-width=true)</h4>
+      <h4>Centered-container (with <code>$max-width: true</code>)</h4>
       <p><code>@include centered-container(12, $max-width: true);</code></p>
       <p>When passed the <code>$max-width: true</code> setting, the centered container mixin stops growing at the projects <code>$max-container-width</code> size (minus the current <code>$grid-media</code>'s gutters)</code></p>
     </div>
   </section>
   <section id="example-4">
     <div class="example-wrapper"> <!-- This is only used to give the background and boundaries. In a normal layout, this would not exist -->
-      <h4>Centered-container (with max-width=800px)</h4>
+      <h4>Centered-container (with <code>$max-width: 800px</code>)</h4>
       <p><code>@include centered-container(12, $max-width: 800px);</code></p>
       <p>When passed a <code>$max-width: 800px</code> value, the centered container mixin stops growing at the specified width (minus the current <code>$grid-media</code>'s gutters</code>)</p>
       <div class="column--half"><code>@include grid-column(1 of 2)</code></div><div class="column--half"><code>@include grid-column(1 of 2)</code></div>
@@ -48,7 +48,7 @@
   </section>
   <section id="example-5">
     <div class="example-wrapper"> <!-- This is only used to give the background and boundaries. In a normal layout, this would not exist -->
-      <h4>Centered-container (with max-width=800px, and grid-collapse: true)</h4>
+      <h4>Centered-container (with <code>max-width: 800px</code>, and <code>$grid-collapse: true</code>)</h4>
       <p><code>@include centered-container(12, $max-width: 800px, $grid-collapse: true);</code></p>
       <p>When passed a <code>$max-width: 800px</code> value, combined with <code>$grid-collapse: true</code>, the centered container mixin stops growing at the specified width (while consuming the current <code>$grid-media</code>'s gutters</code>)</p>
       <div class="column--half"><code>@include grid-column(1 of 2)</code></div><div class="column--half"><code>@include grid-column(1 of 2)</code></div>
@@ -56,7 +56,7 @@
   </section>
   <section id="example-6">
     <div class="example-wrapper"> <!-- This is only used to give the background and boundaries. In a normal layout, this would not exist -->
-      <h4>Putting it all together: Responsive container</h4>
+      <h4>Putting it all together: <code>$responsive-container();</code></h4>
       <p>The <code>responsive-container();</code> mixin consumes a sass map of containers and breakpoints, which allows you to create a customized experience that varies by breakpoint.</p>
       <p><code style="display: block; white-space: pre-wrap;">
   $_vspace: 1em;
