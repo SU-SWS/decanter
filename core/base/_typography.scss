@@ -108,7 +108,11 @@ pre {
 /// @require {function} font-size
 code, kbd, tt, var {
   font-family: $font-family-monospace;
-  @include font-size(16px);;
+  @include font-size(16px);
+  padding: modular-scale(-10) modular-scale(-5);
+  position: relative;
+  background-color: rgba(color(light-grey), .6);
+  border: 1px solid color(grey);
 }
 
 /// @require {function} color
