@@ -6,13 +6,19 @@
 ////
 
 @mixin stanford-brand-bar {
-  @include responsive-container($default-container);
-  background: color('brand', $palette-stanford);
+  $brand-container: (
+      lg-max: ( columns: 12, grid-media: $media-lg-max,  v-space: 5px, max-width: false, grid-collapse: false ),
+      xl: ( columns: 12, grid-media: $media-xl,       v-space: 5px, max-width: true,  grid-collapse: false ),
+      print: ( columns: 12, grid-media: $media-print, v-space: 5px, max-width: false, grid-collapse: false ),
+  ) !default;
+
+  @include responsive-container($brand-container);
+  background: color(brand, $palette-stanford);
   height: 30px;
   max-height: 30px;
+  color: color(reverse-text, $palette-stanford);
+
   img {
-    position: relative;
-    top: -10px;
     width: 153px;
   }
 }

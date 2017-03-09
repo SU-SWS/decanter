@@ -3993,22 +3993,12 @@ hr {
   background: #8c1515;
   height: 30px;
   max-height: 30px;
+  color: #fff;
 }
 
-@media only screen and (min-width: 0px) {
+@media only screen and (max-width: 1199px) {
   .brand-bar {
-    padding: 1em calc(((50vw /12) * 0) + 20px);
-  }
-  .brand-bar::after {
-    clear: both;
-    content: "";
-    display: block;
-  }
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .brand-bar {
-    padding: 1em calc(((50vw /12) * 0) + 20px);
+    padding: 5px calc(((50vw /12) * 0) + 20px);
   }
   .brand-bar::after {
     clear: both;
@@ -4019,7 +4009,7 @@ hr {
 
 @media only screen and (min-width: 1200px) {
   .brand-bar {
-    padding: 1em calc(50vw - (600px - 20px));
+    padding: 5px calc(50vw - (600px - 20px));
   }
   .brand-bar::after {
     clear: both;
@@ -4030,7 +4020,7 @@ hr {
 
 @media only print {
   .brand-bar {
-    padding: 1em calc(((50vw /12) * 0) + 0.25in);
+    padding: 5px calc(((50vw /12) * 0) + 0.25in);
   }
   .brand-bar::after {
     clear: both;
@@ -4040,8 +4030,6 @@ hr {
 }
 
 .brand-bar img {
-  position: relative;
-  top: -10px;
   width: 153px;
 }
 
