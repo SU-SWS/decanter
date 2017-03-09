@@ -4005,6 +4005,40 @@ body > header::after {
   display: block;
 }
 
+.grid-visual {
+  background-image: linear-gradient(to right, rgba(0, 212, 255, 0.25), rgba(0, 212, 255, 0.25) 20px, transparent 20px, transparent calc(8.3333333333% - 21.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(8.3333333333% - 21.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(8.3333333333% - 21.6666666667px + 20px + 20px), transparent calc(8.3333333333% - 21.6666666667px + 20px + 20px), transparent calc(16.6666666667% - 23.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(16.6666666667% - 23.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(16.6666666667% - 23.3333333333px + 20px + 20px), transparent calc(16.6666666667% - 23.3333333333px + 20px + 20px), transparent calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px + 20px), transparent calc(25% - 25px + 20px + 20px), transparent calc(33.3333333333% - 26.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 26.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 26.6666666667px + 20px + 20px), transparent calc(33.3333333333% - 26.6666666667px + 20px + 20px), transparent calc(41.6666666667% - 28.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(41.6666666667% - 28.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(41.6666666667% - 28.3333333333px + 20px + 20px), transparent calc(41.6666666667% - 28.3333333333px + 20px + 20px), transparent calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px + 20px), transparent calc(50% - 30px + 20px + 20px), transparent calc(58.3333333333% - 31.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(58.3333333333% - 31.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(58.3333333333% - 31.6666666667px + 20px + 20px), transparent calc(58.3333333333% - 31.6666666667px + 20px + 20px), transparent calc(66.6666666667% - 33.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 33.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 33.3333333333px + 20px + 20px), transparent calc(66.6666666667% - 33.3333333333px + 20px + 20px), transparent calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px + 20px), transparent calc(75% - 35px + 20px + 20px), transparent calc(83.3333333333% - 36.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(83.3333333333% - 36.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(83.3333333333% - 36.6666666667px + 20px + 20px), transparent calc(83.3333333333% - 36.6666666667px + 20px + 20px), transparent calc(91.6666666667% - 38.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(91.6666666667% - 38.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(91.6666666667% - 38.3333333333px + 20px + 20px), transparent calc(91.6666666667% - 38.3333333333px + 20px + 20px), transparent calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100%));
+}
+
+.grid-container::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.grid-collapse {
+  margin-left: -20px;
+  margin-right: -20px;
+  width: calc(100% + 40px);
+}
+
+.absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.example-wrapper {
+  position: relative;
+}
+
+.column--full {
+  width: calc(100% - 40px);
+  float: left;
+  margin-left: 20px;
+}
+
 .centered-container-10 {
   padding: 1em calc(((50vw /12) * 2) + 20px);
   background-color: #ddd;
@@ -4192,7 +4226,7 @@ body > header::after {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   #example-6 {
-    padding: 1em calc(((50vw /12) * 2) + 20px);
+    padding: 1em calc(((50vw /12) * 6) + 20px);
   }
   #example-6::after {
     clear: both;
@@ -4242,6 +4276,9 @@ body > header::after {
   #example-6 {
     background-color: #0074d9;
   }
+  #example-6 .grid-visual {
+    background-image: linear-gradient(to right, rgba(0, 212, 255, 0.25), rgba(0, 212, 255, 0.25) 20px, transparent 20px, transparent calc(10% - 22px + 20px), rgba(0, 212, 255, 0.25) calc(10% - 22px + 20px), rgba(0, 212, 255, 0.25) calc(10% - 22px + 20px + 20px), transparent calc(10% - 22px + 20px + 20px), transparent calc(20% - 24px + 20px), rgba(0, 212, 255, 0.25) calc(20% - 24px + 20px), rgba(0, 212, 255, 0.25) calc(20% - 24px + 20px + 20px), transparent calc(20% - 24px + 20px + 20px), transparent calc(30% - 26px + 20px), rgba(0, 212, 255, 0.25) calc(30% - 26px + 20px), rgba(0, 212, 255, 0.25) calc(30% - 26px + 20px + 20px), transparent calc(30% - 26px + 20px + 20px), transparent calc(40% - 28px + 20px), rgba(0, 212, 255, 0.25) calc(40% - 28px + 20px), rgba(0, 212, 255, 0.25) calc(40% - 28px + 20px + 20px), transparent calc(40% - 28px + 20px + 20px), transparent calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px + 20px), transparent calc(50% - 30px + 20px + 20px), transparent calc(60% - 32px + 20px), rgba(0, 212, 255, 0.25) calc(60% - 32px + 20px), rgba(0, 212, 255, 0.25) calc(60% - 32px + 20px + 20px), transparent calc(60% - 32px + 20px + 20px), transparent calc(70% - 34px + 20px), rgba(0, 212, 255, 0.25) calc(70% - 34px + 20px), rgba(0, 212, 255, 0.25) calc(70% - 34px + 20px + 20px), transparent calc(70% - 34px + 20px + 20px), transparent calc(80% - 36px + 20px), rgba(0, 212, 255, 0.25) calc(80% - 36px + 20px), rgba(0, 212, 255, 0.25) calc(80% - 36px + 20px + 20px), transparent calc(80% - 36px + 20px + 20px), transparent calc(90% - 38px + 20px), rgba(0, 212, 255, 0.25) calc(90% - 38px + 20px), rgba(0, 212, 255, 0.25) calc(90% - 38px + 20px + 20px), transparent calc(90% - 38px + 20px + 20px), transparent calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100%));
+  }
   #example-6 .xs {
     background-color: #4097e3;
     padding: 1em;
@@ -4255,6 +4292,9 @@ body > header::after {
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   #example-6 {
     background-color: #3d9970;
+  }
+  #example-6 .grid-visual {
+    background-image: linear-gradient(to right, rgba(0, 212, 255, 0.25), rgba(0, 212, 255, 0.25) 20px, transparent 20px, transparent calc(12.5% - 22.5px + 20px), rgba(0, 212, 255, 0.25) calc(12.5% - 22.5px + 20px), rgba(0, 212, 255, 0.25) calc(12.5% - 22.5px + 20px + 20px), transparent calc(12.5% - 22.5px + 20px + 20px), transparent calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px + 20px), transparent calc(25% - 25px + 20px + 20px), transparent calc(37.5% - 27.5px + 20px), rgba(0, 212, 255, 0.25) calc(37.5% - 27.5px + 20px), rgba(0, 212, 255, 0.25) calc(37.5% - 27.5px + 20px + 20px), transparent calc(37.5% - 27.5px + 20px + 20px), transparent calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px + 20px), transparent calc(50% - 30px + 20px + 20px), transparent calc(62.5% - 32.5px + 20px), rgba(0, 212, 255, 0.25) calc(62.5% - 32.5px + 20px), rgba(0, 212, 255, 0.25) calc(62.5% - 32.5px + 20px + 20px), transparent calc(62.5% - 32.5px + 20px + 20px), transparent calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px + 20px), transparent calc(75% - 35px + 20px + 20px), transparent calc(87.5% - 37.5px + 20px), rgba(0, 212, 255, 0.25) calc(87.5% - 37.5px + 20px), rgba(0, 212, 255, 0.25) calc(87.5% - 37.5px + 20px + 20px), transparent calc(87.5% - 37.5px + 20px + 20px), transparent calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100%));
   }
   #example-6 .sm {
     background-color: #81bda2;
@@ -4270,6 +4310,9 @@ body > header::after {
   #example-6 {
     background-color: #ff851b;
   }
+  #example-6 .grid-visual {
+    background-image: linear-gradient(to right, rgba(0, 212, 255, 0.25), rgba(0, 212, 255, 0.25) 20px, transparent 20px, transparent calc(16.6666666667% - 23.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(16.6666666667% - 23.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(16.6666666667% - 23.3333333333px + 20px + 20px), transparent calc(16.6666666667% - 23.3333333333px + 20px + 20px), transparent calc(33.3333333333% - 26.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 26.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 26.6666666667px + 20px + 20px), transparent calc(33.3333333333% - 26.6666666667px + 20px + 20px), transparent calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px + 20px), transparent calc(50% - 30px + 20px + 20px), transparent calc(66.6666666667% - 33.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 33.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 33.3333333333px + 20px + 20px), transparent calc(66.6666666667% - 33.3333333333px + 20px + 20px), transparent calc(83.3333333333% - 36.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(83.3333333333% - 36.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(83.3333333333% - 36.6666666667px + 20px + 20px), transparent calc(83.3333333333% - 36.6666666667px + 20px + 20px), transparent calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100%));
+  }
   #example-6 .md {
     background-color: #ffb06b;
     padding: 20px;
@@ -4283,6 +4326,9 @@ body > header::after {
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   #example-6 {
     background-color: #ff4136;
+  }
+  #example-6 .grid-visual {
+    background-image: linear-gradient(to right, rgba(0, 212, 255, 0.25), rgba(0, 212, 255, 0.25) 20px, transparent 20px, transparent calc(8.3333333333% - 21.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(8.3333333333% - 21.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(8.3333333333% - 21.6666666667px + 20px + 20px), transparent calc(8.3333333333% - 21.6666666667px + 20px + 20px), transparent calc(16.6666666667% - 23.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(16.6666666667% - 23.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(16.6666666667% - 23.3333333333px + 20px + 20px), transparent calc(16.6666666667% - 23.3333333333px + 20px + 20px), transparent calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px + 20px), transparent calc(25% - 25px + 20px + 20px), transparent calc(33.3333333333% - 26.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 26.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 26.6666666667px + 20px + 20px), transparent calc(33.3333333333% - 26.6666666667px + 20px + 20px), transparent calc(41.6666666667% - 28.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(41.6666666667% - 28.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(41.6666666667% - 28.3333333333px + 20px + 20px), transparent calc(41.6666666667% - 28.3333333333px + 20px + 20px), transparent calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px + 20px), transparent calc(50% - 30px + 20px + 20px), transparent calc(58.3333333333% - 31.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(58.3333333333% - 31.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(58.3333333333% - 31.6666666667px + 20px + 20px), transparent calc(58.3333333333% - 31.6666666667px + 20px + 20px), transparent calc(66.6666666667% - 33.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 33.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 33.3333333333px + 20px + 20px), transparent calc(66.6666666667% - 33.3333333333px + 20px + 20px), transparent calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px + 20px), transparent calc(75% - 35px + 20px + 20px), transparent calc(83.3333333333% - 36.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(83.3333333333% - 36.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(83.3333333333% - 36.6666666667px + 20px + 20px), transparent calc(83.3333333333% - 36.6666666667px + 20px + 20px), transparent calc(91.6666666667% - 38.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(91.6666666667% - 38.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(91.6666666667% - 38.3333333333px + 20px + 20px), transparent calc(91.6666666667% - 38.3333333333px + 20px + 20px), transparent calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100%));
   }
   #example-6 .lg {
     background-color: #ff847c;
@@ -4298,6 +4344,9 @@ body > header::after {
   #example-6 {
     background-color: #b10dc9;
   }
+  #example-6 .grid-visual {
+    background-image: linear-gradient(to right, rgba(0, 212, 255, 0.25), rgba(0, 212, 255, 0.25) 20px, transparent 20px, transparent calc(8.3333333333% - 21.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(8.3333333333% - 21.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(8.3333333333% - 21.6666666667px + 20px + 20px), transparent calc(8.3333333333% - 21.6666666667px + 20px + 20px), transparent calc(16.6666666667% - 23.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(16.6666666667% - 23.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(16.6666666667% - 23.3333333333px + 20px + 20px), transparent calc(16.6666666667% - 23.3333333333px + 20px + 20px), transparent calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px + 20px), transparent calc(25% - 25px + 20px + 20px), transparent calc(33.3333333333% - 26.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 26.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 26.6666666667px + 20px + 20px), transparent calc(33.3333333333% - 26.6666666667px + 20px + 20px), transparent calc(41.6666666667% - 28.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(41.6666666667% - 28.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(41.6666666667% - 28.3333333333px + 20px + 20px), transparent calc(41.6666666667% - 28.3333333333px + 20px + 20px), transparent calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px + 20px), transparent calc(50% - 30px + 20px + 20px), transparent calc(58.3333333333% - 31.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(58.3333333333% - 31.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(58.3333333333% - 31.6666666667px + 20px + 20px), transparent calc(58.3333333333% - 31.6666666667px + 20px + 20px), transparent calc(66.6666666667% - 33.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 33.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 33.3333333333px + 20px + 20px), transparent calc(66.6666666667% - 33.3333333333px + 20px + 20px), transparent calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px + 20px), transparent calc(75% - 35px + 20px + 20px), transparent calc(83.3333333333% - 36.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(83.3333333333% - 36.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(83.3333333333% - 36.6666666667px + 20px + 20px), transparent calc(83.3333333333% - 36.6666666667px + 20px + 20px), transparent calc(91.6666666667% - 38.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(91.6666666667% - 38.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(91.6666666667% - 38.3333333333px + 20px + 20px), transparent calc(91.6666666667% - 38.3333333333px + 20px + 20px), transparent calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100%));
+  }
   #example-6 .xl {
     background-color: #cc62dc;
     padding: 20px;
@@ -4311,6 +4360,9 @@ body > header::after {
 @media only print {
   #example-6 {
     background-color: #ddd;
+  }
+  #example-6 .grid-visual {
+    background-image: linear-gradient(to right, rgba(0, 212, 255, 0.25), rgba(0, 212, 255, 0.25) 0.25in, transparent 0.25in, transparent calc(11.1111111111% - 0.2777777778in + 0.25in), rgba(0, 212, 255, 0.25) calc(11.1111111111% - 0.2777777778in + 0.25in), rgba(0, 212, 255, 0.25) calc(11.1111111111% - 0.2777777778in + 0.25in + 0.25in), transparent calc(11.1111111111% - 0.2777777778in + 0.25in + 0.25in), transparent calc(22.2222222222% - 0.3055555556in + 0.25in), rgba(0, 212, 255, 0.25) calc(22.2222222222% - 0.3055555556in + 0.25in), rgba(0, 212, 255, 0.25) calc(22.2222222222% - 0.3055555556in + 0.25in + 0.25in), transparent calc(22.2222222222% - 0.3055555556in + 0.25in + 0.25in), transparent calc(33.3333333333% - 0.3333333333in + 0.25in), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 0.3333333333in + 0.25in), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 0.3333333333in + 0.25in + 0.25in), transparent calc(33.3333333333% - 0.3333333333in + 0.25in + 0.25in), transparent calc(44.4444444444% - 0.3611111111in + 0.25in), rgba(0, 212, 255, 0.25) calc(44.4444444444% - 0.3611111111in + 0.25in), rgba(0, 212, 255, 0.25) calc(44.4444444444% - 0.3611111111in + 0.25in + 0.25in), transparent calc(44.4444444444% - 0.3611111111in + 0.25in + 0.25in), transparent calc(55.5555555556% - 0.3888888889in + 0.25in), rgba(0, 212, 255, 0.25) calc(55.5555555556% - 0.3888888889in + 0.25in), rgba(0, 212, 255, 0.25) calc(55.5555555556% - 0.3888888889in + 0.25in + 0.25in), transparent calc(55.5555555556% - 0.3888888889in + 0.25in + 0.25in), transparent calc(66.6666666667% - 0.4166666667in + 0.25in), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 0.4166666667in + 0.25in), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 0.4166666667in + 0.25in + 0.25in), transparent calc(66.6666666667% - 0.4166666667in + 0.25in + 0.25in), transparent calc(77.7777777778% - 0.4444444444in + 0.25in), rgba(0, 212, 255, 0.25) calc(77.7777777778% - 0.4444444444in + 0.25in), rgba(0, 212, 255, 0.25) calc(77.7777777778% - 0.4444444444in + 0.25in + 0.25in), transparent calc(77.7777777778% - 0.4444444444in + 0.25in + 0.25in), transparent calc(88.8888888889% - 0.4722222222in + 0.25in), rgba(0, 212, 255, 0.25) calc(88.8888888889% - 0.4722222222in + 0.25in), rgba(0, 212, 255, 0.25) calc(88.8888888889% - 0.4722222222in + 0.25in + 0.25in), transparent calc(88.8888888889% - 0.4722222222in + 0.25in + 0.25in), transparent calc(100% - 0.25in), rgba(0, 212, 255, 0.25) calc(100% - 0.25in), rgba(0, 212, 255, 0.25) calc(100%));
   }
   #example-6 .print {
     background-color: #bcbcbc;

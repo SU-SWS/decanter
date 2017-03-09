@@ -8,6 +8,33 @@ body > header {
   text-align: center;
 }
 
+.grid-visual {
+  @include grid-visual;
+}
+
+.grid-container {
+  @include grid-container;
+}
+
+.grid-collapse {
+  @include grid-collapse;
+}
+.absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.example-wrapper {
+  position: relative;
+}
+
+.column--full {
+  @include grid-column(1 of 1);
+}
+
 .centered-container-10 {
 
   @include centered-container(10);
@@ -103,7 +130,7 @@ body > header {
   $_container: (
       xs:     ( columns: 10,  grid-media: $media-xs-only, v-space: $_vspace, max-width: false, grid-collapse: false ),
       sm:     ( columns: 8,  grid-media: $media-sm-only, v-space: $_vspace, max-width: false, grid-collapse: false ),
-      md:     ( columns: 10,  grid-media: $media-md-only, v-space: $_vspace, max-width: false, grid-collapse: false ),
+      md:     ( columns: 6,  grid-media: $media-md-only, v-space: $_vspace, max-width: false, grid-collapse: false ),
       lg:     ( columns: 12,   grid-media: $media-lg-only, v-space: $_vspace, max-width: false, grid-collapse: false ),
       xl:     ( columns: 12,   grid-media: $media-xl,      v-space: $_vspace, max-width: true,  grid-collapse: false ),
       print:  ( columns: 9,   grid-media: $media-print,   v-space: $_vspace, max-width: true,  grid-collapse: false ),
@@ -114,6 +141,9 @@ body > header {
   }
 
   @include grid-media($media-xs-only) {
+    .grid-visual {
+      @include grid-visual($grid: (columns: 10));
+    }
     $_gutter: _retrieve-neat-setting($neat-grid, gutter);
       background-color: color(blue);
     .xs {
@@ -126,6 +156,9 @@ body > header {
     }
   }
   @include grid-media($media-sm-only) {
+    .grid-visual {
+      @include grid-visual($grid: (columns: 8));
+    }
     $_gutter: _retrieve-neat-setting($neat-grid, gutter);
       background-color: color(olive);
     .sm {
@@ -138,6 +171,9 @@ body > header {
     }
   }
   @include grid-media($media-md-only) {
+    .grid-visual {
+      @include grid-visual($grid: (columns: 6));
+    }
     $_gutter: _retrieve-neat-setting($neat-grid, gutter);
       background-color: color(orange);
     .md {
@@ -150,6 +186,9 @@ body > header {
     }
   }
   @include grid-media($media-lg-only) {
+    .grid-visual {
+      @include grid-visual($grid: (columns: 12));
+    }
     $_gutter: _retrieve-neat-setting($neat-grid, gutter);
       background-color: color(red);
     .lg {
@@ -162,6 +201,9 @@ body > header {
     }
   }
   @include grid-media($media-xl) {
+    .grid-visual {
+      @include grid-visual($grid: (columns: 12));
+    }
     $_gutter: _retrieve-neat-setting($neat-grid, gutter);
       background-color: color(purple);
     .xl {
@@ -174,6 +216,9 @@ body > header {
     }
   }
   @include grid-media($media-print) {
+    .grid-visual {
+      @include grid-visual($grid: (columns: 9));
+    }
     $_gutter: _retrieve-neat-setting($neat-grid, gutter);
     background-color: color(light-grey);
     .print {
