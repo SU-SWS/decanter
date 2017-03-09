@@ -1,2 +1,45 @@
+@media only screen and (min-width: 0px) {
+  .block--page-title {
+    padding: 1em calc(((50vw /12) * 0) + 20px);
+  }
+  .block--page-title::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .block--page-title {
+    padding: 1em calc(((50vw /12) * 0) + 20px);
+  }
+  .block--page-title::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .block--page-title {
+    padding: 1em calc(50vw - (600px - 20px));
+  }
+  .block--page-title::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@media only print {
+  .block--page-title {
+    padding: 1em calc(((50vw /12) * 0) + 0.25in);
+  }
+  .block--page-title::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
 
 /*# sourceMappingURL=theme.css.map */

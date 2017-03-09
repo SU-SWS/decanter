@@ -151,4 +151,135 @@
   width: 153px;
 }
 
+@media only screen and (min-width: 0px) {
+  .block--lockup {
+    padding: 1em calc(((50vw /12) * 0) + 20px);
+  }
+  .block--lockup::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .block--lockup {
+    padding: 1em calc(((50vw /12) * 0) + 20px);
+  }
+  .block--lockup::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .block--lockup {
+    padding: 1em calc(50vw - (600px - 20px));
+  }
+  .block--lockup::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@media only print {
+  .block--lockup {
+    padding: 1em calc(((50vw /12) * 0) + 0.25in);
+  }
+  .block--lockup::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+#global-footer {
+  background: #8c1515;
+  color: #fff;
+  text-align: center;
+}
+
+@media only screen and (min-width: 0px) {
+  #global-footer {
+    padding: 1em calc(((50vw /12) * 0) + 20px);
+  }
+  #global-footer::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  #global-footer {
+    padding: 1em calc(((50vw /12) * 0) + 20px);
+  }
+  #global-footer::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #global-footer {
+    padding: 1em calc(50vw - (600px - 20px));
+  }
+  #global-footer::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@media only print {
+  #global-footer {
+    padding: 1em calc(((50vw /12) * 0) + 0.25in);
+  }
+  #global-footer::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+#global-footer a, #global-footer a:link, #global-footer a:visited {
+  color: #fff;
+}
+
+#global-footer .footer-links,
+#global-footer .footer-notices {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (min-width: 768px) {
+  #global-footer {
+    text-align: left;
+  }
+  #global-footer .bottom-logo {
+    width: calc(16.66667% - 23.33333px);
+    float: left;
+    margin-left: 20px;
+  }
+  #global-footer .footer-links {
+    width: calc(16.66667% - 23.33333px);
+    float: left;
+    margin-left: 20px;
+  }
+  #global-footer .footer-notices {
+    width: calc(25% - 25px);
+    float: left;
+    margin-left: 20px;
+  }
+  #global-footer .vcard {
+    width: calc(41.66667% - 28.33333px);
+    float: left;
+    margin-left: 20px;
+  }
+}
+
 /*# sourceMappingURL=components.css.map */
