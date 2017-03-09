@@ -9,7 +9,9 @@ body > header {
 }
 
 .grid-visual {
-  @include grid-visual;
+  @include grid-media($media-lg-max) {
+    @include grid-visual;
+  }
 }
 
 .grid-container {
@@ -143,11 +145,12 @@ body > header {
   @include grid-media($media-xs-only) {
     .grid-visual {
       @include grid-visual($grid: (columns: 10));
+      background-color: rgba(color(blue), .6);
     }
     $_gutter: _retrieve-neat-setting($neat-grid, gutter);
-      background-color: color(blue);
+    background-color: rgba(color(blue), .3);
     .xs {
-      background-color: tint(color(blue), 25%);
+      background-color: color(blue);
       padding: 1em;
       display: block;
       margin: -1em (-$_gutter * 1.5);
@@ -158,11 +161,12 @@ body > header {
   @include grid-media($media-sm-only) {
     .grid-visual {
       @include grid-visual($grid: (columns: 8));
+      background-color: rgba(color(olive), .6);
     }
     $_gutter: _retrieve-neat-setting($neat-grid, gutter);
-      background-color: color(olive);
+    background-color: rgba(color(olive), .3);
     .sm {
-      background-color: tint(color(olive), 35%);
+      background-color: color(olive);
       padding: $_gutter;
       display: block;
       margin: -1em (-$_gutter * 1.5);
@@ -173,11 +177,12 @@ body > header {
   @include grid-media($media-md-only) {
     .grid-visual {
       @include grid-visual($grid: (columns: 6));
+      background-color: rgba(color(orange), .6);
     }
     $_gutter: _retrieve-neat-setting($neat-grid, gutter);
-      background-color: color(orange);
+    background-color: rgba(color(orange), .3);
     .md {
-      background-color: tint(color(orange), 35%);
+      background-color: color(orange);
       padding: $_gutter;
       display: block;
       margin: -1em (-$_gutter * 1.5);
@@ -188,11 +193,12 @@ body > header {
   @include grid-media($media-lg-only) {
     .grid-visual {
       @include grid-visual($grid: (columns: 12));
+      background-color: rgba(color(red), .6);
     }
     $_gutter: _retrieve-neat-setting($neat-grid, gutter);
-      background-color: color(red);
+    background-color: rgba(color(red), .3);
     .lg {
-      background-color: tint(color(red), 35%);
+      background-color: color(red);
       padding: $_gutter;
       display: block;
       margin: -1em (-$_gutter * 1.5);
@@ -203,11 +209,12 @@ body > header {
   @include grid-media($media-xl) {
     .grid-visual {
       @include grid-visual($grid: (columns: 12));
+      background-color: rgba(color(purple), .6);
     }
     $_gutter: _retrieve-neat-setting($neat-grid, gutter);
-      background-color: color(purple);
+    background-color: rgba(color(purple), .3);
     .xl {
-      background-color: tint(color(purple), 35%);
+      background-color: color(purple);
       padding: $_gutter;
       display: block;
       margin: -1em (-$_gutter * 1.5);
