@@ -130,12 +130,12 @@ body > header {
 #example-6 {
   $_vspace: 1em;
   $_container: (
-      xs:     ( columns: 10,  grid-media: $media-xs-only, v-space: $_vspace, max-width: false, grid-collapse: false ),
+      xs:     ( columns: 8,  grid-media: $media-xs-only, v-space: $_vspace, max-width: false, grid-collapse: false ),
       sm:     ( columns: 8,  grid-media: $media-sm-only, v-space: $_vspace, max-width: false, grid-collapse: false ),
       md:     ( columns: 6,  grid-media: $media-md-only, v-space: $_vspace, max-width: false, grid-collapse: false ),
       lg:     ( columns: 12,   grid-media: $media-lg-only, v-space: $_vspace, max-width: false, grid-collapse: false ),
       xl:     ( columns: 12,   grid-media: $media-xl,      v-space: $_vspace, max-width: true,  grid-collapse: false ),
-      print:  ( columns: 9,   grid-media: $media-print,   v-space: $_vspace, max-width: true,  grid-collapse: false ),
+      print:  ( columns: 8,   grid-media: $media-print,   v-space: $_vspace, max-width: true,  grid-collapse: false ),
   );
   @include responsive-container($_container);
   span {
@@ -144,7 +144,7 @@ body > header {
 
   @include grid-media($media-xs-only) {
     .grid-visual {
-      @include grid-visual($grid: (columns: 10));
+      @include grid-visual($grid: (columns: 8));
       background-color: rgba(color(blue), .6);
     }
     $_gutter: _retrieve-neat-setting($neat-grid, gutter);
@@ -156,6 +156,7 @@ body > header {
       margin: -1em (-$_gutter * 1.5);
       transition: all .3s ease .25s;
       @include material-shadow(medium);
+      color: color(reverse-text);
     }
   }
   @include grid-media($media-sm-only) {
@@ -172,6 +173,7 @@ body > header {
       margin: -1em (-$_gutter * 1.5);
       transition: all .3s ease .25s;
       @include material-shadow(medium);
+      color: color(reverse-text);
     }
   }
   @include grid-media($media-md-only) {
@@ -220,6 +222,7 @@ body > header {
       margin: -1em (-$_gutter * 1.5);
       transition: all .3s ease .25s;
       @include material-shadow(medium);
+      color: color(reverse-text);
     }
   }
   @include grid-media($media-print) {

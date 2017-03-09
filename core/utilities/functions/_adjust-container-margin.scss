@@ -23,9 +23,9 @@
     // Checks to see if we need to calculate a gutter
     @if $_grid-columns > $columns {
       @if $grid-collapse == true {
-        @return calc(((100vw / #{$_grid-columns * 2}) * #{-$columns}) - #{$_grid-gutter});
+        @return calc(((100% / #{$_grid-columns * 2}) * #{-$columns}) - #{$_grid-gutter});
       } @else {
-        @return calc((100vw / #{$_grid-columns * 2}) * #{-$columns});
+        @return calc((100% / #{$_grid-columns * 2}) * #{-$columns});
       }
     } @else {
       @if $grid-collapse == true {

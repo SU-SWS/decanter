@@ -19,17 +19,17 @@
     // Checks to see if we need to calculate a gutter
     @if $_grid-columns >= $_columns {
       $_column-multiplier: $_grid-columns - $_columns;
-      @return $v-space calc(((50vw /#{$_grid-columns}) * #{$_column-multiplier}) + #{$_grid-gutter});
+      @return $v-space calc(((50% /#{$_grid-columns}) * #{$_column-multiplier}) + #{$_grid-gutter});
     } @else {
       @return $v-space $_grid-gutter;
     }
     // Otherwise we calculate the max width in pixels
   } @else if type_of($max-width) == number {
     $_container-width: (((px($max-width / 2)) / $_grid-columns) * $_columns);
-    @return $v-space calc(50vw - (#{$_container-width} - #{$_grid-gutter}));
+    @return $v-space calc(50% - (#{$_container-width} - #{$_grid-gutter}));
     // Finally, if max width is set to true, we use the project's "max-container-width" configuration option.
   } @else if ($max-width == true) {
     $_container-width: ((($max-container-width / 2) / $_grid-columns) * $_columns);
-    @return $v-space calc(50vw - (#{$_container-width} - #{$_grid-gutter}));
+    @return $v-space calc(50% - (#{$_container-width} - #{$_grid-gutter}));
   }
 }
