@@ -151,6 +151,21 @@
   width: 153px;
 }
 
+.block-grid-collapse {
+  margin-left: -20px;
+  margin-right: -20px;
+  width: calc(100% + 40px);
+}
+
+.block--lockup {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  box-sizing: border-box;
+}
+
 @media only screen and (min-width: 0px) {
   .block--lockup {
     padding: 1em calc(((50vw /12) * 0) + 20px);
@@ -193,6 +208,75 @@
     content: "";
     display: block;
   }
+}
+
+.block--lockup > * {
+  flex: 0 0 auto;
+  box-sizing: inherit;
+}
+
+.block--lockup .site-logo {
+  width: calc(50% - 30px);
+  float: left;
+  margin-left: 20px;
+}
+
+@media only screen and (min-width: 576px) {
+  .block--lockup .site-logo {
+    width: calc(41.66667% - 28.33333px);
+    float: left;
+    margin-left: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .block--lockup .site-logo {
+    width: calc(25% - 25px);
+    float: left;
+    margin-left: 20px;
+  }
+}
+
+.block--lockup .site-name-and-slogan {
+  width: calc(50% - 30px);
+  float: left;
+  margin-left: 20px;
+}
+
+@media only screen and (min-width: 576px) {
+  .block--lockup .site-name-and-slogan {
+    width: calc(58.33333% - 31.66667px);
+    float: left;
+    margin-left: 20px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .block--lockup .site-name-and-slogan {
+    width: calc(75% - 35px);
+    float: left;
+    margin-left: 20px;
+  }
+}
+
+.block--lockup .site-name {
+  font-size: 1.72222em;
+}
+
+.block--lockup .site-name a, .block--lockup .site-name a:link, .block--lockup .site-name a:visited {
+  color: #111;
+}
+
+.block--lockup .site-name a:hover {
+  text-decoration: none;
+}
+
+.block--lockup .site-slogan {
+  color: #111;
+  font-size: 1.3em;
+  font-style: italic;
+  margin: 0px;
+  padding: 0px;
 }
 
 #global-footer {
