@@ -66,3 +66,18 @@ function stanford_basic_preprocess_region(&$variables, $hook) {
     $variables['attributes']['class'] = "container";
   }
 }
+
+/**
+ * Block template suggestions.
+ * @param  array  $suggestions [description]
+ * @param  array  $variables   [description]
+ * @return [type]              [description]
+ */
+function stanford_basic_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  $block = $variables['elements'];
+  $blockType = $block['#configuration']['provider'];
+  if ($blockType == "block_content") {
+    $bundle = $block['content']['#block_content']->bundle();
+    array_splice($suggestions, 2, 0, 'block__' . $bundle);
+  }
+}

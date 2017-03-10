@@ -5,5 +5,19 @@
 @import "decanter/core/components/decanter-components";
 
 .basic-main-menu {
+  @include responsive-container($default-container);
+  li {
+    display: inline-block;
+    margin-right: 10px;
+  }
 
+  a, a:link, a:visited {
+    display: inline-block;
+    color: color('brand', $palette-stanford);
+    font-weight: bold;
+  }
+
+  a:hover {
+    color: color('active');
+  }
 }
