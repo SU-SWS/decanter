@@ -40,10 +40,13 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
+          // Landing Page.
           'examples/css/index.css': 'examples/scss/index.scss',
 
+          // Layouts - one column.
           'examples/layout/one-column/basic/css/basic.css': 'examples/layout/one-column/basic/scss/basic.scss',
 
+          // Layouts - two column.
           'examples/layout/two-column/toucan/css/toucan.css': 'examples/layout/two-column/toucan/scss/toucan.scss',
           'examples/layout/two-column/donies/css/donies.css': 'examples/layout/two-column/donies/scss/donies.scss',
           'examples/layout/two-column/frogger/css/frogger.css': 'examples/layout/two-column/frogger/scss/frogger.scss',
@@ -56,6 +59,7 @@ module.exports = function(grunt) {
           'examples/layout/two-column/wedge/left/css/wedge-left.css': 'examples/layout/two-column/wedge/left/scss/wedge-left.scss',
           'examples/layout/two-column/wedge/right/css/wedge-right.css': 'examples/layout/two-column/wedge/right/scss/wedge-right.scss',
 
+          // Layouts three column.
           'examples/layout/three-column/bars/css/bars.css': 'examples/layout/three-column/bars/scss/bars.scss',
           'examples/layout/three-column/battleship/css/battleship.css': 'examples/layout/three-column/battleship/scss/battleship.scss',
           'examples/layout/three-column/blastila/left/css/blastila-left.css': 'examples/layout/three-column/blastila/left/scss/blastila-left.scss',
@@ -75,12 +79,17 @@ module.exports = function(grunt) {
           'examples/layout/three-column/valmer/left/css/valmer-left.css': 'examples/layout/three-column/valmer/left/scss/valmer-left.scss',
           'examples/layout/three-column/valmer/right/css/valmer-right.css': 'examples/layout/three-column/valmer/right/scss/valmer-right.scss',
 
+          // Layouts four column.
           'examples/layout/four-column/molive/css/molive.css': 'examples/layout/four-column/molive/scss/molive.scss',
 
+          // Layouts full width.
           'examples/layout/full-width/bricks/css/bricks.css': 'examples/layout/full-width/bricks/scss/bricks.scss',
 
+          // Components.
           'examples/mixins/adjust-container-width/css/adjust-container-width.css': 'examples/mixins/adjust-container-width/scss/adjust-container-width.scss',
           'examples/mixins/items-per-row/css/style.css': 'examples/mixins/items-per-row/scss/style.scss'
+          'examples/components/stanford-brand-bar/css/stanford-brand-bar.css': 'examples/components/stanford-brand-bar/scss/stanford-brand-bar.scss'
+
         }
       }
     },
