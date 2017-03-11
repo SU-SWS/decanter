@@ -87,7 +87,7 @@ module.exports = function(grunt) {
 
           // Components.
           'examples/mixins/adjust-container-width/css/adjust-container-width.css': 'examples/mixins/adjust-container-width/scss/adjust-container-width.scss',
-          'examples/mixins/items-per-row/css/style.css': 'examples/mixins/items-per-row/scss/style.scss'
+          'examples/mixins/items-per-row/css/style.css': 'examples/mixins/items-per-row/scss/style.scss',
           'examples/components/stanford-brand-bar/css/stanford-brand-bar.css': 'examples/components/stanford-brand-bar/scss/stanford-brand-bar.scss'
 
         }
