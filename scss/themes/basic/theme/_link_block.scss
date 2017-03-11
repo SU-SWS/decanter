@@ -1,20 +1,10 @@
 @charset 'UTF-8';
 
+// Decant.
+@import 'decanter/core/utilities/decanter-utilities';
+@import 'decanter/core/utilities/decanter-components';
+
+// Mix it in.
 .block--link-block {
-  h2 {
-    @include font-size(modular-scale(1.1));
-    margin-top: 0px;
-  }
-
-  a,
-  a:link,
-  a:visited {
-    color: color('action', $palette-stanford);
-  }
-
-  a:hover {
-    color: color('action-active', $palette-stanford);
-  }
-  
-
+  @include link-list-with-title;
 }
