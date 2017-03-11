@@ -3851,6 +3851,10 @@ pre {
 code, kbd, tt, var {
   font-family: "Source Code Pro", "Monaco", "Consolas", "Lucida Console", monospace;
   font-size: 0.4444444444em;
+  padding: 0.1073741824em 0.32768em;
+  position: relative;
+  background-color: rgba(221, 221, 221, 0.6);
+  border: 1px solid #aaa;
 }
 
 abbr, acronym {
@@ -3941,7 +3945,7 @@ hr {
 }
 
 #breakpoint-helper:hover:before, #breakpoint-helper:active:before, #breakpoint-helper:focus:before {
-  content: "$screen-";
+  content: "$media-";
 }
 
 @media only screen and (max-width: 575px) {
@@ -3995,7 +3999,7 @@ hr {
 
 @media only screen and (min-width: 0px) {
   .layout--wedge--right {
-    padding: 1em calc(((50vw /12) * 0) + 20px);
+    padding: 1em calc(((50% /12) * 0) + 20px);
   }
   .layout--wedge--right::after {
     clear: both;
@@ -4006,7 +4010,7 @@ hr {
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .layout--wedge--right {
-    padding: 1em calc(((50vw /12) * 0) + 20px);
+    padding: 1em calc(((50% /12) * 0) + 20px);
   }
   .layout--wedge--right::after {
     clear: both;
@@ -4017,7 +4021,7 @@ hr {
 
 @media only screen and (min-width: 1200px) {
   .layout--wedge--right {
-    padding: 1em calc(50vw - (600px - 20px));
+    padding: 1em calc(50% - (600px - 20px));
   }
   .layout--wedge--right::after {
     clear: both;
@@ -4028,7 +4032,7 @@ hr {
 
 @media only print {
   .layout--wedge--right {
-    padding: 1em calc(((50vw /12) * 0) + 0.25in);
+    padding: 1em calc(((50% /12) * 0) + 0.25in);
   }
   .layout--wedge--right::after {
     clear: both;

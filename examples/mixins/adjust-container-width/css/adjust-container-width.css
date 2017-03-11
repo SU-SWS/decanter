@@ -3851,6 +3851,10 @@ pre {
 code, kbd, tt, var {
   font-family: "Source Code Pro", "Monaco", "Consolas", "Lucida Console", monospace;
   font-size: 0.8888888889em;
+  padding: 0.1073741824em 0.32768em;
+  position: relative;
+  background-color: rgba(221, 221, 221, 0.6);
+  border: 1px solid #aaa;
 }
 
 abbr, acronym {
@@ -3941,7 +3945,7 @@ hr {
 }
 
 #breakpoint-helper:hover:before, #breakpoint-helper:active:before, #breakpoint-helper:focus:before {
-  content: "$screen-";
+  content: "$media-";
 }
 
 @media only screen and (max-width: 575px) {
@@ -3990,7 +3994,7 @@ hr {
 }
 
 body > header {
-  padding: 1em calc(((50vw /12) * 0) + 20px);
+  padding: 1em calc(((50% /12) * 0) + 20px);
   background-color: #7fdbff;
   text-align: center;
 }
@@ -4002,7 +4006,7 @@ body > header::after {
 }
 
 #centered-container {
-  padding: 1em calc(((50vw /12) * 4) + 20px);
+  padding: 1em calc(((50% /12) * 4) + 20px);
   background-color: #ddd;
 }
 
@@ -4013,8 +4017,8 @@ body > header::after {
 }
 
 #centered-container .adjust-plus-2 {
-  margin-left: calc((100vw / 24) * -2);
-  margin-right: calc((100vw / 24) * -2);
+  margin-left: calc((100% / 24) * -2);
+  margin-right: calc((100% / 24) * -2);
   width: auto;
   background-color: #e7e7e7;
   border-color: #2ecc40;
@@ -4023,8 +4027,8 @@ body > header::after {
 }
 
 #centered-container .adjust-minus-2 {
-  margin-left: calc((100vw / 24) * 2);
-  margin-right: calc((100vw / 24) * 2);
+  margin-left: calc((100% / 24) * 2);
+  margin-right: calc((100% / 24) * 2);
   width: auto;
   background-color: #e7e7e7;
   border-color: #ff851b;

@@ -3559,7 +3559,7 @@ button, [type='button'], [type='reset'], [type='submit'] {
   -webkit-font-smoothing: antialiased;
   font-weight: inherit;
   line-height: 1.5;
-  padding: 0.1666666667em 0.8em 0.1944444444em;
+  padding: 0.3333333333em 0.8em 0.3888888889em;
   text-align: center;
   text-decoration: none;
   user-select: none;
@@ -3708,8 +3708,8 @@ ol {
 }
 
 ol li {
-  padding-left: 0.1111111111em;
-  margin-left: -0.1111111111em;
+  padding-left: 0.2222222222em;
+  margin-left: -0.2222222222em;
 }
 
 ol ol {
@@ -3840,7 +3840,7 @@ address {
 pre {
   background: #8a8a8a;
   font-family: "Source Code Pro", "Monaco", "Consolas", "Lucida Console", monospace;
-  font-size: 0.4444444444em;
+  font-size: 0.8888888889em;
   line-height: 1.5;
   margin-bottom: 1.5625em;
   max-width: 100%;
@@ -3850,7 +3850,7 @@ pre {
 
 code, kbd, tt, var {
   font-family: "Source Code Pro", "Monaco", "Consolas", "Lucida Console", monospace;
-  font-size: 0.4444444444em;
+  font-size: 0.8888888889em;
   padding: 0.1073741824em 0.32768em;
   position: relative;
   background-color: rgba(221, 221, 221, 0.6);
@@ -3993,28 +3993,244 @@ hr {
   }
 }
 
-@media only screen and (min-width: 576px) {
-  .grid-collapse {
-    margin-left: -20px;
-    margin-right: -20px;
-    width: calc(100% + 40px);
+body > header {
+  padding: 1em calc(((50% /12) * 0) + 20px);
+  background-color: #7fdbff;
+  text-align: center;
+}
+
+body > header::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+@media only screen and (max-width: 1199px) {
+  .grid-visual {
+    background-image: linear-gradient(to right, rgba(0, 212, 255, 0.25), rgba(0, 212, 255, 0.25) 20px, transparent 20px, transparent calc(8.3333333333% - 21.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(8.3333333333% - 21.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(8.3333333333% - 21.6666666667px + 20px + 20px), transparent calc(8.3333333333% - 21.6666666667px + 20px + 20px), transparent calc(16.6666666667% - 23.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(16.6666666667% - 23.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(16.6666666667% - 23.3333333333px + 20px + 20px), transparent calc(16.6666666667% - 23.3333333333px + 20px + 20px), transparent calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px + 20px), transparent calc(25% - 25px + 20px + 20px), transparent calc(33.3333333333% - 26.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 26.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 26.6666666667px + 20px + 20px), transparent calc(33.3333333333% - 26.6666666667px + 20px + 20px), transparent calc(41.6666666667% - 28.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(41.6666666667% - 28.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(41.6666666667% - 28.3333333333px + 20px + 20px), transparent calc(41.6666666667% - 28.3333333333px + 20px + 20px), transparent calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px + 20px), transparent calc(50% - 30px + 20px + 20px), transparent calc(58.3333333333% - 31.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(58.3333333333% - 31.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(58.3333333333% - 31.6666666667px + 20px + 20px), transparent calc(58.3333333333% - 31.6666666667px + 20px + 20px), transparent calc(66.6666666667% - 33.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 33.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 33.3333333333px + 20px + 20px), transparent calc(66.6666666667% - 33.3333333333px + 20px + 20px), transparent calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px + 20px), transparent calc(75% - 35px + 20px + 20px), transparent calc(83.3333333333% - 36.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(83.3333333333% - 36.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(83.3333333333% - 36.6666666667px + 20px + 20px), transparent calc(83.3333333333% - 36.6666666667px + 20px + 20px), transparent calc(91.6666666667% - 38.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(91.6666666667% - 38.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(91.6666666667% - 38.3333333333px + 20px + 20px), transparent calc(91.6666666667% - 38.3333333333px + 20px + 20px), transparent calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100%));
   }
-  .grid-collapse::after {
+}
+
+.grid-container::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.grid-collapse {
+  margin-left: -20px;
+  margin-right: -20px;
+  width: calc(100% + 40px);
+}
+
+.absolute {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.example-wrapper {
+  position: relative;
+}
+
+.column--full {
+  width: calc(100% - 40px);
+  float: left;
+  margin-left: 20px;
+}
+
+.centered-container-10 {
+  padding: 1em calc(((50% /12) * 2) + 20px);
+  background-color: #ddd;
+}
+
+.centered-container-10::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+.centered-container-10 .example-wrapper {
+  background-color: #c7c7c7;
+  border-color: #b10dc9;
+  border-width: 1px;
+  border-style: dashed;
+}
+
+.centered-container-10 .example-wrapper::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+#example-1 {
+  padding: 1em calc(((50% /12) * 2) + 20px);
+  background-color: #ff851b;
+}
+
+#example-1::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+#example-1 .example-wrapper {
+  background-color: transparent;
+  border-color: #fff;
+  border-width: 1px;
+  border-style: dashed;
+}
+
+#example-1 .example-wrapper::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+#example-2 {
+  padding: 0 calc(((50% /12) * 0) + 20px);
+  background-color: #2ecc40;
+}
+
+#example-2::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+#example-2 .example-wrapper {
+  background-color: transparent;
+  border-color: #fff;
+  border-width: 1px;
+  border-style: dashed;
+}
+
+#example-2 .example-wrapper::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+#example-3 {
+  padding: 1em calc(50% - (600px - 20px));
+  background-color: #ffdc00;
+}
+
+#example-3::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+#example-3 .example-wrapper {
+  background-color: transparent;
+  border-color: #ff4136;
+  border-width: 1px;
+  border-style: dashed;
+}
+
+#example-3 .example-wrapper::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+#example-4 {
+  padding: 1em calc(50% - (400px - 20px));
+  background-color: #3d9970;
+}
+
+#example-4::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+#example-4 .example-wrapper {
+  background-color: transparent;
+  border-color: #fff;
+  border-width: 1px;
+  border-style: dashed;
+}
+
+#example-4 .example-wrapper::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+#example-4 .column--half {
+  width: calc(50% - 30px);
+  float: left;
+  margin-left: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1em;
+}
+
+#example-5 {
+  padding: 1em calc(50% - (400px - 20px));
+  margin-left: -20px;
+  margin-right: -20px;
+  width: calc(100% + 40px);
+  background-color: #378a65;
+}
+
+#example-5::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+#example-5 .example-wrapper {
+  background-color: transparent;
+  border-color: #fff;
+  border-width: 1px;
+  border-style: dashed;
+}
+
+#example-5 .example-wrapper::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+#example-5 .column--half {
+  width: calc(50% - 30px);
+  float: left;
+  margin-left: 20px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1em;
+}
+
+@media only screen and (max-width: 575px) {
+  #example-6 {
+    padding: 1em calc(((50% /12) * 4) + 20px);
+  }
+  #example-6::after {
     clear: both;
     content: "";
     display: block;
   }
 }
 
-.layout--valmer-right {
-  background: #FDF;
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  #example-6 {
+    padding: 1em calc(((50% /12) * 4) + 20px);
+  }
+  #example-6::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
 }
 
-@media only screen and (min-width: 0px) {
-  .layout--valmer-right {
-    padding: 1em calc(((50% /12) * 0) + 20px);
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  #example-6 {
+    padding: 1em calc(((50% /12) * 6) + 20px);
   }
-  .layout--valmer-right::after {
+  #example-6::after {
     clear: both;
     content: "";
     display: block;
@@ -4022,10 +4238,10 @@ hr {
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .layout--valmer-right {
+  #example-6 {
     padding: 1em calc(((50% /12) * 0) + 20px);
   }
-  .layout--valmer-right::after {
+  #example-6::after {
     clear: both;
     content: "";
     display: block;
@@ -4033,10 +4249,10 @@ hr {
 }
 
 @media only screen and (min-width: 1200px) {
-  .layout--valmer-right {
+  #example-6 {
     padding: 1em calc(50% - (600px - 20px));
   }
-  .layout--valmer-right::after {
+  #example-6::after {
     clear: both;
     content: "";
     display: block;
@@ -4044,79 +4260,128 @@ hr {
 }
 
 @media only print {
-  .layout--valmer-right {
-    padding: 1em calc(((50% /12) * 0) + 0.25in);
+  #example-6 {
+    padding: 1em calc(50% - (400px - 0.25in));
   }
-  .layout--valmer-right::after {
+  #example-6::after {
     clear: both;
     content: "";
     display: block;
   }
 }
 
-.layout--valmer-right::after {
-  clear: both;
-  content: "";
-  display: block;
+#example-6 span {
+  transition: all .3s ease;
 }
 
-.layout--valmer-right .column {
-  border: dashed 3px #0F0;
-}
-
-@media only screen and (min-width: 576px) {
-  .layout--valmer-right section {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
-    align-content: center;
-    box-sizing: border-box;
+@media only screen and (max-width: 575px) {
+  #example-6 {
+    background-color: rgba(0, 116, 217, 0.3);
   }
-  .layout--valmer-right section > * {
-    flex: 0 0 auto;
-    box-sizing: inherit;
+  #example-6 .grid-visual {
+    background-image: linear-gradient(to right, rgba(0, 212, 255, 0.25), rgba(0, 212, 255, 0.25) 20px, transparent 20px, transparent calc(12.5% - 22.5px + 20px), rgba(0, 212, 255, 0.25) calc(12.5% - 22.5px + 20px), rgba(0, 212, 255, 0.25) calc(12.5% - 22.5px + 20px + 20px), transparent calc(12.5% - 22.5px + 20px + 20px), transparent calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px + 20px), transparent calc(25% - 25px + 20px + 20px), transparent calc(37.5% - 27.5px + 20px), rgba(0, 212, 255, 0.25) calc(37.5% - 27.5px + 20px), rgba(0, 212, 255, 0.25) calc(37.5% - 27.5px + 20px + 20px), transparent calc(37.5% - 27.5px + 20px + 20px), transparent calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px + 20px), transparent calc(50% - 30px + 20px + 20px), transparent calc(62.5% - 32.5px + 20px), rgba(0, 212, 255, 0.25) calc(62.5% - 32.5px + 20px), rgba(0, 212, 255, 0.25) calc(62.5% - 32.5px + 20px + 20px), transparent calc(62.5% - 32.5px + 20px + 20px), transparent calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px + 20px), transparent calc(75% - 35px + 20px + 20px), transparent calc(87.5% - 37.5px + 20px), rgba(0, 212, 255, 0.25) calc(87.5% - 37.5px + 20px), rgba(0, 212, 255, 0.25) calc(87.5% - 37.5px + 20px + 20px), transparent calc(87.5% - 37.5px + 20px + 20px), transparent calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100%));
+    background-color: rgba(0, 116, 217, 0.6);
+  }
+  #example-6 .xs {
+    background-color: #0074d9;
+    padding: 1em;
+    display: block;
+    margin: -1em -30px;
+    transition: all .3s ease .25s;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.09), 0px 8px 12px 0px rgba(0, 0, 0, 0.15);
+    color: #fff;
   }
 }
 
-@media only screen and (min-width: 576px) {
-  .layout--valmer-right .column--first {
-    width: calc(100% - 40px);
-    float: left;
-    margin-left: 20px;
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  #example-6 {
+    background-color: rgba(61, 153, 112, 0.3);
+  }
+  #example-6 .grid-visual {
+    background-image: linear-gradient(to right, rgba(0, 212, 255, 0.25), rgba(0, 212, 255, 0.25) 20px, transparent 20px, transparent calc(12.5% - 22.5px + 20px), rgba(0, 212, 255, 0.25) calc(12.5% - 22.5px + 20px), rgba(0, 212, 255, 0.25) calc(12.5% - 22.5px + 20px + 20px), transparent calc(12.5% - 22.5px + 20px + 20px), transparent calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px + 20px), transparent calc(25% - 25px + 20px + 20px), transparent calc(37.5% - 27.5px + 20px), rgba(0, 212, 255, 0.25) calc(37.5% - 27.5px + 20px), rgba(0, 212, 255, 0.25) calc(37.5% - 27.5px + 20px + 20px), transparent calc(37.5% - 27.5px + 20px + 20px), transparent calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px + 20px), transparent calc(50% - 30px + 20px + 20px), transparent calc(62.5% - 32.5px + 20px), rgba(0, 212, 255, 0.25) calc(62.5% - 32.5px + 20px), rgba(0, 212, 255, 0.25) calc(62.5% - 32.5px + 20px + 20px), transparent calc(62.5% - 32.5px + 20px + 20px), transparent calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px + 20px), transparent calc(75% - 35px + 20px + 20px), transparent calc(87.5% - 37.5px + 20px), rgba(0, 212, 255, 0.25) calc(87.5% - 37.5px + 20px), rgba(0, 212, 255, 0.25) calc(87.5% - 37.5px + 20px + 20px), transparent calc(87.5% - 37.5px + 20px + 20px), transparent calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100%));
+    background-color: rgba(61, 153, 112, 0.6);
+  }
+  #example-6 .sm {
+    background-color: #3d9970;
+    padding: 20px;
+    display: block;
+    margin: -1em -30px;
+    transition: all .3s ease .25s;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.09), 0px 8px 12px 0px rgba(0, 0, 0, 0.15);
+    color: #fff;
   }
 }
 
-@media only screen and (min-width: 768px) {
-  .layout--valmer-right .column--first {
-    order: 10;
-    width: calc(50% - 30px);
-    float: left;
-    margin-left: 20px;
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  #example-6 {
+    background-color: rgba(255, 133, 27, 0.3);
+  }
+  #example-6 .grid-visual {
+    background-image: linear-gradient(to right, rgba(0, 212, 255, 0.25), rgba(0, 212, 255, 0.25) 20px, transparent 20px, transparent calc(16.6666666667% - 23.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(16.6666666667% - 23.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(16.6666666667% - 23.3333333333px + 20px + 20px), transparent calc(16.6666666667% - 23.3333333333px + 20px + 20px), transparent calc(33.3333333333% - 26.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 26.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 26.6666666667px + 20px + 20px), transparent calc(33.3333333333% - 26.6666666667px + 20px + 20px), transparent calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px + 20px), transparent calc(50% - 30px + 20px + 20px), transparent calc(66.6666666667% - 33.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 33.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 33.3333333333px + 20px + 20px), transparent calc(66.6666666667% - 33.3333333333px + 20px + 20px), transparent calc(83.3333333333% - 36.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(83.3333333333% - 36.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(83.3333333333% - 36.6666666667px + 20px + 20px), transparent calc(83.3333333333% - 36.6666666667px + 20px + 20px), transparent calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100%));
+    background-color: rgba(255, 133, 27, 0.6);
+  }
+  #example-6 .md {
+    background-color: #ff851b;
+    padding: 20px;
+    display: block;
+    margin: -1em -30px;
+    transition: all .3s ease .25s;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.09), 0px 8px 12px 0px rgba(0, 0, 0, 0.15);
   }
 }
 
-.layout--valmer-right .column--second,
-.layout--valmer-right .column--third {
-  order: 1;
-}
-
-@media only screen and (min-width: 576px) {
-  .layout--valmer-right .column--second,
-  .layout--valmer-right .column--third {
-    width: calc(50% - 30px);
-    float: left;
-    margin-left: 20px;
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  #example-6 {
+    background-color: rgba(255, 65, 54, 0.3);
+  }
+  #example-6 .grid-visual {
+    background-image: linear-gradient(to right, rgba(0, 212, 255, 0.25), rgba(0, 212, 255, 0.25) 20px, transparent 20px, transparent calc(8.3333333333% - 21.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(8.3333333333% - 21.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(8.3333333333% - 21.6666666667px + 20px + 20px), transparent calc(8.3333333333% - 21.6666666667px + 20px + 20px), transparent calc(16.6666666667% - 23.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(16.6666666667% - 23.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(16.6666666667% - 23.3333333333px + 20px + 20px), transparent calc(16.6666666667% - 23.3333333333px + 20px + 20px), transparent calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px + 20px), transparent calc(25% - 25px + 20px + 20px), transparent calc(33.3333333333% - 26.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 26.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 26.6666666667px + 20px + 20px), transparent calc(33.3333333333% - 26.6666666667px + 20px + 20px), transparent calc(41.6666666667% - 28.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(41.6666666667% - 28.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(41.6666666667% - 28.3333333333px + 20px + 20px), transparent calc(41.6666666667% - 28.3333333333px + 20px + 20px), transparent calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px + 20px), transparent calc(50% - 30px + 20px + 20px), transparent calc(58.3333333333% - 31.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(58.3333333333% - 31.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(58.3333333333% - 31.6666666667px + 20px + 20px), transparent calc(58.3333333333% - 31.6666666667px + 20px + 20px), transparent calc(66.6666666667% - 33.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 33.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 33.3333333333px + 20px + 20px), transparent calc(66.6666666667% - 33.3333333333px + 20px + 20px), transparent calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px + 20px), transparent calc(75% - 35px + 20px + 20px), transparent calc(83.3333333333% - 36.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(83.3333333333% - 36.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(83.3333333333% - 36.6666666667px + 20px + 20px), transparent calc(83.3333333333% - 36.6666666667px + 20px + 20px), transparent calc(91.6666666667% - 38.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(91.6666666667% - 38.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(91.6666666667% - 38.3333333333px + 20px + 20px), transparent calc(91.6666666667% - 38.3333333333px + 20px + 20px), transparent calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100%));
+    background-color: rgba(255, 65, 54, 0.6);
+  }
+  #example-6 .lg {
+    background-color: #ff4136;
+    padding: 20px;
+    display: block;
+    margin: -1em -30px;
+    transition: all .3s ease .25s;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.09), 0px 8px 12px 0px rgba(0, 0, 0, 0.15);
   }
 }
 
-@media only screen and (min-width: 768px) {
-  .layout--valmer-right .column--second,
-  .layout--valmer-right .column--third {
-    width: calc(25% - 25px);
-    float: left;
-    margin-left: 20px;
+@media only screen and (min-width: 1200px) {
+  #example-6 {
+    background-color: rgba(177, 13, 201, 0.3);
+  }
+  #example-6 .grid-visual {
+    background-image: linear-gradient(to right, rgba(0, 212, 255, 0.25), rgba(0, 212, 255, 0.25) 20px, transparent 20px, transparent calc(8.3333333333% - 21.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(8.3333333333% - 21.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(8.3333333333% - 21.6666666667px + 20px + 20px), transparent calc(8.3333333333% - 21.6666666667px + 20px + 20px), transparent calc(16.6666666667% - 23.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(16.6666666667% - 23.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(16.6666666667% - 23.3333333333px + 20px + 20px), transparent calc(16.6666666667% - 23.3333333333px + 20px + 20px), transparent calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px), rgba(0, 212, 255, 0.25) calc(25% - 25px + 20px + 20px), transparent calc(25% - 25px + 20px + 20px), transparent calc(33.3333333333% - 26.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 26.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 26.6666666667px + 20px + 20px), transparent calc(33.3333333333% - 26.6666666667px + 20px + 20px), transparent calc(41.6666666667% - 28.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(41.6666666667% - 28.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(41.6666666667% - 28.3333333333px + 20px + 20px), transparent calc(41.6666666667% - 28.3333333333px + 20px + 20px), transparent calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px), rgba(0, 212, 255, 0.25) calc(50% - 30px + 20px + 20px), transparent calc(50% - 30px + 20px + 20px), transparent calc(58.3333333333% - 31.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(58.3333333333% - 31.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(58.3333333333% - 31.6666666667px + 20px + 20px), transparent calc(58.3333333333% - 31.6666666667px + 20px + 20px), transparent calc(66.6666666667% - 33.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 33.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 33.3333333333px + 20px + 20px), transparent calc(66.6666666667% - 33.3333333333px + 20px + 20px), transparent calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px), rgba(0, 212, 255, 0.25) calc(75% - 35px + 20px + 20px), transparent calc(75% - 35px + 20px + 20px), transparent calc(83.3333333333% - 36.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(83.3333333333% - 36.6666666667px + 20px), rgba(0, 212, 255, 0.25) calc(83.3333333333% - 36.6666666667px + 20px + 20px), transparent calc(83.3333333333% - 36.6666666667px + 20px + 20px), transparent calc(91.6666666667% - 38.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(91.6666666667% - 38.3333333333px + 20px), rgba(0, 212, 255, 0.25) calc(91.6666666667% - 38.3333333333px + 20px + 20px), transparent calc(91.6666666667% - 38.3333333333px + 20px + 20px), transparent calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100% - 20px), rgba(0, 212, 255, 0.25) calc(100%));
+    background-color: rgba(177, 13, 201, 0.6);
+  }
+  #example-6 .xl {
+    background-color: #b10dc9;
+    padding: 20px;
+    display: block;
+    margin: -1em -30px;
+    transition: all .3s ease .25s;
+    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.09), 0px 8px 12px 0px rgba(0, 0, 0, 0.15);
+    color: #fff;
   }
 }
 
-/*# sourceMappingURL=valmer-right.css.map */
+@media only print {
+  #example-6 {
+    background-color: #ddd;
+  }
+  #example-6 .grid-visual {
+    background-image: linear-gradient(to right, rgba(0, 212, 255, 0.25), rgba(0, 212, 255, 0.25) 0.25in, transparent 0.25in, transparent calc(11.1111111111% - 0.2777777778in + 0.25in), rgba(0, 212, 255, 0.25) calc(11.1111111111% - 0.2777777778in + 0.25in), rgba(0, 212, 255, 0.25) calc(11.1111111111% - 0.2777777778in + 0.25in + 0.25in), transparent calc(11.1111111111% - 0.2777777778in + 0.25in + 0.25in), transparent calc(22.2222222222% - 0.3055555556in + 0.25in), rgba(0, 212, 255, 0.25) calc(22.2222222222% - 0.3055555556in + 0.25in), rgba(0, 212, 255, 0.25) calc(22.2222222222% - 0.3055555556in + 0.25in + 0.25in), transparent calc(22.2222222222% - 0.3055555556in + 0.25in + 0.25in), transparent calc(33.3333333333% - 0.3333333333in + 0.25in), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 0.3333333333in + 0.25in), rgba(0, 212, 255, 0.25) calc(33.3333333333% - 0.3333333333in + 0.25in + 0.25in), transparent calc(33.3333333333% - 0.3333333333in + 0.25in + 0.25in), transparent calc(44.4444444444% - 0.3611111111in + 0.25in), rgba(0, 212, 255, 0.25) calc(44.4444444444% - 0.3611111111in + 0.25in), rgba(0, 212, 255, 0.25) calc(44.4444444444% - 0.3611111111in + 0.25in + 0.25in), transparent calc(44.4444444444% - 0.3611111111in + 0.25in + 0.25in), transparent calc(55.5555555556% - 0.3888888889in + 0.25in), rgba(0, 212, 255, 0.25) calc(55.5555555556% - 0.3888888889in + 0.25in), rgba(0, 212, 255, 0.25) calc(55.5555555556% - 0.3888888889in + 0.25in + 0.25in), transparent calc(55.5555555556% - 0.3888888889in + 0.25in + 0.25in), transparent calc(66.6666666667% - 0.4166666667in + 0.25in), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 0.4166666667in + 0.25in), rgba(0, 212, 255, 0.25) calc(66.6666666667% - 0.4166666667in + 0.25in + 0.25in), transparent calc(66.6666666667% - 0.4166666667in + 0.25in + 0.25in), transparent calc(77.7777777778% - 0.4444444444in + 0.25in), rgba(0, 212, 255, 0.25) calc(77.7777777778% - 0.4444444444in + 0.25in), rgba(0, 212, 255, 0.25) calc(77.7777777778% - 0.4444444444in + 0.25in + 0.25in), transparent calc(77.7777777778% - 0.4444444444in + 0.25in + 0.25in), transparent calc(88.8888888889% - 0.4722222222in + 0.25in), rgba(0, 212, 255, 0.25) calc(88.8888888889% - 0.4722222222in + 0.25in), rgba(0, 212, 255, 0.25) calc(88.8888888889% - 0.4722222222in + 0.25in + 0.25in), transparent calc(88.8888888889% - 0.4722222222in + 0.25in + 0.25in), transparent calc(100% - 0.25in), rgba(0, 212, 255, 0.25) calc(100% - 0.25in), rgba(0, 212, 255, 0.25) calc(100%));
+  }
+  #example-6 .print {
+    background-color: #bcbcbc;
+    padding: 0.25in;
+    display: block;
+    transition: null;
+    margin: -1em -0.375in;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05), 0px 3px 3px 1px rgba(0, 0, 0, 0.05);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
