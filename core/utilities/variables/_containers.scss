@@ -2,9 +2,9 @@
 
 /// Default Responsive Container
 $default-container: (
-  xs: ( columns: 12, grid-media: $media-xs,       v-space: 1em, max-width: false, grid-collapse: false ),
-  sm: ( columns: 12, grid-media: $media-sm,       v-space: 1em, max-width: false, grid-collapse: false ),
-  md: ( columns: 12, grid-media: $media-md,       v-space: 1em, max-width: false, grid-collapse: false ),
+  xs: ( columns: 12, grid-media: $media-xs-only,  v-space: 1em, max-width: false, grid-collapse: false ),
+  sm: ( columns: 12, grid-media: $media-sm-only,  v-space: 1em, max-width: false, grid-collapse: false ),
+  md: ( columns: 12, grid-media: $media-md-only,  v-space: 1em, max-width: false, grid-collapse: false ),
   lg: ( columns: 12, grid-media: $media-lg-only,  v-space: 1em, max-width: false, grid-collapse: false ),
   xl: ( columns: 12, grid-media: $media-xl,       v-space: 1em, max-width: true,  grid-collapse: false ),
   print: ( columns: 12, grid-media: $media-print, v-space: 1em, max-width: false, grid-collapse: false ),
@@ -12,16 +12,16 @@ $default-container: (
 
 /// Default Responsive Container Collapsed
 $default-container-collapsed: (
-  xs: ( columns: 12, grid-media: $media-xs,       v-space: 1em, max-width: false, grid-collapse: true ),
-  sm: ( columns: 12, grid-media: $media-sm,       v-space: 1em, max-width: false, grid-collapse: true ),
-  md: ( columns: 12, grid-media: $media-md,       v-space: 1em, max-width: false, grid-collapse: true ),
+  xs: ( columns: 12, grid-media: $media-xs-only,  v-space: 1em, max-width: false, grid-collapse: true ),
+  sm: ( columns: 12, grid-media: $media-sm-only,  v-space: 1em, max-width: false, grid-collapse: true ),
+  md: ( columns: 12, grid-media: $media-md-only,  v-space: 1em, max-width: false, grid-collapse: true ),
   lg: ( columns: 12, grid-media: $media-lg-only,  v-space: 1em, max-width: false, grid-collapse: true ),
   xl: ( columns: 12, grid-media: $media-xl,       v-space: 1em, max-width: true,  grid-collapse: true ),
   print: ( columns: 12, grid-media: $media-print, v-space: 1em, max-width: false, grid-collapse: true ),
 ) !default;
 
-/// Collapsed Grid But last 
-$new-xs: (xs: ( columns: 12, grid-media: $media-xs, v-space: 1em, max-width: false, grid-collapse: false ));
+/// Collapsed Grid But last
+$new-xs: (xs: ( columns: 12, grid-media: $media-xs-only, v-space: 1em, max-width: false, grid-collapse: false ));
 $collapsed-but-last: map-merge($default-container-collapsed, $new-xs);
 
 /// You can create any number of custom responsive containers
