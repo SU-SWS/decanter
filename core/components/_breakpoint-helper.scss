@@ -3,8 +3,8 @@
 // @import '../utilities/settings';
 // @import '../utilities/mixins/material-shadow';
 
-#breakpoint-helper {
-  @if $breakpoint-helper == true {
+@if $breakpoint-helper == true {
+  #breakpoint-helper {
     @include material-shadow(flat);
     background-color: transparentize(color(dark-grey), .2);
     border-radius: $base-border-radius;
@@ -70,7 +70,5 @@
         content: "xl";
       }
     }
-  } @else {
-    display: none;
   }
 }
