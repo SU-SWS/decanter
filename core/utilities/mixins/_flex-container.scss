@@ -41,17 +41,17 @@ $flex-container-defaults: (
 @mixin flex-container($settings-map: $flex-container-defaults) {
 
   // Pull out the parts for easy use.
-  $parent: map-get('parent', $settings-map);
-  $children: map-get('children', $settings-map);
-  $flex: map-get('flex', $settings-map);
-  $flex-direction: map-get('flex-direction', $settings-map);
-  $flex-wrap: map-get('flex-wrap', $settings-map);
-  $justify-content: map-get('justify-content', $settings-map);
-  $align-items: map-get('align-items', $settings-map);
-  $align-content: map-get('align-content', $settings-map);
-  $flex-grow: map-get('flex-grow', $settings-map);
-  $flex-shrink: map-get('flex-shrink', $settings-map);
-  $flex-basis: map-get('flex-basis', $settings-map);
+  $parent: map-get($settings-map, 'parent');
+  $children: map-get($settings-map, 'children');
+  $flex: map-get($settings-map, 'flex');
+  $flex-direction: map-get($settings-map, 'flex-direction');
+  $flex-wrap: map-get($settings-map, 'flex-wrap');
+  $justify-content: map-get($settings-map, 'justify-content');
+  $align-items: map-get($settings-map, 'align-items');
+  $align-content: map-get($settings-map, 'align-content');
+  $flex-grow: map-get($settings-map, 'flex-grow');
+  $flex-shrink: map-get($settings-map, 'flex-shrink');
+  $flex-basis: map-get($settings-map, 'flex-basis');
 
   #{$parent} {
     // Inherited properties from mixin.
