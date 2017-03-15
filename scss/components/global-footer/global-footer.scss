@@ -1,0 +1,50 @@
+@charset 'UTF-8';
+
+// My Config.
+@import "config/config";
+
+// Decanter config.
+@import "decanter/core/utilities/decanter-utilities.scss";
+
+// Grab our mixins.
+@import "utilities/utilities";
+
+#global-footer {
+  @include responsive-container($default-container);
+  background: color(brand, $palette-stanford_basic);
+  color: color(white);
+  text-align: center;
+
+  a, a:link, a:visited {
+    color: color(white);
+  }
+
+  .footer-links,
+  .footer-notices {
+    @include plain-list;
+  }
+
+
+  @include grid-media($media-md) {
+
+    // Back to the left.
+    text-align: left;
+
+    .bottom-logo {
+      @include grid-column(2 of 12);
+    }
+
+    .footer-links {
+      @include grid-column(2 of 12);
+    }
+
+    .footer-notices {
+      @include grid-column(3 of 12);
+    }
+
+    .vcard {
+      @include grid-column(5 of 12);
+    }
+  }
+
+}

@@ -61,26 +61,16 @@
 #     js/build/scripts.js: {}
 #   dependencies:
 #     - core/jquery
-
-drupal:
-  version: VERSION
-  css:
-    component:
-      css/drupal/components/components.css: {}
-    theme:
-      css/drupal/theme/print.css: { media: print }
-  js:
-    js/vendor/modernizr.js: {}
-
-  # Uncomment the code below to load scripts.js file on all pages. This file also requires JQuery to be
-  # loaded on all pages. Consider implimenting your scripts through theme libraries if you wish to
-  # avoid this. https://www.drupal.org/developing/api/8/assets
-  #
-  #   js/build/scripts.js: {}
-  # dependencies:
-  #   - core/drupal
-  #   - core/jquery
-
+#
+# Uncomment the code below to load scripts.js file on all pages. This file also requires JQuery to be
+# loaded on all pages. Consider implimenting your scripts through theme libraries if you wish to
+# avoid this. https://www.drupal.org/developing/api/8/assets
+#
+#   js/build/scripts.js: {}
+# dependencies:
+#   - core/drupal
+#   - core/jquery
+# 
 # patternlibrary:
 #   version: VERSION
 #   css:
@@ -100,28 +90,30 @@ basic:
   version: VERSION
   css:
     base:
-      css/themes/basic/base/base.css: {}
+      css/base/base.css: {}
     layout:
-      css/themes/basic/layout/layout.css: {}
+      css/layout/layout.css: {}
     component:
-      css/themes/basic/components/components.css: {}
+      css/components/components.css: {}
     state:
-      css/themes/basic/states/states.css: {}
+      css/states/states.css: {}
     theme:
-      css/themes/basic/theme/theme.css: {}
-      css/themes/basic/theme/print.css: { media: print }
+      css/theme/theme.css: {}
+      css/theme/print.css: { media: print }
+  js:
+    js/vendor/modernizr.js: {}
 
 tabs:
   version: VERSION
   css:
     component:
-      css/drupal/components/tabs.css: {}
+      css/components/tabs.css: {}
 
 messages:
   version: VERSION
   css:
     component:
-      css/drupal/components/messages.css: {}
+      css/components/messages.css: {}
 
 ie8:
   version: VERSION

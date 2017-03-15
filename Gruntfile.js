@@ -89,6 +89,7 @@ module.exports = function(grunt) {
       // Additional configuration options can be found at https://github.com/sindresorhus/grunt-sass
       options: {
         includePaths: [
+          "scss",
           "node_modules/bourbon/core",
           "node_modules/bourbon-neat/core",
           "node_modules/font-awesome/scss",
@@ -98,23 +99,30 @@ module.exports = function(grunt) {
         ],
         sourceMap: true,
         // This controls the compiled css and can be changed to nested, compact or compressed.
-        outputStyle: 'expanded',
-        precision: 5
+        outputStyle: 'compressed',
+        precision: 10
       },
       dist: {
         files: {
-          // Base Drupal Styles.
-          'css/drupal/components/components.css':           'scss/drupal/components/components.scss',
-          'css/drupal/components/tabs.css':                 'scss/drupal/components/tabs.scss',
-          'css/drupal/components/messages.css':             'scss/drupal/components/messages.scss',
-          'css/drupal/theme/print.css':                     'scss/drupal/theme/print.scss',
+          // Components are compiled individually so they may be included
+          // conditionally using logic built in to the theme template or module.
+          // 'css/themes/basic/components/components.css':     'scss/themes/basic/components/components.scss',
+          'css/components/brand-bar.css':            'scss/components/brand-bar/brand-bar.scss',
+          'css/components/brand-lockup.css':         'scss/components/brand-lockup/brand-lockup.scss',
+          'css/components/breadcrumb.css':           'scss/components/breadcrumb/breadcrumb.scss',
+          'css/components/global-footer.css':        'scss/components/global-footer/global-footer.scss',
+          'css/components/main-menu.css':            'scss/components/main-menu/main-menu.scss',
+          'css/components/messages.css':             'scss/components/messages/messages.scss',
+          'css/components/navigation.css':           'scss/components/navigation/navigation.scss',
+          'css/components/pager.css':                'scss/components/pager/pager.scss',
+          'css/components/site-name.css':            'scss/components/site-name/site-name.scss',
+          'css/components/tabs.css':                 'scss/components/tabs/tabs.scss',
           // Theme compiled styles.
-          'css/themes/basic/base/base.css':                 'scss/themes/basic/base/base.scss',
-          'css/themes/basic/components/components.css':     'scss/themes/basic/components/components.scss',
-          'css/themes/basic/layout/layout.css':             'scss/themes/basic/layout/layout.scss',
-          'css/themes/basic/states/states.css':             'scss/themes/basic/states/states.scss',
-          'css/themes/basic/theme/theme.css':               'scss/themes/basic/theme/theme.scss',
-          'css/themes/basic/theme/print.css':               'scss/themes/basicy/theme/print.scss'
+          'css/base/base.css':                       'scss/base/base.scss',
+          'css/layout/layout.css':                   'scss/layout/layout.scss',
+          'css/basic/states/states.css':             'scss/states/states.scss',
+          'css/basic/theme/theme.css':               'scss/theme/theme.scss',
+          'css/basic/theme/print.css':               'scss/theme/print.scss'
         }
       }
     },
