@@ -5,7 +5,8 @@
 @mixin flex-items-per-row
 (
   $items: 1,
-  $selector: '*',
+  $parent: '&',
+  $children: '> *',
   $center-grid: true,
   $equal-heights: true,
   $grid: $neat-grid
@@ -13,16 +14,16 @@
   $_gutter: _retrieve-neat-setting($grid, gutter);
 
   @if ($center-grid == true) and ($equal-heights == true) {
-    @include flex-container($justify-content: center, $align-items: stretch, $selector: $selector);
+    @include flex-container((justify-content: center, align-items: stretch, parent: $parent, children: $children));
   } @else if ($center-grid == true) and ($equal-heights == false){
-    @include flex-container($justify-content: center, $align-items: flex-start, $selector: $selector);
+    @include flex-container((justify-content: center, align-items: flex-start, parent: $parent, children: $children));
   } @else if ($center-grid == false) and ($equal-heights == true) {
-    @include flex-container($justify-content: flex-start, $align-items: stretch, $selector: $selector);
+    @include flex-container((justify-content: flex-start, align-items: stretch, parent: $parent, children: $children));
   } @else {
-    @include flex-container($justify-content: flex-start, $align-items: flex-start, $selector: $selector);
+    @include flex-container((justify-content: flex-start, align-items: flex-start, parent: $parent, children: $children));
   }
 
-  > #{$selector} {
+  #{$children} {
     @include grid-column(1 of $items);
     @if $center-grid == true {
       @include nth-omega(#{$items}n);
