@@ -1,12 +1,37 @@
 @charset 'UTF-8';
 
+////
+/// Stanford Global Brand Bar.
+/// A thin red stripe with the stanford logo.
+////
+
 // My Config.
 @import "config/config";
 
 // Decanter config.
 @import "decanter/core/utilities/decanter-utilities.scss";
 
+// Separated out as a mixin for easy re-use and possible move to Decanter.
+@mixin stanford-brand-bar {
+  $brand-container: (
+      lg-max: ( columns: 12, grid-media: $media-lg-max,  v-space: 5px, max-width: false, grid-collapse: false ),
+      xl: ( columns: 12, grid-media: $media-xl,       v-space: 5px, max-width: true,  grid-collapse: false ),
+      print: ( columns: 12, grid-media: $media-print, v-space: 5px, max-width: false, grid-collapse: false ),
+  ) !default;
+
+  @include responsive-container($brand-container);
+  background: color(brand, $palette-stanford_basic);
+  height: 30px;
+  max-height: 30px;
+  color: color(reverse-text, $palette-stanford_basic);
+
+  img {
+    width: 153px;
+  }
+}
+
+// Separation of class from mixin.
 .brand-bar {
-  //@include stanford-brand-bar;
+  @include stanford-brand-bar;
   order: -100;
 }

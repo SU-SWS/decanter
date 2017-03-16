@@ -60,11 +60,11 @@
         {{ 'Skip to main navigation'|t }}
       </a>
     </div>
-    {% include directory ~ "/templates/includes/global-header.html.twig" %}
+    {% include directory ~ "/templates/components/brand-bar/brand-bar.html.twig" %}
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}
-    {% include directory ~ "/templates/includes/global-footer.html.twig" %}
+    {% include directory ~ "/templates/components/global-footer/global-footer.html.twig" %}
     <js-bottom-placeholder token="{{ placeholder_token }}">
     {% if browser_sync.enabled %}
       <script id="__bs_script__">

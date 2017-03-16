@@ -104,25 +104,26 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
+          // Component Wrap Up.
+          'css/components/components.css':                  'scss/components/components.scss',
           // Components are compiled individually so they may be included
           // conditionally using logic built in to the theme template or module.
-          // 'css/themes/basic/components/components.css':     'scss/themes/basic/components/components.scss',
-          'css/components/brand-bar.css':            'scss/components/brand-bar/brand-bar.scss',
-          'css/components/brand-lockup.css':         'scss/components/brand-lockup/brand-lockup.scss',
-          'css/components/breadcrumb.css':           'scss/components/breadcrumb/breadcrumb.scss',
-          'css/components/global-footer.css':        'scss/components/global-footer/global-footer.scss',
-          'css/components/main-menu.css':            'scss/components/main-menu/main-menu.scss',
-          'css/components/messages.css':             'scss/components/messages/messages.scss',
-          'css/components/navigation.css':           'scss/components/navigation/navigation.scss',
-          'css/components/pager.css':                'scss/components/pager/pager.scss',
-          'css/components/site-name.css':            'scss/components/site-name/site-name.scss',
-          'css/components/tabs.css':                 'scss/components/tabs/tabs.scss',
+          'css/components/brand-bar.css':                   'scss/components/brand-bar/brand-bar.scss',
+          'css/components/brand-lockup.css':                'scss/components/brand-lockup/brand-lockup.scss',
+          'css/components/breadcrumb.css':                  'scss/components/breadcrumb/breadcrumb.scss',
+          'css/components/global-footer.css':               'scss/components/global-footer/global-footer.scss',
+          'css/components/main-menu.css':                   'scss/components/main-menu/main-menu.scss',
+          'css/components/messages.css':                    'scss/components/messages/messages.scss',
+          'css/components/navigation.css':                  'scss/components/navigation/navigation.scss',
+          'css/components/pager.css':                       'scss/components/pager/pager.scss',
+          'css/components/site-name.css':                   'scss/components/site-name/site-name.scss',
+          'css/components/tabs.css':                        'scss/components/tabs/tabs.scss',
           // Theme compiled styles.
-          'css/base/base.css':                       'scss/base/base.scss',
-          'css/layout/layout.css':                   'scss/layout/layout.scss',
-          'css/basic/states/states.css':             'scss/states/states.scss',
-          'css/basic/theme/theme.css':               'scss/theme/theme.scss',
-          'css/basic/theme/print.css':               'scss/theme/print.scss'
+          'css/base/base.css':                              'scss/base/base.scss',
+          'css/layout/layout.css':                          'scss/layout/layout.scss',
+          'css/basic/states/states.css':                    'scss/states/states.scss',
+          'css/basic/theme/theme.css':                      'scss/theme/theme.scss',
+          'css/basic/theme/print.css':                      'scss/theme/print.scss'
         }
       }
     },

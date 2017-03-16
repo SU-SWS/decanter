@@ -22,10 +22,12 @@
  *
  * @see template_preprocess_status_messages()
  */
+
+/**
+ * {{ attach_library('stanford_basic/messages') }}
+ */
+
 #}
-
-{{ attach_library('stanford_basic/messages') }}
-
 {% for type, messages in message_list %}
   {%
     set classes = [
