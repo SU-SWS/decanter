@@ -40,27 +40,11 @@ $default-flex-container: (
 /// //  $_order: <integer>  // Note that this should be set at the element level
 /// // $_align-self: flex-start // Note that this should be set at the element level
 @mixin flex-container($settings-map: $default-flex-container) {
-  // First we merge the project's default container with the mixin's internal default.
-  // This just makes sure that if the default container misses a setting, we still have well generated container
-  $_default-flex-container: map-merge((
-      parent: '&',
-      children: '> *',
-      flex: flex,
-      flex-direction: row,
-      flex-wrap: wrap,
-      justify-content: center,
-      align-items: flex-start,
-      align-content: center,
-      flex-grow: 0,
-      flex-shrink: 0,
-      flex-basis: auto
-  ), $default-flex-container);
 
-
-  // Then we merge the provided map with the default aggregate from above. This means
+  // Merge the provided map with the default aggregate from above. This means
   // that you can specify a container that only has the values that you want to differ
   // from the default, and everything else is inherited.
-  $_flex-container: map-merge($_default-flex-container, $settings-map);
+  $_flex-container: map-merge($default-flex-container, $settings-map);
 
   // Internal variable parsing
   $_parent: map-get($_flex-container, parent);
