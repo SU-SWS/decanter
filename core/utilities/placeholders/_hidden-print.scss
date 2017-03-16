@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+///
+/// Hide element from print output
+/// usage: @extend %hidden-print;
+///
+
+%hidden-print {
+  @include grid-media($media-print) {
+    display: none !important;
+  }
+}
