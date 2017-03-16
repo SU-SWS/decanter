@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 // Default set of parameters.
-$flex-container-defaults: (
+$default-flex-container: (
   'parent': '&',
   'children': '> *',
   'flex': flex,
@@ -18,7 +18,8 @@ $flex-container-defaults: (
 /// Creates a flexbox container with children
 /// See: https://css-tricks.com/snippets/css/a-guide-to-flexbox for flexbox property explanations.
 ///
-/// selector: *,
+/// parent: '&',
+/// children: '> *',
 /// flex: flex, // flex | inline-flex
 ///
 /// // Parent properties
@@ -38,36 +39,41 @@ $flex-container-defaults: (
 /// flex-basis: auto
 /// //  $_order: <integer>  // Note that this should be set at the element level
 /// // $_align-self: flex-start // Note that this should be set at the element level
-@mixin flex-container($settings-map: $flex-container-defaults) {
+@mixin flex-container($settings-map: $default-flex-container) {
 
-  // Pull out the parts for easy use.
-  $parent: map-get($settings-map, 'parent');
-  $children: map-get($settings-map, 'children');
-  $flex: map-get($settings-map, 'flex');
-  $flex-direction: map-get($settings-map, 'flex-direction');
-  $flex-wrap: map-get($settings-map, 'flex-wrap');
-  $justify-content: map-get($settings-map, 'justify-content');
-  $align-items: map-get($settings-map, 'align-items');
-  $align-content: map-get($settings-map, 'align-content');
-  $flex-grow: map-get($settings-map, 'flex-grow');
-  $flex-shrink: map-get($settings-map, 'flex-shrink');
-  $flex-basis: map-get($settings-map, 'flex-basis');
+  // Merge the provided map with the default aggregate from above. This means
+  // that you can specify a container that only has the values that you want to differ
+  // from the default, and everything else is inherited.
+  $_flex-container: map-merge($default-flex-container, $settings-map);
 
-  #{$parent} {
+  // Internal variable parsing
+  $_parent: map-get($_flex-container, parent);
+  $_children: map-get($_flex-container, children);
+  $_flex: map-get($_flex-container, flex);
+  $_flex-direction: map-get($_flex-container, flex-direction);
+  $_flex-wrap: map-get($_flex-container, flex-wrap);
+  $_justify-content: map-get($_flex-container, justify-content);
+  $_align-items: map-get($_flex-container, align-items);
+  $_align-content: map-get($_flex-container, align-content);
+  $_flex-grow: map-get($_flex-container, flex-grow);
+  $_flex-shrink: map-get($_flex-container, flex-shrink);
+  $_flex-basis: map-get($_flex-container, flex-basis);
+
+  #{$_parent} {
     // Inherited properties from mixin.
-    display:          $flex;
-    flex-flow:        $flex-direction $flex-wrap; // default: row wrap;
-    justify-content:  $justify-content; // default: flex-start;
-    align-items:      $align-items; // default: flex-start;
-    align-content:    $align-content; // default: flex-start;
+    display:          $_flex;
+    flex-flow:        $_flex-direction $_flex-wrap; // default: row wrap;
+    justify-content:  $_justify-content; // default: flex-start;
+    align-items:      $_align-items; // default: flex-start;
+    align-content:    $_align-content; // default: flex-start;
 
     // Opinionated properties
     box-sizing: border-box;
 
     // Applies the direct children
-    #{$children} {
+    #{$_children} {
       // Inherited properties from mixin
-      flex: $flex-grow $flex-shrink $flex-basis; // default: flex: 0 0 auto;
+      flex: $_flex-grow $_flex-shrink $_flex-basis; // default: flex: 0 0 auto;
 
       //Opinionated properties
       box-sizing: inherit;
