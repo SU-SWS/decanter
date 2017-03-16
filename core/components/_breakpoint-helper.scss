@@ -3,14 +3,23 @@
 // @import '../utilities/settings';
 // @import '../utilities/mixins/material-shadow';
 
-@if $breakpoint-helper == true {
-  #breakpoint-helper {
+$breakpoint-helper-map: (
+    (short-label: 'xs', full-label: '$media-xs', media: $media-xs-only, color: color(blue)),
+    (short-label: 'sm', full-label: '$media-sm', media: $media-sm-only, color: color(olive)),
+    (short-label: 'md', full-label: '$media-md', media: $media-md-only, color: color(orange)),
+    (short-label: 'lg', full-label: '$media-lg', media: $media-lg-only, color: color(red)),
+    (short-label: 'xl', full-label: '$media-xl', media: $media-xl, color: color(purple)),
+);
+
+@mixin breakpoint-helper($selector: '#breakpoint-helper', $map: $breakpoint-helper-map ) {
+
+  #{$selector} {
     @include material-shadow(flat);
     background-color: transparentize(color(dark-grey), .2);
     border-radius: $base-border-radius;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    color: color(white);
+    color: color(reverse-text);
     display: block;
     font-size: .5em;
     line-height: 1;
@@ -21,54 +30,36 @@
     transition: all $base-timing $base-duration;
     width: 6.5em;
     white-space: nowrap;
-    z-index: 10000;
-
-    // When the wordpress admin bar is present...
-    .admin-bar & {
-      top: 7rem;
-    }
+    z-index: 9999;
 
     @include on-event {
       @include material-shadow(medium);
       right: 0;
       overflow: hidden;
       font-size: .75em;
-
-      &:before {
-        content: "$media-";
-      }
     }
 
-    @include grid-media($media-xs-only) {
-      background-color: color(blue);
+    // Iterate over the map and output all the breakpoints
+    @each $_map in $map {
+      $_short-label: map-get($_map, short-label);
+      $_full-label: map-get($_map, full-label);
+      $_media: map-get($_map, media);
+      $_color: map-get($_map, color);
 
-      &:after {
-        content: "xs";
+      @include grid-media($_media) {
+        background-color: $_color;
+
+        &:after {
+          content: "#{$_short-label}";
+        }
+
+        @include on-event {
+          &:after {
+            content: "#{$_full-label}";
+          }
+        }
       }
     }
-    @include grid-media($media-sm-only) {
-      background-color: color(olive);
-      &:after {
-        content: "sm";
-      }
-    }
-    @include grid-media($media-md-only) {
-      background-color: color(orange);
-      &:after {
-        content: "md";
-      }
-    }
-    @include grid-media($media-lg-only) {
-      background-color: color(red);
-      &:after {
-        content: "lg";
-      }
-    }
-    @include grid-media($media-xl) {
-      background-color: color(purple);
-      &:after {
-        content: "xl";
-      }
-    }
+
   }
 }
