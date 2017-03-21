@@ -6,15 +6,16 @@
 // Decanter config.
 @import "decanter/core/utilities/decanter-utilities.scss";
 
-.block-grid-collapse {
-  @include grid-collapse;
-}
-
 .block--lockup {
   @include responsive-container($default-container);
   @include flex-container();
 
-  .site-logo {
+  // Grid collapse.
+  .block-grid-collapse {
+    @include grid-collapse;
+  }
+
+  .block--lockup__site-logo {
     @include grid-column(6 of 12);
     @include grid-media($media-sm) {
       @include grid-column(5 of 12);
@@ -24,7 +25,7 @@
     }
   }
 
-  .site-name-and-slogan {
+  .block--lockup__site-name-and-slogan {
     @include grid-column(6 of 12);
     @include grid-media($media-sm) {
       @include grid-column(7 of 12);
@@ -34,7 +35,7 @@
     }
   }
 
-  .site-name {
+  .block--lockup__site-name {
     @include font-size(31px);
 
     a, a:link, a:visited {
@@ -45,7 +46,7 @@
     }
   }
 
-  .site-slogan {
+  .block--lockup__site-slogan {
     color: color(black);
     @include font-size(1.3em);
     font-style: italic;
