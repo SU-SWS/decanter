@@ -11,43 +11,55 @@
   $columns,
   $grid: $neat-grid,
   $max-width: false,
-  $grid-collapse: false
+  $grid-collapse: false,
+  $grid-columns: false
 )
 {
-  $columns: _neat-column-default($grid, $columns);
+  $_columns: _neat-column-default($grid, $columns);
   $_grid-columns: _retrieve-neat-setting($grid, columns);
   $_grid-gutter: _retrieve-neat-setting($grid, gutter);
 
-  //Checks to see if we need to add a max-width.
+  // Checks to see if the parent container has a max width
   @if $max-width == false {
-    // Checks to see if we need to calculate a gutter
-    @if $_grid-columns > $columns {
+    // Checks If the parent container doesn't span the full grid columns.
+    @if type-of($grid-columns) == number and ($grid-columns < $_grid-columns) {
+      // Checks to see if we need to calculate a gutter
       @if $grid-collapse == true {
-        @return calc(((100% / #{$_grid-columns * 2}) * #{-$columns}) - #{$_grid-gutter});
+        @return calc((((100% + #{$_grid-gutter * 2}) / #{$grid-columns}) * #{-$_columns}) - #{$_grid-gutter});
       } @else {
-        @return calc((100% / #{$_grid-columns * 2}) * #{-$columns});
+        @return calc(((100% + #{$_grid-gutter * 2}) / #{$grid-columns}) * #{-$_columns});
       }
+      // Otherwise, calculate as if the parent container spans the full grid columns
     } @else {
-      @if $grid-collapse == true {
-        @return 0;
+      // Checks to see if we need to calculate a gutter
+      @if $_grid-columns > $columns {
+        @if $grid-collapse == true {
+          @return calc(((100% / #{$_grid-columns}) * #{-$_columns}) - #{$_grid-gutter});
+        } @else {
+          @return calc((100% / #{$_grid-columns}) * #{-$_columns});
+        }
       } @else {
-        @return $_grid-gutter;
+        @if $grid-collapse == true {
+          @return 0;
+        } @else {
+          @return $_grid-gutter;
+        }
       }
     }
 
   } @else if type-of($max-width) == number {
     // Calculates the width of the container in pixels, based on the max-width value
     @if $grid-collapse == true {
-      @return calc(((#{$max-width} / 24) * #{-$columns}) - #{$_grid-gutter});
+      @return calc(((#{$max-width / 2} / #{$_grid-columns}) * #{-$_columns}) - #{$_grid-gutter});
     } @else {
-      @return calc((#{$max-width} / 24) * #{-$columns});
+      @return calc((#{$max-width / 2} / #{$_grid-columns}) * #{-$_columns});
     }
   } @else if $max-width == true {
     // Calculates the width of the container in pixels, based on the global max content width
     @if $grid-collapse == true {
-      @return calc(((#{$max-container-width} / 24) * #{-$columns}) - #{$_grid-gutter});
+      @return calc(((#{$max-container-width / 2} / #{$_grid-columns}) * #{-$columns}) - #{$_grid-gutter});
     } @else {
-      @return calc((#{$max-container-width} / 24) * #{-$columns});
+      @return calc((#{$max-container-width / 2} / #{$_grid-columns}) * #{-$columns});
     }
   }
 }
