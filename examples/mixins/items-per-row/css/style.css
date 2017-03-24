@@ -3498,6 +3498,45 @@ template {
   clip: auto;
 }
 
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.sr-only-text {
+  overflow: hidden;
+  text-indent: 101%;
+  white-space: nowrap;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  width: .1px;
+  height: .1px;
+}
+
+.sr-only-element {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: circle(1% at 1% 1%);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.keep-together {
+  white-space: nowrap;
+}
+
 body {
   min-height: 100vh;
   display: flex;
@@ -3930,11 +3969,7 @@ hr {
   transition: all ease-in-out 250ms;
   width: 6.5em;
   white-space: nowrap;
-  z-index: 10000;
-}
-
-.admin-bar #breakpoint-helper {
-  top: 7rem;
+  z-index: 9999;
 }
 
 #breakpoint-helper:hover, #breakpoint-helper:active, #breakpoint-helper:focus {
@@ -3944,16 +3979,15 @@ hr {
   font-size: .75em;
 }
 
-#breakpoint-helper:hover:before, #breakpoint-helper:active:before, #breakpoint-helper:focus:before {
-  content: "$media-";
-}
-
 @media only screen and (max-width: 575px) {
   #breakpoint-helper {
     background-color: #0074d9;
   }
   #breakpoint-helper:after {
     content: "xs";
+  }
+  #breakpoint-helper:hover:after, #breakpoint-helper:active:after, #breakpoint-helper:focus:after {
+    content: "$media-xs";
   }
 }
 
@@ -3964,6 +3998,9 @@ hr {
   #breakpoint-helper:after {
     content: "sm";
   }
+  #breakpoint-helper:hover:after, #breakpoint-helper:active:after, #breakpoint-helper:focus:after {
+    content: "$media-sm";
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -3972,6 +4009,9 @@ hr {
   }
   #breakpoint-helper:after {
     content: "md";
+  }
+  #breakpoint-helper:hover:after, #breakpoint-helper:active:after, #breakpoint-helper:focus:after {
+    content: "$media-md";
   }
 }
 
@@ -3982,6 +4022,9 @@ hr {
   #breakpoint-helper:after {
     content: "lg";
   }
+  #breakpoint-helper:hover:after, #breakpoint-helper:active:after, #breakpoint-helper:focus:after {
+    content: "$media-lg";
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -3990,6 +4033,9 @@ hr {
   }
   #breakpoint-helper:after {
     content: "xl";
+  }
+  #breakpoint-helper:hover:after, #breakpoint-helper:active:after, #breakpoint-helper:focus:after {
+    content: "$media-xl";
   }
 }
 
@@ -4077,12 +4123,6 @@ body > header::after {
   margin-left: -20px;
   margin-right: -20px;
   width: calc(100% + 40px);
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: stretch;
-  align-content: center;
-  box-sizing: border-box;
 }
 
 #centered-container .flex-item-grid--4::after {
@@ -4091,31 +4131,40 @@ body > header::after {
   display: block;
 }
 
-#centered-container .flex-item-grid--4 > .item {
+#centered-container .flex-item-grid--4 .item {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: center;
+  box-sizing: border-box;
+}
+
+#centered-container .flex-item-grid--4 .item > * {
   flex: 0 0 auto;
   box-sizing: inherit;
 }
 
-#centered-container .flex-item-grid--4 > .item {
+#centered-container .flex-item-grid--4 > * {
   width: calc(25% - 25px);
   float: left;
   margin-left: 20px;
   margin-bottom: 20px;
 }
 
-#centered-container .flex-item-grid--4 > .item:nth-of-type(4n) {
+#centered-container .flex-item-grid--4 > *:nth-of-type(4n) {
   margin-right: 20px;
 }
 
-#centered-container .flex-item-grid--4 > .item:nth-of-type(4n+1) {
+#centered-container .flex-item-grid--4 > *:nth-of-type(4n+1) {
   clear: left;
 }
 
-#centered-container .flex-item-grid--4 > .item:last-child {
+#centered-container .flex-item-grid--4 > *:last-child {
   margin-right: 20px;
 }
 
-#centered-container .flex-item-grid--4 > .item:last-of-type {
+#centered-container .flex-item-grid--4 > *:last-of-type {
   margin-right: 20px;
 }
 
@@ -4128,12 +4177,6 @@ body > header::after {
   margin-left: -20px;
   margin-right: -20px;
   width: calc(100% + 40px);
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: flex-start;
-  align-content: center;
-  box-sizing: border-box;
 }
 
 #centered-container .flex-item-grid--5-centered::after {
@@ -4142,31 +4185,40 @@ body > header::after {
   display: block;
 }
 
-#centered-container .flex-item-grid--5-centered > article {
+#centered-container .flex-item-grid--5-centered article {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  box-sizing: border-box;
+}
+
+#centered-container .flex-item-grid--5-centered article > * {
   flex: 0 0 auto;
   box-sizing: inherit;
 }
 
-#centered-container .flex-item-grid--5-centered > article {
+#centered-container .flex-item-grid--5-centered > * {
   width: calc(20% - 24px);
   float: left;
   margin-left: 20px;
   margin-bottom: 20px;
 }
 
-#centered-container .flex-item-grid--5-centered > article:nth-of-type(5n) {
+#centered-container .flex-item-grid--5-centered > *:nth-of-type(5n) {
   margin-right: 20px;
 }
 
-#centered-container .flex-item-grid--5-centered > article:nth-of-type(5n+1) {
+#centered-container .flex-item-grid--5-centered > *:nth-of-type(5n+1) {
   clear: left;
 }
 
-#centered-container .flex-item-grid--5-centered > article:last-child {
+#centered-container .flex-item-grid--5-centered > *:last-child {
   margin-right: 20px;
 }
 
-#centered-container .flex-item-grid--5-centered > article:last-of-type {
+#centered-container .flex-item-grid--5-centered > *:last-of-type {
   margin-right: 20px;
 }
 
@@ -4179,12 +4231,6 @@ body > header::after {
   margin-left: -20px;
   margin-right: -20px;
   width: calc(100% + 40px);
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-items: stretch;
-  align-content: center;
-  box-sizing: border-box;
 }
 
 #centered-container .flex-item-grid--5::after {
@@ -4193,12 +4239,21 @@ body > header::after {
   display: block;
 }
 
-#centered-container .flex-item-grid--5 > article {
+#centered-container .flex-item-grid--5 article {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: center;
+  box-sizing: border-box;
+}
+
+#centered-container .flex-item-grid--5 article > * {
   flex: 0 0 auto;
   box-sizing: inherit;
 }
 
-#centered-container .flex-item-grid--5 > article {
+#centered-container .flex-item-grid--5 > * {
   width: calc(20% - 24px);
   float: left;
   margin-left: 20px;
