@@ -3498,6 +3498,45 @@ template {
   clip: auto;
 }
 
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.sr-only-text {
+  overflow: hidden;
+  text-indent: 101%;
+  white-space: nowrap;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  width: .1px;
+  height: .1px;
+}
+
+.sr-only-element {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: circle(1% at 1% 1%);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+.keep-together {
+  white-space: nowrap;
+}
+
 body {
   min-height: 100vh;
   display: flex;
@@ -3930,11 +3969,7 @@ hr {
   transition: all ease-in-out 250ms;
   width: 6.5em;
   white-space: nowrap;
-  z-index: 10000;
-}
-
-.admin-bar #breakpoint-helper {
-  top: 7rem;
+  z-index: 9999;
 }
 
 #breakpoint-helper:hover, #breakpoint-helper:active, #breakpoint-helper:focus {
@@ -3944,16 +3979,15 @@ hr {
   font-size: .75em;
 }
 
-#breakpoint-helper:hover:before, #breakpoint-helper:active:before, #breakpoint-helper:focus:before {
-  content: "$media-";
-}
-
 @media only screen and (max-width: 575px) {
   #breakpoint-helper {
     background-color: #0074d9;
   }
   #breakpoint-helper:after {
     content: "xs";
+  }
+  #breakpoint-helper:hover:after, #breakpoint-helper:active:after, #breakpoint-helper:focus:after {
+    content: "$media-xs";
   }
 }
 
@@ -3964,6 +3998,9 @@ hr {
   #breakpoint-helper:after {
     content: "sm";
   }
+  #breakpoint-helper:hover:after, #breakpoint-helper:active:after, #breakpoint-helper:focus:after {
+    content: "$media-sm";
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -3972,6 +4009,9 @@ hr {
   }
   #breakpoint-helper:after {
     content: "md";
+  }
+  #breakpoint-helper:hover:after, #breakpoint-helper:active:after, #breakpoint-helper:focus:after {
+    content: "$media-md";
   }
 }
 
@@ -3982,6 +4022,9 @@ hr {
   #breakpoint-helper:after {
     content: "lg";
   }
+  #breakpoint-helper:hover:after, #breakpoint-helper:active:after, #breakpoint-helper:focus:after {
+    content: "$media-lg";
+  }
 }
 
 @media only screen and (min-width: 1200px) {
@@ -3990,6 +4033,9 @@ hr {
   }
   #breakpoint-helper:after {
     content: "xl";
+  }
+  #breakpoint-helper:hover:after, #breakpoint-helper:active:after, #breakpoint-helper:focus:after {
+    content: "$media-xl";
   }
 }
 
@@ -4009,7 +4055,29 @@ hr {
   background: #FDF;
 }
 
-@media only screen and (min-width: 0px) {
+@media only screen and (max-width: 575px) {
+  .layout--thions-bottom {
+    padding: 1em calc(((50% /12) * 0) + 20px);
+  }
+  .layout--thions-bottom::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .layout--thions-bottom {
+    padding: 1em calc(((50% /12) * 0) + 20px);
+  }
+  .layout--thions-bottom::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
   .layout--thions-bottom {
     padding: 1em calc(((50% /12) * 0) + 20px);
   }

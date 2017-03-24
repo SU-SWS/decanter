@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+/// Hide text while making it readable for screen readers
+/// 1. Needed in WebKit-based browsers because of an implementation bug;
+///    See: https://code.google.com/p/chromium/issues/detail?id=457146
+/// 2. Needed to remove other element styling
+/// 3. Needed to remove from line flow
+/// usage: @extend %hide-text;
+
+%hide-text,
+%sr-only-text {
+  @include hide-text; // This is a Bourbon mixin. It contains most of what we need, with the exception of the properties below.
+  display: inline-block;
+  padding: 0; // 1
+  margin: 0; // 2
+  width: .1px; // 3
+  height: .1px; // 3
+}
