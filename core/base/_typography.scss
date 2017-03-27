@@ -94,7 +94,7 @@ address {
 /// @require {variable} $font-family-monospace
 /// @require {variable} $base-line-height
 pre {
-  background: shade(color(border), 10%);
+  background: rgba(color(light-grey), .6);
   font-family: $font-family-monospace;
   @include font-size(16px);
   line-height: $base-line-height;
@@ -102,6 +102,8 @@ pre {
   max-width: 100%;
   overflow: auto;
   padding: 1.6em;
+  border: 1px solid color(grey);
+  white-space: pre-wrap;
 }
 
 /// @require {variable} $font-family-monospace

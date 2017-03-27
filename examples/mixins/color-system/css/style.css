@@ -4053,48 +4053,122 @@ body > header::after {
   display: block;
 }
 
-#centered-container {
-  padding: 1em calc(((50% /12) * 4) + 20px);
-  background-color: #ddd;
-}
-
-#centered-container::after {
+.grid-container::after {
   clear: both;
   content: "";
   display: block;
 }
 
-#centered-container .adjust-plus-2 {
-  margin-left: calc((100% / 12) * -1);
-  margin-right: calc((100% / 12) * -1);
-  width: auto;
-  background-color: #e7e7e7;
-  border-color: #2ecc40;
-  border-width: 1px;
-  border-style: dashed;
+.grid-collapse {
+  margin-left: -20px;
+  margin-right: -20px;
+  width: calc(100% + 40px);
 }
 
-#centered-container .adjust-minus-2 {
-  margin-left: calc((100% / 12) * 1);
-  margin-right: calc((100% / 12) * 1);
-  width: auto;
-  background-color: #e7e7e7;
-  border-color: #ff851b;
-  border-width: 1px;
-  border-style: dashed;
+.column--full {
+  width: calc(100% - 40px);
+  float: left;
+  margin-left: 20px;
 }
 
-#centered-container .example-wrapper {
-  background-color: #c7c7c7;
-  border-color: #b10dc9;
-  border-width: 1px;
-  border-style: dashed;
+.centered-container-10 {
+  padding: 1em calc(((50% /12) * 2) + 20px);
 }
 
-#centered-container .example-wrapper::after {
+.centered-container-10::after {
   clear: both;
   content: "";
   display: block;
 }
 
-/*# sourceMappingURL=adjust-container-width.css.map */
+.centered-container-10:nth-of-type(even) {
+  background-color: #f1f1f1;
+}
+
+.example-1 {
+  background-color: #0074d9;
+  color: #fff;
+  padding: 1em;
+}
+
+.example-2 {
+  padding: 1em;
+  background-color: #003111;
+  color: #F4BFF0;
+}
+
+.example-3 {
+  padding: 1em;
+  background-color: #003111;
+  color: #F4BFF0;
+}
+
+.example-4 {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: stretch;
+  align-content: center;
+  box-sizing: border-box;
+}
+
+.example-4 p {
+  flex: 0 0 auto;
+  box-sizing: inherit;
+}
+
+.example-4 p {
+  width: calc(25% - 25px);
+  float: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+.example-4 p:nth-of-type(4n) {
+  margin-right: 20px;
+}
+
+.example-4 p:nth-of-type(4n+1) {
+  clear: left;
+}
+
+.example-4 p:last-child {
+  margin-right: 20px;
+}
+
+.example-4 p:last-of-type {
+  margin-right: 20px;
+}
+
+.example-4 div {
+  width: calc(100% - 40px);
+  float: left;
+  margin-left: 20px;
+  margin-bottom: 1em;
+}
+
+.example-4 p {
+  color: #112;
+  background-color: #fff;
+  padding: 1em;
+}
+
+.example-4 p.theme--blue {
+  color: #8cccf4;
+  background-color: #192f8c;
+  padding: 1em;
+}
+
+.example-4 p.theme--green {
+  color: #b5f4c8;
+  background-color: #003111;
+  padding: 1em;
+}
+
+.example-4 p.theme--orange {
+  color: #f4ce97;
+  background-color: #ad6200;
+  padding: 1em;
+}
+
+/*# sourceMappingURL=style.css.map */
