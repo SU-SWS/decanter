@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+/// `color-themes` consumes a map to render multiple color variations on a specific block. For each
+/// theme group in the theme group map, the `$color-themes` mixin iterates over that group with the specified selector.
+///
+/// @name Color Themes
+///
+/// @argument {map} $theme-group [$default-theme-group]
+///   @property {string} selector ['&']
+///   @property {map} palette [$color]
+///
+/// @content
+///   `color-theme` will temporarily override the default color map with the attributes of the
+///   specified `$palette`. This change is scoped to within the mixin block, and once the mixin
+///   has ended, the default color map will revert to its original state as defined by `$color`.
+///
+///
+/// @example SCSS
+///   $green-theme: (
+///     brand:                        #2c853c,
+///     action:                       #00992b,
+///     action-active:                #007b38,
+///     background:                   #fff,
+///     background-secondary:         #f4f4f4,
+///     border:                       #ccc,
+///     text:                         #121111,
+///     text-active:                  #00992b,
+///     reverse-text:                 #fff,
+///     reverse-text-active:          #fff,
+///   );
+///   $blue-theme: (
+///     brand:                        #3B7185,
+///     action:                       #297C85,
+///     action-active: #004a7b,
+///     background:                   #fff,
+///     background-secondary:         #f4f4f4,
+///     border:                       #ccc,
+///     text:                         #121111,
+///     text-active:                  #297C85,
+///     reverse-text:                 #fff,
+///     reverse-text-active:          #fff,
+///   );
+///   $custom-theme-group: (
+///     default ( palette: $colors, selector: '&' ),
+///     green:  ( palette: $green-theme, selector: '&.theme--green' ),
+///     blue:   ( palette: $blue-theme, selector: '&.theme--blue' ),
+///   );
+///
+///   .card {
+///     @include color-themes($custom-theme-group) {
+///       background-color: color(background);
+///       color: color(text-active);
+///     }
+///   }
+///
+/// @example CSS
+///   .card {
+///     background-color: #fff;
+///     color: #808080;
+///   }
+///   .card.theme--green {
+///     background-color: #fff;
+///     color: #00992b;
+///   }
+///   .card.theme--blue {
+///     background-color: #fff;
+///     color: #297C85;
+///   }
+///
+
+$default-theme-group: (
+    default:  ( palette: $colors, selector: '&' ),
+) !default;
+
+@mixin color-themes($theme-group: null) {
+  @each $_theme, $_map in $theme-group {
+
+    $_palette: map_get($_map, palette);
+    $_selector: map_get($_map, selector);
+
+    @include color-theme($_palette, $_selector) {
+      @content
+    }
+  }
+}

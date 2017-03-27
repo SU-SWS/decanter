@@ -81,7 +81,9 @@ module.exports = function(grunt) {
 
           'examples/mixins/centered-container/css/style.css': 'examples/mixins/centered-container/scss/style.scss',
           'examples/mixins/adjust-container-width/css/adjust-container-width.css': 'examples/mixins/adjust-container-width/scss/adjust-container-width.scss',
-          'examples/mixins/items-per-row/css/style.css': 'examples/mixins/items-per-row/scss/style.scss'
+          'examples/mixins/items-per-row/css/style.css': 'examples/mixins/items-per-row/scss/style.scss',
+          'examples/mixins/color-system/css/style.css': 'examples/mixins/color-system/scss/style.scss'
+
         }
       }
     },

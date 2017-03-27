@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Decanter Examples | Color System</title>
+  <link href="css/style.css" media="all" rel="stylesheet" />
+</head>
+<body>
+<header>
+  <h1>Decanter Color System</h1>
+</header>
+<main>
+  <section class="centered-container-10">
+    <h4>Color (function)</h4>
+    <p><code>color(color, $palette)</code> will fetch a named color from the specified color map.
+      If a color map is not specified, it will fetch the color from the default color map.</p>
+    <p>Example:</p>
+    <p><pre>div {
+  background-color: color(blue);
+  color: color(reverse-text);
+}</pre></p>
+    <div class="example-1">
+      <p><code>.example-1</code>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+    <p><br /><hr /></p>
+    <p>Example:</p>
+    <p><pre>div {
+  $custom-color-palette: (background: #003111, text: #F4BFF0);
+  background-color: color(background, $custom-color-palette);
+  color: color(text, $custom-color-palette);
+}</pre></p>
+    <div class="example-2">
+      <p><code>.example-2</code>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </section>
+
+  <section class="centered-container-10">
+    <h4>Color theme (mixin)</h4>
+    <p>As you can see, calling a different palette when you have a large block of code
+    can get rather repetitive. This is where the color theme mixin comes into play.</p>
+    <p><code>color-theme</code> will temporarily override the default color
+      map with the attributes of the specified <code>$palette</code>. This
+      change is scoped to within the mixin block, and once the mixin has ended,
+      the default color map will revert to its original state as defined by <code>$color</code></p>
+    <p>Example:</p>
+    <p><pre>$custom-color-palette: (background: #003111, text: #F4BFF0);
+@include color-theme($custom-color-palette, '.example-3') {
+  background-color: color(background);
+  color: color(text);
+}</pre></p>
+    <div class="example-3">
+      <p><code>.example-3</code>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </section>
+
+  <section class="centered-container-10">
+    <h4>Color themes (mixin)</h4>
+    <p><code>color-themes</code> consumes a map to render multiple color variations
+      on a specific block. For each theme group in the theme group map,
+      the <code>$color-themes</code> mixin iterates over that group with the specified selector.</p>
+    <p>Example:</p>
+    <p><pre>SCSS:
+$theme--blue: (background: #192f8c, text: #8cccf4);
+$theme--green: (background: #003111, text: #b5f4c8);
+$theme--orange: (background: #ad6200, text: #f4ce97);
+$custom-theme-group: (
+    default:  ( palette: $colors, selector: 'p' ),
+    blue: ( palette: $theme--blue, selector: 'p.theme--blue' ),
+    green: ( palette: $theme--green, selector: 'p.theme--green' ),
+    orange: ( palette: $theme--orange, selector: 'p.theme--orange' ),
+);
+
+.example-4 {
+  @include flex-items-per-row(4, $children: 'p');
+  @include color-themes($custom-theme-group) {
+    color: color(text);
+    background-color: color(background);
+    padding: 1em;
+  }
+}
+HTML:
+&lt;div class="example-4"&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.&lt;/p&gt;
+&lt;p class="theme--blue"&gt;Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p&gt;
+&lt;p class="theme--green"&gt;Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.&lt;/p&gt;
+&lt;p class="theme--orange"&gt;Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.&lt;/p&gt;
+</div></pre></p>
+    <div class="example-4">
+      <div class="center"><code>.example-4</code></div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p class="theme--blue">Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat.</p>
+      <p class="theme--green">Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur.</p>
+      <p class="theme--orange">Excepteur sint occaecat cupidatat
+        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    </div>
+  </section>
+
+</main>
+<aside id="breakpoint-helper"></aside>
+</body>
+</html>
