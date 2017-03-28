@@ -15,16 +15,17 @@
 @mixin stanford-brand-bar {
 
   $_brand-container: (
-    lg-max: ( columns: 12, grid-media: $media-lg-max,  v-space: 5px, max-width: false, grid-collapse: false ),
-    xl: ( columns: 12, grid-media: $media-xl,       v-space: 5px, max-width: true,  grid-collapse: false ),
-    print: ( columns: 12, grid-media: $media-print, v-space: 5px, max-width: false, grid-collapse: false ),
+    sm-max: ( columns: 12, grid-media: $media-sm-max,  v-space: 5px, max-width: false, grid-collapse: false ),
+    md: ( columns: 12, grid-media: $media-md,          v-space: 5px, max-width: false, grid-collapse: false ),
+    xl: ( columns: 12, grid-media: $media-xl,          v-space: 5px, max-width: true,  grid-collapse: false ),
+    print: ( columns: 12, grid-media: $media-print,    v-space: 5px, max-width: false, grid-collapse: false ),
   ) !default;
 
   @include responsive-container($_brand-container);
-  background: color(brand, $palette-stanford_basic);
   height: 30px;
   max-height: 30px;
   color: color(reverse-text, $palette-stanford_basic);
+  background: color(brand, $palette-stanford_basic);
 
   img {
     width: 153px;
