@@ -1,4 +1,4 @@
-#[Decanter](https://github.com/SU-SWS/decanter)
+# [Decanter](https://github.com/SU-SWS/decanter)
 ##### Version: 0.0.0
 
 Maintainers: [kgcreative](https://github.com/kgcreative), [sherakama](https://github.com/sherakama)  
