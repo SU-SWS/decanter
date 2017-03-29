@@ -9,6 +9,7 @@
   $children: '> *',
   $center-grid: true,
   $equal-heights: true,
+  $grid-collapse: true,
   $grid: $neat-grid
 ) {
   $_gutter: _retrieve-neat-setting($grid, gutter);
@@ -21,6 +22,10 @@
     @include flex-container((justify-content: flex-start, align-items: stretch, parent: $parent, children: $children));
   } @else {
     @include flex-container((justify-content: flex-start, align-items: flex-start, parent: $parent, children: $children));
+  }
+
+  @if $grid-collapse == true {
+    @include grid-collapse;
   }
 
   #{$children} {
