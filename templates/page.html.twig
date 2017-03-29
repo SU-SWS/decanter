@@ -18,50 +18,32 @@
 
   <!-- ______________________ MAIN _______________________ -->
 
-  <div id="main">
-    <div class="container">
-      <section id="content">
+    {{ page.breadcrumb }}
 
-        <div id="content-header">
+    {% if page.highlighted|render %}
+      <div id="highlighted">{{ page.highlighted }}</div>
+    {% endif %}
 
-          {{ page.breadcrumb }}
+    {{ title_prefix }}
 
-          {% if page.highlighted|render %}
-            <div id="highlighted">{{ page.highlighted }}</div>
-          {% endif %}
+    {% if title %}
+      <h1 class="title">{{ title }}</h1>
+    {% endif %}
 
-          {{ title_prefix }}
+    {{ title_suffix }}
+    {{ page.help }}
 
-          {% if title %}
-            <h1 class="title">{{ title }}</h1>
-          {% endif %}
+    {% if tabs %}
+      <div class="tabs">{{ tabs }}</div>
+    {% endif %}
 
-          {{ title_suffix }}
-          {{ page.help }}
+    {% if action_links %}
+      <ul class="action-links">{{ action_links }}</ul>
+    {% endif %}
 
-          {% if tabs %}
-            <div class="tabs">{{ tabs }}</div>
-          {% endif %}
-
-          {% if action_links %}
-            <ul class="action-links">{{ action_links }}</ul>
-          {% endif %}
-
-        </div><!-- /#content-header -->
-
-        {{ page.content }}
-
-      </section><!-- /#content -->
-
-    </div><!-- /.container -->
-  </div><!-- /#main -->
-
-  {% if page.free_form|render %}
-  <div id="free-form">
-    {{ page.free_form }}
+  <div class="main-container">
+    {{ page.content }}
   </div>
-  {% endif %}
-
   <!-- ______________________ FOOTER _______________________ -->
 
   {% if page.footer|render %}

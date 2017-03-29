@@ -58,13 +58,23 @@ function stanford_basic_preprocess_field(&$variables, $hook) {
 }
 
 /**
- * Prepares special regions
+ * Prepares non node/panel pages to be in a single column.
  */
-function stanford_basic_preprocess_region(&$variables, $hook) {
-  // Elements in the free form region will supply their own containers.
-  if ($variables['region'] !== "free_form") {
-    $variables['attributes']['class'] = "container";
+function stanford_basic_preprocess_page(&$vars) {
+
+  // Only center the container if the page is not a node and not a panel.
+  $pbag = \Drupal::routeMatch()->getParameters();
+  $pkeys = $pbag->keys();
+  $allowed = ['node', 'page_manager_page'];
+
+  foreach ($allowed as $key) {
+    if (in_array($key, $pkeys)) {
+      return;
+    }
   }
+
+  // If a key is not found center the page.
+  $vars['#attached']['library'][] = "stanford_basic/centered_container";
 }
 
 /**

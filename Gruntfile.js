@@ -123,6 +123,7 @@ module.exports = function(grunt) {
           'css/layout/layout.css':                          'scss/layout/layout.scss',
           'css/states/states.css':                          'scss/states/states.scss',
           'css/theme/theme.css':                            'scss/theme/theme.scss',
+          'css/theme/centered-container.css':               'scss/theme/centered-container.scss',
           'css/theme/print.css':                            'scss/theme/print.scss'
         }
       }
@@ -176,7 +177,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-drush');
 
   // My tasks.
-  grunt.registerTask('devmode', "Watch and BrowserSync all in one.", ['browserSync', 'watch']);
+  grunt.registerTask('devmode', "Watch and BrowserSync all in one.", ['drush', 'browserSync', 'watch']);
 
   // This is where we tell Grunt what to do when we type "grunt" into the terminal.
   // Note: if you'd like to run and of the tasks individually you can do so by typing 'grunt mytaskname' alternatively

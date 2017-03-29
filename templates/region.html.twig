@@ -13,11 +13,5 @@
  */
 #}
 {% if content %}
-  {% if region != "free_form" %}
-  <div{{ attributes }}>
-  {% endif %}
-    {{ content }}
-  {% if region != "free_form" %}
-  </div>
-  {% endif %}
+  {{ content }}
 {% endif %}
