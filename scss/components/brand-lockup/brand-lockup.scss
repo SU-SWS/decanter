@@ -6,64 +6,60 @@
 // Decanter config.
 @import "decanter/core/utilities/decanter-utilities.scss";
 
-// Lockup flex container
-$flex-container_lockup: map-merge($default-flex-container, ('justify-content': flex-start));
-
 .block--lockup {
   @include responsive-container($default-container);
-  @include flex-container($flex-container_lockup);
+  @include flex-container((justify-content: flex-start));
 
   // Grid collapse.
   .block-grid-collapse {
     @include grid-collapse;
   }
+}
 
-  .block--lockup__site-logo {
-    width: auto;
-    border-right: 1px solid color(black, $palette-stanford_basic);
-    padding-right: 10px;
+.block--lockup__site-logo {
+  width: auto;
+  border-right: 1px solid color(black);
+  padding-right: 10px;
 
-    img {
-      width: 180px;
-      max-width: 180px;
-    }
-
+  img {
+    width: 180px;
+    max-width: 180px;
   }
 
-  .block--lockup__site-name-and-slogan {
-    padding-left: 10px;
+}
 
-    a {
-      color: color(text, $palette-stanford_basic);
-      font-size: 1.8em;
+.block--lockup__site-name-and-slogan {
+  padding-left: 10px;
 
-      &:hover,
-      &focus {
-        text-decoration: none;
-      }
-    }
-  }
+  a {
+    color: color(text);
+    font-size: 1.8em;
 
-  .block--lockup__site-name {
-    @include font-size(31px);
-
-    a,
-    a:link,
-    a:visited {
-      color: color(black);
-    }
-
-    a:hover {
+    &:hover,
+    &focus {
       text-decoration: none;
     }
   }
+}
 
-  .block--lockup__site-slogan {
-    color: color(black);
-    @include font-size(1.3em);
-    font-style: italic;
-    margin: 0;
-    padding: 0;
+.block--lockup__site-name {
+  @include font-size(31px);
+
+  a,
+  a:link,
+  a:visited {
+    color: color(text);
   }
 
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.block--lockup__site-slogan {
+  color: color(text);
+  @include font-size(1.3em);
+  font-style: italic;
+  margin: 0;
+  padding: 0;
 }

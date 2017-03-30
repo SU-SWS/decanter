@@ -9,42 +9,144 @@
 // Grab our mixins.
 @import "utilities/utilities";
 
+$gutter: 2rem !default;
+
 #footer__global-footer {
+  background-color: color(brand);
+  color: color(reverse-text);
+  width: 100%;
   @include responsive-container($default-container);
-  background: color(brand, $palette-stanford_basic);
-  color: color(white);
-  text-align: center;
-
-  a, a:link, a:visited {
-    color: color(white);
+  @include grid-media($media-md-max) {
+     @include grid-collapse;
+  }
+  @include grid-media($media-lg-only) {
+     @include grid-collapse;
+  }
+  @include grid-media($media-xl) {
+     @include grid-collapse;
   }
 
-  .footer-links,
-  .footer-notices {
-    @include plain-list;
+  a {
+    color: color(reverse-text);
+    @include on-event {
+      color: color(reverse-text-active);
+    }
   }
 
+  .su-brand {
+    padding-top: 0.25em;
+    line-height: 0.75;
+    @include on-event {
+      text-decoration: none;
+    }
+  }
 
-  @include grid-media($media-md) {
-
-    // Back to the left.
-    text-align: left;
-
-    .su-brand {
-      @include grid-column(2 of 12);
+  #global-footer__brand {
+    display: block;
+    float: left;
+    @include grid-media($media-xs-only) {
+      margin-left: _retrieve-neat-setting($media-xs-only, gutter);
+      width: 10rem;
+      font-size: 1.6em;
+    }
+    @include grid-media($media-sm) {
+      margin-left: _retrieve-neat-setting($media-xs-only, gutter);
+      width: 12rem;
+      font-size: 2em;
+      max-height: 70px;
+    }
+    @include grid-media($media-lg-only) {
+      margin-left: _retrieve-neat-setting($media-lg-only, gutter);
+    }
+    @include grid-media($media-xl) {
+      margin-left: _retrieve-neat-setting($media-xl, gutter);
     }
 
-    .gloabl-footer__nav {
-      @include grid-column(2 of 12);
+  }
+
+  #global-footer__nav {
+    color: color(reverse-text);
+    display: block;
+    float: left;
+    @include font-size(17px);
+    font-weight: 300;
+    margin-left: $gutter;
+    @include grid-media($media-xs-only) {
+      $_gutter: _retrieve-neat-setting($media-xs-only, gutter);
+      padding-bottom: $small-spacing;
+      width: calc(100% - 10rem - #{$_gutter * 2});
+    }
+    @include grid-media($media-sm) {
+      $_gutter: _retrieve-neat-setting($media-sm, gutter);
+      padding-top: $small-spacing / 1.5;
+      padding-bottom: $small-spacing;
+      width: calc(100% - 12rem - #{$_gutter * 3});
+    }
+    @include grid-media($media-lg-only) {
+      $_gutter: _retrieve-neat-setting($media-lg-only, gutter);
+      width: calc(100% - 12rem - #{$_gutter * 3});
+    }
+    @include grid-media($media-xl) {
+      $_gutter: _retrieve-neat-setting($media-xl, gutter);
+      width: calc(100% - 12rem - #{$_gutter * 3});
+    }
+    @include grid-media($media-md) {
+      padding-bottom: 0;
     }
 
-    .global-footer__info {
-      @include grid-column(3 of 12);
+    a {
+      display: inline-block;
+      margin-right: 1em !important;
+      @include grid-media($media-xs-only) {
+        display: block;
+        width: 15rem;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  #global-footer__info {
+    @include grid-media((media: 'only screen and (max-width: 769px)')) {
+      // This is the width at which the content goes into two lines.
+      @include grid-column(12);
+    }
+    @include grid-media((media: 'only screen and (min-width: 770px)')) {
+      // This is the width at which the content goes into two lines.
+      display: block;
+      float: left;
+      width: calc(100% - 12rem - #{$gutter * 3});
+      margin-left: $gutter;
+    }
+    @include grid-media($media-lg-only) {
+      $_gutter: _retrieve-neat-setting($media-lg-only, gutter);
+      width: calc(100% - 12rem - #{$_gutter * 3});
+    }
+    @include grid-media($media-xl) {
+      $_gutter: _retrieve-neat-setting($media-xl, gutter);
+      width: calc(100% - 12rem - #{$_gutter * 3});
     }
 
     .vcard {
-      @include grid-column(5 of 12);
+      font-size: em(15px);
+      font-weight: 300;
+
+      .adr {
+        margin-left: $small-spacing / 2;
+        margin-right: $small-spacing / 2;
+      }
     }
   }
 
+  .termsofuse {
+    font-size: em(13px);
+    font-weight: 300;
+
+    > * {
+      white-space: nowrap;
+    }
+
+    :first-child {
+      margin-right: $small-spacing / 2;
+    }
+  }
 }
