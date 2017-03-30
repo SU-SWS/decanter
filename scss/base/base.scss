@@ -12,14 +12,19 @@
 /// indents and relying on a component class for other applications.
 ////
 
-// My Config.
-@import "config/config";
+// Project config.
+@import 'config/config';
 
 // Decanter config.
-@import "decanter/core/utilities/decanter-utilities.scss";
+@import 'decanter/core/utilities/decanter-utilities';
+
+// Variable overides.
+@import 'config/typography';
 
 // Decanter base styles.
-@import "decanter/core/base/decanter-base.scss";
+@import 'decanter/core/base/decanter-base';
 
-// Local overrides
-@import "typography";
+// Base overides.
+@import
+  'fonts',
+  'typography';
