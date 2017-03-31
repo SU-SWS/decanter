@@ -1,0 +1,42 @@
+@mixin card
+(
+  $material-shadow: null,
+  $background-color: color(background),
+  $border-color: color(border),
+  $border-radius: $base-border-radius,
+  $border-style: solid,
+  $border-width: 1px,
+  $padding: _retrieve-neat-setting($neat-grid, gutter),
+  $margin: (top: null, right: null, bottom: _retrieve-neat-setting($neat-grid, gutter), left:null )
+)
+{
+  background-color: $background-color;
+  border: $border-width $border-style $border-color;
+  padding: $padding;
+  border-radius: $border-radius;
+  margin: {
+    $_margin-left: map_get($margin, left);
+    $_margin-right: map_get($margin, right);
+    $_margin-top: map_get($margin, top);
+    $_margin-bottom: map_get($margin, bottom);
+    @if $_margin-top != null {
+      top: $_margin-top;
+    }
+    @if $_margin-right != null {
+      right: $_margin-right;
+    }
+    @if $_margin-bottom != null {
+      bottom: $_margin-bottom;
+    }
+    @if $_margin-left != null {
+      left: $_margin-left;
+    }
+  }
+
+  @if $material-shadow != null {
+    @include material-shadow($material-shadow);
+  }
+  & > :last-child {
+    margin-bottom: 0;
+  }
+}
