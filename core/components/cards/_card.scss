@@ -1,3 +1,5 @@
+@charset "UTF-8"
+
 @mixin card
 (
   $material-shadow: null,
@@ -15,10 +17,11 @@
   padding: $padding;
   border-radius: $border-radius;
   margin: {
-    $_margin-left: map_get($margin, left);
-    $_margin-right: map_get($margin, right);
-    $_margin-top: map_get($margin, top);
-    $_margin-bottom: map_get($margin, bottom);
+    $_margin: map-merge((top: null, right: null, bottom: _retrieve-neat-setting($neat-grid, gutter), left:null ), $margin);
+    $_margin-left: map_get($_margin, left);
+    $_margin-right: map_get($_margin, right);
+    $_margin-top: map_get($_margin, top);
+    $_margin-bottom: map_get($_margin, bottom);
     @if $_margin-top != null {
       top: $_margin-top;
     }
