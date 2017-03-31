@@ -9,23 +9,34 @@
 
 .menu--main {
   @include responsive-container($default-container);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
 
   ul {
-    margin: 0;
+    margin: 0 0 -1em 0;
   }
 
   li {
+    font-family: $font-stack-sans-serif;
     display: inline-block;
     margin-right: 10px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
   }
 
-  a, a:link, a:visited {
+  a {
     display: inline-block;
+    @include font-size(18px);
+    padding-bottom: 20px;
+    font-weight: 400;
     color: color('brand', $palette-stanford_basic);
-    font-weight: bold;
   }
 
-  a:hover {
-    color: color('active');
+  a:hover,
+  a.is-active,
+  .menu-item--active-trail a {
+    text-decoration: none;
+    color: color(black);
+    border-bottom: solid 3px color(black);
   }
+
 }
