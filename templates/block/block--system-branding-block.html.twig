@@ -16,9 +16,11 @@
 #}
 {% block content %}
   {% if site_logo %}
+  <div class="block--lockup__site-logo-wrapper">
     <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="block--lockup__site-logo">
       <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
     </a>
+  </div>
   {% endif %}
 
   {% if site_name or site_slogan %}

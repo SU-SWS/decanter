@@ -12,7 +12,7 @@
 $gutter: 2rem !default;
 
 #footer__global-footer {
-  background-color: color(bright-red);
+  background-color: color(brand);
   color: color(reverse-text);
   width: 100%;
   @include responsive-container($default-container);
@@ -109,15 +109,21 @@ $gutter: 2rem !default;
 }
 
 #footer__global-footer {
-  @media (max-width: 767px) {
+  @include grid-media($media-md-max) {
+    text-align: center;
     #global-footer__brand {
       float: none;
       margin: 0 auto 1em;
     }
 
     #global-footer__nav {
-      @include grid-column(6);
-      @include grid-push(4);
+      display: inline-block;
+      overflow: hidden;
+      text-align: left;
+
+      #nav__global-links {
+        margin-right: 30px;
+      }
 
       #nav__global-links,
       #nav__policy-links {
