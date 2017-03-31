@@ -21,9 +21,7 @@
   vertical-align: bottom;
   border-right: 1px solid color(black);
   padding-right: 10px;
-  height: 38px;
-  width: auto;
-  max-height: 38px;
+  line-height: .8em;
 
   .block--lockup__site-logo {
     width: auto;
@@ -45,6 +43,7 @@
     color: color(text);
     font-size: 1.8em;
     display: block;
+    margin-bottom: -11px;
 
     &:hover,
     &focus {
@@ -73,17 +72,4 @@
   font-style: italic;
   margin: 0;
   padding: 0;
-}
-
-
-@include grid-media($media-lg-max) {
-  .block--lockup__site-name-and-slogan a {
-    margin-top: 4px;
-  }
-}
-
-@media (max-width: 767px) {
-  .block--lockup__site-name-and-slogan a {
-    margin-top: 8px;
-  }
 }
