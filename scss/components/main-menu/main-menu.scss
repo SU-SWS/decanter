@@ -9,37 +9,34 @@
 
 .menu--main {
   @include responsive-container($default-container);
-  padding-top: 0px;
-  padding-bottom: 0px;
-	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
 
   ul {
-    margin: 0;
+    margin: 0 0 -1em 0;
   }
 
   li {
+    font-family: $font-stack-sans-serif;
     display: inline-block;
     margin-right: 10px;
-    font-family: "Source Sans Pro" $font-stack-sans-serif;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
   }
 
   a {
     display: inline-block;
-    color: color('brand', $palette-stanford_basic);
-    font-weight: 200;
-    @include font-size(20px);
+    @include font-size(18px);
     padding-bottom: 20px;
+    font-weight: 400;
+    color: color('brand', $palette-stanford_basic);
   }
 
-  a:hover {
-    color: color('active');
-    text-decoration: none;
-  }
-
+  a:hover,
   a.is-active,
-  .menu-item--active-trail {
+  .menu-item--active-trail a {
+    text-decoration: none;
     color: color(black);
-    border-bottom: solid 2px color(black);
+    border-bottom: solid 3px color(black);
   }
 
 }

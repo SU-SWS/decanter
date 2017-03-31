@@ -31,8 +31,32 @@ h5,
 h6 {
   font-family: $heading-font-family;
   line-height: $heading-line-height;
-  margin: modular-scale(0) 0 modular-scale(-4);
-  font-weight: 700;
+  margin: {
+    top: 0;
+    bottom: modular-scale(-4);
+  }
+  font-weight: 600;
+}
+
+p + h1,
+p + h2,
+p + h3,
+p + h4,
+p + h5,
+p + h6,
+ul + h1,
+ul + h2,
+ul + h3,
+ul + h4,
+ul + h5,
+ul + h6,
+ol + h1,
+ol + h2,
+ol + h3,
+ol + h4,
+ol + h5,
+ol + h6 {
+  margin-top: modular-scale(0);
 }
 
 h1 {

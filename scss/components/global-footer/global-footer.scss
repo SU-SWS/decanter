@@ -12,29 +12,17 @@
 $gutter: 2rem !default;
 
 #footer__global-footer {
-  background-color: color(brand);
+  background-color: color(bright-red);
   color: color(reverse-text);
   width: 100%;
   @include responsive-container($default-container);
-  @include grid-media($media-md-max) {
-     @include grid-collapse;
-  }
-  @include grid-media($media-lg-only) {
-     @include grid-collapse;
-  }
-  @include grid-media($media-xl) {
-     @include grid-collapse;
-  }
 
   a {
     color: color(reverse-text);
-    @include on-event {
-      color: color(reverse-text-active);
-    }
   }
 
   .su-brand {
-    padding-top: 0.25em;
+    padding-top: 0.15em;
     line-height: 0.75;
     @include on-event {
       text-decoration: none;
@@ -45,21 +33,19 @@ $gutter: 2rem !default;
     display: block;
     float: left;
     @include grid-media($media-xs-only) {
-      margin-left: _retrieve-neat-setting($media-xs-only, gutter);
+      margin-right: _retrieve-neat-setting($media-xs-only, gutter);
       width: 10rem;
-      font-size: 1.6em;
     }
     @include grid-media($media-sm) {
-      margin-left: _retrieve-neat-setting($media-xs-only, gutter);
+      margin-right: _retrieve-neat-setting($media-xs-only, gutter);
       width: 12rem;
-      font-size: 2em;
       max-height: 70px;
     }
     @include grid-media($media-lg-only) {
-      margin-left: _retrieve-neat-setting($media-lg-only, gutter);
+      margin-right: _retrieve-neat-setting($media-lg-only, gutter);
     }
     @include grid-media($media-xl) {
-      margin-left: _retrieve-neat-setting($media-xl, gutter);
+      margin-right: _retrieve-neat-setting($media-xl, gutter);
     }
 
   }
@@ -67,36 +53,27 @@ $gutter: 2rem !default;
   #global-footer__nav {
     color: color(reverse-text);
     display: block;
-    float: left;
-    @include font-size(17px);
     font-weight: 300;
-    margin-left: $gutter;
-    @include grid-media($media-xs-only) {
-      $_gutter: _retrieve-neat-setting($media-xs-only, gutter);
-      padding-bottom: $small-spacing;
-      width: calc(100% - 10rem - #{$_gutter * 2});
+
+    #nav__global-links {
+      @include font-size(16px);
+      margin-bottom: 0.25em;
+
+      a {
+        margin-right: 1.5em;
+      }
     }
-    @include grid-media($media-sm) {
-      $_gutter: _retrieve-neat-setting($media-sm, gutter);
-      padding-top: $small-spacing / 1.5;
-      padding-bottom: $small-spacing;
-      width: calc(100% - 12rem - #{$_gutter * 3});
-    }
-    @include grid-media($media-lg-only) {
-      $_gutter: _retrieve-neat-setting($media-lg-only, gutter);
-      width: calc(100% - 12rem - #{$_gutter * 3});
-    }
-    @include grid-media($media-xl) {
-      $_gutter: _retrieve-neat-setting($media-xl, gutter);
-      width: calc(100% - 12rem - #{$_gutter * 3});
-    }
-    @include grid-media($media-md) {
-      padding-bottom: 0;
+
+    #nav__policy-links {
+      @include font-size(13px);
+
+      a {
+        margin-right: 1.2em;
+      }
     }
 
     a {
       display: inline-block;
-      margin-right: 1em !important;
       @include grid-media($media-xs-only) {
         display: block;
         width: 15rem;
@@ -106,28 +83,8 @@ $gutter: 2rem !default;
   }
 
   #global-footer__info {
-    @include grid-media((media: 'only screen and (max-width: 769px)')) {
-      // This is the width at which the content goes into two lines.
-      @include grid-column(12);
-    }
-    @include grid-media((media: 'only screen and (min-width: 770px)')) {
-      // This is the width at which the content goes into two lines.
-      display: block;
-      float: left;
-      width: calc(100% - 12rem - #{$gutter * 3});
-      margin-left: $gutter;
-    }
-    @include grid-media($media-lg-only) {
-      $_gutter: _retrieve-neat-setting($media-lg-only, gutter);
-      width: calc(100% - 12rem - #{$_gutter * 3});
-    }
-    @include grid-media($media-xl) {
-      $_gutter: _retrieve-neat-setting($media-xl, gutter);
-      width: calc(100% - 12rem - #{$_gutter * 3});
-    }
-
     .vcard {
-      font-size: em(15px);
+      @include font-size(13px);
       font-weight: 300;
 
       .adr {
@@ -147,6 +104,37 @@ $gutter: 2rem !default;
 
     :first-child {
       margin-right: $small-spacing / 2;
+    }
+  }
+}
+
+#footer__global-footer {
+  @media (max-width: 767px) {
+    #global-footer__brand {
+      float: none;
+      margin: 0 auto 1em;
+    }
+
+    #global-footer__nav {
+      @include grid-column(6);
+      @include grid-push(4);
+
+      #nav__global-links,
+      #nav__policy-links {
+        float: left;
+        @include font-size(16px);
+        margin-bottom: .5em;
+
+        a {
+          display: block;
+          margin-bottom: .5em;
+        }
+      }
+    }
+
+    #global-footer__info {
+      clear: both;
+      text-align: center;
     }
   }
 }
