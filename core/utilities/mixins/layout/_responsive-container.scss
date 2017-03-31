@@ -13,7 +13,7 @@
     $_max-width: map-get($_map, max-width);
     $_grid-collapse: map-get($_map, grid-collapse);
 
-    @include grid-media(map-get($_map, grid-media)) {
+    @include grid-media($_grid) {
       @include centered-container($_cols, $_v-space, $_max-width, $_grid-collapse, $_grid);
     }
   }
