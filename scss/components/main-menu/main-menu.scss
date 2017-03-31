@@ -9,6 +9,9 @@
 
 .menu--main {
   @include responsive-container($default-container);
+  padding-top: 0px;
+  padding-bottom: 0px;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
 
   ul {
     margin: 0;
@@ -17,15 +20,26 @@
   li {
     display: inline-block;
     margin-right: 10px;
+    font-family: "Source Sans Pro" $font-stack-sans-serif;
   }
 
-  a, a:link, a:visited {
+  a {
     display: inline-block;
     color: color('brand', $palette-stanford_basic);
-    font-weight: bold;
+    font-weight: 200;
+    @include font-size(20px);
+    padding-bottom: 20px;
   }
 
   a:hover {
     color: color('active');
+    text-decoration: none;
   }
+
+  a.is-active,
+  .menu-item--active-trail {
+    color: color(black);
+    border-bottom: solid 2px color(black);
+  }
+
 }
