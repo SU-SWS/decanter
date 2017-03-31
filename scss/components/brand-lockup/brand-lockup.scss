@@ -8,7 +8,7 @@
 
 .block--lockup {
   @include responsive-container($default-container);
-  @include flex-container((justify-content: flex-start));
+  display: table;
 
   // Grid collapse.
   .block-grid-collapse {
@@ -16,24 +16,34 @@
   }
 }
 
-.block--lockup__site-logo {
-  width: auto;
+.block--lockup__site-logo-wrapper {
+  display: table-cell;
+  vertical-align: bottom;
   border-right: 1px solid color(black);
   padding-right: 10px;
+  line-height: .8em;
 
-  img {
-    width: 180px;
-    max-width: 180px;
+  .block--lockup__site-logo {
+    width: auto;
+
+    img {
+      width: 180px;
+      max-width: 180px;
+    }
+
   }
-
 }
 
 .block--lockup__site-name-and-slogan {
+  display: table-cell;
   padding-left: 10px;
+  vertical-align: bottom;
 
   a {
     color: color(text);
     font-size: 1.8em;
+    display: block;
+    margin-bottom: -11px;
 
     &:hover,
     &focus {

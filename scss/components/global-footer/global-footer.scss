@@ -116,8 +116,14 @@ $gutter: 2rem !default;
     }
 
     #global-footer__nav {
-      @include grid-column(6);
-      @include grid-push(4);
+      display: inline-block;
+      overflow: hidden;
+      text-align: left;
+
+      #nav__global-links {
+        margin-right: 30px;
+      }
+
 
       #nav__global-links,
       #nav__policy-links {
