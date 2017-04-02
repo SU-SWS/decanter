@@ -68,14 +68,30 @@ dfn, cite, em, i {
   font-style: italic;
 }
 
-/// @require {variable} $base-spacing
-blockquote, q {
+/// @require {function} modular-scale
+// see https://css-tricks.com/almanac/properties/q/quotes/
+blockquote {
   margin: 0 modular-scale(2);
-  quotes: "" "";
+  quotes: "\201c" "\201d" "\2018" "\2019";
 
-  &:before,
-  &:after {
-    content: "";
+  &::before {
+    content: open-quote;
+  }
+  &::after {
+    content: close-quote;
+  }
+}
+
+// see https://css-tricks.com/almanac/properties/q/quotes/
+q {
+  margin: 0;
+  quotes: "\201c" "\201d" "\2018" "\2019";
+
+  &::before {
+    content: open-quote;
+  }
+  &::after {
+    content: close-quote;
   }
 }
 
