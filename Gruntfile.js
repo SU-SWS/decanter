@@ -18,7 +18,11 @@ module.exports = function(grunt) {
     sassdoc: {
       default: {
         src: 'core',
-      }
+        options: {
+          exclude: ['vendors/*'],
+          dest: 'docs',
+        },
+      },
     },
     sass: {
       // This will compile all of our sass files
