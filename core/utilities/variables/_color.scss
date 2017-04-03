@@ -2,6 +2,7 @@
 
 ////
 /// Colors
+/// @group Variables | Colors
 ////
 
 /// This variable is a sass map that overrides our generic color map.
@@ -9,23 +10,12 @@
 ///
 /// @type map
 ///
-/// @group settings
-///
 /// @name Colors
 ///
-/// @property {color} color [null]
-///   The color value retrieved by the color function
-///
-/// @example scss
-///   $colors: (
-///     brand: #8c1515,
-///     text: #333,
-///     link: #ff4136,
-///     link-hover: 82121B,
-///     red: #ff4136,
-///   );
+/// @property {Key} Color [brand] - The Name of the color to be called by the color function
+/// @property {Value} Value [#004fdc] - The color value retrieved by the color function
+
 $colors: (
-  // Decanter Colors
     brand:                        #004fdc,
     action:                       #004991,
     action-active:                #005ddc,
@@ -46,19 +36,8 @@ $colors: (
 ///
 /// @type map
 ///
-/// @group settings
+/// @name Custom colors
 ///
-/// @name Custom color palettes
-///
-/// @property {color} color [null]
-///   The color value retrieved by the color function
-///
-/// @example scss
-///   $my-custom-palette: (
-///     brand: #ff4136,
-///     text: #333,
-///     action: #ff4136,
-///     action-hover: 82121B,
-///     red: #ff4136,
-///   );
+/// @property {Key} Color [brand] - The Name of the color to be called by the color function
+/// @property {Value} Value [#004fdc] - The color value retrieved by the color function
 $custom-colors: () !default;

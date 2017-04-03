@@ -12,16 +12,14 @@ $colors: () !default;
 ///
 /// @name color
 ///
-/// @argument {map} $color-palette
+/// @arg {color} color [null] - The color returned by the function
+/// @arg {map} $color-palette [$colors] - The color map to use to retrieve the color
 ///
-/// @argument {string} $color
 ///
-/// @return {string} color hex value
-///
-/// @example scss
+/// @example scss - SCSS
 ///   background-color: color(white);
 ///
-/// @example css
+/// @example css - CSS
 ///   background-color: #fff;
 
 @function color($color, $palette: ()) {
