@@ -5,17 +5,20 @@
 @mixin items-per-row
 (
   $items: 1,
-  $selector: '*',
+  $children: '> *',
+  $parent: '&',
+  $clear: true,
   $grid: $neat-grid,
-  $clear: true
 ) {
-
-  > #{$selector} {
-    $_gutter: _retrieve-neat-setting($grid, gutter);
-    @include grid-column(1 of $items);
-    @if $clear == true {
-      @include nth-alpha('#{$items}n+1');
+  $_gutter: _retrieve-neat-setting($grid, gutter);
+  
+  '#{$parent} {
+    > #{$children} {
+      @include grid-column(1 of $items);
+      @if $clear == true {
+        @include nth-alpha('#{$items}n+1');
+      }
+      margin-bottom: $_gutter;
     }
-    margin-bottom: $_gutter;
   }
 }
