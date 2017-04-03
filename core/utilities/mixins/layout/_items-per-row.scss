@@ -12,7 +12,7 @@
 ) {
   $_gutter: _retrieve-neat-setting($grid, gutter);
   
-  '#{$parent} {
+  #{$parent} {
     > #{$children} {
       @include grid-column(1 of $items);
       @if $clear == true {
