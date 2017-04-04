@@ -8,43 +8,52 @@
 
 /// Lower Boundary for extra small screens
 /// @group Variables | Breakpoint Boundaries
+/// @type variable
 $screen-xs-min:               0px !default;
 
 /// Lower boundary for small screens
 /// @group Variables | Breakpoint Boundaries
+/// @type variable
 $screen-sm-min:               576px !default;
 
 /// Lower boundary for medium screens
 /// @group Variables | Breakpoint Boundaries
+/// @type variable
 $screen-md-min:               768px !default;
 
 /// Lower boundary for large screens
 /// @group Variables | Breakpoint Boundaries
+/// @type variable
 $screen-lg-min:               992px !default;
 
 /// Lower boundary for extra large screens
 /// @group Variables | Breakpoint Boundaries
+/// @type variable
 $screen-xl-min:               $max-container-width !default;
 
 
 /// Upper boundary for extra small screens
 /// @group Variables | Breakpoint Boundaries
 /// @requires $screen-xs-min
+/// @type variable
 $screen-xs-max:               $screen-sm-min - 1px !default;
 
 /// Upper boundary for small screens
 /// @group Variables | Breakpoint Boundaries
 /// @requires $screen-sm-min
+/// @type variable
 $screen-sm-max:               $screen-md-min - 1px !default;
 
 /// Upper boundary for medium screens
 /// @group Variables | Breakpoint Boundaries
 /// @requires $screen-md-min
+/// @type variable
 $screen-md-max:               $screen-lg-min - 1px !default;
 
 /// Upper boundary for large screens
 /// @group Variables | Breakpoint Boundaries
 /// @requires $screen-lg-min
+/// @type variable
 $screen-lg-max:               $screen-xl-min - 1px !default;
 
 
@@ -68,7 +77,7 @@ $media-xs: (
     media: $screen-xs-min,
 ) !default;
 
-/// @group Variables | Grid Media
+/// @group Variables | Neat Media Queries
 /// @type map
 ///
 /// @property {number (unitless)} columns [null]
@@ -86,7 +95,7 @@ $media-xs-only: (
     media: 'only screen and (max-width: #{$screen-xs-max})',
 ) !default;
 
-/// @group Variables | Grid Media
+/// @group Variables | Neat Media Queries
 /// @type map
 ///
 /// @property {number (unitless)} columns [null]
@@ -104,7 +113,7 @@ $media-xs-max: (
     media: 'only screen and (max-width: #{$screen-xs-max})',
 ) !default;
 
-/// @group Variables | Grid Media
+/// @group Variables | Neat Media Queries
 /// @type map
 ///
 /// @property {number (unitless)} columns [null]
@@ -122,7 +131,7 @@ $media-sm: (
     media: $screen-sm-min,
 ) !default;
 
-/// @group Variables | Grid Media
+/// @group Variables | Neat Media Queries
 /// @type map
 ///
 /// @property {number (unitless)} columns [null]
@@ -141,56 +150,163 @@ $media-sm-only: (
     media: 'only screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})',
 ) !default;
 
-/// Media SM max
-/// @group Variables | Grid Media
+/// @group Variables | Neat Media Queries
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} media ['only screen and (max-width: $screen-sm-max)']
+///   Grid media query.
+///
+/// @requires $screen-sm-max
+///
 $media-sm-max: (
     media: 'only screen and (max-width: #{$screen-sm-max})',
 ) !default;
 
-/// Media MD
-/// @group Variables | Grid Media
+/// @group Variables | Neat Media Queries
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} $screen-md-min]
+///   Grid media query.
+///
+/// @requires $screen-md-min
+///
 $media-md: (
     media: $screen-md-min,
 ) !default;
 
-/// Media MD only
-/// @group Variables | Grid Media
+/// @group Variables | Neat Media Queries
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} media ['only screen and (min-width: $screen-md-min) and (max-width: $screen-md-max)']
+///   Grid media query.
+///
+/// @requires $screen-md-min
+/// @requires $screen-md-max
+///
 $media-md-only: (
     media: 'only screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})',
 ) !default;
 
-/// Media MD max
-/// @group Variables | Grid Media
+/// @group Variables | Neat Media Queries
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} media ['only screen and (max-width: $screen-md-max)']
+///   Grid media query.
+///
+/// @requires $screen-md-max
+///
 $media-md-max: (
     media: 'only screen and (max-width: #{$screen-md-max})',
 ) !default;
 
-/// Media LG
-/// @group Variables | Grid Media
+/// @group Variables | Neat Media Queries
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} $screen-lg-min]
+///   Grid media query.
+///
+/// @requires $screen-lg-min
+///
 $media-lg: (
     media: $screen-lg-min,
 ) !default;
 
-/// Media LG only
-/// @group Variables | Grid Media
+/// @group Variables | Neat Media Queries
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} media ['only screen and (min-width: $screen-lg-min) and (max-width: $screen-lg-max)']
+///   Grid media query.
+///
+/// @requires $screen-lg-min
+/// @requires $screen-lg-max
 $media-lg-only: (
     media: 'only screen and (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max})',
 ) !default;
 
-/// Media LG max
-/// @group Variables | Grid Media
+/// @group Variables | Neat Media Queries
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} media ['only screen and (max-width: $screen-lg-max)']
+///   Grid media query.
+///
+/// @requires $screen-lg-max
+///
 $media-lg-max: (
     media: 'only screen and (max-width: #{$screen-lg-max})',
 ) !default;
 
-/// Media XL
-/// @group Variables | Grid Media
+/// @group Variables | Neat Media Queries
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} $screen-xl-min]
+///   Grid media query.
+///
+/// @requires $screen-xl
+///
 $media-xl: (
     media: $screen-xl-min,
 ) !default;
 
-/// Media print
-/// @group Variables | Grid Media
+/// @group Variables | Neat Media Queries
+/// @type map
+///
+/// @property {number (unitless)} columns [12]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [.25in]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} 'only print']
+///   Grid media query.
+///
 $media-print: (
     columns: 12,
     gutter: .25in,
