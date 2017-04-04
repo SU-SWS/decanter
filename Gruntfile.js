@@ -23,7 +23,7 @@ module.exports = function(grunt) {
             'vendors/*',
             'base/*'
           ],
-          dest: 'docs',
+          dest: 'docs/core',
           display: {
             sort: [
               'group<',
@@ -32,9 +32,90 @@ module.exports = function(grunt) {
               'file',
             ],
           },
-          // groups: {
-          //   'base|body': "HTML - Body",
-          // }
+        },
+      },
+      base: {
+        src: 'core/base',
+        options: {
+          dest: 'docs/base',
+          display: {
+            sort: [
+              'group<',
+              'access',
+              'line>',
+              'file',
+            ],
+          },
+        },
+      },
+      components: {
+        src: 'core/components',
+        options: {
+          dest: 'docs/components',
+          display: {
+            sort: [
+              'group<',
+              'access',
+              'line>',
+              'file',
+            ],
+          },
+        },
+      },
+      functions: {
+        src: 'core/utilities/functions',
+        options: {
+          dest: 'docs/functions',
+          display: {
+            sort: [
+              'group<',
+              'access',
+              'line>',
+              'file',
+            ],
+          },
+        },
+      },
+      mixins: {
+        src: 'core/utilities/mixins',
+        options: {
+          dest: 'docs/mixins',
+          display: {
+            sort: [
+              'group<',
+              'access',
+              'line>',
+              'file',
+            ],
+          },
+        },
+      },
+      placeholders: {
+        src: 'core/utilities/placeholders',
+        options: {
+          dest: 'docs/placeholders',
+          display: {
+            sort: [
+              'group<',
+              'access',
+              'line>',
+              'file',
+            ],
+          },
+        },
+      },
+      variables: {
+        src: 'core/utilities/variables',
+        options: {
+          dest: 'docs/variables',
+          display: {
+            sort: [
+              'group<',
+              'access',
+              'line>',
+              'file',
+            ],
+          },
         },
       },
     },

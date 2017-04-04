@@ -1,0 +1,184 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Decanter - v0.1.0-alpha1</title><link rel="stylesheet" href="assets/css/main.css"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="Decanter - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="<p>A collection of SCSS patterns for theme development.</p>
+"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title"><a href="https://github.com/su-sws/decanter">Decanter - v0.1.0-alpha1</a></h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="mixins"><a href="#mixins">mixins</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="mixins-mixin"><a href="#mixins-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="mixins" data-name="material-shadow" data-type="mixin"><a href="#mixins-mixin-material-shadow">material-shadow</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="undefined"><a href="#undefined">General</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-mixin"><a href="#undefined-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="center-block" data-type="mixin"><a href="#undefined-mixin-center-block">center-block</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="on-event" data-type="mixin"><a href="#undefined-mixin-on-event">on-event</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="centered-container" data-type="mixin"><a href="#undefined-mixin-centered-container">centered-container</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="flex-container" data-type="mixin"><a href="#undefined-mixin-flex-container">flex-container</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="responsive-container" data-type="mixin"><a href="#undefined-mixin-responsive-container">responsive-container</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="Color Theme" data-type="mixin"><a href="#undefined-mixin-Color Theme">Color Theme</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-variable"><a href="#undefined-variable">variables</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="Color Themes" data-type="variable"><a href="#undefined-variable-Color Themes">Color Themes</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="mixins"><div class="container">mixins</div></h1><section class="main__sub-section" id="mixins-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="mixins-mixin-material-shadow"><h3 class="item__heading"><a class="item__name" href="#mixin-material-shadow">material-shadow</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin material-shadow($Depth: shallow) { 
+// Depths: flat | shallow | medium | deep
+  @media screen {
+    @if $depth == &#39;flat&#39; {
+      // Box Shadow: offset-x | offset-y | blur-radius | spread-radius | color
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+    } @else if $depth == &#39;shallow&#39; {
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05), 0px 3px 3px 1px rgba(0, 0, 0, 0.05);
+    } @else if $depth == &#39;medium&#39; {
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.09), 0px 7px 10px 0px rgba(0, 0, 0, 0.15);
+    } @else if $depth == &#39;deep&#39; {
+      box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.10), 0px 11px 12px 0px rgba(0, 0, 0, 0.2);
+    }
+  }
+ }" data-collapsed="@mixin material-shadow($Depth: shallow) { ... }"><code>@mixin material-shadow($Depth: shallow) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Creates a material-design style shadow. May be flat, shallow, medium, or deep.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$Depth</code></th><td data-label="desc"><p>How deep the shadow appears to be. Default is Shallow.</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>shallow</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>SCSS</p></div><pre class="example__code language-scss"><code>.element {
+  @include material-shadow(shallow);
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS</p></div><pre class="example__code language-css"><code>.element {
+  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.10), 2px 4px 7px 0px rgba(0,0,0,0.15);
+}</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Kevin Garcia</p></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="undefined"><div class="container">General</div></h1><section class="main__sub-section" id="undefined-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="undefined-mixin-center-block"><h3 class="item__heading"><a class="item__name" href="#mixin-center-block">center-block</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin center-block() { 
+  display: block;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+ }" data-collapsed="@mixin center-block() { ... }"><code>@mixin center-block() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Center block</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section><section class="main__item container item" id="undefined-mixin-on-event"><h3 class="item__heading"><a class="item__name" href="#mixin-on-event">on-event</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin on-event($self: false) { 
+  @if $self {
+    &amp;,
+    &amp;:hover,
+    &amp;:active,
+    &amp;:focus {
+      @content;
+    }
+  } @else {
+    &amp;:hover,
+    &amp;:active,
+    &amp;:focus {
+      @content;
+    }
+  }
+ }" data-collapsed="@mixin on-event($self: false) { ... }"><code>@mixin on-event($self: false) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Event wrapper</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$self</code></th><td data-label="desc"><p>Whether or not to include current selector</p></td><td data-label="type"><code>Bool</code></td><td data-label="default"><code>false</code></td></tr></tbody></table><h3 class="item__sub-heading">Content</h3><p>This mixin allows extra content to be passed (through the <code>@content</code> directive).</p><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://twitter.com/csswizardry/status/478938530342006784">Original tweet from Harry Roberts</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Harry Roberts</p></li></ul></section><section class="main__item container item" id="undefined-mixin-centered-container"><h3 class="item__heading"><a class="item__name" href="#mixin-centered-container">centered-container</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin centered-container() { 
+  $columns: _neat-column-default($grid, $columns); // Retrieves max columns from specified grid if empty, or the specified number of columns otherwise
+  $_grid-columns: _retrieve-neat-setting($grid, columns); // Retrieves the number of max columns from the specified grid
+  $_grid-gutter: _retrieve-neat-setting($grid, gutter); // Retrieves the gutter from the specified grid
+
+  padding: _set-container-padding($columns, $grid, $v-space, $max-width);
+
+  @include grid-container;
+  @if $grid-collapse == true {
+    @include grid-collapse;
+  }
+ }" data-collapsed="@mixin centered-container() { ... }"><code>@mixin centered-container() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>centered-container mixin Creates a wrapper-less centered container using padding Depends on Neat. We use the global neat-grid variable for grid default, but you may pass it any value.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-responsive-container"><code>responsive-container</code></a></li></ul></section><section class="main__item container item" id="undefined-mixin-flex-container"><h3 class="item__heading"><a class="item__name" href="#mixin-flex-container">flex-container</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin flex-container() { 
+
+  // Merge the provided map with the default aggregate from above. This means
+  // that you can specify a container that only has the values that you want to differ
+  // from the default, and everything else is inherited.
+  $_flex-container: map-merge($default-flex-container, $settings-map);
+
+  // Internal variable parsing
+  $_parent: map-get($_flex-container, parent);
+  $_children: map-get($_flex-container, children);
+  $_flex: map-get($_flex-container, flex);
+  $_flex-direction: map-get($_flex-container, flex-direction);
+  $_flex-wrap: map-get($_flex-container, flex-wrap);
+  $_justify-content: map-get($_flex-container, justify-content);
+  $_align-items: map-get($_flex-container, align-items);
+  $_align-content: map-get($_flex-container, align-content);
+  $_flex-grow: map-get($_flex-container, flex-grow);
+  $_flex-shrink: map-get($_flex-container, flex-shrink);
+  $_flex-basis: map-get($_flex-container, flex-basis);
+
+  #{$_parent} {
+    // Inherited properties from mixin.
+    display:          $_flex;
+    flex-flow:        $_flex-direction $_flex-wrap; // default: row wrap;
+    justify-content:  $_justify-content; // default: flex-start;
+    align-items:      $_align-items; // default: flex-start;
+    align-content:    $_align-content; // default: flex-start;
+
+    // Opinionated properties
+    box-sizing: border-box;
+
+    // Applies the direct children
+    #{$_children} {
+      // Inherited properties from mixin
+      flex: $_flex-grow $_flex-shrink $_flex-basis; // default: flex: 0 0 auto;
+
+      //Opinionated properties
+      box-sizing: inherit;
+    }
+  }
+ }" data-collapsed="@mixin flex-container() { ... }"><code>@mixin flex-container() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Creates a flexbox container with children See: <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox">https://css-tricks.com/snippets/css/a-guide-to-flexbox</a> for flexbox property explanations.</p><p>parent: &#39;&amp;&#39;, children: &#39;&gt; *&#39;, flex: flex, // flex | inline-flex</p><p>// Parent properties flex-direction: row, // row | row-reverse | column | column-reverse flex-wrap: wrap, // nowrap | wrap | wrap-reverse</p><p>// Change $_justify-content from &#39;center&#39; to &#39;flex-start&#39; to left align wrapped orphans justify-content: center, // flex-start | flex-end | center | space-between | space-around</p><p>// Change $_align-items from <code>flex-start</code> to <code>stretch</code> for equal heights align-items: flex-start, // flex-start | flex-end | center | baseline | stretch</p><p>align-content: center, // flex-start | flex-end | center | space-between | space-around | stretch // Children properties flex-grow: 0, flex-shrink: 0, flex-basis: auto // $_order:<integer>// Note that this should be set at the element level // $_align-self: flex-start // Note that this should be set at the element level</integer></p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section><section class="main__item container item" id="undefined-mixin-responsive-container"><h3 class="item__heading"><a class="item__name" href="#mixin-responsive-container">responsive-container</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin responsive-container() { 
+  @each $breakpoint, $_map in $container {
+    $_cols: map-get($_map, columns);
+    $_grid: map-get($_map, grid-media);
+    $_v-space: map-get($_map, v-space);
+    $_max-width: map-get($_map, max-width);
+    $_grid-collapse: map-get($_map, grid-collapse);
+
+    @include grid-media($_grid) {
+      @include centered-container($_cols, $_v-space, $_max-width, $_grid-collapse, $_grid);
+    }
+  }
+ }" data-collapsed="@mixin responsive-container() { ... }"><code>@mixin responsive-container() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Responsive container Creates a responsive container on each grid media as specified by the specified map</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-centered-container"><code>centered-container</code></a></li></ul></section><section class="main__item container item" id="undefined-mixin-Color Theme"><h3 class="item__heading"><a class="item__name" href="#mixin-Color Theme">Color Theme</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin Color Theme($palette: $colors, $selector: &#39;&amp;&#39;) { 
+  $_default-color-palette: $colors;
+  $colors: map-merge($colors, $palette) !global;
+  #{$selector} {
+    @content;
+  }
+  $colors: $_default-color-palette !global;
+ }" data-collapsed="@mixin Color Theme($palette: $colors, $selector: &#39;&amp;&#39;) { ... }"><code>@mixin Color Theme($palette: $colors, $selector: &#39;&amp;&#39;) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p><code>color-theme</code> allows you to change the default color palette within the specified block. optionally, it lets you target a specific selector.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$palette</code></th><td data-label="desc"><p>The color palette to be used within the scope of the block.</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>$colors</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$selector</code></th><td data-label="desc"><p>the <code>$selector</code> argument allows you to specify a different class than the current. It&#39;s especially useful when used with the <code>render-color-themes</code> mixin.</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&#39;&amp;&#39;</code></td></tr></tbody></table><h3 class="item__sub-heading">Content</h3><p>This mixin allows extra content to be passed (through the <code>@content</code> directive). Role: `color-theme` will temporarily override the default color map with the attributes of the specified `$palette`. This change is scoped to within the mixin block, and once the mixin has ended, the default color map will revert to its original state as defined by `$color`.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-SCSS"><code>$green-theme: (
+  brand:                        #2c853c,
+  action:                       #00992b,
+  action-active:                #007b38,
+  background:                   #fff,
+  background-secondary:         #f4f4f4,
+  border:                       #ccc,
+  text:                         #121111,
+  text-active:                  #00992b,
+  reverse-text:                 #fff,
+  reverse-text-active:          #fff,
+);
+.card {
+  @include color-theme($green-theme) {
+    background-color: color(background);
+    color: color(text-active);
+  }
+}</code></pre></div><div class="item__example example"><pre class="example__code language-CSS"><code>.card {
+  background-color: #fff;
+  color: #121111;
+}</code></pre></div><div class="item__example example"><pre class="example__code language-SCSS"><code>@include color-theme($green-theme, &#39;.card&#39;) {
+  background-color: color(background);
+  color: color(text-active);
+}</code></pre></div><div class="item__example example"><pre class="example__code language-CSS"><code>.card {
+  background-color: #fff;
+  color: #121111;
+}</code></pre></div></section></section><section class="main__sub-section" id="undefined-variable"><h2 class="main__heading--secondary"><div class="container">variables</div></h2><section class="main__item container item" id="undefined-variable-Color Themes"><h3 class="item__heading"><a class="item__name" href="#variable-Color Themes">Color Themes</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$Color Themes: (
+    default:  ( palette: $colors, selector: &#39;&amp;&#39; ),
+) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p><code>color-themes</code> consumes a map to render multiple color variations on a specific block. For each theme group in the theme group map, the <code>$color-themes</code> mixin iterates over that group with the specified selector.</p></div><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-SCSS"><code>$green-theme: (
+  brand:                        #2c853c,
+  action:                       #00992b,
+  action-active:                #007b38,
+  background:                   #fff,
+  background-secondary:         #f4f4f4,
+  border:                       #ccc,
+  text:                         #121111,
+  text-active:                  #00992b,
+  reverse-text:                 #fff,
+  reverse-text-active:          #fff,
+);
+$blue-theme: (
+  brand:                        #3B7185,
+  action:                       #297C85,
+  action-active: #004a7b,
+  background:                   #fff,
+  background-secondary:         #f4f4f4,
+  border:                       #ccc,
+  text:                         #121111,
+  text-active:                  #297C85,
+  reverse-text:                 #fff,
+  reverse-text-active:          #fff,
+);
+$custom-theme-group: (
+  default ( palette: $colors, selector: &#39;&amp;&#39; ),
+  green:  ( palette: $green-theme, selector: &#39;&amp;.theme--green&#39; ),
+  blue:   ( palette: $blue-theme, selector: &#39;&amp;.theme--blue&#39; ),
+);
+
+.card {
+  @include color-themes($custom-theme-group) {
+    background-color: color(background);
+    color: color(text-active);
+  }
+}</code></pre></div><div class="item__example example"><pre class="example__code language-CSS"><code>.card {
+  background-color: #fff;
+  color: #808080;
+}
+.card.theme--green {
+  background-color: #fff;
+  color: #00992b;
+}
+.card.theme--blue {
+  background-color: #fff;
+  color: #297C85;
+}</code></pre></div></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --> <a class="project-info__name" href="https://github.com/su-sws/decanter">Decanter</a><!-- Version --> <span class="project-info__version">- v0.1.0-alpha1</span><!-- License --> <span class="project-info__license">, under MIT</span></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>
