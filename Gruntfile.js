@@ -46,6 +46,9 @@ module.exports = function(grunt) {
               'file',
             ],
           },
+          groups: {
+            'base|typography': 'Typography',
+          },
         },
       },
       components: {
