@@ -1,10 +1,28 @@
+@charset 'UTF-8';
+
 ////
 /// Vertical Rhythm
-/// @group Variables | Vertical Rhythm
+/// @group variables|vertical-rhythm
 ////
 
 /// Base vertical spacing.
+/// Uses the bourbon function modular-scale to procude an em size.
+/// @require {function} modular-scale
+/// @type String
+/// @link http://bourbon.io/docs/#modular-scale
+/// @example - SCSS
+///
+///   $_spacing: $base-spacing; // 1.77689em
+///
 $base-spacing: modular-scale(0) !default;
 
 /// Small vertical spacing.
+/// Uses the bourbon function modular-scale to procude an em size.
+/// @require {function} modular-scale
+/// @type String
+/// @link http://bourbon.io/docs/#modular-scale
+/// @example - SCSS
+///
+///   $_spacing: $small-spacing; // 0.75019em
+///
 $small-spacing: modular-scale(-1) !default;

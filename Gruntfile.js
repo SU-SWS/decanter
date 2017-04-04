@@ -15,15 +15,18 @@ module.exports = function(grunt) {
       },
       target: ['core/\*\*/\*.scss']
     },
+    // Examples: https://github.com/SassDoc/grunt-sassdoc/blob/master/Gruntfile.js
     sassdoc: {
       default: {
         src: 'core',
         options: {
+          dest: 'docs/core',
+          verbose: 0,
+          autofill: ['requires', 'throws'],
           exclude: [
             'vendors/*',
             'base/*'
           ],
-          dest: 'docs/core',
           display: {
             sort: [
               'group<',
@@ -38,6 +41,8 @@ module.exports = function(grunt) {
         src: 'core/base',
         options: {
           dest: 'docs/base',
+          verbose: 0,
+          autofill: ['requires', 'throws'],
           display: {
             sort: [
               'group<',
@@ -55,6 +60,8 @@ module.exports = function(grunt) {
         src: 'core/components',
         options: {
           dest: 'docs/components',
+          verbose: 0,
+          autofill: ['requires', 'throws'],
           display: {
             sort: [
               'group<',
@@ -69,6 +76,8 @@ module.exports = function(grunt) {
         src: 'core/utilities/functions',
         options: {
           dest: 'docs/functions',
+          verbose: 0,
+          autofill: ['requires', 'throws'],
           display: {
             sort: [
               'group<',
@@ -83,6 +92,8 @@ module.exports = function(grunt) {
         src: 'core/utilities/mixins',
         options: {
           dest: 'docs/mixins',
+          verbose: 0,
+          autofill: ['requires', 'throws'],
           display: {
             sort: [
               'group<',
@@ -97,6 +108,8 @@ module.exports = function(grunt) {
         src: 'core/utilities/placeholders',
         options: {
           dest: 'docs/placeholders',
+          verbose: 0,
+          autofill: ['requires', 'throws'],
           display: {
             sort: [
               'group<',
@@ -111,6 +124,8 @@ module.exports = function(grunt) {
         src: 'core/utilities/variables',
         options: {
           dest: 'docs/variables',
+          verbose: 0,
+          autofill: ['requires', 'throws'],
           display: {
             sort: [
               'group<',
