@@ -19,8 +19,22 @@ module.exports = function(grunt) {
       default: {
         src: 'core',
         options: {
-          exclude: ['vendors/*'],
+          exclude: [
+            'vendors/*',
+            'base/*'
+          ],
           dest: 'docs',
+          display: {
+            sort: [
+              'group<',
+              'access',
+              'line>',
+              'file',
+            ],
+          },
+          // groups: {
+          //   'base|body': "HTML - Body",
+          // }
         },
       },
     },
@@ -98,7 +112,7 @@ module.exports = function(grunt) {
           'examples/**/*.scss',
           'examples/**/*.html'
         ],
-        tasks: ['sass'],
+        tasks: ['sass', 'sassdoc'],
         options: {
           interrupt: true
         }
