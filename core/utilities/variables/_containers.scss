@@ -2,10 +2,45 @@
 
 ////
 /// Containers
-/// @group Variables | Containers
+/// @group variables|containers
 ////
 
 /// Default Responsive Container
+///
+/// The deafult responsive container map for the responsive-container mixin.
+///
+/// @see responsive-container
+///
+/// @type map
+///
+/// @property {map} xs
+///   Global dark color for the `contrast-switch` function.
+///
+/// @property {map} sm
+///   Global light color for the `contrast-switch` function.
+///
+/// @property {map} md
+///   Global font file formats for the `font-face` mixin.
+///
+/// @property {map} lg
+///   Global base value for the `modular-scale` function.
+///
+/// @property {map} xl
+///  balhs
+///
+/// @property {map} print
+///   Set this to `true` when using the Rails Asset Pipeline and Bourbon will
+///
+/// @example scss
+///   $bourbon: (
+///     "contrast-switch-dark-color": #000,
+///     "contrast-switch-light-color": #fff,
+///     "global-font-file-formats": ("ttf", "woff2", "woff"),
+///     "modular-scale-base": 1em,
+///     "modular-scale-ratio": $major-third,
+///     "rails-asset-pipeline": false,
+///   );
+
 $default-container: (
   xs: ( columns: 12, grid-media: $media-xs-only,  v-space: 1em, max-width: false, grid-collapse: false ),
   sm: ( columns: 12, grid-media: $media-sm-only,  v-space: 1em, max-width: false, grid-collapse: false ),
@@ -15,7 +50,7 @@ $default-container: (
   print: ( columns: 12, grid-media: $media-print, v-space: 1em, max-width: false, grid-collapse: false ),
 ) !default;
 
-/// Default Collapsed Responsive Container
+/// @alias $default-container
 $default-container--collapsed: (
   xs: ( columns: 12, grid-media: $media-xs-only,  v-space: 1em, max-width: false, grid-collapse: true ),
   sm: ( columns: 12, grid-media: $media-sm-only,  v-space: 1em, max-width: false, grid-collapse: true ),

@@ -1,6 +1,18 @@
 @charset "UTF-8";
 
+////
+/// Color Themes mixin
+/// @group mixins|theme
+////
+
+// Dependency on the $colors variable.
 @import '../../variables/colors';
+
+///
+///
+$default-theme-group: (
+    default:  ( palette: $colors, selector: '&' ),
+) !default;
 
 /// `color-themes` consumes a map to render multiple color variations on a specific block. For each
 /// theme group in the theme group map, the `$color-themes` mixin iterates over that group with the specified selector.
@@ -69,11 +81,6 @@
 ///     color: #297C85;
 ///   }
 ///
-
-$default-theme-group: (
-    default:  ( palette: $colors, selector: '&' ),
-) !default;
-
 @mixin color-themes($theme-group: null) {
   @each $_theme, $_map in $theme-group {
 
