@@ -42,14 +42,14 @@
   &:hover,
   &:focus,
   &:active {
-    background-color: color(action-active);
-    color: color(reverse-text);
+    background-color: color(action--active);
+    color: color(reverse-text--active);
     text-decoration: none;
   }
 
   &:disabled,
   &.disabled {
-    background-color: color(action-active);
+    background-color: color(action);
     color: color(reverse-text);
     cursor: not-allowed;
     opacity: .5;
@@ -75,10 +75,9 @@
   font-weight: 600;
   padding: em(10px) em($_spacing) em(12px);
 
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: color(action-active);
+  @include on-event {
+    background-color: color(action--active);
+    color: color(reverse-text);
   }
 }
 
@@ -97,9 +96,7 @@
   font-weight: 600;
   padding: em(7px) em($_spacing) em(9px);
 
-  &:hover,
-  &:focus,
-  &:active {
+  @include on-event {
     background-color: inherit;
     border-color: color(action);
     color: color(action);
