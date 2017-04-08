@@ -28,13 +28,13 @@ $decanter-font-families: (
 // --------------------
 
 /// Base Font Family Setting.
-$base-font-family: map-get($decanter-font-families, sans-serif) !default;
+$base-font-family: unquote(map-get($decanter-font-families, sans-serif)) !default;
 
 /// Heading Font Family.
-$heading-font-family: map-get($decanter-font-families, serif) !default;
+$heading-font-family: unquote(map-get($decanter-font-families, serif)) !default;
 
 /// Code Font Family.
-$code-font-family: map-get($decanter-font-families, monospace) !default;
+$code-font-family: unquote(map-get($decanter-font-families, monospace)) !default;
 
 /// Base Line Height.
 $base-line-height: 1.5 !default;
