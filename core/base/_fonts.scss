@@ -5,19 +5,13 @@
 /// @group base
 ////
 
-// @import '../utilities/settings/settings';
+/// Default fonts
+///
+$decanter-default-fonts: (
+  mono:   $monospace-source,
+  sans:   $sans-serif-source,
+  serif:  $serif-source,
+) !default;
 
-/// Import declared monospace font
-@if(global-variable-exists(monospace-source)) {
-  @import url($monospace-source);
-}
-
-/// Import declared Sans Serif font
-@if(global-variable-exists(sans-serif-source)) {
-  @import url($sans-serif-source);
-}
-
-/// Import declared Serif font
-@if(global-variable-exists(serif-source)) {
-  @import url($serif-source);
-}
+//// Load the font-face declarations.
+@include load-fonts($decanter-default-fonts);

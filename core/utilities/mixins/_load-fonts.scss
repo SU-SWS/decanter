@@ -1,0 +1,66 @@
+@charset 'UTF-8';
+
+////
+/// Font loading function.
+/// @group functions
+////
+
+/// Global default fonts.
+$fonts: () !default;
+
+/// Keeps track of already loaded fonts.
+$loaded-fonts: () !default;
+
+/// Load a collection of @font-face fonts
+///
+@mixin load-fonts($load: $fonts) {
+
+  // String
+  @if type-of($load) == string {
+    // Cast the item to a string to be sure we don't pass
+    // strange variables to the loader.
+    $_item_string: '#{$load}';
+    @if (_is-loaded_font($_item_string) != true) {
+      $_tmp: _log-loaded-font($_item_string);
+      $_item_string: quote($_item_string);
+      @import url($_item_string);
+    }
+    @else {
+      @debug "Font: #{$_item_string} already loaded.";
+    }
+    // List
+  } @else if type-of($load) == list {
+    // Loop through each item in the passed in list.
+    @each $_item in $load {
+      // Cast the item to a string to be sure we don't pass
+      // strange variables to the loader.
+      $_item_string: '#{$_item}';
+      @if (_is-loaded_font($_item_string) != true) {
+        $_tmp: _log-loaded-font($_item_string);
+        $_item_string: quote($_item_string);
+        @import url($_item_string);
+      }
+      @else {
+        @debug "Font: #{$_item_string} already loaded.";
+      }
+    }
+    // Map
+  } @else if type-of($load) == map {
+    // Loop through each item in the passed in map.
+    @each $_index, $_item in $load {
+      @each $_font in $_item {
+        // Cast the item to a string to be sure we don't pass
+        // strange variables to the loader.
+        $_item_string: '#{$_font}';
+        @if (_is-loaded_font($_item_string) != true) {
+          $_tmp: _log-loaded-font($_item_string);
+          $_item_string: quote($_item_string);
+          @import url($_item_string);
+        }
+        @else {
+          @debug "Font: #{$_item_string} already loaded.";
+        }
+      }
+    }
+  }
+}

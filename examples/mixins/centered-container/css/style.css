@@ -1,36 +1,26 @@
 @charset "UTF-8";
-/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
-/**
- * 1. Change the default font family in all browsers (opinionated).
- * 2. Correct the line height in all browsers.
- * 3. Prevent adjustments of font size after orientation changes in
- *    IE on Windows Phone and in iOS.
- */
+/*! normalize.css v6.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in
+ *    IE on Windows Phone and in iOS.
+ */
 @import url("https://fonts.googleapis.com/css?family=Source+Code+Pro");
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i");
 @import url("https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i");
 html {
-  font-family: sans-serif;
-  /* 1 */
   line-height: 1.15;
-  /* 2 */
+  /* 1 */
   -ms-text-size-adjust: 100%;
-  /* 3 */
+  /* 2 */
   -webkit-text-size-adjust: 100%;
-  /* 3 */
+  /* 2 */
 }
 
 /* Sections
    ========================================================================== */
-/**
- * Remove the margin in all browsers (opinionated).
- */
-body {
-  margin: 0;
-}
-
 /**
  * Add the correct display in IE 9-.
  */
@@ -110,16 +100,7 @@ a {
 }
 
 /**
- * Remove the outline on focused links when they are also active or hovered
- * in all browsers (opinionated).
- */
-a:active,
-a:hover {
-  outline-width: 0;
-}
-
-/**
- * 1. Remove the bottom border in Firefox 39-.
+ * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
  */
 abbr[title] {
@@ -237,22 +218,14 @@ svg:not(:root) {
 /* Forms
    ========================================================================== */
 /**
- * 1. Change the font styles in all browsers (opinionated).
- * 2. Remove the margin in Firefox and Safari.
+ * Remove the margin in Firefox and Safari.
  */
 button,
 input,
 optgroup,
 select,
 textarea {
-  font-family: sans-serif;
-  /* 1 */
-  font-size: 100%;
-  /* 1 */
-  line-height: 1.15;
-  /* 1 */
   margin: 0;
-  /* 2 */
 }
 
 /**
@@ -307,15 +280,6 @@ button:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText;
-}
-
-/**
- * Change the border, margin, and padding in all browsers (opinionated).
- */
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
 }
 
 /**
@@ -3542,6 +3506,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  margin: 0;
 }
 
 body > header {
@@ -3586,7 +3551,6 @@ body {
 }
 
 button, [type='button'], [type='reset'], [type='submit'] {
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
   appearance: none;
   background-color: #004991;
   border: none;
@@ -3606,14 +3570,18 @@ button, [type='button'], [type='reset'], [type='submit'] {
   transition: all 250ms ease-in-out;
 }
 
+@media screen {
+  button, [type='button'], [type='reset'], [type='submit'] {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+  }
+}
+
 button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover, button:focus, [type='button']:focus, [type='reset']:focus, [type='submit']:focus, button:active, [type='button']:active, [type='reset']:active, [type='submit']:active {
-  background-color: #005ddc;
-  color: #fff;
   text-decoration: none;
 }
 
 button:disabled, [type='button']:disabled, [type='reset']:disabled, [type='submit']:disabled, button.disabled, .disabled[type='button'], .disabled[type='reset'], .disabled[type='submit'] {
-  background-color: #005ddc;
+  background-color: #004991;
   color: #fff;
   cursor: not-allowed;
   opacity: .5;
@@ -3823,12 +3791,7 @@ body {
   line-height: 1.5;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-family: "Noto Serif", "Georgia", "Times", "Times New Roman", serif;
   line-height: 1.2;
   margin: 0.8em 0 0.512em;
@@ -3863,13 +3826,30 @@ dfn, cite, em, i {
   font-style: italic;
 }
 
-blockquote, q {
+blockquote {
   margin: 0 1.5625em;
-  quotes: "" "";
+  quotes: "\201c" "\201d" "\2018" "\2019";
 }
 
-blockquote:before, blockquote:after, q:before, q:after {
-  content: "";
+blockquote::before {
+  content: open-quote;
+}
+
+blockquote::after {
+  content: close-quote;
+}
+
+q {
+  margin: 0;
+  quotes: "\201c" "\201d" "\2018" "\2019";
+}
+
+q::before {
+  content: open-quote;
+}
+
+q::after {
+  content: close-quote;
 }
 
 address {
@@ -3955,7 +3935,6 @@ hr {
 }
 
 #breakpoint-helper {
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
   background-color: rgba(51, 51, 51, 0.8);
   border-radius: 3px;
   border-top-right-radius: 0;
@@ -3974,11 +3953,22 @@ hr {
   z-index: 9999;
 }
 
+@media screen {
+  #breakpoint-helper {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+  }
+}
+
 #breakpoint-helper:hover, #breakpoint-helper:active, #breakpoint-helper:focus {
-  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.09), 0px 8px 12px 0px rgba(0, 0, 0, 0.15);
   right: 0;
   overflow: hidden;
   font-size: .75em;
+}
+
+@media screen {
+  #breakpoint-helper:hover, #breakpoint-helper:active, #breakpoint-helper:focus {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.09), 0px 7px 10px 0px rgba(0, 0, 0, 0.15);
+  }
 }
 
 @media only screen and (max-width: 575px) {
@@ -4336,8 +4326,13 @@ body > header::after {
     display: block;
     margin: -1em -30px;
     transition: all .3s ease .25s;
-    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.09), 0px 8px 12px 0px rgba(0, 0, 0, 0.15);
     color: #fff;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  #example-6 .xs {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.09), 0px 7px 10px 0px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -4355,8 +4350,13 @@ body > header::after {
     display: block;
     margin: -1em -30px;
     transition: all .3s ease .25s;
-    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.09), 0px 8px 12px 0px rgba(0, 0, 0, 0.15);
     color: #fff;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  #example-6 .sm {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.09), 0px 7px 10px 0px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -4374,7 +4374,12 @@ body > header::after {
     display: block;
     margin: -1em -30px;
     transition: all .3s ease .25s;
-    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.09), 0px 8px 12px 0px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  #example-6 .md {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.09), 0px 7px 10px 0px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -4392,7 +4397,12 @@ body > header::after {
     display: block;
     margin: -1em -30px;
     transition: all .3s ease .25s;
-    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.09), 0px 8px 12px 0px rgba(0, 0, 0, 0.15);
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  #example-6 .lg {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.09), 0px 7px 10px 0px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -4410,8 +4420,13 @@ body > header::after {
     display: block;
     margin: -1em -30px;
     transition: all .3s ease .25s;
-    box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.09), 0px 8px 12px 0px rgba(0, 0, 0, 0.15);
     color: #fff;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  #example-6 .xl {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.09), 0px 7px 10px 0px rgba(0, 0, 0, 0.15);
   }
 }
 
@@ -4428,7 +4443,6 @@ body > header::after {
     display: block;
     transition: null;
     margin: -1em -0.375in;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05), 0px 3px 3px 1px rgba(0, 0, 0, 0.05);
   }
 }
 

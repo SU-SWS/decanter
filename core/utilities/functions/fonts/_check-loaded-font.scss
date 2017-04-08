@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+/// @access private
+/// Checks the global variable for loaded fonts
+@function _check-loaded-font($url) {
+  $_value: index($loaded-fonts, $url);
+  @if type-of($_value) == number {
+    @return true;
+  }
+  @return false;
+}
