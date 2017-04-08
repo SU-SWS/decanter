@@ -9,20 +9,33 @@
 $fonts: () !default;
 
 /// Keeps track of already loaded fonts.
-$loaded-fonts: ();
+$loaded-fonts: () !default;
 
 /// Load a collection of @font-face fonts
 ///
 @mixin load-fonts($load: $fonts) {
 
-  // Lists.
-  @if type-of($load) == list {
+  // String
+  @if type-of($load) == string {
+    // Cast the item to a string to be sure we don't pass
+    // strange variables to the loader.
+    $_item_string: '#{$load}';
+    @if (_is-loaded_font($_item_string) != true) {
+      $_tmp: _log-loaded-font($_item_string);
+      $_item_string: quote($_item_string);
+      @import url($_item_string);
+    }
+    @else {
+      @debug "Font: #{$_item_string} already loaded.";
+    }
+    // List
+  } @else if type-of($load) == list {
     // Loop through each item in the passed in list.
     @each $_item in $load {
       // Cast the item to a string to be sure we don't pass
       // strange variables to the loader.
-      $_item_string: #{$_item};
-      @if (_is-loaded_font($_item_string) == false) {
+      $_item_string: '#{$_item}';
+      @if (_is-loaded_font($_item_string) != true) {
         $_tmp: _log-loaded-font($_item_string);
         $_item_string: quote($_item_string);
         @import url($_item_string);
@@ -31,17 +44,15 @@ $loaded-fonts: ();
         @debug "Font: #{$_item_string} already loaded.";
       }
     }
-  }
-
-  // Maps.
-  @if type-of($load) == map {
+    // Map
+  } @else if type-of($load) == map {
     // Loop through each item in the passed in map.
     @each $_index, $_item in $load {
       @each $_font in $_item {
         // Cast the item to a string to be sure we don't pass
         // strange variables to the loader.
-        $_item_string: #{$_font};
-        @if (_is-loaded_font($_item_string) == false) {
+        $_item_string: '#{$_font}';
+        @if (_is-loaded_font($_item_string) != true) {
           $_tmp: _log-loaded-font($_item_string);
           $_item_string: quote($_item_string);
           @import url($_item_string);
@@ -52,21 +63,4 @@ $loaded-fonts: ();
       }
     }
   }
-}
-
-/// Internal function to keep track of loaded fonts
-/// so we don't duplicate calls.
-@function _log-loaded-font($url) {
-  $loaded-fonts: append($loaded-fonts, $url, comma) !global;
-  @return true;
-}
-
-
-/// Checks the global variable for loaded fonts
-@function _is-loaded_font($url) {
-  $_value: index($loaded-fonts, $url);
-  @if type-of($_value) == number {
-    @return true;
-  }
-  @return false;
 }

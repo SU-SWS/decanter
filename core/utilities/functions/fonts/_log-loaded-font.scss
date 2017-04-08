@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+/// @access private
+/// Internal function to keep track of loaded fonts
+/// so we don't duplicate calls.
+@function _log-loaded-font($url) {
+  $loaded-fonts: append($loaded-fonts, $url, comma) !global;
+  @return true;
+}
