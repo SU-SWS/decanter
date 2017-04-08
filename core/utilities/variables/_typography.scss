@@ -10,37 +10,17 @@
 /// Font Stack Monospace.
 /// This is outputted via `font-family: $font-stack-monospace;`
 
-$font-stack-monospace: 'Source Code Pro', $font-stack-monaco !default;
+$decanter-default-fonts: (
+  monospace:    'https://fonts.googleapis.com/css?family=Source+Code+Pro',
+  sans-serif:   'https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i',
+  serif:        'https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i',
+) !default;
 
-/// Monospace Source.
-$monospace-source: 'https://fonts.googleapis.com/css?family=Source+Code+Pro' !default;
-
-/// Font stack sans serif.
-/// This is outputted via `font-family: $font-stack-sans-serif;`
-$font-stack-sans-serif: 'Noto Sans', $font-stack-helvetica !default;
-
-/// Sans serif source.
-$sans-serif-source: 'https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i' !default;
-
-/// Font stack serif.
-/// This is outputted via `font-family: $font-stack-serif;`
-$font-stack-serif: 'Noto Serif', $font-stack-georgia !default;
-
-/// Serif Source.
-$serif-source: 'https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i' !default;
-
-// Generic definitions
-// These map `$font-stack-serif` to a more friendly `font-family-serif`
-// -------------------
-
-/// Font Family Serif.
-$font-family-serif: $font-stack-serif !default;
-
-/// Font Family Sans Serif.
-$font-family-sans-serif: $font-stack-sans-serif !default;
-
-/// Font Family Monospace.
-$font-family-monospace: $font-stack-monospace !default;
+$decanter-font-families: (
+  monospace:  "'Source Code Pro', #{$font-stack-monaco}",
+  sans-serif: "'Noto Sans', #{$font-stack-helvetica}",
+  serif:      "'Noto Serif', #{$font-stack-georgia}"
+) !default;
 
 // Semantic definitions
 // These map the generic `$font-family-serif` stacks to more functional, semantic
@@ -48,13 +28,13 @@ $font-family-monospace: $font-stack-monospace !default;
 // --------------------
 
 /// Base Font Family Setting.
-$base-font-family: $font-family-sans-serif !default;
+$base-font-family: map-get($decanter-font-families, sans-serif) !default;
 
 /// Heading Font Family.
-$heading-font-family: $font-family-serif !default;
+$heading-font-family: map-get($decanter-font-families, serif) !default;
 
 /// Code Font Family.
-$code-font-family: $font-family-monospace !default;
+$code-font-family: map-get($decanter-font-families, monospace) !default;
 
 /// Base Line Height.
 $base-line-height: 1.5 !default;
