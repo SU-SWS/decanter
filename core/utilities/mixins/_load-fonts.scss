@@ -24,8 +24,7 @@ $loaded-fonts: () !default;
       $_tmp: _log-loaded-font($_item_string);
       $_item_string: quote($_item_string);
       @import url($_item_string);
-    }
-    @else {
+    } @else {
       @debug "Font: #{$_item_string} already loaded.";
     }
     // List
