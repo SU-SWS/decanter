@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+////
+/// Colors
+/// @group Variables|Buttons
+////
+
+/// This variable is a sass map that overrides our generic button map.
+///
+/// @name Base button
+///
+/// @property {Color} bg-color [color(action)] - Background color
+/// @property {Color} color [color(reverse-text)] - Text Color
+/// @property {length(with unit) | string} border ['none'] - Border properties. Accepts shorthand.
+$base-button: (
+    bg-color: color(action),
+    color: color(reverse-text),
+    border: none,
+    cursor: pointer,
+    display: inline-block,
+    material-shadow: flat,
+    font-family: $base-font-family,
+    line-height: $base-line-height,
+    font-weight: inherit,
+    font-size: inherit,
+    text-decoration: none,
+    transition: $base-transition,
+    padding: 'em(6px) em($_spacing) em(7px)',
+    text-align: center,
+    spacing: $small-spacing,
+    bg-color--active: color(action--active),
+    color--active: color(reverse-text--active),
+    border--active: null,
+    material-shadow--active: null,
+    text-decoration--active: none,
+) !default;
+
+$primary-button: (
+    bg-color: color(action),
+    color: color(reverse-text),
+    font-weight: 600,
+    padding: 'em(10px) em($_spacing) em(12px)',
+    bg-color--active: color(action-active),
+    color--active: color(reverse-text--active),
+    material-shadow--active: null,
+    text-decoration--active: none,
+) !default;
+
+$secondary-button: (
+    bg-color: inherit,
+    border: $base-border,
+    border--active: color(action),
+    color: color(action),
+    font-weight: 600,
+    padding: 'em(7px) em($_spacing) em(9px)',
+    bg-color--active: inherit,
+    color--active: color(text--active),
+    material-shadow--active: null,
+    text-decoration--active: none,
+) !default;
