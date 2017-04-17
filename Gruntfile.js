@@ -168,7 +168,7 @@ module.exports = function(grunt) {
         sourceMap: true,
         // This controls the compiled css and can be changed to nested, compact or compressed.
         outputStyle: 'expanded',
-        precision: 10
+        precision: 10,
       },
       dist: {
         files: {
