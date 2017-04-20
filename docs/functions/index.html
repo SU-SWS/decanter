@@ -1,0 +1,126 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Decanter - v0.1.0-alpha1</title><link rel="stylesheet" href="assets/css/main.css"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="Decanter - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="<p>A collection of SCSS patterns for theme development.</p>
+"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title"><a href="https://github.com/su-sws/decanter">Decanter - v0.1.0-alpha1</a></h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="core functions"><a href="#core functions">core functions</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="core functions-function"><a href="#core functions-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="core functions" data-name="color" data-type="function"><a href="#core functions-function-color">color</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="undefined"><a href="#undefined">General</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-function"><a href="#undefined-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="_adjust-container-margin" data-type="function"><a href="#undefined-function-_adjust-container-margin">_adjust-container-margin</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="_set-container-padding" data-type="function"><a href="#undefined-function-_set-container-padding">_set-container-padding</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="core functions"><div class="container">core functions</div></h1><section class="main__sub-section" id="core functions-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="core functions-function-color"><h3 class="item__heading"><a class="item__name" href="#function-color">color</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function color($color: null, $color-palette: $colors) { 
+  // First, we marge this default color palette with the decanter color palette we set up in `variables/color`
+  $_default-color-palette: map-merge((
+    // Unbranded, default color palette
+      brand:                        #004fdc,
+      action:                       #004991,
+      action--active:               #005ddc,
+      background:                   #fff,
+      background--secondary:        #ddd,
+      border:                       #999,
+      text:                         #112,
+      text--active:                 #808080,
+      reverse-text:                 #fff,
+      reverse-text--active:         #dceefe,
+
+    // Generic Color Palette
+    // see http://clrs.cc
+    // ---------------------------------------------------------------------------
+      navy:                         #001f3f,
+      blue:                         #0074d9,
+      aqua:                         #7fdbff,
+      teal:                         #39cccc,
+      olive:                        #3d9970,
+      green:                        #2ecc40,
+      lime:                         #01ff70,
+      yellow:                       #ffdc00,
+      orange:                       #ff851b,
+      red:                          #ff4136,
+      fuchsia:                      #f012be,
+      purple:                       #b10dc9,
+      maroon:                       #85144b,
+      white:                        #fff,
+      silver:                       #ddd,
+      grey:                         #aaa,
+      dark-grey:                    #333,
+      medium-grey:                  #999,
+      light-grey:                   #ddd,
+      black:                        #111,
+    // Decanter variants
+      light-red:                    #ffcdcd,
+      light-yellow:                 #fafa55,
+      light-green:                  #90ff90,
+  ), $colors);
+
+  // Then, we merge the $_default-color-palette we just merged with the palette that was specified by the mixin.
+  $_color-palette: map-merge($_default-color-palette, $palette);
+
+  // Finally, we return the requested color value from our combined merge. This allows custom color maps to be able to
+  // only specify colors that we want to specifically differ from the base map.
+  // As an example, the decanter color map does not include any of the generic colors, but if I created a custom map
+  // that only had a `background: #880000` value, I could still call `color: color(brand, $custom-map)`, which
+  // would return the brand value from the `$colors` map. Additionally, if I call `color: color(lime, $custom-map)`
+  // it will return the lime color from the generic palette from the default map.
+  @return map-get($_color-palette, $color);
+ }" data-collapsed="@function color($color: null, $color-palette: $colors) { ... }"><code>@function color($color: null, $color-palette: $colors) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Return a color from the color map.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$color</code></th><td data-label="desc"><p>The color returned by the function</p></td><td data-label="type"><code>Color</code></td><td data-label="default"><code>null</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$color-palette</code></th><td data-label="desc"><p>The color map to use to retrieve the color</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>$colors</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>SCSS</p></div><pre class="example__code language-scss"><code>background-color: color(white);</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS</p></div><pre class="example__code language-css"><code>background-color: #fff;</code></pre></div></section></section></section><section class="main__section"><h1 class="main__heading" id="undefined"><div class="container">General</div></h1><section class="main__sub-section" id="undefined-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="undefined-function-_adjust-container-margin"><h3 class="item__heading"><a class="item__name" href="#function-_adjust-container-margin">_adjust-container-margin</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _adjust-container-margin() { 
+  $_columns: _neat-column-default($grid, $columns);
+  $_grid-columns: _retrieve-neat-setting($grid, columns);
+  $_grid-gutter: _retrieve-neat-setting($grid, gutter);
+
+  // Checks to see if the parent container has a max width
+  @if $max-width == false {
+    // Checks If the parent container doesn&#39;t span the full grid columns.
+    @if type-of($grid-columns) == number and ($grid-columns &lt; $_grid-columns) {
+      // Checks to see if we need to calculate a gutter
+      @if $grid-collapse == true {
+        @return calc((((100% + #{$_grid-gutter * 2}) / #{$grid-columns}) * #{-$_columns}) - #{$_grid-gutter});
+      } @else {
+        @return calc(((100% + #{$_grid-gutter * 2}) / #{$grid-columns}) * #{-$_columns});
+      }
+      // Otherwise, calculate as if the parent container spans the full grid columns
+    } @else {
+      // Checks to see if we need to calculate a gutter
+      @if $_grid-columns &gt; $columns {
+        @if $grid-collapse == true {
+          @return calc(((100% / #{$_grid-columns}) * #{-$_columns}) - #{$_grid-gutter});
+        } @else {
+          @return calc((100% / #{$_grid-columns}) * #{-$_columns});
+        }
+      } @else {
+        @if $grid-collapse == true {
+          @return 0;
+        } @else {
+          @return $_grid-gutter;
+        }
+      }
+    }
+
+  } @else if type-of($max-width) == number {
+    // Calculates the width of the container in pixels, based on the max-width value
+    @if $grid-collapse == true {
+      @return calc(((#{$max-width / 2} / #{$_grid-columns}) * #{-$_columns}) - #{$_grid-gutter});
+    } @else {
+      @return calc((#{$max-width / 2} / #{$_grid-columns}) * #{-$_columns});
+    }
+  } @else if $max-width == true {
+    // Calculates the width of the container in pixels, based on the global max content width
+    @if $grid-collapse == true {
+      @return calc(((#{$max-container-width / 2} / #{$_grid-columns}) * #{-$columns}) - #{$_grid-gutter});
+    } @else {
+      @return calc((#{$max-container-width / 2} / #{$_grid-columns}) * #{-$columns});
+    }
+  }
+ }" data-collapsed="@function _adjust-container-margin() { ... }"><code>@function _adjust-container-margin() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Adjust Container Margin Adjusts the margin of a container by growing or shrinking it by a certain number of columns. This is a companion function to set-container-padding, which allows a container to break out of it&#39;s own boundaries.</p><p>todo: Documentation</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section><section class="main__item container item" id="undefined-function-_set-container-padding"><h3 class="item__heading"><a class="item__name" href="#function-_set-container-padding">_set-container-padding</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _set-container-padding($columns: null, $grid: $neat-grid, $v-space: 1em, $max-width: false) { 
+  $_columns: _neat-column-default($grid, $columns); // Retrieves max columns from specified grid if empty, or the specified number of columns otherwise
+  $_grid-columns: _retrieve-neat-setting($grid, columns); // Retrieves the number of max columns from the specified grid
+  $_grid-gutter: _retrieve-neat-setting($grid, gutter); // Retrieves the gutter from the specified grid
+  //Checks to see if we need to add a max-width.
+  @if $max-width == false {
+    // Checks to see if we need to calculate a gutter
+    @if $_grid-columns &gt;= $_columns {
+      $_column-multiplier: $_grid-columns - $_columns;
+      @return $v-space calc(((50% /#{$_grid-columns}) * #{$_column-multiplier}) + #{$_grid-gutter});
+    } @else {
+      @return $v-space $_grid-gutter;
+    }
+    // Otherwise we calculate the max width in pixels
+  } @else if type_of($max-width) == number {
+    $_container-width: (((px($max-width / 2)) / $_grid-columns) * $_columns);
+    @return $v-space calc(50% - (#{$_container-width} - #{$_grid-gutter}));
+    // Finally, if max width is set to true, we use the project&#39;s &quot;max-container-width&quot; configuration option.
+  } @else if ($max-width == true) {
+    $_container-width: ((($max-container-width / 2) / $_grid-columns) * $_columns);
+    @return $v-space calc(50% - (#{$_container-width} - #{$_grid-gutter}));
+  }
+ }" data-collapsed="@function _set-container-padding($columns: null, $grid: $neat-grid, $v-space: 1em, $max-width: false) { ... }"><code>@function _set-container-padding($columns: null, $grid: $neat-grid, $v-space: 1em, $max-width: false) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Set Container padding Creates a fluid container of a certain number of columns. Can be constrained to a specific max width, or to the project&#39;s global <code>$max-container-width</code>.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$columns</code></th><td data-label="desc"><p>The number of columns the container spans (ex: 1 or 1 of 2)</p></td><td data-label="type"><code>Number</code> or <code>String</code></td><td data-label="default"><code>null</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$grid</code></th><td data-label="desc"><p>The grid to base the calculations on.</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>$neat-grid</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$v-space</code></th><td data-label="desc"><p>The value for padding-top and padding-bottom in a container</p></td><td data-label="type"><code>Length(with unit)</code></td><td data-label="default"><code>1em</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$max-width</code></th><td data-label="desc"><p>Whether the container&#39;s columns are based on the full parent width, or on a set max width</p></td><td data-label="type"><code>Boolean</code></td><td data-label="default"><code>false</code></td></tr></tbody></table></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --> <a class="project-info__name" href="https://github.com/su-sws/decanter">Decanter</a><!-- Version --> <span class="project-info__version">- v0.1.0-alpha1</span><!-- License --> <span class="project-info__license">, under MIT</span></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>

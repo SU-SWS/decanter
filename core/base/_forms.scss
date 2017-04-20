@@ -1,12 +1,10 @@
 @charset "UTF-8";
 ////
 /// Form base styles.
-/// @group html
+/// @group base|forms
 ////
 
-//@import '../utilities/settings/settings';
-
-// Fieldset defaults.
+/// Fieldset defaults.
 fieldset {
   background-color: transparent;
   border: 0;
@@ -43,16 +41,15 @@ textarea {
 }
 
 /// All Text Input defaults.
+/// @require bourbon
+/// @require {function} color
+/// @require {mixin} on-event
 /// @require {variable} $base-border
 /// @require {variable} $base-border-radius
 /// @require {variable} $form-box-shadow
 /// @require {variable} $base-spacing
 /// @require {variable} $base-duration
 /// @require {variable} $base-timing
-/// @require {function} color
-/// @require {function} shade
-/// @require {function} tint
-/// @require {mixin} on-event
 /// @group base
 #{$all-text-inputs} {
   $_border: $base-border;
@@ -92,7 +89,7 @@ textarea {
   }
 }
 
-// Text area styles.
+/// Text area styles.
 textarea {
   resize: vertical;
 }

@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+////
+/// Colors
+/// @group variables|colors
+////
+
+/// This variable is a sass map that overrides our generic color map.
+/// Use this to define your project's color palette.
+///
+/// @name Colors
+///
+/// @type map
+///
+/// @prop {Color} brand  [#004fdc] - Brand Color
+/// @prop {Color} action [#33548F] - Action Color (such as links)
+/// @prop {Color} action--active [#33548F] - Action Color (when in hover, active and focus states)
+/// @prop {Color} background [#fff] - Background color
+/// @prop {Color} background--secondary [#ddd] - Secondary Background Color
+/// @prop {Color} border [#999] - Border Color
+/// @prop {Color} text [#112] - Text color
+/// @prop {Color} text--active [$808080] - Text Color (when interacted with. This is an edge case)
+/// @prop {Color} reverse-text [#fff] - Reverse Text Color (when the background is a dark color)
+/// @prop {Color} reverse-text--active [#dceefe] - Reverse Text Color (when in hover, active and focus states)
+
+$colors: (
+    brand:                        #004fdc,
+    action:                       #006cb8,
+    action--active:               #33548F,
+    background:                   #fff,
+    background--secondary:        #ddd,
+    border:                       #999,
+    text:                         #112,
+    text--active:                 #808080,
+    reverse-text:                 #fff,
+    reverse-text--active:         #dceefe,
+) !default;
+
+/// If you would like to have multiple color palettes in a single project, you can do
+/// this by defining a new map stored within a variable of your choosing. This
+/// variable can then be passed directly to the color() function, such as
+/// `color(red, $my-custom-colors)`. Note that you don't need to define any colors that
+/// you want to default to the default color map, and colors that don't exist in the color
+/// map will be defined in your custom color palette only.
+///
+/// @name Custom Colors
+///
+/// @type map
+///
+/// @prop {Color} brand  [#004fdc] - Brand Color
+/// @prop {Color} action [#004991] - Action Color (such as links)
+/// @prop {Color} action--active [#005ddc] - Action Color (when in hover, active and focus states)
+/// @prop {Color} background [#fff] - Background color
+/// @prop {Color} background--secondary [#ddd] - Secondary Background Color
+/// @prop {Color} border [#999] - Border Color
+/// @prop {Color} text [#112] - Text color
+/// @prop {Color} text--active [$808080] - Text Color (when interacted with. This is an edge case)
+/// @prop {Color} reverse-text [#fff] - Reverse Text Color (when the background is a dark color)
+/// @prop {Color} reverse-text--active [#dceefe] - Reverse Text Color (when in hover, active and focus states)
+
+$custom-color-palette: ()!default;

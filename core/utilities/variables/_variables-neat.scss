@@ -1,8 +1,9 @@
 @charset "UTF-8";
 
 ////
+/// Neat settings
 /// This file contains neat specific variable overrides.
-/// @group settings
+/// @group variables|neat
 ////
 
 /// This variable is a sass map that overrides Neat's default grid settings.
@@ -10,8 +11,8 @@
 /// total column count.
 ///
 /// @type map
-///
-/// @name Neat grid
+/// @link http://neat.bourbon.io/docs/2.0.0/
+/// @name Neat Settings
 ///
 /// @property {number (unitless)} columns [12]
 ///   Default number of the total grid columns.
@@ -25,13 +26,12 @@
 /// @property {color} color [rgba(#00d4ff, 0.25)]
 ///   Default visual grid color.
 ///
-/// @example scss
+/// @example scss SCSS
 ///   $neat-grid: (
 ///     columns: 12,
 ///     gutter: 20px,
 ///   );
 ///
-/// @group settings
 $neat-grid: (
     columns: $grid-columns,
     gutter:  $gutter,

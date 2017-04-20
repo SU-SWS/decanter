@@ -2,7 +2,12 @@
 
 /// Set Container padding
 /// Creates a fluid container of a certain number of columns.
-// Can be constrained to a specific max width, or to the project's global `$max-container-width`.
+/// Can be constrained to a specific max width, or to the project's global `$max-container-width`.
+///
+/// @param {number | string} columns  [null] - The number of columns the container spans (ex: 1 or 1 of 2)
+/// @param {map} grid  [$neat-grid] - The grid to base the calculations on.
+/// @param {length(with unit)} v-space [1em] - The value for padding-top and padding-bottom in a container
+/// @param {boolean} max-width [false] - Whether the container's columns are based on the full parent width, or on a set max width
 
 @function _set-container-padding(
   $columns: null,

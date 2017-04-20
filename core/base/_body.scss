@@ -2,8 +2,13 @@
 
 ////
 /// Root html element styles for the body and main elements.
+/// Style placement and basic settings for the top level html elements.
+/// @group base|body
 ////
 
+///
+/// Body defaults
+///
 body {
   min-height: 100vh;
   display: flex;
@@ -12,20 +17,26 @@ body {
   margin: 0;
 }
 
-// We rely on source order for mobile-first approach
-// in this case:
-//
-//  -50   header
-//  -40   nav
-//    1   main
-//   50   footer
-//
-
+/// We rely on source order for mobile-first approach
+/// in this case:
+///
+///  -50   header
+///  -40   nav
+///    1   main
+///   50   footer
+///
 body > header { order: -50; }
+
+/// Nav html element.
 body > nav { order: -40; }
+
+/// Main html element of body.
 body > main { order: 1; }
+
+// footer html element of body.
 body > footer { order: 50; }
 
+/// Main html element.
 main {
   overflow: hidden;
   background-color: color(background);

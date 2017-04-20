@@ -15,10 +15,142 @@ module.exports = function(grunt) {
       },
       target: ['core/\*\*/\*.scss']
     },
+    // Examples: https://github.com/SassDoc/grunt-sassdoc/blob/master/Gruntfile.js
     sassdoc: {
       default: {
         src: 'core',
-      }
+        options: {
+          dest: 'docs/core',
+          verbose: 0,
+          autofill: ['requires', 'throws'],
+          exclude: [
+            'vendors/*',
+            'base/*'
+          ],
+          display: {
+            sort: [
+              'group<',
+              'access',
+              'line>',
+              'file',
+            ],
+          },
+        },
+      },
+      base: {
+        src: 'core/base',
+        options: {
+          dest: 'docs/base',
+          verbose: 0,
+          autofill: ['requires', 'throws'],
+          display: {
+            sort: [
+              'group<',
+              'access',
+              'line>',
+              'file',
+            ],
+          },
+          groups: {
+            'base|typography': 'Typography',
+          },
+        },
+      },
+      components: {
+        src: 'core/components',
+        options: {
+          dest: 'docs/components',
+          verbose: 0,
+          autofill: ['requires', 'throws'],
+          display: {
+            sort: [
+              'group<',
+              'access',
+              'line>',
+              'file',
+            ],
+          },
+        },
+      },
+      functions: {
+        src: 'core/utilities/functions',
+        options: {
+          dest: 'docs/functions',
+          verbose: 0,
+          autofill: ['requires', 'throws'],
+          display: {
+            sort: [
+              'group<',
+              'access',
+              'line>',
+              'file',
+            ],
+          },
+        },
+      },
+      mixins: {
+        src: 'core/utilities/mixins',
+        options: {
+          dest: 'docs/mixins',
+          verbose: 0,
+          autofill: ['requires', 'throws'],
+          display: {
+            sort: [
+              'group<',
+              'access',
+              'line>',
+              'file',
+            ],
+          },
+        },
+      },
+      placeholders: {
+        src: 'core/utilities/placeholders',
+        options: {
+          dest: 'docs/placeholders',
+          verbose: 0,
+          autofill: ['requires', 'throws'],
+          display: {
+            sort: [
+              'group<',
+              'access',
+              'line>',
+              'file',
+            ],
+          },
+        },
+      },
+      variables: {
+        src: 'core/utilities/variables',
+        options: {
+          dest: 'docs/variables',
+          verbose: 0,
+          autofill: ['requires', 'throws'],
+          display: {
+            sort: [
+              'group<',
+              'access',
+              'line>',
+              'file',
+            ],
+          },
+          groups: {
+            'variables|bourbon': 'Bourbon Settings',
+            'variables|neat': 'Neat Settings',
+            'variables|decanter': 'Decanter Settings',
+            'variables|animations': 'Animations',
+            'variables|borders': 'Borders',
+            'variables|breakpoint-boundaries': 'Breakpoints',
+            'variables|grid-media': 'Grid Media',
+            'variables|buttons': 'Buttons',
+            'variables|colors': 'Colors',
+            'variables|containers': 'Containers',
+            'variables|forms': 'Forms',
+            'variables|typography': 'Typography',
+            'variables|vertical-rhythm': 'Vertical Rhythm',
+          },
+        },
+      },
     },
     sass: {
       // This will compile all of our sass files
@@ -94,7 +226,7 @@ module.exports = function(grunt) {
           'examples/**/*.scss',
           'examples/**/*.html'
         ],
-        tasks: ['sass'],
+        tasks: ['sass', 'sassdoc'],
         options: {
           interrupt: true
         }

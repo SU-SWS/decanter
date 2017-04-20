@@ -1,12 +1,14 @@
 @charset "UTF-8";
 
 ////
+/// Bourbon settings
 /// This file contains bourbon specific variable overrides.
-/// @group settings
+/// @group variables|bourbon
 ////
 
-
-/// @name Bourbon Settings
+/// Bourbon Settings
+///
+/// Bourbon default overrides for decanter. 
 ///
 /// @type map
 ///
@@ -19,10 +21,12 @@
 /// @property {list} global-font-file-formats [("ttf", "woff2", "woff")]
 ///   Global font file formats for the `font-face` mixin.
 ///
-/// @property {number (with unit)} modular-scale-base [1em]
+/// @property {number | em measurement} modular-scale-base [1em]
 ///   Global base value for the `modular-scale` function.
 ///
-/// @property {number (unitless)} modular-scale-ratio [$major-third (1.25)]
+/// @property {number$default-theme-group: (
+///    default:  ( palette: $colors, selector: '&' ),
+/// ) !default;} modular-scale-ratio [$major-third (1.25)]
 ///   Global base ratio for the `modular-scale` function.
 ///
 /// @property {boolean} rails-asset-pipeline [false]
@@ -40,7 +44,7 @@
 ///     "rails-asset-pipeline": false,
 ///   );
 ///
-/// @group settings
+/// @link https://github.com/thoughtbot/bourbon/blob/master/core/bourbon/settings/_settings.scss
 $bourbon: (
     "modular-scale-ratio": 1.25,
 ) !default;

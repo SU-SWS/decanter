@@ -1,58 +1,49 @@
 @charset "UTF-8";
 
 ////
+/// Decanter settings
 /// This file contains decanter specific variables.
-/// @group settings
+/// @group variables|decanter
 ////
 
-/// Root font size in pixels. Used for converting rem to pixels.
+/// Root font size in pixels.
+/// Used for converting rem to pixels.
 ///
-/// @type length
-///
-/// @group settings
+/// @type number | pixel measurement
 $root-font-size: 10px !default;
 
-/// Base font size in pixels. Used for converting between em and absolute lengths.
-/// @type length
+/// Base font size in pixels.
+/// Used for converting between em and absolute lengths.
 ///
-/// @group settings
+/// @type number | pixel measurement
 $base-font-size: 18px !default;
 
 /// Grid Columns
-///
-/// @type number (unitless)
-///
 /// How many columns in the default grid
 ///
-/// @group settings
+/// @type number
 $grid-columns: 12 !default;
 
 /// Gutter
-///
-/// @type length (with unit)
-///
 /// The space on the left and right of default grid elements
 ///
-/// @group settings
+/// @type number | pixel measurement
 $gutter: 20px !default;
 
 /// Max width, including horizontal gutters.
 //  This is also used to generate our XL breakpoint.
-/// @type length (with unit)
-///
-/// @group settings
+//
+/// @type number | pixel measurement
 $max-container-width: 1200px !default;
 
 /// Max Content Width
-///
-/// @type length
-///
 /// Removes gutters from the max-container-width constant to give us a computed content-width.
 ///
-/// @group settings
+/// @type number | pixel measurement
 $max-content-width: $max-container-width - ($gutter * 2) !default;
 
-/// Breakpoint Helper. Generates a set of configurable breakpoint visual prompts to aid during development.
+/// Breakpoint Helper.
+/// Generates a set of configurable breakpoint visual prompts to aid during development.
+///
 /// @type bool
-/// @group settings
 $breakpoint-helper: true;

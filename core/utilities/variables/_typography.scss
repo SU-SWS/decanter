@@ -2,12 +2,11 @@
 
 ////
 /// Typography
+/// @group variables|typography
 ////
 
-// Individual Font family definitions
-// ----------------------------------
-
 /// Font Stack Monospace.
+///
 /// This is outputted via `font-family: $font-stack-monospace;`
 
 $decanter-default-fonts: (
@@ -37,10 +36,15 @@ $heading-font-family: unquote(map-get($decanter-font-families, serif)) !default;
 $monospace-font-family: unquote(map-get($decanter-font-families, monospace)) !default;
 
 /// Base Line Height.
+/// @todo find out where this is used and let people know. I assume everywhere.
+/// @type number
 $base-line-height: 1.5 !default;
 
 /// Heading Line Height.
+/// @todo find out where this is used and let people know. I assume everywhere.
+/// @type number
 $heading-line-height: 1.2 !default;
 
-/// All Headlines
+/// All Headlines list selector
+/// @type list
 $all-headlines: 'h1, h2, h3, h4, h5, h6' !default;

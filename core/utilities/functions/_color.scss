@@ -4,25 +4,23 @@
 /// File comment here
 ////
 
-$colors: () !default;
-
 /// Return a color from the color map.
 ///
 /// @group core functions
 ///
 /// @name color
 ///
-/// @argument {map} $color-palette
+/// @arg {color} color [null] - The color returned by the function
+/// @arg {map} $color-palette [$colors] - The color map to use to retrieve the color
 ///
-/// @argument {string} $color
 ///
-/// @return {string} color hex value
-///
-/// @example scss
+/// @example scss - SCSS
 ///   background-color: color(white);
 ///
-/// @example css
+/// @example css - CSS
 ///   background-color: #fff;
+///
+/// @requires {variable} $colors
 
 @function color($color, $palette: ()) {
   // First, we marge this default color palette with the decanter color palette we set up in `variables/color`
@@ -30,14 +28,14 @@ $colors: () !default;
     // Unbranded, default color palette
       brand:                        #004fdc,
       action:                       #004991,
-      action-active:                #005ddc,
+      action--active:               #005ddc,
       background:                   #fff,
-      background-secondary:         #ddd,
+      background--secondary:        #ddd,
       border:                       #999,
       text:                         #112,
-      text-active:                  #808080,
+      text--active:                 #808080,
       reverse-text:                 #fff,
-      reverse-text-active:          #dceefe,
+      reverse-text--active:         #dceefe,
 
     // Generic Color Palette
     // see http://clrs.cc

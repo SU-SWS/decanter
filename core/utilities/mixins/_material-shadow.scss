@@ -5,23 +5,23 @@
 /// @author Kevin Garcia
 /// @group mixins
 ///
-/// @arg {strong} $depth [flat | shallow | medium | deep] - how deep the shadow appears to be. May be flat, shallow, medium, or deep.
-///
+/// @arg {string} Depth [shallow] - How deep the shadow appears to be. Default is Shallow.
 /// @require {function} rgba
 ///
-/// @example scss
+/// @example - scss SCSS
 ///   .element {
 ///     @include material-shadow(shallow);
 ///   }
 ///
-/// @example css
+/// @example - css CSS
 ///   .element {
 ///     box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.10), 2px 4px 7px 0px rgba(0,0,0,0.15);
 ///   }
 @mixin material-shadow
 (
-  $depth:     shallow
+  $depth: shallow
 ) {
+// Depths: flat | shallow | medium | deep
   @media screen {
     @if $depth == 'flat' {
       // Box Shadow: offset-x | offset-y | blur-radius | spread-radius | color

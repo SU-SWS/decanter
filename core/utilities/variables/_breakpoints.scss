@@ -5,121 +5,322 @@
 ////
 
 // Breakpoint Boundaries
-// @type length
-// These correspond to the Bootstrap 4 Responsive Breakpoints
 
-// Lower boundaries
-// ----------------
-
-/// Screen XS Min
+/// Lower Boundary for extra small screens
+/// @group variables|breakpoint-boundaries
+/// @type variable
 $screen-xs-min:               0px !default;
 
-/// Screen SM Min
+/// Lower boundary for small screens
+/// @group variables|breakpoint-boundaries
+/// @type variable
 $screen-sm-min:               576px !default;
 
-/// Screen MD Min
+/// Lower boundary for medium screens
+/// @group variables|breakpoint-boundaries
+/// @type variable
 $screen-md-min:               768px !default;
 
-/// Screen LG Min
+/// Lower boundary for large screens
+/// @group variables|breakpoint-boundaries
+/// @type variable
 $screen-lg-min:               992px !default;
 
-/// Screen XL Min
+/// Lower boundary for extra large screens
+/// @group variables|breakpoint-boundaries
+/// @type variable
 $screen-xl-min:               $max-container-width !default;
 
-// Upper boundaries
-// ----------------
 
-/// Screen XS Max
+/// Upper boundary for extra small screens
+/// @group variables|breakpoint-boundaries
+/// @requires $screen-xs-min
+/// @type variable
 $screen-xs-max:               $screen-sm-min - 1px !default;
 
-/// Screen SM Max
+/// Upper boundary for small screens
+/// @group variables|breakpoint-boundaries
+/// @requires $screen-sm-min
+/// @type variable
 $screen-sm-max:               $screen-md-min - 1px !default;
 
-/// Screen MD Max
+/// Upper boundary for medium screens
+/// @group variables|breakpoint-boundaries
+/// @requires $screen-lg-min
+/// @type variable
 $screen-md-max:               $screen-lg-min - 1px !default;
 
-/// Screen LG Max
+/// Upper boundary for large screens
+/// @group variables|breakpoint-boundaries
+/// @requires $screen-xl-min
+/// @type variable
 $screen-lg-max:               $screen-xl-min - 1px !default;
 
-/// Custom neat grids:
 
-/// Media XS only
+// Neat Media Queries
+
+/// @group variables|grid-media
+/// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} media [$screen-xs-min]
+///   Grid media query.
+///
+/// @requires $screen-xs-min
+///
 $media-xs: (
-    columns: 12,
     media: $screen-xs-min,
 ) !default;
 
+/// @group variables|grid-media
+/// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} media ['only screen and (max-width: $screen-xs-max)']
+///   Grid media query.
+///
+/// @requires $screen-xs-max
+///
 $media-xs-only: (
-    columns: 12,
     media: 'only screen and (max-width: #{$screen-xs-max})',
 ) !default;
 
+/// @group variables|grid-media
+/// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} media ['only screen and (max-width: $screen-xs-max)']
+///   Grid media query.
+///
+/// @requires $screen-xs-max
+///
 $media-xs-max: (
-    columns: 12,
     media: 'only screen and (max-width: #{$screen-xs-max})',
 ) !default;
 
-/// Media SM
+/// @group variables|grid-media
+/// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} media [$screen-sm-min]
+///   Grid media query.
+///
+/// @requires $screen-sm-min
+///
 $media-sm: (
-    columns: 12,
     media: $screen-sm-min,
 ) !default;
 
-/// Media SM only
+/// @group variables|grid-media
+/// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} media ['only screen and (min-width: $screen-sm-min) and (max-width: $screen-sm-max)']
+///   Grid media query.
+///
+/// @requires $screen-sm-min
+/// @requires $screen-sm-max
+///
 $media-sm-only: (
-    columns: 12,
     media: 'only screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})',
 ) !default;
 
-/// Media SM max
+/// @group variables|grid-media
+/// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} media ['only screen and (max-width: $screen-sm-max)']
+///   Grid media query.
+///
+/// @requires $screen-sm-max
+///
 $media-sm-max: (
-    columns: 12,
     media: 'only screen and (max-width: #{$screen-sm-max})',
 ) !default;
 
-/// Media MD
+/// @group variables|grid-media
+/// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} $screen-md-min]
+///   Grid media query.
+///
+/// @requires $screen-md-min
+///
 $media-md: (
-    columns: 12,
     media: $screen-md-min,
 ) !default;
 
-/// Media MD only
+/// @group variables|grid-media
+/// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} media ['only screen and (min-width: $screen-md-min) and (max-width: $screen-md-max)']
+///   Grid media query.
+///
+/// @requires $screen-md-min
+/// @requires $screen-md-max
+///
 $media-md-only: (
-    columns: 12,
     media: 'only screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})',
 ) !default;
 
-/// Media MD max
+/// @group variables|grid-media
+/// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} media ['only screen and (max-width: $screen-md-max)']
+///   Grid media query.
+///
+/// @requires $screen-md-max
+///
 $media-md-max: (
-    columns: 12,
     media: 'only screen and (max-width: #{$screen-md-max})',
 ) !default;
 
-/// Media LG
+/// @group variables|grid-media
+/// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} $screen-lg-min]
+///   Grid media query.
+///
+/// @requires $screen-lg-min
+///
 $media-lg: (
-    columns: 12,
     media: $screen-lg-min,
 ) !default;
 
-/// Media LG only
+/// @group variables|grid-media
+/// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} media ['only screen and (min-width: $screen-lg-min) and (max-width: $screen-lg-max)']
+///   Grid media query.
+///
+/// @requires $screen-lg-min
+/// @requires $screen-lg-max
 $media-lg-only: (
-    columns: 12,
     media: 'only screen and (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max})',
 ) !default;
 
-/// Media LG max
+/// @group variables|grid-media
+/// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} media ['only screen and (max-width: $screen-lg-max)']
+///   Grid media query.
+///
+/// @requires $screen-lg-max
+///
 $media-lg-max: (
-    columns: 12,
     media: 'only screen and (max-width: #{$screen-lg-max})',
 ) !default;
 
-/// Media XL
+/// @group variables|grid-media
+/// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
+/// @type map
+///
+/// @property {number (unitless)} columns [null]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [null]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} $screen-xl-min]
+///   Grid media query.
+///
+/// @requires $screen-xl-min
+///
 $media-xl: (
-    columns: 12,
     media: $screen-xl-min,
 ) !default;
 
-/// Media print
+/// @group variables|grid-media
+/// @link http://neat.bourbon.io/docs/latest/#grid-media Neat | Grid Media
+/// @type map
+///
+/// @property {number (unitless)} columns [12]
+///   Default number of the total grid columns.
+///
+/// @property {number (with unit)} gutter [.25in]
+///   Default grid gutter width between columns.
+///
+/// @property {string | number (with unit)} 'only print']
+///   Grid media query.
+///
 $media-print: (
     columns: 12,
     gutter: .25in,
