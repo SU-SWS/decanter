@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+////
+/// Element group
+/// @author Kevin Garcia
+/// @group mixins|elements
+////
+
+///
+/// Returns a group of configurable elements based on a map.
+///
+/// @param {map} $element-group - The element map the mixin consumes
+///
+/// @example scss - SCSS
+///    $default-element: (
+///        background-color: purple,
+///        margin-left: auto,
+///        margin-right: auto,
+///        margin-bottom: 2em,
+///        display: inline,
+///    );
+///
+///    $element-a: (
+///        background-color: green,
+///    );
+///
+///    $element-b: (
+///        display: block,
+///        margin-left: null,
+///        margin-right: null,
+///    );
+///
+///    $element-c: (
+///        display: null,
+///        overflow: hidden,
+///    );
+///
+///    $group-1: (
+///       '#test-a': (default-settings: $default-element, settings: $element-a),
+///       '#test-b': (default-settings: $default-element, settings: $element-b),
+///       '#test-c': (default-settings: $element-c),
+///    );
+///
+///    @include element-group($group-1);
+///
+/// @example css - CSS output
+///
+///    #test-a {
+///      background-color: green;
+///      margin-left: auto;
+///      margin-right: auto;
+///      margin-bottom: 2em;
+///      display: inline;
+///    }
+///
+///    #test-b {
+///      background-color: purple;
+///      margin-bottom: 2em;
+///      display: block;
+///    }
+///
+///    #test-c {
+///      overflow: hidden;
+///    }
+///
+/// @requires {mixin} element
+
+@mixin element-group($element-group) {
+  @each $element, $map in $element-group {
+    $_default-settings: map-get($map, default-settings);
+    $_settings: map-get($map, settings);
+    @include element($element, $_default-settings, $_settings);
+  }
+}

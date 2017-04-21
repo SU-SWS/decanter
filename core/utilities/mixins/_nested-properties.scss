@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+////
+/// Nested properties
+/// @author Kevin Garcia
+/// @group mixins|elements
+////
+
+///
+/// Returns a list of recursively nested `$property`: `$value` pairs.
+/// The mixin will continue to iterate as long as any map value is a nested map.
+///
+/// @param {css property} $_property - The CSS Property
+/// @param {css value | map} $_value - The CSS Value the property contains, or, if a map, the properties of the nested selector.
+///
+/// @access private
+
+@mixin _nested-properties($_property, $_value) {
+  @if type-of($_value) == map {
+    #{$_property} {
+      @each $_nested-property, $_nested-value in $_value {
+        @if type-of($_nested-value) == map {
+          @include _nested-properties($_nested-property, $_nested-value);
+        } @else {
+          #{$_nested-property}: #{$_nested-value};
+        }
+      }
+    }
+  } @else {
+    #{$_property}: #{$_value};
+  }
+}

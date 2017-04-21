@@ -1,0 +1,45 @@
+@charset 'UTF-8';
+
+////
+/// Smart merge
+/// @author Kevin Garcia
+////
+
+/// Returns a merged map, a single map, or a null value, depending on the results of the function's operations
+///
+/// @param {map} default-map - The default map the mixin consumes
+/// @param {map} map [null] - The optional override map to merge in
+///
+/// @example scss - source SCSS
+///  $default-map: (
+///      color: blue,
+///      margin: 0 auto,
+///  );
+///
+///  $map-override: (
+///      color: red,
+///      overflow: hidden,
+///  );
+///
+///  $merged-map: smart-merge($default-map, $map-override);
+///
+/// @example CSS - output CSS
+///   $merged-map: (color: red, margin: 0 auto, overflow: hidden);
+///
+
+@function smart-merge($default-map, $map: null) {
+  @if ($map != null) {
+    @if ($default-map != null) {
+      @return map-merge($default-map, $map);
+    } @else {
+      @return $map;
+    }
+  } @else {
+    @if ($default-map != null) {
+      @return $default-map;
+    } @else {
+      @warn 'no map returned. returning boolean falase value,';
+      @return false;
+    }
+  }
+}
