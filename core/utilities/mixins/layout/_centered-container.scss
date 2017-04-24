@@ -4,7 +4,10 @@
 /// centered-container mixin
 /// Creates a wrapper-less centered container using padding
 /// Depends on Neat. We use the global neat-grid variable for grid default, but you may pass it any value.
-
+/// @require _set-container-padding
+/// @require $neat-grid
+///
+/// @link http://neat.bourbon.io Neat
 @mixin centered-container(
   $columns: null,
   $v-space: 1em,
@@ -17,10 +20,15 @@
   $_grid-columns: _retrieve-neat-setting($grid, columns); // Retrieves the number of max columns from the specified grid
   $_grid-gutter: _retrieve-neat-setting($grid, gutter); // Retrieves the gutter from the specified grid
 
-  padding: _set-container-padding($columns, $grid, $v-space, $max-width);
-
   @include grid-container;
   @if $grid-collapse == true {
     @include grid-collapse;
+  }
+
+  @if $v-space {
+    padding: $v-space _set-container-padding($columns, $grid, $max-width);
+  } @else {
+    padding-left: _set-container-padding($columns, $grid, $max-width);
+    padding-right: _set-container-padding($columns, $grid, $max-width);
   }
 }

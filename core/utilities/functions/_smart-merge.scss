@@ -2,43 +2,57 @@
 
 ////
 /// Smart merge
+/// @group functions
 /// @author Kevin Garcia
 ////
 
 /// Returns a merged map, a single map, or a null value, depending on the results of the function's operations
 ///
+/// **Limitations:** When merging nested maps, the map merge will replace the value of the entire nested map. This is a limitation of Sass's implementation. This means if you want to replace a single property in a :before nested declaration, for example, you'll have to redeclare the entire element in the override map.
+///
 /// @param {map} default-map - The default map the mixin consumes
 /// @param {map} map [null] - The optional override map to merge in
 ///
-/// @example scss - source SCSS
-///  $default-map: (
-///      color: blue,
-///      margin: 0 auto,
-///  );
+/// @example scss - SCSS
+///   $map--default: (
+///     property1: value1,
+///     property2: value2,
+///     property3: value3,
+///     // etc...
+///   )!default;
 ///
-///  $map-override: (
-///      color: red,
-///      overflow: hidden,
-///  );
+///   $my-new-map: (
+///     property1: my-value1,
+///     property3: null, // By explicitly declaring a
+///                      // null value in the merged map,
+///                      // we can suppress this property
+///     my-new-property: my-new-value,
+///     // etc...
+///   );
 ///
-///  $merged-map: smart-merge($default-map, $map-override);
+///   $merged-map: smart-merge($map--default, $my-new-map);
 ///
-/// @example CSS - output CSS
-///   $merged-map: (color: red, margin: 0 auto, overflow: hidden);
 ///
-
-@function smart-merge($default-map, $map: null) {
-  @if ($map != null) {
-    @if ($default-map != null) {
+/// @example scss - Merged SCSS Map
+///   $merged-map: (
+///     property1: my-value1,
+///     property2: value2,
+///     my-new-property: my-new-value,
+///     // etc...
+///   );
+///
+@function smart-merge($default-map, $map) {
+  @if $map {
+    @if $default-map {
       @return map-merge($default-map, $map);
     } @else {
       @return $map;
     }
   } @else {
-    @if ($default-map != null) {
+    @if $default-map {
       @return $default-map;
     } @else {
-      @warn 'no map returned. returning boolean falase value,';
+      @warn 'Could not return map.';
       @return false;
     }
   }

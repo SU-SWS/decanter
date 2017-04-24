@@ -1,9 +1,9 @@
 @charset 'UTF-8';
 
 ////
-/// Element properties
+/// Properties
 /// @author Kevin Garcia
-/// @group mixins|elements
+/// @group mixins
 ////
 
 /// Returns a list of `$property`: `$value` pairs
@@ -23,15 +23,15 @@
 ///  );
 ///
 ///  .default-element {
-///    @include element-properties($default-map);
+///    @include properties($default-map);
 ///  }
 ///
 ///  .override-element {
-///    @include element-properties($map-override);
+///    @include properties($map-override);
 ///  }
 ///
 ///  .merged-element {
-///    @include element-properties($default-map, $map-override);
+///    @include properties($default-map, $map-override);
 ///  }
 ///
 /// @example css - output CSS
@@ -109,14 +109,11 @@
 ///
 /// @requires [function] smart-merge
 /// @requires [mixin] _nested-properties
-
-@mixin element-properties($default-settings, $settings: null) {
+///
+@mixin properties($default-settings, $settings: null) {
   $_settings: smart-merge($default-settings, $settings);
+
   @each $_property, $_value in $_settings {
-    @if type-of($_value) == map {
-      @include _nested-properties($_property, $_value);
-    } @else {
-      #{$_property}: #{$_value};
-    }
+    @include _nested-properties($_property, $_value);
   }
 }

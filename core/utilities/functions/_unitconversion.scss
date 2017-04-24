@@ -1,7 +1,10 @@
 // ____________________________________________________________________________
-//
-//    Unit Conversion v.2.1.3
-//    https://github.com/jakob-e/unitconversion
+////
+///    Unit Conversion v.2.1.3
+///    @author Jakob Eriksen
+///    @link https://github.com/jakob-e/unitconversion
+///    @group functions
+////
 // ____________________________________________________________________________
 //
 //   Function               Input units
@@ -95,6 +98,8 @@
 @function khz($input){ @return to-unit(khz, $input); }
 
 // Relative lengths
+/// Returns em relative units
+/// @require to-unit
 @function em($input...){
   $em: to-unit(em, nth($input,1));
   // Adjust for compounds (visual size)
@@ -105,6 +110,9 @@
   }
   @return $em;
 }
+
+/// Returns REM root units
+/// @require to-unit
 @function rem($input){ @return to-unit(rem, $input); }
 
 // Inconvertible relative lengths – depends on font
@@ -138,6 +146,9 @@
 
 
 // Conversion function
+/// Conversion function
+/// @require $base-font-size
+/// @require $root-font-size
 @function to-unit($unit, $input){
   // Test against valid CSS units
   $to-unit: map-get((

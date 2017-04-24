@@ -14,7 +14,7 @@ $breakpoint-helper-map: (
 @mixin breakpoint-helper($selector: '#breakpoint-helper', $map: $breakpoint-helper-map ) {
 
   #{$selector} {
-    @include material-shadow(flat);
+    box-shadow: material-shadow(flat);
     background-color: transparentize(color(dark-grey), .2);
     border-radius: $base-border-radius;
     border-top-right-radius: 0;
@@ -32,8 +32,8 @@ $breakpoint-helper-map: (
     white-space: nowrap;
     z-index: 9999;
 
-    @include on-event {
-      @include material-shadow(medium);
+    #{$hocus} {
+      box-shadow: material-shadow(medium);
       right: 0;
       overflow: hidden;
       font-size: .75em;
