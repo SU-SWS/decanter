@@ -1,4 +1,8 @@
 @charset "UTF-8";
+////
+/// Color themes
+/// @group mixins|color
+////
 
 // Dependency on the $colors variable.
 @import '../../variables/colors';
@@ -20,7 +24,7 @@
 ///   the `$selector` argument allows you to specify a different class than the current. It's
 ///   especially useful when used with the `render-color-themes` mixin.
 ///
-/// @example SCSS
+/// @example scss - SCSS
 ///   $green-theme: (
 ///     brand:                        #2c853c,
 ///     action:                       #00992b,
@@ -40,24 +44,26 @@
 ///     }
 ///   }
 ///
-/// @example CSS
+/// @example css - CSS output
 ///   .card {
 ///     background-color: #fff;
 ///     color: #121111;
 ///   }
 ///
-/// @example SCSS
+/// @example scss - SCSS
 ///   @include color-theme($green-theme, '.card') {
 ///     background-color: color(background);
 ///     color: color(text-active);
 ///   }
 ///
-/// @example CSS
+/// @example css - CSS output
 ///   .card {
 ///     background-color: #fff;
 ///     color: #121111;
 ///   }
 ///
+/// @require color
+/// @require $colors
 
 @mixin color-theme($palette, $selector: '&') {
   $_default-color-palette: $colors;

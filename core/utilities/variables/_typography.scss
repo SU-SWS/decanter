@@ -2,24 +2,25 @@
 
 ////
 /// Typography
-/// @group variables|typography
+/// @group _variables|typography
 ////
 
-/// Font Stack Monospace.
 ///
-/// This is outputted via `font-family: $font-stack-monospace;`
-
-$decanter-default-fonts: (
+$base-fonts: (
   monospace:    'https://fonts.googleapis.com/css?family=Source+Code+Pro',
   sans-serif:   'https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i',
   serif:        'https://fonts.googleapis.com/css?family=Noto+Serif:400,400i,700,700i',
 ) !default;
 
-$decanter-font-families: (
+///
+$base-font-families: (
   monospace:  "'Source Code Pro', #{$font-stack-monaco}",
   sans-serif: "'Noto Sans', #{$font-stack-helvetica}",
   serif:      "'Noto Serif', #{$font-stack-georgia}"
 ) !default;
+
+/// Load the font-face declarations.
+@include load-fonts($base-fonts);
 
 // Semantic definitions
 // These map the generic `$font-family-serif` stacks to more functional, semantic
@@ -27,24 +28,73 @@ $decanter-font-families: (
 // --------------------
 
 /// Base Font Family Setting.
-$base-font-family: unquote(map-get($decanter-font-families, sans-serif)) !default;
+$base-font-family: unquote(map-get($base-font-families, sans-serif)) !default;
 
 /// Heading Font Family.
-$heading-font-family: unquote(map-get($decanter-font-families, serif)) !default;
+$heading-font-family: unquote(map-get($base-font-families, serif)) !default;
 
 /// Monospace Font Family.
-$monospace-font-family: unquote(map-get($decanter-font-families, monospace)) !default;
+$monospace-font-family: unquote(map-get($base-font-families, monospace)) !default;
 
 /// Base Line Height.
 /// @todo find out where this is used and let people know. I assume everywhere.
-/// @type number
 $base-line-height: 1.5 !default;
 
 /// Heading Line Height.
 /// @todo find out where this is used and let people know. I assume everywhere.
-/// @type number
 $heading-line-height: 1.2 !default;
 
-/// All Headlines list selector
-/// @type list
+/// All Headlines selector
+///
+/// **Note:** This selector must be used with variable interpolation when used to declare an element.
+///
+/// @example scss - Use Documentation
+///   #{$all-headlines} {
+///     font-weight: bold;
+///   }
+///
+/// @example css - Output
+///   h1, h2, h3, h4, h5, h6 {
+///     font-weight: bold;
+///   }
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
 $all-headlines: 'h1, h2, h3, h4, h5, h6' !default;
+
+/// `hover`, `active`, `focus` pseudo-class variable
+///
+/// **Note:** This selector must be used with variable interpolation when used to declare an element.
+///
+/// @example scss - Use Documentation
+///   #{$hocus} {
+///     font-weight: bold;
+///   }
+///
+/// @example css - Output
+///   &:hover, &:active, &:focus {
+///     font-weight: bold;
+///   }
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/:hover
+/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/:active
+/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/:focus
+$hocus: '&:hover, &:active, &:focus' !default;
+
+/// `hover`, `focus` pseudo-class variable
+///
+/// **Note:** This pseudo-class must be used with variable interpolation when used to declare an element.
+///
+/// @example scss - Use Documentation
+///   #{$pocus} {
+///     font-weight: bold;
+///   }
+///
+/// @example css - Output
+///   &:hover, &:focus {
+///     font-weight: bold;
+///   }
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/:hover
+/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/:active
+/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/:focus
+$pocus: '&:hover, &:focus' !default;

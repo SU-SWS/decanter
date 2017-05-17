@@ -4,12 +4,13 @@
 /// FILE COMMENT HERE
 ////
 
-///
-/// Function font-size
-///
-
 @import '../functions/unitconversion';
 
+///
+/// Mixin font-size
+/// @group mixins
+/// @deprecated
+/// @require em
 @mixin font-size($_size: 16px, $_base: null) {
   @if $_base == null {
     font-size: em($_size);

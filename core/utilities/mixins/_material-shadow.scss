@@ -3,7 +3,6 @@
 /// Creates a material-design style shadow. May be flat, shallow, medium, or deep.
 ///
 /// @author Kevin Garcia
-/// @group mixins
 ///
 /// @arg {string} Depth [shallow] - How deep the shadow appears to be. Default is Shallow.
 /// @require {function} rgba
@@ -17,21 +16,15 @@
 ///   .element {
 ///     box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.10), 2px 4px 7px 0px rgba(0,0,0,0.15);
 ///   }
-@mixin material-shadow
-(
-  $depth: shallow
-) {
-// Depths: flat | shallow | medium | deep
-  @media screen {
-    @if $depth == 'flat' {
-      // Box Shadow: offset-x | offset-y | blur-radius | spread-radius | color
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
-    } @else if $depth == 'shallow' {
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05), 0px 3px 3px 1px rgba(0, 0, 0, 0.05);
-    } @else if $depth == 'medium' {
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.09), 0px 7px 10px 0px rgba(0, 0, 0, 0.15);
-    } @else if $depth == 'deep' {
-      box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.10), 0px 11px 12px 0px rgba(0, 0, 0, 0.2);
-    }
+///
+/// @group mixins
+///
+/// @deprecated
+/// This mixin is deprecated in favor of the `material-shadow` function
+///
+/// @see {function} material-shadow
+@mixin material_shadow( $depth: shallow ) {
+  @media only screen {
+    box-shadow: material-shadow($depth);
   }
 }

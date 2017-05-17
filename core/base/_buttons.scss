@@ -3,104 +3,37 @@
 ////
 /// Button base styles.
 /// @group base|buttons
+/// @group buttons
+///
+/// @type map
+///
+/// @see $group__element--default
+/// @see $group__element
 ////
 
 /// Generic Button Styles.
-/// @require {function} color Returns a color from the color map.
-/// @require {function} em normalized relative values.
-/// @require {mixin} material-shadow adds a shadow.
-/// @require {variable} $base-font-family The default base font styles.
-/// @require {variable} $base-line-height Base line height setting.
-/// @require {variable} $base-transition Base transition setting.
-/// @require {variable} $small-spacing Base small space setting.
+/// @require button
+/// @require $base-button
 %button__generic {
-  $_font-family: $base-font-family;
-  $_line-height: $base-line-height;
-  $_transition: $base-transition;
-  $_spacing: $small-spacing;
-
-  @include material-shadow(flat);
-
-  appearance: none;
-  background-color: color(action);
-  border: none;
-  color: color(reverse-text);
-  cursor: pointer;
-  display: inline-block;
-  font-family: $_font-family;
-  font-size: inherit;
-  -webkit-font-smoothing: antialiased;
-  font-weight: inherit;
-  line-height: $_line-height;
-  padding: em(6px) em($_spacing) em(7px);
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  vertical-align: middle;
-  transition: $_transition;
-
-  &:hover,
-  &:focus,
-  &:active {
-    background-color: color(action--active);
-    color: color(reverse-text--active);
-    text-decoration: none;
-  }
-
-  &:disabled,
-  &.disabled {
-    background-color: color(action);
-    color: color(reverse-text);
-    cursor: not-allowed;
-    opacity: .5;
-
-    &:hover {
-      cursor: not-allowed;
-    }
-  }
+  @include button($base-button);
 }
 
 /// Primary Button Styles.
-/// @require {function} em normalized relative values.
-/// @require {function} color Returns a color from the color map.
-/// @require {placeholder} button__generic
-/// @require {variable} $base-spacing
+/// @require %button__generic
+/// @require button
+/// @require $primary-button
 %button__primary {
-  $_spacing: $base-spacing;
-
   @extend %button__generic;
-
-  background-color: color(action);
-  color: color(reverse-text);
-  font-weight: 600;
-  padding: em(10px) em($_spacing) em(12px);
-
-  @include on-event {
-    background-color: color(action--active);
-    color: color(reverse-text);
-  }
+  @include button($primary-button);
 }
 
 /// Secondary Button Styles.
-/// @require {function} em normalized relative values.
-/// @require {function} color Returns a color from the color map.
-/// @require {placeholder} button__generic
-/// @require {variable} $base-spacing
+/// @require %button__generic
+/// @require button
+/// @require $secondary-button
 %button__secondary {
-  $_spacing: $base-spacing;
-
   @extend %button__generic;
-  background-color: inherit;
-  border: $base-border;
-  color: color(text);
-  font-weight: 600;
-  padding: em(7px) em($_spacing) em(9px);
-
-  @include on-event {
-    background-color: inherit;
-    border-color: color(action);
-    color: color(action);
-  }
+  @include button($secondary-button);
 }
 
 /// Apply all button styles.

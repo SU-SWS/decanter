@@ -5,92 +5,231 @@
 ////
 
 
-/// List classes.
+// ---------------------------------------------------------------------------------------------------------------------
+/// - Base styles for `plain` lists
+///
+/// @example scss - Used in `base/_lists.scss` by the `.plain` class
+///   ul.plain,
+///   ol.plain,
+///   dl.plain,
+///   dt.plain {
+///     @include properties($lists__plain--default, $typography__plain);
+///   }
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
+///
+
+$lists__plain--default: (
+  font-weight: normal,
+  list-style-type: none,
+  margin: 0,
+  padding: 0,
+) !default;
+
+$lists__plain: () !default;
+
 ul.plain,
-ol.plain {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
+ol.plain,
+dl.plain,
+dt.plain,
+%plain {
+  @include properties($lists__plain--default, $lists__plain);
 }
 
-/// plain
-dl.plain {
-  margin: 0;
-}
-/// plain
-dt.plain {
-  font-weight: 600;
-  margin: 0;
-}
-/// plain
-dd.plain {
-  margin: 0;
-}
 
-/// List styles.
-/// @require {function} modular-scale
+// ---------------------------------------------------------------------------------------------------------------------
+/// - Base styles for the `ul` and `ol` elements
+///
+/// @example scss - Used in `base/_lists.scss` by the `ul` and `ol` elements
+///   ul,
+///   ol {
+///     @include properties($lists__lists--default, $typography__lists);
+///   }
+///
+/// @todo implement vertical rhythm
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
+///
+
+$lists__lists--default: (
+  margin: 0 0 modular-scale(0) modular-scale(1),
+  padding-left: 0,
+  li: (
+    margin-bottom: modular-scale(-5),
+  ),
+) !default;
+
+$lists__lists: () !default;
+
 ul,
 ol {
-  margin: 0 0 modular-scale(0) modular-scale(1);
-  padding-left: 0;
-  li {
-    margin-bottom: modular-scale(-5);
-  }
+  @include properties($lists__lists--default, $lists__lists);
 }
 
-/// uls
+
+// ---------------------------------------------------------------------------------------------------------------------
+/// - Base styles for the `ul` element
+///
+/// @example scss - Used in `base/_lists.scss` by the `ul` element
+///   ul {
+///     @include properties($lists__ul--default, $typography__ul);
+///   }
+///
+/// @todo implement vertical rhythm
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ul
+///
+
+$lists__ul--default: (
+  list-style: disc,
+  ul: (
+    list-style: circle,
+    ul: (
+        list-style: square,
+    ),
+  ),
+) !default;
+
+$lists__ul: () !default;
+
 ul {
-  list-style: disc;
-  ul {
-    list-style: circle;
-    ul {
-      list-style: square;
-    }
-  }
+  @include properties($lists__ul--default, $lists__ul);
 }
 
-/// Ordered List styles
-/// @require {function} em
+// ---------------------------------------------------------------------------------------------------------------------
+/// - Base styles for the `ol` element
+///
+/// @example scss - Used in `base/_lists.scss` by the `ol` element
+///   ol {
+///     @include properties($lists__ol--default, $typography__ol);
+///   }
+///
+/// @require em
+/// @todo implement vertical rhythm
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/ol
+///
+
+$lists__ol--default: (
+  list-style: decimal,
+
+  li: (
+    padding-left: em(4px),
+    margin-left: em(-4px),
+  ),
+
+  ol: (
+    list-style: upper-alpha,
+    ol: (
+      list-style: lower-roman,
+      ol: (
+        list-style: lower-alpha,
+      ),
+    ),
+  ),
+) !default;
+
+$lists__ol: () !default;
+
 ol {
-  list-style: decimal;
-
-  li {
-    padding-left: em(4px);
-    margin-left: em(-4px);
-  }
-
-  ol {
-    list-style: upper-alpha;
-    ol {
-      list-style: lower-roman;
-      ol {
-        list-style: lower-alpha;
-      }
-    }
-  }
+  @include properties($lists__ol--default, $lists__ol);
 }
 
-/// Nested list styles.
-/// @require modular-scale
+// ---------------------------------------------------------------------------------------------------------------------
+/// - Base styles for nested-lists
+///
+/// @example scss - Used in `base/_lists.scss` by the `li > ul` and `li > ol` elements
+///   li > ul,
+///   li > ol {
+///     @include properties($lists__nested-lists--default, $typography__nested-lists);
+///   }
+///
+
+$lists__nested-lists--default: (
+  margin-top: modular-scale(-5),
+  margin-bottom: modular-scale(-5),
+  margin-left: modular-scale(1),
+) !default;
+
+$lists__nested-lists: () !default;
+
 li > ul,
 li > ol {
-  margin-top: modular-scale(-5);
-  margin-bottom: modular-scale(-5);
-  margin-left: modular-scale(1);
+  @include properties($lists__nested-lists--default, $lists__nested-lists);
 }
 
-/// Definition list styles.
-/// @require {function} modular-scale
+// ---------------------------------------------------------------------------------------------------------------------
+/// - Base styles for the `dl` element
+///
+/// @example scss - Used in `base/_lists.scss` by the `dl` element
+///   dl {
+///     @include properties($lists__dl--default, $typography__dl);
+///   }
+///
+/// todo implement vertical rhythm
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dl
+///
+
+$lists__dl--default: (
+    margin: 0 0 modular-scale(-5),
+) !default;
+
+$lists__dl: () !default;
+
 dl {
-  margin: 0 0 modular-scale(-5);
-}
-/// dt
-dt {
-  font-weight: 600;
+  @include properties($lists__dl--default, $lists__dl);
 }
 
-/// DD list styles.
-/// @require {variable} $base-spacing
+// ---------------------------------------------------------------------------------------------------------------------
+/// - Base documentation cut & paste template.
+/// - Base styles for the `dt` element
+///
+/// @example scss - Used in `base/_lists.scss` by the `dt` element
+///   dt {
+///     @include properties($lists__dt--default, $typography__dt);
+///   }
+///
+/// @todo implement vertical rhythm
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dt
+///
+
+$lists__dt--default: (
+    font-weight: 600,
+) !default;
+
+$lists__dt: () !default;
+
+dt {
+  @include properties($lists__dt--default, $lists__dt);
+}
+
+// ---------------------------------------------------------------------------------------------------------------------
+/// - Base documentation cut & paste template.
+/// - Base styles for the `dd` element
+///
+/// @example scss - Used in `base/_lists.scss` by the `dd` element
+///   dd {
+///     @include properties($lists__dd--default, $typography__dd);
+///   }
+///
+/// @require $base-spacing
+///
+/// @todo implement vertical rhythm
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dd
+///
+
+$lists__dd--default: (
+    margin: 0 0 $base-spacing,
+) !default;
+
+$lists__dd: () !default;
+
 dd {
-  margin: 0 0 $base-spacing;
+  @include properties($lists__dd--default, $lists__dd);
 }
