@@ -1,5 +1,14 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><title>Decanter - v0.1.0-alpha1</title><link rel="stylesheet" href="assets/css/main.css"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="Decanter - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="<p>A collection of SCSS patterns for theme development.</p>
-"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title"><a href="https://github.com/su-sws/decanter">Decanter - v0.1.0-alpha1</a></h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="core functions"><a href="#core functions">core functions</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="core functions-function"><a href="#core functions-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="core functions" data-name="color" data-type="function"><a href="#core functions-function-color">color</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="undefined"><a href="#undefined">General</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-function"><a href="#undefined-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="_adjust-container-margin" data-type="function"><a href="#undefined-function-_adjust-container-margin">_adjust-container-margin</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="_set-container-padding" data-type="function"><a href="#undefined-function-_set-container-padding">_set-container-padding</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="core functions"><div class="container">core functions</div></h1><section class="main__sub-section" id="core functions-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="core functions-function-color"><h3 class="item__heading"><a class="item__name" href="#function-color">color</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function color($color: null, $color-palette: $colors) { 
+"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title"><a href="https://github.com/su-sws/decanter">Decanter - v0.1.0-alpha1</a></h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="font-management"><a href="#font-management">Font Loading &amp; Management</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="font-management-function"><a href="#font-management-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="font-management" data-name="_check-loaded-font" data-type="function"><a href="#font-management-function-_check-loaded-font">_check-loaded-font</a></li><li class="sidebar__item sassdoc__item" data-group="font-management" data-name="_log-loaded-font" data-type="function"><a href="#font-management-function-_log-loaded-font">_log-loaded-font</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="functions"><a href="#functions">Functions</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="functions-function"><a href="#functions-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="functions" data-name="color" data-type="function"><a href="#functions-function-color">color</a></li><li class="sidebar__item sassdoc__item" data-group="functions" data-name="material-shadow" data-type="function"><a href="#functions-function-material-shadow">material-shadow</a></li><li class="sidebar__item sassdoc__item" data-group="functions" data-name="smart-merge" data-type="function"><a href="#functions-function-smart-merge">smart-merge</a></li><li class="sidebar__item sassdoc__item" data-group="functions" data-name="em" data-type="function"><a href="#functions-function-em">em</a></li><li class="sidebar__item sassdoc__item" data-group="functions" data-name="rem" data-type="function"><a href="#functions-function-rem">rem</a></li><li class="sidebar__item sassdoc__item" data-group="functions" data-name="to-unit" data-type="function"><a href="#functions-function-to-unit">to-unit</a></li><li class="sidebar__item sassdoc__item" data-group="functions" data-name="_adjust-container-margin" data-type="function"><a href="#functions-function-_adjust-container-margin">_adjust-container-margin</a></li><li class="sidebar__item sassdoc__item" data-group="functions" data-name="_set-container-padding" data-type="function"><a href="#functions-function-_set-container-padding">_set-container-padding</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="font-management"><div class="container">Font Loading &amp; Management</div></h1><section class="main__sub-section" id="font-management-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="font-management-function-_check-loaded-font"><h3 class="item__heading"><a class="item__name" href="#function-_check-loaded-font">_check-loaded-font</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _check-loaded-font() { 
+  $_value: index($loaded-fonts, $url);
+  @if type-of($_value) == number {
+    @return true;
+  }
+  @return false;
+ }" data-collapsed="@function _check-loaded-font() { ... }"><code>@function _check-loaded-font() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Checks the global variable for loaded fonts</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section><section class="main__item container item" id="font-management-function-_log-loaded-font"><h3 class="item__heading"><a class="item__name" href="#function-_log-loaded-font">_log-loaded-font</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _log-loaded-font() { 
+  $loaded-fonts: append($loaded-fonts, $url, comma) !global;
+  @return true;
+ }" data-collapsed="@function _log-loaded-font() { ... }"><code>@function _log-loaded-font() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Internal function to keep track of loaded fonts so we don&#39;t duplicate calls.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section></section></section><section class="main__section"><h1 class="main__heading" id="functions"><div class="container">Functions</div></h1><section class="main__sub-section" id="functions-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="functions-function-color"><h3 class="item__heading"><a class="item__name" href="#function-color">color</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function color($color: null, $color-palette: $colors) { 
   // First, we marge this default color palette with the decanter color palette we set up in `variables/color`
   $_default-color-palette: map-merge((
     // Unbranded, default color palette
@@ -53,7 +62,130 @@
   // would return the brand value from the `$colors` map. Additionally, if I call `color: color(lime, $custom-map)`
   // it will return the lime color from the generic palette from the default map.
   @return map-get($_color-palette, $color);
- }" data-collapsed="@function color($color: null, $color-palette: $colors) { ... }"><code>@function color($color: null, $color-palette: $colors) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Return a color from the color map.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$color</code></th><td data-label="desc"><p>The color returned by the function</p></td><td data-label="type"><code>Color</code></td><td data-label="default"><code>null</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$color-palette</code></th><td data-label="desc"><p>The color map to use to retrieve the color</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>$colors</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>SCSS</p></div><pre class="example__code language-scss"><code>background-color: color(white);</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS</p></div><pre class="example__code language-css"><code>background-color: #fff;</code></pre></div></section></section></section><section class="main__section"><h1 class="main__heading" id="undefined"><div class="container">General</div></h1><section class="main__sub-section" id="undefined-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="undefined-function-_adjust-container-margin"><h3 class="item__heading"><a class="item__name" href="#function-_adjust-container-margin">_adjust-container-margin</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _adjust-container-margin() { 
+ }" data-collapsed="@function color($color: null, $color-palette: $colors) { ... }"><code>@function color($color: null, $color-palette: $colors) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Return a color from the color map.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$color</code></th><td data-label="desc"><p>The color returned by the function</p></td><td data-label="type"><code>Color</code></td><td data-label="default"><code>null</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$color-palette</code></th><td data-label="desc"><p>The color map to use to retrieve the color</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>$colors</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>SCSS</p></div><pre class="example__code language-scss"><code>background-color: color(white);</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS</p></div><pre class="example__code language-css"><code>background-color: #fff;</code></pre></div></section><section class="main__item container item" id="functions-function-material-shadow"><h3 class="item__heading"><a class="item__name" href="#function-material-shadow">material-shadow</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function material-shadow($Depth) { 
+  // Keyword depths
+  @if type_of($depth) == number {
+    @if $depth == 0 {
+    @return 0px 0px 10px rgba(0, 0, 0, 0.1), 0px 0px 5px rgba(0, 0, 0, 0.1);
+      // Programatic shadows from 0 through 10
+    } @else if ($depth &gt; 0) and ($depth &lt; 13) {
+    @return 0px 0px floor(10px + ($depth / 5) ) rgba(0, 0, 0, (.1 + ($depth / 66.66666667))), 0px round(2px + ($depth - ($depth / 7))) round(2px + ($depth - ($depth / 20))) rgba(0, 0, 0, (.1 + ($depth / 66.66666667)))
+    }
+  } @else if $depth == &#39;flat&#39; {
+    // Box Shadow: offset-x | offset-y | blur-radius | spread-radius | color
+    @return 0px 0px 10px rgba(0, 0, 0, 0.1), 0px 0px 5px rgba(0, 0, 0, 0.1);
+  } @else if $depth == &#39;shallow&#39; {
+    @return 0px 0px 10px rgba(0, 0, 0, 0.15), 0px 3px 3px rgba(0, 0, 0, 0.15);
+  } @else if $depth == &#39;medium&#39; {
+    @return 0px 0px 10px rgba(0, 0, 0, 0.2), 0px 7px 10px rgba(0, 0, 0, 0.2);
+  } @else if $depth == &#39;deep&#39; {
+    @return 0px 0px 12px rgba(0, 0, 0, 0.25), 0px 11px 12px rgba(0, 0, 0, 0.25);
+  }
+  @warn &#39;Material shadow supports a range from 1-12, or the keywords &quot;flat, shallow, medium deep&quot;&#39;;
+  @return false
+ }" data-collapsed="@function material-shadow($Depth) { ... }"><code>@function material-shadow($Depth) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Returns a material-design style shadow.</p><p>May be flat, shallow, medium, or deep, or a number between 1-12</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$Depth</code></th><td data-label="desc"><p>How deep the shadow appears to be.</p></td><td data-label="type"><code>Keyword (flat</code> or <code>Shallow</code> or <code>Medium</code> or <code>Deep)</code> or <code>Number(unitless, 1-12)</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>SCSS</p></div><pre class="example__code language-scss"><code>.element {
+  box-shadow: material-shadow(shallow)
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS</p></div><pre class="example__code language-css"><code>.element {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15), 0px 3px 3px rgba(0, 0, 0, 0.15);
+}</code></pre></div><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow">https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow</a></li><li><a href="http://sass-lang.com/documentation/Sass/Script/Functions.html">http://sass-lang.com/documentation/Sass/Script/Functions.html</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Kevin Garcia</p></li></ul></section><section class="main__item container item" id="functions-function-smart-merge"><h3 class="item__heading"><a class="item__name" href="#function-smart-merge">smart-merge</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function smart-merge($default-map, $map: null) { 
+  @if $map {
+    @if $default-map {
+      @return map-merge($default-map, $map);
+    } @else {
+      @return $map;
+    }
+  } @else {
+    @if $default-map {
+      @return $default-map;
+    } @else {
+      @warn &#39;Could not return map.&#39;;
+      @return false;
+    }
+  }
+ }" data-collapsed="@function smart-merge($default-map, $map: null) { ... }"><code>@function smart-merge($default-map, $map: null) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Returns a merged map, a single map, or a null value, depending on the results of the function&#39;s operations</p><p><strong>Limitations:</strong> When merging nested maps, the map merge will replace the value of the entire nested map. This is a limitation of Sass&#39;s implementation. This means if you want to replace a single property in a :before nested declaration, for example, you&#39;ll have to redeclare the entire element in the override map.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$default-map</code></th><td data-label="desc"><p>The default map the mixin consumes</p></td><td data-label="type"><code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$map</code></th><td data-label="desc"><p>The optional override map to merge in</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>null</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>SCSS</p></div><pre class="example__code language-scss"><code>$map--default: (
+  property1: value1,
+  property2: value2,
+  property3: value3,
+  // etc...
+)!default;
+
+$my-new-map: (
+  property1: my-value1,
+  property3: null, // By explicitly declaring a
+                   // null value in the merged map,
+                   // we can suppress this property
+  my-new-property: my-new-value,
+  // etc...
+);
+
+$merged-map: smart-merge($map--default, $my-new-map);
+</code></pre></div><div class="item__example example"><div class="example__description"><p>Merged SCSS Map</p></div><pre class="example__code language-scss"><code>$merged-map: (
+  property1: my-value1,
+  property2: value2,
+  my-new-property: my-new-value,
+  // etc...
+);</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Kevin Garcia</p></li></ul></section><section class="main__item container item" id="functions-function-em"><h3 class="item__heading"><a class="item__name" href="#function-em">em</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function em() { 
+  $em: to-unit(em, nth($input,1));
+  // Adjust for compounds (visual size)
+  @if length($input) &gt; 1 {
+    @for $i from 2 through length($input){
+      $em: $em / num(em(nth($input,$i)));
+    }
+  }
+  @return $em;
+ }" data-collapsed="@function em() { ... }"><code>@function em() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Returns em relative units</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#functions-function-to-unit"><code>to-unit</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://github.com/jakob-e/unitconversion">https://github.com/jakob-e/unitconversion</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Jakob Eriksen</p></li></ul></section><section class="main__item container item" id="functions-function-rem"><h3 class="item__heading"><a class="item__name" href="#function-rem">rem</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function rem() {  @return to-unit(rem, $input);  }" data-collapsed="@function rem() { ... }"><code>@function rem() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Returns REM root units</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[function]</span> <a href="#functions-function-to-unit"><code>to-unit</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://github.com/jakob-e/unitconversion">https://github.com/jakob-e/unitconversion</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Jakob Eriksen</p></li></ul></section><section class="main__item container item" id="functions-function-to-unit"><h3 class="item__heading"><a class="item__name" href="#function-to-unit">to-unit</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function to-unit() { 
+  // Test against valid CSS units
+  $to-unit: map-get((
+      px: 0px, pt: 0pt, pc: 0pc, in: 0in, mm: 0mm, cm: 0cm, // absolute length
+      em: 0em, rem: 0rem, ch: 0ch, ex: 0ex,                 // relative length - font based
+      vw: 0vw, vh: 0vh, vmin: 0vmin, vmax: 0vmax,           // relative length - viewport based
+      deg: 0deg, turn: 0turn, grad: 0grad, rad: 0rad,       // angle
+      s: 0s, ms: 0ms,                                       // time
+      hz: 0Hz, khz: 0kHz,                                   // frequency
+      dpi: 0dpi, dpcm: 0dpcm, dppx: 0dppx,                  // resolution
+      pct: 0%, percent: 0%, num: 0, number: 0               // percent or number
+  ), $unit);
+
+  // Error handling – wrong $unit
+  // Incomparable units are caught in convertion
+  @if not $to-unit {
+    @error &#39;Could not convert to `#{$unit}` – must be a valid CSS unit&#39;;
+    @return null;
+  }
+
+  // Number/incomparable conversion
+  @if index(num number ex ch vw vh vmin vmax, $unit) {
+    $value: num($input);
+  }
+
+  // EM convertion using px as base
+  @if index(em, unit($input)) {
+    $input: 0px + num($input) * $base-font-size/1px;
+  }
+  @if index(em, $unit) and not unitless($input) {
+    $input: 0px + px($input);
+    $input: num($input) * 1px/$base-font-size;
+  }
+
+  // REM convertion using px as base
+  @if index(rem, unit($input)) {
+    $input: 0px + num($input) * $root-font-size/1px;
+  }
+  @if index(rem, $unit) and not unitless($input) {
+    $input: 0px + $input;
+    $input: num($input) * 1px/$root-font-size;
+  }
+
+  // Bug fix – resolution units seems to be flipped
+  @if index(dpi dpcm dppx, $unit){
+    $units: (dppx: 0dppx, dpcm: 0dpcm, dpi: 0dpi);
+    $input-unit: map-get($units, unit($input));
+    $input: if(1dppx &lt; 95dpi,num($input-unit + (num($input) + $to-unit)),$input);
+  }
+
+  // Convert
+  @return $to-unit + $input;
+ }" data-collapsed="@function to-unit() { ... }"><code>@function to-unit() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Conversion function</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Throws</h3><ul class="list-unstyled"><li><p>Could not convert to <code>#{$unit}</code> – must be a valid CSS unit</p></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[function]</span> <a href="#functions-function-em"><code>em</code></a></li><li><span class="item__cross-type">[function]</span> <a href="#functions-function-rem"><code>rem</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://github.com/jakob-e/unitconversion">https://github.com/jakob-e/unitconversion</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Jakob Eriksen</p></li></ul></section><section class="main__item container item" id="functions-function-_adjust-container-margin"><h3 class="item__heading"><a class="item__name" href="#function-_adjust-container-margin">_adjust-container-margin</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _adjust-container-margin() { 
   $_columns: _neat-column-default($grid, $columns);
   $_grid-columns: _retrieve-neat-setting($grid, columns);
   $_grid-gutter: _retrieve-neat-setting($grid, gutter);
@@ -101,7 +233,7 @@
       @return calc((#{$max-container-width / 2} / #{$_grid-columns}) * #{-$columns});
     }
   }
- }" data-collapsed="@function _adjust-container-margin() { ... }"><code>@function _adjust-container-margin() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Adjust Container Margin Adjusts the margin of a container by growing or shrinking it by a certain number of columns. This is a companion function to set-container-padding, which allows a container to break out of it&#39;s own boundaries.</p><p>todo: Documentation</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section><section class="main__item container item" id="undefined-function-_set-container-padding"><h3 class="item__heading"><a class="item__name" href="#function-_set-container-padding">_set-container-padding</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _set-container-padding($columns: null, $grid: $neat-grid, $v-space: 1em, $max-width: false) { 
+ }" data-collapsed="@function _adjust-container-margin() { ... }"><code>@function _adjust-container-margin() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Adjusts the margin of a container by growing or shrinking it by a certain number of columns. This is a companion function to set-container-padding, which allows a container to break out of it&#39;s own boundaries.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">TODO's</h3><ul class="list-unstyled"><li><p>: Documentation</p></li></ul></section><section class="main__item container item" id="functions-function-_set-container-padding"><h3 class="item__heading"><a class="item__name" href="#function-_set-container-padding">_set-container-padding</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _set-container-padding($columns: null, $grid: $neat-grid, $v-space: 1em, $max-width: false) { 
   $_columns: _neat-column-default($grid, $columns); // Retrieves max columns from specified grid if empty, or the specified number of columns otherwise
   $_grid-columns: _retrieve-neat-setting($grid, columns); // Retrieves the number of max columns from the specified grid
   $_grid-gutter: _retrieve-neat-setting($grid, gutter); // Retrieves the gutter from the specified grid
@@ -110,17 +242,17 @@
     // Checks to see if we need to calculate a gutter
     @if $_grid-columns &gt;= $_columns {
       $_column-multiplier: $_grid-columns - $_columns;
-      @return $v-space calc(((50% /#{$_grid-columns}) * #{$_column-multiplier}) + #{$_grid-gutter});
+      @return calc(((50% /#{$_grid-columns}) * #{$_column-multiplier}) + #{$_grid-gutter});
     } @else {
-      @return $v-space $_grid-gutter;
+      @return $_grid-gutter;
     }
     // Otherwise we calculate the max width in pixels
   } @else if type_of($max-width) == number {
     $_container-width: (((px($max-width / 2)) / $_grid-columns) * $_columns);
-    @return $v-space calc(50% - (#{$_container-width} - #{$_grid-gutter}));
+    @return calc(50% - (#{$_container-width} - #{$_grid-gutter}));
     // Finally, if max width is set to true, we use the project&#39;s &quot;max-container-width&quot; configuration option.
   } @else if ($max-width == true) {
     $_container-width: ((($max-container-width / 2) / $_grid-columns) * $_columns);
-    @return $v-space calc(50% - (#{$_container-width} - #{$_grid-gutter}));
+    @return calc(50% - (#{$_container-width} - #{$_grid-gutter}));
   }
  }" data-collapsed="@function _set-container-padding($columns: null, $grid: $neat-grid, $v-space: 1em, $max-width: false) { ... }"><code>@function _set-container-padding($columns: null, $grid: $neat-grid, $v-space: 1em, $max-width: false) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Set Container padding Creates a fluid container of a certain number of columns. Can be constrained to a specific max width, or to the project&#39;s global <code>$max-container-width</code>.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$columns</code></th><td data-label="desc"><p>The number of columns the container spans (ex: 1 or 1 of 2)</p></td><td data-label="type"><code>Number</code> or <code>String</code></td><td data-label="default"><code>null</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$grid</code></th><td data-label="desc"><p>The grid to base the calculations on.</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>$neat-grid</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$v-space</code></th><td data-label="desc"><p>The value for padding-top and padding-bottom in a container</p></td><td data-label="type"><code>Length(with unit)</code></td><td data-label="default"><code>1em</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$max-width</code></th><td data-label="desc"><p>Whether the container&#39;s columns are based on the full parent width, or on a set max width</p></td><td data-label="type"><code>Boolean</code></td><td data-label="default"><code>false</code></td></tr></tbody></table></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --> <a class="project-info__name" href="https://github.com/su-sws/decanter">Decanter</a><!-- Version --> <span class="project-info__version">- v0.1.0-alpha1</span><!-- License --> <span class="project-info__license">, under MIT</span></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>

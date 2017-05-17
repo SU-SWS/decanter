@@ -2,16 +2,15 @@
 
 ////
 /// Color Themes mixin
-/// @group mixins|theme
+/// @group functions|color
 ////
 
 // Dependency on the $colors variable.
 @import '../../variables/colors';
 
 ///
-///
 $default-theme-group: (
-    default:  ( palette: $colors, selector: '&' ),
+  default:  ( palette: $colors, selector: '&' ),
 ) !default;
 
 /// `color-themes` consumes a map to render multiple color variations on a specific block. For each
@@ -27,7 +26,7 @@ $default-theme-group: (
 ///   has ended, the default color map will revert to its original state as defined by `$color`.
 ///
 ///
-/// @example SCSS
+/// @example scss - SCSS
 ///   $green-theme: (
 ///     brand:                        #2c853c,
 ///     action:                       #00992b,
@@ -65,7 +64,7 @@ $default-theme-group: (
 ///     }
 ///   }
 ///
-/// @example CSS
+/// @example css - CSS Output
 ///   .card {
 ///     background-color: #fff;
 ///     color: #808080;
@@ -79,9 +78,13 @@ $default-theme-group: (
 ///     color: #297C85;
 ///   }
 ///
+
 /// @link {mixin} color-theme
 /// @link (variable} colors
 ///
+/// @require color
+/// @require $colors
+/// @require color-theme
 @mixin color-themes($theme-group: null) {
   @each $_theme, $_map in $theme-group {
 

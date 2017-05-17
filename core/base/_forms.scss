@@ -2,119 +2,266 @@
 ////
 /// Form base styles.
 /// @group base|forms
+///
+/// @type map
+/// @see $group__element--default
+/// @see $group__element
 ////
 
-/// Fieldset defaults.
+// ---------------------------------------------------------------------------------------------------------------------
+/// - Base styles for the `fieldset` element
+///
+/// @example scss - Used in `base/_forms.scss` by the `fieldset` element
+///   fieldset {
+///     @include properties($forms__fieldset--default, $typography__fieldset);
+///   }
+///
+/// @require --
+///
+/// @todo --
+///
+/// link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset
+///
+$forms__fieldset--default: (
+background-color: transparent,
+border: 0,
+margin: 0,
+padding: 0,
+) !default;
+
+$forms__fieldset: () !default;
+
 fieldset {
-  background-color: transparent;
-  border: 0;
-  margin: 0;
-  padding: 0;
+  @include properties($forms__fieldset--default, $forms__fieldset);
 }
 
-/// Legend defaults.
-/// @require {variable} $small-spacing
+// ---------------------------------------------------------------------------------------------------------------------
+/// - Base styles for the `legend` element
+///
+/// @example scss - Used in `base/_forms.scss` by the `legend` element
+///   legend {
+///     @include properties($forms__legend--default, $typography__legend);
+///   }
+///
+/// @require $small-spacing
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend
+///
+$forms__legend--default: (
+    font-weight: 600,
+    margin-bottom: $small-spacing / 2,
+    padding: 0,
+) !default;
+
+$forms__legend: () !default;
+
 legend {
-  $_spacing: $small-spacing;
-  font-weight: 600;
-  margin-bottom: $_spacing / 2;
-  padding: 0;
+  @include properties($forms__legend--default, $forms__legend);
 }
 
-/// Label defaults.
-/// @require {variable} $small-spacing
+
+// ---------------------------------------------------------------------------------------------------------------------
+/// - Base documentation cut & paste template.
+/// - Base styles for the `label` element
+///
+/// @example scss - Used in `base/_forms.scss` by the `label` element
+///   label {
+///     @include properties($forms__label--default, $typography__label);
+///   }
+///
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label
+/// @require $small-spacing
+///
+$forms__label--default: (
+    display: block,
+    font-weight: 600,
+    margin-bottom: $small-spacing / 2,
+) !default;
+
+$forms__label: () !default;
+
 label {
-  $_spacing: $small-spacing;
-  display: block;
-  font-weight: 600;
-  margin-bottom: $_spacing / 2;
+  @include properties($forms__label--default, $forms__label);
 }
 
-/// Input defaults.
-/// @require {variable} $base-font-family
+// ---------------------------------------------------------------------------------------------------------------------
+/// - Base documentation cut & paste template.
+/// - Base styles for the `input`, `select` and `textarea` elements
+///
+/// @example scss - Used in `base/_forms.scss` by the `input` element
+///   input,
+///   select,
+///   textarea {
+///     @include properties($forms__input--default, $typography__input);
+///   }
+///
+/// @require $base-font-family
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
+///
+$forms__input--default: (
+    display: block,
+    font-family: $base-font-family,
+) !default;
+
+$forms__input: () !default;
+
 input,
 select,
 textarea {
-  $_font-family: $base-font-family;
-  display: block;
-  font-family: $_font-family;
+  @include properties($forms__input--default, $forms__input);
 }
 
-/// All Text Input defaults.
+// ---------------------------------------------------------------------------------------------------------------------
+/// - Base styles for the `#{}all-text-inputs}` element
+///
+/// @example scss - Used in `base/_forms.scss` by all text inputs element
+///   #{$all-text-inputs} {
+///     @include properties($forms__all-text-inputs--default, $typography__all-text-inputs);
+///   }
+///
 /// @require bourbon
-/// @require {function} color
-/// @require {mixin} on-event
-/// @require {variable} $base-border
-/// @require {variable} $base-border-radius
-/// @require {variable} $form-box-shadow
-/// @require {variable} $base-spacing
-/// @require {variable} $base-duration
-/// @require {variable} $base-timing
-/// @group base
+/// @require color
+/// @require hokus on-event
+/// @require $base-border
+/// @require $base-border-radius
+/// @require $form-box-shadow
+/// @require $base-spacing
+/// @require $base-duration
+/// @require $base-timing
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+///
+$forms__all-text-inputs--default: (
+    appearance: none,
+    background-color: color(background),
+    border: $base-border,
+    border-radius: $base-border-radius,
+    box-shadow: $form-box-shadow,
+    box-sizing: border-box,
+    margin-bottom: $base-spacing,
+    padding: $base-spacing / 3,
+    transition: border-color $base-duration $base-timing,
+    width: 100%,
+
+    #{$hocus}: (
+        border-color: shade(color(border), 20%),
+    ),
+    '&:disabled': (
+        background-color: shade(color(background), 5%),
+        cursor: not-allowed,
+
+        '&:hover': (
+            border: $base-border,
+        ),
+    ),
+
+    '&::placeholder': (
+        color: tint(color(text), 40%),
+    ),
+) !default;
+
+$forms__all-text-inputs: () !default;
+
 #{$all-text-inputs} {
-  $_border: $base-border;
-  $_border-radius: $base-border-radius;
-  $_box-shadow: $form-box-shadow;
-  $_spacing: $base-spacing;
-  $_small-spacing: $base-spacing;
-  $_duration: $base-duration;
-  $_timing: $base-timing;
-
-  appearance: none;
-  background-color: color(background);
-  border: $_border;
-  border-radius: $_border-radius;
-  box-shadow: $_box-shadow;
-  box-sizing: border-box;
-  margin-bottom: $_small-spacing;
-  padding: $_spacing / 3;
-  transition: border-color $_duration $_timing;
-  width: 100%;
-
-  @include on-event {
-    border-color: shade(color(border), 20%);
-  }
-
-  &:disabled {
-    background-color: shade(color(background), 5%);
-    cursor: not-allowed;
-
-    &:hover {
-      border: $_border;
-    }
-  }
-
-  &::placeholder {
-    color: tint(color(text), 40%);
-  }
+  @include properties($forms__all-text-inputs--default, $forms__all-text-inputs);
 }
 
-/// Text area styles.
+// ---------------------------------------------------------------------------------------------------------------------
+/// - Base styles for the `textarea` element
+///
+/// @example scss - Used in `base/_forms.scss` by the `textarea` element
+///   textarea {
+///     @include properties($forms__textarea--default, $typography__textarea);
+///   }
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
+///
+
+$forms__textarea--default: (
+    resize: vertical,
+) !default;
+
+$forms__textarea: () !default;
+
 textarea {
-  resize: vertical;
+  @include properties($forms__textarea--default, $forms__textarea);
 }
 
-/// Checkboxes and radios
-/// @require {variable} $small-spacing
+// ---------------------------------------------------------------------------------------------------------------------
+/// - Base styles for the `[type="checkbox"]` and `[type="radio"]` input elements
+///
+/// @example scss - Used in `base/_forms.scss` by the `[type="checkbox"]` and `[type="radio"]` elements
+///   [type="checkbox"],
+///   [type="radio"]  {
+///
+///     @include properties($forms__radiocheck--default, $typography__radiocheck);
+///   }
+///
+/// @require $small-spacing
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+///
+
+$forms__radiocheck--default: (
+    display: inline,
+    margin-right: $small-spacing / 2,
+) !default;
+
+$forms__radiocheck: () !default;
+
 [type="checkbox"],
 [type="radio"] {
-  $_spacing: $small-spacing;
-  display: inline;
-  margin-right: $_spacing / 2;
+  @include properties($forms__radiocheck--default, $forms__radiocheck);
 }
 
-/// File fields.
-/// @require {variable} $small-spacing
+// ---------------------------------------------------------------------------------------------------------------------
+/// - Base styles for the `[type="file"]` input element
+///
+/// @example scss - Used in `base/_forms.scss` by the `[type="file"]` element
+///   [type="file"] {
+///     @include properties($forms__input-file--default, $typography__input-file);
+///   }
+///
+/// @require $small-spacing
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+///
+
+$forms__input-file--default: (
+    margin-bottom: $small-spacing,
+    width: 100%,
+) !default;
+
+$forms__input-file: () !default;
+
 [type="file"] {
-  $_spacing: $small-spacing;
-  margin-bottom: $_spacing;
-  width: 100%;
+  @include properties($forms__input-file--default, $forms__input-file);
 }
 
-/// Select styles.
-/// @require {variable} $small-spacing
+// ---------------------------------------------------------------------------------------------------------------------
+/// - Base styles for the `select` element
+///
+/// @example scss - Used in `base/_forms.scss` by the `select` element
+///   select {
+///     @include properties($forms__select--default, $typography__select);
+///   }
+///
+/// @require $small-spacing
+///
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
+///
+$forms__select--default: (
+    margin-bottom: $small-spacing,
+    width: 100%,
+) !default;
+
+$forms__select: () !default;
+
 select {
-  $_spacing: $small-spacing;
-  margin-bottom: $_spacing;
-  width: 100%;
+  @include properties($forms__select--default, $forms__select);
 }

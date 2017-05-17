@@ -2,59 +2,85 @@
 
 ////
 /// Colors
-/// @group Variables|Buttons
+/// @group _variables|buttons
 ////
 
 /// This variable is a sass map that overrides our generic button map.
 ///
 /// @name Base button
 ///
-/// @property {Color} bg-color [color(action)] - Background color
-/// @property {Color} color [color(reverse-text)] - Text Color
-/// @property {length(with unit) | string} border ['none'] - Border properties. Accepts shorthand.
+/// @require $base-font-family
+/// @require $base-line-height
+/// @require $small-spacing
+/// @require $base-transition
+/// @require material-shadow
+/// @require color
+/// @require em
 $base-button: (
-    bg-color: color(action),
-    color: color(reverse-text),
-    border: none,
-    cursor: pointer,
-    display: inline-block,
-    material-shadow: flat,
-    font-family: $base-font-family,
-    line-height: $base-line-height,
-    font-weight: inherit,
-    font-size: inherit,
+  box-shadow: material-shadow(flat),
+  appearance: none,
+  background-color: color(action),
+  border: none,
+  color: color(reverse-text),
+  cursor: pointer,
+  display: inline-block,
+  font-family: $base-font-family,
+  font-size: inherit,
+  -webkit-font-smoothing: antialiased,
+  font-weight: inherit,
+  line-height: $base-line-height,
+  padding: em(6px) em($small-spacing) em(7px),
+  text-align: center,
+  text-decoration: none,
+  user-select: none,
+  vertical-align: middle,
+  transition: $base-transition,
+
+  '#{$hocus}': (
+    background-color: color(action--active),
+    color: color(reverse-text--active),
     text-decoration: none,
-    transition: $base-transition,
-    padding: 'em(6px) em($_spacing) em(7px)',
-    text-align: center,
-    spacing: $small-spacing,
-    bg-color--active: color(action--active),
-    color--active: color(reverse-text--active),
-    border--active: null,
-    material-shadow--active: null,
-    text-decoration--active: none,
+  ),
+
+  '&:disabled, &.disabled': (
+    background-color: color(action),
+    color: color(reverse-text),
+    cursor: not-allowed,
+    opacity: .5,
+
+    '&:hover': (
+      cursor: not-allowed,
+    ),
+  ),
 ) !default;
 
 $primary-button: (
-    bg-color: color(action),
+  background-color: color(action),
+  color: color(reverse-text),
+  font-weight: 600,
+  padding: em(10px) em($base-spacing) em(12px),
+
+  '#{$hocus}': (
+    background-color: color(action--active),
     color: color(reverse-text),
-    font-weight: 600,
-    padding: 'em(10px) em($_spacing) em(12px)',
-    bg-color--active: color(action-active),
-    color--active: color(reverse-text--active),
-    material-shadow--active: null,
-    text-decoration--active: none,
+    text-decoration: none,
+  ),
 ) !default;
 
+///
+/// @require $base-border
+/// @require $base-spacing
+/// @require $hocus
 $secondary-button: (
-    bg-color: inherit,
-    border: $base-border,
-    border--active: color(action),
+  background-color: inherit,
+  border: $base-border,
+  color: color(text),
+  font-weight: 600,
+  padding: em(7px) em($base-spacing) em(9px),
+
+  '#{$hocus}': (
+    background-color: inherit,
+    border-color: color(action),
     color: color(action),
-    font-weight: 600,
-    padding: 'em(7px) em($_spacing) em(9px)',
-    bg-color--active: inherit,
-    color--active: color(text--active),
-    material-shadow--active: null,
-    text-decoration--active: none,
+  ),
 ) !default;
