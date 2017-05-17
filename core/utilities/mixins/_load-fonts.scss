@@ -2,7 +2,7 @@
 
 ////
 /// Font loading function.
-/// @group functions
+/// @group font-management
 ////
 
 /// Global default fonts.
@@ -13,6 +13,11 @@ $loaded-fonts: () !default;
 
 /// Load a collection of @font-face fonts
 ///
+/// @require $fonts
+/// @require $loaded-fonts
+/// @require log-loaded-fonts
+/// @require _check-loaded-font
+/// @require _log-loaded-font
 @mixin load-fonts($load: $fonts) {
 
   // String
@@ -20,12 +25,12 @@ $loaded-fonts: () !default;
     // Cast the item to a string to be sure we don't pass
     // strange variables to the loader.
     $_item_string: '#{$load}';
-    @if (_is-loaded_font($_item_string) != true) {
+    @if _check-loaded_font($_item_string) {
+      @debug "Font: #{$_item_string} already loaded.";
+    } @else {
       $_tmp: _log-loaded-font($_item_string);
       $_item_string: quote($_item_string);
       @import url($_item_string);
-    } @else {
-      @debug "Font: #{$_item_string} already loaded.";
     }
     // List
   } @else if type-of($load) == list {
@@ -34,13 +39,12 @@ $loaded-fonts: () !default;
       // Cast the item to a string to be sure we don't pass
       // strange variables to the loader.
       $_item_string: '#{$_item}';
-      @if (_is-loaded_font($_item_string) != true) {
+      @if _check-loaded-font($_item_string) {
+        @debug "Font: #{$_item_string} already loaded.";
+      } @else {
         $_tmp: _log-loaded-font($_item_string);
         $_item_string: quote($_item_string);
         @import url($_item_string);
-      }
-      @else {
-        @debug "Font: #{$_item_string} already loaded.";
       }
     }
     // Map
@@ -51,13 +55,12 @@ $loaded-fonts: () !default;
         // Cast the item to a string to be sure we don't pass
         // strange variables to the loader.
         $_item_string: '#{$_font}';
-        @if (_is-loaded_font($_item_string) != true) {
+        @if _check-loaded-font($_item_string) {
+          @debug "Font: #{$_item_string} already loaded.";
+        } @else {
           $_tmp: _log-loaded-font($_item_string);
           $_item_string: quote($_item_string);
           @import url($_item_string);
-        }
-        @else {
-          @debug "Font: #{$_item_string} already loaded.";
         }
       }
     }

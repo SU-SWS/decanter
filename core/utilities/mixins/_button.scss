@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+///
+/// The button mixin is a functional alias of the `properties` mixin, however, it's there to provide a semantic
+/// demarcation for it's intended purpose. Namely, we are using it to mimic the `extend` functionality for cases
+/// where CSS inheritance causes unintended cascading of button properties. In those cases,
+/// you can `@include button($base-button, $secondary-button)`, and have this mixin provide all the computed
+/// values that would normally be overriden if we had used %extend
+///
+@mixin button($default-settings, $settings: null) {
+  $_settings: smart-merge($default-settings, $settings);
+
+  @each $_property, $_value in $_settings {
+    @include _nested-properties($_property, $_value);
+  }
+}

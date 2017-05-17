@@ -1,0 +1,119 @@
+@charset 'UTF-8';
+
+////
+/// Properties
+/// @author Kevin Garcia
+/// @group mixins
+////
+
+/// Returns a list of `$property`: `$value` pairs
+///
+/// @param {map} default-settings - The default map the mixin consumes
+/// @param {map} settings [null] - The optional override map to merge in
+///
+/// @example scss - source SCSS
+///  $default-map: (
+///      color: blue,
+///      margin: 0 auto,
+///  );
+///
+///  $map-override: (
+///      color: red,
+///      overflow: hidden,
+///  );
+///
+///  .default-element {
+///    @include properties($default-map);
+///  }
+///
+///  .override-element {
+///    @include properties($map-override);
+///  }
+///
+///  .merged-element {
+///    @include properties($default-map, $map-override);
+///  }
+///
+/// @example css - output CSS
+///
+///   .default-element {
+///     color: blue;
+///     margin: 0 auto;
+///   }
+///
+///   .override-element: {
+///      color: red;
+///      overflow: hidden;
+///   };
+///
+///   .merged-element {
+///     color: red;
+///     margin: 0 auto;
+///     overflow: hidden;
+///   }
+///
+/// @example scss - When to use default + merged elements (scss)
+///
+///   // The main use case is when one wants to output variations of an element.
+///
+///   $default-button: (
+///      background-color: #333333,
+///      color: white,
+///      margin: 0 auto,
+///      padding: 1em,
+///   );
+///
+///   $blue-button: (
+///      background-color: blue,
+///   );
+///
+///   // You can pass it a default map
+///   .button {
+///      @include element-properties($default-button);
+///   }
+///
+///   // You can pass it a named map
+///   .button--blue {
+///      @include element-properties($default-button, $blue-button);
+///   }
+///
+///   // You may also pass it an inline map
+///  .button--green {
+///      @include element-properties($default-button, (font-size: 1.125em, background-color: green, color: inherit, margin: null, ));
+///   }
+///
+/// @example css - When to use default + merged elements (output)
+///
+///   .button: {
+///      background-color: #333333;
+///      color: white;
+///      margin: 0 auto;
+///      padding: 1em;
+///   };
+///
+///   .button--blue: (
+///      background-color: blue;
+///      color: white;
+///      margin: 0 auto;
+///      padding: 1em;
+///   );
+///
+///   /* Notice that explicitly null values in overrides are removed from the output */
+///   .button--green: (
+///      background-color: green; /* <- overriden value */
+///      color: inherit; /* <- overriden value */
+///      padding: 1em; /* <- Notice that the margin property is gone. */
+///      font-size: 1.125em /* <- values not present in the default map are amended to the end */
+///   );
+///
+///
+/// @requires [function] smart-merge
+/// @requires [mixin] _nested-properties
+///
+@mixin properties($default-settings, $settings: null) {
+  $_settings: smart-merge($default-settings, $settings);
+
+  @each $_property, $_value in $_settings {
+    @include _nested-properties($_property, $_value);
+  }
+}

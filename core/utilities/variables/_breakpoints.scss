@@ -2,64 +2,56 @@
 
 ////
 /// Breakpoints
+/// @type variable
 ////
 
 // Breakpoint Boundaries
 
 /// Lower Boundary for extra small screens
-/// @group variables|breakpoint-boundaries
-/// @type variable
+/// @group _variables|breakpoint-boundaries
 $screen-xs-min:               0px !default;
 
 /// Lower boundary for small screens
-/// @group variables|breakpoint-boundaries
-/// @type variable
+/// @group _variables|breakpoint-boundaries
 $screen-sm-min:               576px !default;
 
 /// Lower boundary for medium screens
-/// @group variables|breakpoint-boundaries
-/// @type variable
+/// @group _variables|breakpoint-boundaries
 $screen-md-min:               768px !default;
 
 /// Lower boundary for large screens
-/// @group variables|breakpoint-boundaries
-/// @type variable
+/// @group _variables|breakpoint-boundaries
 $screen-lg-min:               992px !default;
 
 /// Lower boundary for extra large screens
-/// @group variables|breakpoint-boundaries
-/// @type variable
+/// @group _variables|breakpoint-boundaries
 $screen-xl-min:               $max-container-width !default;
 
 
 /// Upper boundary for extra small screens
-/// @group variables|breakpoint-boundaries
+/// @group _variables|breakpoint-boundaries
 /// @requires $screen-xs-min
-/// @type variable
 $screen-xs-max:               $screen-sm-min - 1px !default;
 
 /// Upper boundary for small screens
-/// @group variables|breakpoint-boundaries
+/// @group _variables|breakpoint-boundaries
 /// @requires $screen-sm-min
-/// @type variable
 $screen-sm-max:               $screen-md-min - 1px !default;
 
 /// Upper boundary for medium screens
-/// @group variables|breakpoint-boundaries
+/// @group _variables|breakpoint-boundaries
 /// @requires $screen-lg-min
-/// @type variable
 $screen-md-max:               $screen-lg-min - 1px !default;
 
 /// Upper boundary for large screens
-/// @group variables|breakpoint-boundaries
+/// @group _variables|breakpoint-boundaries
 /// @requires $screen-xl-min
-/// @type variable
 $screen-lg-max:               $screen-xl-min - 1px !default;
 
 
 // Neat Media Queries
 
-/// @group variables|grid-media
+/// @group _variables|grid-media
 /// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
 /// @type map
 ///
@@ -78,7 +70,7 @@ $media-xs: (
     media: $screen-xs-min,
 ) !default;
 
-/// @group variables|grid-media
+/// @group _variables|grid-media
 /// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
 /// @type map
 ///
@@ -97,7 +89,7 @@ $media-xs-only: (
     media: 'only screen and (max-width: #{$screen-xs-max})',
 ) !default;
 
-/// @group variables|grid-media
+/// @group _variables|grid-media
 /// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
 /// @type map
 ///
@@ -116,7 +108,7 @@ $media-xs-max: (
     media: 'only screen and (max-width: #{$screen-xs-max})',
 ) !default;
 
-/// @group variables|grid-media
+/// @group _variables|grid-media
 /// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
 /// @type map
 ///
@@ -135,7 +127,7 @@ $media-sm: (
     media: $screen-sm-min,
 ) !default;
 
-/// @group variables|grid-media
+/// @group _variables|grid-media
 /// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
 /// @type map
 ///
@@ -155,7 +147,7 @@ $media-sm-only: (
     media: 'only screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})',
 ) !default;
 
-/// @group variables|grid-media
+/// @group _variables|grid-media
 /// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
 /// @type map
 ///
@@ -174,7 +166,7 @@ $media-sm-max: (
     media: 'only screen and (max-width: #{$screen-sm-max})',
 ) !default;
 
-/// @group variables|grid-media
+/// @group _variables|grid-media
 /// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
 /// @type map
 ///
@@ -193,7 +185,7 @@ $media-md: (
     media: $screen-md-min,
 ) !default;
 
-/// @group variables|grid-media
+/// @group _variables|grid-media
 /// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
 /// @type map
 ///
@@ -213,7 +205,7 @@ $media-md-only: (
     media: 'only screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})',
 ) !default;
 
-/// @group variables|grid-media
+/// @group _variables|grid-media
 /// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
 /// @type map
 ///
@@ -232,7 +224,7 @@ $media-md-max: (
     media: 'only screen and (max-width: #{$screen-md-max})',
 ) !default;
 
-/// @group variables|grid-media
+/// @group _variables|grid-media
 /// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
 /// @type map
 ///
@@ -251,7 +243,7 @@ $media-lg: (
     media: $screen-lg-min,
 ) !default;
 
-/// @group variables|grid-media
+/// @group _variables|grid-media
 /// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
 /// @type map
 ///
@@ -270,7 +262,7 @@ $media-lg-only: (
     media: 'only screen and (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max})',
 ) !default;
 
-/// @group variables|grid-media
+/// @group _variables|grid-media
 /// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
 /// @type map
 ///
@@ -289,7 +281,7 @@ $media-lg-max: (
     media: 'only screen and (max-width: #{$screen-lg-max})',
 ) !default;
 
-/// @group variables|grid-media
+/// @group _variables|grid-media
 /// @link http://neat.bourbon.io/docs/latest/#grid-media Neat Docs - Grid Media
 /// @type map
 ///
@@ -308,7 +300,7 @@ $media-xl: (
     media: $screen-xl-min,
 ) !default;
 
-/// @group variables|grid-media
+/// @group _variables|grid-media
 /// @link http://neat.bourbon.io/docs/latest/#grid-media Neat | Grid Media
 /// @type map
 ///

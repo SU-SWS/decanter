@@ -1,25 +1,60 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><title>Decanter - v0.1.0-alpha1</title><link rel="stylesheet" href="assets/css/main.css"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="Decanter - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="<p>A collection of SCSS patterns for theme development.</p>
-"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title"><a href="https://github.com/su-sws/decanter">Decanter - v0.1.0-alpha1</a></h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="mixins"><a href="#mixins">mixins</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="mixins-mixin"><a href="#mixins-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="mixins" data-name="material-shadow" data-type="mixin"><a href="#mixins-mixin-material-shadow">material-shadow</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="mixins|theme"><a href="#mixins|theme">mixins|theme</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="mixins|theme-variable"><a href="#mixins|theme-variable">variables</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="mixins|theme" data-name="default-theme-group" data-type="variable"><a href="#mixins|theme-variable-default-theme-group">default-theme-group</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="mixins|theme-mixin"><a href="#mixins|theme-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="mixins|theme" data-name="color-themes" data-type="mixin"><a href="#mixins|theme-mixin-color-themes">color-themes</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="undefined"><a href="#undefined">General</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-mixin"><a href="#undefined-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="center-block" data-type="mixin"><a href="#undefined-mixin-center-block">center-block</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="on-event" data-type="mixin"><a href="#undefined-mixin-on-event">on-event</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="centered-container" data-type="mixin"><a href="#undefined-mixin-centered-container">centered-container</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="flex-container" data-type="mixin"><a href="#undefined-mixin-flex-container">flex-container</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="responsive-container" data-type="mixin"><a href="#undefined-mixin-responsive-container">responsive-container</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="color-theme" data-type="mixin"><a href="#undefined-mixin-color-theme">color-theme</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="mixins"><div class="container">mixins</div></h1><section class="main__sub-section" id="mixins-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="mixins-mixin-material-shadow"><h3 class="item__heading"><a class="item__name" href="#mixin-material-shadow">material-shadow</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin material-shadow($Depth: shallow) { 
-// Depths: flat | shallow | medium | deep
-  @media screen {
-    @if $depth == &#39;flat&#39; {
-      // Box Shadow: offset-x | offset-y | blur-radius | spread-radius | color
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
-    } @else if $depth == &#39;shallow&#39; {
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.05), 0px 3px 3px 1px rgba(0, 0, 0, 0.05);
-    } @else if $depth == &#39;medium&#39; {
-      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.09), 0px 7px 10px 0px rgba(0, 0, 0, 0.15);
-    } @else if $depth == &#39;deep&#39; {
-      box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.10), 0px 11px 12px 0px rgba(0, 0, 0, 0.2);
+"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title"><a href="https://github.com/su-sws/decanter">Decanter - v0.1.0-alpha1</a></h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="font-management"><a href="#font-management">Font Loading &amp; Management</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="font-management-variable"><a href="#font-management-variable">variables</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="font-management" data-name="fonts" data-type="variable"><a href="#font-management-variable-fonts">fonts</a></li><li class="sidebar__item sassdoc__item" data-group="font-management" data-name="loaded-fonts" data-type="variable"><a href="#font-management-variable-loaded-fonts">loaded-fonts</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="font-management-mixin"><a href="#font-management-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="font-management" data-name="load-fonts" data-type="mixin"><a href="#font-management-mixin-load-fonts">load-fonts</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="functions|color"><a href="#functions|color">functions|color</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="functions|color-variable"><a href="#functions|color-variable">variables</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="functions|color" data-name="default-theme-group" data-type="variable"><a href="#functions|color-variable-default-theme-group">default-theme-group</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="functions|color-mixin"><a href="#functions|color-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="functions|color" data-name="color-themes" data-type="mixin"><a href="#functions|color-mixin-color-themes">color-themes</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="mixins"><a href="#mixins">Mixins</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="mixins-mixin"><a href="#mixins-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="mixins" data-name="_nested-properties" data-type="mixin"><a href="#mixins-mixin-_nested-properties">_nested-properties</a></li><li class="sidebar__item sassdoc__item" data-group="mixins" data-name="font-size" data-type="mixin"><a href="#mixins-mixin-font-size">font-size</a></li><li class="sidebar__item sassdoc__item" data-group="mixins" data-name="material_shadow" data-type="mixin"><a href="#mixins-mixin-material_shadow">material_shadow</a></li><li class="sidebar__item sassdoc__item" data-group="mixins" data-name="on-event" data-type="mixin"><a href="#mixins-mixin-on-event">on-event</a></li><li class="sidebar__item sassdoc__item" data-group="mixins" data-name="properties" data-type="mixin"><a href="#mixins-mixin-properties">properties</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="mixins
+center block"><a href="#mixins
+center block">mixins center block</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="mixins
+center block-mixin"><a href="#mixins
+center block-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="mixins
+center block" data-name="center-block" data-type="mixin"><a href="#mixins
+center block-mixin-center-block">center-block</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="mixins|color"><a href="#mixins|color">mixins|color</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="mixins|color-mixin"><a href="#mixins|color-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="mixins|color" data-name="color-theme" data-type="mixin"><a href="#mixins|color-mixin-color-theme">color-theme</a></li></ul></div><p class="sidebar__item sidebar__item--heading" data-slug="undefined"><a href="#undefined">General</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-mixin"><a href="#undefined-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="button" data-type="mixin"><a href="#undefined-mixin-button">button</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="adjust-container-width" data-type="mixin"><a href="#undefined-mixin-adjust-container-width">adjust-container-width</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="centered-container" data-type="mixin"><a href="#undefined-mixin-centered-container">centered-container</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="flex-container" data-type="mixin"><a href="#undefined-mixin-flex-container">flex-container</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="responsive-container" data-type="mixin"><a href="#undefined-mixin-responsive-container">responsive-container</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="font-management"><div class="container">Font Loading &amp; Management</div></h1><section class="main__sub-section" id="font-management-variable"><h2 class="main__heading--secondary"><div class="container">variables</div></h2><section class="main__item container item" id="font-management-variable-fonts"><h3 class="item__heading"><a class="item__name" href="#variable-fonts">fonts</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$fonts: () !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Global default fonts.</p></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#font-management-mixin-load-fonts"><code>load-fonts</code></a></li></ul></section><section class="main__item container item" id="font-management-variable-loaded-fonts"><h3 class="item__heading"><a class="item__name" href="#variable-loaded-fonts">loaded-fonts</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$loaded-fonts: () !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Keeps track of already loaded fonts.</p></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#font-management-mixin-load-fonts"><code>load-fonts</code></a></li></ul></section></section><section class="main__sub-section" id="font-management-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="font-management-mixin-load-fonts"><h3 class="item__heading"><a class="item__name" href="#mixin-load-fonts">load-fonts</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin load-fonts() { 
+
+  // String
+  @if type-of($load) == string {
+    // Cast the item to a string to be sure we don&#39;t pass
+    // strange variables to the loader.
+    $_item_string: &#39;#{$load}&#39;;
+    @if _check-loaded_font($_item_string) {
+      @debug &quot;Font: #{$_item_string} already loaded.&quot;;
+    } @else {
+      $_tmp: _log-loaded-font($_item_string);
+      $_item_string: quote($_item_string);
+      @import url($_item_string);
+    }
+    // List
+  } @else if type-of($load) == list {
+    // Loop through each item in the passed in list.
+    @each $_item in $load {
+      // Cast the item to a string to be sure we don&#39;t pass
+      // strange variables to the loader.
+      $_item_string: &#39;#{$_item}&#39;;
+      @if _check-loaded-font($_item_string) {
+        @debug &quot;Font: #{$_item_string} already loaded.&quot;;
+      } @else {
+        $_tmp: _log-loaded-font($_item_string);
+        $_item_string: quote($_item_string);
+        @import url($_item_string);
+      }
+    }
+    // Map
+  } @else if type-of($load) == map {
+    // Loop through each item in the passed in map.
+    @each $_index, $_item in $load {
+      @each $_font in $_item {
+        // Cast the item to a string to be sure we don&#39;t pass
+        // strange variables to the loader.
+        $_item_string: &#39;#{$_font}&#39;;
+        @if _check-loaded-font($_item_string) {
+          @debug &quot;Font: #{$_item_string} already loaded.&quot;;
+        } @else {
+          $_tmp: _log-loaded-font($_item_string);
+          $_item_string: quote($_item_string);
+          @import url($_item_string);
+        }
+      }
     }
   }
- }" data-collapsed="@mixin material-shadow($Depth: shallow) { ... }"><code>@mixin material-shadow($Depth: shallow) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Creates a material-design style shadow. May be flat, shallow, medium, or deep.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$Depth</code></th><td data-label="desc"><p>How deep the shadow appears to be. Default is Shallow.</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>shallow</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>SCSS</p></div><pre class="example__code language-scss"><code>.element {
-  @include material-shadow(shallow);
-}</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS</p></div><pre class="example__code language-css"><code>.element {
-  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.10), 2px 4px 7px 0px rgba(0,0,0,0.15);
-}</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Kevin Garcia</p></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="mixins|theme"><div class="container">mixins|theme</div></h1><section class="main__sub-section" id="mixins|theme-variable"><h2 class="main__heading--secondary"><div class="container">variables</div></h2><section class="main__item container item" id="mixins|theme-variable-default-theme-group"><h3 class="item__heading"><a class="item__name" href="#variable-default-theme-group">default-theme-group</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$default-theme-group: (
+ }" data-collapsed="@mixin load-fonts() { ... }"><code>@mixin load-fonts() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Load a collection of @font-face fonts</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#font-management-variable-fonts"><code>fonts</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[variable]</span> <a href="#font-management-variable-loaded-fonts"><code>loaded-fonts</code></a></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="functions|color"><div class="container">functions|color</div></h1><section class="main__sub-section" id="functions|color-variable"><h2 class="main__heading--secondary"><div class="container">variables</div></h2><section class="main__item container item" id="functions|color-variable-default-theme-group"><h3 class="item__heading"><a class="item__name" href="#variable-default-theme-group">default-theme-group</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$default-theme-group: (
     default:  ( palette: $colors, selector: &#39;&amp;&#39; ),
-) !default;</code></pre></div></section></section><section class="main__sub-section" id="mixins|theme-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="mixins|theme-mixin-color-themes"><h3 class="item__heading"><a class="item__name" href="#mixin-color-themes">color-themes</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin color-themes($theme-group: $default-theme-group) { 
+) !default;</code></pre></div></section></section><section class="main__sub-section" id="functions|color-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="functions|color-mixin-color-themes"><h3 class="item__heading"><a class="item__name" href="#mixin-color-themes">color-themes</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin color-themes($theme-group: $default-theme-group) { 
   @each $_theme, $_map in $theme-group {
 
     $_palette: map_get($_map, palette);
@@ -29,7 +64,7 @@
       @content
     }
   }
- }" data-collapsed="@mixin color-themes($theme-group: $default-theme-group) { ... }"><code>@mixin color-themes($theme-group: $default-theme-group) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p><code>color-themes</code> consumes a map to render multiple color variations on a specific block. For each theme group in the theme group map, the <code>$color-themes</code> mixin iterates over that group with the specified selector.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$theme-group</code></th><td data-label="desc"><p>@property {string} selector [&#39;&amp;&#39;] @property {map} palette [$color]</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>$default-theme-group</code></td></tr></tbody></table><h3 class="item__sub-heading">Content</h3><p>This mixin allows extra content to be passed (through the <code>@content</code> directive). Role: `color-theme` will temporarily override the default color map with the attributes of the specified `$palette`. This change is scoped to within the mixin block, and once the mixin has ended, the default color map will revert to its original state as defined by `$color`.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-SCSS"><code>$green-theme: (
+ }" data-collapsed="@mixin color-themes($theme-group: $default-theme-group) { ... }"><code>@mixin color-themes($theme-group: $default-theme-group) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p><code>color-themes</code> consumes a map to render multiple color variations on a specific block. For each theme group in the theme group map, the <code>$color-themes</code> mixin iterates over that group with the specified selector.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$theme-group</code></th><td data-label="desc"><p>@property {string} selector [&#39;&amp;&#39;] @property {map} palette [$color]</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>$default-theme-group</code></td></tr></tbody></table><h3 class="item__sub-heading">Content</h3><p>This mixin allows extra content to be passed (through the <code>@content</code> directive). Role: `color-theme` will temporarily override the default color map with the attributes of the specified `$palette`. This change is scoped to within the mixin block, and once the mixin has ended, the default color map will revert to its original state as defined by `$color`.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>SCSS</p></div><pre class="example__code language-scss"><code>$green-theme: (
   brand:                        #2c853c,
   action:                       #00992b,
   action--active:                #007b38,
@@ -64,7 +99,7 @@ $custom-theme-group: (
     background-color: color(background);
     color: color(text-active);
   }
-}</code></pre></div><div class="item__example example"><pre class="example__code language-CSS"><code>.card {
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS Output</p></div><pre class="example__code language-css"><code>.card {
   background-color: #fff;
   color: #808080;
 }
@@ -75,12 +110,42 @@ $custom-theme-group: (
 .card.theme--blue {
   background-color: #fff;
   color: #297C85;
-}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-color-theme"><code>color-theme</code></a></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="undefined"><div class="container">General</div></h1><section class="main__sub-section" id="undefined-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="undefined-mixin-center-block"><h3 class="item__heading"><a class="item__name" href="#mixin-center-block">center-block</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin center-block() { 
-  display: block;
-  clear: both;
-  margin-left: auto;
-  margin-right: auto;
- }" data-collapsed="@mixin center-block() { ... }"><code>@mixin center-block() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Center block</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section><section class="main__item container item" id="undefined-mixin-on-event"><h3 class="item__heading"><a class="item__name" href="#mixin-on-event">on-event</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin on-event($self: false) { 
+}</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#mixins|color-mixin-color-theme"><code>color-theme</code></a></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="mixins"><div class="container">Mixins</div></h1><section class="main__sub-section" id="mixins-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="mixins-mixin-_nested-properties"><h3 class="item__heading"><span class="item__access">[private]</span> <a class="item__name" href="#mixin-_nested-properties">_nested-properties</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin _nested-properties($_property, $_value) { 
+  // Checks for nested maps
+  @if type-of($_value) == map {
+    // Uses map key as element selector
+    #{$_property} {
+      // Iterates over property:value pairs
+      @each $_nested-property, $_nested-value in $_value {
+        // Recursive check for nested maps
+        @if type-of($_nested-value) == map {
+          // If nested map, call self and restart loop
+          @include _nested-properties($_nested-property, $_nested-value);
+        } @else {
+          // Outputs property:value CSS
+          #{$_nested-property}: #{$_nested-value};
+        }
+      }
+    }
+  } @else {
+    // Outputs property:value CSS
+    #{$_property}: #{$_value};
+  }
+ }" data-collapsed="@mixin _nested-properties($_property, $_value) { ... }"><code>@mixin _nested-properties($_property, $_value) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Returns a list of recursively nested <code>$property</code>: <code>$value</code> pairs. The mixin will continue to iterate as long as any map value is a nested map.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$_property</code></th><td data-label="desc"><p>The CSS Property</p></td><td data-label="type"><code>Css property</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$_value</code></th><td data-label="desc"><p>The CSS Value the property contains, or, if a map, the properties of the nested selector.</p></td><td data-label="type"><code>Css value</code> or <code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#mixins-mixin-properties"><code>properties</code></a></li><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-button"><code>button</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Kevin Garcia</p></li></ul></section><section class="main__item container item item--deprecated" id="mixins-mixin-font-size"><h3 class="item__heading"><a class="item__name" href="#mixin-font-size">font-size</a></h3><div class="item__deprecated"><strong>Deprecated!</strong></div><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin font-size() { 
+  @if $_base == null {
+    font-size: em($_size);
+  } @else {
+    font-size: em($_size, $_base);
+  }
+ }" data-collapsed="@mixin font-size() { ... }"><code>@mixin font-size() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Mixin font-size</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section><section class="main__item container item item--deprecated" id="mixins-mixin-material_shadow"><h3 class="item__heading"><a class="item__name" href="#mixin-material_shadow">material_shadow</a></h3><div class="item__deprecated"><strong>Deprecated!</strong><p>This mixin is deprecated in favor of the <code>material-shadow</code> function</p></div><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin material_shadow($Depth: shallow) { 
+  @media only screen {
+    box-shadow: material-shadow($depth);
+  }
+ }" data-collapsed="@mixin material_shadow($Depth: shallow) { ... }"><code>@mixin material_shadow($Depth: shallow) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Creates a material-design style shadow. May be flat, shallow, medium, or deep.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$Depth</code></th><td data-label="desc"><p>How deep the shadow appears to be. Default is Shallow.</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>shallow</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>SCSS</p></div><pre class="example__code language-scss"><code>.element {
+  @include material-shadow(shallow);
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS</p></div><pre class="example__code language-css"><code>.element {
+  box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.10), 2px 4px 7px 0px rgba(0,0,0,0.15);
+}</code></pre></div><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Kevin Garcia</p></li></ul></section><section class="main__item container item item--deprecated" id="mixins-mixin-on-event"><h3 class="item__heading"><a class="item__name" href="#mixin-on-event">on-event</a></h3><div class="item__deprecated"><strong>Deprecated!</strong><p>in favor of the <code>$hocus</code> and <code>$pocus</code> variables</p></div><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin on-event($self: false) { 
   @if $self {
     &amp;,
     &amp;:hover,
@@ -95,18 +160,164 @@ $custom-theme-group: (
       @content;
     }
   }
- }" data-collapsed="@mixin on-event($self: false) { ... }"><code>@mixin on-event($self: false) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Event wrapper</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$self</code></th><td data-label="desc"><p>Whether or not to include current selector</p></td><td data-label="type"><code>Bool</code></td><td data-label="default"><code>false</code></td></tr></tbody></table><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://twitter.com/csswizardry/status/478938530342006784">Original tweet from Harry Roberts</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Harry Roberts</p></li></ul></section><section class="main__item container item" id="undefined-mixin-centered-container"><h3 class="item__heading"><a class="item__name" href="#mixin-centered-container">centered-container</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin centered-container() { 
+ }" data-collapsed="@mixin on-event($self: false) { ... }"><code>@mixin on-event($self: false) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Event wrapper</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$self</code></th><td data-label="desc"><p>Whether or not to include current selector</p></td><td data-label="type"><code>Bool</code></td><td data-label="default"><code>false</code></td></tr></tbody></table><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="https://twitter.com/csswizardry/status/478938530342006784">Original tweet from Harry Roberts</a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Harry Roberts</p></li></ul></section><section class="main__item container item" id="mixins-mixin-properties"><h3 class="item__heading"><a class="item__name" href="#mixin-properties">properties</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin properties($default-settings, $settings: null) { 
+  $_settings: smart-merge($default-settings, $settings);
+
+  @each $_property, $_value in $_settings {
+    @include _nested-properties($_property, $_value);
+  }
+ }" data-collapsed="@mixin properties($default-settings, $settings: null) { ... }"><code>@mixin properties($default-settings, $settings: null) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Returns a list of <code>$property</code>: <code>$value</code> pairs</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$default-settings</code></th><td data-label="desc"><p>The default map the mixin consumes</p></td><td data-label="type"><code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$settings</code></th><td data-label="desc"><p>The optional override map to merge in</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>null</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>source SCSS</p></div><pre class="example__code language-scss"><code>$default-map: (
+    color: blue,
+    margin: 0 auto,
+);
+
+$map-override: (
+    color: red,
+    overflow: hidden,
+);
+
+.default-element {
+  @include properties($default-map);
+}
+
+.override-element {
+  @include properties($map-override);
+}
+
+.merged-element {
+  @include properties($default-map, $map-override);
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>output CSS</p></div><pre class="example__code language-css"><code>.default-element {
+  color: blue;
+  margin: 0 auto;
+}
+
+.override-element: {
+   color: red;
+   overflow: hidden;
+};
+
+.merged-element {
+  color: red;
+  margin: 0 auto;
+  overflow: hidden;
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>When to use default + merged elements (scss)</p></div><pre class="example__code language-scss"><code> // The main use case is when one wants to output variations of an element.
+
+ $default-button: (
+    background-color: #333333,
+    color: white,
+    margin: 0 auto,
+    padding: 1em,
+ );
+
+ $blue-button: (
+    background-color: blue,
+ );
+
+ // You can pass it a default map
+ .button {
+    @include element-properties($default-button);
+ }
+
+ // You can pass it a named map
+ .button--blue {
+    @include element-properties($default-button, $blue-button);
+ }
+
+ // You may also pass it an inline map
+.button--green {
+    @include element-properties($default-button, (font-size: 1.125em, background-color: green, color: inherit, margin: null, ));
+ }</code></pre></div><div class="item__example example"><div class="example__description"><p>When to use default + merged elements (output)</p></div><pre class="example__code language-css"><code>.button: {
+   background-color: #333333;
+   color: white;
+   margin: 0 auto;
+   padding: 1em;
+};
+
+.button--blue: (
+   background-color: blue;
+   color: white;
+   margin: 0 auto;
+   padding: 1em;
+);
+
+/* Notice that explicitly null values in overrides are removed from the output */
+.button--green: (
+   background-color: green; /* &lt;- overriden value */
+   color: inherit; /* &lt;- overriden value */
+   padding: 1em; /* &lt;- Notice that the margin property is gone. */
+   font-size: 1.125em /* &lt;- values not present in the default map are amended to the end */
+);
+</code></pre></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#mixins-mixin-_nested-properties"><code>_nested-properties</code></a></li></ul><h3 class="item__sub-heading">Author</h3><ul class="list-unstyled"><li><p>Kevin Garcia</p></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="mixins
+center block"><div class="container">mixins center block</div></h1><section class="main__sub-section" id="mixins
+center block-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="mixins
+center block-mixin-center-block"><h3 class="item__heading"><a class="item__name" href="#mixin-center-block">center-block</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin center-block() { 
+  display: block;
+  clear: both;
+  margin-left: auto;
+  margin-right: auto;
+ }" data-collapsed="@mixin center-block() { ... }"><code>@mixin center-block() { ... }</code></pre></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section></section></section><section class="main__section"><h1 class="main__heading" id="mixins|color"><div class="container">mixins|color</div></h1><section class="main__sub-section" id="mixins|color-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="mixins|color-mixin-color-theme"><h3 class="item__heading"><a class="item__name" href="#mixin-color-theme">color-theme</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin color-theme($palette: $colors, $selector: &#39;&amp;&#39;) { 
+  $_default-color-palette: $colors;
+  $colors: map-merge($colors, $palette) !global;
+  #{$selector} {
+    @content;
+  }
+  $colors: $_default-color-palette !global;
+ }" data-collapsed="@mixin color-theme($palette: $colors, $selector: &#39;&amp;&#39;) { ... }"><code>@mixin color-theme($palette: $colors, $selector: &#39;&amp;&#39;) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p><code>color-theme</code> allows you to change the default color palette within the specified block. optionally, it lets you target a specific selector.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$palette</code></th><td data-label="desc"><p>The color palette to be used within the scope of the block.</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>$colors</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$selector</code></th><td data-label="desc"><p>the <code>$selector</code> argument allows you to specify a different class than the current. It&#39;s especially useful when used with the <code>render-color-themes</code> mixin.</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&#39;&amp;&#39;</code></td></tr></tbody></table><h3 class="item__sub-heading">Content</h3><p>This mixin allows extra content to be passed (through the <code>@content</code> directive). Role: `color-theme` will temporarily override the default color map with the attributes of the specified `$palette`. This change is scoped to within the mixin block, and once the mixin has ended, the default color map will revert to its original state as defined by `$color`.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>SCSS</p></div><pre class="example__code language-scss"><code>$green-theme: (
+  brand:                        #2c853c,
+  action:                       #00992b,
+  action-active:                #007b38,
+  background:                   #fff,
+  background-secondary:         #f4f4f4,
+  border:                       #ccc,
+  text:                         #121111,
+  text-active:                  #00992b,
+  reverse-text:                 #fff,
+  reverse-text-active:          #fff,
+);
+.card {
+  @include color-theme($green-theme) {
+    background-color: color(background);
+    color: color(text-active);
+  }
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS output</p></div><pre class="example__code language-css"><code>.card {
+  background-color: #fff;
+  color: #121111;
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>SCSS</p></div><pre class="example__code language-scss"><code>@include color-theme($green-theme, &#39;.card&#39;) {
+  background-color: color(background);
+  color: color(text-active);
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>CSS output</p></div><pre class="example__code language-css"><code>.card {
+  background-color: #fff;
+  color: #121111;
+}</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#functions|color-mixin-color-themes"><code>color-themes</code></a></li></ul></section></section></section><section class="main__section"><h1 class="main__heading" id="undefined"><div class="container">General</div></h1><section class="main__sub-section" id="undefined-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="undefined-mixin-button"><h3 class="item__heading"><a class="item__name" href="#mixin-button">button</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin button() { 
+  $_settings: smart-merge($default-settings, $settings);
+
+  @each $_property, $_value in $_settings {
+    @include _nested-properties($_property, $_value);
+  }
+ }" data-collapsed="@mixin button() { ... }"><code>@mixin button() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>The button mixin is a functional alias of the <code>properties</code> mixin, however, it&#39;s there to provide a semantic demarcation for it&#39;s intended purpose. Namely, we are using it to mimic the <code>extend</code> functionality for cases where CSS inheritance causes unintended cascading of button properties. In those cases, you can <code>@include button($base-button, $secondary-button)</code>, and have this mixin provide all the computed values that would normally be overriden if we had used %extend</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#mixins-mixin-_nested-properties"><code>_nested-properties</code></a></li></ul></section><section class="main__item container item" id="undefined-mixin-adjust-container-width"><h3 class="item__heading"><a class="item__name" href="#mixin-adjust-container-width">adjust-container-width</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin adjust-container-width() { 
+  $_columns: $columns / 2;
+  $_margin: _adjust-container-margin($_columns, $grid, $max-width, $grid-collapse, $grid-columns);
+
+  margin-#{_neat-float-direction($grid)}: $_margin;
+  margin-#{_neat-opposite-direction($grid)}: $_margin;
+  width: auto;
+ }" data-collapsed="@mixin adjust-container-width() { ... }"><code>@mixin adjust-container-width() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Adjust the current container by insetting or breaking out by X columns Can accept negative numbers todo: documentation.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section><section class="main__item container item" id="undefined-mixin-centered-container"><h3 class="item__heading"><a class="item__name" href="#mixin-centered-container">centered-container</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin centered-container() { 
   $columns: _neat-column-default($grid, $columns); // Retrieves max columns from specified grid if empty, or the specified number of columns otherwise
   $_grid-columns: _retrieve-neat-setting($grid, columns); // Retrieves the number of max columns from the specified grid
   $_grid-gutter: _retrieve-neat-setting($grid, gutter); // Retrieves the gutter from the specified grid
-
-  padding: _set-container-padding($columns, $grid, $v-space, $max-width);
 
   @include grid-container;
   @if $grid-collapse == true {
     @include grid-collapse;
   }
- }" data-collapsed="@mixin centered-container() { ... }"><code>@mixin centered-container() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>centered-container mixin Creates a wrapper-less centered container using padding Depends on Neat. We use the global neat-grid variable for grid default, but you may pass it any value.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-responsive-container"><code>responsive-container</code></a></li></ul></section><section class="main__item container item" id="undefined-mixin-flex-container"><h3 class="item__heading"><a class="item__name" href="#mixin-flex-container">flex-container</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin flex-container() { 
+
+  @if $v-space {
+    padding: $v-space _set-container-padding($columns, $grid, $max-width);
+  } @else {
+    padding-left: _set-container-padding($columns, $grid, $max-width);
+    padding-right: _set-container-padding($columns, $grid, $max-width);
+  }
+ }" data-collapsed="@mixin centered-container() { ... }"><code>@mixin centered-container() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>centered-container mixin Creates a wrapper-less centered container using padding Depends on Neat. We use the global neat-grid variable for grid default, but you may pass it any value.</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-responsive-container"><code>responsive-container</code></a></li></ul><h3 class="item__sub-heading">Links</h3><ul class="list-unstyled"><li><a href="http://neat.bourbon.io">Neat</a></li></ul></section><section class="main__item container item" id="undefined-mixin-flex-container"><h3 class="item__heading"><a class="item__name" href="#mixin-flex-container">flex-container</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin flex-container() { 
 
   // Merge the provided map with the default aggregate from above. This means
   // that you can specify a container that only has the values that you want to differ
@@ -158,37 +369,4 @@ $custom-theme-group: (
       @include centered-container($_cols, $_v-space, $_max-width, $_grid-collapse, $_grid);
     }
   }
- }" data-collapsed="@mixin responsive-container() { ... }"><code>@mixin responsive-container() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Responsive container Creates a responsive container on each grid media as specified by the specified map</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-centered-container"><code>centered-container</code></a></li></ul></section><section class="main__item container item" id="undefined-mixin-color-theme"><h3 class="item__heading"><a class="item__name" href="#mixin-color-theme">color-theme</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin color-theme($palette: $colors, $selector: &#39;&amp;&#39;) { 
-  $_default-color-palette: $colors;
-  $colors: map-merge($colors, $palette) !global;
-  #{$selector} {
-    @content;
-  }
-  $colors: $_default-color-palette !global;
- }" data-collapsed="@mixin color-theme($palette: $colors, $selector: &#39;&amp;&#39;) { ... }"><code>@mixin color-theme($palette: $colors, $selector: &#39;&amp;&#39;) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p><code>color-theme</code> allows you to change the default color palette within the specified block. optionally, it lets you target a specific selector.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$palette</code></th><td data-label="desc"><p>The color palette to be used within the scope of the block.</p></td><td data-label="type"><code>Map</code></td><td data-label="default"><code>$colors</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$selector</code></th><td data-label="desc"><p>the <code>$selector</code> argument allows you to specify a different class than the current. It&#39;s especially useful when used with the <code>render-color-themes</code> mixin.</p></td><td data-label="type"><code>String</code></td><td data-label="default"><code>&#39;&amp;&#39;</code></td></tr></tbody></table><h3 class="item__sub-heading">Content</h3><p>This mixin allows extra content to be passed (through the <code>@content</code> directive). Role: `color-theme` will temporarily override the default color map with the attributes of the specified `$palette`. This change is scoped to within the mixin block, and once the mixin has ended, the default color map will revert to its original state as defined by `$color`.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-SCSS"><code>$green-theme: (
-  brand:                        #2c853c,
-  action:                       #00992b,
-  action-active:                #007b38,
-  background:                   #fff,
-  background-secondary:         #f4f4f4,
-  border:                       #ccc,
-  text:                         #121111,
-  text-active:                  #00992b,
-  reverse-text:                 #fff,
-  reverse-text-active:          #fff,
-);
-.card {
-  @include color-theme($green-theme) {
-    background-color: color(background);
-    color: color(text-active);
-  }
-}</code></pre></div><div class="item__example example"><pre class="example__code language-CSS"><code>.card {
-  background-color: #fff;
-  color: #121111;
-}</code></pre></div><div class="item__example example"><pre class="example__code language-SCSS"><code>@include color-theme($green-theme, &#39;.card&#39;) {
-  background-color: color(background);
-  color: color(text-active);
-}</code></pre></div><div class="item__example example"><pre class="example__code language-CSS"><code>.card {
-  background-color: #fff;
-  color: #121111;
-}</code></pre></div><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#mixins|theme-mixin-color-themes"><code>color-themes</code></a></li></ul></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --> <a class="project-info__name" href="https://github.com/su-sws/decanter">Decanter</a><!-- Version --> <span class="project-info__version">- v0.1.0-alpha1</span><!-- License --> <span class="project-info__license">, under MIT</span></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>
+ }" data-collapsed="@mixin responsive-container() { ... }"><code>@mixin responsive-container() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Responsive container Creates a responsive container on each grid media as specified by the specified map</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-centered-container"><code>centered-container</code></a></li></ul></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --> <a class="project-info__name" href="https://github.com/su-sws/decanter">Decanter</a><!-- Version --> <span class="project-info__version">- v0.1.0-alpha1</span><!-- License --> <span class="project-info__license">, under MIT</span></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>
