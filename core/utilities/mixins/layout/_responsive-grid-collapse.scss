@@ -1,6 +1,12 @@
 @charset 'UTF-8';
 
+// Provide variable proetection.
 $default-grid-collapse: () !default;
+
+// If global default exists use it.
+@if variable-exists("default-container") {
+  $default-grid-collapse: $default-container;
+}
 
 /// Responsive Grid Collapse
 /// Creates the appropriate grid collapse margins for a responsive set of
