@@ -3552,12 +3552,12 @@ body {
 
 button, [type='button'], [type='reset'], [type='submit'] {
   appearance: none;
-  background-color: #004991;
+  background-color: #006cb8;
   border: none;
   color: #fff;
   cursor: pointer;
   display: inline-block;
-  font-family: "Noto Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: 'Noto Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: inherit;
   -webkit-font-smoothing: antialiased;
   font-weight: inherit;
@@ -3577,11 +3577,13 @@ button, [type='button'], [type='reset'], [type='submit'] {
 }
 
 button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover, button:focus, [type='button']:focus, [type='reset']:focus, [type='submit']:focus, button:active, [type='button']:active, [type='reset']:active, [type='submit']:active {
+  background-color: #33548F;
+  color: #dceefe;
   text-decoration: none;
 }
 
 button:disabled, [type='button']:disabled, [type='reset']:disabled, [type='submit']:disabled, button.disabled, .disabled[type='button'], .disabled[type='reset'], .disabled[type='submit'] {
-  background-color: #004991;
+  background-color: #006cb8;
   color: #fff;
   cursor: not-allowed;
   opacity: .5;
@@ -3614,7 +3616,7 @@ input,
 select,
 textarea {
   display: block;
-  font-family: "Noto Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: 'Noto Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 
 [type='color'], [type='date'], [type='datetime'], [type='datetime-local'], [type='email'], [type='month'], [type='number'], [type='password'], [type='search'], [type='tel'], [type='text'], [type='time'], [type='url'], [type='week'], input:not([type]), textarea {
@@ -3786,13 +3788,13 @@ th {
 
 body {
   color: #112;
-  font-family: "Noto Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-family: 'Noto Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 1.8em;
   line-height: 1.5;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Noto Serif", "Georgia", "Times", "Times New Roman", serif;
+  font-family: 'Noto Serif', Georgia, Times, Times New Roman, serif;
   line-height: 1.2;
   margin: 0.8em 0 0.512em;
   font-weight: 700;
@@ -3858,7 +3860,7 @@ address {
 
 pre {
   background: rgba(221, 221, 221, 0.6);
-  font-family: "Source Code Pro", "Monaco", "Consolas", "Lucida Console", monospace;
+  font-family: 'Source Code Pro', Monaco, Consolas, Lucida Console, monospace;
   font-size: 0.4444444444em;
   line-height: 1.5;
   margin-bottom: 1.5625em;
@@ -3870,7 +3872,7 @@ pre {
 }
 
 code, kbd, tt, var {
-  font-family: "Source Code Pro", "Monaco", "Consolas", "Lucida Console", monospace;
+  font-family: 'Source Code Pro', Monaco, Consolas, Lucida Console, monospace;
   font-size: 0.4444444444em;
   padding: 0.1073741824em 0.32768em;
   position: relative;
@@ -3917,7 +3919,7 @@ big,
 }
 
 a {
-  color: #004991;
+  color: #006cb8;
   text-decoration: none;
 }
 
@@ -4045,72 +4047,6 @@ hr {
 
 .layout--pacman--right {
   background: #FDF;
-}
-
-@media only screen and (max-width: 575px) {
-  .layout--pacman--right {
-    padding: 1em calc(((50% /12) * 0) + 20px);
-  }
-  .layout--pacman--right::after {
-    clear: both;
-    content: "";
-    display: block;
-  }
-}
-
-@media only screen and (min-width: 576px) and (max-width: 767px) {
-  .layout--pacman--right {
-    padding: 1em calc(((50% /12) * 0) + 20px);
-  }
-  .layout--pacman--right::after {
-    clear: both;
-    content: "";
-    display: block;
-  }
-}
-
-@media only screen and (min-width: 768px) and (max-width: 991px) {
-  .layout--pacman--right {
-    padding: 1em calc(((50% /12) * 0) + 20px);
-  }
-  .layout--pacman--right::after {
-    clear: both;
-    content: "";
-    display: block;
-  }
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1199px) {
-  .layout--pacman--right {
-    padding: 1em calc(((50% /12) * 0) + 20px);
-  }
-  .layout--pacman--right::after {
-    clear: both;
-    content: "";
-    display: block;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
-  .layout--pacman--right {
-    padding: 1em calc(50% - (600px - 20px));
-  }
-  .layout--pacman--right::after {
-    clear: both;
-    content: "";
-    display: block;
-  }
-}
-
-@media only print {
-  .layout--pacman--right {
-    padding: 1em calc(((50% /12) * 0) + 0.25in);
-  }
-  .layout--pacman--right::after {
-    clear: both;
-    content: "";
-    display: block;
-  }
 }
 
 .layout--pacman--right::after {
