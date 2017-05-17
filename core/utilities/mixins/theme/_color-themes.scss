@@ -10,7 +10,7 @@
 
 ///
 $default-theme-group: (
-    default:  ( palette: $colors, selector: '&' ),
+  default:  ( palette: $colors, selector: '&' ),
 ) !default;
 
 /// `color-themes` consumes a map to render multiple color variations on a specific block. For each
@@ -18,9 +18,7 @@ $default-theme-group: (
 ///
 /// @name Color Themes
 ///
-/// @argument {map} $theme-group [$default-theme-group]
-///   @property {string} selector ['&']
-///   @property {map} palette [$color]
+/// @arg {map} $theme-group [$default-theme-group] - A map of theme groups that the mixin will consume
 ///
 /// @content
 ///   `color-theme` will temporarily override the default color map with the attributes of the
@@ -79,6 +77,10 @@ $default-theme-group: (
 ///     background-color: #fff;
 ///     color: #297C85;
 ///   }
+///
+
+/// @link {mixin} color-theme
+/// @link (variable} colors
 ///
 /// @require color
 /// @require $colors
