@@ -3,18 +3,17 @@
 // Provide variable proetection.
 $default-grid-collapse: () !default;
 
-// If global default exists use it.
-@if variable-exists("default-container") {
-  $default-grid-collapse: $default-container;
-}
-
 /// Responsive Grid Collapse
 /// Creates the appropriate grid collapse margins for a responsive set of
 /// breakpoints that have different grid and gutter settings.
 @mixin responsive-grid-collapse(
   $container: $default-grid-collapse
 ) {
-  @each $breakpoint, $_map in $container {
+
+  $_container: map-merge($container, $default-container);
+
+  // Loop through them and create the collapse points.
+  @each $breakpoint, $_map in $_container {
     $_grid: map-get($_map, grid-media);
     @include grid-media($_grid) {
       @include grid-collapse($_grid);
