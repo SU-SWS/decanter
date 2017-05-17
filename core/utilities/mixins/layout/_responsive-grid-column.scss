@@ -1,0 +1,49 @@
+@charset 'UTF-8';
+
+// Provide variable proetection.
+$default-grid-column: () !default;
+
+/// Creates a grid column of requested size.
+///
+/// @group features
+///
+/// @name Grid column
+///
+/// @argument {number (unitless)} $columns [null]
+///   Specifies the number of columns an element should span based on the total
+///   columns of the grid.
+///
+///   This can also be defined in a shorthand syntaxt which also contains the
+///   total column count such as `3 of 5`.
+///
+/// @argument {map} $container [$default-container]
+///   The breakpoint containers to be used to generate the column.
+///   By default, the global `$default-container` will be used.
+///
+
+@mixin responsive-grid-column(
+  $columns: null,
+  $container: $default-grid-column
+) {
+
+  $_container: map-merge($container, $default-container);
+
+  @if type-of($columns) == map {
+    @each $breakpoint, $_map in $_container {
+      $_columns: map-get($columns, $breakpoint);
+      $_grid: map-get($_map, grid-media);
+      @include grid-media($_grid) {
+        @include grid-column($_columns, $_grid);
+      }
+    }
+  }
+  @else {
+    @each $breakpoint, $_map in $_container {
+      $_grid: map-get($_map, grid-media);
+      @include grid-media($_grid) {
+        @include grid-column($columns, $_grid);
+      }
+    }
+  }
+
+}
