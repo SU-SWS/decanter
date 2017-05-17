@@ -1,12 +1,12 @@
 @charset 'UTF-8';
 
-$default-container: () !default;
+$default-grid-collapse: () !default;
 
 /// Responsive Grid Collapse
 /// Creates the appropriate grid collapse margins for a responsive set of
 /// breakpoints that have different grid and gutter settings.
 @mixin responsive-grid-collapse(
-  $container: $default-container
+  $container: $default-grid-collapse
 ) {
   @each $breakpoint, $_map in $container {
     $_grid: map-get($_map, grid-media);
