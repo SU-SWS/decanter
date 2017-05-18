@@ -27,7 +27,8 @@
 /// @require {variable} $root-font-size Root font size
 ///
 $typography__html--default: (
-    font-size: percentage($root-font-size/16px),
+  font-size: percentage($root-font-size/16px),
+  decanter-source: "'base/typography.scss:29'",
 ) !default;
 
 $typography__html: () !default;
@@ -55,9 +56,10 @@ html {
 ///
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/body
 $typography__body--default: (
-    line-height: $base-line-height,
-    font-family: $base-font-family,
-    font-size: em($base-font-size, $root-font-size),
+  line-height: $base-line-height,
+  font-family: $base-font-family,
+  font-size: em($base-font-size, $root-font-size),
+  decanter-source: "'base/typography.scss:57'",
 ) !default;
 
 $typography__body: () !default;
@@ -84,10 +86,11 @@ body {
 ///
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
 $typography__headlines--default: (
-    font-family: $heading-font-family,
-    font-weight: 700,
-    line-height: $heading-line-height,
-    margin: modular-scale(-1) 0 modular-scale(-3),
+  font-family: $heading-font-family,
+  font-weight: 700,
+  line-height: $heading-line-height,
+  margin: modular-scale(-1) 0 modular-scale(-3),
+  decanter-source: "'base/typography.scss:88'",
 ) !default;
 
 $typography__headlines: () !default;
@@ -110,7 +113,8 @@ $typography__headlines: () !default;
 ///
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
 $typography__h1--default: (
-    font-size: modular-scale(5),
+  font-size: modular-scale(5),
+  decanter-source: "'base/typography.scss:115'",
 ) !default;
 
 $typography__h1:() !default;
@@ -134,6 +138,7 @@ h1 {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
 $typography__h2--default: (
   font-size: modular-scale(4),
+  decanter-source: "'base/typography.scss:139'",
 ) !default;
 
 $typography__h2:() !default;
@@ -156,7 +161,8 @@ h2 {
 ///
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
 $typography__h3--default: (
-    font-size: modular-scale(3),
+  font-size: modular-scale(3),
+  decanter-source: "'base/typography.scss:163'",
 ) !default;
 
 $typography__h3:() !default;
@@ -179,7 +185,8 @@ h3 {
 ///
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
 $typography__h4--default: (
-    font-size: modular-scale(2),
+  font-size: modular-scale(2),
+  decanter-source: "'base/typography.scss:187'",
 ) !default;
 
 $typography__h4:() !default;
@@ -202,7 +209,8 @@ h4 {
 ///
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
 $typography__h5--default: (
-    font-size: modular-scale(2),
+  font-size: modular-scale(2),
+  decanter-source: "'base/typography.scss:211'",
 ) !default;
 
 $typography__h5:() !default;
@@ -225,7 +233,8 @@ h5 {
 ///
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
 $typography__h6--default: (
-    font-size: modular-scale(2),
+  font-size: modular-scale(2),
+  decanter-source: "'base/typography.scss:235'",
 ) !default;
 
 $typography__h6:() !default;
@@ -249,7 +258,8 @@ h6 {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p
 ///
 $typography__p--default: (
-    margin: 0 0 modular-scale(1),
+  margin: 0 0 modular-scale(1),
+  decanter-source: "'base/typography.scss:260'",
 ) !default;
 
 $typography__p:() !default;
@@ -273,7 +283,8 @@ p {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i
 $typography__emphasis--default: (
-    font-style: italic,
+  font-style: italic,
+  decanter-source: "'base/typography.scss:285'",
 ) !default;
 
 $typography__emphasis:() !default;
@@ -297,15 +308,16 @@ dfn, cite, em, i {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote
 ///
 $typography__blockquote--default: (
-    margin: 0 modular-scale(2),
-    quotes: '"\201c" "\201d" "\2018" "\2019"',
+  margin: 0 modular-scale(2),
+  quotes: '"\201c" "\201d" "\2018" "\2019"',
 
-    '&::before': (
-      content: open-quote,
-    ),
-    '&::after': (
-        content: close-quote,
-    ),
+  '&::before': (
+    content: open-quote,
+  ),
+  '&::after': (
+      content: close-quote,
+  ),
+  decanter-source: "'base/typography.scss:310'",
 ) !default;
 
 $typography__blockquote:() !default;
@@ -327,14 +339,15 @@ blockquote {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q
 ///
 $typography__q--default: (
-    quotes: '"\201c" "\201d" "\2018" "\2019"',
+  quotes: '"\201c" "\201d" "\2018" "\2019"',
 
-    '&::before': (
-        content: open-quote,
-    ),
-    '&::after': (
-        content: close-quote,
-    ),
+  '&::before': (
+      content: open-quote,
+  ),
+  '&::after': (
+      content: close-quote,
+  ),
+  decanter-source: "'base/typography.scss:341'",
 ) !default;
 
 $typography__q:() !default;
@@ -359,7 +372,8 @@ q {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address
 ///
 $typography__address--default: (
-    margin: 0 0 modular-scale(2),
+  margin: 0 0 modular-scale(2),
+  decanter-source: "'base/typography.scss:374'",
 ) !default;
 
 $typography__address:() !default;
@@ -397,6 +411,7 @@ $typography__pre--default: (
   padding: 1.6em,
   border: 1px solid color(grey),
   white-space: pre-wrap,
+  decanter-source: "'base/typography.scss:403'",
 ) !default;
 
 $typography__pre: () !default;
@@ -434,6 +449,7 @@ $typography__code--default: (
   position: relative,
   background-color: rgba(color(light-grey), .6),
   border: 1px solid color(grey),
+  decanter-source: "'base/typography.scss:445'",
 ) !default;
 
 $typography__code: () !default;
@@ -456,6 +472,7 @@ code, kbd, var, samp {
 $typography__abbr--default: (
   border-bottom: 1px dotted color(border),
   cursor: help,
+  decanter-source: "'base/typography.scss:472'",
 ) !default;
 
 $typography__abbr: () !default;
@@ -474,6 +491,7 @@ abbr, acronym {
 ///
 $typography__edits--default: (
   padding: 0 .25em .15em,
+  decanter-source: "'base/typography.scss:492'",
 ) !default;
 
 $typography__edits: () !default;
@@ -498,6 +516,7 @@ $typography__del--default: (
   background: color(light-red),
   text-decoration: line-through,
   text-decoration-color: color(red),
+  decanter-source: "'base/typography.scss:514'",
 ) !default;
 
 $typography__del: () !default;
@@ -523,6 +542,7 @@ $typography__ins--default: (
   color: color(text),
   background: color(light-green),
   text-decoration: none,
+  decanter-source: "'base/typography.scss:541'",
 ) !default;
 
 $typography__ins: () !default;
@@ -546,6 +566,7 @@ $typography__mark--default: (
   color: color(text),
   background: color(light-yellow),
   text-decoration: none,
+  decanter-source: "'base/typography.scss:565'",
 ) !default;
 
 $typography__mark: () !default;
@@ -567,6 +588,7 @@ mark {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small
 $typography__small-text--default: (
   font-size: modular-scale(-1, $ratio: 1.125),
+  decanter-source: "'base/typography.scss:589'",
 ) !default;
 
 $typography__small-text: () !default;
@@ -592,6 +614,7 @@ small, .small-text {
 ///
 $typography__large-text--default: (
   font-size: modular-scale(1),
+  decanter-source: "'base/typography.scss:615'",
 ) !default;
 
 $typography__large-text: () !default;
@@ -621,6 +644,7 @@ $typography__hr--default: (
   border-bottom: $base-border,
   border-left: 0,
   margin: modular-scale(1) 0,
+  decanter-source: "'base/typography.scss:641'",
 ) !default;
 
 $typography__hr: () !default;
@@ -643,13 +667,14 @@ hr {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
 ///
 $typography__a--default: (
-    color: color(action),
-    text-decoration: none,
+  color: color(action),
+  text-decoration: none,
 
-    #{$hocus}: (
-        color: color(action-active),
-        text-decoration: underline,
-    ),
+  #{$hocus}: (
+      color: color(action-active),
+      text-decoration: underline,
+  ),
+  decanter-source: "'base/typography.scss:669'",
 ) !default;
 
 $typography__a: () !default;
