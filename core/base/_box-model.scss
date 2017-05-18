@@ -27,6 +27,7 @@ $box-model__html--default: (
 $box-model__html: ()!default;
 
 html {
+  /*!*/
   @include properties( $box-model__html--default, $box-model__html );
 }
 
@@ -49,5 +50,6 @@ $box-model__box-sizing--default: (
 $box-model__box-sizing: ()!default;
 
 *, *::before, *::after {
+  /*!*/
   @include properties($box-model__box-sizing--default, $box-model__box-sizing);
 }

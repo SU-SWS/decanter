@@ -28,12 +28,12 @@
 ///
 $typography__html--default: (
   font-size: percentage($root-font-size/16px),
-  decanter-source: "'base/typography.scss:29'",
 ) !default;
 
 $typography__html: () !default;
 
 html {
+  /*!*/
   @include properties($typography__html--default, $typography__html);
 }
 
@@ -59,12 +59,12 @@ $typography__body--default: (
   line-height: $base-line-height,
   font-family: $base-font-family,
   font-size: em($base-font-size, $root-font-size),
-  decanter-source: "'base/typography.scss:57'",
 ) !default;
 
 $typography__body: () !default;
 
 body {
+  /*!*/
   @include properties($typography__body--default, $typography__body);
 }
 
@@ -90,12 +90,12 @@ $typography__headlines--default: (
   font-weight: 700,
   line-height: $heading-line-height,
   margin: modular-scale(-1) 0 modular-scale(-3),
-  decanter-source: "'base/typography.scss:88'",
 ) !default;
 
 $typography__headlines: () !default;
 
 #{$all-headlines} {
+  /*!*/
   @include properties($typography__headlines--default, $typography__headlines);
 }
 
@@ -114,12 +114,12 @@ $typography__headlines: () !default;
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
 $typography__h1--default: (
   font-size: modular-scale(5),
-  decanter-source: "'base/typography.scss:115'",
 ) !default;
 
 $typography__h1:() !default;
 
 h1 {
+  /*!*/
   @include properties($typography__h1--default, $typography__h1);
 }
 
@@ -138,12 +138,12 @@ h1 {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
 $typography__h2--default: (
   font-size: modular-scale(4),
-  decanter-source: "'base/typography.scss:139'",
 ) !default;
 
 $typography__h2:() !default;
 
 h2 {
+  /*!*/
   @include properties($typography__h2--default, $typography__h2);
 }
 
@@ -162,13 +162,13 @@ h2 {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
 $typography__h3--default: (
   font-size: modular-scale(3),
-  decanter-source: "'base/typography.scss:163'",
 ) !default;
 
 $typography__h3:() !default;
 
 h3 {
-  @include properties($typography__h3--default, $typography__h3);
+  /*!*/
+  @include properties($typography__h2--default, $typography__h2);
 }
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -186,12 +186,12 @@ h3 {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
 $typography__h4--default: (
   font-size: modular-scale(2),
-  decanter-source: "'base/typography.scss:187'",
 ) !default;
 
 $typography__h4:() !default;
 
 h4 {
+  /*!*/
   @include properties($typography__h4--default, $typography__h4);
 }
 
@@ -210,12 +210,12 @@ h4 {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
 $typography__h5--default: (
   font-size: modular-scale(2),
-  decanter-source: "'base/typography.scss:211'",
 ) !default;
 
 $typography__h5:() !default;
 
 h5 {
+  /*!*/
   @include properties($typography__h5--default, $typography__h5);
 }
 
@@ -234,12 +234,12 @@ h5 {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
 $typography__h6--default: (
   font-size: modular-scale(2),
-  decanter-source: "'base/typography.scss:235'",
 ) !default;
 
 $typography__h6:() !default;
 
 h6 {
+  /*!*/
   @include properties($typography__h6--default, $typography__h6);
 }
 
@@ -259,12 +259,12 @@ h6 {
 ///
 $typography__p--default: (
   margin: 0 0 modular-scale(1),
-  decanter-source: "'base/typography.scss:260'",
 ) !default;
 
 $typography__p:() !default;
 
 p {
+  /*!*/
   @include properties($typography__p--default, $typography__p);
 }
 
@@ -284,12 +284,12 @@ p {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i
 $typography__emphasis--default: (
   font-style: italic,
-  decanter-source: "'base/typography.scss:285'",
 ) !default;
 
 $typography__emphasis:() !default;
 
 dfn, cite, em, i {
+  /*!*/
   @include properties($typography__emphasis--default, $typography__emphasis);
 }
 
@@ -317,12 +317,12 @@ $typography__blockquote--default: (
   '&::after': (
       content: close-quote,
   ),
-  decanter-source: "'base/typography.scss:310'",
 ) !default;
 
 $typography__blockquote:() !default;
 
 blockquote {
+  /*!*/
   @include properties($typography__blockquote--default, $typography__blockquote);
 }
 
@@ -347,12 +347,12 @@ $typography__q--default: (
   '&::after': (
       content: close-quote,
   ),
-  decanter-source: "'base/typography.scss:341'",
 ) !default;
 
 $typography__q:() !default;
 
 q {
+  /*!*/
   @include properties($typography__q--default, $typography__q);
 }
 
@@ -373,12 +373,12 @@ q {
 ///
 $typography__address--default: (
   margin: 0 0 modular-scale(2),
-  decanter-source: "'base/typography.scss:374'",
 ) !default;
 
 $typography__address:() !default;
 
 address {
+  /*!*/
   @include properties($typography__address--default, $typography__address);
 }
 
@@ -411,12 +411,12 @@ $typography__pre--default: (
   padding: 1.6em,
   border: 1px solid color(grey),
   white-space: pre-wrap,
-  decanter-source: "'base/typography.scss:403'",
 ) !default;
 
 $typography__pre: () !default;
 
 pre {
+  /*!*/
   @include properties($typography__pre--default, $typography__pre);
 }
 
@@ -449,12 +449,12 @@ $typography__code--default: (
   position: relative,
   background-color: rgba(color(light-grey), .6),
   border: 1px solid color(grey),
-  decanter-source: "'base/typography.scss:445'",
 ) !default;
 
 $typography__code: () !default;
 
 code, kbd, var, samp {
+  /*!*/
   @include properties($typography__code--default, $typography__code);
 }
 
@@ -472,12 +472,12 @@ code, kbd, var, samp {
 $typography__abbr--default: (
   border-bottom: 1px dotted color(border),
   cursor: help,
-  decanter-source: "'base/typography.scss:472'",
 ) !default;
 
 $typography__abbr: () !default;
 
 abbr, acronym {
+  /*!*/
   @include properties($typography__abbr--default, $typography__abbr);
 }
 
@@ -491,12 +491,12 @@ abbr, acronym {
 ///
 $typography__edits--default: (
   padding: 0 .25em .15em,
-  decanter-source: "'base/typography.scss:492'",
 ) !default;
 
 $typography__edits: () !default;
 
 mark, ins, del {
+  /*!*/
   @include properties($typography__edits--default, $typography__edits);
 }
 
@@ -516,12 +516,12 @@ $typography__del--default: (
   background: color(light-red),
   text-decoration: line-through,
   text-decoration-color: color(red),
-  decanter-source: "'base/typography.scss:514'",
 ) !default;
 
 $typography__del: () !default;
 
 del {
+  /*!*/
   @include properties($typography__del--default, $typography__del);
 }
 
@@ -542,12 +542,12 @@ $typography__ins--default: (
   color: color(text),
   background: color(light-green),
   text-decoration: none,
-  decanter-source: "'base/typography.scss:541'",
 ) !default;
 
 $typography__ins: () !default;
 
 ins {
+  /*!*/
   @include properties($typography__ins--default, $typography__ins);
 }
 
@@ -566,12 +566,12 @@ $typography__mark--default: (
   color: color(text),
   background: color(light-yellow),
   text-decoration: none,
-  decanter-source: "'base/typography.scss:565'",
 ) !default;
 
 $typography__mark: () !default;
 
 mark {
+  /*!*/
   @include properties($typography__mark--default, $typography__mark);
 }
 
@@ -588,12 +588,12 @@ mark {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small
 $typography__small-text--default: (
   font-size: modular-scale(-1, $ratio: 1.125),
-  decanter-source: "'base/typography.scss:589'",
 ) !default;
 
 $typography__small-text: () !default;
 
 small, .small-text {
+  /*!*/
   @include properties($typography__small-text--default, $typography__small-text);
 }
 
@@ -614,12 +614,13 @@ small, .small-text {
 ///
 $typography__large-text--default: (
   font-size: modular-scale(1),
-  decanter-source: "'base/typography.scss:615'",
+
 ) !default;
 
 $typography__large-text: () !default;
 
 .large-text {
+  /*!*/
   @include properties($typography__large-text--default, $typography__large-text);
 }
 
@@ -644,12 +645,12 @@ $typography__hr--default: (
   border-bottom: $base-border,
   border-left: 0,
   margin: modular-scale(1) 0,
-  decanter-source: "'base/typography.scss:641'",
 ) !default;
 
 $typography__hr: () !default;
 
 hr {
+  /*!*/
   @include properties($typography__hr--default, $typography__hr);
 }
 
@@ -667,18 +668,18 @@ hr {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
 ///
 $typography__a--default: (
-  color: color(action),
-  text-decoration: none,
+    color: color(action),
+    text-decoration: none,
 
-  #{$hocus}: (
-      color: color(action-active),
-      text-decoration: underline,
-  ),
-  decanter-source: "'base/typography.scss:669'",
+    #{$hocus}: (
+        color: color(action-active),
+        text-decoration: underline,
+    ),
 ) !default;
 
 $typography__a: () !default;
 
 a {
+  /*!*/
   @include properties($typography__a--default, $typography__a);
 }

@@ -15,6 +15,7 @@
 /// @require button
 /// @require $base-button
 %button__generic {
+  /*!*/
   @include button($base-button);
 }
 
@@ -23,6 +24,7 @@
 /// @require button
 /// @require $primary-button
 %button__primary {
+  /*!*/
   @extend %button__generic;
   @include button($primary-button);
 }
@@ -32,6 +34,7 @@
 /// @require button
 /// @require $secondary-button
 %button__secondary {
+  /*!*/
   @extend %button__generic;
   @include button($secondary-button);
 }
@@ -39,5 +42,6 @@
 /// Apply all button styles.
 /// @require {placeholder} button__generic
 #{$all-buttons} {
+  /*!*/
   @extend %button__generic;
 }
