@@ -19,7 +19,7 @@
 $base-button: (
   box-shadow: material-shadow(flat),
   appearance: none,
-  background-color: color(action),
+  background-color: color(link),
   border: none,
   color: color(reverse-text),
   cursor: pointer,
@@ -37,13 +37,13 @@ $base-button: (
   transition: $base-transition,
 
   '#{$hocus}': (
-    background-color: color(action--active),
+    background-color: color(link--active),
     color: color(reverse-text--active),
     text-decoration: none,
   ),
 
   '&:disabled, &.disabled': (
-    background-color: color(action),
+    background-color: color(link),
     color: color(reverse-text),
     cursor: not-allowed,
     opacity: .5,
@@ -55,13 +55,13 @@ $base-button: (
 ) !default;
 
 $primary-button: (
-  background-color: color(action),
+  background-color: color(link),
   color: color(reverse-text),
   font-weight: 600,
   padding: em(10px) em($base-spacing) em(12px),
 
   '#{$hocus}': (
-    background-color: color(action--active),
+    background-color: color(link--active),
     color: color(reverse-text),
     text-decoration: none,
   ),
@@ -80,7 +80,7 @@ $secondary-button: (
 
   '#{$hocus}': (
     background-color: inherit,
-    border-color: color(action),
-    color: color(action),
+    border-color: color(link),
+    color: color(link),
   ),
 ) !default;
