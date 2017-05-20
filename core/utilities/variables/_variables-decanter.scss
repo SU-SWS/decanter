@@ -14,7 +14,7 @@ $decanter-default-settings: (
   // Configure Bourbon Modular Scale
   modular-scale-ratio: 1.25,
   // Configure Default Neat Grid
-  grid-columns: 12,
+  columns: 12,
   gutter: 20px,
   // Configure Decanter Functions and settings
   max-container-width: 1200px,
@@ -25,27 +25,3 @@ $decanter-default-settings: (
 /// Decanter override settings. These get merged with default settings by the retrieve decanter setting function.
 /// Use these map in your own project to declare decanter settings
 $decanter-settings: ()!default;
-
-/// Root font size in pixels.
-/// Used for converting rem to pixels.
-///
-/// @type number | pixel measurement
-$root-font-size: _retrieve-decanter-setting(root-font-size) !default;
-
-/// Base font size in pixels.
-/// Used for converting between em and absolute lengths.
-///
-/// @type number | pixel measurement
-$base-font-size: _retrieve-decanter-setting(base-font-size) !default;
-
-/// Grid Columns
-/// How many columns in the default grid
-///
-/// @type number
-$grid-columns: _retrieve-decanter-setting(grid-columns) !default;
-
-/// Breakpoint Helper.
-/// Generates a set of configurable breakpoint visual prompts to aid during development.
-///
-/// @type bool
-$breakpoint-helper: _retrieve-decanter-setting(breakpoint-helper) !default;

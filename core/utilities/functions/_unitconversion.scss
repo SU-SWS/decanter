@@ -150,6 +150,9 @@
 /// @require $base-font-size
 /// @require $root-font-size
 @function to-unit($unit, $input){
+  // Retrieves the root and base font sizes at runtime
+  $root-font-size: _retrieve-decanter-setting(root-font-size);
+  $base-font-size: _retrieve-decanter-setting(base-font-size);
   // Test against valid CSS units
   $to-unit: map-get((
       px: 0px, pt: 0pt, pc: 0pc, in: 0in, mm: 0mm, cm: 0cm, // absolute length
