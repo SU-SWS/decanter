@@ -58,7 +58,7 @@ html {
 $typography__body--default: (
   line-height: $base-line-height,
   font-family: $base-font-family,
-  font-size: em($base-font-size, $root-font-size),
+  font-size: em(_retrieve-decanter-setting(base-font-size), _retrieve-decanter-setting(root-font-size)),
 ) !default;
 
 $typography__body: () !default;
