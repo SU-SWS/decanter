@@ -6,35 +6,47 @@
 /// @group _variables|__decanter
 ////
 
+$decanter-default-settings: (
+  root-font-size: 10px,
+  base-font-size: 18px,
+  grid-columns: 12,
+  gutter: 20px,
+  max-container-width: 1200px,
+  breakpoint-helper: false,
+  breakpoint-helper-selector: #breakpoint-helper,
+) !default;
+
+$decanter-settings: ()!default;
+
 /// Root font size in pixels.
 /// Used for converting rem to pixels.
 ///
 /// @type number | pixel measurement
-$root-font-size: 10px !default;
+$root-font-size: _retrieve-decanter-setting(root-font-size) !default;
 
 /// Base font size in pixels.
 /// Used for converting between em and absolute lengths.
 ///
 /// @type number | pixel measurement
-$base-font-size: 18px !default;
+$base-font-size: _retrieve-decanter-setting(base-font-size) !default;
 
 /// Grid Columns
 /// How many columns in the default grid
 ///
 /// @type number
-$grid-columns: 12 !default;
+$grid-columns: _retrieve-decanter-setting(grid-columns) !default;
 
 /// Gutter
 /// The space on the left and right of default grid elements
 ///
 /// @type number | pixel measurement
-$gutter: 20px !default;
+$gutter: _retrieve-decanter-setting(gutter) !default;
 
 /// Max width, including horizontal gutters.
 //  This is also used to generate our XL breakpoint.
 //
 /// @type number | pixel measurement
-$max-container-width: 1200px !default;
+$max-container-width: _retrieve-decanter-setting(max-container-width) !default;
 
 /// Max Content Width
 /// Removes gutters from the max-container-width constant to give us a computed content-width.
@@ -46,4 +58,4 @@ $max-content-width: $max-container-width - ($gutter * 2) !default;
 /// Generates a set of configurable breakpoint visual prompts to aid during development.
 ///
 /// @type bool
-$breakpoint-helper: true;
+$breakpoint-helper: _retrieve-decanter-setting(breakpoint-helper) !default;

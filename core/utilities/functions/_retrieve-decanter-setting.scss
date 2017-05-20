@@ -1,0 +1,15 @@
+@charset 'UTF-8';
+
+////
+/// Decanter Setting
+/// @group functions
+/// @author Kevin Garcia
+////
+
+/// Retrieves a setting from the decanter settings map after performing a smart map-merge operation.
+
+@function _retrieve-decanter-setting($setting: null, $map: $decanter-settings) {
+  $_map: smart-merge($decanter-default-settings, $map);
+  $_setting: map-get($_map, $setting);
+  @return $_setting;
+}

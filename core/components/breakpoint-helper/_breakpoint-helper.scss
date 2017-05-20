@@ -11,7 +11,7 @@ $breakpoint-helper-map: (
     (short-label: 'xl', full-label: '$media-xl', media: $media-xl, color: color(purple)),
 );
 
-@mixin breakpoint-helper($selector: '#breakpoint-helper', $map: $breakpoint-helper-map ) {
+@mixin breakpoint-helper($selector: _retrieve-decanter-setting(breakpoint-helper-selector), $map: $breakpoint-helper-map ) {
 
   #{$selector} {
     box-shadow: material-shadow(flat);
