@@ -6,16 +6,24 @@
 /// @group _variables|__decanter
 ////
 
+/// Decanter global default settings
 $decanter-default-settings: (
+  // Configure global units
   root-font-size: 10px,
   base-font-size: 18px,
+  // Configure Bourbon Modular Scale
+  modular-scale-ratio: 1.25,
+  // Configure Default Neat Grid
   grid-columns: 12,
   gutter: 20px,
+  // Configure Decanter Functions and settings
   max-container-width: 1200px,
   breakpoint-helper: false,
   breakpoint-helper-selector: #breakpoint-helper,
 ) !default;
 
+/// Decanter override settings. These get merged with default settings by the retrieve decanter setting function.
+/// Use these map in your own project to declare decanter settings
 $decanter-settings: ()!default;
 
 /// Root font size in pixels.
@@ -35,24 +43,6 @@ $base-font-size: _retrieve-decanter-setting(base-font-size) !default;
 ///
 /// @type number
 $grid-columns: _retrieve-decanter-setting(grid-columns) !default;
-
-/// Gutter
-/// The space on the left and right of default grid elements
-///
-/// @type number | pixel measurement
-$gutter: _retrieve-decanter-setting(gutter) !default;
-
-/// Max width, including horizontal gutters.
-//  This is also used to generate our XL breakpoint.
-//
-/// @type number | pixel measurement
-$max-container-width: _retrieve-decanter-setting(max-container-width) !default;
-
-/// Max Content Width
-/// Removes gutters from the max-container-width constant to give us a computed content-width.
-///
-/// @type number | pixel measurement
-$max-content-width: $max-container-width - ($gutter * 2) !default;
 
 /// Breakpoint Helper.
 /// Generates a set of configurable breakpoint visual prompts to aid during development.

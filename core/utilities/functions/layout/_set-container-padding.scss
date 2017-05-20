@@ -7,7 +7,7 @@
 
 /// Set Container padding
 /// Creates a fluid container of a certain number of columns.
-/// Can be constrained to a specific max width, or to the project's global `$max-container-width`.
+/// Can be constrained to a specific max width, or to the project's global `max container width`.
 ///
 /// @param {number | string} columns  [null] - The number of columns the container spans (ex: 1 or 1 of 2)
 /// @param {map} grid  [$neat-grid] - The grid to base the calculations on.
@@ -23,6 +23,7 @@
   $_columns: _neat-column-default($grid, $columns); // Retrieves max columns from specified grid if empty, or the specified number of columns otherwise
   $_grid-columns: _retrieve-neat-setting($grid, columns); // Retrieves the number of max columns from the specified grid
   $_grid-gutter: _retrieve-neat-setting($grid, gutter); // Retrieves the gutter from the specified grid
+  $_max-container-width: _retrieve-decanter-setting(max-container-width); // Retrieves the project's max container width
   //Checks to see if we need to add a max-width.
   @if $max-width == false {
     // Checks to see if we need to calculate a gutter
@@ -38,7 +39,7 @@
     @return calc(50% - (#{$_container-width} - #{$_grid-gutter}));
     // Finally, if max width is set to true, we use the project's "max-container-width" configuration option.
   } @else if ($max-width == true) {
-    $_container-width: ((($max-container-width / 2) / $_grid-columns) * $_columns);
+    $_container-width: ((($_max-container-width / 2) / $_grid-columns) * $_columns);
     @return calc(50% - (#{$_container-width} - #{$_grid-gutter}));
   }
 }

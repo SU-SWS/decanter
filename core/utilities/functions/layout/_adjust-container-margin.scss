@@ -21,6 +21,7 @@
   $_columns: _neat-column-default($grid, $columns);
   $_grid-columns: _retrieve-neat-setting($grid, columns);
   $_grid-gutter: _retrieve-neat-setting($grid, gutter);
+  $_max-container-width: _retrieve-decanter-setting(max-container-width);
 
   // Checks to see if the parent container has a max width
   @if $max-width == false {
@@ -60,9 +61,9 @@
   } @else if $max-width == true {
     // Calculates the width of the container in pixels, based on the global max content width
     @if $grid-collapse == true {
-      @return calc(((#{$max-container-width / 2} / #{$_grid-columns}) * #{-$columns}) - #{$_grid-gutter});
+      @return calc(((#{$_max-container-width / 2} / #{$_grid-columns}) * #{-$columns}) - #{$_grid-gutter});
     } @else {
-      @return calc((#{$max-container-width / 2} / #{$_grid-columns}) * #{-$columns});
+      @return calc((#{$_max-container-width / 2} / #{$_grid-columns}) * #{-$columns});
     }
   }
 }
