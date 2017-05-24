@@ -2,15 +2,11 @@
 
 /// Decanter global default settings
 $decanter-default-settings: (
-  // Configure global units
   root-font-size: 10px,
   base-font-size: 18px,
-  // Configure Bourbon Modular Scale
   modular-scale-ratio: 1.25,
-  // Configure Default Neat Grid
   columns: 12,
   gutter: 20px,
-  // Configure Decanter Functions and settings
   max-container-width: 1500px,
   breakpoint-helper: false,
   breakpoint-helper-selector: #breakpoint-helper,
@@ -83,8 +79,8 @@ $bourbon: (
 ///
 /// @group settings
 $neat-grid: (
-    columns: _retrieve-decanter-setting('columns'),
-    gutter:  _retrieve-decanter-setting('gutter'),
+    columns: map_get($decanter-default-settings, columns),
+    gutter:  map_get($decanter-default-settings, gutter),
     media: null,
     color: rgba(#00d4ff, 0.25),
     direction: ltr,
@@ -106,7 +102,7 @@ $screen-md-min:               768px;
 $screen-lg-min:               1024px;
 
 /// Screen XL Min
-$screen-xl-min:               _retrieve-decanter-setting('max-container-width'); //1500px
+$screen-xl-min:               map_get($decanter-default-settings, max-container-width) !default;
 
 // Upper boundaries
 // ----------------
