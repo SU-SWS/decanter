@@ -1,15 +1,21 @@
 @charset "UTF-8";
-/// Root font size in pixels. Used for converting rem to pixels.
-///
-/// @type length
-///
-/// @group settings
-$root-font-size: 10px;
-/// Base font size in pixels. Used for converting between em and absolute lengths.
-/// @type length
-///
-/// @group settings
-$base-font-size: 18px;
+
+/// Decanter global default settings
+$decanter-default-settings: (
+  // Configure global units
+  root-font-size: 10px,
+  base-font-size: 18px,
+  // Configure Bourbon Modular Scale
+  modular-scale-ratio: 1.25,
+  // Configure Default Neat Grid
+  columns: 12,
+  gutter: 20px,
+  // Configure Decanter Functions and settings
+  max-container-width: 1500px,
+  breakpoint-helper: false,
+  breakpoint-helper-selector: #breakpoint-helper,
+) !default;
+
 /// @name Bourbon Settings
 ///
 /// @type map
@@ -48,28 +54,7 @@ $base-font-size: 18px;
 $bourbon: (
     "modular-scale-ratio": 1.25,
 );
-/// Max-container width. Edge-to-edge. Gutters are calculated inside the max-width.
-/// This is also used to generate our XL breakpoint.
-/// @type length (with unit)
-///
-/// @group settings
-$max-container-width: 1500px;
-/// Gutter
-///
-/// @type length (with unit)
-///
-/// The space on the left and right of grid elements
-///
-/// @group settings
-$gutter: 20px;
-/// Grid Columns
-///
-/// @type number (unitless)
-///
-/// How many columns in a grid
-///
-/// @group settings
-$grid-columns: 12;
+
 /// This variable is a sass map that overrides Neat's default grid settings.
 /// Use this to define your project's grid properties incluting gutters and
 /// total column count.
@@ -98,8 +83,8 @@ $grid-columns: 12;
 ///
 /// @group settings
 $neat-grid: (
-    columns: $grid-columns,
-    gutter:  $gutter,
+    columns: _retrieve-decanter-setting('columns'),
+    gutter:  _retrieve-decanter-setting('gutter'),
     media: null,
     color: rgba(#00d4ff, 0.25),
     direction: ltr,
@@ -121,7 +106,7 @@ $screen-md-min:               768px;
 $screen-lg-min:               1024px;
 
 /// Screen XL Min
-$screen-xl-min:               $max-container-width; //1500px
+$screen-xl-min:               _retrieve-decanter-setting('max-container-width'); //1500px
 
 // Upper boundaries
 // ----------------

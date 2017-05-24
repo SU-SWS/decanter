@@ -14,14 +14,7 @@
 // Separated out as a mixin for easy re-use and possible move to Decanter.
 @mixin stanford-brand-bar {
 
-  $_brand-container: (
-    sm-max: ( columns: 12, grid-media: $media-sm-max,  v-space: 5px, max-width: false, grid-collapse: false ),
-    md: ( columns: 12, grid-media: $media-md,          v-space: 5px, max-width: false, grid-collapse: false ),
-    xl: ( columns: 12, grid-media: $media-xl,          v-space: 5px, max-width: true,  grid-collapse: false ),
-    print: ( columns: 12, grid-media: $media-print,    v-space: 5px, max-width: false, grid-collapse: false ),
-  ) !default;
-
-  @include responsive-container($_brand-container);
+  @include responsive-container($default-container);
   height: 30px;
   max-height: 30px;
   color: color(reverse-text);
