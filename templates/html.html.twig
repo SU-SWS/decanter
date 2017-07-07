@@ -40,7 +40,7 @@
   <!--[if IE 8]>        <html{{ html_attributes.removeClass('lt-ie8') }}><![endif]-->
   <!--[if gt IE 8]><!--><html{{ html_attributes.removeClass('lt-ie9') }}><!--<![endif]-->
 {% else -%}
-  <html{{ html_attributes }}>
+  <html{{ html_attributes.addClass('no-js') }}>
 {% endif %}
   <head>
     <head-placeholder token="{{ placeholder_token }}">
