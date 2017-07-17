@@ -52,8 +52,10 @@
   {% for role in user.roles %}
     {% set classes = classes|merge(['role--' ~ role|clean_class]) %}
   {% endfor %}
+
   <body{{ attributes.addClass(classes,
-    not is_front ? 'with-subnav'
+  not is_front ? 'with-subnav',
+  node_type
   ) }}>
     <div id="skip">
       <a href="#main-menu" class="visually-hidden focusable skip-link">

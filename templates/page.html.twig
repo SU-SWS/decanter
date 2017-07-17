@@ -4,9 +4,9 @@
   <!-- ______________________ HEADER _______________________ -->
 
   {% if page.header %}
-  <header id="header">
-    {{ page.header }}
-  </header><!-- /#header -->
+    <header id="header">
+      {{ page.header }}
+    </header><!-- /#header -->
   {% endif %}
 
   {% if main_menu or secondary_menu %}
@@ -18,32 +18,33 @@
 
   <!-- ______________________ MAIN _______________________ -->
 
-    {{ page.breadcrumb }}
+  {{ page.breadcrumb }}
 
-    {% if page.highlighted|render %}
-      <div id="highlighted">{{ page.highlighted }}</div>
-    {% endif %}
+  {% if page.highlighted|render %}
+    <div id="highlighted">{{ page.highlighted }}</div>
+  {% endif %}
 
-    {{ title_prefix }}
+  {{ title_prefix }}
 
-    {% if title %}
-      <h1 class="title">{{ title }}</h1>
-    {% endif %}
+  {% if title %}
+    <h1 class="title">{{ title }}</h1>
+  {% endif %}
 
-    {{ title_suffix }}
-    {{ page.help }}
+  {{ title_suffix }}
+  {{ page.help }}
 
-    {% if tabs %}
-      <div class="tabs">{{ tabs }}</div>
-    {% endif %}
+  {% if tabs %}
+    <div class="tabs">{{ tabs }}</div>
+  {% endif %}
 
-    {% if action_links %}
-      <ul class="action-links">{{ action_links }}</ul>
-    {% endif %}
+  {% if action_links %}
+    <ul class="action-links">{{ action_links }}</ul>
+  {% endif %}
 
   <div class="main-container">
     {{ page.content }}
   </div>
+
   <!-- ______________________ FOOTER _______________________ -->
 
   {% if page.footer|render %}
