@@ -39,7 +39,7 @@
     'menu--' ~ derivative_plugin_id|clean_class,
   ]
 %}
-{% set heading_id = attributes.id ~ '-menu'|clean_id %}
+{% set heading_id = (configuration.id ~ '-menu')|clean_id %}
 <nav role="navigation" aria-labelledby="{{ heading_id }}"{{ attributes.addClass(classes)|without('role', 'aria-labelledby') }}>
   {# Label. If not displayed, we still provide it for screen readers. #}
   {% if not configuration.label_display %}
