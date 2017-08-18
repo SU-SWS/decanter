@@ -48,15 +48,11 @@
     <css-placeholder token="{{ placeholder_token }}">
     <js-placeholder token="{{ placeholder_token }}">
   </head>
-  {% set classes = [] %}
+  {% set classes = [is_front ? 'front', not is_front ? 'not-front'] %}
   {% for role in user.roles %}
     {% set classes = classes|merge(['role--' ~ role|clean_class]) %}
   {% endfor %}
-
-  <body{{ attributes.addClass(classes,
-  not is_front ? 'with-subnav',
-  node_type
-  ) }}>
+  <body{{ attributes.addClass(classes) }}>
     <div id="skip">
       <a href="#main-menu" class="visually-hidden focusable skip-link">
         {{ 'Skip to main navigation'|t }}
