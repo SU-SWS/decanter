@@ -69,7 +69,6 @@
 // $root-font-size: 16px !default;
 // $base-font-size: $root-font-size !default;
 
-
 // Absolute lengths
 @function px($input){ @return to-unit(px, $input); }
 @function pt($input){ @return to-unit(pt, $input); }
@@ -147,8 +146,7 @@
 
 // Conversion function
 /// Conversion function
-/// @require $base-font-size
-/// @require $root-font-size
+/// @require _retrieve-decanter-setting
 @function to-unit($unit, $input){
   // Retrieves the root and base font sizes at runtime
   $root-font-size: _retrieve-decanter-setting(root-font-size);
