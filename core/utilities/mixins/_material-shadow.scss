@@ -5,7 +5,6 @@
 /// @author Kevin Garcia
 ///
 /// @arg {string} Depth [shallow] - How deep the shadow appears to be. Default is Shallow.
-/// @require {function} rgba
 ///
 /// @example - scss SCSS
 ///   .element {
@@ -22,8 +21,11 @@
 /// @deprecated
 /// This mixin is deprecated in favor of the `material-shadow` function
 ///
+/// @ignore •Note• the `rgba`, `round`, `floor` functions are core Sass functions.
 /// @see {function} material-shadow
-@mixin material_shadow( $depth: shallow ) {
+///
+/// @ignore •Note• the `rgba`, `round`, `floor` functions are core Sass functions.
+@mixin material-shadow($depth: shallow) {
   @media only screen {
     box-shadow: material-shadow($depth);
   }

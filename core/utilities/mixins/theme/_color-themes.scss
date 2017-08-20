@@ -78,18 +78,17 @@ $default-theme-group: (
 ///     color: #297C85;
 ///   }
 ///
-
 /// @link {mixin} color-theme
 /// @link (variable} colors
 ///
 /// @require color
 /// @require $colors
-/// @require color-theme
+/// @require {mixin} color-theme
 @mixin color-themes($theme-group: null) {
   @each $_theme, $_map in $theme-group {
 
-    $_palette: map_get($_map, palette);
-    $_selector: map_get($_map, selector);
+    $_palette: map-get($_map, palette);
+    $_selector: map-get($_map, selector);
 
     @include color-theme($_palette, $_selector) {
       @content

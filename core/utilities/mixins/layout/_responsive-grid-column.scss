@@ -2,7 +2,6 @@
 
 // Provide variable proetection.
 $default-grid-column: () !default;
-
 /// Creates a grid column of requested size.
 ///
 /// @group features
@@ -36,8 +35,7 @@ $default-grid-column: () !default;
         @include grid-column($_columns, $_grid);
       }
     }
-  }
-  @else {
+  } @else {
     @each $breakpoint, $_map in $_container {
       $_grid: map-get($_map, grid-media);
       @include grid-media($_grid) {

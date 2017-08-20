@@ -10,12 +10,11 @@
   $max-width: false,
   $grid-collapse: false,
   $grid-columns: false
-)
-{
+) {
   $_columns: $columns / 2;
   $_margin: _adjust-container-margin($_columns, $grid, $max-width, $grid-collapse, $grid-columns);
 
+  width: auto;
   margin-#{_neat-float-direction($grid)}: $_margin;
   margin-#{_neat-opposite-direction($grid)}: $_margin;
-  width: auto;
 }
