@@ -9,7 +9,7 @@
 
 /// Lower Boundary for extra small screens
 /// @group _variables|breakpoint-boundaries
-$screen-xs-min:               0px !default;
+$screen-xs-min:               0 !default;
 
 /// Lower boundary for small screens
 /// @group _variables|breakpoint-boundaries
@@ -67,7 +67,7 @@ $screen-lg-max:               $screen-xl-min - 1px !default;
 /// @requires $screen-xs-min
 ///
 $media-xs: (
-    media: $screen-xs-min,
+  media: $screen-xs-min,
 ) !default;
 
 /// @group _variables|grid-media
@@ -86,7 +86,7 @@ $media-xs: (
 /// @requires $screen-xs-max
 ///
 $media-xs-only: (
-    media: 'only screen and (max-width: #{$screen-xs-max})',
+  media: 'only screen and (max-width: #{$screen-xs-max})',
 ) !default;
 
 /// @group _variables|grid-media
@@ -105,7 +105,7 @@ $media-xs-only: (
 /// @requires $screen-xs-max
 ///
 $media-xs-max: (
-    media: 'only screen and (max-width: #{$screen-xs-max})',
+  media: 'only screen and (max-width: #{$screen-xs-max})',
 ) !default;
 
 /// @group _variables|grid-media
@@ -124,7 +124,7 @@ $media-xs-max: (
 /// @requires $screen-sm-min
 ///
 $media-sm: (
-    media: $screen-sm-min,
+  media: $screen-sm-min,
 ) !default;
 
 /// @group _variables|grid-media
@@ -144,7 +144,7 @@ $media-sm: (
 /// @requires $screen-sm-max
 ///
 $media-sm-only: (
-    media: 'only screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})',
+  media: 'only screen and (min-width: #{$screen-sm-min}) and (max-width: #{$screen-sm-max})',
 ) !default;
 
 /// @group _variables|grid-media
@@ -163,7 +163,7 @@ $media-sm-only: (
 /// @requires $screen-sm-max
 ///
 $media-sm-max: (
-    media: 'only screen and (max-width: #{$screen-sm-max})',
+  media: 'only screen and (max-width: #{$screen-sm-max})',
 ) !default;
 
 /// @group _variables|grid-media
@@ -182,7 +182,7 @@ $media-sm-max: (
 /// @requires $screen-md-min
 ///
 $media-md: (
-    media: $screen-md-min,
+  media: $screen-md-min,
 ) !default;
 
 /// @group _variables|grid-media
@@ -202,7 +202,7 @@ $media-md: (
 /// @requires $screen-md-max
 ///
 $media-md-only: (
-    media: 'only screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})',
+  media: 'only screen and (min-width: #{$screen-md-min}) and (max-width: #{$screen-md-max})',
 ) !default;
 
 /// @group _variables|grid-media
@@ -221,7 +221,7 @@ $media-md-only: (
 /// @requires $screen-md-max
 ///
 $media-md-max: (
-    media: 'only screen and (max-width: #{$screen-md-max})',
+  media: 'only screen and (max-width: #{$screen-md-max})',
 ) !default;
 
 /// @group _variables|grid-media
@@ -240,7 +240,7 @@ $media-md-max: (
 /// @requires $screen-lg-min
 ///
 $media-lg: (
-    media: $screen-lg-min,
+  media: $screen-lg-min,
 ) !default;
 
 /// @group _variables|grid-media
@@ -259,7 +259,7 @@ $media-lg: (
 /// @requires $screen-lg-min
 /// @requires $screen-lg-max
 $media-lg-only: (
-    media: 'only screen and (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max})',
+  media: 'only screen and (min-width: #{$screen-lg-min}) and (max-width: #{$screen-lg-max})',
 ) !default;
 
 /// @group _variables|grid-media
@@ -278,7 +278,7 @@ $media-lg-only: (
 /// @requires $screen-lg-max
 ///
 $media-lg-max: (
-    media: 'only screen and (max-width: #{$screen-lg-max})',
+  media: 'only screen and (max-width: #{$screen-lg-max})',
 ) !default;
 
 /// @group _variables|grid-media
@@ -297,7 +297,7 @@ $media-lg-max: (
 /// @requires $screen-xl-min
 ///
 $media-xl: (
-    media: $screen-xl-min,
+  media: $screen-xl-min,
 ) !default;
 
 /// @group _variables|grid-media
@@ -314,7 +314,7 @@ $media-xl: (
 ///   Grid media query.
 ///
 $media-print: (
-    columns: 12,
-    gutter: .25in,
-    media: 'only print',
+  columns: 12,
+  gutter: 0.25in,
+  media: 'only print',
 ) !default;
