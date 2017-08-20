@@ -22,13 +22,13 @@
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/html
 $box-model__html--default: (
   box-sizing: border-box,
-)!default;
+) !default;
 
-$box-model__html: ()!default;
+$box-model__html: () !default;
 
 html {
   /*!*/
-  @include properties( $box-model__html--default, $box-model__html );
+  @include properties($box-model__html--default, $box-model__html);
 }
 
 // ---------------------------------------------------------------------------------------------------------------------
@@ -47,9 +47,13 @@ $box-model__box-sizing--default: (
   box-sizing: inherit,
 ) !default;
 
-$box-model__box-sizing: ()!default;
+$box-model__box-sizing: () !default;
 
-*, *::before, *::after {
-  /*!*/
-  @include properties($box-model__box-sizing--default, $box-model__box-sizing);
+* {
+  &,
+  &::before,
+  &::after {
+    /*!*/
+    @include properties($box-model__box-sizing--default, $box-model__box-sizing);
+  }
 }

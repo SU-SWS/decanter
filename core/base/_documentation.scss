@@ -46,11 +46,11 @@
 ///   }
 ///
 $group__element--default: (
-    property1: value1,
-    property2: value2,
-    property3: value3,
+  property1: value1,
+  property2: value2,
+  property3: value3,
   // etc...
-)!default;
+) !default;
 
 // ---------------------------------------------------------------------------------------------------------------------
 /// # Element Map
@@ -89,11 +89,11 @@ $group__element--default: (
 ///   }
 ///
 $group__element: (
-    property1: my-value1,
-    property3: null,
-    my-new-property: my-new-value,
+  property1: my-value1,
+  property3: null,
+  my-new-property: my-new-value,
   // ...
-)!default;
+) !default;
 
 /// `CSS Elements` in `base` are generated via the `properties()` mixin, which merges the above maps and outputs the corresponding css
 ///
@@ -102,7 +102,7 @@ $group__element: (
 ///     @include properties($group__element--default, $group__element);
 ///   }
 ///
-/// @require {mixin} properties>
+/// @require {mixin} properties
 %element  {
   @include properties($group__element--default, $group__element);
 }
@@ -117,11 +117,11 @@ $group__element: (
 ///     @include properties($lists__eelement--default, $typography__eelement);
 ///   }
 ///
-/// @require --
+// @require
 ///
-/// @todo --
+// @todo
 ///
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/eelement
+// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/eelement
 ///
 
 $lists__eelement--default: () !default;

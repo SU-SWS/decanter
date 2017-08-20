@@ -30,10 +30,10 @@ $lists__plain--default: (
 
 $lists__plain: () !default;
 
-ul.plain,
-ol.plain,
-dl.plain,
-dt.plain,
+.plain,
+.plain,
+.plain,
+.plain,
 %plain {
   /*!*/
   @include properties($lists__plain--default, $lists__plain);
@@ -90,7 +90,7 @@ $lists__ul--default: (
   ul: (
     list-style: circle,
     ul: (
-        list-style: square,
+      list-style: square,
     ),
   ),
 ) !default;
@@ -180,7 +180,7 @@ li > ol {
 ///
 
 $lists__dl--default: (
-    margin: 0 0 modular-scale(-5),
+  margin: 0 0 modular-scale(-5),
 ) !default;
 
 $lists__dl: () !default;
@@ -205,7 +205,7 @@ dl {
 ///
 
 $lists__dt--default: (
-    font-weight: 600,
+  font-weight: 600,
 ) !default;
 
 $lists__dt: () !default;
@@ -232,7 +232,7 @@ dt {
 ///
 
 $lists__dd--default: (
-    margin: 0 0 $base-spacing,
+  margin: 0 0 $base-spacing,
 ) !default;
 
 $lists__dd: () !default;

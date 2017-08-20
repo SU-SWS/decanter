@@ -25,10 +25,10 @@
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table
 ///
 $tables__table--default: (
-    border-collapse: collapse,
-    margin: $small-spacing 0,
-    table-layout: fixed,
-    width: 100%,
+  border-collapse: collapse,
+  margin: $small-spacing 0,
+  table-layout: fixed,
+  width: 100%,
 ) !default;
 
 $tables__table: () !default;
@@ -46,18 +46,17 @@ table {
 ///     @include properties($tables__th--default, $typography__th);
 ///   }
 ///
-/// @require bourbon
 /// @require color
 /// @require $small-spacing
 ///
-/// @link http://neat.bourbon.io Bourbon documentation
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th Element Reference: th
+/// @link http://bourbon.io/docs/#tint-shade Bourbon function: Shade
 ///
 $tables__th--default: (
-    border-bottom: 1px solid shade(color(border), 25%),
-    font-weight: 600,
-    padding: $small-spacing 0,
-    text-align: left,
+  border-bottom: 1px solid shade(color(border), 25%),
+  font-weight: 600,
+  padding: $small-spacing 0,
+  text-align: left,
 ) !default;
 
 $tables__th: () !default;
@@ -81,8 +80,8 @@ th {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/td
 ///
 $tables__td--default: (
-    border-bottom: $base-border,
-    padding: $small-spacing 0,
+  border-bottom: $base-border,
+  padding: $small-spacing 0,
 ) !default;
 
 $tables__td: () !default;
@@ -107,7 +106,7 @@ td {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th
 ///
 $tables__tr-td-th--default: (
-    vertical-align: middle,
+  vertical-align: middle,
 ) !default;
 
 $tables__tr-td-th: () !default;

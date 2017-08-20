@@ -11,8 +11,7 @@
 ////
 
 /// Generic Button Styles.
-/// @require button
-/// @require $base-button
+/// @require {mixin} button
 %button__generic {
   /*!*/
   @include button($base-button);
@@ -20,8 +19,7 @@
 
 /// Primary Button Styles.
 /// @require %button__generic
-/// @require button
-/// @require $primary-button
+/// @require {mixin} button
 %button__primary {
   /*!*/
   @extend %button__generic;
@@ -30,8 +28,7 @@
 
 /// Secondary Button Styles.
 /// @require %button__generic
-/// @require button
-/// @require $secondary-button
+/// @require {mixin} button
 %button__secondary {
   /*!*/
   @extend %button__generic;

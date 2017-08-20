@@ -16,17 +16,17 @@
 ///     @include properties($forms__fieldset--default, $typography__fieldset);
 ///   }
 ///
-/// @require --
+// @require --
 ///
-/// @todo --
+// @todo --
 ///
 /// link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/fieldset
 ///
 $forms__fieldset--default: (
-background-color: transparent,
-border: 0,
-margin: 0,
-padding: 0,
+  background-color: transparent,
+  border: 0,
+  margin: 0,
+  padding: 0,
 ) !default;
 
 $forms__fieldset: () !default;
@@ -49,9 +49,9 @@ fieldset {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/legend
 ///
 $forms__legend--default: (
-    font-weight: 600,
-    margin-bottom: $small-spacing / 2,
-    padding: 0,
+  font-weight: 600,
+  margin-bottom: $small-spacing / 2,
+  padding: 0,
 ) !default;
 
 $forms__legend: () !default;
@@ -76,9 +76,9 @@ legend {
 /// @require $small-spacing
 ///
 $forms__label--default: (
-    display: block,
-    font-weight: 600,
-    margin-bottom: $small-spacing / 2,
+  display: block,
+  font-weight: 600,
+  margin-bottom: $small-spacing / 2,
 ) !default;
 
 $forms__label: () !default;
@@ -106,8 +106,8 @@ label {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea
 ///
 $forms__input--default: (
-    display: block,
-    font-family: $base-font-family,
+  display: block,
+  font-family: $base-font-family,
 ) !default;
 
 $forms__input: () !default;
@@ -127,9 +127,8 @@ textarea {
 ///     @include properties($forms__all-text-inputs--default, $typography__all-text-inputs);
 ///   }
 ///
-/// @require bourbon
 /// @require color
-/// @require hokus on-event
+/// @require $hocus
 /// @require $base-border
 /// @require $base-border-radius
 /// @require $form-box-shadow
@@ -138,34 +137,35 @@ textarea {
 /// @require $base-timing
 ///
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+/// @link http://bourbon.io/docs/#tint-shade
 ///
 $forms__all-text-inputs--default: (
-    appearance: none,
-    background-color: color(background),
-    border: $base-border,
-    border-radius: $base-border-radius,
-    box-shadow: $form-box-shadow,
-    box-sizing: border-box,
-    margin-bottom: $base-spacing,
-    padding: $base-spacing / 3,
-    transition: border-color $base-duration $base-timing,
-    width: 100%,
+  appearance: none,
+  background-color: color(background),
+  border: $base-border,
+  border-radius: $base-border-radius,
+  box-shadow: $form-box-shadow,
+  box-sizing: border-box,
+  margin-bottom: $base-spacing,
+  padding: $base-spacing / 3,
+  transition: border-color $base-duration $base-timing,
+  width: 100%,
 
-    #{$hocus}: (
-        border-color: shade(color(border), 20%),
-    ),
-    '&:disabled': (
-        background-color: shade(color(background), 5%),
-        cursor: not-allowed,
+  #{$hocus}: (
+    border-color: shade(color(border), 20%),
+  ),
+  '&:disabled': (
+    background-color: shade(color(background), 5%),
+    cursor: not-allowed,
 
-        '&:hover': (
-            border: $base-border,
-        ),
+    '&:hover': (
+      border: $base-border,
     ),
+  ),
 
-    '&::placeholder': (
-        color: tint(color(text), 40%),
-    ),
+  '&::placeholder': (
+    color: tint(color(text), 40%),
+  ),
 ) !default;
 
 $forms__all-text-inputs: () !default;
@@ -187,7 +187,7 @@ $forms__all-text-inputs: () !default;
 ///
 
 $forms__textarea--default: (
-    resize: vertical,
+  resize: vertical,
 ) !default;
 
 $forms__textarea: () !default;
@@ -213,8 +213,8 @@ textarea {
 ///
 
 $forms__radiocheck--default: (
-    display: inline,
-    margin-right: $small-spacing / 2,
+  display: inline,
+  margin-right: $small-spacing / 2,
 ) !default;
 
 $forms__radiocheck: () !default;
@@ -239,8 +239,8 @@ $forms__radiocheck: () !default;
 ///
 
 $forms__input-file--default: (
-    margin-bottom: $small-spacing,
-    width: 100%,
+  margin-bottom: $small-spacing,
+  width: 100%,
 ) !default;
 
 $forms__input-file: () !default;
@@ -264,8 +264,8 @@ $forms__input-file: () !default;
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
 ///
 $forms__select--default: (
-    margin-bottom: $small-spacing,
-    width: 100%,
+  margin-bottom: $small-spacing,
+  width: 100%,
 ) !default;
 
 $forms__select: () !default;
