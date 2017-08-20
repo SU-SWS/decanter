@@ -18,8 +18,7 @@
   $columns: null,
   $grid: $neat-grid,
   $max-width: false
-)
-{
+) {
   $_columns: _neat-column-default($grid, $columns); // Retrieves max columns from specified grid if empty, or the specified number of columns otherwise
   $_grid-columns: _retrieve-neat-setting($grid, columns); // Retrieves the number of max columns from the specified grid
   $_grid-gutter: _retrieve-neat-setting($grid, gutter); // Retrieves the gutter from the specified grid
@@ -34,7 +33,7 @@
       @return $_grid-gutter;
     }
     // Otherwise we calculate the max width in pixels
-  } @else if type_of($max-width) == number {
+  } @else if type-of($max-width) == number {
     $_container-width: (((px($max-width / 2)) / $_grid-columns) * $_columns);
     @return calc(50% - (#{$_container-width} - #{$_grid-gutter}));
     // Finally, if max width is set to true, we use the project's "max-container-width" configuration option.
