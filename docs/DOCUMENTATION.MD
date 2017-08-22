@@ -20,28 +20,28 @@ Sassdoc documentation is available on /docs/core/index.html
     - [x] smart-merge
     - [x] unitconversion - note: This is now an NPM pacakge that might need to be reintegrated at a later time
   - core/utilities/mixins
-    - [] layout/adjust-container-width
-    - [] layout/centered-container
-    - [] layout/flex-container
-    - [] layout/flex-items-per-row
-    - [] layout/items-per-row
-    - [] layout/responsive-container
-    - [] layout/responsive-grid-collapse
-    - [] layout/responsive-grid-column
-    - [] theme/color-theme
-    - [] theme/color-themes
+    - [ ] layout/adjust-container-width
+    - [ ] layout/centered-container
+    - [ ] layout/flex-container
+    - [ ] layout/flex-items-per-row
+    - [ ] layout/items-per-row
+    - [ ] layout/responsive-container
+    - [ ] layout/responsive-grid-collapse
+    - [ ] layout/responsive-grid-column
+    - [ ] theme/color-theme
+    - [ ] theme/color-themes
     - [x] _nested-properties
     - [x] button
-    - [] center-block
-    - [] font-size
-    - [] grid-media
-    - [] load-fonts
+    - [ ] center-block
+    - [ ] font-size
+    - [ ] grid-media
+    - [ ] load-fonts
     - [x] material-shadow
-    - [] on-event
-    - [] properties
+    - [ ] on-event
+    - [ ] properties
   - core/utilities/placeholders
-    - [] align-text
-    - [] hidden-print
-    - [] hide-element
-    - [] hide-text
-    - [] keep-together
+    - [ ] align-text
+    - [ ] hidden-print
+    - [ ] hide-element
+    - [ ] hide-text
+    - [ ] keep-together
