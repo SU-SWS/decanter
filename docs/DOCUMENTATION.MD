@@ -1,0 +1,47 @@
+# Decanter Sassdoc documentation
+Sassdoc documentation is available on /docs/core/index.html
+
+## State of documentation
+  - [x] core/base (complete)
+  - [x] core/variables (complete)
+  - core/components
+    - [ ] Breakpoint Helper: Docs Pending
+    - [ ] Card: Docs Pending
+    - [ ] Helpers: Docs pending
+  - core/utilities/functions
+    - [x] fonts/log-loaded-font: basic docs complete
+    - [x] fonts/check-loaded-font: basic docs complete
+    - [x] layout/adjust-container-margin: Basic docs complete. Pending full docs
+    - [x] layout/set-container-padding: Basic Docs complete
+    - [x] color: Docs complete
+    - [x] decanter-functions
+    - [x] material-shadow
+    - [x] retrieve-decanter-setting
+    - [x] smart-merge
+    - [x] unitconversion - note: This is now an NPM pacakge that might need to be reintegrated at a later time
+  - core/utilities/mixins
+    - [] layout/adjust-container-width
+    - [] layout/centered-container
+    - [] layout/flex-container
+    - [] layout/flex-items-per-row
+    - [] layout/items-per-row
+    - [] layout/responsive-container
+    - [] layout/responsive-grid-collapse
+    - [] layout/responsive-grid-column
+    - [] theme/color-theme
+    - [] theme/color-themes
+    - [x] _nested-properties
+    - [x] button
+    - [] center-block
+    - [] font-size
+    - [] grid-media
+    - [] load-fonts
+    - [x] material-shadow
+    - [] on-event
+    - [] properties
+  - core/utilities/placeholders
+    - [] align-text
+    - [] hidden-print
+    - [] hide-element
+    - [] hide-text
+    - [] keep-together

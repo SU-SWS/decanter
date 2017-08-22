@@ -7,6 +7,7 @@
 /// where CSS inheritance causes unintended cascading of button properties. In those cases,
 /// you can `@include button($base-button, $secondary-button)`, and have this mixin provide all the computed
 /// values that would normally be overriden if we had used %extend
+/// @alias properties
 ///
 @mixin button($default-settings, $settings: null) {
   $_settings: smart-merge($default-settings, $settings);
