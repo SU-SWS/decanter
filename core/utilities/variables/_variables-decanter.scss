@@ -7,7 +7,8 @@
 ////
 
 /// Decanter global default settings
-$decanter-default-settings: (
+/// @ignore
+$decanter-settings--default: (
   // Configure global units
   root-font-size: 10px,
   base-font-size: 18px,
@@ -24,4 +25,13 @@ $decanter-default-settings: (
 
 /// Decanter override settings. These get merged with default settings by the retrieve decanter setting function.
 /// Use these map in your own project to declare decanter settings
+/// @example scss
+///   $decanter-settings: (
+///     "contrast-switch-dark-color": #000,
+///     "contrast-switch-light-color": #fff,
+///     "global-font-file-formats": ("ttf", "woff2", "woff"),
+///     "modular-scale-base": 1em,
+///     "modular-scale-ratio": $major-third,
+///     "rails-asset-pipeline": false,
+///   );
 $decanter-settings: () !default;
