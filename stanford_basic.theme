@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Cache\CacheableMetadata;
+use Drupal\Component\Utility\Html;
 
 /**
  * Prepares variables for the html.html.twig template.
@@ -55,6 +56,11 @@ function stanford_basic_preprocess_html(&$variables) {
 function stanford_basic_preprocess_field(&$variables, $hook) {
   // Make additional variables available to the template.
   $variables['bundle'] = $variables['element']['#bundle'];
+  $variables['attributes']['class'][] = Html::cleanCssIdentifier($variables['entity_type']);
+  $variables['attributes']['class'][] = Html::cleanCssIdentifier($variables['bundle']);
+  $variables['attributes']['class'][] = Html::cleanCssIdentifier($variables['field_name']);
+  $variables['attributes']['class'][] = Html::cleanCssIdentifier($variables['field_type']);
+  $variables['attributes']['class'][] = Html::cleanCssIdentifier('label-' . $variables['label_display']);
 }
 
 /**
@@ -78,16 +84,31 @@ function stanford_basic_preprocess_page(&$vars) {
 }
 
 /**
- * Block template suggestions.
- * @param  array  $suggestions [description]
- * @param  array  $variables   [description]
- * @return [type]              [description]
+ * Implements hook_preprocess_block().
  */
-// function stanford_basic_theme_suggestions_block_alter(array &$suggestions, array $variables) {
-//   $block = $variables['elements'];
-//   $blockType = $block['#configuration']['provider'];
-//   if ($blockType == "block_content") {
-//     $bundle = $block['content']['#block_content']->bundle();
-//     array_splice($suggestions, 2, 0, 'block__' . $bundle);
-//   }
-// }
+function stanford_basic_preprocess_block(&$variables) {
+  $variables['attributes']['class'][] = Html::cleanCssIdentifier(_stanford_basic_change_characters($variables['base_plugin_id']));
+  $variables['attributes']['class'][] = Html::cleanCssIdentifier(_stanford_basic_change_characters($variables['derivative_plugin_id']));
+}
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function stanford_basic_preprocess_views_view(&$variables) {
+  $variables['attributes']['class'][] = Html::cleanCssIdentifier('view');
+  $variables['attributes']['class'][] = Html::cleanCssIdentifier($variables['id']);
+  $variables['attributes']['class'][] = Html::cleanCssIdentifier($variables['display_id']);
+}
+
+/**
+ * Html::cleanCssIdentifier() doesn't remove ":" so we have to clean a little more.
+ *
+ * @param string $string
+ *   String to clean.
+ *
+ * @return string
+ *   Cleaned string.
+ */
+function _stanford_basic_change_characters($string) {
+  return preg_replace("/[^a-zA-Z\d\s]/", '-', $string);
+}
