@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*! normalize.css v6.0.0 | MIT License | github.com/necolas/normalize.css */
+/*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
 /**
@@ -21,6 +21,13 @@ html {
 
 /* Sections
    ========================================================================== */
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+body {
+  margin: 0;
+}
+
 /**
  * Add the correct display in IE 9-.
  */
@@ -218,14 +225,22 @@ svg:not(:root) {
 /* Forms
    ========================================================================== */
 /**
- * Remove the margin in Firefox and Safari.
+ * 1. Change the font styles in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
  */
 button,
 input,
 optgroup,
 select,
 textarea {
+  font-family: sans-serif;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
   margin: 0;
+  /* 2 */
 }
 
 /**
@@ -280,6 +295,13 @@ button:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
   outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
 }
 
 /**
@@ -3479,10 +3501,10 @@ template {
   text-indent: 101%;
   white-space: nowrap;
   display: inline-block;
+  width: 0.1px;
+  height: 0.1px;
   padding: 0;
   margin: 0;
-  width: .1px;
-  height: .1px;
 }
 
 .sr-only-element {
@@ -3728,7 +3750,7 @@ a {
   text-decoration: none;
 }
 
-a:hover, a:active, a:focus {
+a:hover, a:focus {
   text-decoration: underline;
 }
 
@@ -3776,7 +3798,7 @@ textarea {
   width: 100%;
 }
 
-[type='color']:hover, [type='color']:active, [type='color']:focus, [type='date']:hover, [type='date']:active, [type='date']:focus, [type='datetime']:hover, [type='datetime']:active, [type='datetime']:focus, [type='datetime-local']:hover, [type='datetime-local']:active, [type='datetime-local']:focus, [type='email']:hover, [type='email']:active, [type='email']:focus, [type='month']:hover, [type='month']:active, [type='month']:focus, [type='number']:hover, [type='number']:active, [type='number']:focus, [type='password']:hover, [type='password']:active, [type='password']:focus, [type='search']:hover, [type='search']:active, [type='search']:focus, [type='tel']:hover, [type='tel']:active, [type='tel']:focus, [type='text']:hover, [type='text']:active, [type='text']:focus, [type='time']:hover, [type='time']:active, [type='time']:focus, [type='url']:hover, [type='url']:active, [type='url']:focus, [type='week']:hover, [type='week']:active, [type='week']:focus, input:not([type]):hover, input:not([type]):active, input:not([type]):focus, textarea:hover, textarea:active, textarea:focus {
+[type='color']:hover, [type='color']:focus, [type='date']:hover, [type='date']:focus, [type='datetime']:hover, [type='datetime']:focus, [type='datetime-local']:hover, [type='datetime-local']:focus, [type='email']:hover, [type='email']:focus, [type='month']:hover, [type='month']:focus, [type='number']:hover, [type='number']:focus, [type='password']:hover, [type='password']:focus, [type='search']:hover, [type='search']:focus, [type='tel']:hover, [type='tel']:focus, [type='text']:hover, [type='text']:focus, [type='time']:hover, [type='time']:focus, [type='url']:hover, [type='url']:focus, [type='week']:hover, [type='week']:focus, input:not([type]):hover, input:not([type]):focus, textarea:hover, textarea:focus {
   border-color: #7a7a7a;
 }
 
@@ -3817,10 +3839,10 @@ select {
   width: 100%;
 }
 
-ul.plain,
-ol.plain,
-dl.plain,
-dt.plain {
+.plain,
+.plain,
+.plain,
+.plain {
   /*!*/
   font-weight: normal;
   list-style-type: none;
@@ -3939,7 +3961,7 @@ figure {
 
 button, [type='button'], [type='reset'], [type='submit'] {
   /*!*/
-  box-shadow: 0 0 10 rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1);
   appearance: none;
   background-color: #006cb8;
   border: none;
@@ -3959,7 +3981,7 @@ button, [type='button'], [type='reset'], [type='submit'] {
   transition: all 250ms ease-in-out;
 }
 
-button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover, button:active, [type='button']:active, [type='reset']:active, [type='submit']:active, button:focus, [type='button']:focus, [type='reset']:focus, [type='submit']:focus {
+button:hover, [type='button']:hover, [type='reset']:hover, [type='submit']:hover, button:focus, [type='button']:focus, [type='reset']:focus, [type='submit']:focus {
   background-color: #33548f;
   color: #dceefe;
   text-decoration: none;
