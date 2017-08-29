@@ -35,9 +35,7 @@ module.exports = function(grunt) {
             ]
           },
           groups: {
-            '_variables|__decanter': 'Decanter Settings',
-            '_variables|_bourbon': 'Bourbon Settings',
-            '_variables|_neat': 'Neat Settings',
+            '_variables|__settings': 'Project Configuration',
             '_variables|animations': 'Variables: Animation & Transition',
             '_variables|borders': 'Variables: Border',
             '_variables|breakpoint-boundaries': 'Variables: Breakpoints',
