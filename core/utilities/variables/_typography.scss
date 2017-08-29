@@ -58,6 +58,24 @@ $heading-line-height: 1.2 !default;
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
 $all-headlines: 'h1, h2, h3, h4, h5, h6' !default;
 
+/// `hover`, `focus` pseudo-class variable
+///
+/// **Note:** This pseudo-class must be used with variable interpolation when used to declare an element.
+///
+/// @example scss - Use Documentation
+///   #{$pocus} {
+///     font-weight: bold;
+///   }
+///
+/// @example css - Output
+///   &:hover, &:focus {
+///     font-weight: bold;
+///   }
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/:hover
+/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/:focus
+$hocus: '&:hover, &:focus' !default;
+
 /// `hover`, `active`, `focus` pseudo-class variable
 ///
 /// **Note:** This selector must be used with variable interpolation when used to declare an element.
@@ -75,23 +93,4 @@ $all-headlines: 'h1, h2, h3, h4, h5, h6' !default;
 /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/:hover
 /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/:active
 /// @link https://developer.mozilla.org/en-US/docs/Web/CSS/:focus
-$hocus: '&:hover, &:active, &:focus' !default;
-
-/// `hover`, `focus` pseudo-class variable
-///
-/// **Note:** This pseudo-class must be used with variable interpolation when used to declare an element.
-///
-/// @example scss - Use Documentation
-///   #{$pocus} {
-///     font-weight: bold;
-///   }
-///
-/// @example css - Output
-///   &:hover, &:focus {
-///     font-weight: bold;
-///   }
-///
-/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/:hover
-/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/:active
-/// @link https://developer.mozilla.org/en-US/docs/Web/CSS/:focus
-$pocus: '&:hover, &:focus' !default;
+$pocus: '&:hover, &:active, &:focus' !default;
