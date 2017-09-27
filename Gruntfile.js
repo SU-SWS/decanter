@@ -23,6 +23,13 @@ module.exports = function(grunt) {
         }
       }
     },
+    uglify: {
+      my_target: {
+        files: {
+          'js/decanter.min.js': 'js/decanter.js',
+        }
+      }
+    },
     watch: {
       css: {
         files: '**/*.scss',
@@ -31,6 +38,7 @@ module.exports = function(grunt) {
     }
   });
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
