@@ -12,6 +12,17 @@ module.exports = function(grunt) {
         }
       }
     },
+    cssmin: {
+      options: {
+        mergeIntoShorthands: false,
+        roundingPrecision: -1
+      },
+      target: {
+        files: {
+          'css/decanter.min.css': 'css/decanter.css',
+        }
+      }
+    },
     watch: {
       css: {
         files: '**/*.scss',
@@ -19,6 +30,7 @@ module.exports = function(grunt) {
       }
     }
   });
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
