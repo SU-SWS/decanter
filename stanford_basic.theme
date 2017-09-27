@@ -71,7 +71,8 @@ function stanford_basic_preprocess_field(&$variables, $hook) {
     foreach ($variables['items'] as &$pitem) {
       $paragraph_type = $pitem['content']['#paragraph']->getType();
       $ptype = Html::cleanCssIdentifier("ptype-" . $paragraph_type);
-      $pitem['attributes']['class'] = ["paragraph-item", $ptype];
+      $pitem['attributes']['class'][] = "paragraph-item";
+      $pitem['attributes']['class'][] = $ptype;
     }
   }
   
