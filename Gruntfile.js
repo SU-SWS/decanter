@@ -34,6 +34,14 @@ module.exports = function(grunt) {
       css: {
         files: '**/*.scss',
         tasks: ['sass']
+      },
+      cssmin: {
+        files: '**/*.css',
+        tasks: ['cssmin']
+      },
+      jsmin: {
+        files: '**/*.js',
+        tasks: ['uglify']
       }
     }
   });
