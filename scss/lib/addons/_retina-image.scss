@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @mixin retina-image($filename, $background-size, $extension: png, $retina-filename: null, $retina-suffix: _2x, $asset-pipeline: $asset-pipeline) {
   @if $asset-pipeline {
     background-image: image-url("#{$filename}.#{$extension}");
