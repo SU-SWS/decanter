@@ -1077,7 +1077,7 @@ var isElementInViewport = require('../utils/is-in-viewport');
 var CLICK = require('../events').CLICK;
 var PREFIX = require('../config').prefix;
 
-// XXX match .usa-accordion and .usa-accordion-bordered
+// XXX match .decanter-accordion and .decanter-accordion-bordered
 var ACCORDION = '.' + PREFIX + '-accordion, .' + PREFIX + '-accordion-bordered';
 var BUTTON = '.' + PREFIX + '-accordion-button[aria-controls]';
 var EXPANDED = 'aria-expanded';
@@ -1308,7 +1308,7 @@ var OVERLAY = '.' + PREFIX + '-overlay';
 var CLOSERS = CLOSE_BUTTON + ', .' + PREFIX + '-overlay';
 var TOGGLES = [NAV, OVERLAY].join(', ');
 
-var ACTIVE_CLASS = 'usa-mobile_nav-active';
+var ACTIVE_CLASS = 'decanter-mobile_nav-active';
 var VISIBLE_CLASS = 'is-visible';
 
 var toggleNav = function toggleNav(active) {
@@ -1534,7 +1534,7 @@ module.exports = assign(function (el) {
 'use strict';
 
 module.exports = {
-  prefix: 'usa'
+  prefix: 'decanter'
 };
 
 },{}],26:[function(require,module,exports){

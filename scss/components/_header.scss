@@ -12,7 +12,7 @@ $z-index-nav:     9000;
 
 // Header ------------- //
 
-.usa-header {
+.decanter-header {
   width: 100%;
   z-index: $z-index-header;
 
@@ -24,7 +24,7 @@ $z-index-nav:     9000;
     border-bottom: none;
   }
 
-  .usa-search {
+  .decanter-search {
     margin-bottom: 1.5rem;
 
     @include media($nav-width) {
@@ -35,7 +35,7 @@ $z-index-nav:     9000;
   }
 }
 
-.usa-logo {
+.decanter-logo {
   float: left;
   line-height: 4rem;
   margin-left: 1.5rem;
@@ -59,7 +59,7 @@ $z-index-nav:     9000;
   }
 }
 
-.usa-logo-text {
+.decanter-logo-text {
   display: block;
   font-size: $h5-font-size;
   font-style: normal;
@@ -73,7 +73,7 @@ $z-index-nav:     9000;
   }
 }
 
-.usa-menu-btn {
+.decanter-menu-btn {
   /* stylelint-disable declaration-block-no-ignored-properties */
   @include button-unstyled;
   background-color: $color-primary;
@@ -103,7 +103,7 @@ $z-index-nav:     9000;
   }
 }
 
-.usa-overlay {
+.decanter-overlay {
   @include position(fixed, 0);
   background: $color-black;
   opacity: 0;
@@ -119,15 +119,15 @@ $z-index-nav:     9000;
 
 // Basic header ----------- //
 
-.usa-header-basic {
-  .usa-logo {
+.decanter-header-basic {
+  .decanter-logo {
     @include media($nav-width) {
       bottom: 1.9rem;
       position: absolute;
     }
   }
 
-  .usa-navbar {
+  .decanter-navbar {
     @include media($nav-width) {
       position: relative;
       width: 18%; // TODO: review this more
@@ -137,14 +137,14 @@ $z-index-nav:     9000;
 
 // Extended header ----------- //
 
-.usa-header-extended {
-  .usa-header {
+.decanter-header-extended {
+  .decanter-header {
     @include media($nav-width) {
       border-bottom: none;
     }
   }
 
-  .usa-logo {
+  .decanter-logo {
     @include media($nav-width) {
       @include margin(3rem null);
     }
@@ -157,7 +157,7 @@ $z-index-nav:     9000;
     }
   }
 
-  .usa-navbar {
+  .decanter-navbar {
     @include media($nav-width) {
       @include outer-container();
       @include padding(null $site-margins);
@@ -167,7 +167,7 @@ $z-index-nav:     9000;
     }
   }
 
-  .usa-nav {
+  .decanter-nav {
     @include media($nav-width) {
       border-top: 1px solid $color-gray-light;
       float: none;
@@ -176,7 +176,7 @@ $z-index-nav:     9000;
     }
   }
 
-  .usa-nav-inner {
+  .decanter-nav-inner {
     @include media($nav-width) {
       @include outer-container();
       @include padding(null $site-margins null 2rem);
@@ -186,7 +186,7 @@ $z-index-nav:     9000;
     }
   }
 
-  .usa-nav-primary {
+  .decanter-nav-primary {
     @include media($nav-width) {
       @include clearfix;
     }
@@ -201,21 +201,21 @@ $z-index-nav:     9000;
     }
   }
 
-  .usa-nav-link {
+  .decanter-nav-link {
     @include media($nav-width) {
       padding-top: 1.9rem;
     }
   }
 
-  .usa-nav-submenu {
-    .usa-grid-full {
+  .decanter-nav-submenu {
+    .decanter-grid-full {
       @include media($nav-width) {
         padding-left: 1.2rem;
       }
     }
   }
 
-  .usa-megamenu {
+  .decanter-megamenu {
     @include media($nav-width) {
       padding-left: $site-margins;
     }

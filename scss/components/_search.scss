@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
-$usa-btn-small-width:   4.5rem;
-$usa-btn-medium-width:  8.5rem;
-$usa-btn-big-width:     11.6rem;
+$decanter-btn-small-width:   4.5rem;
+$decanter-btn-medium-width:  8.5rem;
+$decanter-btn-big-width:     11.6rem;
 
 @mixin search-icon {
   background-image: url('#{$image-path}/search.png');
@@ -11,13 +11,13 @@ $usa-btn-big-width:     11.6rem;
   background-repeat: no-repeat;
 }
 
-.usa-search {
+.decanter-search {
   @include clearfix;
   max-width: none;
   position: relative;
 
   [type=search],
-  .usa-search-input {
+  .decanter-search-input {
     @include padding(0 null);
     -webkit-appearance: none;
     border-bottom-right-radius: 0;
@@ -28,30 +28,30 @@ $usa-btn-big-width:     11.6rem;
     font-size: $small-font-size;
     height: 3.3rem;
     margin: 0;
-    width: calc(100% - #{$usa-btn-small-width});
+    width: calc(100% - #{$decanter-btn-small-width});
 
     @include media($small-screen) {
-      width: calc(100% - #{$usa-btn-medium-width});
+      width: calc(100% - #{$decanter-btn-medium-width});
     }
   }
 
   [type=submit],
-  .usa-search-submit {
+  .decanter-search-submit {
     @include search-icon;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     height: 3.3rem;
     margin: 0;
     padding: 0;
-    width: $usa-btn-small-width;
+    width: $decanter-btn-small-width;
 
     @include media($small-screen) {
       background-image: none;
-      width: $usa-btn-medium-width;
+      width: $decanter-btn-medium-width;
     }
   }
 
-  .usa-search-submit-text {
+  .decanter-search-submit-text {
     display: none;
 
     @include media($small-screen) {
@@ -59,20 +59,20 @@ $usa-btn-big-width:     11.6rem;
     }
   }
 
-  &.usa-search-big {
+  &.decanter-search-big {
     @include media($small-screen) {
       $height: 4.4rem;
-      $width: $usa-btn-big-width;
+      $width: $decanter-btn-big-width;
 
       [type=search],
-      .usa-search-input {
+      .decanter-search-input {
         font-size: $base-font-size;
         height: $height;
         width: calc(100% - #{$width});
       }
 
       [type=submit],
-      .usa-search-submit {
+      .decanter-search-submit {
         font-size: $h3-font-size;
         height: $height;
         width: $width;
@@ -80,17 +80,17 @@ $usa-btn-big-width:     11.6rem;
     }
   }
 
-  &.usa-search-small {
+  &.decanter-search-small {
     @include media($small-screen) {
-      $width: $usa-btn-small-width;
+      $width: $decanter-btn-small-width;
 
       [type=search],
-      .usa-search-input {
+      .decanter-search-input {
         width: calc(100% - #{$width});
       }
 
       [type=submit],
-      .usa-search-submit {
+      .decanter-search-submit {
         @include search-icon;
         width: $width;
       }
@@ -99,7 +99,7 @@ $usa-btn-big-width:     11.6rem;
     $lt-nav-width: $nav-width - 1px;
 
     @media screen and (max-width: $lt-nav-width) {
-      &.usa-sr-only {
+      &.decanter-sr-only {
         left: auto;
         position: relative;
       }

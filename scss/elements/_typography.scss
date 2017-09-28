@@ -57,11 +57,11 @@ a {
 // [href^="http:"]:not([href*="my-domain.com"])
 // [href^="https:"]:not([href*="my-domain.com"])
 
-.usa-external_link {
+.decanter-external_link {
   @include external-link(external-link, external-link-hover);
 }
 
-.usa-external_link-alt {
+.decanter-external_link-alt {
   @include external-link(external-link-alt, external-link-alt-hover);
 }
 
@@ -113,19 +113,19 @@ dfn {
 
 // Custom typography
 
-.usa-content {
-  p:not(.usa-font-lead),
-  ul:not(.usa-accordion):not(.usa-accordion-bordered),
-  ol:not(.usa-accordion):not(.usa-accordion-bordered) {
+.decanter-content {
+  p:not(.decanter-font-lead),
+  ul:not(.decanter-accordion):not(.decanter-accordion-bordered),
+  ol:not(.decanter-accordion):not(.decanter-accordion-bordered) {
     max-width: $text-max-width;
   }
 }
 
-.usa-content-list {
+.decanter-content-list {
   max-width: $text-max-width;
 }
 
-.usa-sans {
+.decanter-sans {
   p,
   a,
   li,
@@ -139,7 +139,7 @@ dfn {
   }
 }
 
-.usa-serif {
+.decanter-serif {
   p,
   a,
   li,
@@ -148,7 +148,7 @@ dfn {
   }
 }
 
-.usa-display {
+.decanter-display {
   @include h3();
   margin-bottom: 0;
 
@@ -161,18 +161,18 @@ dfn {
   }
 }
 
-.usa-font-lead {
+.decanter-font-lead {
   font-family: $font-serif;
   font-size: $lead-font-size;
   line-height: $lead-line-height;
   max-width: $lead-max-width;
 }
 
-.usa-image-block {
+.decanter-image-block {
   position: relative;
 }
 
-.usa-image-text-block {
+.decanter-image-text-block {
   color: $color-white;
   left: 0;
   margin-left: 8%;
@@ -180,15 +180,15 @@ dfn {
   top: 0;
 }
 
-.usa-image-text {
+.decanter-image-text {
   margin-top: 0;
 }
 
-.usa-drop_text {
+.decanter-drop_text {
   margin-bottom: 0;
 }
 
-.usa-background-dark {
+.decanter-background-dark {
   background-color: $color-gray-dark;
 
   p,
@@ -205,16 +205,16 @@ dfn {
   }
 }
 
-.usa-text-small {
+.decanter-text-small {
   font-size: $h6-font-size;
   margin-top: 0;
 }
 
 // Removes top margin from first child and bottom margin from last child on
 // elements when they are within those layout elements.
-.usa-section,
-.usa-grid,
-.usa-grid-full {
+.decanter-section,
+.decanter-grid,
+.decanter-grid-full {
   > :first-child {
     margin-top: 0;
   }
@@ -224,15 +224,15 @@ dfn {
   }
 }
 
-.usa-width-one-whole,
-.usa-width-one-half,
-.usa-width-one-third,
-.usa-width-two-thirds,
-.usa-width-one-fourth,
-.usa-width-three-fourths,
-.usa-width-one-sixth,
-.usa-width-five-sixths,
-.usa-width-one-twelfth {
+.decanter-width-one-whole,
+.decanter-width-one-half,
+.decanter-width-one-third,
+.decanter-width-two-thirds,
+.decanter-width-one-fourth,
+.decanter-width-three-fourths,
+.decanter-width-one-sixth,
+.decanter-width-five-sixths,
+.decanter-width-one-twelfth {
   &:first-child {
     > :first-child {
       margin-top: 0;

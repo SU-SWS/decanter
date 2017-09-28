@@ -7,7 +7,7 @@
   padding-bottom: 1rem;
 }
 
-.usa-navbar {
+.decanter-navbar {
   border-bottom: 1px solid $color-gray-light;
   height: 4rem;
 
@@ -18,7 +18,7 @@
   }
 }
 
-.usa-nav-link {
+.decanter-nav-link {
   @include font-smoothing;
 
   &:hover {
@@ -30,7 +30,7 @@
   }
 }
 
-.usa-nav-container {
+.decanter-nav-container {
   @include media($nav-width) {
     @include outer-container();
     @include padding(null $site-margins);
@@ -38,7 +38,7 @@
   }
 }
 
-.usa-nav {
+.decanter-nav {
   $sliding-panel-width: 26rem;
 
   @include position(fixed, 0 0 0 auto);
@@ -79,18 +79,18 @@
     }
   }
 
-  .usa-current {
+  .decanter-current {
     border-left: 4px solid $color-primary;
     color: $color-primary;
     font-weight: $font-bold;
     padding-left: 1.4rem;
   }
 
-  .usa-button {
+  .decanter-button {
     width: 100%;
   }
 
-  .usa-search {
+  .decanter-search {
     @include media($nav-width) {
       margin-left: 1.5rem; // XXX magic number
     }
@@ -99,8 +99,8 @@
 
 // Primary navigation ------------- //
 
-.usa-nav-primary {
-  @include usa-sidenav-list;
+.decanter-nav-primary {
+  @include decanter-sidenav-list;
   order: 2;
 
   @include media($nav-width) {
@@ -208,7 +208,7 @@
   }
 
   @include media($nav-width) {
-    a.usa-current { // stylelint-disable-line selector-no-qualifying-type
+    a.decanter-current { // stylelint-disable-line selector-no-qualifying-type
       // undo the sidenav style
       border-left: 0;
       padding-left: 1.5rem;
@@ -222,14 +222,14 @@
 
 // Secondary navigation ----------- //
 
-.usa-nav-secondary {
+.decanter-nav-secondary {
   @include media($nav-width) {
     position: absolute;
     right: $site-margins;
     top: -5.7rem; // XXX magic number
   }
 
-  .usa-search {
+  .decanter-search {
     @include margin(3rem null);
 
     @include media($nav-width) {
@@ -239,7 +239,7 @@
   }
 }
 
-.usa-nav-secondary-links {
+.decanter-nav-secondary-links {
   @include media($nav-width) {
     float: left;
   }
@@ -259,7 +259,7 @@
   }
 
   a,
-  .usa-header-search-button {
+  .decanter-header-search-button {
     color: $color-gray;
     display: inline-block;
     font-size: $h5-font-size;
@@ -270,7 +270,7 @@
     }
   }
 
-  .usa-header-search-button {
+  .decanter-header-search-button {
     @include button-unstyled;
     display: none;
 
@@ -292,7 +292,7 @@
   }
 
   @include media($nav-width) {
-    a.usa-current { // stylelint-disable-line selector-no-qualifying-type
+    a.decanter-current { // stylelint-disable-line selector-no-qualifying-type
       // undo the sidenav style
       border-left: 0;
       padding-left: 0;
@@ -302,8 +302,8 @@
 
 // Navigation submenu (dropdown and mega menu) ----- //
 
-.usa-nav-submenu {
-  // @include usa-sidenav-sublist;
+.decanter-nav-submenu {
+  // @include decanter-sidenav-sublist;
 
   @include media($nav-width) {
     @include unstyled-list;
@@ -332,10 +332,10 @@
       }
     }
 
-    // this used to be necessary to undo the `usa-sidenav-sublist`
+    // this used to be necessary to undo the `decanter-sidenav-sublist`
     // include, above
     // &:hover,
-    // &.usa-current { /* stylelint-disable-line selector-no-qualifying-type */
+    // &.decanter-current { /* stylelint-disable-line selector-no-qualifying-type */
     //   @include media($nav-width) {
     //     padding-left: 1.8rem;
     //   }
@@ -350,7 +350,7 @@
 
 // Navigation close button -------- //
 
-.usa-nav-close {
+.decanter-nav-close {
   @include button-unstyled;
   @include margin(-1.2rem -1.5rem 2.4rem auto);
   float: right;
@@ -367,7 +367,7 @@
   }
 }
 
-.usa-mobile_nav-active {
+.decanter-mobile_nav-active {
   overflow: hidden;
 }
 
@@ -383,12 +383,12 @@
   width: 1000%;
 }
 
-.usa-megamenu {
+.decanter-megamenu {
   @include media($nav-width) {
     @include padding(3.15rem null); // XXX magic number
     // XXX this is the difference between the 2rem padding-left
-    // of .usa-nav-inner and the $site-margins (3rem) padding-left
-    // of .usa-megamenu
+    // of .decanter-nav-inner and the $site-margins (3rem) padding-left
+    // of .decanter-megamenu
     left: -1rem;
     width: 100%;
   }
@@ -408,8 +408,8 @@
   }
 }
 
-.usa-header-basic-megamenu {
-  .usa-nav {
+.decanter-header-basic-megamenu {
+  .decanter-nav {
     @include media($nav-width) {
       padding-left: 0;
       padding-top: 0;
@@ -417,7 +417,7 @@
     }
   }
 
-  .usa-nav-inner {
+  .decanter-nav-inner {
     display: flex;
     flex-direction: column;
 
@@ -428,8 +428,8 @@
     }
   }
 
-  .usa-nav-submenu {
-    .usa-grid-full {
+  .decanter-nav-submenu {
+    .decanter-grid-full {
       @include media($nav-width) {
         margin-left: -1.8rem; // XXX magic number
       }
@@ -437,7 +437,7 @@
   }
 }
 
-.usa-megamenu-col {
+.decanter-megamenu-col {
   @include media($nav-width) {
     @include span-columns(3);
 
