@@ -1,7 +1,9 @@
 @charset 'UTF-8';
 
 //
-// 5. Theme — purely visual styling (“look-and-feel”) for a component.
+//  5. THEME
+//
+// Purely visual styling (“look-and-feel”) for a component.
 //
 // Purely visual styling, such as border, box-shadow, colors and backgrounds,
 // font properties, etc. Ideally, these should be separated enough from a
@@ -9,15 +11,16 @@
 // not break the component’s functionality or basic usability.
 //
 
+// Stanford Basic
+@import 'config/config';
 
-// My Config.
-@import "config/config";
-
-// Decanter config.
-@import "decanter/core/utilities/decanter-utilities.scss";
-@import "decanter/core/components/decanter-components.scss";
-
-// Partials.
+// Decanter
 @import
-  "page-title",
-  "link-block";
+  'decanter/scss/core/core',
+  'decanter/scss/elements/elements',
+  'decanter/scss/lib/bourbon',
+  'decanter/scss/lib/neat',
+  'decanter/scss/lib/normalize';
+
+// Stanford Basic Partials
+//@import "my-file";

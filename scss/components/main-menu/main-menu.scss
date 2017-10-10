@@ -1,12 +1,15 @@
 @charset 'UTF-8';
 
-// My Config.
-@import "config/config";
+// Stanford Basic
+@import 'config/config';
 
-// Decanter config.
-@import "decanter/core/utilities/decanter-utilities.scss";
-@import "decanter/core/components/decanter-components";
-@import "config/typography";
+// Decanter
+@import
+  'decanter/scss/core/core',
+  'decanter/scss/elements/elements',
+  'decanter/scss/lib/bourbon',
+  'decanter/scss/lib/neat',
+  'decanter/scss/lib/normalize';
 
 .menu--main {
   @include responsive-container($default-container);

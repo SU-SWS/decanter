@@ -1,30 +1,28 @@
 @charset 'UTF-8';
 
-////
-/// 1. BASE
-///
-/// Base rules consist of styling for HTML elements only, such as used in a CSS
-/// reset or Normalize.css. Base rules should never include class selectors.
-///
-/// To avoid ‘undoing’ styles in components, base styles should reflect the
-/// simplest possible appearance of each element. For example, the simplest usage
-/// of the ul element may be completely unstyled, removing list markers and
-/// indents and relying on a component class for other applications.
-////
+//
+// 1. BASE
+//
+// Base rules consist of styling for HTML elements only, such as used in a CSS
+// reset or Normalize.css. Base rules should never include class selectors.
+//
+// To avoid ‘undoing’ styles in components, base styles should reflect the
+// simplest possible appearance of each element. For example, the simplest usage
+// of the ul element may be completely unstyled, removing list markers and
+// indents and relying on a component class for other applications.
+//
 
-// Project config.
+// Stanford Basic
 @import 'config/config';
 
-// Decanter config.
-@import 'decanter/core/utilities/decanter-utilities';
-
-// Variable overides.
-@import 'config/typography';
-
-// Decanter base styles.
-@import 'decanter/core/base/decanter-base';
-
-// Base overides.
+// Decanter
 @import
-  'fonts',
+  'decanter/scss/core/core',
+  'decanter/scss/elements/elements',
+  'decanter/scss/lib/bourbon',
+  'decanter/scss/lib/neat',
+  'decanter/scss/lib/normalize';
+
+// Overides
+@import
   'typography';

@@ -5,11 +5,16 @@
 /// A thin red stripe with the stanford logo.
 ////
 
-// My Config.
-@import "config/config";
+// Stanford Basic
+@import 'config/config';
 
-// Decanter config.
-@import "decanter/core/utilities/decanter-utilities.scss";
+// Decanter
+@import
+  'decanter/scss/core/core',
+  'decanter/scss/elements/elements',
+  'decanter/scss/lib/bourbon',
+  'decanter/scss/lib/neat',
+  'decanter/scss/lib/normalize';
 
 // Separated out as a mixin for easy re-use and possible move to Decanter.
 @mixin stanford-brand-bar {
