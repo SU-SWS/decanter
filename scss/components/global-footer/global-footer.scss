@@ -1,9 +1,9 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 
 // Stanford Basic
 @import
   'config/config',
-  "utilities/utilities";
+  'utilities/utilities';
 
 // Decanter
 @import
@@ -12,8 +12,6 @@
   'decanter/scss/lib/normalize',
   'decanter/scss/core/core',
   'decanter/scss/elements/elements';
-
-$gutter: 2rem !default;
 
 #footer__global-footer {
   background-color: color(bright-red);
@@ -32,6 +30,7 @@ $gutter: 2rem !default;
   #global-footer__brand {
     display: block;
     float: left;
+
     @include media($small-screen) {
       width: 10rem;
       max-height: 70px;
@@ -62,6 +61,7 @@ $gutter: 2rem !default;
 
     a {
       display: inline-block;
+
       @include media($small-screen) {
         display: block;
         width: 15rem;
@@ -102,7 +102,6 @@ $gutter: 2rem !default;
       #nav__global-links {
         margin-right: 30px;
       }
-
 
       #nav__global-links,
       #nav__policy-links {
