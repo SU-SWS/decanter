@@ -19,7 +19,6 @@ $gutter: 2rem !default;
   background-color: color(bright-red);
   color: color(reverse-text);
   width: 100%;
-  @include responsive-container($default-container);
 
   a {
     color: color(reverse-text);
@@ -28,30 +27,15 @@ $gutter: 2rem !default;
   .su-brand {
     padding-top: 0.15em;
     line-height: 0.75;
-    @include on-event {
-      text-decoration: none;
-    }
   }
 
   #global-footer__brand {
     display: block;
     float: left;
-    @include grid-media($media-xs-only) {
-      margin-right: _retrieve-neat-setting($media-xs-only, gutter);
+    @include media($small-screen) {
       width: 10rem;
-    }
-    @include grid-media($media-sm) {
-      margin-right: _retrieve-neat-setting($media-xs-only, gutter);
-      width: 12rem;
       max-height: 70px;
     }
-    @include grid-media($media-lg-only) {
-      margin-right: _retrieve-neat-setting($media-lg-only, gutter);
-    }
-    @include grid-media($media-xl) {
-      margin-right: _retrieve-neat-setting($media-xl, gutter);
-    }
-
   }
 
   #global-footer__nav {
@@ -60,7 +44,7 @@ $gutter: 2rem !default;
     font-weight: 300;
 
     #nav__global-links {
-      @include font-size(16px);
+      font-size: 1.6rem;
       margin-bottom: 0.25em;
 
       a {
@@ -69,7 +53,7 @@ $gutter: 2rem !default;
     }
 
     #nav__policy-links {
-      @include font-size(13px);
+      font-size: $h6-font-size;
 
       a {
         margin-right: 1.2em;
@@ -78,7 +62,7 @@ $gutter: 2rem !default;
 
     a {
       display: inline-block;
-      @include grid-media($media-xs-only) {
+      @include media($small-screen) {
         display: block;
         width: 15rem;
         margin: 0 auto;
@@ -88,26 +72,17 @@ $gutter: 2rem !default;
 
   #global-footer__info {
     .vcard {
-      @include font-size(13px);
+      font-size: $h6-font-size;
       font-weight: 300;
-
-      .adr {
-        margin-left: $small-spacing / 2;
-        margin-right: $small-spacing / 2;
-      }
     }
   }
 
   .termsofuse {
-    font-size: em(13px);
+    font-size: $h6-font-size;
     font-weight: 300;
 
     > * {
       white-space: nowrap;
-    }
-
-    :first-child {
-      margin-right: $small-spacing / 2;
     }
   }
 }
@@ -132,7 +107,7 @@ $gutter: 2rem !default;
       #nav__global-links,
       #nav__policy-links {
         float: left;
-        @include font-size(16px);
+        font-size: 1.6rem;
         margin-bottom: .5em;
 
         a {

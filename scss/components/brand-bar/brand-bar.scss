@@ -1,9 +1,10 @@
 @charset 'UTF-8';
 
-////
-/// Stanford Global Brand Bar.
-/// A thin red stripe with the stanford logo.
-////
+//
+// STANFORD GLOBAL BRAND BAR
+//
+// A thin red stripe with the Stanford logo.
+//
 
 // Stanford Basic
 @import 'config/config';
@@ -16,10 +17,8 @@
   'decanter/scss/core/core',
   'decanter/scss/elements/elements';
 
-// Separated out as a mixin for easy re-use and possible move to Decanter.
+// Mixin for easy re-use
 @mixin stanford-brand-bar {
-
-  @include responsive-container($default-container);
   height: 30px;
   max-height: 30px;
   color: color(reverse-text);
@@ -30,7 +29,7 @@
   }
 }
 
-// Separation of class from mixin.
+// Separation of class from mixin
 .brand-bar {
   @include stanford-brand-bar;
   order: -100;

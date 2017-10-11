@@ -12,13 +12,7 @@
   'decanter/scss/elements/elements';
 
 .block--lockup {
-  @include responsive-container($default-container);
   display: table;
-
-  // Grid collapse.
-  .block-grid-collapse {
-    @include grid-collapse;
-  }
 }
 
 .block--lockup__site-logo-wrapper {
@@ -58,7 +52,7 @@
 }
 
 .block--lockup__site-name {
-  @include font-size(31px);
+  font-size: 3.1rem;
 
   a,
   a:link,
@@ -73,7 +67,7 @@
 
 .block--lockup__site-slogan {
   color: color(text);
-  @include font-size(1.3em);
+  font-size: $small-font-size;
   font-style: italic;
   margin: 0;
   padding: 0;
