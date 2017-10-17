@@ -24,10 +24,10 @@ input,
 textarea,
 select {
   appearance: none;
-  border: $input-border-width solid $color-gray;
+  border: $input-border-width solid $color-cool-grey;
   border-radius: 0;
   box-sizing: border-box;
-  color: $color-base; // standardize on firefox
+  color: $color-black; // standardize on firefox
   display: block;
   font-size: $base-font-size;
   height: $input-height;
@@ -44,13 +44,13 @@ select {
   }
 
   &.decanter-input-success {
-    border: 3px solid $color-green-light;
+    border: 3px solid $color-palo-alto;
   }
 }
 /* stylelint-enable */
 
 .decanter-input-error {
-  border-left: 4px solid $color-secondary-dark;
+  border-left: 4px solid $color-bright-red;
   margin-top: 3rem;
   padding-bottom: 0.8rem;
   padding-left: 1.5rem;
@@ -61,7 +61,7 @@ select {
   input,
   textarea,
   select {
-    border: 3px solid $color-secondary-dark;
+    border: 3px solid $color-cardinal-red;
     width: calc(100% + 1.9rem); // 1.5rem left padding + 4px border from input error spacing
   }
 
@@ -70,12 +70,12 @@ select {
   }
 
   .decanter-input-inline {
-    border: $input-border-width solid $color-gray;
+    border: $input-border-width solid $color-cool-grey;
     width: inherit;
   }
 
   .decanter-input-inline-error {
-    border: 3px solid $color-secondary-dark;
+    border: 3px solid $color-cardinal-red;
   }
 }
 
@@ -86,7 +86,7 @@ select {
 }
 
 .decanter-input-error-message {
-  color: $color-secondary-dark;
+  color: $color-cardinal-red;
   display: block;
   font-size: $base-font-size;
   font-weight: $font-bold;
@@ -95,7 +95,7 @@ select {
 }
 
 .decanter-input-required:after {
-  color: $color-secondary-darkest;
+  color: $color-cardinal-red;
   content: ' (*Required)';
 }
 
@@ -135,7 +135,7 @@ legend {
 // Hint text
 
 .decanter-form-hint {
-  color: $color-gray-medium;
+  color: $color-cool-grey;
   font-family: $font-sans;
   margin-bottom: 0;
 }
@@ -168,7 +168,7 @@ legend {
 [type=radio] + label::before {
   background: $color-white;
   border-radius: $border-radius;
-  box-shadow: 0 0 0 1px $color-gray-medium;
+  box-shadow: 0 0 0 1px $color-cool-grey;
   content: '\a0';
   display: inline-block;
   height: 1.8rem;
@@ -180,7 +180,7 @@ legend {
 }
 
 [type=radio] + label::before {
-  box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $color-gray-medium;
+  box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $color-cool-grey;
   height: 1.6rem;
   line-height: 1.6rem;
   width: 1.6rem;
@@ -189,16 +189,16 @@ legend {
 
 [type=checkbox]:checked + label::before,
 [type=radio]:checked + label::before {
-  background-color: $color-primary;
-  box-shadow: 0 0 0 1px $color-primary;
+  background-color: $color-bright-red;
+  box-shadow: 0 0 0 1px $color-bright-red;
 }
 
 [type=radio]:checked + label::before {
-  box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary;
+  box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-bright-red;
 }
 
 [type=radio]:focus + label::before {
-  box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-primary, 0 0 3px 4px $color-focus, 0 0 7px 4px $color-focus;
+  box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-bright-red, 0 0 3px 4px $color-black, 0 0 7px 4px $color-black;
 }
 
 [type=checkbox]:checked + label::before,
@@ -210,17 +210,17 @@ legend {
 }
 
 [type=checkbox]:focus + label::before {
-  box-shadow: 0 0 0 1px $color-white, 0 0 0 3px $color-primary;
+  box-shadow: 0 0 0 1px $color-white, 0 0 0 3px $color-bright-red;
 }
 
 [type=checkbox]:disabled + label {
-  color: $color-gray;
+  color: $color-cool-grey;
 }
 
 [type=checkbox]:disabled + label::before,
 [type=radio]:disabled + label::before {
-  background: $color-gray-lighter;
-  box-shadow: 0 0 0 1px $color-gray-light;
+  background: $color-cool-grey;
+  box-shadow: 0 0 0 1px $color-cool-grey;
   cursor: not-allowed;
 }
 
@@ -239,16 +239,16 @@ legend {
 }
 
 [type=range]::-webkit-slider-runnable-track {
-  background: $color-gray-light;
-  border: 1px solid $color-gray-medium;
+  background: $color-cool-grey;
+  border: 1px solid $color-cool-grey;
   cursor: pointer;
   height: 1.2rem;
   width: 100%;
 }
 
 [type=range]::-moz-range-track {
-  background: $color-primary;
-  border: 1px solid $color-gray-medium;
+  background: $color-bright-red;
+  border: 1px solid $color-cool-grey;
   cursor: pointer;
   height: 1.2rem;
   width: 100%;
@@ -264,18 +264,18 @@ legend {
 
 [type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  border: 1px solid $color-gray-medium;
+  border: 1px solid $color-cool-grey;
   height: 2.2rem;
   border-radius: 1.5rem;
-  background: $color-gray-lightest;
+  background: $color-cool-grey;
   cursor: pointer;
   margin-top: -.65rem;
   width: 2.2rem;
 }
 
 [type=range]::-moz-range-thumb {
-  background: $color-gray-lightest;
-  border: 1px solid $color-gray-medium;
+  background: $color-cool-grey;
+  border: 1px solid $color-cool-grey;
   border-radius: 1.5rem;
   cursor: pointer;
   height: 2.2rem;
@@ -283,8 +283,8 @@ legend {
 }
 
 [type=range]::-ms-thumb {
-  background: $color-gray-lightest;
-  border: 1px solid $color-gray-medium;
+  background: $color-cool-grey;
+  border: 1px solid $color-cool-grey;
   border-radius: 1.5rem;
   cursor: pointer;
   height: 2.2rem;
@@ -292,27 +292,27 @@ legend {
 }
 
 [type=range]::-ms-fill-lower {
-  background: $color-gray-light;
-  border: 1px solid $color-gray-medium;
+  background: $color-cool-grey;
+  border: 1px solid $color-cool-grey;
   border-radius: 2rem;
 }
 
 [type=range]::-ms-fill-upper {
-  background: $color-gray-light;
-  border: 1px solid $color-gray-medium;
+  background: $color-cool-grey;
+  border: 1px solid $color-cool-grey;
   border-radius: 2rem;
 }
 
 [type=range]:focus::-webkit-slider-thumb {
-  border: 2px solid $color-focus;
+  border: 2px solid $color-black;
 }
 
 [type=range]:focus::-moz-range-thumb {
-  border: 2px solid $color-focus;
+  border: 2px solid $color-black;
 }
 
 [type=range]:focus::-ms-thumb {
-  border: 2px solid $color-focus;
+  border: 2px solid $color-black;
 }
 
 // Memorable dates

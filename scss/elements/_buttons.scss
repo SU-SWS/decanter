@@ -19,7 +19,7 @@ button,
   @include font-smoothing;
   @include margin(0.5em 0.5em 0.5em null);
   appearance: none;
-  background-color: $color-primary;
+  background-color: $color-bright-red;
   border: 0;
   border-radius: $border-radius;
   color: $color-white;
@@ -41,7 +41,7 @@ button,
 
   &:hover,
   &.decanter-button-hover {
-    background-color: $color-primary-darker;
+    background-color: $color-black;
     border-bottom: 0;
     color: $color-white;
     text-decoration: none;
@@ -54,73 +54,73 @@ button,
 
   &:active,
   &.decanter-button-active {
-    background-color: $color-primary-darkest;
+    background-color: $color-black;
   }
 
   &.decanter-button-primary-alt {
-    background-color: $color-primary-alt;
-    color: $color-base;
+    background-color: $color-cool-grey;
+    color: $color-black;
 
     &:hover,
     &.decanter-button-hover {
-      background-color: $color-primary-alt-dark;
+      background-color: $color-black;
     }
 
     &:active,
     &.decanter-button-active {
-      background-color: $color-primary-alt-darkest;
+      background-color: $color-black;
       color: $color-white;
     }
   }
 
   &.decanter-button-secondary {
-    background-color: $color-secondary;
+    background-color: $color-cardinal-red;
 
     &:hover,
     &.decanter-button-hover {
-      background-color: $color-secondary-dark;
+      background-color: $color-black;
     }
 
     &:active,
     &.decanter-button-active {
-      background-color: $color-secondary-darkest;
+      background-color: $color-black;
     }
   }
 
   &.decanter-button-gray {
-    background-color: $color-gray;
+    background-color: $color-cool-grey;
 
     &:hover,
     &.decanter-button-hover {
-      background-color: $color-gray-dark;
+      background-color: $color-black;
     }
 
     &:active,
     &.decanter-button-active {
-      background-color: $color-base;
+      background-color: $color-black;
     }
   }
 
   &.decanter-button-outline {
     background-color: $color-white;
-    box-shadow: $button-stroke $color-primary;
-    color: $color-primary;
+    box-shadow: $button-stroke $color-bright-red;
+    color: $color-bright-red;
 
     &:hover,
     &.decanter-button-hover {
-      box-shadow: $button-stroke $color-primary-darker;
-      color: $color-primary-darker;
+      box-shadow: $button-stroke $color-black;
+      color: $color-black;
     }
 
     &:active,
     &.decanter-button-active {
-      box-shadow: $button-stroke $color-primary-darkest;
-      color: $color-primary-darkest;
+      box-shadow: $button-stroke $color-black;
+      color: $color-black;
     }
 
     &:focus,
     &.decanter-button-focus {
-      box-shadow: $button-stroke $color-primary-darkest, $focus-shadow;
+      box-shadow: $button-stroke $color-black, $focus-shadow;
     }
   }
 
@@ -131,19 +131,19 @@ button,
 
     &:hover,
     &.decanter-button-hover {
-      box-shadow: $button-stroke $color-gray-lighter;
-      color: $color-gray-lighter;
+      box-shadow: $button-stroke $color-cool-grey;
+      color: $color-cool-grey;
     }
 
     &:active,
     &.decanter-button-active {
-      box-shadow: $button-stroke $color-gray-light;
-      color: $color-gray-lighter;
+      box-shadow: $button-stroke $color-cool-grey;
+      color: $color-cool-grey;
     }
 
     &:focus,
     &.decanter-button-focus {
-      box-shadow: $button-stroke $color-gray-light, $focus-shadow;
+      box-shadow: $button-stroke $color-cool-grey, $focus-shadow;
     }
   }
 
@@ -156,8 +156,8 @@ button,
 
 .decanter-button:disabled,
 .decanter-button-disabled {
-  background-color: $color-gray-lighter;
-  color: $color-gray-dark;
+  background-color: $color-cool-grey;
+  color: $color-black;
   pointer-events: none;
 
   &:hover,
@@ -165,10 +165,10 @@ button,
   &:active,
   &.decanter-button-active,
   &:focus {
-    background-color: $color-gray-lighter;
+    background-color: $color-cool-grey;
     border: 0;
     box-shadow: none;
-    color: $color-gray-dark;
+    color: $color-black;
   }
 }
 

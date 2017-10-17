@@ -4,11 +4,11 @@
 .decanter-grid,
 .decanter-grid-full {
   @include outer-container();
-  max-width: $site-max-width;
 }
 
 .decanter-grid {
   @include padding(null $site-margins-mobile);
+  max-width: $site-max-width;
 
   @include media($medium-screen) {
     @include padding(null $site-margins);
@@ -17,6 +17,7 @@
 
 .decanter-grid-full {
   padding: 0;
+  max-width: 100%;
 }
 
 // Grid items

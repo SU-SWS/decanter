@@ -4,16 +4,16 @@
 $decanter-custom-alerts: () !default;
 
 $decanter-alerts: (
-  success: $color-green-lightest,
-  warning: $color-gold-lightest,
-  error: $color-secondary-lightest,
-  info: $color-primary-alt-lightest
+  success: $color-palo-alto,
+  warning: $color-sun,
+  error: $color-bright-red,
+  info: $color-sky
 );
 
 $alerts: map-merge($decanter-alerts, $decanter-custom-alerts);
 
 .decanter-alert {
-  background-color: $color-gray-lightest;
+  background-color: $color-cool-grey;
   background-position: 1rem 2rem;
   background-repeat: no-repeat;
   background-size: 4rem;
@@ -25,11 +25,11 @@ $alerts: map-merge($decanter-alerts, $decanter-custom-alerts);
   }
 
   a {
-    color: $color-primary-darker;
+    color: $color-bright-blue;
 
     &:focus,
     &:hover {
-      color: $color-primary-darkest;
+      color: $color-blue;
     }
   }
 

@@ -3,12 +3,12 @@
 // Header navigation ------------- //
 
 @mixin nav-border {
-  border-bottom: 0.7rem solid $color-primary;
+  border-bottom: 0.7rem solid $color-bright-red;
   padding-bottom: 1rem;
 }
 
 .decanter-navbar {
-  border-bottom: 1px solid $color-gray-light;
+  border-bottom: 1px solid $color-cool-grey;
   height: 4rem;
 
   @include media($nav-width) {
@@ -44,7 +44,7 @@
   @include position(fixed, 0 0 0 auto);
 
   background: $color-white;
-  border-left: 1px solid $color-gray-light;
+  border-left: 1px solid $color-cool-grey;
   border-right: 0;
   display: flex;
   flex-direction: column;
@@ -80,8 +80,8 @@
   }
 
   .decanter-current {
-    border-left: 4px solid $color-primary;
-    color: $color-primary;
+    border-left: 4px solid $color-bright-red;
+    color: $color-black;
     font-weight: $font-bold;
     padding-left: 1.4rem;
   }
@@ -124,7 +124,7 @@
     > a {
       @include media($nav-width) {
         @include padding(1.3rem 1.5rem 1.7rem 1.5rem);
-        color: $color-gray;
+        color: $color-cool-grey;
         font-size: $h5-font-size;
         font-weight: $font-bold;
         line-height: 1.2;
@@ -148,7 +148,7 @@
 
     @include media($nav-width) {
       @include padding(null 3rem 1.9rem 1.5rem);
-      color: $color-gray;
+      color: $color-cool-grey;
       font-size: $h5-font-size;
       font-weight: $font-bold;
       width: initial;
@@ -160,8 +160,8 @@
     }
 
     &:hover {
-      background-color: $color-gray-lightest;
-      color: $color-primary;
+      background-color: $color-cool-grey;
+      color: $color-white;
 
       @include media($nav-width) {
         background-color: transparent;
@@ -190,14 +190,14 @@
       background-size: 1rem;
 
       @include media($nav-width) {
-        background-color: $color-primary-darkest;
+        background-color: $color-bright-red;
         color: $color-white;
         background-image: url('#{$image-path}/angle-arrow-down-hover.png');
         background-image: url('#{$image-path}/angle-arrow-down-hover.svg');
         background-position: right 1.5rem top $button-vertical-offset;
 
         &:hover {
-          background-color: $color-primary-darkest;
+          background-color: $color-bright-red;
         }
 
         span {
@@ -260,13 +260,13 @@
 
   a,
   .decanter-header-search-button {
-    color: $color-gray;
+    color: $color-cool-grey;
     display: inline-block;
     font-size: $h5-font-size;
     text-decoration: none;
 
     &:hover {
-      color: $color-primary;
+      color: $color-bright-red;
     }
   }
 
@@ -308,7 +308,7 @@
   @include media($nav-width) {
     @include unstyled-list;
     @include padding(1.15rem null);
-    background-color: $color-primary-darkest;
+    background-color: $color-bright-red;
     min-width: 21.5rem;
     width: auto;
     position: absolute;
@@ -326,20 +326,11 @@
 
     &:hover {
       @include media($nav-width) {
-        background-color: $color-primary-darkest;
+        background-color: $color-bright-red;
         color: $color-white;
         text-decoration: underline;
       }
     }
-
-    // this used to be necessary to undo the `decanter-sidenav-sublist`
-    // include, above
-    // &:hover,
-    // &.decanter-current { /* stylelint-disable-line selector-no-qualifying-type */
-    //   @include media($nav-width) {
-    //     padding-left: 1.8rem;
-    //   }
-    // }
   }
 
   li {
@@ -374,7 +365,7 @@
 // Navigation mega menu -------- //
 
 @mixin outer-megamenu {
-  background-color: $color-primary-darkest;
+  background-color: $color-bright-red;
   content: '';
   display: block;
   height: 100%;
