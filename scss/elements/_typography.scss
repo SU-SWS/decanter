@@ -24,10 +24,6 @@ a {
     color: $color-blue;
   }
 
-  &:visited {
-    color: $color-blue;
-  }
-
   &:focus {
     outline: 0;
   }
@@ -51,10 +47,6 @@ a {
     background-image: url("#{$image-path}/#{$external-link-hover}.svg");
   }
 }
-
-// External link consider "effortless style approach":
-// [href^="http:"]:not([href*="my-domain.com"])
-// [href^="https:"]:not([href*="my-domain.com"])
 
 .decanter-external_link {
   @include external-link(external-link, external-link-hover);
@@ -208,24 +200,6 @@ dfn {
 
 .decanter-drop_text {
   margin-bottom: 0;
-}
-
-.decanter-background-dark {
-  background-color: $color-black;
-
-  p,
-  span {
-    color: $color-white;
-  }
-
-  a {
-    color: $color-white;
-    text-decoration: underline;
-
-    &:hover {
-      color: $color-white;
-    }
-  }
 }
 
 .decanter-text-small {

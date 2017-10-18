@@ -8,9 +8,6 @@ $button-stroke: inset 0 0 0 2px;
 
 /* stylelint-disable selector-no-qualifying-type */
 .decanter-button,
-.decanter-button-primary,
-.decanter-button:visited,
-.decanter-button-primary:visited,
 button,
 [type=button],
 [type=submit],
@@ -18,6 +15,7 @@ button,
 [type=image] {
   @include font-smoothing;
   @include margin(0.5em 0.5em 0.5em null);
+
   appearance: none;
   background-color: $color-bright-red;
   border: 0;
@@ -39,6 +37,7 @@ button,
     width: auto;
   }
 
+
   &:hover,
   &.decanter-button-hover {
     background-color: $color-black;
@@ -49,59 +48,11 @@ button,
 
   &:focus,
   &.decanter-button-focus {
+    background-color: $color-black;
     box-shadow: $focus-shadow;
   }
 
-  &:active,
-  &.decanter-button-active {
-    background-color: $color-black;
-  }
-
-  &.decanter-button-primary-alt {
-    background-color: $color-cool-grey;
-    color: $color-black;
-
-    &:hover,
-    &.decanter-button-hover {
-      background-color: $color-black;
-    }
-
-    &:active,
-    &.decanter-button-active {
-      background-color: $color-black;
-      color: $color-white;
-    }
-  }
-
   &.decanter-button-secondary {
-    background-color: $color-cardinal-red;
-
-    &:hover,
-    &.decanter-button-hover {
-      background-color: $color-black;
-    }
-
-    &:active,
-    &.decanter-button-active {
-      background-color: $color-black;
-    }
-  }
-
-  &.decanter-button-gray {
-    background-color: $color-cool-grey;
-
-    &:hover,
-    &.decanter-button-hover {
-      background-color: $color-black;
-    }
-
-    &:active,
-    &.decanter-button-active {
-      background-color: $color-black;
-    }
-  }
-
-  &.decanter-button-outline {
     background-color: $color-white;
     box-shadow: $button-stroke $color-bright-red;
     color: $color-bright-red;
@@ -112,38 +63,10 @@ button,
       color: $color-black;
     }
 
-    &:active,
-    &.decanter-button-active {
-      box-shadow: $button-stroke $color-black;
-      color: $color-black;
-    }
-
     &:focus,
     &.decanter-button-focus {
       box-shadow: $button-stroke $color-black, $focus-shadow;
-    }
-  }
-
-  &.decanter-button-outline-inverse {
-    background: transparent;
-    box-shadow: $button-stroke $color-white;
-    color: $color-white;
-
-    &:hover,
-    &.decanter-button-hover {
-      box-shadow: $button-stroke $color-cool-grey;
-      color: $color-cool-grey;
-    }
-
-    &:active,
-    &.decanter-button-active {
-      box-shadow: $button-stroke $color-cool-grey;
-      color: $color-cool-grey;
-    }
-
-    &:focus,
-    &.decanter-button-focus {
-      box-shadow: $button-stroke $color-cool-grey, $focus-shadow;
+      color: $color-black;
     }
   }
 
@@ -152,6 +75,7 @@ button,
     padding: 1.5rem 3rem;
   }
 }
+
 /* stylelint-disable */
 
 .decanter-button:disabled,
@@ -162,8 +86,6 @@ button,
 
   &:hover,
   &.decanter-button-hover,
-  &:active,
-  &.decanter-button-active,
   &:focus {
     background-color: $color-cool-grey;
     border: 0;
