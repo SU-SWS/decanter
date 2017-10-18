@@ -5,6 +5,22 @@ table {
   margin: 2em 0;
   min-width: 100%;
 
+  th,
+  td {
+    border: 1px solid $color-black;
+    padding: 1.5rem;
+  }
+
+  th {
+    background-color: $color-bright-red;
+    color: $color-white;
+    text-align: left;
+  }
+
+  td {
+    background-color: $color-white;
+  }
+
   thead {
     th,
     td {
@@ -12,21 +28,10 @@ table {
     }
   }
 
-  th {
-    text-align: left;
-  }
-
   tbody {
     th {
       font-weight: $font-normal;
     }
-  }
-
-  th,
-  td {
-    background-color: $color-white;
-    border: 1px solid $color-cool-grey;
-    padding: 1.5rem;
   }
 }
 
