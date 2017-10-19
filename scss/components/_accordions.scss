@@ -2,12 +2,13 @@
 
 // Variables
 
-$accordion-border: 3px solid $color-cool-grey;
+$accordion-border: 3px solid $color-black;
 
 // Accordion Styles
 
 @mixin accordion-list-styles {
   @include unstyled-list;
+
   color: $color-black;
   margin: 0;
   padding: 0;
@@ -25,13 +26,14 @@ $accordion-border: 3px solid $color-cool-grey;
 // scss-lint:disable PropertyCount
 @mixin accordion-button-styles {
   @include button-unstyled;
-  background-color: $color-cool-grey;
-  background-image: url('#{$image-path}/minus.png');
-  background-image: url('#{$image-path}/minus.svg');
+
+  background-color: $color-bright-red;
+  background-image: url("#{$image-path}/minus.png");
+  background-image: url("#{$image-path}/minus.svg");
   background-position: right 3rem center;
   background-repeat: no-repeat;
   background-size: 13px;
-  color: $color-black;
+  color: $color-white;
   cursor: pointer;
   display: inline-block;
   font-family: $font-sans;
@@ -41,12 +43,12 @@ $accordion-border: 3px solid $color-cool-grey;
   width: 100%;
 
   &:focus {
+    background-color: $color-black;
     box-shadow: $focus-shadow;
   }
 
   &:hover {
-    background-color: $color-cool-grey;
-    color: $color-black;
+    background-color: $color-black;
   }
 
   h1,
@@ -58,11 +60,12 @@ $accordion-border: 3px solid $color-cool-grey;
     margin: 0;
   }
 }
+
 // scss-lint:enable PropertyCount
 
 @mixin accordion-button-unopened-styles {
-  background-image: url('#{$image-path}/plus.png');
-  background-image: url('#{$image-path}/plus.svg');
+  background-image: url("#{$image-path}/plus.png");
+  background-image: url("#{$image-path}/plus.svg");
   background-repeat: no-repeat;
   background-size: 1.3rem;
 }
@@ -70,8 +73,10 @@ $accordion-border: 3px solid $color-cool-grey;
 @mixin accordion-nested-list {
   > ul li ul {
     list-style: disc;
+
     > li > ul {
       list-style: circle;
+
       > li > ul {
         list-style: square;
       }
@@ -89,30 +94,9 @@ $accordion-border: 3px solid $color-cool-grey;
     margin-top: 1rem;
   }
 
-  // TODO deprecated ruleset based on old accordion.
-  > ul {
-    @include accordion-list-styles;
-
-    // TODO deprecated ruleset based on old accordion.
-    > li {
-      @include accordion-list-item-styles;
-    }
-
-    // TODO deprecated ruleset based on old accordion.
-    button {
-      @include accordion-button-styles;
-    }
-
-    // TODO deprecated ruleset based on old accordion.
-    [aria-expanded=false] {
-      @include accordion-button-unopened-styles;
-    }
-  }
-
   > li {
     @include accordion-list-item-styles;
   }
-
 }
 
 .decanter-accordion-bordered {
@@ -137,10 +121,10 @@ $accordion-border: 3px solid $color-cool-grey;
   }
 
   &:not([aria-hidden]) {
-    @include sr-only();
+    @include sr-only;
   }
 
-  @include accessibly-hidden();
+  @include accessibly-hidden;
 }
 
 .decanter-accordion-button {
