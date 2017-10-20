@@ -22,6 +22,7 @@
       border-top: none;
     }
 
+
     &:hover {
       text-decoration: underline;
     }
@@ -49,6 +50,7 @@
       padding-right: 0;
     }
 
+
     li {
       margin-left: 1rem;
 
@@ -75,11 +77,13 @@
       padding-top: 1rem;
     }
 
+
     .decanter-footer-primary-content {
       @include media($large-screen) {
         margin-right: 6%;
         width: inherit;
       }
+
 
       &:last-child {
         @include media($large-screen) {
@@ -107,6 +111,7 @@
         margin-right: 9%;
         width: inherit;
       }
+
 
       &:last-child {
         @include media($large-screen) {
@@ -137,12 +142,14 @@
     }
 
     @include media($medium-screen) {
-      @include padding (2rem null);
+      @include padding(2rem null);
     }
+
 
     @include media($medium-screen) {
       width: 100%;
     }
+
 
     @include media($large-screen) {
       @include span-columns(6);
@@ -151,6 +158,7 @@
 }
 
 /* stylelint-disable selector-no-qualifying-type */
+
 ul.decanter-footer-primary-content,
 li.decanter-footer-primary-content,
 li.decanter-footer-primary-content {
@@ -160,6 +168,7 @@ li.decanter-footer-primary-content {
     border: none;
   }
 
+
   &:last-child {
     border-bottom: 1px solid $color-black;
 
@@ -168,6 +177,7 @@ li.decanter-footer-primary-content {
     }
   }
 }
+
 /* stylelint-enable */
 
 .decanter-sign_up-block {
@@ -179,6 +189,7 @@ li.decanter-footer-primary-content {
     float: right;
     padding: 0;
   }
+
 
   label:first-of-type {
     margin-top: 0;
@@ -238,6 +249,7 @@ li.decanter-footer-primary-content {
       padding-bottom: 0;
     }
 
+
     &:last-child {
       border-bottom: 1px solid $color-black;
 
@@ -251,8 +263,8 @@ li.decanter-footer-primary-content {
     }
 
     .decanter-footer-primary-link {
-      background-image: url('#{$image-path}/arrow-down.png');
-      background-image: url('#{$image-path}/arrow-down.svg');
+      background-image: url("#{$image-path}/arrow-down.png");
+      background-image: url("#{$image-path}/arrow-down.svg");
       background-position: 1.5rem center;
       background-repeat: no-repeat;
       background-size: 1.3rem;
@@ -266,21 +278,24 @@ li.decanter-footer-primary-content {
         padding-left: 0;
       }
 
+
       > * {
         @include margin(0 null);
       }
     }
 
-    &.hidden { /* stylelint-disable-line selector-no-qualifying-type */
+    &.hidden {
+      /* stylelint-disable-line selector-no-qualifying-type */
       padding-bottom: 0;
 
       li {
         display: none;
       }
 
-      .decanter-footer-primary-link { /* stylelint-disable-line selector-no-qualifying-type */
-        background-image: url('#{$image-path}/arrow-right.png');
-        background-image: url('#{$image-path}/arrow-right.svg');
+      .decanter-footer-primary-link {
+        /* stylelint-disable-line selector-no-qualifying-type */
+        background-image: url("#{$image-path}/arrow-right.png");
+        background-image: url("#{$image-path}/arrow-right.svg");
         cursor: pointer;
         display: block;
 
@@ -337,52 +352,63 @@ li.decanter-footer-primary-content {
 }
 
 .decanter-social_link {
-  $background-height: 3rem; // Height of icon within hit area.
+  $background-height: 3rem;
+
+  // Height of icon within hit area.
   // Link hit target is 44 x 44 pixels following
   // Apple iOS Human Interface Guidelines.
   $hit-area: 4.4rem;
 
   @include margin(2.5rem 1rem 1.5rem 0);
+
   background-position: center center;
   background-repeat: no-repeat;
   background-size: auto $background-height;
   display: inline-block;
   height: $hit-area;
-  left: -1.6rem; // relative left positioning
+  left: -1.6rem;
+
+  // relative left positioning
   position: relative;
   text-align: center;
   width: $hit-area;
 
   @include media($medium-screen) {
     @include margin(0 0 0 1rem);
+
     left: 1.2rem;
   }
 
+
   span {
-    @include sr-only();
+    @include sr-only;
   }
 }
 
 .decanter-link-facebook {
   @extend .decanter-social_link;
-  background-image: url('#{$image-path}/social-icons/png/facebook25.png');
-  background-image: url('#{$image-path}/social-icons/svg/facebook25.svg');
+
+  background-image: url("#{$image-path}/social-icons/png/facebook25.png");
+  background-image: url("#{$image-path}/social-icons/svg/facebook25.svg");
 }
 
 .decanter-link-twitter {
   @extend .decanter-social_link;
-  background-image: url('#{$image-path}/social-icons/png/twitter16.png');
-  background-image: url('#{$image-path}/social-icons/svg/twitter16.svg');
+
+  background-image: url("#{$image-path}/social-icons/png/twitter16.png");
+  background-image: url("#{$image-path}/social-icons/svg/twitter16.svg");
 }
 
 .decanter-link-youtube {
   @extend .decanter-social_link;
-  background-image: url('#{$image-path}/social-icons/png/youtube15.png');
-  background-image: url('#{$image-path}/social-icons/svg/youtube15.svg');
+
+  background-image: url("#{$image-path}/social-icons/png/youtube15.png");
+  background-image: url("#{$image-path}/social-icons/svg/youtube15.svg");
 }
 
 .decanter-link-rss {
   @extend .decanter-social_link;
-  background-image: url('#{$image-path}/social-icons/png/rss25.png');
-  background-image: url('#{$image-path}/social-icons/svg/rss25.svg');
+
+  background-image: url("#{$image-path}/social-icons/png/rss25.png");
+  background-image: url("#{$image-path}/social-icons/svg/rss25.svg");
 }

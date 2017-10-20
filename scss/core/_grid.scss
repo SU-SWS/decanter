@@ -7,11 +7,12 @@
 // Grid container
 .decanter-grid,
 .decanter-grid-full {
-  @include outer-container();
+  @include outer-container;
 }
 
 .decanter-grid {
   @include padding(null $site-margins-mobile);
+
   max-width: $site-max-width;
 
   @include media($medium-screen) {
@@ -83,6 +84,7 @@
   }
 }
 
+
 @include media($large) {
   .decanter-width-one-whole {
     @include span-columns(12);
@@ -153,11 +155,12 @@
   }
 }
 
+
 // Specifies end of a row.
 // Required if grid-box contains multiple rows.
 // Required if browser does not support :last-child
 .decanter-end-row {
-  @include omega();
+  @include omega;
 }
 
 // Grid Offsets

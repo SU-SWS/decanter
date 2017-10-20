@@ -6,12 +6,12 @@
 
 // Header variables
 $height-nav-secondary: 5rem;
-$width-nav-sidebar:    250px;
+$width-nav-sidebar: 250px;
 
 // z-indexes - TODO refactor to a site-wide z-index management approach
-$z-index-header:  7000;
+$z-index-header: 7000;
 $z-index-overlay: 8000;
-$z-index-nav:     9000;
+$z-index-nav: 9000;
 
 // Header
 .decanter-header {
@@ -21,6 +21,7 @@ $z-index-nav:     9000;
   @include media($nav-width) {
     border-bottom: 1px solid $color-cool-grey;
   }
+
 
   a {
     border-bottom: none;
@@ -46,6 +47,7 @@ $z-index-nav:     9000;
     line-height: 7.5rem;
     margin-left: 0;
   }
+
 
   a {
     color: $color-black;
@@ -78,6 +80,7 @@ $z-index-nav:     9000;
 .decanter-menu-btn {
   /* stylelint-disable declaration-block-no-ignored-properties */
   @include button-unstyled;
+
   background-color: $color-bright-red;
   color: $color-white;
   display: inline;
@@ -89,11 +92,13 @@ $z-index-nav:     9000;
   text-decoration: none;
   text-transform: uppercase;
   width: 5.8rem;
+
   /* stylelint-enable */
 
   @include media($nav-width) {
     display: none;
   }
+
 
   &:hover {
     color: $color-white;
@@ -107,6 +112,7 @@ $z-index-nav:     9000;
 
 .decanter-overlay {
   @include position(fixed, 0);
+
   background: $color-black;
   opacity: 0;
   transition: all 0.2s ease-in-out;
@@ -131,7 +137,9 @@ $z-index-nav:     9000;
   .decanter-navbar {
     @include media($nav-width) {
       position: relative;
-      width: 18%; // TODO: review this more
+      width: 18%;
+
+      // TODO: review this more
     }
   }
 }
@@ -159,8 +167,9 @@ $z-index-nav:     9000;
 
   .decanter-navbar {
     @include media($nav-width) {
-      @include outer-container();
+      @include outer-container;
       @include padding(null $site-margins);
+
       display: block;
       height: auto;
       max-width: $site-max-width;
@@ -178,8 +187,9 @@ $z-index-nav:     9000;
 
   .decanter-nav-inner {
     @include media($nav-width) {
-      @include outer-container();
+      @include outer-container;
       @include padding(null $site-margins null 2rem);
+
       margin-top: -1px;
       max-width: $site-max-width;
       position: relative;
@@ -191,10 +201,13 @@ $z-index-nav:     9000;
       @include clearfix;
     }
 
+
     button {
       &[aria-expanded=false],
-      &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
-        @include media($nav-width) { /* stylelint-disable-line selector-no-qualifying-type */
+      &[aria-expanded=true] {
+        /* stylelint-disable-line selector-no-qualifying-type */
+        @include media($nav-width) {
+          /* stylelint-disable-line selector-no-qualifying-type */
           background-position: right 1.5rem top 50%;
         }
       }
