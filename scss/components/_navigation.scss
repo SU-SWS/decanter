@@ -1,7 +1,10 @@
 @charset "UTF-8";
 
-// Header navigation ------------- //
+///
+/// NAVIGATION COMPONENT
+///
 
+// Header navigation
 @mixin nav-border {
   border-bottom: 0.7rem solid $color-bright-red;
   padding-bottom: 1rem;
@@ -97,8 +100,7 @@
   }
 }
 
-// Primary navigation ------------- //
-
+// Primary navigation
 .decanter-nav-primary {
   @include decanter-sidenav-list;
   order: 2;
@@ -220,8 +222,7 @@
   }
 }
 
-// Secondary navigation ----------- //
-
+// Secondary navigation
 .decanter-nav-secondary {
   @include media($nav-width) {
     position: absolute;
@@ -300,11 +301,8 @@
   }
 }
 
-// Navigation submenu (dropdown and mega menu) ----- //
-
+// Navigation submenu (dropdown and mega menu)
 .decanter-nav-submenu {
-  // @include decanter-sidenav-sublist;
-
   @include media($nav-width) {
     @include unstyled-list;
     @include padding(1.15rem null);
@@ -339,8 +337,7 @@
   }
 }
 
-// Navigation close button -------- //
-
+// Navigation close button
 .decanter-nav-close {
   @include button-unstyled;
   @include margin(-1.2rem -1.5rem 2.4rem auto);
@@ -362,8 +359,7 @@
   overflow: hidden;
 }
 
-// Navigation mega menu -------- //
-
+// Navigation mega menu
 @mixin outer-megamenu {
   background-color: $color-bright-red;
   content: '';

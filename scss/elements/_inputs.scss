@@ -1,18 +1,21 @@
 @charset "UTF-8";
 
+///
+/// INUTS ELEMENT
+///
+
 // scss-lint:disable QualifyingElement, PropertyCount
 
+// Input variables
 $input-line-height: 1.3;
-$input-border-width: 0.1rem; // Using rem instead of px so function uses same units
+$input-border-width: 0.1rem;
+
+// Using rem instead of px so function uses same units
 $input-padding-vertical: 1rem;
 
 // input heights will vary by browser and type
 // if height not explicitly set
-$input-height-exact: (
-  ($base-font-size * $input-line-height) +
-  ($input-padding-vertical * 2) +
-  ($input-border-width * 2)
-);
+$input-height-exact: $base-font-size * $input-line-height + $input-padding-vertical * 2 + $input-border-width * 2;
 
 // truncated to 1 decimal place
 // (i.e., 1.21rem -> 1.2rem)
@@ -27,7 +30,9 @@ select {
   border: $input-border-width solid $color-cool-grey;
   border-radius: 0;
   box-sizing: border-box;
-  color: $color-black; // standardize on firefox
+  color: $color-black;
+
+  // standardize on firefox
   display: block;
   font-size: $base-font-size;
   height: $input-height;
@@ -38,65 +43,9 @@ select {
   padding: $input-padding-vertical 0.7em;
   width: 100%;
 
-  &:focus,
-  &.decanter-input-focus {
+  &:focus {
     box-shadow: $focus-shadow;
   }
-
-  &.decanter-input-success {
-    border: 3px solid $color-palo-alto;
-  }
-}
-/* stylelint-enable */
-
-.decanter-input-error {
-  border-left: 4px solid $color-bright-red;
-  margin-top: 3rem;
-  padding-bottom: 0.8rem;
-  padding-left: 1.5rem;
-  padding-top: 0.8rem;
-  position: relative;
-  right: 1.9rem;
-
-  input,
-  textarea,
-  select {
-    border: 3px solid $color-cardinal-red;
-    width: calc(100% + 1.9rem); // 1.5rem left padding + 4px border from input error spacing
-  }
-
-  label {
-    margin-top: 0;
-  }
-
-  .decanter-input-inline {
-    border: $input-border-width solid $color-cool-grey;
-    width: inherit;
-  }
-
-  .decanter-input-inline-error {
-    border: 3px solid $color-cardinal-red;
-  }
-}
-
-.decanter-input-error-label {
-  display: block;
-  font-size: $base-font-size;
-  font-weight: $font-bold;
-}
-
-.decanter-input-error-message {
-  color: $color-cardinal-red;
-  display: block;
-  font-size: $base-font-size;
-  font-weight: $font-bold;
-  padding-bottom: 3px;
-  padding-top: 3px;
-}
-
-.decanter-input-required:after {
-  color: $color-cardinal-red;
-  content: ' (*Required)';
 }
 
 label {
@@ -114,8 +63,8 @@ select {
   -webkit-appearance: none;
   appearance: none;
   background-color: $color-white;
-  background-image: url('#{$image-path}/arrow-down.png');
-  background-image: url('#{$image-path}/arrow-down.svg');
+  background-image: url("#{$image-path}/arrow-down.png");
+  background-image: url("#{$image-path}/arrow-down.svg");
   background-position: right 1.3rem center;
   background-repeat: no-repeat;
   background-size: 1.3rem;
@@ -126,27 +75,22 @@ legend {
   font-weight: $font-bold;
 }
 
+fieldset {
+  border: none;
+}
+
 .decanter-fieldset-inputs {
   label {
     margin-top: 0;
   }
 }
 
-// Hint text
-
-.decanter-form-hint {
-  color: $color-cool-grey;
-  font-family: $font-sans;
-  margin-bottom: 0;
-}
-
-// Custom checkboxes
-
+// Custom checkboxes and radio buttons
 [type=checkbox],
 [type=radio] {
   // The actual input element is only visible to screen readers, because
   // all visual styling is done via the label.
-  @include sr-only();
+  @include sr-only;
 
   .lt-ie9 & {
     border: 0;
@@ -175,7 +119,9 @@ legend {
   line-height: 1.8rem;
   margin-right: 0.6em;
   text-indent: 0.15em;
-  vertical-align: middle\0; // Target IE 11 and below to vertically center inputs
+  vertical-align: middle\0;
+
+  // Target IE 11 and below to vertically center inputs
   width: 1.8rem;
 }
 
@@ -203,8 +149,8 @@ legend {
 
 [type=checkbox]:checked + label::before,
 [type=checkbox]:checked:disabled + label::before {
-  background-image: url('#{$image-path}/correct8.png');
-  background-image: url('#{$image-path}/correct8.svg');
+  background-image: url("#{$image-path}/correct8.png");
+  background-image: url("#{$image-path}/correct8.svg");
   background-position: 50%;
   background-repeat: no-repeat;
 }
@@ -214,18 +160,16 @@ legend {
 }
 
 [type=checkbox]:disabled + label {
-  color: $color-cool-grey;
+  color: $color-driftwood;
 }
 
 [type=checkbox]:disabled + label::before,
 [type=radio]:disabled + label::before {
-  background: $color-cool-grey;
-  box-shadow: 0 0 0 1px $color-cool-grey;
+  background: $color-driftwood;
   cursor: not-allowed;
 }
 
 // Range inputs
-
 [type=range] {
   -webkit-appearance: none;
   border: none;
@@ -313,36 +257,4 @@ legend {
 
 [type=range]:focus::-ms-thumb {
   border: 2px solid $color-black;
-}
-
-// Memorable dates
-
-.decanter-date-of-birth {
-  label {
-    margin-top: 0;
-  }
-
-  [type=number]::-webkit-inner-spin-button,
-  [type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    appearance: none;
-    margin: 0;
-  }
-
-  [type=number] {
-    -moz-appearance: textfield;
-  }
-}
-
-.decanter-form-group-day,
-.decanter-form-group-month,
-.decanter-form-group-year {
-  clear: none;
-  float: left;
-  margin-right: 1.5rem;
-  width: 5rem;
-}
-
-.decanter-form-group-year {
-  width: 7rem;
 }
