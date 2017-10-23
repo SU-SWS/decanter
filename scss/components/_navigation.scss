@@ -9,7 +9,7 @@ $z-index-nav: 9000;
 
 // Main menu navigation
 @mixin nav-border {
-  border-bottom: 0.7rem solid $color-bright-red;
+  border-bottom: 0.2rem solid $color-bright-red;
   padding-bottom: 1rem;
 }
 
@@ -30,10 +30,8 @@ $z-index-nav: 9000;
   @include font-smoothing;
 
   &:hover {
-    span {
-      @include media($nav-width) {
-        @include nav-border;
-      }
+    @include media($nav-width) {
+      @include nav-border;
     }
   }
 }
@@ -181,6 +179,7 @@ $z-index-nav: 9000;
 
     &:focus,
     &:active {
+      background-color: transparent;
       box-shadow: $focus-shadow;
     }
 
@@ -224,9 +223,7 @@ $z-index-nav: 9000;
 
         &:hover {
           background-color: $color-bright-red;
-        }
 
-        span {
           @include nav-border;
         }
       }
@@ -240,9 +237,7 @@ $z-index-nav: 9000;
       border-left: 0;
       padding-left: 1.5rem;
 
-      span {
-        @include nav-border;
-      }
+      @include nav-border;
     }
   }
 }
