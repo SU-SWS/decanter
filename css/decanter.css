@@ -991,7 +991,7 @@ button,
   .decanter-button-unstyled:hover {
     background-color: transparent; }
 
-/* line 16, ../scss/elements/_embed.scss */
+/* line 20, ../scss/elements/_embed.scss */
 .decanter-embed-container iframe,
 .decanter-embed-container object,
 .decanter-embed-container embed {
@@ -1001,22 +1001,13 @@ button,
   width: 100%;
   height: 100%; }
 
-/* line 27, ../scss/elements/_embed.scss */
+/* line 31, ../scss/elements/_embed.scss */
 .decanter-embed-container {
   padding-bottom: 56.25%;
   position: relative;
   height: 0;
   overflow: hidden;
   max-width: 100%; }
-
-/* line 7, ../scss/elements/_figure.scss */
-img {
-  max-width: 100%; }
-
-/* line 16, ../scss/elements/_figure.scss */
-.media_link {
-  display: inline-block;
-  line-height: 0; }
 
 /* stylelint-disable selector-no-qualifying-type */
 /* line 26, ../scss/elements/_inputs.scss */
@@ -1547,18 +1538,16 @@ dfn {
   font-size: 1.3rem;
   margin-top: 0; }
 
-/* line 219, ../scss/elements/_typography.scss */
-.decanter-section > :first-child,
+/* line 218, ../scss/elements/_typography.scss */
 .decanter-grid > :first-child,
 .decanter-grid-full > :first-child {
   margin-top: 0; }
-/* line 223, ../scss/elements/_typography.scss */
-.decanter-section > :last-child,
+/* line 222, ../scss/elements/_typography.scss */
 .decanter-grid > :last-child,
 .decanter-grid-full > :last-child {
   margin-bottom: 0; }
 
-/* line 238, ../scss/elements/_typography.scss */
+/* line 237, ../scss/elements/_typography.scss */
 .decanter-width-one-whole:first-child > :first-child,
 .decanter-width-one-half:first-child > :first-child,
 .decanter-width-one-third:first-child > :first-child,
@@ -1570,7 +1559,7 @@ dfn {
 .decanter-width-one-twelfth:first-child > :first-child {
   margin-top: 0; }
 @media screen and (min-width: 600px) {
-  /* line 243, ../scss/elements/_typography.scss */
+  /* line 242, ../scss/elements/_typography.scss */
   .decanter-width-one-whole > :first-child,
   .decanter-width-one-half > :first-child,
   .decanter-width-one-third > :first-child,
@@ -1581,7 +1570,7 @@ dfn {
   .decanter-width-five-sixths > :first-child,
   .decanter-width-one-twelfth > :first-child {
     margin-top: 0; } }
-/* line 250, ../scss/elements/_typography.scss */
+/* line 249, ../scss/elements/_typography.scss */
 .decanter-width-one-whole:last-child > :last-child,
 .decanter-width-one-half:last-child > :last-child,
 .decanter-width-one-third:last-child > :last-child,
@@ -1593,7 +1582,7 @@ dfn {
 .decanter-width-one-twelfth:last-child > :last-child {
   margin-bottom: 0; }
 @media screen and (min-width: 600px) {
-  /* line 255, ../scss/elements/_typography.scss */
+  /* line 254, ../scss/elements/_typography.scss */
   .decanter-width-one-whole > :last-child,
   .decanter-width-one-half > :last-child,
   .decanter-width-one-third > :last-child,
@@ -2071,26 +2060,70 @@ dfn {
 .decanter-banner-icon {
   width: 3.8rem; }
 
-/* line 9, ../scss/components/_graphic-list.scss */
-.decanter-graphic_list .decanter-graphic_list-row .decanter-media_block {
-  margin-bottom: 3rem; }
-  @media screen and (min-width: 600px) {
-    /* line 9, ../scss/components/_graphic-list.scss */
-    .decanter-graphic_list .decanter-graphic_list-row .decanter-media_block {
-      margin-bottom: 6rem; } }
-@media screen and (min-width: 600px) {
-  /* line 18, ../scss/components/_graphic-list.scss */
-  .decanter-graphic_list .decanter-graphic_list-row:last-child .decanter-media_block {
-    margin-bottom: 0; } }
-/* line 24, ../scss/components/_graphic-list.scss */
-.decanter-graphic_list .decanter-graphic_list-row:last-child .decanter-media_block:last-child {
-  margin-bottom: 0; }
-/* line 31, ../scss/components/_graphic-list.scss */
-.decanter-graphic_list .decanter-media_block-img {
-  margin-right: 3rem; }
-/* line 36, ../scss/components/_graphic-list.scss */
-.decanter-graphic_list .decanter-media_block-body > :first-child {
-  margin-top: 0; }
+/* line 7, ../scss/components/_hero.scss */
+.decanter-hero {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-image: url("../img/hero.png");
+  background-position: center;
+  background-size: cover; }
+  /* line 14, ../scss/components/_hero.scss */
+  .decanter-hero .decanter-button {
+    color: #ffffff; }
+
+/* line 19, ../scss/components/_hero.scss */
+.decanter-hero-callout {
+  background-color: #b1040e;
+  padding: 3rem; }
+  @media screen and (min-width: 481px) {
+    /* line 19, ../scss/components/_hero.scss */
+    .decanter-hero-callout {
+      max-width: 30rem; } }
+  /* line 28, ../scss/components/_hero.scss */
+  .decanter-hero-callout > *:first-child {
+    margin-top: 0;
+    margin-bottom: 3rem; }
+  /* line 32, ../scss/components/_hero.scss */
+  .decanter-hero-callout .decanter-button {
+    font-size: 1.4rem;
+    margin-top: 7rem;
+    width: 100%; }
+
+/* line 39, ../scss/components/_hero.scss */
+.decanter-hero-callout-alt {
+  color: #ffffff;
+  display: block; }
+
+/* line 9, ../scss/components/_layout.scss */
+.decanter-layout-docs {
+  display: flex;
+  flex-direction: column; }
+  @media screen and (min-width: 1201px) {
+    /* line 9, ../scss/components/_layout.scss */
+    .decanter-layout-docs {
+      display: inherit; } }
+  /* line 19, ../scss/components/_layout.scss */
+  .decanter-layout-docs .decanter-grid > :first-child:not(.decanter-width-*) {
+    margin-top: 0; }
+  /* line 23, ../scss/components/_layout.scss */
+  .decanter-layout-docs .decanter-grid > :last-child:not(.decanter-width-*) {
+    margin-bottom: 0; }
+
+/* line 29, ../scss/components/_layout.scss */
+.decanter-layout-docs-sidenav {
+  order: 2; }
+
+/* line 33, ../scss/components/_layout.scss */
+.decanter-layout-docs-main_content {
+  margin-bottom: 3rem;
+  order: 1; }
+  @media screen and (min-width: 1201px) {
+    /* line 33, ../scss/components/_layout.scss */
+    .decanter-layout-docs-main_content {
+      margin-bottom: 0; } }
+  /* line 42, ../scss/components/_layout.scss */
+  .decanter-layout-docs-main_content > :first-child {
+    margin-top: 0; }
 
 /* line 12, ../scss/components/_main-menu.scss */
 .decanter-main-menu {
@@ -2171,81 +2204,12 @@ dfn {
     position: relative;
     width: 18%; } }
 
-/* line 7, ../scss/components/_hero.scss */
-.decanter-hero {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  background-image: url("../img/hero.png");
-  background-position: center;
-  background-size: cover; }
-  /* line 14, ../scss/components/_hero.scss */
-  .decanter-hero .decanter-button {
-    color: #ffffff; }
-
-/* line 20, ../scss/components/_hero.scss */
-.decanter-section-dark .decanter-hero-link {
-  color: #006cb8; }
-
-/* line 25, ../scss/components/_hero.scss */
-.decanter-hero-callout {
-  background-color: #b1040e;
-  padding: 3rem; }
-  @media screen and (min-width: 481px) {
-    /* line 25, ../scss/components/_hero.scss */
-    .decanter-hero-callout {
-      max-width: 30rem; } }
-  /* line 34, ../scss/components/_hero.scss */
-  .decanter-hero-callout > *:first-child {
-    margin-top: 0;
-    margin-bottom: 3rem; }
-  /* line 38, ../scss/components/_hero.scss */
-  .decanter-hero-callout .decanter-button {
-    font-size: 1.4rem;
-    margin-top: 7rem;
-    width: 100%; }
-
-/* line 45, ../scss/components/_hero.scss */
-.decanter-hero-callout-alt {
-  color: #ffffff;
-  display: block; }
-
-/* line 8, ../scss/components/_layout.scss */
-.decanter-layout-docs {
-  display: flex;
-  flex-direction: column; }
-  @media screen and (min-width: 1201px) {
-    /* line 8, ../scss/components/_layout.scss */
-    .decanter-layout-docs {
-      display: inherit; } }
-  /* line 18, ../scss/components/_layout.scss */
-  .decanter-layout-docs .decanter-grid > :first-child:not(.decanter-width-*) {
-    margin-top: 0; }
-  /* line 22, ../scss/components/_layout.scss */
-  .decanter-layout-docs .decanter-grid > :last-child:not(.decanter-width-*) {
-    margin-bottom: 0; }
-
-/* line 28, ../scss/components/_layout.scss */
-.decanter-layout-docs-sidenav {
-  order: 2; }
-
-/* line 32, ../scss/components/_layout.scss */
-.decanter-layout-docs-main_content {
-  margin-bottom: 3rem;
-  order: 1; }
-  @media screen and (min-width: 1201px) {
-    /* line 32, ../scss/components/_layout.scss */
-    .decanter-layout-docs-main_content {
-      margin-bottom: 0; } }
-  /* line 41, ../scss/components/_layout.scss */
-  .decanter-layout-docs-main_content > :first-child {
-    margin-top: 0; }
-
-/* line 12, ../scss/components/_media-block.scss */
+/* line 14, ../scss/components/_media-block.scss */
 .decanter-media_block-img {
   float: left;
   margin-right: 1rem; }
 
-/* line 16, ../scss/components/_media-block.scss */
+/* line 18, ../scss/components/_media-block.scss */
 .decanter-media_block-body {
   overflow: hidden; }
 
@@ -2812,42 +2776,6 @@ dfn {
       left: auto;
       position: relative; } }
 
-/* line 7, ../scss/components/_section.scss */
-.decanter-section {
-  padding-top: 3rem;
-  padding-bottom: 3rem; }
-  @media screen and (min-width: 600px) {
-    /* line 7, ../scss/components/_section.scss */
-    .decanter-section {
-      padding-top: 6rem;
-      padding-bottom: 6rem; } }
-
-/* line 15, ../scss/components/_section.scss */
-.decanter-section-light {
-  background-color: #4d4f53; }
-
-/* line 19, ../scss/components/_section.scss */
-.decanter-section-dark {
-  background-color: #2e2d29;
-  color: #ffffff; }
-  /* line 23, ../scss/components/_section.scss */
-  .decanter-section-dark h1,
-  .decanter-section-dark h2,
-  .decanter-section-dark h3,
-  .decanter-section-dark h4,
-  .decanter-section-dark h5,
-  .decanter-section-dark h6 {
-    color: #ffffff; }
-  /* line 32, ../scss/components/_section.scss */
-  .decanter-section-dark p {
-    color: #ffffff; }
-  /* line 36, ../scss/components/_section.scss */
-  .decanter-section-dark a {
-    color: #006cb8; }
-    /* line 39, ../scss/components/_section.scss */
-    .decanter-section-dark a:hover {
-      color: #00548f; }
-
 /* line 7, ../scss/components/_sidenav.scss */
 .decanter-sidenav-list {
   margin-top: 0;
@@ -2924,7 +2852,7 @@ dfn {
     .decanter-sidenav-sub_list .decanter-sidenav-sub_list a:hover {
       padding-left: 3.8rem; }
 
-/* line 7, ../scss/components/_skipnav.scss */
+/* line 9, ../scss/components/_skipnav.scss */
 .decanter-skipnav {
   background: transparent;
   color: #2e2d29;
@@ -2934,7 +2862,7 @@ dfn {
   top: -4.2rem;
   transition: all 0.2s ease-in-out;
   z-index: 100; }
-  /* line 17, ../scss/components/_skipnav.scss */
+  /* line 19, ../scss/components/_skipnav.scss */
   .decanter-skipnav:focus {
     background: #ffffff;
     left: 0;
@@ -2942,3 +2870,24 @@ dfn {
     position: absolute;
     top: 0;
     transition: all 0.2s ease-in-out; }
+
+/* line 9, ../scss/components/icon-grid.scss */
+.decanter-icon_grid .decanter-icon_grid-row .decanter-media_block {
+  margin-bottom: 3rem; }
+  @media screen and (min-width: 600px) {
+    /* line 9, ../scss/components/icon-grid.scss */
+    .decanter-icon_grid .decanter-icon_grid-row .decanter-media_block {
+      margin-bottom: 6rem; } }
+@media screen and (min-width: 600px) {
+  /* line 18, ../scss/components/icon-grid.scss */
+  .decanter-icon_grid .decanter-icon_grid-row:last-child .decanter-media_block {
+    margin-bottom: 0; } }
+/* line 24, ../scss/components/icon-grid.scss */
+.decanter-icon_grid .decanter-icon_grid-row:last-child .decanter-media_block:last-child {
+  margin-bottom: 0; }
+/* line 31, ../scss/components/icon-grid.scss */
+.decanter-icon_grid .decanter-media_block-img {
+  margin-right: 3rem; }
+/* line 36, ../scss/components/icon-grid.scss */
+.decanter-icon_grid .decanter-media_block-body > :first-child {
+  margin-top: 0; }
