@@ -4,7 +4,10 @@
 /// NAVIGATION COMPONENT
 ///
 
-// Header navigation
+// Navigation variables
+$z-index-nav: 9000;
+
+// Main menu navigation
 @mixin nav-border {
   border-bottom: 0.7rem solid $color-bright-red;
   padding-bottom: 1rem;
@@ -17,7 +20,9 @@
   @include media($nav-width) {
     border-bottom: none;
     display: inline-block;
-    height: 10.3rem; // XXX magic number
+    height: 10.3rem;
+
+    // XXX magic number
   }
 }
 
@@ -35,8 +40,9 @@
 
 .decanter-nav-container {
   @include media($nav-width) {
-    @include outer-container();
+    @include outer-container;
     @include padding(null $site-margins);
+
     max-width: $site-max-width;
   }
 }
@@ -46,7 +52,7 @@
 
   @include position(fixed, 0 0 0 auto);
 
-  background: $color-white;
+  background: transparent;
   border-left: 1px solid $color-cool-grey;
   border-right: 0;
   display: flex;
@@ -59,6 +65,7 @@
 
   @include media($nav-width) {
     @include padding(5rem 0 0 null);
+
     border-left: none;
     display: block;
     float: right;
@@ -68,13 +75,16 @@
     width: auto;
   }
 
+
   &.is-visible {
     transform: translateX(0);
     transition: all 0.3s ease-in-out;
   }
 
   nav {
-    margin-top: 6rem; // XXX magic number
+    margin-top: 6rem;
+
+    // XXX magic number
     min-height: 100%;
 
     @include media($nav-width) {
@@ -95,7 +105,9 @@
 
   .decanter-search {
     @include media($nav-width) {
-      margin-left: 1.5rem; // XXX magic number
+      margin-left: 1.5rem;
+
+      // XXX magic number
     }
   }
 }
@@ -103,11 +115,13 @@
 // Primary navigation
 .decanter-nav-primary {
   @include decanter-sidenav-list;
+
   order: 2;
 
   @include media($nav-width) {
     display: inline;
   }
+
 
   li {
     @include media($nav-width) {
@@ -120,19 +134,25 @@
 
     @include media($nav-width) {
       display: inline-block;
+
       // margin-left: -4px;
     }
+
 
     > a {
       @include media($nav-width) {
         @include padding(1.3rem 1.5rem 1.7rem 1.5rem);
-        color: $color-cool-grey;
+
+        color: $color-bright-red;
         font-size: $h5-font-size;
         font-weight: $font-bold;
         line-height: 1.2;
       }
 
+
       &:hover {
+        color: $color-black;
+
         @include media($nav-width) {
           background-color: transparent;
         }
@@ -145,16 +165,19 @@
 
     @include button-unstyled;
     @include font-smoothing;
+
     font-weight: $font-normal;
     padding: 1.4rem 1.5rem 1rem 1.8rem;
 
     @include media($nav-width) {
       @include padding(null 3rem 1.9rem 1.5rem);
-      color: $color-cool-grey;
+
+      color: $color-bright-red;
       font-size: $h5-font-size;
       font-weight: $font-bold;
       width: initial;
     }
+
 
     &:focus,
     &:active {
@@ -162,31 +185,32 @@
     }
 
     &:hover {
-      background-color: $color-cool-grey;
-      color: $color-white;
+      color: $color-black;
 
       @include media($nav-width) {
         background-color: transparent;
       }
     }
 
-    &[aria-expanded=false] { /* stylelint-disable-line selector-no-qualifying-type */
-      background-image: url('#{$image-path}/plus-alt.png');
-      background-image: url('#{$image-path}/plus-alt.svg');
+    &[aria-expanded=false] {
+      /* stylelint-disable-line selector-no-qualifying-type */
+      background-image: url("#{$image-path}/plus-alt.png");
+      background-image: url("#{$image-path}/plus-alt.svg");
       background-repeat: no-repeat;
       background-position: right 0 center;
       background-size: 1rem;
 
       @include media($nav-width) {
-        background-image: url('#{$image-path}/angle-arrow-down.png');
-        background-image: url('#{$image-path}/angle-arrow-down.svg');
+        background-image: url("#{$image-path}/angle-arrow-down.png");
+        background-image: url("#{$image-path}/angle-arrow-down.svg");
         background-position: right 1.5rem top $button-vertical-offset;
       }
     }
 
-    &[aria-expanded=true] { /* stylelint-disable-line selector-no-qualifying-type */
-      background-image: url('#{$image-path}/minus-alt.png');
-      background-image: url('#{$image-path}/minus-alt.svg');
+    &[aria-expanded=true] {
+      /* stylelint-disable-line selector-no-qualifying-type */
+      background-image: url("#{$image-path}/minus-alt.png");
+      background-image: url("#{$image-path}/minus-alt.svg");
       background-repeat: no-repeat;
       background-position: right 0 center;
       background-size: 1rem;
@@ -194,8 +218,8 @@
       @include media($nav-width) {
         background-color: $color-bright-red;
         color: $color-white;
-        background-image: url('#{$image-path}/angle-arrow-down-hover.png');
-        background-image: url('#{$image-path}/angle-arrow-down-hover.svg');
+        background-image: url("#{$image-path}/angle-arrow-down-hover.png");
+        background-image: url("#{$image-path}/angle-arrow-down-hover.svg");
         background-position: right 1.5rem top $button-vertical-offset;
 
         &:hover {
@@ -210,7 +234,8 @@
   }
 
   @include media($nav-width) {
-    a.decanter-current { // stylelint-disable-line selector-no-qualifying-type
+    a.decanter-current {
+      // stylelint-disable-line selector-no-qualifying-type
       // undo the sidenav style
       border-left: 0;
       padding-left: 1.5rem;
@@ -227,14 +252,18 @@
   @include media($nav-width) {
     position: absolute;
     right: $site-margins;
-    top: -5.7rem; // XXX magic number
+    top: -5.7rem;
+
+    // XXX magic number
   }
+
 
   .decanter-search {
     @include margin(3rem null);
 
     @include media($nav-width) {
-      @include margin(-0.2rem null 0 0);
+      @include margin((-0.2rem) null 0 0);
+
       float: left;
     }
   }
@@ -245,11 +274,13 @@
     float: left;
   }
 
+
   li {
     @include media($nav-width) {
       display: inline;
       padding-left: 1rem;
     }
+
 
     &:not(:last-child)::after {
       @include media($nav-width) {
@@ -260,7 +291,7 @@
   }
 
   a,
-  .decanter-header-search-button {
+  .decanter-main-menu-search-button {
     color: $color-cool-grey;
     display: inline-block;
     font-size: $h5-font-size;
@@ -271,19 +302,21 @@
     }
   }
 
-  .decanter-header-search-button {
+  .decanter-main-menu-search-button {
     @include button-unstyled;
+
     display: none;
 
     @include media($nav-width) {
-      background-image: url('#{$image-path}/search-alt.png');
-      background-image: url('#{$image-path}/search-alt.svg');
+      background-image: url("#{$image-path}/search-alt.png");
+      background-image: url("#{$image-path}/search-alt.svg");
       background-repeat: no-repeat;
       background-position: left center;
       background-size: 2.2rem;
       display: inline-block;
       padding-left: 2.3rem;
     }
+
 
     &.is-hidden {
       @include media($nav-width) {
@@ -293,7 +326,8 @@
   }
 
   @include media($nav-width) {
-    a.decanter-current { // stylelint-disable-line selector-no-qualifying-type
+    a.decanter-current {
+      // stylelint-disable-line selector-no-qualifying-type
       // undo the sidenav style
       border-left: 0;
       padding-left: 0;
@@ -306,11 +340,13 @@
   @include media($nav-width) {
     @include unstyled-list;
     @include padding(1.15rem null);
+
     background-color: $color-bright-red;
     min-width: 21.5rem;
     width: auto;
     position: absolute;
   }
+
 
   &[aria-hidden=true] {
     display: none;
@@ -319,8 +355,11 @@
   a {
     @include media($nav-width) {
       color: $color-white;
-      padding-left: 1.5rem; // XXX magic number
+      padding-left: 1.5rem;
+
+      // XXX magic number
     }
+
 
     &:hover {
       @include media($nav-width) {
@@ -340,7 +379,8 @@
 // Navigation close button
 .decanter-nav-close {
   @include button-unstyled;
-  @include margin(-1.2rem -1.5rem 2.4rem auto);
+  @include margin((-1.2rem) -1.5rem 2.4rem auto);
+
   float: right;
   height: $hit-area;
   text-align: center;
@@ -349,6 +389,7 @@
   @include media($nav-width) {
     display: none;
   }
+
 
   img {
     width: 1.3rem;
@@ -372,7 +413,9 @@
 
 .decanter-megamenu {
   @include media($nav-width) {
-    @include padding(3.15rem null); // XXX magic number
+    @include padding(3.15rem null);
+
+    // XXX magic number
     // XXX this is the difference between the 2rem padding-left
     // of .decanter-nav-inner and the $site-margins (3rem) padding-left
     // of .decanter-megamenu
@@ -380,9 +423,11 @@
     width: 100%;
   }
 
+
   &::before {
     @include media($nav-width) {
       @include outer-megamenu;
+
       right: 100%;
     }
   }
@@ -390,12 +435,13 @@
   &::after {
     @include media($nav-width) {
       @include outer-megamenu;
+
       left: 100%;
     }
   }
 }
 
-.decanter-header-basic-megamenu {
+.decanter-main-menu-basic-megamenu {
   .decanter-nav {
     @include media($nav-width) {
       padding-left: 0;
@@ -418,7 +464,9 @@
   .decanter-nav-submenu {
     .decanter-grid-full {
       @include media($nav-width) {
-        margin-left: -1.8rem; // XXX magic number
+        margin-left: -1.8rem;
+
+        // XXX magic number
       }
     }
   }
@@ -436,6 +484,7 @@
       margin-right: 0;
     }
   }
+
 
   > ul {
     @include unstyled-list;
