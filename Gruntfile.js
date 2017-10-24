@@ -108,14 +108,14 @@ module.exports = function(grunt) {
           'css/components/components.css':                  'scss/components/components.scss',
           // Components are compiled individually so they may be included
           // conditionally using logic built in to the theme template or module.
-          'css/components/brand-bar.css':                   'scss/components/brand-bar/brand-bar.scss',
-          'css/components/brand-lockup.css':                'scss/components/brand-lockup/brand-lockup.scss',
-          'css/components/breadcrumb.css':                  'scss/components/breadcrumb/breadcrumb.scss',
-          'css/components/global-footer.css':               'scss/components/global-footer/global-footer.scss',
-          'css/components/main-menu.css':                   'scss/components/main-menu/main-menu.scss',
-          'css/components/navigation.css':                  'scss/components/navigation/navigation.scss',
-          'css/components/pager.css':                       'scss/components/pager/pager.scss',
-          'css/components/site-name.css':                   'scss/components/site-name/site-name.scss',
+          'css/components/brand-bar.css':                   'scss/components/brand-bar.scss',
+          'css/components/brand-lockup.css':                'scss/components/brand-lockup.scss',
+          'css/components/breadcrumb.css':                  'scss/components/breadcrumb.scss',
+          'css/components/global-footer.css':               'scss/components/global-footer.scss',
+          'css/components/main-menu.css':                   'scss/components/main-menu.scss',
+          'css/components/navigation.css':                  'scss/components/navigation.scss',
+          'css/components/pager.css':                       'scss/components/pager.scss',
+          'css/components/site-name.css':                   'scss/components/site-name.scss',
           // Theme compiled styles.
           'css/base/base.css':                              'scss/base/base.scss',
           'css/layout/layout.css':                          'scss/layout/layout.scss',
