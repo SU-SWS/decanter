@@ -18,16 +18,16 @@
 @import "decanter/scss/elements/elements";
 
 #footer__global-footer {
-  @include media($medium-screen) {
-    text-align: center;
-  }
-
-
   @include padding($site-margins null);
 
   background-color: $color-cardinal-red;
   color: $color-white;
+  text-align: center;
   width: 100%;
+
+  @include media($medium-screen) {
+    text-align: left;
+  }
 
   a {
     color: $color-white;
