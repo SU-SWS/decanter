@@ -5,17 +5,17 @@
 ///
 
 // Stanford Basic
-@import
-  'config/config',
-  'utilities/utilities';
+
+@import "config/config";
+@import "utilities/utilities";
 
 // Decanter
-@import
-  'decanter/scss/lib/bourbon',
-  'decanter/scss/lib/neat',
-  'decanter/scss/lib/normalize',
-  'decanter/scss/core/core',
-  'decanter/scss/elements/elements';
+
+@import "decanter/scss/lib/bourbon";
+@import "decanter/scss/lib/neat";
+@import "decanter/scss/lib/normalize";
+@import "decanter/scss/core/core";
+@import "decanter/scss/elements/elements";
 
 #footer__global-footer {
   background-color: $color-cardinal-red;
@@ -64,7 +64,10 @@
     }
   }
 
-  #global-footer__info {
+  #global-footer__copyright {
+    clear: both;
+    text-align: center;
+
     .vcard {
       font-size: $h6-font-size;
       font-weight: 300;
@@ -108,11 +111,6 @@
           margin-bottom: .5em;
         }
       }
-    }
-
-    #global-footer__info {
-      clear: both;
-      text-align: center;
     }
   }
 }
