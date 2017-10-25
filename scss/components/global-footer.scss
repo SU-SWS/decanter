@@ -18,6 +18,11 @@
 @import "decanter/scss/elements/elements";
 
 #footer__global-footer {
+  @include media($medium-screen) {
+    text-align: center;
+  }
+
+
   @include padding($site-margins null);
 
   background-color: $color-cardinal-red;
@@ -30,15 +35,12 @@
 
   .su-brand {
     padding-top: 0.15em;
-    line-height: 0.75;
   }
 
   #global-footer__brand {
     display: block;
-    float: left;
 
     @include media($small-screen) {
-      width: 10rem;
       max-height: 70px;
     }
   }
@@ -52,6 +54,10 @@
       font-size: $base-font-size;
       font-weight: $font-normal;
       margin-bottom: 1rem;
+
+      a {
+        margin-right: 1.7em;
+      }
     }
 
     #nav__policy-links {
@@ -59,7 +65,7 @@
       margin-bottom: 1rem;
 
       a {
-        margin-right: 1.2em;
+        margin-right: 1.5rem;
       }
     }
 
@@ -74,44 +80,4 @@
       font-weight: 300;
     }
   }
-
-  .termsofuse {
-    font-size: $h6-font-size;
-    font-weight: 300;
-
-    > * {
-      white-space: nowrap;
-    }
-  }
 }
-
-// #footer__global-footer {
-//   @media (max-width: 767px) {
-//     #global-footer__brand {
-//       float: none;
-//       margin: 0 auto 1em;
-//     }
-//
-//     #global-footer__nav {
-//       display: inline-block;
-//       overflow: hidden;
-//       text-align: left;
-//
-//       #nav__global-links {
-//         margin-right: 30px;
-//       }
-//
-//       #nav__global-links,
-//       #nav__policy-links {
-//         float: left;
-//         font-size: 1.6rem;
-//         margin-bottom: .5em;
-//
-//         a {
-//           display: block;
-//           margin-bottom: .5em;
-//         }
-//       }
-//     }
-//   }
-// }
