@@ -7,8 +7,6 @@
 // Buttons variables
 $button-stroke: inset 0 0 0 2px;
 
-/* stylelint-disable selector-no-qualifying-type */
-
 .decanter-button,
 button,
 [type=button],
@@ -71,14 +69,14 @@ button,
       color: $color-black;
     }
   }
-
-  &.decanter-button-big {
-    font-size: 1.9rem;
-    padding: 1.5rem 3rem;
-  }
 }
 
-/* stylelint-disable */
+.decanter-button-big {
+  @extend .decanter-button;
+
+  font-size: 1.9rem;
+  padding: 1.5rem 3rem;
+}
 
 .decanter-button:disabled,
 .decanter-button-disabled {
