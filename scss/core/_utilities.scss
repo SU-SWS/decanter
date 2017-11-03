@@ -146,15 +146,12 @@
     height: $size;
     width: $size;
 
-    /* stylelint-disable block-closing-brace-newline-after, at-rule-empty-line-before */
     @if $direction == "after" {
       margin-left: $margin;
     }
     @else {
       margin-right: $margin;
     }
-
-    /* stylelint-enable */
   }
 
   @if $hover == "hover" {
@@ -186,26 +183,21 @@
     padding: 0.85rem 1rem 0.85rem 1.8rem;
     text-decoration: none;
 
-    &:hover {
-      background-color: $color-black;
-      color: $color-white;
-      text-decoration: none;
-    }
-
+    &:hover,
     &:focus {
-      position: relative;
-      z-index: 1;
+      color: $color-black;
+      text-decoration: underline;
     }
 
     &.decanter-current {
-      /* stylelint-disable-line selector-no-qualifying-type */
-      border-left: 0.4rem solid $color-bright-red;
-      color: $color-bright-red;
+      border-left: 0.2rem solid $color-black;
+      color: $color-black;
       font-weight: $font-bold;
       padding-left: 1.4rem;
 
-      &:hover {
-        color: $color-white;
+      &:hover,
+      &:focus {
+        text-decoration: none;
       }
     }
   }
@@ -228,7 +220,6 @@
 
     &:hover,
     &.decanter-current {
-      /* stylelint-disable-line selector-no-qualifying-type */
       border: none;
       padding-left: 2.8rem;
     }

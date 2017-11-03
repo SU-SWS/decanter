@@ -9,7 +9,7 @@ $z-index-nav: 9000;
 
 // Main menu navigation
 @mixin nav-border {
-  border-bottom: 0.2rem solid $color-bright-red;
+  border-bottom: 0.2rem solid $color-black;
   padding-bottom: 1rem;
 }
 
@@ -21,8 +21,6 @@ $z-index-nav: 9000;
     border-bottom: none;
     display: inline-block;
     height: 10.3rem;
-
-    // XXX magic number
   }
 }
 
@@ -150,6 +148,7 @@ $z-index-nav: 9000;
 
       &:hover {
         color: $color-black;
+        text-decoration: none;
 
         @include media($nav-width) {
           background-color: transparent;
@@ -159,8 +158,6 @@ $z-index-nav: 9000;
   }
 
   button {
-    $button-vertical-offset: 44%;
-
     @include button-unstyled;
     @include font-smoothing;
 
@@ -192,7 +189,6 @@ $z-index-nav: 9000;
     }
 
     &[aria-expanded=false] {
-      /* stylelint-disable-line selector-no-qualifying-type */
       background-image: url("#{$image-path}/plus-alt.png");
       background-image: url("#{$image-path}/plus-alt.svg");
       background-repeat: no-repeat;
@@ -202,12 +198,15 @@ $z-index-nav: 9000;
       @include media($nav-width) {
         background-image: url("#{$image-path}/arrow-down.png");
         background-image: url("#{$image-path}/arrow-down.svg");
-        background-position: right 1.5rem top $button-vertical-offset;
+        background-position: right 1.5rem top 44%;
+
+        &:hover {
+          background-position: right 1.5rem top 58%;
+        }
       }
     }
 
     &[aria-expanded=true] {
-      /* stylelint-disable-line selector-no-qualifying-type */
       background-image: url("#{$image-path}/minus-alt.png");
       background-image: url("#{$image-path}/minus-alt.svg");
       background-repeat: no-repeat;
@@ -216,15 +215,16 @@ $z-index-nav: 9000;
 
       @include media($nav-width) {
         background-color: $color-bright-red;
-        color: $color-white;
         background-image: url("#{$image-path}/arrow-down-hover.png");
         background-image: url("#{$image-path}/arrow-down-hover.svg");
-        background-position: right 1.5rem top $button-vertical-offset;
+        background-position: right 1.5rem top 58%;
+        color: $color-white;
+
+        @include nav-border;
 
         &:hover {
           background-color: $color-bright-red;
-
-          @include nav-border;
+          background-position: right 1.5rem top 58%;
         }
       }
     }
@@ -232,7 +232,6 @@ $z-index-nav: 9000;
 
   @include media($nav-width) {
     a.decanter-current {
-      // stylelint-disable-line selector-no-qualifying-type
       // undo the sidenav style
       border-left: 0;
       padding-left: 1.5rem;
@@ -322,7 +321,6 @@ $z-index-nav: 9000;
 
   @include media($nav-width) {
     a.decanter-current {
-      // stylelint-disable-line selector-no-qualifying-type
       // undo the sidenav style
       border-left: 0;
       padding-left: 0;
@@ -351,8 +349,6 @@ $z-index-nav: 9000;
     @include media($nav-width) {
       color: $color-white;
       padding-left: 1.5rem;
-
-      // XXX magic number
     }
 
 
@@ -395,7 +391,7 @@ $z-index-nav: 9000;
   overflow: hidden;
 }
 
-// Navigation mega menu
+// Mega menu navigation
 @mixin outer-megamenu {
   background-color: $color-bright-red;
   content: '';
