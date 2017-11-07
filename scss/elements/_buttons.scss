@@ -8,6 +8,7 @@
 $button-stroke: inset 0 0 0 2px;
 
 .decanter-button,
+a.decanter-button,
 button,
 [type=button],
 [type=submit],
@@ -53,7 +54,8 @@ button,
   }
 }
 
-.decanter-button-secondary {
+.decanter-button-secondary,
+a.decanter-button-secondary {
   @extend .decanter-button;
 
   background-color: $color-white;
@@ -75,7 +77,8 @@ button,
   }
 }
 
-.decanter-button-big {
+.decanter-button-big,
+a.decanter-button-big {
   @extend .decanter-button;
 
   font-size: 1.9rem;
@@ -98,6 +101,7 @@ button,
   }
 }
 
-.decanter-button-unstyled {
+.decanter-button-unstyled,
+a.decanter-button-unstyled {
   @include button-unstyled;
 }
