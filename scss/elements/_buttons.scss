@@ -51,23 +51,27 @@ button,
     background-color: $color-black;
     box-shadow: $focus-shadow;
   }
+}
 
-  &.decanter-button-secondary {
+.decanter-button-secondary {
+  @extend .decanter-button;
+
+  background-color: $color-white;
+  box-shadow: $button-stroke $color-bright-red;
+  color: $color-bright-red;
+
+  &:hover,
+  &.decanter-button-hover {
     background-color: $color-white;
-    box-shadow: $button-stroke $color-bright-red;
-    color: $color-bright-red;
+    box-shadow: $button-stroke $color-black;
+    color: $color-black;
+  }
 
-    &:hover,
-    &.decanter-button-hover {
-      box-shadow: $button-stroke $color-black;
-      color: $color-black;
-    }
-
-    &:focus,
-    &.decanter-button-focus {
-      box-shadow: $button-stroke $color-black, $focus-shadow;
-      color: $color-black;
-    }
+  &:focus,
+  &.decanter-button-focus {
+    background-color: $color-white;
+    box-shadow: $button-stroke $color-black, $focus-shadow;
+    color: $color-black;
   }
 }
 
