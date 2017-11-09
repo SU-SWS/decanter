@@ -57,8 +57,21 @@ a {
   @include external-link(external-link, external-link-hover);
 }
 
-.decanter-external_link-alt {
-  @include external-link(external-link-alt, external-link-alt-hover);
+@mixin more-link($more-link, $more-link-hover) {
+  &::after {
+    color: $color-bright-red;
+    content: '\00BB';
+    display: inline-block;
+    margin-left: 4px;
+  }
+
+  &:hover::after {
+    color: $color-black;
+  }
+}
+
+.decanter-more_link {
+  @include more-link(more-link, more-link-hover);
 }
 
 h1,
@@ -199,17 +212,16 @@ dfn {
   top: 0;
 }
 
-.decanter-image-text {
-  margin-top: 0;
-}
-
-.decanter-drop_text {
-  margin-bottom: 0;
-}
-
-.decanter-text-small {
+.decanter-caption {
+  color: $color-cool-grey;
   font-size: $h6-font-size;
   margin-top: 0;
+}
+
+.decanter-credits {
+  @extend .decanter-caption;
+
+  font-style: italic;
 }
 
 // Removes top margin from first child and bottom margin from last child on
