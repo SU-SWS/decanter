@@ -78,6 +78,6 @@ function stanford_basic_form_system_theme_settings_alter(array &$form, FormState
       'ie8' => t('Internet Explorer 8'),
       'ie9' => t('Internet Explorer 9'),
     ],
-    '#default_value' => array_keys(array_filter(theme_get_setting('ie_enabled_versions'))) ?: [],
+    '#default_value' => array_keys(array_filter(theme_get_setting('ie_enabled_versions') ?: [])) ?: [],
   ];
 }
