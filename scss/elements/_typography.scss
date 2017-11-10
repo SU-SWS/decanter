@@ -124,7 +124,6 @@ h6 {
 }
 
 // Remove user agent styles
-
 cite,
 var,
 address,
@@ -133,19 +132,6 @@ dfn {
 }
 
 // Custom typography
-
-.decanter-content {
-  p:not(.decanter-font-lead),
-  ul:not(.decanter-accordion):not(.decanter-accordion-bordered),
-  ol:not(.decanter-accordion):not(.decanter-accordion-bordered) {
-    max-width: $text-max-width;
-  }
-}
-
-.decanter-content-list {
-  max-width: $text-max-width;
-}
-
 .decanter-sans {
   p,
   a,
@@ -178,7 +164,15 @@ dfn {
   }
 }
 
-.decanter-display {
+.decanter-font-lead {
+  font-family: $font-sans;
+  font-size: $lead-font-size;
+  font-weight: $font-light;
+  line-height: $lead-line-height;
+  max-width: $lead-max-width;
+}
+
+.decanter-font-splash {
   @include h3;
 
   margin-bottom: 0;
@@ -193,24 +187,8 @@ dfn {
   }
 }
 
-.decanter-font-lead {
-  font-family: $font-sans;
-  font-size: $lead-font-size;
-  font-weight: $font-light;
-  line-height: $lead-line-height;
-  max-width: $lead-max-width;
-}
-
-.decanter-image-block {
-  position: relative;
-}
-
-.decanter-image-text-block {
-  color: $color-white;
-  left: 0;
-  margin-left: 8%;
-  position: absolute;
-  top: 0;
+.decanter-short-line-length {
+  max-width: $text-max-width;
 }
 
 .decanter-caption {
@@ -223,6 +201,18 @@ dfn {
   @extend .decanter-caption;
 
   font-style: italic;
+}
+
+.decanter-image-block {
+  position: relative;
+}
+
+.decanter-image-text-block {
+  color: $color-white;
+  left: 0;
+  margin-left: 8%;
+  position: absolute;
+  top: 0;
 }
 
 // Removes top margin from first child and bottom margin from last child on
