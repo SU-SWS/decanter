@@ -12,6 +12,12 @@ module.exports = function(grunt) {
         }
       }
     },
+    sasslint: {
+      options: {
+        configFile: '.sass-lint.yml'
+      },
+      target: ['scss/\*\*/\*.scss']
+    },
     cssmin: {
       options: {
         mergeIntoShorthands: false,
@@ -49,6 +55,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.registerTask('default', ['watch']);
 }
