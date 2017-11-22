@@ -7,6 +7,7 @@
 // Buttons variables
 $button-stroke: inset 0 0 0 2px;
 
+// Primary button
 .decanter-button,
 a.decanter-button,
 button,
@@ -39,7 +40,7 @@ button,
 
 
   &:hover,
-  &.decanter-button-hover {
+  &.decanter-button--hover {
     background-color: $color-black;
     border-bottom: 0;
     color: $color-white;
@@ -47,14 +48,15 @@ button,
   }
 
   &:focus,
-  &.decanter-button-focus {
+  &.decanter-button--focus {
     background-color: $color-black;
     box-shadow: $focus-shadow;
   }
 }
 
-.decanter-button-secondary,
-a.decanter-button-secondary {
+// Secondary button
+.decanter-button--secondary,
+a.decanter-button--secondary {
   @extend .decanter-button;
 
   background-color: $color-white;
@@ -62,22 +64,22 @@ a.decanter-button-secondary {
   color: $color-bright-red;
 
   &:hover,
-  &.decanter-button-hover {
+  &.decanter-button--hover {
     background-color: $color-white;
     box-shadow: $button-stroke $color-black;
     color: $color-black;
   }
 
   &:focus,
-  &.decanter-button-focus {
+  &.decanter-button--focus {
     background-color: $color-white;
     box-shadow: $button-stroke $color-black, $focus-shadow;
     color: $color-black;
   }
 }
 
-.decanter-button-big,
-a.decanter-button-big {
+.decanter-button--big,
+a.decanter-button--big {
   @extend .decanter-button;
 
   font-size: 1.9rem;
@@ -99,7 +101,7 @@ a.decanter-button-big {
   }
 }
 
-.decanter-button-unstyled,
-a.decanter-button-unstyled {
+.decanter-button--unstyled,
+a.decanter-button--unstyled {
   @include button-unstyled;
 }

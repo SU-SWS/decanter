@@ -1077,9 +1077,9 @@ var isElementInViewport = require('../utils/is-in-viewport');
 var CLICK = require('../events').CLICK;
 var PREFIX = require('../config').prefix;
 
-// XXX match .decanter-accordion and .decanter-accordion-bordered
-var ACCORDION = '.' + PREFIX + '-accordion, .' + PREFIX + '-accordion-bordered';
-var BUTTON = '.' + PREFIX + '-accordion-button[aria-controls]';
+// XXX match .decanter-accordion and .decanter-accordion--bordered
+var ACCORDION = '.' + PREFIX + '-accordion, .' + PREFIX + '-accordion--bordered';
+var BUTTON = '.' + PREFIX + '-accordion__button[aria-controls]';
 var EXPANDED = 'aria-expanded';
 var MULTISELECTABLE = 'aria-multiselectable';
 
@@ -1302,13 +1302,13 @@ var PREFIX = require('../config').prefix;
 var CONTEXT = 'header';
 var NAV = '.' + PREFIX + '-nav';
 var NAV_LINKS = NAV + ' a';
-var OPENERS = '.' + PREFIX + '-menu-btn';
-var CLOSE_BUTTON = '.' + PREFIX + '-nav-close';
+var OPENERS = '.' + PREFIX + '-main-menu__btn';
+var CLOSE_BUTTON = '.' + PREFIX + '-nav__close';
 var OVERLAY = '.' + PREFIX + '-overlay';
 var CLOSERS = CLOSE_BUTTON + ', .' + PREFIX + '-overlay';
 var TOGGLES = [NAV, OVERLAY].join(', ');
 
-var ACTIVE_CLASS = 'decanter-mobile_nav-active';
+var ACTIVE_CLASS = 'decanter-mobile-nav--active';
 var VISIBLE_CLASS = 'is-visible';
 
 var toggleNav = function toggleNav(active) {

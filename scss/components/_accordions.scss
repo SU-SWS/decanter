@@ -84,12 +84,12 @@ $accordion-border: 1px solid $color-driftwood;
 }
 
 .decanter-accordion,
-.decanter-accordion-bordered {
+.decanter-accordion--bordered {
   @include accordion-list-styles;
   @include accordion-nested-list;
 
   + .decanter-accordion,
-  + .decanter-accordion-bordered {
+  + .decanter-accordion--bordered {
     margin-top: 1rem;
   }
 
@@ -98,15 +98,15 @@ $accordion-border: 1px solid $color-driftwood;
   }
 }
 
-.decanter-accordion-bordered {
-  .decanter-accordion-content {
+.decanter-accordion--bordered {
+  .decanter-accordion__content {
     border-bottom: $accordion-border;
     border-left: $accordion-border;
     border-right: $accordion-border;
   }
 }
 
-.decanter-accordion-content {
+.decanter-accordion__content {
   background-color: $color-white;
   overflow: auto;
   padding: 3rem;
@@ -126,10 +126,10 @@ $accordion-border: 1px solid $color-driftwood;
   @include accessibly-hidden;
 }
 
-.decanter-accordion-button {
+.decanter-accordion__button {
   @include accordion-button-styles;
 }
 
-.decanter-accordion-button[aria-expanded=false] {
+.decanter-accordion__button[aria-expanded=false] {
   @include accordion-button-unopened-styles;
 }

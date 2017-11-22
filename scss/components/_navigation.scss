@@ -13,36 +13,6 @@ $z-index-nav: 9000;
   padding-bottom: 1rem;
 }
 
-.decanter-navbar {
-  border-bottom: 1px solid $color-cool-grey;
-  height: 4rem;
-
-  @include media($nav-width) {
-    border-bottom: none;
-    display: inline-block;
-    height: 10.3rem;
-  }
-}
-
-.decanter-nav-link {
-  @include font-smoothing;
-
-  &:hover {
-    @include media($nav-width) {
-      @include nav-border;
-    }
-  }
-}
-
-.decanter-nav-container {
-  @include media($nav-width) {
-    @include outer-container;
-    @include padding(null $site-margins);
-
-    max-width: $site-max-width;
-  }
-}
-
 .decanter-nav {
   $sliding-panel-width: 26rem;
 
@@ -79,8 +49,6 @@ $z-index-nav: 9000;
 
   nav {
     margin-top: 6rem;
-
-    // XXX magic number
     min-height: 100%;
 
     @include media($nav-width) {
@@ -98,13 +66,35 @@ $z-index-nav: 9000;
   .decanter-button {
     width: 100%;
   }
+}
 
-  .decanter-search {
+.decanter-nav__bar {
+  border-bottom: 1px solid $color-cool-grey;
+  height: 4rem;
+
+  @include media($nav-width) {
+    border-bottom: none;
+    display: inline-block;
+    height: 10.3rem;
+  }
+}
+
+.decanter-nav__link {
+  @include font-smoothing;
+
+  &:hover {
     @include media($nav-width) {
-      margin-left: 1.5rem;
-
-      // XXX magic number
+      @include nav-border;
     }
+  }
+}
+
+.decanter-nav__container {
+  @include media($nav-width) {
+    @include outer-container;
+    @include padding(null $site-margins);
+
+    max-width: $site-max-width;
   }
 }
 
@@ -130,8 +120,6 @@ $z-index-nav: 9000;
 
     @include media($nav-width) {
       display: inline-block;
-
-      // margin-left: -4px;
     }
 
 
@@ -243,94 +231,7 @@ $z-index-nav: 9000;
   }
 }
 
-// Secondary navigation
-.decanter-nav-secondary {
-  @include media($nav-width) {
-    position: absolute;
-    right: $site-margins;
-    top: -5.7rem;
-
-    // XXX magic number
-  }
-
-
-  .decanter-search {
-    @include margin(3rem null);
-
-    @include media($nav-width) {
-      @include margin((-0.2rem) null 0 0);
-
-      float: left;
-    }
-  }
-}
-
-.decanter-nav-secondary-links {
-  @include media($nav-width) {
-    float: left;
-  }
-
-
-  li {
-    @include media($nav-width) {
-      display: inline;
-      padding-left: 1rem;
-    }
-
-
-    &:not(:last-child)::after {
-      @include media($nav-width) {
-        content: '|';
-        padding-left: 1rem;
-      }
-    }
-  }
-
-  a,
-  .decanter-main-menu-search-button {
-    color: $color-cool-grey;
-    display: inline-block;
-    font-size: $h5-font-size;
-    text-decoration: none;
-
-    &:hover {
-      color: $color-bright-red;
-    }
-  }
-
-  .decanter-main-menu-search-button {
-    @include button-unstyled;
-
-    display: none;
-
-    @include media($nav-width) {
-      background-image: url("#{$image-path}/search-alt.png");
-      background-image: url("#{$image-path}/search-alt.svg");
-      background-repeat: no-repeat;
-      background-position: left center;
-      background-size: 2.2rem;
-      display: inline-block;
-      padding-left: 2.3rem;
-    }
-
-
-    &.is-hidden {
-      @include media($nav-width) {
-        display: none;
-      }
-    }
-  }
-
-  @include media($nav-width) {
-    a.decanter-current {
-      // undo the sidenav style
-      border-left: 0;
-      padding-left: 0;
-    }
-  }
-}
-
-// Navigation submenu (dropdown and mega menu)
+// Submenu navigation (dropdown and mega menu)
 .decanter-nav-submenu {
   @include media($nav-width) {
     @include unstyled-list;
@@ -369,30 +270,6 @@ $z-index-nav: 9000;
   }
 }
 
-// Navigation close button
-.decanter-nav-close {
-  @include button-unstyled;
-  @include margin((-1.2rem) -1.5rem 2.4rem auto);
-
-  float: right;
-  height: $hit-area;
-  text-align: center;
-  width: $hit-area;
-
-  @include media($nav-width) {
-    display: none;
-  }
-
-
-  img {
-    width: 1.3rem;
-  }
-}
-
-.decanter-mobile_nav-active {
-  overflow: hidden;
-}
-
 // Mega menu navigation
 @mixin outer-megamenu {
   background-color: $color-bright-red;
@@ -408,10 +285,6 @@ $z-index-nav: 9000;
   @include media($nav-width) {
     @include padding(3.15rem null);
 
-    // XXX magic number
-    // XXX this is the difference between the 2rem padding-left
-    // of .decanter-nav-inner and the $site-margins (3rem) padding-left
-    // of .decanter-megamenu
     left: -1rem;
     width: 100%;
   }
@@ -434,7 +307,7 @@ $z-index-nav: 9000;
   }
 }
 
-.decanter-main-menu-basic-megamenu {
+.decanter-megamenu-basic {
   .decanter-nav {
     @include media($nav-width) {
       padding-left: 0;
@@ -443,7 +316,7 @@ $z-index-nav: 9000;
     }
   }
 
-  .decanter-nav-inner {
+  .decanter-nav__inner {
     display: flex;
     flex-direction: column;
 
@@ -458,14 +331,12 @@ $z-index-nav: 9000;
     .decanter-grid-full {
       @include media($nav-width) {
         margin-left: -1.8rem;
-
-        // XXX magic number
       }
     }
   }
 }
 
-.decanter-megamenu-col {
+.decanter-megamenu__col {
   @include media($nav-width) {
     @include span-columns(3);
 
@@ -482,4 +353,28 @@ $z-index-nav: 9000;
   > ul {
     @include unstyled-list;
   }
+}
+
+// Close button
+.decanter-nav__close {
+  @include button-unstyled;
+  @include margin((-1.2rem) -1.5rem 2.4rem auto);
+
+  float: right;
+  height: $hit-area;
+  text-align: center;
+  width: $hit-area;
+
+  @include media($nav-width) {
+    display: none;
+  }
+
+
+  img {
+    width: 1.3rem;
+  }
+}
+
+.decanter-mobile-nav--active {
+  overflow: hidden;
 }
