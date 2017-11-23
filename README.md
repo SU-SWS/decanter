@@ -9,6 +9,11 @@ Description
 Decanter is an artifact (and tool) of the design and development system that while aligned with a single product line, has a chief goal of housing
 patterns that can be used in any project. It is also a browsable collection of design patterns that have been vetted and translated into code.
 
+Style Guide:
+---
+
+To view the style guide navigate to /styleguide.
+
 Accessibility
 ---
 [![WCAG Conformance 2.0 AA Badge](https://www.w3.org/WAI/wcag2AA-blue.png)](https://www.w3.org/TR/WCAG20/)
