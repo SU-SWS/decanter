@@ -49,13 +49,22 @@ module.exports = function(grunt) {
         files: '**/*.js',
         tasks: ['uglify']
       }
+    },
+    run: {
+      styleguide: {
+        "cmd": "kss",
+        "args": ['--config=kss-config.json']
+      }
     }
   });
+
+  grunt.loadNpmTasks('grunt-run');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.registerTask('styleguide', ['run:styleguide']);
   grunt.registerTask('default', ['watch']);
 }

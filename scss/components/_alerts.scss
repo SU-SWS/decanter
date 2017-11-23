@@ -1,10 +1,5 @@
 @charset "UTF-8";
 
-///
-/// ALERTS COMPONENT
-///
-
-// Alert variables
 $decanter-custom-alerts: () !default;
 
 $decanter-alerts: (
@@ -16,6 +11,20 @@ $decanter-alerts: (
 
 $alerts: map-merge($decanter-alerts, $decanter-custom-alerts);
 
+//
+// Alerts
+//
+// The alert types. Use these for the Drupal messages.
+//
+// .decanter-alert-success  - Successful Transaction Message
+// .decanter-alert-warning  - Warning Message
+// .decanter-alert-error    - Error Message
+// .decanter-alert-info     - Informative Message
+//
+// Markup: ../templates/components/molecules/alerts/alerts.twig
+//
+// Style guide: Components.Organisims.Alerts
+//
 .decanter-alert {
   background-color: $color-cool-grey;
   background-position: 1rem 2rem;

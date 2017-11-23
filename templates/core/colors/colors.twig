@@ -1,0 +1,24 @@
+<style>
+  [class*="color-"] {
+    text-align: center;
+  }
+
+  {% for key, color in colors %}
+  .{{ color.class }} {
+    background-color: {{ color.code}};
+    color: {{ color.font }};
+  }
+  {% endfor %}
+
+</style>
+<div class="decanter-grid">
+  {% for key, color in colors %}
+  {% set classes = 'decanter-width-one-fourth ' ~ color.class %}
+    <div class="{{ classes }}">
+      <div class="decanter-color-inner-content">
+        <p>{{ color.name }}</p>
+        <p>{{ color.code }}</p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
