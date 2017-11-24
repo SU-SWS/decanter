@@ -1,20 +1,39 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
+///
+// Load Order
 //
-// DECANTER
+// 1. Pre-vendor settings
+// 2. Vendors
+// 3. Post-vendor settings
+// 4. Utilities (functions, mixins, extends)
+// 5. Core Elements
+// 6. Components
 //
 
-// Vendor
+// 1. Pre-vendor settings.
+@import 'variables/pre-vendor';
+
+// 2. Vendors.
 @import
-  'lib/bourbon',
-  'lib/neat',
-  'lib/normalize';
+  "bourbon",
+  "neat",
+  "font-awesome",
+  "normalize";
 
-// Core
-@import 'core/core';
+// 3. Post Vendor Settings.
+@import
+  "variables/index";
 
-// Elements
-@import 'elements/elements';
+// 4. Utilities.
+@import
+  "lib/index";
 
-// Components
-@import 'components/components';
+// 5. Core elements.
+@import
+  "core/index",
+  "elements/index";
+
+// 6. Components.
+@import
+  "components/index";

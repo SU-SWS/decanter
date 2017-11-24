@@ -1,0 +1,115 @@
+@charset 'UTF-8';
+
+///
+/// VARIABLES
+///
+
+// These variables drive almost every aspect of the design system
+// Every variable is declared as !default so that it can be
+// overridden by a previous import.
+//
+// If you want to override a variable, set that variable in one of your
+// own partials, then @import '{path/to/}core/variables'.
+
+// Typography
+// Removing the !default from $em-base so we are not inheriting that
+// value from Bourbon.
+$em-base:             10px;
+$base-font-size:      2rem !default;
+$small-font-size:     1.7rem !default;
+$lead-font-size:      2.3rem !default;
+$title-font-size:     5.5rem !default;
+$h1-font-size:        4.3rem !default;
+$h2-font-size:        3.3rem !default;
+$h3-font-size:        2.3rem !default;
+$h4-font-size:        2rem !default;
+$h5-font-size:        1.8rem !default;
+$h6-font-size:        1.6rem !default;
+
+$base-line-height:    1.4 !default;
+$heading-line-height: 1.2 !default;
+$lead-line-height:    1.5 !default;
+
+$font-sans:           'Source Sans Pro', $helvetica !default;
+$font-serif:          'Crimson Text', $georgia !default;
+$font-slab:           'Roboto Slab', $georgia !default;
+
+$font-light:          100 !default;
+$font-normal:         400 !default;
+$font-bold:           700 !default;
+
+// Colors
+// See complete color palette at http://identity.stanford.edu/color.html#digital-color
+// Primary palette
+$color-black:                #2e2d29 !default;
+$color-cardinal-red:         #8c1515 !default;
+$color-cool-grey:            #4d4f53 !default;
+$color-white:                #ffffff !default;
+
+// Supporting palette
+$color-beige:                #9d9573 !default;
+$color-blue:                 #00548f !default;
+$color-bright-blue:          #006cb8 !default;
+$color-bright-red:           #b1040e !default;
+$color-brown:                #5e3032 !default;
+$color-chocolate:            #2f2424 !default;
+$color-clay:                 #5f574f !default;
+$color-cloud:                #dad7cb !default;
+$color-dark-red:             #820000 !default;
+$color-driftwood:            #b6b1a9 !default;
+$color-fog:                  #f4f4f4 !default;
+$color-gold:                 #b26f16 !default;
+$color-lagunita:             #007c92 !default;
+$color-light-sage:           #c7d1c5 !default;
+$color-light-sandstone:      #f9f6ef !default;
+$color-mint:                 #009b76 !default;
+$color-poppy:                #e98300 !default;
+$color-palo-alto:            #175e54 !default;
+$color-purple:               #53284f !default;
+$color-redwood:              #8d3c1e !default;
+$color-sandhill:             #b3995d !default;
+$color-sandstone:            #d2c295 !default;
+$color-sky:                  #0098db !default;
+$color-stone:                #544948 !default;
+$color-sun:                  #eaab00 !default;
+$color-teal:                 #00505c !default;
+$color-warm-grey:            #3f3c30 !default;
+
+// Mobile first breakpoints
+$small-screen:  481px !default;
+$medium-screen: 600px !default;
+$large-screen:  1201px !default;
+
+// Grid column counts by screen size
+$grid-columns-small:  1 !default;
+$grid-columns-medium: 6 !default;
+$grid-columns-large:  12 !default;
+
+// @media keyword helpers
+$small: new-breakpoint(min-width $small-screen $grid-columns-small) !default;
+$medium: new-breakpoint(min-width $medium-screen $grid-columns-medium) !default;
+$large: new-breakpoint(min-width $large-screen $grid-columns-large) !default;
+
+// Relative font and image file paths
+$font-path:   '../fonts' !default;
+$image-path:  '../img' !default;
+
+// Set $asset-pipeline to true if you're using the Rails Asset Pipeline
+$asset-pipeline:      false !default;
+
+// Magic numbers
+$text-max-width:      53rem !default;
+$lead-max-width:      77rem !default;
+$site-max-width:      1040px !default;
+$site-margins:        3rem !default;
+$site-margins-mobile: 1.5rem !default;
+$article-max-width:   600px !default;
+$input-max-width:     46rem !default;
+$border-radius:       3px !default;
+$box-shadow:          0 2px 2px 0 rgba(0,0,0,0.2) !default;
+$focus-shadow:        0 0 3px $color-cool-grey, 0 0 7px $color-cool-grey !default;
+$nav-width:           951px !default;
+
+// 44 x 44 pixels hit target following Apple iOS Human Interface
+// Guidelines
+$hit-area: 4.4rem !default;

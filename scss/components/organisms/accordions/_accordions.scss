@@ -1,0 +1,59 @@
+@charset 'UTF-8';
+
+///
+/// ACCORDIONS COMPONENT
+///
+
+// Accordion variables
+$accordion-border: 1px solid $color-driftwood;
+
+.decanter-accordion,
+.decanter-accordion--bordered {
+  @include accordion-list-styles;
+  @include accordion-nested-list;
+
+  + .decanter-accordion,
+  + .decanter-accordion--bordered {
+    margin-top: 1rem;
+  }
+
+  > li {
+    @include accordion-list-item-styles;
+  }
+}
+
+.decanter-accordion--bordered {
+  .decanter-accordion__content {
+    border-bottom: $accordion-border;
+    border-left: $accordion-border;
+    border-right: $accordion-border;
+  }
+}
+
+.decanter-accordion__content {
+  background-color: $color-white;
+  overflow: auto;
+  padding: 3rem;
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  &:not([aria-hidden]) {
+    @include sr-only;
+  }
+
+  @include accessibly-hidden;
+}
+
+.decanter-accordion__button {
+  @include accordion-button-styles;
+}
+
+.decanter-accordion__button[aria-expanded=false] {
+  @include accordion-button-unopened-styles;
+}

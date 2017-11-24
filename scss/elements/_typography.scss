@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
 ///
 /// TYPOGRAPHY ELEMENT
@@ -34,40 +34,8 @@ a {
   }
 }
 
-@mixin external-link($external-link, $external-link-hover) {
-  &::after {
-    background: url("#{$image-path}/#{$external-link}.png") no-repeat 0 0;
-    background: url("#{$image-path}/#{$external-link}.svg") no-repeat 0 0;
-    background-size: 100%;
-    content: '';
-    display: inline-block;
-    height: 0.65em;
-    margin-bottom: -1px;
-    margin-left: 4px;
-    width: 0.65em;
-  }
-
-  &:hover::after {
-    background-image: url("#{$image-path}/#{$external-link-hover}.png");
-    background-image: url("#{$image-path}/#{$external-link-hover}.svg");
-  }
-}
-
 .decanter-external-link {
   @include external-link(external-link, external-link-hover);
-}
-
-@mixin more-link($more-link, $more-link-hover) {
-  &::after {
-    color: $color-bright-red;
-    content: '\00BB';
-    display: inline-block;
-    margin-left: 4px;
-  }
-
-  &:hover::after {
-    color: $color-black;
-  }
 }
 
 .decanter-more-link {

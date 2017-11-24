@@ -1,0 +1,75 @@
+@charset 'UTF-8';
+
+///
+/// MAIN MENU COMPONENT
+///
+
+// Main Menu variables
+$z-index-main-menu: 7000;
+$z-index-overlay: 8000;
+
+// Main menu
+.decanter-main-menu {
+  width: 100%;
+  z-index: $z-index-main-menu;
+
+
+  a {
+    border-bottom: none;
+  }
+}
+
+.decanter-main-menu__btn {
+  @include button-unstyled;
+
+  background-color: $color-bright-red;
+  color: $color-white;
+  display: inline;
+  float: right;
+  font-size: $h6-font-size;
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 5.8rem;
+
+  @include media($nav-width) {
+    display: none;
+  }
+
+
+  &:hover {
+    color: $color-white;
+    background-color: $color-bright-red;
+  }
+
+  &:visited {
+    color: $color-white;
+  }
+}
+
+.decanter-overlay {
+  @include position(fixed, 0);
+
+  background: $color-black;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  visibility: hidden;
+  z-index: $z-index-overlay;
+
+  &.is-visible {
+    opacity: 0.1;
+    visibility: visible;
+  }
+}
+
+// Basic main menu
+.decanter-main-menu-basic {
+  .decanter-nav__bar {
+    @include media($nav-width) {
+      position: relative;
+      width: 18%;
+    }
+  }
+}
