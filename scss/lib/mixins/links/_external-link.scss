@@ -1,0 +1,23 @@
+@charset 'UTF-8';
+
+///
+// External link
+/// 
+@mixin external-link($external-link, $external-link-hover) {
+  &::after {
+    background: url("#{$image-path}/#{$external-link}.png") no-repeat 0 0;
+    background: url("#{$image-path}/#{$external-link}.svg") no-repeat 0 0;
+    background-size: 100%;
+    content: '';
+    display: inline-block;
+    height: 0.65em;
+    margin-bottom: -1px;
+    margin-left: 4px;
+    width: 0.65em;
+  }
+
+  &:hover::after {
+    background-image: url("#{$image-path}/#{$external-link-hover}.png");
+    background-image: url("#{$image-path}/#{$external-link-hover}.svg");
+  }
+}

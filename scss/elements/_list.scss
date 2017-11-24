@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+///
+/// LIST ELEMENT
+///
+
+ul,
+ol {
+  @include margin(1em null);
+
+  // Approximately 15px left padding at default font size
+  padding-left: 1.94em;
+}
+
+li {
+  line-height: $heading-line-height;
+  margin-bottom: 0.5em;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  + ul,
+  + ol {
+    margin-top: 0;
+  }
+}
+
+// Unstyled lists
+.decanter-unstyled-list {
+  @include unstyled-list;
+}

@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+///
+/// ALERTS COMPONENT
+///
+
+// Alert variables
+$decanter-custom-alerts: () !default;
+
+$decanter-alerts: (
+  success: rgba(23, 94, 84, 0.6),   // $color-palo-alto at 60% opacity
+  warning: rgba(234, 171, 0, 0.6),  // $color-sun at 60% opacity
+  error:   rgba(177, 4, 14, 0.5),   // $color-bright-red at 50% opacity
+  info:    rgba(0, 152, 219, 0.6),  // $color-sky at 60% opacity
+);
+
+$alerts: map-merge($decanter-alerts, $decanter-custom-alerts);
+
+.decanter-alert {
+  background-color: $color-cool-grey;
+  background-position: 1rem 2rem;
+  background-repeat: no-repeat;
+  background-size: 4rem;
+  margin-top: 1.5em;
+  padding: 1em;
+
+  @include media($medium-screen) {
+    background-size: 5.2rem;
+  }
+
+  a {
+    color: $color-bright-blue;
+
+    &:focus,
+    &:hover {
+      color: $color-blue;
+    }
+  }
+
+  ul {
+    margin-bottom: 0;
+    margin-top: 1em;
+    padding-left: 1em;
+  }
+}
+
+.decanter-alert__icon {
+  display: table-cell;
+  padding-right: 1rem;
+}
+
+.decanter-alert__body {
+  display: table-cell;
+  padding-left: 3.5rem;
+  vertical-align: top;
+
+  @include media($medium-screen) {
+    padding-left: 5rem;
+  }
+
+  p:first-child {
+    margin-top: 0.8rem;
+  }
+
+  p:last-child {
+    margin-bottom: 0.8rem;
+  }
+}
+
+.decanter-alert__heading {
+  margin-bottom: .3rem;
+  margin-top: 0;
+
+  @include media($medium-screen) {
+    margin-top: .3rem;
+  }
+}
+
+.decanter-alert__text {
+  font-family: $font-sans;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+@each $name, $bgcolor in $alerts {
+  .decanter-alert-#{$name} {
+    background-color: $bgcolor;
+    background-image: url('#{$image-path}/#{$name}.png');
+    background-image: url('#{$image-path}/#{$name}.svg');
+  }
+}
+
+.decanter-alert--no_icon {
+  background-image: none;
+}
