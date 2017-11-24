@@ -14,12 +14,14 @@
 // 1. Pre-vendor settings.
 @import 'variables/pre-vendor';
 
+// 1.5 Special to remove vendor markup.
+// We don't want to touch the normal pre-vendor settings so we override here.
+$border-box-sizing: false;
+
 // 2. Vendors.
 @import
-  "lib/bourbon",
-  "lib/neat",
-  "font-awesome",
-  "normalize";
+  "bourbon",
+  "neat";
 
 // 3. Post Vendor Settings.
 @import
@@ -29,11 +31,6 @@
 @import
   "lib/index";
 
-// 5. Core elements.
+// 5. Grid
 @import
-  "core/index",
-  "elements/index";
-
-// 6. Components.
-@import
-  "components/index";
+  "core/grid/index";

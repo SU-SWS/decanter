@@ -2705,16 +2705,6 @@ template {
 [hidden] {
   display: none; }
 
-.decanter-sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0; }
-
 @font-face {
   font-family: "Source Sans Pro";
   font-style: normal;
@@ -3068,6 +3058,33 @@ body {
 [hidden] {
   display: none !important; }
 
+.decanter-layout-docs {
+  display: flex;
+  flex-direction: column; }
+  @media screen and (min-width: 1201px) {
+    .decanter-layout-docs {
+      display: inherit; } }
+  .decanter-layout-docs .decanter-grid > :first-child:not(.decanter-width-*) {
+    margin-top: 0; }
+  .decanter-layout-docs .decanter-grid > :last-child:not(.decanter-width-*) {
+    margin-bottom: 0; }
+
+.decanter-layout-docs__sidenav {
+  order: 2; }
+
+.decanter-layout-docs__main-content {
+  margin-bottom: 3rem;
+  order: 1; }
+  @media screen and (min-width: 1201px) {
+    .decanter-layout-docs__main-content {
+      margin-bottom: 0; } }
+  .decanter-layout-docs__main-content > :first-child {
+    margin-top: 0; }
+
+.decanter-sr-only {
+  position: absolute;
+  left: -999em; }
+
 .decanter-button, .decanter-button--secondary,
 a.decanter-button--secondary, .decanter-button--big,
 a.decanter-button--big,
@@ -3259,13 +3276,7 @@ fieldset {
 [type=checkbox],
 [type=radio] {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0; }
+  left: -999em; }
   .lt-ie9 [type=checkbox], .lt-ie9
   [type=radio] {
     border: 0;
@@ -4270,13 +4281,7 @@ dfn {
     margin-bottom: 0; }
   .decanter-accordion__content:not([aria-hidden]) {
     position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0; }
+    left: -999em; }
   .decanter-accordion__content[aria-hidden=true] {
     display: none; }
 

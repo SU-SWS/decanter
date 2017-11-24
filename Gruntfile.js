@@ -18,6 +18,8 @@ module.exports = function(grunt) {
       dist: {
         files: {
           'css/decanter.css': 'scss/decanter.scss',
+          'css/decanter-no-markup.css': 'scss/decanter-no-markup.scss',
+          'css/decanter-grid-only.css': 'scss/decanter-grid-only.scss'
         }
       }
     },
@@ -63,7 +65,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.registerTask('default', ['watch']);
