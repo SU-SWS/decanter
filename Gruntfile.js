@@ -3,6 +3,15 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     sass: {
       options: {
+        includePaths: [
+          "node_modules/bourbon/core",
+          "node_modules/bourbon-neat/core",
+          "node_modules/font-awesome/scss",
+          "node_modules/normalize.css",
+          "node_modules/neat-omega/core",
+          "node_modules",
+          "scss"
+        ],
         lineNumbers: true,
         sourcemap: 'none'
       },

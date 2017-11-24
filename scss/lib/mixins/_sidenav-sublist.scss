@@ -1,0 +1,34 @@
+@charset 'utf-8';
+
+@mixin decanter-sidenav-sublist {
+  @include unstyled-list;
+
+  margin: 0;
+  width: 100%;
+
+  li {
+    border: none;
+    font-size: $h5-font-size;
+  }
+
+  a {
+    padding-left: 2.8rem;
+    line-height: $heading-line-height;
+
+    &:hover,
+    &.decanter-current {
+      border: none;
+      padding-left: 2.8rem;
+    }
+  }
+
+  .decanter-sidenav__sublist {
+    a {
+      padding-left: 3.8rem;
+
+      &:hover {
+        padding-left: 3.8rem;
+      }
+    }
+  }
+}
