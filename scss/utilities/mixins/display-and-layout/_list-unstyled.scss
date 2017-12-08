@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+///
+/// LIST UNSTYLED
+///
+
+// To remove the styling from a list.
+
+@mixin list-unstyled {
+  @include margin(0 null);
+
+  list-style-type: none;
+  padding-left: 0;
+
+  > li {
+    margin-bottom: 0;
+  }
+}

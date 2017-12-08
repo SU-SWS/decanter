@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+///
+/// MORE LINK
+///
+
+@mixin more-link($more-link, $more-link-hover) {
+  &::after {
+    color: $color-bright-red;
+    content: '\00BB';
+    display: inline-block;
+    margin-left: 4px;
+  }
+
+  &:hover::after {
+    color: $color-black;
+  }
+}

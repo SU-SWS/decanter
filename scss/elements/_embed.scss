@@ -11,10 +11,6 @@
 $aspect-height: 9;
 $aspect-width: 16;
 
-@mixin embed-container($height, $width) {
-  padding-bottom: percentage($height / $width);
-}
-
 .decanter-embed-container {
   @include embed-container($aspect-height, $aspect-width);
 
