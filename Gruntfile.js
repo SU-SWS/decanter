@@ -3,12 +3,23 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     sass: {
       options: {
+        includePaths: [
+          "node_modules/bourbon/app/assets/stylesheets",
+          "node_modules/bourbon-neat/app/assets/stylesheets",
+          "node_modules/font-awesome/scss",
+          "node_modules/normalize.css",
+          "node_modules/neat-omega/core",
+          "node_modules",
+          "scss"
+        ],
         lineNumbers: true,
         sourcemap: 'none'
       },
       dist: {
         files: {
           'css/decanter.css': 'scss/decanter.scss',
+          'css/decanter-no-markup.css': 'scss/decanter-no-markup.scss',
+          'css/decanter-grid-only.css': 'scss/decanter-grid-only.scss'
         }
       }
     },
