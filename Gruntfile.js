@@ -37,6 +37,8 @@ module.exports = function(grunt) {
       target: {
         files: {
           'css/decanter.min.css': 'css/decanter.css',
+          'css/decanter-no-markup.min.css': 'scss/decanter-no-markup.scss',
+          'css/decanter-grid-only.min.css': 'scss/decanter-grid-only.scss'
         }
       }
     },
