@@ -19,7 +19,7 @@ module.exports = function(grunt) {
         files: {
           'css/decanter.css': 'scss/decanter.scss',
           'css/decanter-no-markup.css': 'scss/decanter-no-markup.scss',
-          'css/decanter-grid-only.css': 'scss/decanter-grid.scss'
+          'css/decanter-grid.css': 'scss/decanter-grid.scss'
         }
       }
     },
@@ -38,7 +38,7 @@ module.exports = function(grunt) {
         files: {
           'css/decanter.min.css': 'css/decanter.css',
           'css/decanter-no-markup.min.css': 'scss/decanter-no-markup.scss',
-          'css/decanter-grid-only.min.css': 'scss/decanter-grid.scss'
+          'css/decanter-grid.min.css': 'scss/decanter-grid.scss'
         }
       }
     },
