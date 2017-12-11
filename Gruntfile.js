@@ -13,7 +13,9 @@ module.exports = function(grunt) {
           "scss"
         ],
         lineNumbers: true,
-        sourcemap: 'none'
+        sourceMap: true,
+        outputStyle: 'nested',
+        precision: 10
       },
       dist: {
         files: {
@@ -28,19 +30,6 @@ module.exports = function(grunt) {
         configFile: '.sass-lint.yml'
       },
       target: ['scss/\*\*/\*.scss']
-    },
-    cssmin: {
-      options: {
-        mergeIntoShorthands: false,
-        roundingPrecision: -1
-      },
-      target: {
-        files: {
-          'css/decanter.min.css': 'css/decanter.css',
-          'css/decanter-no-markup.min.css': 'scss/decanter-no-markup.scss',
-          'css/decanter-grid.min.css': 'scss/decanter-grid.scss'
-        }
-      }
     },
     uglify: {
       my_target: {
