@@ -3062,12 +3062,8 @@ body {
   position: absolute;
   left: -999em; }
 
-.decanter-button, .decanter-button--secondary,
-a.decanter-button--secondary, .decanter-button--big,
-a.decanter-button--big,
+.decanter-button,
 a.decanter-button,
-a.decanter-button--secondary,
-a.decanter-button--big,
 button,
 [type=button],
 [type=submit],
@@ -3094,81 +3090,111 @@ button,
   text-decoration: none;
   width: 100%; }
   @media screen and (min-width: 481px) {
-    .decanter-button, .decanter-button--secondary,
-    a.decanter-button--secondary, .decanter-button--big,
-    a.decanter-button--big,
+    .decanter-button,
     a.decanter-button,
-    a.decanter-button--secondary,
-    a.decanter-button--big,
     button,
     [type=button],
     [type=submit],
     [type=reset],
     [type=image] {
       width: auto; } }
-  .decanter-button:hover, .decanter-button--secondary:hover, .decanter-button--big:hover, .decanter-button.decanter-button--hover, .decanter-button--hover.decanter-button--secondary, .decanter-button--hover.decanter-button--big,
+  .decanter-button:hover,
   a.decanter-button:hover,
-  a.decanter-button--secondary:hover,
-  a.decanter-button--big:hover,
-  a.decanter-button.decanter-button--hover,
-  a.decanter-button--hover.decanter-button--secondary,
-  a.decanter-button--hover.decanter-button--big,
   button:hover,
-  button.decanter-button--hover,
   [type=button]:hover,
-  [type=button].decanter-button--hover,
   [type=submit]:hover,
-  [type=submit].decanter-button--hover,
   [type=reset]:hover,
-  [type=reset].decanter-button--hover,
-  [type=image]:hover,
-  [type=image].decanter-button--hover {
+  [type=image]:hover {
     background-color: #2e2d29;
     border-bottom: 0;
     color: #ffffff;
     text-decoration: none; }
-  .decanter-button:focus, .decanter-button--secondary:focus, .decanter-button--big:focus, .decanter-button.decanter-button--focus, .decanter-button--focus.decanter-button--secondary, .decanter-button--focus.decanter-button--big,
+  .decanter-button:focus,
   a.decanter-button:focus,
-  a.decanter-button--secondary:focus,
-  a.decanter-button--big:focus,
-  a.decanter-button.decanter-button--focus,
-  a.decanter-button--focus.decanter-button--secondary,
-  a.decanter-button--focus.decanter-button--big,
   button:focus,
-  button.decanter-button--focus,
   [type=button]:focus,
-  [type=button].decanter-button--focus,
   [type=submit]:focus,
-  [type=submit].decanter-button--focus,
   [type=reset]:focus,
-  [type=reset].decanter-button--focus,
-  [type=image]:focus,
-  [type=image].decanter-button--focus {
+  [type=image]:focus {
     background-color: #2e2d29;
     box-shadow: 0 0 3px #4d4f53, 0 0 7px #4d4f53; }
 
 .decanter-button--secondary,
 a.decanter-button--secondary {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  appearance: none;
   background-color: #ffffff;
+  border: 0;
   box-shadow: inset 0 0 0 2px #b1040e;
-  color: #b1040e; }
-  .decanter-button--secondary:hover, .decanter-button--secondary.decanter-button--hover,
-  a.decanter-button--secondary:hover,
-  a.decanter-button--secondary.decanter-button--hover {
+  color: #b1040e;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  outline: none;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  width: 100%; }
+  @media screen and (min-width: 481px) {
+    .decanter-button--secondary,
+    a.decanter-button--secondary {
+      width: auto; } }
+  .decanter-button--secondary:hover,
+  a.decanter-button--secondary:hover {
     background-color: #ffffff;
+    border-bottom: 0;
     box-shadow: inset 0 0 0 2px #2e2d29;
-    color: #2e2d29; }
-  .decanter-button--secondary:focus, .decanter-button--secondary.decanter-button--focus,
-  a.decanter-button--secondary:focus,
-  a.decanter-button--secondary.decanter-button--focus {
+    color: #2e2d29;
+    text-decoration: none; }
+  .decanter-button--secondary:focus,
+  a.decanter-button--secondary:focus {
     background-color: #ffffff;
     box-shadow: inset 0 0 0 2px #2e2d29, 0 0 3px #4d4f53, 0 0 7px #4d4f53;
     color: #2e2d29; }
 
 .decanter-button--big,
 a.decanter-button--big {
-  font-size: 1.9rem;
-  padding: 1.5rem 3rem; }
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  margin-bottom: 0.5em;
+  appearance: none;
+  background-color: #b1040e;
+  border: 0;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1;
+  outline: none;
+  padding: 1.5rem 3rem;
+  text-align: center;
+  text-decoration: none;
+  width: 100%; }
+  @media screen and (min-width: 481px) {
+    .decanter-button--big,
+    a.decanter-button--big {
+      width: auto; } }
+  .decanter-button--big:hover,
+  a.decanter-button--big:hover {
+    background-color: #2e2d29;
+    border-bottom: 0;
+    color: #ffffff;
+    text-decoration: none; }
+  .decanter-button--big:focus,
+  a.decanter-button--big:focus {
+    background-color: #2e2d29;
+    box-shadow: 0 0 3px #4d4f53, 0 0 7px #4d4f53; }
 
 .decanter-button--unstyled,
 a.decanter-button--unstyled {
@@ -3398,7 +3424,7 @@ ul,
 ol {
   margin-top: 1em;
   margin-bottom: 1em;
-  padding-left: 1.94em; }
+  padding-left: 1em; }
 
 li {
   line-height: 1.2;
@@ -3850,7 +3876,7 @@ dfn {
     color: #2e2d29;
     font-weight: 700;
     padding-left: 1.4rem; }
-  .decanter-nav .decanter-button, .decanter-nav .decanter-button--secondary, .decanter-nav .decanter-button--big {
+  .decanter-nav .decanter-button {
     width: 100%; }
 
 .decanter-nav__bar {
@@ -4363,20 +4389,19 @@ dfn {
   background-image: url("../img/hero-banner.png");
   background-position: center;
   background-size: cover; }
-  .decanter-hero-banner .decanter-button, .decanter-hero-banner .decanter-button--secondary, .decanter-hero-banner .decanter-button--big {
+  .decanter-hero-banner .decanter-button {
     color: #ffffff; }
-
-.decanter-hero-banner__callout {
-  background-color: #ffffff;
-  padding: 3rem; }
-  @media screen and (min-width: 481px) {
-    .decanter-hero-banner__callout {
-      max-width: 30rem; } }
-  .decanter-hero-banner__callout > *:first-child {
-    margin-top: 0;
-    margin-bottom: 3rem; }
-  .decanter-hero-banner__callout .decanter-button, .decanter-hero-banner__callout .decanter-button--secondary, .decanter-hero-banner__callout .decanter-button--big {
-    margin-top: 3rem;
-    width: 100%; }
+  .decanter-hero-banner .decanter-hero-banner__callout {
+    background-color: #ffffff;
+    padding: 3rem; }
+    @media screen and (min-width: 481px) {
+      .decanter-hero-banner .decanter-hero-banner__callout {
+        max-width: 30rem; } }
+    .decanter-hero-banner .decanter-hero-banner__callout > *:first-child {
+      margin-top: 0;
+      margin-bottom: 3rem; }
+    .decanter-hero-banner .decanter-hero-banner__callout .decanter-button {
+      margin-top: 3rem;
+      width: 100%; }
 
 /*# sourceMappingURL=decanter.css.map */

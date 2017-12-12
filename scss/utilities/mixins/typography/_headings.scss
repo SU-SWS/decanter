@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+///
+/// HEADINGS
+///
+
+// Heading styles.
+
+@mixin headings {
+  clear: both;
+  font-family: $font-sans;
+  line-height: $heading-line-height;
+  margin-bottom: .5em;
+  margin-top: 1.5em;
+
+  .decanter-sans & {
+    font-family: $font-sans;
+  }
+
+  .decanter-serif & {
+    font-family: $font-serif;
+  }
+
+  .decanter-slab & {
+    font-family: $font-slab;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}

@@ -5,32 +5,5 @@
 ///
 
 .decanter-hero-banner {
-  @include padding($site-margins null);
-
-  background-image: url("#{$image-path}/hero-banner.png");
-  background-position: center;
-  background-size: cover;
-
-  .decanter-button {
-    color: $color-white;
-  }
-}
-
-.decanter-hero-banner__callout {
-  background-color: $color-white;
-  padding: 3rem;
-
-  @include media($small-screen) {
-    max-width: 30rem;
-  }
-
-
-  > *:first-child {
-    @include margin(0 null $site-margins null);
-  }
-
-  .decanter-button {
-    margin-top: 3rem;
-    width: 100%;
-  }
+  @include hero-banner;
 }

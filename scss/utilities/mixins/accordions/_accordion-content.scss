@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+///
+/// ACCORDION CONTENT
+///
+
+@mixin accordion-content {
+  background-color: $color-white;
+  overflow: auto;
+  padding: 3rem;
+
+  > *:first-child {
+    margin-top: 0;
+  }
+
+  > *:last-child {
+    margin-bottom: 0;
+  }
+
+  &:not([aria-hidden]) {
+    @include sr-only;
+  }
+
+  @include accessibly-hidden;
+}

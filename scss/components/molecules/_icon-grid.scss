@@ -5,36 +5,5 @@
 ///
 
 .decanter-icon-grid {
-  .decanter-icon-grid__row {
-    .decanter-media-block {
-      margin-bottom: $site-margins;
-
-      @include media($medium-screen) {
-        margin-bottom: $site-margins * 2;
-      }
-    }
-
-    &:last-child {
-      .decanter-media-block {
-        @include media($medium-screen) {
-          margin-bottom: 0;
-        }
-
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-    }
-  }
-
-  .decanter-media-block__img {
-    margin-right: $site-margins;
-  }
-
-  .decanter-media-block__body {
-    > :first-child {
-      margin-top: 0;
-    }
-  }
+  @include icon-grid;
 }
