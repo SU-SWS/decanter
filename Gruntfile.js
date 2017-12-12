@@ -43,17 +43,12 @@ module.exports = function(grunt) {
         files: '**/*.scss',
         tasks: ['sass']
       },
-      cssmin: {
-        files: '**/*.css',
-        tasks: ['cssmin']
-      },
       jsmin: {
         files: '**/*.js',
         tasks: ['uglify']
       }
     }
   });
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-sass-lint');

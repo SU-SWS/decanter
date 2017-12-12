@@ -4,7 +4,6 @@
 /// NAVIGATION COMPONENT
 ///
 
-// Main menu navigation
 .decanter-nav {
   @include position(fixed, 0 0 0 auto);
 
@@ -46,7 +45,7 @@
     }
   }
 
-  .decanter-current {
+  .decanter-nav__current {
     border-left: 4px solid $color-bright-red;
     color: $color-black;
     font-weight: $font-bold;
@@ -105,7 +104,9 @@
     }
   }
 
-  > li {
+  > li,
+  &.decanter-accordion > li {
+    background-color: transparent;
     width: auto;
 
     @include media($nav-width) {
@@ -211,7 +212,7 @@
   }
 
   @include media($nav-width) {
-    a.decanter-current {
+    a.decanter-nav__current {
       // undo the sidenav style
       border-left: 0;
       padding-left: 1.5rem;
@@ -221,7 +222,7 @@
   }
 }
 
-// Submenu navigation (dropdown and mega menu)
+// Submenu navigation (for dropdowns and mega menu)
 .decanter-nav-submenu {
   @include media($nav-width) {
     @include list-unstyled;
@@ -257,81 +258,6 @@
   li {
     font-size: $h5-font-size;
     margin-bottom: 0;
-  }
-}
-
-// Mega menu navigation
-.decanter-megamenu {
-  @include media($nav-width) {
-    @include padding(3.15rem null);
-
-    left: -1rem;
-    width: 100%;
-  }
-
-
-  &::before {
-    @include media($nav-width) {
-      @include outer-megamenu;
-
-      right: 100%;
-    }
-  }
-
-  &::after {
-    @include media($nav-width) {
-      @include outer-megamenu;
-
-      left: 100%;
-    }
-  }
-}
-
-.decanter-megamenu-basic {
-  .decanter-nav {
-    @include media($nav-width) {
-      padding-left: 0;
-      padding-top: 0;
-      width: 100%;
-    }
-  }
-
-  .decanter-nav__inner {
-    display: flex;
-    flex-direction: column;
-
-    @include media($nav-width) {
-      display: block;
-      float: right;
-      margin-top: -4.8rem;
-    }
-  }
-
-  .decanter-nav-submenu {
-    .decanter-grid-full {
-      @include media($nav-width) {
-        margin-left: -1.8rem;
-      }
-    }
-  }
-}
-
-.decanter-megamenu__col {
-  @include media($nav-width) {
-    @include span-columns(3);
-
-    &:nth-child(2n) {
-      @include span-columns(3);
-    }
-
-    &:nth-child(4n) {
-      margin-right: 0;
-    }
-  }
-
-
-  > ul {
-    @include list-unstyled;
   }
 }
 
