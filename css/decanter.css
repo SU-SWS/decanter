@@ -3497,8 +3497,8 @@ body {
 
 p {
   line-height: 1.4;
-  margin-bottom: 1em;
-  margin-top: 1em; }
+  margin-top: 1em;
+  margin-bottom: 1em; }
 
 a {
   color: #b1040e;
@@ -3631,7 +3631,7 @@ dfn {
   font-size: 2.3rem;
   font-weight: 100;
   line-height: 1.5;
-  max-width: 77rem; }
+  max-width: 85rem; }
 
 .decanter-font-splash {
   font-size: 2.3rem;
@@ -3647,25 +3647,18 @@ dfn {
       font-weight: 700; } }
 
 .decanter-short-line-length {
-  max-width: 53rem; }
+  max-width: 70rem; }
 
-.decanter-caption, .decanter-credits {
+.decanter-caption {
   color: #4d4f53;
   font-size: 1.7rem;
   margin-top: 0; }
 
 .decanter-credits {
-  font-style: italic; }
-
-.decanter-image-block {
-  position: relative; }
-
-.decanter-image-text-block {
-  color: #ffffff;
-  left: 0;
-  margin-left: 8%;
-  position: absolute;
-  top: 0; }
+  color: #4d4f53;
+  font-size: 1.7rem;
+  font-style: italic;
+  margin-top: 0; }
 
 .decanter-grid > :first-child,
 .decanter-grid-full > :first-child {
@@ -3763,34 +3756,27 @@ dfn {
     margin-bottom: 0;
     margin-top: 1em;
     padding-left: 1em; }
-
-.decanter-alert__icon {
-  display: table-cell;
-  padding-right: 1rem; }
-
-.decanter-alert__body {
-  display: table-cell;
-  padding-left: 3.5rem;
-  vertical-align: top; }
-  @media screen and (min-width: 600px) {
-    .decanter-alert__body {
-      padding-left: 5rem; } }
-  .decanter-alert__body p:first-child {
-    margin-top: 0.8rem; }
-  .decanter-alert__body p:last-child {
-    margin-bottom: 0.8rem; }
-
-.decanter-alert__heading {
-  margin-bottom: .3rem;
-  margin-top: 0; }
-  @media screen and (min-width: 600px) {
-    .decanter-alert__heading {
-      margin-top: .3rem; } }
-
-.decanter-alert__text {
-  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-  margin-bottom: 0;
-  margin-top: 0; }
+  .decanter-alert .decanter-alert__body {
+    display: table-cell;
+    padding-left: 3.5rem;
+    vertical-align: top; }
+    @media screen and (min-width: 600px) {
+      .decanter-alert .decanter-alert__body {
+        padding-left: 5rem; } }
+    .decanter-alert .decanter-alert__body p:first-child {
+      margin-top: 0.8rem; }
+    .decanter-alert .decanter-alert__body p:last-child {
+      margin-bottom: 0.8rem; }
+    .decanter-alert .decanter-alert__body .decanter-alert__heading {
+      margin-bottom: .3rem;
+      margin-top: 0; }
+      @media screen and (min-width: 600px) {
+        .decanter-alert .decanter-alert__body .decanter-alert__heading {
+          margin-top: .3rem; } }
+    .decanter-alert .decanter-alert__body .decanter-alert__text {
+      font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+      margin-bottom: 0;
+      margin-top: 0; }
 
 .decanter-alert-success {
   background-color: rgba(23, 94, 84, 0.6);
@@ -3811,9 +3797,6 @@ dfn {
   background-color: rgba(0, 152, 219, 0.6);
   background-image: url("../img/info.png");
   background-image: url("../img/info.svg"); }
-
-.decanter-alert--no_icon {
-  background-image: none; }
 
 .decanter-icon-grid .decanter-icon-grid__row .decanter-media-block {
   margin-bottom: 3rem; }
@@ -3878,15 +3861,6 @@ dfn {
     padding-left: 1.4rem; }
   .decanter-nav .decanter-button {
     width: 100%; }
-
-.decanter-nav__bar {
-  border-bottom: 1px solid #4d4f53;
-  height: 4rem; }
-  @media screen and (min-width: 951px) {
-    .decanter-nav__bar {
-      border-bottom: none;
-      display: inline-block;
-      height: 10.3rem; } }
 
 .decanter-nav__link {
   -moz-osx-font-smoothing: grayscale;
@@ -4075,6 +4049,21 @@ dfn {
   font-size: 1.8rem;
   margin-bottom: 0; }
 
+.decanter-nav__overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #2e2d29;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+  visibility: hidden;
+  z-index: 8000; }
+  .decanter-nav__overlay.is-visible {
+    opacity: 0.6;
+    visibility: visible; }
+
 .decanter-nav__close {
   background-color: transparent;
   border: 0;
@@ -4105,57 +4094,36 @@ dfn {
   z-index: 7000; }
   .decanter-main-menu a {
     border-bottom: none; }
-
-.decanter-main-menu__btn {
-  background-color: transparent;
-  border: 0;
-  font-weight: 400;
-  margin: 0;
-  outline: 0;
-  padding: 0;
-  text-align: left;
-  -webkit-font-smoothing: auto;
-  background-color: #b1040e;
-  color: #ffffff;
-  display: inline;
-  float: right;
-  font-size: 1.6rem;
-  height: 4rem;
-  line-height: 4rem;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  width: 5.8rem; }
-  .decanter-main-menu__btn:hover {
-    background-color: transparent; }
-  @media screen and (min-width: 951px) {
-    .decanter-main-menu__btn {
-      display: none; } }
-  .decanter-main-menu__btn:hover {
+  .decanter-main-menu .decanter-main-menu__btn {
+    background-color: transparent;
+    border: 0;
+    font-weight: 400;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    text-align: left;
+    -webkit-font-smoothing: auto;
+    background-color: #b1040e;
     color: #ffffff;
-    background-color: #b1040e; }
-  .decanter-main-menu__btn:visited {
-    color: #ffffff; }
-
-.decanter-overlay {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: #2e2d29;
-  opacity: 0;
-  transition: all 0.2s ease-in-out;
-  visibility: hidden;
-  z-index: 8000; }
-  .decanter-overlay.is-visible {
-    opacity: 0.1;
-    visibility: visible; }
-
-@media screen and (min-width: 951px) {
-  .decanter-main-menu-basic .decanter-nav__bar {
-    position: relative;
-    width: 18%; } }
+    display: inline;
+    float: right;
+    font-size: 1.6rem;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 5.8rem; }
+    .decanter-main-menu .decanter-main-menu__btn:hover {
+      background-color: transparent; }
+    @media screen and (min-width: 951px) {
+      .decanter-main-menu .decanter-main-menu__btn {
+        display: none; } }
+    .decanter-main-menu .decanter-main-menu__btn:hover {
+      color: #ffffff;
+      background-color: #b1040e; }
+    .decanter-main-menu .decanter-main-menu__btn:visited {
+      color: #ffffff; }
 
 @media screen and (min-width: 951px) {
   .decanter-megamenu {
@@ -4187,49 +4155,49 @@ dfn {
     left: 100%; } }
 
 @media screen and (min-width: 951px) {
-  .decanter-megamenu-basic .decanter-nav {
+  .decanter-megamenu .decanter-megamenu__col {
+    float: left;
+    display: block;
+    margin-right: 2.3576520234%;
+    width: 23.2317609825%; }
+    .decanter-megamenu .decanter-megamenu__col:last-child {
+      margin-right: 0; }
+    .decanter-megamenu .decanter-megamenu__col:nth-child(2n) {
+      float: left;
+      display: block;
+      margin-right: 2.3576520234%;
+      width: 23.2317609825%; }
+      .decanter-megamenu .decanter-megamenu__col:nth-child(2n):last-child {
+        margin-right: 0; }
+    .decanter-megamenu .decanter-megamenu__col:nth-child(4n) {
+      margin-right: 0; } }
+
+.decanter-megamenu .decanter-megamenu__col > ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  list-style-type: none;
+  padding-left: 0; }
+  .decanter-megamenu .decanter-megamenu__col > ul > li {
+    margin-bottom: 0; }
+
+@media screen and (min-width: 951px) {
+  .decanter-megamenu .decanter-nav {
     padding-left: 0;
     padding-top: 0;
     width: 100%; } }
 
-.decanter-megamenu-basic .decanter-nav__inner {
+.decanter-megamenu .decanter-nav__inner {
   display: flex;
   flex-direction: column; }
   @media screen and (min-width: 951px) {
-    .decanter-megamenu-basic .decanter-nav__inner {
+    .decanter-megamenu .decanter-nav__inner {
       display: block;
       float: right;
       margin-top: -4.8rem; } }
 
 @media screen and (min-width: 951px) {
-  .decanter-megamenu-basic .decanter-nav-submenu .decanter-grid-full {
+  .decanter-megamenu .decanter-nav-submenu .decanter-grid-full {
     margin-left: -1.8rem; } }
-
-@media screen and (min-width: 951px) {
-  .decanter-megamenu__col {
-    float: left;
-    display: block;
-    margin-right: 2.3576520234%;
-    width: 23.2317609825%; }
-    .decanter-megamenu__col:last-child {
-      margin-right: 0; }
-    .decanter-megamenu__col:nth-child(2n) {
-      float: left;
-      display: block;
-      margin-right: 2.3576520234%;
-      width: 23.2317609825%; }
-      .decanter-megamenu__col:nth-child(2n):last-child {
-        margin-right: 0; }
-    .decanter-megamenu__col:nth-child(4n) {
-      margin-right: 0; } }
-
-.decanter-megamenu__col > ul {
-  margin-top: 0;
-  margin-bottom: 0;
-  list-style-type: none;
-  padding-left: 0; }
-  .decanter-megamenu__col > ul > li {
-    margin-bottom: 0; }
 
 .decanter-sidenav__list {
   margin-top: 0;

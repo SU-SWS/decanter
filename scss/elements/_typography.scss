@@ -16,22 +16,12 @@ body {
 
 p {
   line-height: $base-line-height;
-  margin-bottom: 1em;
-  margin-top: 1em;
+
+  @include margin(1em null);
 }
 
 a {
-  color: $color-bright-red;
-  text-decoration: underline;
-
-  &:hover,
-  &:active {
-    color: $color-black;
-  }
-
-  &:focus {
-    outline: 0;
-  }
+  @include link;
 }
 
 .decanter-external-link {
@@ -85,86 +75,35 @@ dfn {
 
 // Custom typography
 .decanter-sans {
-  p,
-  a,
-  li,
-  span {
-    font-family: $font-sans;
-  }
-
-  a {
-    border-bottom: none;
-    font-weight: $font-bold;
-  }
+  @include sans;
 }
 
 .decanter-serif {
-  p,
-  a,
-  li,
-  span {
-    font-family: $font-serif;
-  }
+  @include serif;
 }
 
 .decanter-slab {
-  p,
-  a,
-  li,
-  span {
-    font-family: $font-slab;
-  }
+  @include slab;
 }
 
 .decanter-font-lead {
-  font-family: $font-sans;
-  font-size: $lead-font-size;
-  font-weight: $font-light;
-  line-height: $lead-line-height;
-  max-width: $lead-max-width;
+  @include font-lead;
 }
 
 .decanter-font-splash {
-  @include h3;
-
-  margin-bottom: 0;
-
-  @include media($small-screen) {
-    @include h1;
-  }
-
-
-  @include media($medium-screen) {
-    @include title;
-  }
+  @include font-splash;
 }
 
 .decanter-short-line-length {
-  max-width: $text-max-width;
+  @include short-line-length;
 }
 
 .decanter-caption {
-  color: $color-cool-grey;
-  font-size: $small-font-size;
-  margin-top: 0;
+  @include caption;
 }
 
 .decanter-credits {
-  @extend .decanter-caption;
-
-  font-style: italic;
-}
-
-.decanter-image-block {
-  position: relative;
-}
-
-.decanter-image-text-block {
-  color: $color-white;
-  left: 0;
-  margin-left: 8%;
-  position: absolute;
-  top: 0;
+  @include credits;
 }
 
 // Removes top margin from first child and bottom margin from last child on
@@ -172,11 +111,11 @@ dfn {
 .decanter-grid,
 .decanter-grid-full {
   > :first-child {
-    margin-top: 0;
+    @include margin(0 null null);
   }
 
   > :last-child {
-    margin-bottom: 0;
+    @include margin(null null 0);
   }
 }
 
@@ -191,25 +130,25 @@ dfn {
 .decanter-width-one-twelfth {
   &:first-child {
     > :first-child {
-      margin-top: 0;
+      @include margin(0 null null);
     }
   }
 
   > :first-child {
     @include media($medium-screen) {
-      margin-top: 0;
+      @include margin(0 null null);
     }
   }
 
   &:last-child {
     > :last-child {
-      margin-bottom: 0;
+      @include margin(null null 0);
     }
   }
 
   > :last-child {
     @include media($medium-screen) {
-      margin-bottom: 0;
+      @include margin(null null 0);
     }
   }
 }

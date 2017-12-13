@@ -1304,8 +1304,8 @@ var NAV = '.' + PREFIX + '-nav';
 var NAV_LINKS = NAV + ' a';
 var OPENERS = '.' + PREFIX + '-main-menu__btn';
 var CLOSE_BUTTON = '.' + PREFIX + '-nav__close';
-var OVERLAY = '.' + PREFIX + '-overlay';
-var CLOSERS = CLOSE_BUTTON + ', .' + PREFIX + '-overlay';
+var OVERLAY = '.' + PREFIX + '-nav__overlay';
+var CLOSERS = CLOSE_BUTTON + ', .' + PREFIX + '-nav__overlay';
 var TOGGLES = [NAV, OVERLAY].join(', ');
 
 var ACTIVE_CLASS = 'decanter-mobile-nav--active';

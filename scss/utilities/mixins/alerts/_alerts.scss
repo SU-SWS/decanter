@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+///
+/// ALERTS
+///
+
+@mixin alerts {
+  background-color: $color-cool-grey;
+  background-position: 1rem 2rem;
+  background-repeat: no-repeat;
+  background-size: 4rem;
+  margin-top: 1.5em;
+  padding: 1em;
+
+  @include media($medium-screen) {
+    background-size: 5.2rem;
+  }
+
+  a {
+    color: $color-bright-blue;
+
+    &:focus,
+    &:hover {
+      color: $color-blue;
+    }
+  }
+
+  ul {
+    margin-bottom: 0;
+    margin-top: 1em;
+    padding-left: 1em;
+  }
+
+  .decanter-alert__body {
+    display: table-cell;
+    padding-left: 3.5rem;
+    vertical-align: top;
+
+    @include media($medium-screen) {
+      padding-left: 5rem;
+    }
+
+    p:first-child {
+      margin-top: 0.8rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0.8rem;
+    }
+
+    .decanter-alert__heading {
+      margin-bottom: .3rem;
+      margin-top: 0;
+
+      @include media($medium-screen) {
+        margin-top: .3rem;
+      }
+    }
+
+    .decanter-alert__text {
+      font-family: $font-sans;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  }
+}
