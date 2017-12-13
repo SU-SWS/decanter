@@ -1164,12 +1164,6 @@ var accordion = behavior(_defineProperty({}, CLICK, _defineProperty({}, BUTTON, 
   getButtons: getAccordionButtons
 });
 
-/**
- * TODO: for 2.0, remove everything below this comment and export the
- * behavior directly:
- *
- * module.exports = behavior({...});
- */
 var Accordion = function Accordion(root) {
   this.root = root;
   accordion.on(this.root);
@@ -1352,11 +1346,6 @@ var navigation = behavior(_defineProperty({}, CLICK, (_CLICK = {}, _defineProper
   }
 }), _CLICK)));
 
-/**
- * TODO for 2.0, remove this statement and export `navigation` directly:
- *
- * module.exports = behavior({...});
- */
 var assign = require('object-assign');
 module.exports = assign(function (el) {
   return navigation.on(el);
@@ -1464,11 +1453,6 @@ var search = behavior(_defineProperty({}, CLICK, _defineProperty({}, BUTTON, sho
   }
 });
 
-/**
- * TODO for 2.0, remove this statement and export `navigation` directly:
- *
- * module.exports = behavior({...});
- */
 var assign = require('object-assign');
 module.exports = assign(function (el) {
   return search.on(el);
@@ -1520,11 +1504,6 @@ var validator = behavior({
   }
 });
 
-/**
- * TODO for 2.0, remove this statement and export `navigation` directly:
- *
- * module.exports = behavior({...});
- */
 var assign = require('object-assign');
 module.exports = assign(function (el) {
   return validator.on(el);

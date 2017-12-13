@@ -1,5 +1,7 @@
-# [Decanter](https://github.com/SU-SWS/decanter/tree/v2.0)
+# [Decanter](https://github.com/SU-SWS/decanter)
 ##### Version: 2.0.0
+
+Maintainers: [josephgknox](https://github.com/josephgknox), [sherakama](https://github.com/sherakama)
 
 Changelog: [CHANGELOG.md](CHANGELOG.md)
 
