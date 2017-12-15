@@ -7,33 +7,33 @@
 @mixin icon-grid {
   .decanter-icon-grid__row {
     .decanter-media-block {
-      margin-bottom: $site-margins;
+      @include margin(null null $site-margins);
 
       @include media($medium-screen) {
-        margin-bottom: $site-margins * 2;
+        @include margin(null null ($site-margins * 2));
       }
     }
 
     &:last-child {
       .decanter-media-block {
         @include media($medium-screen) {
-          margin-bottom: 0;
+          @include margin(null null 0);
         }
 
         &:last-child {
-          margin-bottom: 0;
+          @include margin(null null 0);
         }
       }
     }
   }
 
   .decanter-media-block__img {
-    margin-right: $site-margins;
+    @include margin(null $site-margins null null);
   }
 
   .decanter-media-block__body {
     > :first-child {
-      margin-top: 0;
+      @include margin(0 null null);
     }
   }
 }

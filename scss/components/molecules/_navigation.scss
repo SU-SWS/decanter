@@ -42,11 +42,12 @@
   }
 
   nav {
-    margin-top: 6rem;
+    @include margin(6rem null null);
+
     min-height: 100%;
 
     @include media($nav-width) {
-      margin-top: 0;
+      @include margin(0 null null);
     }
   }
 
@@ -251,7 +252,8 @@
 
   li {
     font-size: $h5-font-size;
-    margin-bottom: 0;
+
+    @include margin(null null 0);
   }
 }
 

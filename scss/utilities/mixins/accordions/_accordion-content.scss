@@ -10,11 +10,11 @@
   padding: 3rem;
 
   > *:first-child {
-    margin-top: 0;
+    @include margin(0 null null);
   }
 
   > *:last-child {
-    margin-bottom: 0;
+    @include margin(null null 0);
   }
 
   &:not([aria-hidden]) {

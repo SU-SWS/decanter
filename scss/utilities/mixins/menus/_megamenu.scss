@@ -61,14 +61,15 @@
     @include media($nav-width) {
       display: block;
       float: right;
-      margin-top: -4.8rem;
+
+      @include margin((-4.8rem) null null);
     }
   }
 
   .decanter-nav-submenu {
     .decanter-grid-full {
       @include media($nav-width) {
-        margin-left: -1.8rem;
+        @include margin(null null null -1.8rem);
       }
     }
   }

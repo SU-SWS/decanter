@@ -15,10 +15,10 @@
     width: $size;
 
     @if $direction == "after" {
-      margin-left: $margin;
+      @include margin(null null null $margin);
     }
     @else {
-      margin-right: $margin;
+      @include margin(null $margin null null);
     }
   }
 

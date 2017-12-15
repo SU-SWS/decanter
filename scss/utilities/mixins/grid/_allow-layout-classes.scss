@@ -42,16 +42,16 @@
   &.align-left {
     @include media($medium-screen) {
       float: left;
-      margin-right: 2em;
-      margin-top: 0.5em;
+
+      @include margin(0.5em 2em null null);
     }
   }
 
   &.align-right {
     @include media($medium-screen) {
       float: right;
-      margin-left: 2em;
-      margin-top: 0.5em;
+
+      @include margin(0.5em null null 2em);
     }
   }
 }
