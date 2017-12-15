@@ -255,40 +255,14 @@
   }
 }
 
-// Menu overlay.
+// Overlay for mobile navigation.
 .decanter-nav__overlay {
-  @include position(fixed, 0);
-
-  background: $color-black;
-  opacity: 0;
-  transition: all 0.2s ease-in-out;
-  visibility: hidden;
-  z-index: $z-index-overlay;
-
-  &.is-visible {
-    opacity: 0.6;
-    visibility: visible;
-  }
+  @include nav-overlay;
 }
 
-// Close button.
+// Close button for mobile navigation.
 .decanter-nav__close {
-  @include button-unstyled;
-  @include margin((-1.2rem) -1.5rem 2.4rem auto);
-
-  float: right;
-  height: $hit-area;
-  text-align: center;
-  width: $hit-area;
-
-  @include media($nav-width) {
-    display: none;
-  }
-
-
-  img {
-    width: 1.3rem;
-  }
+  @include nav-close;
 }
 
 .decanter-mobile-nav--active {
