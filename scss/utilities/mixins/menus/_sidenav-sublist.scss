@@ -16,22 +16,24 @@
   }
 
   a {
-    padding-left: 2.8rem;
     line-height: $heading-line-height;
+
+    @include padding(null null null 2.8rem);
 
     &:hover,
     &.decanter-nav__current {
       border: none;
-      padding-left: 2.8rem;
+
+      @include padding(null null null 2.8rem);
     }
   }
 
   .decanter-sidenav__sublist {
     a {
-      padding-left: 3.8rem;
+      @include padding(null null null 3.8rem);
 
       &:hover {
-        padding-left: 3.8rem;
+        @include padding(null null null 3.8rem);
       }
     }
   }

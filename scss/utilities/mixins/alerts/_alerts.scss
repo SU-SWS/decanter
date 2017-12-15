@@ -9,9 +9,9 @@
   background-position: 1rem 2rem;
   background-repeat: no-repeat;
   background-size: 4rem;
-  padding: 1em;
 
   @include margin(1.5em null null);
+  @include padding(1em);
 
   @include media($medium-screen) {
     background-size: 5.2rem;
@@ -28,16 +28,17 @@
 
   ul {
     @include margin(1em null 0);
-    padding-left: 1em;
+    @include padding(null null null 1em);
   }
 
   .decanter-alert__body {
     display: table-cell;
-    padding-left: 3.5rem;
     vertical-align: top;
 
+    @include padding(null null null 3.5rem);
+
     @include media($medium-screen) {
-      padding-left: 5rem;
+      @include padding(null null null 5rem);
     }
 
     p:first-child {

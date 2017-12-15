@@ -5,7 +5,7 @@
 ///
 
 @mixin embed-container($height, $width) {
-  padding-bottom: percentage($height / $width);
+  @include padding(null null percentage($height / $width));
   position: relative;
   height: 0;
   overflow: hidden;
