@@ -4,39 +4,38 @@
 // @import '../utilities/mixins/material-shadow';
 
 $breakpoint-helper-map: (
-    (short-label: 'xs', full-label: '$media-xs', media: $media-xs-only, color: color(blue)),
-    (short-label: 'sm', full-label: '$media-sm', media: $media-sm-only, color: color(olive)),
-    (short-label: 'md', full-label: '$media-md', media: $media-md-only, color: color(orange)),
-    (short-label: 'lg', full-label: '$media-lg', media: $media-lg-only, color: color(red)),
-    (short-label: 'xl', full-label: '$media-xl', media: $media-xl, color: color(purple)),
+  (short-label: 'xs', full-label: '$media-xs', media: $media-xs-only, color: color(blue)),
+  (short-label: 'sm', full-label: '$media-sm', media: $media-sm-only, color: color(olive)),
+  (short-label: 'md', full-label: '$media-md', media: $media-md-only, color: color(orange)),
+  (short-label: 'lg', full-label: '$media-lg', media: $media-lg-only, color: color(red)),
+  (short-label: 'xl', full-label: '$media-xl', media: $media-xl, color: color(purple)),
 );
 
-@mixin breakpoint-helper($selector: _retrieve-decanter-setting(breakpoint-helper-selector), $map: $breakpoint-helper-map ) {
-
+@mixin breakpoint-helper($selector: _retrieve-decanter-setting(breakpoint-helper-selector), $map: $breakpoint-helper-map) {
   #{$selector} {
-    box-shadow: material-shadow(flat);
-    background-color: transparentize(color(dark-grey), .2);
+    position: fixed;
+    top: 3rem;
+    right: -3.5em;
+    z-index: 9999;
+    display: block;
+    width: 6.5em;
+    padding: $small-spacing;
+    font-size: 0.5em;
+    line-height: 1;
+    color: color(reverse-text);
+    white-space: nowrap;
+    background-color: transparentize(color(dark-grey), 0.2);
     border-radius: $base-border-radius;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    color: color(reverse-text);
-    display: block;
-    font-size: .5em;
-    line-height: 1;
-    padding: $small-spacing;
-    position: fixed;
-    right: -3.5em;
-    top: 3rem;
+    box-shadow: material-shadow(flat);
     transition: all $base-timing $base-duration;
-    width: 6.5em;
-    white-space: nowrap;
-    z-index: 9999;
 
     #{$hocus} {
-      box-shadow: material-shadow(medium);
       right: 0;
       overflow: hidden;
-      font-size: .75em;
+      font-size: 0.75em;
+      box-shadow: material-shadow(medium);
     }
 
     // Iterate over the map and output all the breakpoints
@@ -49,12 +48,12 @@ $breakpoint-helper-map: (
       @include grid-media($_media) {
         background-color: $_color;
 
-        &:after {
+        &::after {
           content: "#{$_short-label}";
         }
 
-        @include on-event {
-          &:after {
+        #{$hocus} {
+          &::after {
             content: "#{$_full-label}";
           }
         }

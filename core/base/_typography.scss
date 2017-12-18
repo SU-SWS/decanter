@@ -24,7 +24,7 @@
 ///     @include properties($typography__html--default, $typography__html);
 ///   }
 ///
-/// @require {variable} $root-font-size Root font size
+/// @require {function} _retrieve-decanter-setting
 ///
 $typography__html--default: (
   font-size: percentage(_retrieve-decanter-setting(root-font-size)/16px),
@@ -46,9 +46,8 @@ html {
 ///     @include properties($typography__body--default, $typography__body);
 ///   }
 ///
-/// @require em()
-/// @require $base-font-size
-/// @require $root-font-size
+/// @require em
+/// @require _retrieve-decanter-setting
 /// @require $base-font-family
 /// @require $base-line-height
 /// @todo
@@ -80,11 +79,11 @@ body {
 /// @require $all-headlines
 /// @require $heading-font-family
 /// @require $heading-line-height
-/// @require modular-scale()
 /// @todo
 ///   - Implement vertical rhythm
 ///
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements Element Reference: Heading Elements
+/// @link http://bourbon.io/docs/#modular-scale Bourbon function: modular-scale
 $typography__headlines--default: (
   font-family: $heading-font-family,
   font-weight: 700,
@@ -107,16 +106,16 @@ $typography__headlines: () !default;
 ///     @include properties($typography__h1--default, $typography__h1);
 ///   }
 ///
-/// @require modular-scale()
 /// @todo
 ///   - Implement vertical rhythm
 ///
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements Element Reference: Heading Elements
+/// @link http://bourbon.io/docs/#modular-scale Bourbon function: modular-scale
 $typography__h1--default: (
   font-size: modular-scale(5),
 ) !default;
 
-$typography__h1:() !default;
+$typography__h1: () !default;
 
 h1 {
   /*!*/
@@ -131,16 +130,16 @@ h1 {
 ///     @include properties($typography__h2--default, $typography__h2);
 ///   }
 ///
-/// @require modular-scale()
 /// @todo
 ///   - Implement vertical rhythm
 ///
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements Element Reference: Heading Elements
+/// @link http://bourbon.io/docs/#modular-scale Bourbon function: modular-scale
 $typography__h2--default: (
   font-size: modular-scale(4),
 ) !default;
 
-$typography__h2:() !default;
+$typography__h2: () !default;
 
 h2 {
   /*!*/
@@ -155,16 +154,16 @@ h2 {
 ///     @include properties($typography__h3--default, $typography__h3);
 ///   }
 ///
-/// @require modular-scale()
 /// @todo
 ///   - Implement vertical rhythm
 ///
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements Element Reference: Heading Elements
+/// @link http://bourbon.io/docs/#modular-scale Bourbon function: modular-scale
 $typography__h3--default: (
   font-size: modular-scale(3),
 ) !default;
 
-$typography__h3:() !default;
+$typography__h3: () !default;
 
 h3 {
   /*!*/
@@ -179,16 +178,16 @@ h3 {
 ///     @include properties($typography__h4--default, $typography__h4);
 ///   }
 ///
-/// @require modular-scale()
 /// @todo
 ///   - Implement vertical rhythm
 ///
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements Element Reference: Heading Elements
+/// @link http://bourbon.io/docs/#modular-scale Bourbon function: modular-scale
 $typography__h4--default: (
   font-size: modular-scale(2),
 ) !default;
 
-$typography__h4:() !default;
+$typography__h4: () !default;
 
 h4 {
   /*!*/
@@ -203,16 +202,16 @@ h4 {
 ///     @include properties($typography__h5--default, $typography__h5);
 ///   }
 ///
-/// @require modular-scale()
 /// @todo
 ///   - Implement vertical rhythm
 ///
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements Element Reference: Heading Elements
+/// @link http://bourbon.io/docs/#modular-scale Bourbon function: modular-scale
 $typography__h5--default: (
   font-size: modular-scale(2),
 ) !default;
 
-$typography__h5:() !default;
+$typography__h5: () !default;
 
 h5 {
   /*!*/
@@ -227,16 +226,16 @@ h5 {
 ///     @include properties($typography__h6--default, $typography__h6);
 ///   }
 ///
-/// @require modular-scale()
 /// @todo
 ///   - Implement vertical rhythm
 ///
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements Element Reference: Heading Elements
+/// @link http://bourbon.io/docs/#modular-scale Bourbon function: modular-scale
 $typography__h6--default: (
   font-size: modular-scale(2),
 ) !default;
 
-$typography__h6:() !default;
+$typography__h6: () !default;
 
 h6 {
   /*!*/
@@ -251,17 +250,17 @@ h6 {
 ///     @include properties($typography__p--default, $typography__p);
 ///   }
 ///
-/// @require modular-scale()
 /// @todo
 ///   - Implement vertical rhythm
 ///
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/p Element Reference: P
+/// @link http://bourbon.io/docs/#modular-scale Bourbon function: modular-scale
 ///
 $typography__p--default: (
   margin: 0 0 modular-scale(1),
 ) !default;
 
-$typography__p:() !default;
+$typography__p: () !default;
 
 p {
   /*!*/
@@ -276,19 +275,21 @@ p {
 ///     @include properties($typography__emphasis--default, $typography__emphasis);
 ///   }
 ///
-/// @require modular-scale()
-///
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/cite MDN Element Reference: cite
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn MDN Element Reference: dfn
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/em MDN Element Reference: em
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/i MDN Element Reference: i
+/// @link http://bourbon.io/docs/#modular-scale Bourbon function: modular-scale
 $typography__emphasis--default: (
   font-style: italic,
 ) !default;
 
-$typography__emphasis:() !default;
+$typography__emphasis: () !default;
 
-dfn, cite, em, i {
+dfn,
+cite,
+em,
+i {
   /*!*/
   @include properties($typography__emphasis--default, $typography__emphasis);
 }
@@ -301,11 +302,11 @@ dfn, cite, em, i {
 ///     @include properties($typography__blockquote--default, $typography__blockquote);
 ///   }
 ///
-/// @require modular-scale()
-/// @link https://css-tricks.com/almanac/properties/q/quotes/
 /// @todo
 ///   - Implement vertical rhythm
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote
+/// @link https://css-tricks.com/almanac/properties/q/quotes/ css-tricks article on using quote elements
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/blockquote MDN Element Reference: blockquote
+/// @link http://bourbon.io/docs/#modular-scale Bourbon function: modular-scale
 ///
 $typography__blockquote--default: (
   margin: 0 modular-scale(2),
@@ -315,11 +316,11 @@ $typography__blockquote--default: (
     content: open-quote,
   ),
   '&::after': (
-      content: close-quote,
+    content: close-quote,
   ),
 ) !default;
 
-$typography__blockquote:() !default;
+$typography__blockquote: () !default;
 
 blockquote {
   /*!*/
@@ -334,22 +335,22 @@ blockquote {
 ///     @include properties($typography__q--default, $typography__q);
 ///   }
 ///
-/// @require modular-scale()
-/// @link https://css-tricks.com/almanac/properties/q/quotes/
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q
+/// @link https://css-tricks.com/almanac/properties/q/quotes/ css-tricks article on using quote elements
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/q MDN Element Reference: q
+/// @link http://bourbon.io/docs/#modular-scale Bourbon function: modular-scale
 ///
 $typography__q--default: (
   quotes: '"\201c" "\201d" "\2018" "\2019"',
 
   '&::before': (
-      content: open-quote,
+    content: open-quote,
   ),
   '&::after': (
-      content: close-quote,
+    content: close-quote,
   ),
 ) !default;
 
-$typography__q:() !default;
+$typography__q: () !default;
 
 q {
   /*!*/
@@ -365,17 +366,17 @@ q {
 ///     @include properties($typography__address--default, $typography__address);
 ///   }
 ///
-/// @require modular-scale()
-///
 /// @todo
 ///   - Implement vertical rhythm
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/address MDN Element Reference: address
+/// @link http://bourbon.io/docs/#modular-scale Bourbon function: modular-scale
 ///
 $typography__address--default: (
   margin: 0 0 modular-scale(2),
 ) !default;
 
-$typography__address:() !default;
+$typography__address: () !default;
 
 address {
   /*!*/
@@ -390,18 +391,18 @@ address {
 ///     @include properties($typography__pre--default, $typography__pre);
 ///   }
 ///
-/// @require rgba
 /// @require color
 /// @require $monospace-font-family
 /// @require $base-line-height
-/// @require modular-scale
 /// @require em
 /// @todo
 ///   - Implement vertical rhythm
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre
+///
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/pre MDN Element Reference: pre
+/// @link http://bourbon.io/docs/#modular-scale Bourbon function: modular-scale
 ///
 $typography__pre--default: (
-  background: rgba(color(light-grey), .6),
+  background: rgba(color(light-grey), 0.6),
   font-family: $monospace-font-family,
   font-size: em(16px),
   line-height: $base-line-height,
@@ -430,30 +431,33 @@ pre {
 ///   }
 ///
 /// @require {variable} $monospace-font-family
-/// @require {function} font-size
 /// *Note:* the HTML tag `tt` (teletype) was deprecated in HTML 5.
 ///  - for computer code, consider the `code` element;
 ///  - For keyboard input, consider the `kbd` element;
 ///  - for variables, consider the `var` element;
 ///  - and for computer output, consider the `samp` element
 ///
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/code MDN Element Reference: code
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/kbd MDN Element Reference: kbd
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var MDN Element Reference: var
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp MDN Element Reference: samp
+/// @link http://bourbon.io/docs/#modular-scale Bourbon function: modular-scale
 ///
 $typography__code--default: (
   font-family: $monospace-font-family,
   font-size: em(16px),
   padding: modular-scale(-10) modular-scale(-5),
   position: relative,
-  background-color: rgba(color(light-grey), .6),
+  background-color: rgba(color(light-grey), 0.6),
   border: 1px solid color(grey),
 ) !default;
 
 $typography__code: () !default;
 
-code, kbd, var, samp {
+code,
+kbd,
+var,
+samp {
   /*!*/
   @include properties($typography__code--default, $typography__code);
 }
@@ -467,7 +471,7 @@ code, kbd, var, samp {
 ///   }
 ///
 /// @require color
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/abbr MDN Element Reference: abbr
 ///
 $typography__abbr--default: (
   border-bottom: 1px dotted color(border),
@@ -476,7 +480,8 @@ $typography__abbr--default: (
 
 $typography__abbr: () !default;
 
-abbr, acronym {
+abbr,
+acronym {
   /*!*/
   @include properties($typography__abbr--default, $typography__abbr);
 }
@@ -490,26 +495,26 @@ abbr, acronym {
 ///   }
 ///
 $typography__edits--default: (
-  padding: 0 .25em .15em,
+  padding: 0 0.25em 0.15em,
 ) !default;
 
 $typography__edits: () !default;
 
-mark, ins, del {
+mark,
+ins,
+del {
   /*!*/
   @include properties($typography__edits--default, $typography__edits);
 }
 
 // ---------------------------------------------------------------------------------------------------------------------
-/// - Base documentation cut & paste template.
-///
 /// @example scss - Used in `base/_typography.scss` by the `del` element
 ///  del {
 ///     @include properties($typography__del--default, $typography__del);
 ///   }
 ///
 /// @require color
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/del MDN Element Reference: del
 ///
 $typography__del--default: (
   color: color(text),
@@ -535,7 +540,7 @@ del {
 ///
 /// @require color
 ///
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/ins/ins
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/ins/ins MDN Element Reference: ins
 ///
 
 $typography__ins--default: (
@@ -560,7 +565,7 @@ ins {
 ///   }
 ///
 /// @require color
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/mark MDN Element Reference: mark
 ///
 $typography__mark--default: (
   color: color(text),
@@ -583,16 +588,16 @@ mark {
 ///     @include properties($typography__small-text--default, $typography__small-text);
 ///   }
 ///
-/// @require modular-scale
-///
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/small MDN Element Reference: small
+/// @link http://bourbon.io/docs/#modular-scale Bourbon function: modular-scale
 $typography__small-text--default: (
   font-size: modular-scale(-1, $ratio: 1.125),
 ) !default;
 
 $typography__small-text: () !default;
 
-small, .small-text {
+small,
+.small-text {
   /*!*/
   @include properties($typography__small-text--default, $typography__small-text);
 }
@@ -608,9 +613,9 @@ small, .small-text {
 ///     @include properties($typography__large-text--default, $typography__large-text);
 ///   }
 ///
-/// @require modular-scale
 /// @deprecated
-/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/big
+/// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/big  MDN Element Reference: big
+/// @link http://bourbon.io/docs/#modular-scale Bourbon function: modular-scale
 ///
 $typography__large-text--default: (
   font-size: modular-scale(1),
@@ -668,13 +673,13 @@ hr {
 /// @link https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
 ///
 $typography__a--default: (
-    color: color(link),
-    text-decoration: none,
+  color: color(link),
+  text-decoration: none,
 
-    #{$hocus}: (
-        color: color(link-active),
-        text-decoration: underline,
-    ),
+  #{$hocus}: (
+    color: color(link-active),
+    text-decoration: underline,
+  ),
 ) !default;
 
 $typography__a: () !default;

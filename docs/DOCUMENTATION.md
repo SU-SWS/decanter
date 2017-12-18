@@ -1,0 +1,77 @@
+# Decanter Sassdoc documentation
+Sassdoc documentation is available on /docs/core/index.html
+
+## State of documentation
+  - core/base (complete)
+    - rollup: core/base/decanter-base
+    - [x] body
+    - [x] box-model
+    - [x] buttons
+    - [x] forms
+    - [x] lists
+    - [x] media-elements
+    - [x] tables
+    - [x] typography
+  - core/components
+    - rollup: core/components/decanter-components
+    - [ ] Breakpoint Helper: Docs Pending
+    - [ ] Card: Docs Pending
+    - [ ] Helpers: Docs pending
+  - core/utilities/functions
+    - rollup: core/utilities/variables/decanter-functions
+    - [x] fonts/log-loaded-font: basic docs complete
+    - [x] fonts/check-loaded-font: basic docs complete
+    - [x] layout/adjust-container-margin: Basic docs complete. Pending full docs
+    - [x] layout/set-container-padding: Basic Docs complete
+    - [x] color: Docs complete
+    - [x] decanter-functions
+    - [x] material-shadow
+    - [x] retrieve-decanter-setting
+    - [x] smart-merge
+    - [x] unitconversion - note: This is now an NPM pacakge that might need to be reintegrated at a later time
+  - core/utilities/mixins
+    - rollup: core/utilities/mixins/decanter-mixins
+    - [ ] layout/adjust-container-width
+    - [ ] layout/centered-container
+    - [ ] layout/flex-container
+    - [ ] layout/flex-items-per-row
+    - [ ] layout/items-per-row
+    - [ ] layout/responsive-container
+    - [ ] layout/responsive-grid-collapse
+    - [ ] layout/responsive-grid-column
+    - [ ] theme/color-theme
+    - [ ] theme/color-themes
+    - [x] _nested-properties
+    - [x] button
+    - [ ] center-block
+    - [ ] font-size
+    - [ ] grid-media
+    - [ ] load-fonts
+    - [x] material-shadow
+    - [ ] on-event
+    - [ ] properties
+  - core/utilities/placeholders
+    - rollup: core/utilities/placeholders/decanter-placeholders
+    - [ ] align-text
+    - [ ] hidden-print
+    - [ ] hide-element
+    - [ ] hide-text
+    - [ ] keep-together
+  - core/utilities/variables
+    - rollup: core/utilities/variables/decanter-variables
+    - [ ] borders
+    - [ ] breakpoints
+    - [ ] buttons (we need to rethink the button system)
+    - [x] colors
+    - [x] containers
+    - [ ] forms
+    - [ ] transiitons
+    - [x] typography
+    - [ ] variables-bourbon
+    - [ ] variables-decanter
+    - [ ] variables-neat
+    - [ ] vertical rhythm
+  - core/vendors
+    - rollup: core/vendors/decanter-vendors.scss
+    
+    

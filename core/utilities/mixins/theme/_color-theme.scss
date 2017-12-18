@@ -66,11 +66,15 @@
 /// @require color
 /// @require $colors
 
-@mixin color-theme($palette, $selector: '&') {
+@mixin color-theme($palette, $selector: null) {
   $_default-color-palette: $colors;
   $colors: map-merge($colors, $palette) !global;
-  #{$selector} {
-    @content;
-  }
+
+  @if $selector {
+    #{$selector} {
+      @content;
+    }
+  } @else { @content }
+
   $colors: $_default-color-palette !global;
 }

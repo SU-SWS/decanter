@@ -1,3 +1,4 @@
+
 # Documentation on the rules:
 # https://github.com/sasstools/sass-lint/tree/master/docs/rules
 #
@@ -6,50 +7,147 @@ files:
   ignore:
     - 'vendor/**/*.scss'
     - 'node_modules/**/*.scss'
+    - 'core/utilities/functions/_unitconversion.scss'
+    - 'core/base/_documentation.scss'
 rules:
-  # Class Name Format
+  clean-import-paths:
+    - 1
+    -
+      leading-underscore: false
+      filename-extension: false
+
+  brace-style:
+    - 1
+    -
+      style: '1tbs'
+      allowSingleLine: true
+
+  property-sort-order:
+    - 1
+    - order: recess
+
+  id-name-format:
+      - 1
+      -
+        convention: 'hyphenatedlowercase'
+        allow-leading-underscore: true
+
   class-name-format:
     - 1
     -
       convention: 'hyphenatedbem'
+      allow-leading-underscore: true
+
+  placeholder-name-format:
+    - 1
+    -
+      convention: 'hyphenatedbem'
+      allow-leading-underscore: true
+
+  variable-name-format:
+    - 1
+    -
+      convention: 'hyphenatedbem'
+      allow-leading-underscore: true
+
   function-name-format:
     - 1
     -
-      convention: 'snakecase'
+      convention: 'hyphenatedlowercase'
+      allow-leading-underscore: true
+
+  mixin-name-format:
+    - 1
+    -
+      convention: 'hyphenatedlowercase'
+      allow-leading-underscore: true
+
   # Consistency Rules
   extends-before-mixins: 1
   extends-before-declarations: 1
   mixins-before-declarations: 1
-  # Require an empty line between blocks
-  empty-line-between-blocks: 1
-  no-empty-rulesets: 1
-  final-newline: 1
-  no-ids: 1
-  leading-zero: 1
-  name-format: 0
-  nesting-depth: 0
-  placeholder-in-extend: 1
-  property-sort-order: 0
-  no-misspelled-properties: 1
-  shorthand-values: 0
-  one-declaration-per-line: 1
-  single-line-per-selector: 1
+  declarations-before-nesting: 1
+  attribute-quotes:
+    - 1
+    -
+      include: true
+  bem-depth:
+    - 1
+    -
+      max-depth: 2
+  border-zero:
+    - 1
+    -
+      convention: 'zero'
+  no-duplicate-properties:
+    - 1
+    -
+      exclude:
+        - display
+  space-before-bang: 1
+  space-after-bang: 1
   space-after-comma: 1
-  force-pseudo-nesting: 0
-  quotes: 0
-  no-css-comments: 0
-  no-vendor-prefixes: 0
-  # Space surrounding colons
   space-before-colon: 1
   space-after-colon: 1
   space-before-brace: 1
-  brace-style:
+  space-between-parens: 1
+  space-around-operator: 1
+
+  # Color
+  no-color-literals:
     - 1
     -
-      style: 'stroustrup'
-  space-between-parens: 1
+      allow-map-identifiers: true
+      allow-rgba: true
+      allow-variable-identifiers: true
+  no-color-keywords: 0
+  hex-length:
+    - 1
+    - style: short
+  hex-notation:
+    - 1
+    - style: lowercase
+  no-invalid-hex: 1
+  indentation:
+    - 1
+    - size: 2
+  empty-line-between-blocks:
+    - 1
+    - allow-single-line-rulesets: true
+  no-empty-rulesets: 1
+  final-newline: 1
+  no-ids: 1
+  no-qualifying-elements:
+    - 1
+    -
+      allow-element-with-attribute: true
+  leading-zero:
+    - 1
+    - include: true
+  name-format: 0
+  placeholder-in-extend: 1
+  no-misspelled-properties: 1
+  shorthand-values: 1
+  one-declaration-per-line: 1
+  single-line-per-selector: 1
+  quotes: 0
+  url-quotes: 1
+  no-css-comments: 1
+  no-vendor-prefixes:
+    - 1
+    -
+      ignore-non-standard: true
+  no-mergeable-selectors: 1
+  nesting-depth:
+    - 1
+    - max-depth: 3
+  force-pseudo-nesting: 1
+  force-element-nesting: 0
   trailing-semicolon: 1
-  no-mergeable-selectors: 0
-  # Color
-  no-color-literals: 0
-  hex-length: 0
+  no-trailing-zero: 1
+  zero-unit: 1
+  # Transitions
+  no-transition-all: 0
+  # Warnings and debug
+  no-debug: 0
+  no-warn: 0

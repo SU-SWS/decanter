@@ -1,11 +1,5 @@
 # Development Standards
 
-### TODO
-
-
-
-
-
 Developer Conventions
 
 - Releases will be using semantic versioning

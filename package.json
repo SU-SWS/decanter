@@ -1,7 +1,7 @@
 {
   "name": "decanter",
   "description": "A collection of SCSS patterns for theme development.",
-  "version": "0.1.0-alpha1",
+  "version": "1.0.0-alpha3",
   "homepage": "https://github.com/su-sws/decanter",
   "license": "MIT",
   "keywords": [
@@ -14,15 +14,19 @@
     "type": "git",
     "url": "git+https://github.com/su-sws/decanter.git"
   },
+  "files": [
+    "core/"
+  ],
+  "style": "core/_decanter.scss",
   "bugs": {
     "url": "https://github.com/su-sws/decanter/issues"
   },
   "dependencies": {
-    "bourbon": "^5.0.0-beta.7",
-    "bourbon-neat": "^2.0.0",
-    "neat-omega": "^3.0.0",
+    "bourbon": "^5.0.0-beta.8",
+    "bourbon-neat": "^2.1.0",
     "font-awesome": "~4.7.0",
-    "normalize.css": "^6.0.0"
+    "neat-omega": "^3.0.0",
+    "normalize.css": "^7.0.0"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
@@ -32,5 +36,11 @@
     "grunt-sass-lint": "^0.2.2",
     "grunt-sassdoc": "^2.0.2"
   },
-  "optionalDependencies": {}
+  "bundledDependencies": [
+    "bourbon",
+    "bourbon-neat",
+    "neat-omega",
+    "font-awesome",
+    "normalize.css"
+  ]
 }

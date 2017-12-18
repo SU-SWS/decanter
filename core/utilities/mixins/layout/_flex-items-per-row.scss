@@ -15,7 +15,7 @@
 
   @if ($center-grid == true) and ($equal-heights == true) {
     @include flex-container((justify-content: center, align-items: stretch, parent: $parent, children: $children));
-  } @else if ($center-grid == true) and ($equal-heights == false){
+  } @else if ($center-grid == true) and ($equal-heights == false) {
     @include flex-container((justify-content: center, align-items: flex-start, parent: $parent, children: $children));
   } @else if ($center-grid == false) and ($equal-heights == true) {
     @include flex-container((justify-content: flex-start, align-items: stretch, parent: $parent, children: $children));
@@ -36,13 +36,15 @@
       @supports (display: flex) {
         // resets omega if display: flex is supported. We don't need it.
         $_gutter: _retrieve-neat-setting($neat-grid, gutter);
+
         &:nth-of-type(#{$items}n),
         &:last-of-type,
         &:last-child,
         & {
-          margin-left: $_gutter / 2;
           margin-right: $_gutter / 2;
+          margin-left: $_gutter / 2;
         }
+
         &:nth-of-type(#{$items}n+1) {
           clear: initial;
         }

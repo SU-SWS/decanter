@@ -1,5 +1,5 @@
 # [Decanter](https://github.com/SU-SWS/decanter)
-##### Version: 0.0.0
+##### Version: 1.0.0-alpha3
 
 Maintainers: [kgcreative](https://github.com/kgcreative), [sherakama](https://github.com/sherakama)  
 

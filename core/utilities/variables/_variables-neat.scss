@@ -3,7 +3,7 @@
 ////
 /// Neat settings
 /// This file contains neat specific variable overrides.
-/// @group _variables|_neat
+/// @group _variables|__settings
 ////
 
 /// This variable is a sass map that overrides Neat's default grid settings.
@@ -11,7 +11,7 @@
 /// total column count.
 ///
 /// @type map
-/// @link http://neat.bourbon.io/docs/2.0.0/
+/// @link http://neat.bourbon.io/docs/latest/
 /// @name Neat Settings
 ///
 /// @property {number (unitless)} columns [12]
@@ -33,9 +33,9 @@
 ///   );
 ///
 $neat-grid: (
-    columns: _retrieve-decanter-setting(columns),
-    gutter:  _retrieve-decanter-setting(gutter),
-    media: null,
-    color: rgba(#00d4ff, 0.25),
-    direction: ltr,
-) !default;
+  columns: _retrieve-decanter-setting(columns),
+  gutter:  _retrieve-decanter-setting(gutter),
+  media: null,
+  color: rgba(#00d4ff, 0.25),
+  direction: ltr,
+);

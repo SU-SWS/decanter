@@ -1,5 +1,5 @@
 @charset "UTF-8";
-// Creates a grid of items, optionally configure flexbox arguments
+// Creates a grid of items
 // Depends on Decanter
 
 @mixin items-per-row
@@ -11,7 +11,7 @@
   $grid: $neat-grid
 ) {
   $_gutter: _retrieve-neat-setting($grid, gutter);
-  
+
   #{$parent} {
     > #{$children} {
       @include grid-column(1 of $items);

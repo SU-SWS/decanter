@@ -2,7 +2,6 @@
 
 // Provide variable proetection.
 $default-grid-column: () !default;
-
 /// Creates a grid column of requested size.
 ///
 /// @group features
@@ -13,7 +12,7 @@ $default-grid-column: () !default;
 ///   Specifies the number of columns an element should span based on the total
 ///   columns of the grid.
 ///
-///   This can also be defined in a shorthand syntaxt which also contains the
+///   This can also be defined in a shorthand syntax which also contains the
 ///   total column count such as `3 of 5`.
 ///
 /// @argument {map} $container [$default-container]
@@ -36,8 +35,7 @@ $default-grid-column: () !default;
         @include grid-column($_columns, $_grid);
       }
     }
-  }
-  @else {
+  } @else {
     @each $breakpoint, $_map in $_container {
       $_grid: map-get($_map, grid-media);
       @include grid-media($_grid) {

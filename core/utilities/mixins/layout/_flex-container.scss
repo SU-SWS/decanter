@@ -62,10 +62,10 @@ $default-flex-container: (
   #{$_parent} {
     // Inherited properties from mixin.
     display:          $_flex;
+    align-content:    $_align-content; // default: flex-start;
+    align-items:      $_align-items; // default: flex-start;
     flex-flow:        $_flex-direction $_flex-wrap; // default: row wrap;
     justify-content:  $_justify-content; // default: flex-start;
-    align-items:      $_align-items; // default: flex-start;
-    align-content:    $_align-content; // default: flex-start;
 
     // Opinionated properties
     box-sizing: border-box;

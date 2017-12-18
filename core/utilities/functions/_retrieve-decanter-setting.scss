@@ -6,10 +6,17 @@
 /// @author Kevin Garcia
 ////
 
-/// Retrieves a setting from the decanter settings map after performing a smart map-merge operation.
-
+/// Retrieves a setting from the decanter settings map.
+/// Note: The passed settings map is first merged with the default decanter settings map.
+///
+/// @param $setting [null]
+/// @param $map [$decanter-settings]
+/// @return {value} the stored value
+/// @require smart-merge
+/// @require $decanter-settings
+///
 @function _retrieve-decanter-setting($setting: null, $map: $decanter-settings) {
-  $_map: smart-merge($decanter-default-settings, $map);
+  $_map: smart-merge($decanter-settings--default, $map);
   $_setting: map-get($_map, $setting);
   @return $_setting;
 }

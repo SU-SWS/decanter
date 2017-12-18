@@ -3,7 +3,7 @@
 ////
 /// Bourbon settings
 /// This file contains bourbon specific variable overrides.
-/// @group _variables|_bourbon
+/// @group _variables|__settings
 ////
 
 /// Bourbon Settings
@@ -43,6 +43,9 @@
 ///   );
 ///
 /// @link https://github.com/thoughtbot/bourbon/blob/master/core/bourbon/settings/_settings.scss
+/// @require _retrieve-decanter-setting
+/// @require $decanter-settings--default
+/// @require $decanter-settings
 $bourbon: (
-    "modular-scale-ratio": _retrieve-decanter-setting(modular-scale-ratio),
+  "modular-scale-ratio": _retrieve-decanter-setting(modular-scale-ratio),
 ) !default;

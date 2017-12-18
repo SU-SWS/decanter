@@ -8,7 +8,9 @@
 
 /// Returns a merged map, a single map, or a null value, depending on the results of the function's operations
 ///
-/// **Limitations:** When merging nested maps, the map merge will replace the value of the entire nested map. This is a limitation of Sass's implementation. This means if you want to replace a single property in a :before nested declaration, for example, you'll have to redeclare the entire element in the override map.
+/// **Limitations:** When merging nested maps, the map merge will replace the value of the entire nested map.
+/// This is a limitation of Sass's implementation. This means if you want to replace a single property in a
+/// ::before nested declaration, for example, you'll have to redeclare the entire element in the override map.
 ///
 /// @param {map} default-map - The default map the mixin consumes
 /// @param {map} map [null] - The optional override map to merge in

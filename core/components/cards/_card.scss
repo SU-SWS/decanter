@@ -12,19 +12,15 @@
   $border-style: solid,
   $border-width: 1px,
   $padding: modular-scale(1),
-  $margin: (top: null, right: null, bottom: _retrieve-neat-setting($neat-grid, gutter), left:null )
-)
-{
-  background-color: $background-color;
-  border: $border-width $border-style $border-color;
+  $margin: (top: null, right: null, bottom: _retrieve-neat-setting($neat-grid, gutter), left: null ) // $margin: $(top, right, bottom, left)
+) {
   padding: $padding;
-  border-radius: $border-radius;
   margin: {
-    $_margin: map-merge((top: null, right: null, bottom: _retrieve-neat-setting($neat-grid, gutter), left:null ), $margin);
-    $_margin-left: map_get($_margin, left);
-    $_margin-right: map_get($_margin, right);
-    $_margin-top: map_get($_margin, top);
-    $_margin-bottom: map_get($_margin, bottom);
+    $_margin: map-merge((top: null, right: null, bottom: _retrieve-neat-setting($neat-grid, gutter), left: null ), $margin);
+    $_margin-left: map-get($_margin, left);
+    $_margin-right: map-get($_margin, right);
+    $_margin-top: map-get($_margin, top);
+    $_margin-bottom: map-get($_margin, bottom);
     @if $_margin-top != null {
       top: $_margin-top;
     }
@@ -38,10 +34,14 @@
       left: $_margin-left;
     }
   }
+  background-color: $background-color;
+  border: $border-width $border-style $border-color;
+  border-radius: $border-radius;
 
   @if $material-shadow != null {
     box-shadow: material-shadow($material-shadow);
   }
+
   & > :last-child {
     margin-bottom: 0;
   }
