@@ -68,7 +68,9 @@ function stanford_basic_preprocess_field(&$variables, $hook) {
   $has_items = isset($variables['items']) ? count($variables['items']) : FALSE;
 
   // Add additional information to paragraph fields.
-  if ($is_paragraph && $has_items) {
+  // Bricks has a different field type and structures the array differently, so
+  // we need to check if its actual normal paragraph fields as well.
+  if ($variables['field_type'] == 'entity_reference_revisions' && $is_paragraph && $has_items) {
     foreach ($variables['items'] as &$pitem) {
       $paragraph_type = $pitem['content']['#paragraph']->getType();
       $ptype = Html::cleanCssIdentifier("ptype-" . $paragraph_type);
