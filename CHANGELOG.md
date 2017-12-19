@@ -1,6 +1,6 @@
 # Changelog
 
-Version 2.0                        2018-01-08
+Version 2.0                        2017-12-18
 ---------------------------------------------
 - Base HTML element styles
 - Base component styles
