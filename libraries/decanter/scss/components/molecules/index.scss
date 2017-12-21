@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+///
+/// ROLL UP
+///
+
+// Load order convention exception
+//
+// The convention for importing files in index.scss files
+// is to import in alphabetical order. This file
+// intentionally breaks that convetion, as the navigation
+// molecule needs to be imported before menu molecules for
+// use in those files.
+
+@import
+  'alerts',
+  'icon-grid',
+  'navigation',
+  'main-menu',
+  'mega-menu',
+  'sidenav';

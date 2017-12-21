@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+///
+/// GRID MEDIA LARGE
+///
+
+// Grid pattern for large breakpoint (1201px).
+
+@include media($large) {
+  .decanter-width-one-whole {
+    @include span-columns(12);
+  }
+
+  .decanter-width-one-half {
+    @include span-columns(6);
+  }
+
+  .decanter-width-one-third {
+    @include span-columns(4);
+  }
+
+  .decanter-width-two-thirds {
+    @include span-columns(8);
+  }
+
+  .decanter-width-one-fourth {
+    @include span-columns(3);
+
+    &:nth-child(2n) {
+      @include span-columns(3);
+    }
+
+    &:nth-child(4n) {
+      @include margin(null 0 null null);
+    }
+  }
+
+  .decanter-width-three-fourths {
+    @include span-columns(9);
+  }
+
+  .decanter-width-one-sixth {
+    @include span-columns(2);
+
+    &:nth-child(3n) {
+      @include span-columns(2);
+    }
+
+    &:nth-child(6n) {
+      @include margin(null 0 null null);
+    }
+  }
+
+  .decanter-width-five-sixths {
+    @include span-columns(10);
+  }
+
+  .decanter-width-one-twelfth {
+    @include span-columns(1);
+
+    &:nth-child(3n) {
+      @include span-columns(1);
+    }
+
+    &:nth-child(12n) {
+      @include margin(null 0 null null);
+    }
+  }
+
+  .decanter-width-five-twelfths {
+    @include span-columns(5);
+  }
+
+  .decanter-width-seven-twelfths {
+    @include span-columns(7);
+  }
+}

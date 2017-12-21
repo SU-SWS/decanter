@@ -1,0 +1,273 @@
+@charset "UTF-8";
+
+///
+/// NAVIGATION COMPONENT
+///
+
+// @TODO refactor code, creating mixins where possible.
+// Can possibly be broken up into Atoms, which will improve
+// load order convention in molecules file (currently,
+// navigation needs to be imported before menu molecules).
+
+.decanter-nav {
+  @include position(fixed, 0 0 0 auto);
+  @include padding(2rem);
+
+  background: transparent;
+  border-left: 1px solid $color-cool-grey;
+  border-right: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  transform: translateX($sliding-panel-width);
+  width: $sliding-panel-width;
+  z-index: $z-index-nav;
+
+  @include media($nav-width) {
+    @include padding(5rem 0 0 null);
+
+    border-left: none;
+    display: block;
+    float: right;
+    overflow-y: visible;
+    position: relative;
+    transform: translateX(0);
+    width: auto;
+  }
+
+
+  &.is-visible {
+    transform: translateX(0);
+    transition: all 0.3s ease-in-out;
+  }
+
+  nav {
+    @include margin(6rem null null);
+
+    min-height: 100%;
+
+    @include media($nav-width) {
+      @include margin(0 null null);
+    }
+  }
+
+  .decanter-nav__current {
+    border-left: 4px solid $color-bright-red;
+    color: $color-black;
+    font-weight: $font-bold;
+
+    @include padding(null null null 1.4rem);
+  }
+
+  .decanter-button {
+    width: 100%;
+  }
+}
+
+.decanter-nav__link {
+  @include font-smoothing;
+
+  &:hover {
+    @include media($nav-width) {
+      @include nav-border;
+    }
+  }
+}
+
+.decanter-nav__container {
+  @include media($nav-width) {
+    @include outer-container;
+    @include padding(null $site-margins);
+
+    max-width: $site-max-width;
+  }
+}
+
+// Primary navigation
+.decanter-nav-primary {
+  @include sidenav-list;
+
+  order: 2;
+
+  @include media($nav-width) {
+    display: inline;
+  }
+
+
+  li {
+    @include media($nav-width) {
+      border-top: none;
+    }
+  }
+
+  > li,
+  &.decanter-accordion > li {
+    background-color: transparent;
+    width: auto;
+
+    @include media($nav-width) {
+      display: inline-block;
+    }
+
+
+    > a {
+      @include media($nav-width) {
+        @include padding(1.3rem 1.5rem 1.7rem 1.5rem);
+
+        color: $color-bright-red;
+        font-size: $h5-font-size;
+        font-weight: $font-bold;
+        line-height: 1.2;
+      }
+
+
+      &:hover {
+        color: $color-black;
+        text-decoration: none;
+
+        @include media($nav-width) {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  button {
+    @include button-unstyled;
+    @include font-smoothing;
+    @include padding(1.4rem 1.5rem 1rem 1.8rem);
+
+    font-weight: $font-normal;
+
+    @include media($nav-width) {
+      @include padding(null 3rem 1.9rem 1.5rem);
+
+      color: $color-bright-red;
+      font-size: $h5-font-size;
+      font-weight: $font-bold;
+      width: initial;
+    }
+
+
+    &:focus,
+    &:active {
+      background-color: transparent;
+      box-shadow: $focus-shadow;
+    }
+
+    &:hover {
+      color: $color-black;
+
+      @include media($nav-width) {
+        background-color: transparent;
+      }
+    }
+
+    &[aria-expanded=false] {
+      background-image: url("#{$image-path}/plus.png");
+      background-image: url("#{$image-path}/plus.svg");
+      background-repeat: no-repeat;
+      background-position: right 0 center;
+      background-size: 1rem;
+
+      @include media($nav-width) {
+        background-image: url("#{$image-path}/arrow-down.png");
+        background-image: url("#{$image-path}/arrow-down.svg");
+        background-position: right 1.5rem top 44%;
+
+        &:hover {
+          background-image: url("#{$image-path}/arrow-down-hover.png");
+          background-image: url("#{$image-path}/arrow-down-hover.svg");
+          background-position: right 1.5rem top 58%;
+        }
+      }
+    }
+
+    &[aria-expanded=true] {
+      background-image: url("#{$image-path}/minus.png");
+      background-image: url("#{$image-path}/minus.svg");
+      background-repeat: no-repeat;
+      background-position: right 0 center;
+      background-size: 1rem;
+
+      @include media($nav-width) {
+        background-color: $color-bright-red;
+        background-image: url("#{$image-path}/arrow-down-hover.png");
+        background-image: url("#{$image-path}/arrow-down-hover.svg");
+        background-position: right 1.5rem top 58%;
+        color: $color-white;
+
+        @include nav-border;
+
+        &:hover {
+          background-color: $color-bright-red;
+          background-position: right 1.5rem top 58%;
+        }
+      }
+    }
+  }
+
+  @include media($nav-width) {
+    a.decanter-nav__current {
+      // undo the sidenav style
+      border-left: 0;
+
+      @include padding(null null null 1.5rem);
+      @include nav-border;
+    }
+  }
+}
+
+// Submenu navigation (for dropdowns and mega menu).
+.decanter-nav-submenu {
+  @include media($nav-width) {
+    @include list-unstyled;
+    @include padding(1.15rem null);
+
+    background-color: $color-bright-red;
+    min-width: 21.5rem;
+    width: auto;
+    position: absolute;
+  }
+
+
+  &[aria-hidden=true] {
+    display: none;
+  }
+
+  a {
+    @include media($nav-width) {
+      color: $color-white;
+
+      @include padding(null null null 1.5rem);
+    }
+
+    &:hover {
+      @include media($nav-width) {
+        background-color: $color-bright-red;
+        color: $color-white;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  li {
+    font-size: $h5-font-size;
+
+    @include margin(null null 0);
+  }
+}
+
+// Overlay for mobile navigation.
+.decanter-nav__overlay {
+  @include nav-overlay;
+}
+
+// Close button for mobile navigation.
+.decanter-nav__close {
+  @include nav-close;
+}
+
+.decanter-mobile-nav--active {
+  overflow: hidden;
+}

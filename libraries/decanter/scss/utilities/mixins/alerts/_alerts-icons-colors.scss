@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+///
+/// ALERTS ICONS AND COLORS
+///
+
+@mixin alerts-icons-colors {
+  @each $name, $bgcolor in $alerts {
+    .decanter-alert-#{$name} {
+      background-color: $bgcolor;
+      background-image: url("#{$image-path}/#{$name}.png");
+      background-image: url("#{$image-path}/#{$name}.svg");
+    }
+  }
+}

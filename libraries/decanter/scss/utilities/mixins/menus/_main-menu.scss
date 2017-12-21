@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+///
+/// MAIN MENU
+///
+
+@mixin main-menu {
+  width: 100%;
+  z-index: $z-index-main-menu;
+
+  a {
+    border-bottom: none;
+  }
+
+  .decanter-main-menu__btn {
+    @include button-unstyled;
+
+    background-color: $color-bright-red;
+    color: $color-white;
+    display: inline;
+    float: right;
+    font-size: $h6-font-size;
+    height: 4rem;
+    line-height: 4rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    width: 5.8rem;
+
+    @include media($nav-width) {
+      display: none;
+    }
+
+    &:hover {
+      color: $color-white;
+      background-color: $color-bright-red;
+    }
+
+    &:visited {
+      color: $color-white;
+    }
+  }
+}

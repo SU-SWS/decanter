@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decanter Elements | Lists</title>
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="../../css/decanter.css">
+  <!-- Example Element Styles -->
+  <style>
+    .grid-example {
+      margin-bottom: 2em;
+    }
+
+    .grid-example [class*="decanter-grid"]>* {
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grid-example">
+    <div class="decanter-grid">
+      <h1>List Types</h1>
+      <!-- Ordered List ------------------------------>
+      <h2>Ordered List</h2>
+      <ol>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3
+          <ol type="a">
+            <li>List Item 1</li>
+            <li>List Item 2</li>
+            <li>List Item 3
+              <ol type="i">
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+              </ol>
+            </li>
+          </ol>
+        </li>
+      </ol>
+      <!-- Unordered List ------------------------------>
+      <h2>Unordered List</h2>
+      <ul>
+        <li>List Item 1</li>
+        <li>List Item 2
+          <ul>
+            <li>List Item 1</li>
+            <li>List Item 2</li>
+            <li>List Item 3
+              <ul>
+
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>List Item 3</li>
+      </ul>
+      <!-- Description List ------------------------------>
+      <h2>Description List</h2>
+      <dl>
+        <dt>Description List Title</dt>
+        <dd>This is a description list division.</dd>
+      </dl>
+    </div>
+  </div>
+  <!-- Script -->
+  <script src="../../js/decanter.min.js"></script>
+</body>
+
+</html>

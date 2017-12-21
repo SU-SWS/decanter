@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+///
+/// TYPOGRAPHY ELEMENT
+///
+
+html {
+  font-family: $font-sans;
+  font-size: $em-base;
+}
+
+body {
+  color: $color-black;
+  font-size: $base-font-size;
+}
+
+p {
+  line-height: $base-line-height;
+
+  @include margin(1em null);
+}
+
+a {
+  @include link;
+}
+
+.decanter-external-link {
+  @include external-link(external-link, external-link-hover);
+}
+
+.decanter-more-link {
+  @include more-link(more-link, more-link-hover);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include headings;
+}
+
+h1 {
+  @include h1;
+}
+
+h2 {
+  @include h2;
+}
+
+h3 {
+  @include h3;
+}
+
+h4 {
+  @include h4;
+}
+
+h5 {
+  @include h5;
+}
+
+h6 {
+  @include h6;
+}
+
+// Remove user agent styles.
+cite,
+var,
+address,
+dfn {
+  font-style: normal;
+}
+
+// Custom typography.
+.decanter-sans {
+  @include sans;
+}
+
+.decanter-serif {
+  @include serif;
+}
+
+.decanter-slab {
+  @include slab;
+}
+
+.decanter-font-lead {
+  @include font-lead;
+}
+
+.decanter-font-splash {
+  @include font-splash;
+}
+
+.decanter-short-line-length {
+  @include short-line-length;
+}
+
+.decanter-caption {
+  @include caption;
+}
+
+.decanter-credits {
+  @include credits;
+}
+
+// Removes top margin from first child and bottom margin from last child on
+// elements when they are within those layout elements.
+.decanter-grid,
+.decanter-grid-full {
+  > :first-child {
+    @include margin(0 null null);
+  }
+
+  > :last-child {
+    @include margin(null null 0);
+  }
+}
+
+.decanter-width-one-whole,
+.decanter-width-one-half,
+.decanter-width-one-third,
+.decanter-width-two-thirds,
+.decanter-width-one-fourth,
+.decanter-width-three-fourths,
+.decanter-width-one-sixth,
+.decanter-width-five-sixths,
+.decanter-width-one-twelfth {
+  &:first-child {
+    > :first-child {
+      @include margin(0 null null);
+    }
+  }
+
+  > :first-child {
+    @include media($medium-screen) {
+      @include margin(0 null null);
+    }
+  }
+
+  &:last-child {
+    > :last-child {
+      @include margin(null null 0);
+    }
+  }
+
+  > :last-child {
+    @include media($medium-screen) {
+      @include margin(null null 0);
+    }
+  }
+}

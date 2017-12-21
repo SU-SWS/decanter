@@ -90,12 +90,14 @@ module.exports = function(grunt) {
       options: {
         includePaths: [
           "scss",
-          "node_modules/bourbon/core",
-          "node_modules/bourbon-neat/core",
+          "node_modules/bourbon/app/assets/stylesheets",
+          "node_modules/bourbon-neat/app/assets/stylesheets",
           "node_modules/font-awesome/scss",
-          "node_modules/neat-omega",
-          "node_modules/decanter/core",
-          "node_modules"
+          "node_modules/normalize.css",
+          "node_modules/neat-omega/core",
+          "node_modules",
+          "libraries/decanter/scss",
+          "libraries"
         ],
         sourceMap: true,
         // This controls the compiled css and can be changed to nested, compact or compressed.
@@ -151,12 +153,46 @@ module.exports = function(grunt) {
         }
       }
     },
+    git_subtree_add: {
+      decanter: {
+        options: {
+          source: "git@github.com:SU-SWS/decanter.git",
+          branch: "lib",
+          target: "libraries/decanter"
+        }
+      }
+    },
+    git_subtree_pull: {
+      decanter: {
+        options: {
+          source: "git@github.com:SU-SWS/decanter.git",
+          branch: "master",
+          target: "libraries/decanter"
+        }
+      }
+    },
+    git_subtree_push: {
+      decanter: {
+        options: {
+          source: "git@github.com:SU-SWS/decanter.git",
+          branch: "master",
+          target: "libraries/decanter"
+        }
+      }
+    },
     availabletasks: {
       tasks: {
         options: {
           filter: "include",
           tasks: [
-            'browserSync', 'imagemin', 'sass', 'svgmin', 'uglify', 'watch', 'devmode'
+            'browserSync',
+            'imagemin',
+            'sass',
+            'svgmin',
+            'uglify',
+            'watch',
+            'devmode',
+            'decanter'
           ]
         }
       }
@@ -164,6 +200,8 @@ module.exports = function(grunt) {
   });
 
   // This is where we tell Grunt we plan to use this plug-in.
+  grunt.loadNpmTasks('grunt-git');
+  grunt.loadNpmTasks('grunt-cmv-git-subtree');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-svgmin');
@@ -175,6 +213,7 @@ module.exports = function(grunt) {
 
   // My tasks.
   grunt.registerTask('devmode', "Watch and BrowserSync all in one.", ['drush', 'browserSync', 'watch']);
+  grunt.registerTask('decanter', "Pull the latest from the decanter branch defined in gruntfile.js.", ['git_subtree_pull']);
 
   // This is where we tell Grunt what to do when we type "grunt" into the terminal.
   // Note: if you'd like to run and of the tasks individually you can do so by typing 'grunt mytaskname' alternatively

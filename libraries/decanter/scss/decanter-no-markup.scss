@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+///
+/// DECANTER NO MARKUP
+///
+
+// Includes only the files that DO NOT produce any markup
+// from the Decanter project.
+
+// Load Order
+//
+// 1. Pre-vendor settings
+// 2. Vendors
+// 3. Post-vendor settings
+// 4. Utilities (functions, mixins, extends)
+
+// 1. Pre-vendor settings.
+@import
+  'variables/pre-vendor/index';
+
+// 1.5 Special to remove vendor markup.
+// We don't want to touch the normal pre-vendor settings so we override here.
+$border-box-sizing: false;
+
+// 2. Vendors.
+@import
+  'bourbon',
+  'neat';
+
+// 3. Post Vendor Settings.
+@import
+  'variables/index';
+
+// 4. Utilities.
+@import
+  'utilities/index';

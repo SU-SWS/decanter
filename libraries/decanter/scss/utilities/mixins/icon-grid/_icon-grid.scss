@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+///
+/// ICON GRID
+///
+
+@mixin icon-grid {
+  .decanter-icon-grid__row {
+    .decanter-media-block {
+      @include margin(null null $site-margins);
+
+      @include media($medium-screen) {
+        @include margin(null null ($site-margins * 2));
+      }
+    }
+
+    &:last-child {
+      .decanter-media-block {
+        @include media($medium-screen) {
+          @include margin(null null 0);
+        }
+
+        &:last-child {
+          @include margin(null null 0);
+        }
+      }
+    }
+  }
+
+  .decanter-media-block__img {
+    @include margin(null $site-margins null null);
+  }
+
+  .decanter-media-block__body {
+    > :first-child {
+      @include margin(0 null null);
+    }
+  }
+}
