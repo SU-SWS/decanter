@@ -44,8 +44,12 @@ module.exports = function(grunt) {
         tasks: ['sass']
       },
       jsmin: {
-        files: '**/*.js',
+        files: 'js/**/*.js',
         tasks: ['uglify']
+      },
+      twig: {
+        files: ['**/*.html.twig'],
+        tasks: ['uglify', 'sass', 'styleguide']
       }
     },
     run: {
