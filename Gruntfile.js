@@ -41,7 +41,7 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: '**/*.scss',
-        tasks: ['sass']
+        tasks: ['sass', 'styleguide']
       },
       jsmin: {
         files: 'js/**/*.js',
@@ -68,6 +68,22 @@ module.exports = function(grunt) {
         dest: 'styleguide/js',
         relativeSrc: '../js',
         options: {type: 'dir'}
+      },
+      styleguideimg: {
+        dest: 'styleguide/img',
+        relativeSrc: '../img',
+        options: {type: 'dir'}
+      },
+      styleguidefonts: {
+        dest: 'styleguide/fonts',
+        relativeSrc: '../fonts',
+        options: {type: 'dir'}
+      }
+    },
+    verbosity: {
+      symlinkquiet: {
+        options: { mode: 'hidden' },
+        tasks: ["symlink"]
       }
     }
   });
@@ -78,8 +94,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-symlink');
+  grunt.loadNpmTasks('grunt-verbosity');
 
-  grunt.registerTask('styleguide', ['run:styleguide', 'symlink']);
+  grunt.registerTask('styleguide', ['run:styleguide', 'verbosity:symlinkquiet']);
   grunt.registerTask('default', ['watch']);
 
 }
