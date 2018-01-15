@@ -57,6 +57,18 @@ module.exports = function(grunt) {
         "cmd": "kss",
         "args": ['--config=kss-config.json']
       }
+    },
+    symlink: {
+      styleguidecss: {
+        dest: 'styleguide/css',
+        relativeSrc: '../css',
+        options: {type: 'dir'}
+      },
+      styleguidejs: {
+        dest: 'styleguide/js',
+        relativeSrc: '../js',
+        options: {type: 'dir'}
+      }
     }
   });
 
@@ -65,8 +77,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-symlink');
 
-  grunt.registerTask('styleguide', ['run:styleguide']);
+  grunt.registerTask('styleguide', ['run:styleguide', 'symlink']);
   grunt.registerTask('default', ['watch']);
 
 }
