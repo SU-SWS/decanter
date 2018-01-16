@@ -4253,8 +4253,7 @@ dfn {
     .decanter-sidenav__sublist .decanter-sidenav__sublist a:hover {
       padding-left: 3.8rem; }
 
-.decanter-accordion,
-.decanter-accordion--bordered {
+.decanter-accordion {
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 0;
@@ -4263,93 +4262,82 @@ dfn {
   padding: 0;
   color: #2e2d29;
   width: 100%; }
-  .decanter-accordion > li,
-  .decanter-accordion--bordered > li {
+  .decanter-accordion > li {
     margin-bottom: 0; }
-  .decanter-accordion > ul li ul,
-  .decanter-accordion--bordered > ul li ul {
+  .decanter-accordion > ul li ul {
     list-style: disc; }
-    .decanter-accordion > ul li ul > li > ul,
-    .decanter-accordion--bordered > ul li ul > li > ul {
+    .decanter-accordion > ul li ul > li > ul {
       list-style: circle; }
-      .decanter-accordion > ul li ul > li > ul > li > ul,
-      .decanter-accordion--bordered > ul li ul > li > ul > li > ul {
+      .decanter-accordion > ul li ul > li > ul > li > ul {
         list-style: square; }
-  .decanter-accordion + .decanter-accordion,
-  .decanter-accordion + .decanter-accordion--bordered,
-  .decanter-accordion--bordered + .decanter-accordion,
-  .decanter-accordion--bordered + .decanter-accordion--bordered {
+  .decanter-accordion + .decanter-accordion {
     margin-top: 1rem; }
-  .decanter-accordion > li,
-  .decanter-accordion--bordered > li {
+  .decanter-accordion > li {
     background-color: #4d4f53;
     font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
     list-style: none;
     width: 100%;
     margin-bottom: 6px; }
+  .decanter-accordion .decanter-accordion__content {
+    background-color: #ffffff;
+    overflow: auto;
+    padding: 3rem; }
+    .decanter-accordion .decanter-accordion__content > *:first-child {
+      margin-top: 0; }
+    .decanter-accordion .decanter-accordion__content > *:last-child {
+      margin-bottom: 0; }
+    .decanter-accordion .decanter-accordion__content:not([aria-hidden]) {
+      position: absolute;
+      left: -999em; }
+    .decanter-accordion .decanter-accordion__content[aria-hidden=true] {
+      display: none; }
+  .decanter-accordion .decanter-accordion__button {
+    background-color: transparent;
+    border: 0;
+    font-weight: 400;
+    outline: 0;
+    text-align: left;
+    -webkit-font-smoothing: auto;
+    margin: 0;
+    padding: 0;
+    margin: 0;
+    padding: 1.5rem 5.5rem 1.5rem 3rem;
+    background-color: #b1040e;
+    background-image: url("../img/minus.png");
+    background-image: url("../img/minus.svg");
+    background-position: right 3rem center;
+    background-repeat: no-repeat;
+    background-size: 13px;
+    color: #ffffff;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
+    font-weight: 700;
+    width: 100%; }
+    .decanter-accordion .decanter-accordion__button:hover {
+      background-color: transparent; }
+    .decanter-accordion .decanter-accordion__button:focus {
+      background-color: #2e2d29;
+      box-shadow: 0 0 3px #4d4f53, 0 0 7px #4d4f53; }
+    .decanter-accordion .decanter-accordion__button:hover {
+      background-color: #2e2d29; }
+    .decanter-accordion .decanter-accordion__button h1,
+    .decanter-accordion .decanter-accordion__button h2,
+    .decanter-accordion .decanter-accordion__button h3,
+    .decanter-accordion .decanter-accordion__button h4,
+    .decanter-accordion .decanter-accordion__button h5,
+    .decanter-accordion .decanter-accordion__button h6 {
+      margin: 0; }
+  .decanter-accordion .decanter-accordion__button[aria-expanded=false] {
+    background-image: url("../img/plus.png");
+    background-image: url("../img/plus.svg");
+    background-repeat: no-repeat;
+    background-size: 1.3rem; }
 
 .decanter-accordion--bordered .decanter-accordion__content {
   border-bottom: 1px solid #b6b1a9;
   border-left: 1px solid #b6b1a9;
   border-right: 1px solid #b6b1a9; }
-
-.decanter-accordion__content {
-  background-color: #ffffff;
-  overflow: auto;
-  padding: 3rem; }
-  .decanter-accordion__content > *:first-child {
-    margin-top: 0; }
-  .decanter-accordion__content > *:last-child {
-    margin-bottom: 0; }
-  .decanter-accordion__content:not([aria-hidden]) {
-    position: absolute;
-    left: -999em; }
-  .decanter-accordion__content[aria-hidden=true] {
-    display: none; }
-
-.decanter-accordion__button {
-  background-color: transparent;
-  border: 0;
-  font-weight: 400;
-  outline: 0;
-  text-align: left;
-  -webkit-font-smoothing: auto;
-  margin: 0;
-  padding: 0;
-  margin: 0;
-  padding: 1.5rem 5.5rem 1.5rem 3rem;
-  background-color: #b1040e;
-  background-image: url("../img/minus.png");
-  background-image: url("../img/minus.svg");
-  background-position: right 3rem center;
-  background-repeat: no-repeat;
-  background-size: 13px;
-  color: #ffffff;
-  cursor: pointer;
-  display: inline-block;
-  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
-  font-weight: 700;
-  width: 100%; }
-  .decanter-accordion__button:hover {
-    background-color: transparent; }
-  .decanter-accordion__button:focus {
-    background-color: #2e2d29;
-    box-shadow: 0 0 3px #4d4f53, 0 0 7px #4d4f53; }
-  .decanter-accordion__button:hover {
-    background-color: #2e2d29; }
-  .decanter-accordion__button h1,
-  .decanter-accordion__button h2,
-  .decanter-accordion__button h3,
-  .decanter-accordion__button h4,
-  .decanter-accordion__button h5,
-  .decanter-accordion__button h6 {
-    margin: 0; }
-
-.decanter-accordion__button[aria-expanded=false] {
-  background-image: url("../img/plus.png");
-  background-image: url("../img/plus.svg");
-  background-repeat: no-repeat;
-  background-size: 1.3rem; }
 
 .decanter-hero-banner {
   padding-top: 3rem;

@@ -1078,7 +1078,7 @@ var CLICK = require('../events').CLICK;
 var PREFIX = require('../config').prefix;
 
 // XXX match .decanter-accordion and .decanter-accordion--bordered
-var ACCORDION = '.' + PREFIX + '-accordion, .' + PREFIX + '-accordion--bordered';
+var ACCORDION = '.' + PREFIX + '-accordion';
 var BUTTON = '.' + PREFIX + '-accordion__button[aria-controls]';
 var EXPANDED = 'aria-expanded';
 var MULTISELECTABLE = 'aria-multiselectable';
