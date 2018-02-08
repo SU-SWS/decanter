@@ -41,17 +41,62 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: '**/*.scss',
-        tasks: ['sass']
+        tasks: ['sass', 'styleguide']
       },
       jsmin: {
-        files: '**/*.js',
+        files: 'js/**/*.js',
         tasks: ['uglify']
+      },
+      twig: {
+        files: ['**/*.html.twig'],
+        tasks: ['uglify', 'sass', 'styleguide']
+      }
+    },
+    run: {
+      styleguide: {
+        "cmd": "kss",
+        "args": ['--config=kss-config.json']
+      }
+    },
+    symlink: {
+      styleguidecss: {
+        dest: 'styleguide/css',
+        relativeSrc: '../css',
+        options: {type: 'dir'}
+      },
+      styleguidejs: {
+        dest: 'styleguide/js',
+        relativeSrc: '../js',
+        options: {type: 'dir'}
+      },
+      styleguideimg: {
+        dest: 'styleguide/img',
+        relativeSrc: '../img',
+        options: {type: 'dir'}
+      },
+      styleguidefonts: {
+        dest: 'styleguide/fonts',
+        relativeSrc: '../fonts',
+        options: {type: 'dir'}
+      }
+    },
+    verbosity: {
+      symlinkquiet: {
+        options: { mode: 'hidden' },
+        tasks: ["symlink"]
       }
     }
   });
+
+  grunt.loadNpmTasks('grunt-run');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-symlink');
+  grunt.loadNpmTasks('grunt-verbosity');
+
+  grunt.registerTask('styleguide', ['run:styleguide', 'verbosity:symlinkquiet']);
   grunt.registerTask('default', ['watch']);
+
 }
