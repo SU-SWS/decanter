@@ -20,43 +20,48 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-.block--lockup {
-  display: table; }
+@media screen and (min-width: 481px) {
+  .block--lockup {
+    display: table; } }
 
 .block--lockup__site-logo-wrapper {
-  display: table-cell;
   vertical-align: bottom;
-  border-right: 1px solid #2e2d29;
-  padding-right: 10px;
   line-height: .8em; }
-  .block--lockup__site-logo-wrapper .block--lockup__site-logo {
-    width: auto; }
-    .block--lockup__site-logo-wrapper .block--lockup__site-logo img {
-      width: 180px;
-      max-width: 180px; }
+  @media screen and (min-width: 481px) {
+    .block--lockup__site-logo-wrapper {
+      border-right: 1px solid #2e2d29;
+      display: table-cell;
+      padding-right: 10px; } }
+
+.block--lockup__site-logo {
+  display: none; }
+  @media screen and (min-width: 481px) {
+    .block--lockup__site-logo {
+      display: block;
+      width: auto; }
+      .block--lockup__site-logo img {
+        width: 180px;
+        max-width: 180px; } }
 
 .block--lockup__site-name {
-  display: table-cell;
-  padding-left: 10px;
+  font-size: 3.3rem;
+  line-height: 3.5rem;
   vertical-align: bottom; }
+  @media screen and (min-width: 481px) {
+    .block--lockup__site-name {
+      display: table-cell;
+      padding-left: 10px; } }
   .block--lockup__site-name a {
-    font-size: 1.8em;
+    color: #2e2d29;
     display: block;
-    margin-bottom: -11px; }
-    .block--lockup__site-name a:hover, .block--lockup__site-name afocus {
-      text-decoration: none; }
-
-.block--lockup__site-name {
-  font-size: 3.1rem; }
-  .block--lockup__site-name a:hover {
-    text-decoration: none; }
+    text-decoration: none;
+    margin-bottom: -5px; }
 
 .block--lockup__site-slogan {
-  font-size: 1.7rem;
-  font-style: italic;
-  margin: 0;
-  padding: 0;
+  font-size: 2.3rem;
   width: 100%;
-  clear: both; }
+  clear: both;
+  margin-top: 5px;
+  padding: 0; }
 
 /*# sourceMappingURL=brand-lockup.css.map */

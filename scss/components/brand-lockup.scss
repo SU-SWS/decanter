@@ -4,26 +4,38 @@
 /// STANFORD BRAND LOCKUP COMPONENT
 ///
 
-// Decanter.
+// Decanter
 @import
-  "decanter-no-markup";
+  'decanter-no-markup';
+
 // Stanford Basic
 @import
   'config/config',
   'utilities/utilities';
 
 .block--lockup {
-  display: table;
+  @include media($small-screen) {
+    display: table;
+  }
 }
 
 .block--lockup__site-logo-wrapper {
-  display: table-cell;
   vertical-align: bottom;
-  border-right: 1px solid $color-black;
-  padding-right: 10px;
   line-height: .8em;
 
-  .block--lockup__site-logo {
+  @include media($small-screen) {
+    border-right: 1px solid $color-black;
+    display: table-cell;
+
+    @include padding(null 10px null null);
+  }
+}
+
+.block--lockup__site-logo {
+  display: none;
+
+  @include media($small-screen) {
+    display: block;
     width: auto;
 
     img {
@@ -34,35 +46,31 @@
 }
 
 .block--lockup__site-name {
-  display: table-cell;
-  padding-left: 10px;
+  font-size: $h2-font-size;
+  line-height: 3.5rem;
   vertical-align: bottom;
 
-  a {
-    font-size: 1.8em;
-    display: block;
-    margin-bottom: -11px;
+  @include media($small-screen) {
+    display: table-cell;
 
-    &:hover,
-    &focus {
-      text-decoration: none;
-    }
+    @include padding(null null null 10px);
   }
-}
 
-.block--lockup__site-name {
-  font-size: 3.1rem;
 
-  a:hover {
+  a {
+    color: $color-black;
+    display: block;
     text-decoration: none;
+
+    @include margin(null null -5px);
   }
 }
 
 .block--lockup__site-slogan {
-  font-size: $small-font-size;
-  font-style: italic;
-  margin: 0;
-  padding: 0;
+  font-size: $lead-font-size;
   width: 100%;
   clear: both;
+
+  @include margin(5px null null);
+  @include padding(0);
 }
