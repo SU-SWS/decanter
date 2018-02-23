@@ -1,5 +1,5 @@
 {% extends "block.html.twig" %}
-{% set attributes = attributes.addClass('block--lockup block-grid-collapse') %}
+{% set attributes = attributes.addClass('block-grid-collapse') %}
 {#
 /**
  * @file
@@ -16,20 +16,22 @@
 #}
 {% block content %}
   {% if site_logo %}
-  <div class="block--lockup__site-logo-wrapper">
-    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="block--lockup__site-logo">
-      <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
-    </a>
-  </div>
-  {% endif %}
+    <div class="block--lockup">
+      <div class="block--lockup__site-logo-wrapper">
+        <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home" class="block--lockup__site-logo">
+          <img src="{{ site_logo }}" alt="{{ 'Home'|t }}"/>
+        </a>
+      </div>
+    {% endif %}
 
-  {% if site_name or site_slogan %}
-      <div class="block--lockup__site-name-and-slogan">
+    {% if site_name %}
+      <div class="block--lockup__site-name">
         <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
       </div>
     {% endif %}
-    {% if site_slogan %}
-      <div class="block--lockup__site-slogan">{{ site_slogan }}</div>
-    {% endif %}
+  </div>
+  {% if site_slogan %}
+    <div class="block--lockup__site-slogan">{{ site_slogan }}</div>
+  {% endif %}
 
 {% endblock %}
