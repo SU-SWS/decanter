@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+///
+/// SIDENAV SUBLIST
+///
+
+@mixin sidenav-sublist {
+  @include list-unstyled;
+  @include margin(0);
+
+  width: 100%;
+
+  li {
+    border: none;
+    font-size: $h5-font-size;
+  }
+
+  a {
+    line-height: $heading-line-height;
+
+    @include padding(null null null 2.8rem);
+
+    &:hover,
+    &.decanter-nav__current {
+      border: none;
+
+      @include padding(null null null 2.8rem);
+    }
+  }
+
+  .decanter-sidenav__sublist {
+    a {
+      @include padding(null null null 3.8rem);
+
+      &:hover {
+        @include padding(null null null 3.8rem);
+      }
+    }
+  }
+}

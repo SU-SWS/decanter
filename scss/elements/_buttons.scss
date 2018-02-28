@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+///
+/// BUTTONS ELEMENT
+///
+
+// Primary button (default).
+.decanter-button,
+a.decanter-button,
+button,
+[type=button],
+[type=submit],
+[type=reset],
+[type=image] {
+  @include button-primary;
+}
+
+// Secondary button.
+.decanter-button--secondary,
+a.decanter-button--secondary {
+  @include button-secondary;
+}
+
+// Big button.
+.decanter-button--big,
+a.decanter-button--big {
+  @include button-big;
+}
+
+// For removing styling from buttons.
+.decanter-button--unstyled,
+a.decanter-button--unstyled {
+  @include button-unstyled;
+}

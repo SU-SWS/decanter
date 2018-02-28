@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+///
+/// TABLES
+///
+
+@mixin tables {
+  border-spacing: 0;
+  min-width: 100%;
+
+  @include margin(2em 0);
+
+  th,
+  td {
+    border: 1px solid $color-driftwood;
+
+    @include padding(1.5rem);
+  }
+
+  th {
+    background-color: $color-cloud;
+    color: $color-black;
+    text-align: left;
+  }
+
+  td {
+    background-color: $color-white;
+  }
+
+  thead {
+    th,
+    td {
+      background-color: $color-cool-grey;
+    }
+  }
+
+  tbody {
+    th {
+      font-weight: $font-normal;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+///
+/// FONT SPLASH
+///
+
+@mixin font-splash {
+  @include h3;
+  @include margin(null null 0);
+
+  @include media($small-screen) {
+    @include h1;
+  }
+
+  @include media($medium-screen) {
+    @include title;
+  }
+}

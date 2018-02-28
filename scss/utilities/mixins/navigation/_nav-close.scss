@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+///
+/// NAVIGATION CLOSE BUTTON
+///
+
+@mixin nav-close {
+  @include button-unstyled;
+  @include margin((-1.2rem) -1.5rem 2.4rem auto);
+
+  float: right;
+  height: $hit-area;
+  text-align: center;
+  width: $hit-area;
+
+  @include media($nav-width) {
+    display: none;
+  }
+
+  img {
+    width: 1.3rem;
+  }
+}

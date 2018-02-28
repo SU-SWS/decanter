@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+///
+/// MEGA MENU
+///
+
+@mixin megamenu {
+  @include media($nav-width) {
+    @include padding(3.15rem null);
+
+    left: -1rem;
+    width: 100%;
+  }
+
+  &::before {
+    @include media($nav-width) {
+      @include outer-megamenu;
+
+      right: 100%;
+    }
+  }
+
+  &::after {
+    @include media($nav-width) {
+      @include outer-megamenu;
+
+      left: 100%;
+    }
+  }
+
+  .decanter-megamenu__col {
+    @include media($nav-width) {
+      @include span-columns(3);
+
+      &:nth-child(2n) {
+        @include span-columns(3);
+      }
+
+      &:nth-child(4n) {
+        @include margin(null 0 null null);
+      }
+    }
+
+    > ul {
+      @include list-unstyled;
+    }
+  }
+
+  .decanter-nav {
+    @include media($nav-width) {
+      width: 100%;
+
+      @include padding(0 null null 0);
+    }
+  }
+
+  .decanter-nav__inner {
+    display: flex;
+    flex-direction: column;
+
+    @include media($nav-width) {
+      display: block;
+      float: right;
+
+      @include margin((-4.8rem) null null);
+    }
+  }
+
+  .decanter-nav-submenu {
+    .decanter-grid-full {
+      @include media($nav-width) {
+        @include margin(null null null -1.8rem);
+      }
+    }
+  }
+}
