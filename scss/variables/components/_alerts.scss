@@ -1,17 +1,42 @@
 @charset "UTF-8";
 
 //
-// Alerts Variables
+// Alerts
 //
-
 // Every variable is declared as !default so that it can be
 // overridden by a previous import.
 //
 // If you want to override a variable, set that variable in one of your
 // own partials, then @import '{path/to/}core/variables'.
+//
+// Styleguide: Variables.Alerts
+//
 
+//
+// $decanter-custom-alerts
+//
+// TODO: Joe to document this.
+//
+// Markup: $decanter-custom-alerts: () !default;
+//
+// Styleguide: Variables.Alerts.decanter-custom-alerts
+//
 $decanter-custom-alerts: () !default;
 
+//
+// $decanter-alerts
+//
+// Color map for alert components.
+//
+// Markup: $decanter-alerts: (
+//   success: rgba(23, 94, 84, 0.6),   // $color-palo-alto at 60% opacity
+//   warning: rgba(234, 171, 0, 0.6),  // $color-sun at 60% opacity
+//   error:   rgba(177, 4, 14, 0.5),   // $color-bright-red at 50% opacity
+//   info:    rgba(0, 152, 219, 0.6),  // $color-sky at 60% opacity
+// );
+//
+// Styleguide: Variables.Alerts.decanter-alerts
+//
 $decanter-alerts: (
   success: rgba(23, 94, 84, 0.6),   // $color-palo-alto at 60% opacity
   warning: rgba(234, 171, 0, 0.6),  // $color-sun at 60% opacity
@@ -19,4 +44,13 @@ $decanter-alerts: (
   info:    rgba(0, 152, 219, 0.6),  // $color-sky at 60% opacity
 );
 
+//
+// $alerts
+//
+// TODO: Joe to document this.
+//
+// Markup: $alerts: map-merge($decanter-alerts, $decanter-custom-alerts);
+//
+// Styleguide: Variables.Alerts.alerts
+//
 $alerts: map-merge($decanter-alerts, $decanter-custom-alerts);
