@@ -1,26 +1,107 @@
 @charset "UTF-8";
 
 //
-// Breakpoints Variables
+// Breakpoints
 //
-
 // Every variable is declared as !default so that it can be
 // overridden by a previous import.
 //
 // If you want to override a variable, set that variable in one of your
 // own partials, then @import '{path/to/}core/variables'.
+//
+// Styleguide: Variables.Breakpoints
+//
 
-// Mobile first breakpoints.
+//
+// $small-screen
+//
+// Markup: $small-screen:  481px !default;
+//
+// Styleguide: Variables.Breakpoints.small-screen
+//
 $small-screen:  481px !default;
+
+//
+// $medium-screen
+//
+// Markup: $medium-screen: 600px !default;
+//
+// Styleguide: Variables.Breakpoints.medium-screen
+//
 $medium-screen: 600px !default;
+
+//
+// $large-screen
+//
+// Markup: $large-screen: 1201px !default;
+//
+// Styleguide: Variables.Breakpoints.large-screen
+//
 $large-screen:  1201px !default;
 
-// Grid column counts by screen size.
+//
+// $grid-columns-small
+//
+// Grid column count by screen size.
+//
+// Markup: $grid-columns-small:  1 !default;
+//
+// Styleguide: Variables.Breakpoints.grid-columns-small
+//
 $grid-columns-small:  1 !default;
+
+//
+// $grid-columns-medium
+//
+// Grid column count by screen size.
+//
+// Markup: $grid-columns-medium:  6 !default;
+//
+// Styleguide: Variables.Breakpoints.grid-columns-medium
+//
 $grid-columns-medium: 6 !default;
+
+//
+// $grid-columns-large
+//
+// Grid column count by screen size.
+//
+// Markup: $grid-columns-large:  12 !default;
+//
+// Styleguide: Variables.Breakpoints.grid-columns-large
+//
 $grid-columns-large:  12 !default;
 
-// @media keyword helpers.
+//
+// $small
+//
+// @media mixin keyword helper
+//
+// Markup: $small: new-breakpoint(min-width $small-screen $grid-columns-small) !default;
+//
+// Styleguide: Variables.Breakpoints.small
+//
 $small: new-breakpoint(min-width $small-screen $grid-columns-small) !default;
+
+//
+// $medium
+//
+// @media mixin keyword helper
+//
+// Markup: $medium: new-breakpoint(min-width $medium-screen $grid-columns-medium) !default;
+//
+// Styleguide: Variables.Breakpoints.medium
+//
 $medium: new-breakpoint(min-width $medium-screen $grid-columns-medium) !default;
+
+//
+// $large
+//
+// @media mixin keyword helper
+//
+// Markup: $large: new-breakpoint(min-width $large-screen $grid-columns-large) !default;
+
+//
+// Styleguide: Variables.Breakpoints.large
+//
 $large: new-breakpoint(min-width $large-screen $grid-columns-large) !default;
