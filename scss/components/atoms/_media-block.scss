@@ -3,7 +3,8 @@
 //
 // Media Block Image
 //
-// TODO: Describe what this does.
+// Floats an image to the left and provides a specified margin right. To be used
+// when floating images alongside other content.
 //
 // Markup:
 // <img class="decanter-media-block__img" src="../../../img/circle.png" alt="Alt text">
@@ -17,7 +18,8 @@
 //
 // Media Block Body
 //
-// TODO: Describe what this does. Does this really need to exist?
+// Allows for text that is next to a floated media block image to flow within
+// the grid without dropping to a new line prematurely.
 //
 // Markup:
 // <div class="decanter-media-block__body">
@@ -28,5 +30,5 @@
 // Styleguide: Components.Atoms.MediaBlockBody
 //
 .decanter-media-block__body {
-  overflow: hidden;
+  @include overflow;
 }
