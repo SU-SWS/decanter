@@ -5,12 +5,15 @@
 //
 // Simple button element to aid in creating interactive design.
 //
+// .decanter-button - Primary (default) button
+// .decanter-button--secondary - Secondary button
+// .decanter-button--big - Big button
+// .decanter-button--unstyled - Unstyled button
+//
 // Markup: ../../templates/elements/buttons/buttons.html.twig
 //
-// Style guide: Core.Elements.Buttons
+// Style guide: Elements.Buttons
 //
-
-// Primary button (default).
 .decanter-button,
 a.decanter-button,
 button,
@@ -21,19 +24,16 @@ button,
   @include button-primary;
 }
 
-// Secondary button.
 .decanter-button--secondary,
 a.decanter-button--secondary {
   @include button-secondary;
 }
 
-// Big button.
 .decanter-button--big,
 a.decanter-button--big {
   @include button-big;
 }
 
-// For removing styling from buttons.
 .decanter-button--unstyled,
 a.decanter-button--unstyled {
   @include button-unstyled;
