@@ -9,7 +9,7 @@
 //
 // $decanter-custom-alerts
 //
-// TODO: Joe to document this.
+// Color map for custom alert components.
 //
 // Markup: $decanter-custom-alerts: () !default;
 //
@@ -41,7 +41,10 @@ $decanter-alerts: (
 //
 // $alerts
 //
-// TODO: Joe to document this.
+// Merges $decanter-alerts and $decanter-custom-alerts maps into a new, single
+// map.
+// Keys in $decanter-custom-alerts will take precedence over keys in
+// $decanter-alerts. This is the best way to add new values to a map.
 //
 // Markup: $alerts: map-merge($decanter-alerts, $decanter-custom-alerts);
 //
