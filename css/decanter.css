@@ -3272,6 +3272,38 @@ fieldset {
 [type=range]:focus::-ms-thumb {
   border: 2px solid #b6b1a9; }
 
+a {
+  color: #b1040e;
+  text-decoration: underline; }
+  a:hover, a:active {
+    color: #2e2d29; }
+  a:focus {
+    outline: 0; }
+
+.decanter-external-link::after {
+  background: url("../img/external-link.png") no-repeat 0 0;
+  background: url("../img/external-link.svg") no-repeat 0 0;
+  background-size: 100%;
+  content: '';
+  display: inline-block;
+  height: 0.65em;
+  width: 0.65em;
+  margin-bottom: -1px;
+  margin-left: 4px; }
+
+.decanter-external-link:hover::after {
+  background-image: url("../img/external-link-hover.png");
+  background-image: url("../img/external-link-hover.svg"); }
+
+.decanter-more-link::after {
+  color: #b1040e;
+  content: '\00BB';
+  display: inline-block;
+  margin-left: 4px; }
+
+.decanter-more-link:hover::after {
+  color: #2e2d29; }
+
 ul,
 ol {
   margin-top: 1em;
@@ -3351,38 +3383,6 @@ p {
   line-height: 1.4;
   margin-top: 1em;
   margin-bottom: 1em; }
-
-a {
-  color: #b1040e;
-  text-decoration: underline; }
-  a:hover, a:active {
-    color: #2e2d29; }
-  a:focus {
-    outline: 0; }
-
-.decanter-external-link::after {
-  background: url("../img/external-link.png") no-repeat 0 0;
-  background: url("../img/external-link.svg") no-repeat 0 0;
-  background-size: 100%;
-  content: '';
-  display: inline-block;
-  height: 0.65em;
-  width: 0.65em;
-  margin-bottom: -1px;
-  margin-left: 4px; }
-
-.decanter-external-link:hover::after {
-  background-image: url("../img/external-link-hover.png");
-  background-image: url("../img/external-link-hover.svg"); }
-
-.decanter-more-link::after {
-  color: #b1040e;
-  content: '\00BB';
-  display: inline-block;
-  margin-left: 4px; }
-
-.decanter-more-link:hover::after {
-  color: #2e2d29; }
 
 h1,
 h2,
@@ -4338,26 +4338,5 @@ a.decanter-button--unstyled {
   border-bottom: 1px solid #b6b1a9;
   border-left: 1px solid #b6b1a9;
   border-right: 1px solid #b6b1a9; }
-
-.decanter-hero-banner {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-  background-image: url("../img/hero-banner.png");
-  background-position: center;
-  background-size: cover; }
-  .decanter-hero-banner .decanter-button {
-    color: #ffffff; }
-  .decanter-hero-banner .decanter-hero-banner__callout {
-    background-color: #ffffff;
-    padding: 3rem; }
-    @media screen and (min-width: 481px) {
-      .decanter-hero-banner .decanter-hero-banner__callout {
-        max-width: 30rem; } }
-    .decanter-hero-banner .decanter-hero-banner__callout > *:first-child {
-      margin-top: 0;
-      margin-bottom: 3rem; }
-    .decanter-hero-banner .decanter-hero-banner__callout .decanter-button {
-      margin-top: 3rem;
-      width: 100%; }
 
 /*# sourceMappingURL=decanter.css.map */
