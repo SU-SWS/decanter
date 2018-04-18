@@ -1,9 +1,12 @@
 @charset "UTF-8";
 
 //
-// Font Splash
+// @font-splash
 //
-
+// For text on a page that should stand out and draw more attention.
+//
+// Style guide: Mixins.Typography.font-splash
+//
 @mixin font-splash {
   @include h3;
   @include margin(null null 0);
@@ -13,6 +16,7 @@
   }
 
   @include media($medium-screen) {
-    @include title;
+    font-size: $splash-font-size;
+    font-weight: $font-bold;
   }
 }

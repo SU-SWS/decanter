@@ -3,7 +3,20 @@
 //
 // Typography
 //
-
+// Default typography styling for base HTML typography elements, including
+// paragraphs and headings. Also includes special type treatment classes such as
+// splash font and lead font.
+//
+// .decanter-font-lead          - Lead Font
+// .decanter-font-splash        - Splash Font
+// .decanter-short-line-length  - Short Line Length
+// .decanter-caption            - Caption Font
+// .decanter-credits            - Credits Font
+//
+// Markup: ../../templates/elements/font-styles/font-styles.html.twig
+//
+// Style guide: Elements.Typography
+//
 html {
   font-family: $font-sans;
   font-size: $em-base;
@@ -18,18 +31,6 @@ p {
   line-height: $base-line-height;
 
   @include margin(1em null);
-}
-
-a {
-  @include link;
-}
-
-.decanter-external-link {
-  @include external-link(external-link, external-link-hover);
-}
-
-.decanter-more-link {
-  @include more-link(more-link, more-link-hover);
 }
 
 h1,

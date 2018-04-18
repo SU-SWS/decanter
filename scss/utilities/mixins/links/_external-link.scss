@@ -1,9 +1,12 @@
 @charset "UTF-8";
 
 //
-// External Link
+// @external-link($external-link, $external-link-hover)
 //
-
+// Default external link styling, with external icon.
+//
+// Style guide: Mixins.Links.external-link
+//
 @mixin external-link($external-link, $external-link-hover) {
   &::after {
     background: url("#{$image-path}/#{$external-link}.png") no-repeat 0 0;
