@@ -8,21 +8,21 @@
 // Style guide: Mixins.Quote.quote
 //
 @mixin decanter-quote {
-
   @include padding(1em);
   @include overflow;
 
   .decanter-quote__img {
     @include media-block-img;
+
     border-radius: 150px;
     border: 7px solid;
     height: 300px;
     width: 300px;
-    margin-right: 2em;
+
+    @include margin(null 2em null null);
   }
 
   .decanter-quote__body {
-
     .decanter-quote__heading {
       font-size: 2em;
       font-weight: 600;
@@ -37,7 +37,5 @@
       font-size: 1.5em;
       font-weight: 600;
     }
-
   }
-
 }
