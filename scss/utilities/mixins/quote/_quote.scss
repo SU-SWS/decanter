@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+//
+// @quote
+//
+// Default styling for a quote element.
+//
+// Style guide: Mixins.Quote.quote
+//
+@mixin decanter-quote {
+
+  @include padding(1em);
+  @include overflow;
+
+  .decanter-quote__img {
+    @include media-block-img;
+    border-radius: 150px;
+    border: 7px solid;
+    height: 300px;
+    width: 300px;
+    margin-right: 2em;
+  }
+
+  .decanter-quote__body {
+
+    .decanter-quote__heading {
+      font-size: 2em;
+      font-weight: 600;
+      margin-bottom: .5em;
+    }
+
+    .decanter-quote__detail {
+      margin: 0;
+    }
+
+    .decanter-quote__quote {
+      font-size: 1.5em;
+      font-weight: 600;
+    }
+
+  }
+
+}
