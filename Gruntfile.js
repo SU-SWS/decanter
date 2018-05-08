@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     sass: {
       options: {
         includePaths: [
-          "node_modules/bourbon/app/assets/stylesheets",
+          "node_modules/bourbon/core",
           "node_modules/bourbon-neat/app/assets/stylesheets",
           "node_modules/normalize.css",
           "node_modules/neat-omega/core",
@@ -37,6 +37,17 @@ module.exports = function(grunt) {
         }
       }
     },
+    postcss: {
+      options: {
+        map: true,
+        processors: [
+          require('autoprefixer')
+        ]
+      },
+      dist: {
+        src: 'css/*.css'
+      }
+    },
     watch: {
       css: {
         files: '**/*.scss',
@@ -61,27 +72,37 @@ module.exports = function(grunt) {
       styleguidecss: {
         dest: 'styleguide/css',
         relativeSrc: '../css',
-        options: {type: 'dir'}
+        options: {
+          type: 'dir'
+        }
       },
       styleguidejs: {
         dest: 'styleguide/js',
         relativeSrc: '../js',
-        options: {type: 'dir'}
+        options: {
+          type: 'dir'
+        }
       },
       styleguideimg: {
         dest: 'styleguide/img',
         relativeSrc: '../img',
-        options: {type: 'dir'}
+        options: {
+          type: 'dir'
+        }
       },
       styleguidefonts: {
         dest: 'styleguide/fonts',
         relativeSrc: '../fonts',
-        options: {type: 'dir'}
+        options: {
+          type: 'dir'
+        }
       }
     },
     verbosity: {
       symlinkquiet: {
-        options: { mode: 'hidden' },
+        options: {
+          mode: 'hidden'
+        },
         tasks: ["symlink"]
       }
     }
@@ -94,8 +115,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-symlink');
   grunt.loadNpmTasks('grunt-verbosity');
+  grunt.loadNpmTasks('grunt-postcss');
 
   grunt.registerTask('styleguide', ['run:styleguide', 'verbosity:symlinkquiet']);
+  grunt.registerTask('default', ['postcss:dist']);
   grunt.registerTask('default', ['watch']);
 
 }
