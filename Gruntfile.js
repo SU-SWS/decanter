@@ -39,7 +39,7 @@ module.exports = function(grunt) {
     },
     postcss: {
       options: {
-        map: true,
+        map: false,
         processors: [
           require('autoprefixer')
         ]
@@ -51,7 +51,7 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: '**/*.scss',
-        tasks: ['sass', 'styleguide']
+        tasks: ['sass', 'postcss', 'styleguide']
       },
       jsmin: {
         files: 'js/**/*.js',
