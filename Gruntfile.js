@@ -118,7 +118,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-postcss');
 
   grunt.registerTask('styleguide', ['run:styleguide', 'verbosity:symlinkquiet']);
-  grunt.registerTask('default', ['postcss:dist']);
+  grunt.registerTask('compile', ['sass:dist', 'postcss:dist']);
   grunt.registerTask('default', ['watch']);
 
 }
