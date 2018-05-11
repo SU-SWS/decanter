@@ -35,3 +35,9 @@ called with the mixin has been updated with the new implementation.
 3. All of the font stack variables are now prefixed with `font-stack-`. The
 fallback for all three primary fonts in Decanter leverage these variables. The
 new variables has been added to all of the font calls.
+
+### How to Upgrade Decanter in your project
+
+1. Check out or pull down the latest version 3 code of Decanter
+2. Run npm install to get the newest packages
+3. Compile the SCSS
