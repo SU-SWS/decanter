@@ -9,9 +9,12 @@ Version 2.0                        2017-12-18
 - Removed vendor code from repository
 - Introduced Atomic Design naming conventions
 
-Version 3.0                        2018-05-10
+Version 2.1                        2018-05-10
+---------------------------------------------
+- KSS Node generating style guide and pattern library
+- More components, variables, and mixins
+
+Version 3.0                        2018-05-14
 ---------------------------------------------
 - Updated to latest stable release of Bourbon (5.0.0)
 - Added autoprefixer and postcss for better vendor prefix support
-- KSS Node generating style guide and pattern library
-- More components, variables, and mixins
