@@ -4,7 +4,7 @@ Upgrade from version 2.1.0 to 3.0.0
 -----------------------------------
 
 Version 3.0.0 is a new major version of Decanter. The primary difference between
-version 2.1.0 to 3.0.0 is that Bourbon has been updated from version 4.2.7 to
+version 2.1.0 and 3.0.0 is that Bourbon has been updated from version 4.2.7 to
 the latest stable version, 5.0.0.
 
 For details on other changes in this release, as well as details on all
