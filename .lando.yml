@@ -1,13 +1,20 @@
 name: decanter
-recipe: lamp
-config:
-  webroot: styleguide
-  php: '7.1'
-services:
+proxy:
   appserver:
+    - decanter.sws
+    - decanter.loc
+    - decanter.lndo.site
+# Spin up services to run the styleguide
+services:
+  # Create a php 7.1 instance served by the latest apache with https turned on
+  appserver:
+    type: php:7.1
+    via: apache
     ssl: true
-  database:
-    type: mysql:5.7
+    webroot: styleguide
+# Add some nice command routing
 tooling:
+  php:
+    service: appserver
   git:
     service: appserver
