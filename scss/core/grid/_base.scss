@@ -7,7 +7,7 @@
 // Grid container.
 .decanter-grid,
 .decanter-grid-full {
-  @include outer-container;
+  @include grid-container;
 }
 
 .decanter-grid {
@@ -15,7 +15,7 @@
 
   max-width: $site-max-width;
 
-  @include media($medium-screen) {
+  @include breakpoint($medium-screen) {
     @include padding(null $site-margins);
   }
 }
