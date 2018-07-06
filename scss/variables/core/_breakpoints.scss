@@ -77,6 +77,12 @@ $grid-columns-large: 12 !default;
 //
 $small: new-breakpoint(min-width $small-screen $grid-columns-small) !default;
 
+$small-grid: (
+    columns: $grid-columns-small,
+    gutter: 0px,
+    media: $small-screen,
+);
+
 //
 // $medium
 //
@@ -88,6 +94,12 @@ $small: new-breakpoint(min-width $small-screen $grid-columns-small) !default;
 //
 $medium: new-breakpoint(min-width $medium-screen $grid-columns-medium) !default;
 
+$medium-grid: (
+    columns: $grid-columns-medium,
+    gutter: 0px,
+    media: $medium-screen,
+);
+
 //
 // $large
 //
@@ -98,3 +110,9 @@ $medium: new-breakpoint(min-width $medium-screen $grid-columns-medium) !default;
 // Styleguide: Variables.Core.Breakpoints.large
 //
 $large: new-breakpoint(min-width $large-screen $grid-columns-large) !default;
+
+$large-grid: (
+    columns: $grid-columns-large,
+    gutter: 0px,
+    media: $large-screen,
+);
