@@ -9,3 +9,49 @@
 //
 // Style guide: Templates.Page Layout: Right sidebar
 //
+
+.page-layout--inner--right-sidebar {
+  .column {
+    &--head {
+      @include grid-media($grid-xs){
+        @include grid-column(6);
+      }
+
+      @include grid-media($grid-md){
+        @include grid-column(12);
+      }
+
+      @include grid-media($grid-lg){
+        @include grid-column(12);
+      }
+    }
+
+    &--content {
+      @include grid-media($grid-xs){
+        @include grid-column(6);
+      }
+
+      @include grid-media($grid-md){
+        @include grid-column(8);
+      }
+
+      @include grid-media($grid-lg){
+        @include grid-column(8);
+      }
+    }
+
+    &--sidebar {
+      @include grid-media($grid-xs){
+        @include grid-column(6);
+      }
+
+      @include grid-media($grid-md){
+        @include grid-column(4);
+      }
+
+      @include grid-media($grid-lg){
+        @include grid-column(4);
+      }
+    }
+  }
+}
