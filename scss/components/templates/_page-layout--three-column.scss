@@ -21,7 +21,6 @@
     @include grid-visual;
   }
 
-
   @include grid-media($grid-md) {
     @include grid-container($grid-md);
     @include grid-collapse;
@@ -33,7 +32,6 @@
     @include grid-collapse;
     @include grid-visual;
   }
-
 
   .column {
     &--head {
@@ -66,36 +64,34 @@
       }
     }
 
-    &--sidebar {
-      &--first {
-        @include grid-media($grid-xs) {
-          @include grid-column(6);
-        }
-
-        @include grid-media($grid-md) {
-          @include grid-column(10);
-          @include grid-push(1);
-        }
-
-        @include grid-media($grid-lg) {
-          @include grid-column(3);
-          @include grid-shift(-6);
-        }
+    &--sidebar--first {
+      @include grid-media($grid-xs) {
+        @include grid-column(6);
       }
 
-      &--second {
-        @include grid-media($grid-xs) {
-          @include grid-column(6);
-        }
+      @include grid-media($grid-md) {
+        @include grid-column(10);
+        @include grid-push(1);
+      }
 
-        @include grid-media($grid-md) {
-          @include grid-column(10);
-          @include grid-push(1);
-        }
+      @include grid-media($grid-lg) {
+        @include grid-column(3);
+        @include grid-shift(-6);
+      }
+    }
 
-        @include grid-media($grid-lg) {
-          @include grid-column(3);
-        }
+    &--sidebar--second {
+      @include grid-media($grid-xs) {
+        @include grid-column(6);
+      }
+
+      @include grid-media($grid-md) {
+        @include grid-column(10);
+        @include grid-push(1);
+      }
+
+      @include grid-media($grid-lg) {
+        @include grid-column(3);
       }
     }
   }
