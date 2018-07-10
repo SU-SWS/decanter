@@ -136,7 +136,7 @@ dfn {
   }
 
   > :first-child {
-    @include breakpoint($medium-screen) {
+    @media #{$breakpoint-md} {
       @include margin(0 null null);
     }
   }
@@ -148,7 +148,7 @@ dfn {
   }
 
   > :last-child {
-    @include breakpoint($medium-screen) {
+    @media #{$breakpoint-md} {
       @include margin(null null 0);
     }
   }

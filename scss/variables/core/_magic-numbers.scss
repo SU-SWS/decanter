@@ -119,6 +119,17 @@ $focus-shadow: 0 0 3px $color-cool-grey, 0 0 7px $color-cool-grey !default;
 $nav-width: 951px !default;
 
 //
+// $breakpoint-navwidth
+//
+// Mixin for basic mobile-first media query for nav-width (and up) screen size.
+//
+// Markup: $breakpoint-navwidth: ( media: 'only screen and (min-width: #{$screen-xl})' ) !default;
+//
+// Styleguide: Variables.Core.Breakpoints.navwidth
+//
+$breakpoint-navwidth: ( media: 'only screen and (min-width: #{$nav-width})' ) !default;
+
+//
 // $hit-area
 //
 // 44 x 44 pixels hit target following Apple iOS Human Interface Guidelines.
