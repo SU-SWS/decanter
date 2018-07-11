@@ -64,7 +64,7 @@ module.exports = function(grunt) {
     },
     run: {
       styleguide: {
-        "cmd": "kss",
+        "cmd": "./node_modules/.bin/kss",
         "args": ['--config=kss-config.json']
       }
     },
