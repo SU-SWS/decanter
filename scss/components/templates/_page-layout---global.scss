@@ -1,23 +1,23 @@
-.page-layout--inner {
-  @include grid-container;
-  @include grid-collapse;
-  @include grid-visual;
+.page-layout--wrapper {
+  overflow-x: hidden;
+}
 
+.page-layout {
   @include grid-media($grid-xs) {
     @include grid-container($grid-xs);
-    @include grid-collapse;
+    @include grid-collapse($grid-xs);
     @include grid-visual;
   }
 
   @include grid-media($grid-md) {
     @include grid-container($grid-md);
-    @include grid-collapse;
+    @include grid-collapse($grid-md);
     @include grid-visual;
   }
 
   @include grid-media($grid-lg) {
     @include grid-container($grid-lg);
-    @include grid-collapse;
+    @include grid-collapse($grid-lg);
     @include grid-visual;
   }
 }
