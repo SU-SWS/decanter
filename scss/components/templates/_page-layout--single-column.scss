@@ -10,29 +10,7 @@
 // Style guide: Templates.Page Layout: Single column
 //
 
-.page-layout--inner--single-column {
-  @include grid-container;
-  @include grid-collapse;
-  @include grid-visual;
-
-  @include grid-media($grid-xs) {
-    @include grid-container($grid-xs);
-    @include grid-collapse;
-    @include grid-visual;
-  }
-
-  @include grid-media($grid-md) {
-    @include grid-container($grid-md);
-    @include grid-collapse;
-    @include grid-visual;
-  }
-
-  @include grid-media($grid-lg) {
-    @include grid-container($grid-lg);
-    @include grid-collapse;
-    @include grid-visual;
-  }
-
+.page-layout--single-column {
   .column {
     &--head {
       @include grid-media($grid-xs) {
