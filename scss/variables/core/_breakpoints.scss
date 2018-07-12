@@ -54,6 +54,59 @@ $screen-xl: 1500px !default;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //
+// Gutters
+//
+// Style guide: Variables.Core.Gutters
+//
+
+//
+// $gutter-xs
+//
+// Markup: $gutter-xs: 0px !default;
+//
+// Styleguide: Variables.Core.Gutters.gutter-xs
+//
+$gutter-xs: 20px !default;
+
+//
+// $gutter-sm
+//
+// Markup: $gutter-sm: 576px !default;
+//
+// Styleguide: Variables.Core.Gutters.gutter-sm
+//
+$gutter-sm: 20px !default;
+
+//
+// $gutter-md
+//
+// Markup: $gutter-md: 768px !default;
+//
+// Styleguide: Variables.Core.Gutters.gutter-md
+//
+$gutter-md: 20px !default;
+
+//
+// $gutter-lg
+//
+// Markup: $gutter-lg: 992px !default;
+//
+// Styleguide: Variables.Core.Gutters.gutter-lg
+//
+$gutter-lg: 30px !default;
+
+//
+// $gutter-xl
+//
+// Markup: $gutter-xl: 1200px !default;
+//
+// Styleguide: Variables.Core.Gutters.gutter-xl
+//
+$gutter-xl: 30px !default;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//
 // $breakpoint-xs
 //
 // Mixin for basic mobile-first media query for xs-and-up screen size.
@@ -62,7 +115,8 @@ $screen-xl: 1500px !default;
 //
 // Styleguide: Variables.Core.Breakpoints.breakpoint-xs
 //
-$breakpoint-xs: (media: 'only screen and (min-width: #{$screen-xs})') !default;
+// $breakpoint-xs: (media: 'only screen and (min-width: #{$screen-xs})') !default;
+$breakpoint-xs: 'only screen and (min-width: #{$screen-xs})' !default;
 
 //
 // $breakpoint-sm
@@ -73,7 +127,8 @@ $breakpoint-xs: (media: 'only screen and (min-width: #{$screen-xs})') !default;
 //
 // Styleguide: Variables.Core.Breakpoints.breakpoint-sm
 //
-$breakpoint-sm: (media: 'only screen and (min-width: #{$screen-sm})') !default;
+// $breakpoint-sm: (media: 'only screen and (min-width: #{$screen-sm})') !default;
+$breakpoint-sm: 'only screen and (min-width: #{$screen-sm})' !default;
 
 //
 // $breakpoint-md
@@ -84,7 +139,8 @@ $breakpoint-sm: (media: 'only screen and (min-width: #{$screen-sm})') !default;
 //
 // Styleguide: Variables.Core.Breakpoints.breakpoint-md
 //
-$breakpoint-md: (media: 'only screen and (min-width: #{$screen-md})') !default;
+// $breakpoint-md: (media: 'only screen and (min-width: #{$screen-md})') !default;
+$breakpoint-md: 'only screen and (min-width: #{$screen-md})' !default;
 
 //
 // $breakpoint-lg
@@ -95,7 +151,8 @@ $breakpoint-md: (media: 'only screen and (min-width: #{$screen-md})') !default;
 //
 // Styleguide: Variables.Core.Breakpoints.breakpoint-lg
 //
-$breakpoint-lg: (media: 'only screen and (min-width: #{$screen-lg})') !default;
+// $breakpoint-lg: (media: 'only screen and (min-width: #{$screen-lg})') !default;
+$breakpoint-lg: 'only screen and (min-width: #{$screen-lg})' !default;
 
 //
 // $breakpoint-xl
@@ -106,7 +163,8 @@ $breakpoint-lg: (media: 'only screen and (min-width: #{$screen-lg})') !default;
 //
 // Styleguide: Variables.Core.Breakpoints.xl
 //
-$breakpoint-xl: (media: 'only screen and (min-width: #{$screen-xl})') !default;
+// $breakpoint-xl: (media: 'only screen and (min-width: #{$screen-xl})') !default;
+$breakpoint-xl: 'only screen and (min-width: #{$screen-xl})' !default;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -119,7 +177,7 @@ $breakpoint-xl: (media: 'only screen and (min-width: #{$screen-xl})') !default;
 //
 // Styleguide: Variables.Core.Breakpoints.grid-xs
 //
-$grid-xs: (columns: 6, gutter: 20px, media: $screen-xs);
+$grid-xs: (columns: 6, gutter: $gutter-xs, media: $screen-xs);
 
 //
 // $grid-md
@@ -130,7 +188,7 @@ $grid-xs: (columns: 6, gutter: 20px, media: $screen-xs);
 //
 // Styleguide: Variables.Core.Breakpoints.grid-md
 //
-$grid-md: (columns: 12, gutter: 20px, media: $screen-md);
+$grid-md: (columns: 12, gutter: $gutter-md, media: $screen-md);
 
 //
 // $grid-lg
@@ -141,4 +199,4 @@ $grid-md: (columns: 12, gutter: 20px, media: $screen-md);
 //
 // Styleguide: Variables.Core.Breakpoints.grid-lg
 //
-$grid-lg: (columns: 12, gutter: 30px, media: $screen-lg);
+$grid-lg: (columns: 12, gutter: $gutter-lg, media: $screen-lg);
