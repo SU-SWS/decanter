@@ -6,28 +6,28 @@
 
 // Grid pattern for large breakpoint (1201px).
 
-@include media($large) {
+@include grid-media($large-grid) {
   .decanter-width-one-whole {
-    @include span-columns(12);
+    @include grid-column(12);
   }
 
   .decanter-width-one-half {
-    @include span-columns(6);
+    @include grid-column(6);
   }
 
   .decanter-width-one-third {
-    @include span-columns(4);
+    @include grid-column(4);
   }
 
   .decanter-width-two-thirds {
-    @include span-columns(8);
+    @include grid-column(8);
   }
 
   .decanter-width-one-fourth {
-    @include span-columns(3);
+    @include grid-column(3);
 
     &:nth-child(2n) {
-      @include span-columns(3);
+      @include grid-column(3);
     }
 
     &:nth-child(4n) {
@@ -36,14 +36,14 @@
   }
 
   .decanter-width-three-fourths {
-    @include span-columns(9);
+    @include grid-column(9);
   }
 
   .decanter-width-one-sixth {
-    @include span-columns(2);
+    @include grid-column(2);
 
     &:nth-child(3n) {
-      @include span-columns(2);
+      @include grid-column(2);
     }
 
     &:nth-child(6n) {
@@ -52,14 +52,14 @@
   }
 
   .decanter-width-five-sixths {
-    @include span-columns(10);
+    @include grid-column(10);
   }
 
   .decanter-width-one-twelfth {
-    @include span-columns(1);
+    @include grid-column(1);
 
     &:nth-child(3n) {
-      @include span-columns(1);
+      @include grid-column(1);
     }
 
     &:nth-child(12n) {
@@ -68,10 +68,10 @@
   }
 
   .decanter-width-five-twelfths {
-    @include span-columns(5);
+    @include grid-column(5);
   }
 
   .decanter-width-seven-twelfths {
-    @include span-columns(7);
+    @include grid-column(7);
   }
 }
