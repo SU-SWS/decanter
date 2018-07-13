@@ -68,7 +68,8 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */ }
 
 /**
@@ -576,7 +577,8 @@ body {
   overflow-x: hidden; }
 
 .lt-ie9 * {
-  filter: none !important; }
+  -webkit-filter: none !important;
+          filter: none !important; }
 
 [hidden] {
   display: none !important; }
@@ -603,7 +605,9 @@ body {
 input,
 textarea,
 select {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border: 0.1rem solid #b6b1a9;
   border-radius: 0;
   box-sizing: border-box;
@@ -1123,7 +1127,9 @@ button,
   margin-right: 0.5em;
   margin-bottom: 0.5em;
   padding: 1rem 2rem;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: #b1040e;
   border: 0;
   color: #ffffff;
@@ -1175,7 +1181,9 @@ a.decanter-button--secondary {
   margin-right: 0.5em;
   margin-bottom: 0.5em;
   padding: 1rem 2rem;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: #ffffff;
   border: 0;
   box-shadow: inset 0 0 0 2px #b1040e;
@@ -1215,7 +1223,9 @@ a.decanter-button--big {
   margin-right: 0.5em;
   margin-bottom: 0.5em;
   padding: 1.5rem 3rem;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: #b1040e;
   border: 0;
   color: #ffffff;
@@ -1398,7 +1408,8 @@ a.decanter-button--unstyled {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  transform: translateX(26rem);
+  -webkit-transform: translateX(26rem);
+          transform: translateX(26rem);
   width: 26rem;
   z-index: 9000; }
   @media (media: "only screen and (min-width: 951px)") {
@@ -1411,10 +1422,12 @@ a.decanter-button--unstyled {
       float: right;
       overflow-y: visible;
       position: relative;
-      transform: translateX(0);
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
       width: auto; } }
   .decanter-nav.is-visible {
-    transform: translateX(0);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
     transition: all 0.3s ease-in-out; }
   .decanter-nav nav {
     margin-top: 6rem;
@@ -1908,6 +1921,13 @@ a.decanter-button--unstyled {
         clear: both;
         content: "";
         display: block; } }
+  @media only screen and (min-width: 576px) {
+    .page-layout {
+      background-image: repeating-linear-gradient(to right, transparent, transparent 20px, rgba(0, 212, 255, 0.25) 20px, rgba(0, 212, 255, 0.25) calc(8.3333333333% - 21.6666666667px + 20px)); }
+      .page-layout::after {
+        clear: both;
+        content: "";
+        display: block; } }
   @media only screen and (min-width: 768px) {
     .page-layout {
       background-image: repeating-linear-gradient(to right, transparent, transparent 20px, rgba(0, 212, 255, 0.25) 20px, rgba(0, 212, 255, 0.25) calc(8.3333333333% - 21.6666666667px + 20px)); }
@@ -1922,8 +1942,31 @@ a.decanter-button--unstyled {
         clear: both;
         content: "";
         display: block; } }
+  @media only screen and (min-width: 1500px) {
+    .page-layout {
+      background-image: repeating-linear-gradient(to right, transparent, transparent 30px, rgba(0, 212, 255, 0.25) 30px, rgba(0, 212, 255, 0.25) calc(8.3333333333% - 32.5px + 30px)); }
+      .page-layout::after {
+        clear: both;
+        content: "";
+        display: block; } }
+  .page-layout .column--head {
+    background-color: rgba(0, 0, 0, 0.15); }
+  .page-layout .column--content {
+    background-color: rgba(255, 165, 0, 0.25); }
+  .page-layout .column--sidebar {
+    background-color: rgba(0, 0, 255, 0.2); }
+    .page-layout .column--sidebar--first {
+      background-color: rgba(128, 0, 0, 0.2); }
+    .page-layout .column--sidebar--second {
+      background-color: rgba(0, 128, 0, 0.2); }
 
 @media only screen and (min-width: 0) {
+  .page-layout--three-column .column--head {
+    width: calc(100% - 40px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 576px) {
   .page-layout--three-column .column--head {
     width: calc(100% - 40px);
     float: left;
@@ -1941,11 +1984,24 @@ a.decanter-button--unstyled {
     float: left;
     margin-left: 30px; } }
 
+@media only screen and (min-width: 1500px) {
+  .page-layout--three-column .column--head {
+    width: calc(100% - 60px);
+    float: left;
+    margin-left: 30px; } }
+
 @media only screen and (min-width: 0) {
   .page-layout--three-column .column--content {
     width: calc(100% - 40px);
     float: left;
     margin-left: 20px; } }
+
+@media only screen and (min-width: 576px) {
+  .page-layout--three-column .column--content {
+    width: calc(83.3333333333% - 36.6666666667px);
+    float: left;
+    margin-left: 20px;
+    margin-left: calc(8.3333333333% - 21.6666666667px + 40px); } }
 
 @media only screen and (min-width: 768px) {
   .page-layout--three-column .column--content {
@@ -1962,11 +2018,26 @@ a.decanter-button--unstyled {
     left: calc(25% - 37.5px + 30px);
     position: relative; } }
 
+@media only screen and (min-width: 1500px) {
+  .page-layout--three-column .column--content {
+    width: calc(50% - 45px);
+    float: left;
+    margin-left: 30px;
+    left: calc(25% - 37.5px + 30px);
+    position: relative; } }
+
 @media only screen and (min-width: 0) {
   .page-layout--three-column .column--sidebar--first {
     width: calc(100% - 40px);
     float: left;
     margin-left: 20px; } }
+
+@media only screen and (min-width: 576px) {
+  .page-layout--three-column .column--sidebar--first {
+    width: calc(83.3333333333% - 36.6666666667px);
+    float: left;
+    margin-left: 20px;
+    margin-left: calc(8.3333333333% - 21.6666666667px + 40px); } }
 
 @media only screen and (min-width: 768px) {
   .page-layout--three-column .column--sidebar--first {
@@ -1983,11 +2054,26 @@ a.decanter-button--unstyled {
     left: calc(-50% - 15px + 30px);
     position: relative; } }
 
+@media only screen and (min-width: 1500px) {
+  .page-layout--three-column .column--sidebar--first {
+    width: calc(25% - 37.5px);
+    float: left;
+    margin-left: 30px;
+    left: calc(-50% - 15px + 30px);
+    position: relative; } }
+
 @media only screen and (min-width: 0) {
   .page-layout--three-column .column--sidebar--second {
     width: calc(100% - 40px);
     float: left;
     margin-left: 20px; } }
+
+@media only screen and (min-width: 576px) {
+  .page-layout--three-column .column--sidebar--second {
+    width: calc(83.3333333333% - 36.6666666667px);
+    float: left;
+    margin-left: 20px;
+    margin-left: calc(8.3333333333% - 21.6666666667px + 40px); } }
 
 @media only screen and (min-width: 768px) {
   .page-layout--three-column .column--sidebar--second {
@@ -2002,7 +2088,19 @@ a.decanter-button--unstyled {
     float: left;
     margin-left: 30px; } }
 
+@media only screen and (min-width: 1500px) {
+  .page-layout--three-column .column--sidebar--second {
+    width: calc(25% - 37.5px);
+    float: left;
+    margin-left: 30px; } }
+
 @media only screen and (min-width: 0) {
+  .page-layout--left-sidebar .column--head {
+    width: calc(100% - 40px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 576px) {
   .page-layout--left-sidebar .column--head {
     width: calc(100% - 40px);
     float: left;
@@ -2020,7 +2118,19 @@ a.decanter-button--unstyled {
     float: left;
     margin-left: 30px; } }
 
+@media only screen and (min-width: 1500px) {
+  .page-layout--left-sidebar .column--head {
+    width: calc(100% - 60px);
+    float: left;
+    margin-left: 30px; } }
+
 @media only screen and (min-width: 0) {
+  .page-layout--left-sidebar .column--content {
+    width: calc(100% - 40px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 576px) {
   .page-layout--left-sidebar .column--content {
     width: calc(100% - 40px);
     float: left;
@@ -2042,7 +2152,21 @@ a.decanter-button--unstyled {
     left: calc(33.3333333333% - 40px + 30px);
     position: relative; } }
 
+@media only screen and (min-width: 1500px) {
+  .page-layout--left-sidebar .column--content {
+    width: calc(66.6666666667% - 50px);
+    float: left;
+    margin-left: 30px;
+    left: calc(33.3333333333% - 40px + 30px);
+    position: relative; } }
+
 @media only screen and (min-width: 0) {
+  .page-layout--left-sidebar .column--sidebar {
+    width: calc(100% - 40px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 576px) {
   .page-layout--left-sidebar .column--sidebar {
     width: calc(100% - 40px);
     float: left;
@@ -2064,7 +2188,21 @@ a.decanter-button--unstyled {
     left: calc(-66.6666666667% - 10px + 30px);
     position: relative; } }
 
+@media only screen and (min-width: 1500px) {
+  .page-layout--left-sidebar .column--sidebar {
+    width: calc(33.3333333333% - 40px);
+    float: left;
+    margin-left: 30px;
+    left: calc(-66.6666666667% - 10px + 30px);
+    position: relative; } }
+
 @media only screen and (min-width: 0) {
+  .page-layout--right-sidebar .column--head {
+    width: calc(100% - 40px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 576px) {
   .page-layout--right-sidebar .column--head {
     width: calc(100% - 40px);
     float: left;
@@ -2082,7 +2220,19 @@ a.decanter-button--unstyled {
     float: left;
     margin-left: 30px; } }
 
+@media only screen and (min-width: 1500px) {
+  .page-layout--right-sidebar .column--head {
+    width: calc(100% - 60px);
+    float: left;
+    margin-left: 30px; } }
+
 @media only screen and (min-width: 0) {
+  .page-layout--right-sidebar .column--content {
+    width: calc(100% - 40px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 576px) {
   .page-layout--right-sidebar .column--content {
     width: calc(100% - 40px);
     float: left;
@@ -2100,7 +2250,19 @@ a.decanter-button--unstyled {
     float: left;
     margin-left: 30px; } }
 
+@media only screen and (min-width: 1500px) {
+  .page-layout--right-sidebar .column--content {
+    width: calc(66.6666666667% - 50px);
+    float: left;
+    margin-left: 30px; } }
+
 @media only screen and (min-width: 0) {
+  .page-layout--right-sidebar .column--sidebar {
+    width: calc(100% - 40px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 576px) {
   .page-layout--right-sidebar .column--sidebar {
     width: calc(100% - 40px);
     float: left;
@@ -2118,19 +2280,40 @@ a.decanter-button--unstyled {
     float: left;
     margin-left: 30px; } }
 
+@media only screen and (min-width: 1500px) {
+  .page-layout--right-sidebar .column--sidebar {
+    width: calc(33.3333333333% - 40px);
+    float: left;
+    margin-left: 30px; } }
+
 @media only screen and (min-width: 0) {
   .page-layout--single-column .column--head {
     width: calc(100% - 40px);
     float: left;
     margin-left: 20px; } }
 
+@media only screen and (min-width: 576px) {
+  .page-layout--single-column .column--head {
+    width: calc(83.3333333333% - 36.6666666667px);
+    float: left;
+    margin-left: 20px;
+    margin-left: calc(8.3333333333% - 21.6666666667px + 40px); } }
+
 @media only screen and (min-width: 768px) {
   .page-layout--single-column .column--head {
-    width: calc(100% - 40px);
+    width: calc(66.6666666667% - 33.3333333333px);
     float: left;
-    margin-left: 20px; } }
+    margin-left: 20px;
+    margin-left: calc(16.6666666667% - 23.3333333333px + 40px); } }
 
 @media only screen and (min-width: 1024px) {
+  .page-layout--single-column .column--head {
+    width: calc(66.6666666667% - 50px);
+    float: left;
+    margin-left: 30px;
+    margin-left: calc(16.6666666667% - 35px + 60px); } }
+
+@media only screen and (min-width: 1500px) {
   .page-layout--single-column .column--head {
     width: calc(83.3333333333% - 55px);
     float: left;
@@ -2143,18 +2326,31 @@ a.decanter-button--unstyled {
     float: left;
     margin-left: 20px; } }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 576px) {
   .page-layout--single-column .column--content {
     width: calc(83.3333333333% - 36.6666666667px);
     float: left;
     margin-left: 20px;
     margin-left: calc(8.3333333333% - 21.6666666667px + 40px); } }
 
+@media only screen and (min-width: 768px) {
+  .page-layout--single-column .column--content {
+    width: calc(66.6666666667% - 33.3333333333px);
+    float: left;
+    margin-left: 20px;
+    margin-left: calc(16.6666666667% - 23.3333333333px + 40px); } }
+
 @media only screen and (min-width: 1024px) {
+  .page-layout--single-column .column--content {
+    width: calc(66.6666666667% - 50px);
+    float: left;
+    margin-left: 30px;
+    margin-left: calc(16.6666666667% - 35px + 60px); } }
+
+@media only screen and (min-width: 1500px) {
   .page-layout--single-column .column--content {
     width: calc(83.3333333333% - 55px);
     float: left;
     margin-left: 30px;
     margin-left: calc(8.3333333333% - 32.5px + 60px); } }
-
 /*# sourceMappingURL=decanter.css.map */
