@@ -17,11 +17,22 @@
         @include grid-column(6);
       }
 
+      @include grid-media($grid-sm) {
+        @include grid-column(10);
+        @include grid-push(1);
+      }
+
       @include grid-media($grid-md) {
-        @include grid-column(12);
+        @include grid-column(8);
+        @include grid-push(2);
       }
 
       @include grid-media($grid-lg) {
+        @include grid-column(8);
+        @include grid-push(2);
+      }
+
+      @include grid-media($grid-xl) {
         @include grid-column(10);
         @include grid-push(1);
       }
@@ -32,12 +43,22 @@
         @include grid-column(6);
       }
 
-      @include grid-media($grid-md) {
+      @include grid-media($grid-sm) {
         @include grid-column(10);
         @include grid-push(1);
       }
 
+      @include grid-media($grid-md) {
+        @include grid-column(8);
+        @include grid-push(2);
+      }
+
       @include grid-media($grid-lg) {
+        @include grid-column(8);
+        @include grid-push(2);
+      }
+
+      @include grid-media($grid-xl) {
         @include grid-column(10);
         @include grid-push(1);
       }
