@@ -7,6 +7,11 @@
     @include grid-visual;
   }
 
+  @include grid-media($grid-sm) {
+    @include grid-container($grid-sm);
+    @include grid-visual;
+  }
+
   @include grid-media($grid-md) {
     @include grid-container($grid-md);
     @include grid-visual;
@@ -15,5 +20,29 @@
   @include grid-media($grid-lg) {
     @include grid-container($grid-lg);
     @include grid-visual;
+  }
+
+  @include grid-media($grid-xl) {
+    @include grid-container($grid-xl);
+    @include grid-visual;
+  }
+
+  // Background colors to aid in debugging.
+  .column {
+    &--head {
+      background-color: rgba(black, .15);
+    }
+    &--content {
+      background-color: rgba(orange, .25);
+    }
+    &--sidebar {
+      background-color: rgba(blue, .2);
+      &--first {
+        background-color: rgba(maroon, .2);
+      }
+      &--second {
+        background-color: rgba(green, .2);
+      }
+    }
   }
 }
