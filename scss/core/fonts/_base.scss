@@ -7,10 +7,37 @@
 // Source Sans Pro.
 @include font-face(
   'Source Sans Pro',
+  '#{$font-path}/sourcesanspro-extralight-webfont',
+  ('ttf')
+) {
+  font-style: normal;
+  font-weight: 200;
+};
+
+@include font-face(
+  'Source Sans Pro',
+  '#{$font-path}/sourcesanspro-extralightitalic-webfont',
+  ('ttf')
+) {
+  font-style: italic;
+  font-weight: 200;
+};
+
+@include font-face(
+  'Source Sans Pro',
   '#{$font-path}/sourcesanspro-light-webfont',
   ('eot', 'woff2', 'woff', 'ttf')
 ) {
   font-style: normal;
+  font-weight: 300;
+};
+
+@include font-face(
+  'Source Sans Pro',
+  '#{$font-path}/sourcesanspro-lightitalic-webfont',
+  ('ttf')
+) {
+  font-style: italic;
   font-weight: 300;
 };
 
@@ -25,11 +52,29 @@
 
 @include font-face(
   'Source Sans Pro',
-  '#{$font-path}/sourcesanspro-italic-webfont',
-  ('eot', 'woff2', 'woff', 'ttf')
+  '#{$font-path}/sourcesanspro-regularitalic-webfont',
+  ('ttf')
 ) {
   font-style: italic;
   font-weight: 400;
+};
+
+@include font-face(
+  'Source Sans Pro',
+  '#{$font-path}/sourcesanspro-semibold-webfont',
+  ('ttf')
+) {
+  font-style: normal;
+  font-weight: 600;
+};
+
+@include font-face(
+  'Source Sans Pro',
+  '#{$font-path}/sourcesanspro-semibolditalic-webfont',
+  ('ttf')
+) {
+  font-style: italic;
+  font-weight: 600;
 };
 
 @include font-face(
@@ -39,6 +84,33 @@
 ) {
   font-style: normal;
   font-weight: 700;
+};
+
+@include font-face(
+  'Source Sans Pro',
+  '#{$font-path}/sourcesanspro-bolditalic-webfont',
+  ('ttf')
+) {
+  font-style: italic;
+  font-weight: 700;
+};
+
+@include font-face(
+  'Source Sans Pro',
+  '#{$font-path}/sourcesanspro-black-webfont',
+  ('ttf')
+) {
+  font-style: normal;
+  font-weight: 900;
+};
+
+@include font-face(
+  'Source Sans Pro',
+  '#{$font-path}/sourcesanspro-blackitalic-webfont',
+  ('ttf')
+) {
+  font-style: italic;
+  font-weight: 900;
 };
 
 // Crimson Text.

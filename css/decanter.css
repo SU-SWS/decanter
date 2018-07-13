@@ -74,8 +74,7 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
   /* 2 */ }
 
 /**
@@ -306,8 +305,26 @@ template {
 
 @font-face {
   font-family: "Source Sans Pro";
+  src: url("../fonts/sourcesanspro-extralight-webfont.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200; }
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url("../fonts/sourcesanspro-extralightitalic-webfont.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 200; }
+
+@font-face {
+  font-family: "Source Sans Pro";
   src: url("../fonts/sourcesanspro-light-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/sourcesanspro-light-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-light-webfont.woff") format("woff"), url("../fonts/sourcesanspro-light-webfont.ttf") format("truetype");
   font-style: normal;
+  font-weight: 300; }
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url("../fonts/sourcesanspro-lightitalic-webfont.ttf") format("truetype");
+  font-style: italic;
   font-weight: 300; }
 
 @font-face {
@@ -318,15 +335,45 @@ template {
 
 @font-face {
   font-family: "Source Sans Pro";
-  src: url("../fonts/sourcesanspro-italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/sourcesanspro-italic-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-italic-webfont.woff") format("woff"), url("../fonts/sourcesanspro-italic-webfont.ttf") format("truetype");
+  src: url("../fonts/sourcesanspro-regularitalic-webfont.ttf") format("truetype");
   font-style: italic;
   font-weight: 400; }
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url("../fonts/sourcesanspro-semibold-webfont.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600; }
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url("../fonts/sourcesanspro-semibolditalic-webfont.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 600; }
 
 @font-face {
   font-family: "Source Sans Pro";
   src: url("../fonts/sourcesanspro-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/sourcesanspro-bold-webfont.woff2") format("woff2"), url("../fonts/sourcesanspro-bold-webfont.woff") format("woff"), url("../fonts/sourcesanspro-bold-webfont.ttf") format("truetype");
   font-style: normal;
   font-weight: 700; }
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url("../fonts/sourcesanspro-bolditalic-webfont.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 700; }
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url("../fonts/sourcesanspro-black-webfont.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 900; }
+
+@font-face {
+  font-family: "Source Sans Pro";
+  src: url("../fonts/sourcesanspro-blackitalic-webfont.ttf") format("truetype");
+  font-style: italic;
+  font-weight: 900; }
 
 @font-face {
   font-family: "Crimson Text";
@@ -652,8 +699,7 @@ body {
   overflow-x: hidden; }
 
 .lt-ie9 * {
-  -webkit-filter: none !important;
-          filter: none !important; }
+  filter: none !important; }
 
 [hidden] {
   display: none !important; }
@@ -680,9 +726,7 @@ body {
 input,
 textarea,
 select {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   border: 0.1rem solid #b6b1a9;
   border-radius: 0;
   box-sizing: border-box;
@@ -1202,9 +1246,7 @@ button,
   margin-right: 0.5em;
   margin-bottom: 0.5em;
   padding: 1rem 2rem;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   background-color: #b1040e;
   border: 0;
   color: #ffffff;
@@ -1256,9 +1298,7 @@ a.decanter-button--secondary {
   margin-right: 0.5em;
   margin-bottom: 0.5em;
   padding: 1rem 2rem;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   background-color: #ffffff;
   border: 0;
   box-shadow: inset 0 0 0 2px #b1040e;
@@ -1298,9 +1338,7 @@ a.decanter-button--big {
   margin-right: 0.5em;
   margin-bottom: 0.5em;
   padding: 1.5rem 3rem;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  appearance: none;
   background-color: #b1040e;
   border: 0;
   color: #ffffff;
@@ -1478,8 +1516,7 @@ a.decanter-button--unstyled {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  -webkit-transform: translateX(26rem);
-          transform: translateX(26rem);
+  transform: translateX(26rem);
   width: 26rem;
   z-index: 9000; }
   @media screen and (min-width: 951px) {
@@ -1492,12 +1529,10 @@ a.decanter-button--unstyled {
       float: right;
       overflow-y: visible;
       position: relative;
-      -webkit-transform: translateX(0);
-              transform: translateX(0);
+      transform: translateX(0);
       width: auto; } }
   .decanter-nav.is-visible {
-    -webkit-transform: translateX(0);
-            transform: translateX(0);
+    transform: translateX(0);
     transition: all 0.3s ease-in-out; }
   .decanter-nav nav {
     margin-top: 6rem;
@@ -1989,4 +2024,5 @@ a.decanter-button--unstyled {
   border-bottom: 1px solid #b6b1a9;
   border-left: 1px solid #b6b1a9;
   border-right: 1px solid #b6b1a9; }
+
 /*# sourceMappingURL=decanter.css.map */
