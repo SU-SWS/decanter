@@ -40,6 +40,14 @@
         <a class="kss-nav__menu-link" href="section-organisms.html">
           <span class="kss-nav__ref">3</span><span class="kss-nav__name">Organisms</span>
         </a>
+                  <ul class="kss-nav__menu-child">
+                      <li class="kss-nav__menu-item">
+              <a class="kss-nav__menu-link" href="section-organisms.html#kssref-organisms-accordion">
+                <span class="kss-nav__ref ">3.1</span
+                ><span class="kss-nav__name">Accordion</span>
+              </a>
+            </li>
+                    </ul>
               </li>
           <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="section-templates.html">
@@ -83,75 +91,47 @@
 <article>
 
   
-          <div id="kssref-variables-core-breakpoints-screen-sm" class="kss-section kss-section--depth-4 is-fullscreen">
+          <div id="kssref-organisms" class="kss-section kss-section--depth-1 is-fullscreen">
       <div class="kss-style">
-                <h4 class="kss-title kss-title--level-4">
-          <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-screen-sm">
+                <h1 class="kss-title kss-title--level-1">
+          <a class="kss-title__permalink" href="#kssref-organisms">
             <span class="kss-title__ref">
-              10.2.1.13
+              3
               <span class="kss-title__permalink-hash">
-                Variables.Core.Breakpoints.screen-sm
+                Organisms
               </span>
             </span>
-            $screen-sm
+            Organisms
           </a>
-        </h4>
+        </h1>
 
-                  <p class="kss-toolbar">
-                        <a href="#kssref-variables-core-breakpoints-screen-sm" data-kss-guides="true">
-              <span class="kss-toolbar__tooltip">Toggle example guides</span>
-              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
-                <rect class="kss-toolbar__icon-fill" x="5" y="35" width="5" height="9"/>
-                <rect class="kss-toolbar__icon-fill" x="54" y="21" width="5" height="9"/>
-                <rect class="kss-toolbar__icon-fill" x="54" y="35" width="5" height="9"/>
-                <rect class="kss-toolbar__icon-fill" x="5" y="21" width="5" height="9"/>
-                <rect class="kss-toolbar__icon-fill" x="5" y="0" width="5" height="15"/>
-                <rect class="kss-toolbar__icon-fill" x="35" y="5" width="9" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="20" y="5" width="9" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="0" y="5" width="15" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="54" y="0" width="5" height="15"/>
-                <rect class="kss-toolbar__icon-fill" x="49" y="5" width="15" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="54" y="49" width="5" height="15"/>
-                <rect class="kss-toolbar__icon-fill" x="49" y="54" width="15" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="5" y="49" width="5" height="15"/>
-                <rect class="kss-toolbar__icon-fill" x="0" y="54" width="15" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="35" y="54" width="9" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="20" y="54" width="9" height="5"/>
-              </svg>
-            </a>
-            <a href="#kssref-variables-core-breakpoints-screen-sm" data-kss-markup="true">
-              <span class="kss-toolbar__tooltip">Toggle HTML markup</span>
-              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
-                <path class="kss-toolbar__icon-fill" d="M37.555,46.239l6.103,6.103l20.342,-20.342l-20.342,-20.342l-6.103,6.103l14.24,14.239l-14.24,14.239Z"/>
-                <path class="kss-toolbar__icon-fill" d="M26.445,17.761l-6.103,-6.103l-20.342,20.342l20.342,20.342l6.103,-6.103l-14.24,-14.239l14.24,-14.239Z"/>
-              </svg>
-            </a>
-          </p>
         
+                  <div class="kss-description">
+            <p>Molecules give us some building blocks to work with, and we can now combine
+them together to form organisms. Organisms are groups of molecules joined
+together to form a relatively complex, distinct section of an interface.
+We’re starting to get increasingly concrete. A client might not be terribly
+interested in the molecules of a design system, but with organisms we can see
+the final interface beginning to take shape. Dan Mall (who I’m working with
+on several projects) uses element collages, which articulate ideas for a few
+key organisms to facilitate client conversations and shape the visual
+direction (all without having to construct full comps).
+Organisms can consist of similar and/or different molecule types.
+For example, a masthead organism might consist of diverse components like a
+logo, primary navigation, search form, and list of social media channels.
+But a “product grid” organism might consist of the same molecule (possibly
+containing a product image, product title and price) repeated over and over
+again. Building up from molecules to organisms encourages creating
+standalone, portable, reusable components.</p>
+
+          </div>
         
         
               </div>
 
-              <div class="kss-modifier__wrapper">
-          <div class="kss-modifier__heading kss-style">
-            Example          </div>
-
-          
-          <div class="kss-modifier__example">
-            $screen-sm: 576px !default;
-            <div class="kss-modifier__example-footer"></div>
-          </div>
-
-                  </div>
-                  <details class="kss-markup kss-style">
-            <summary>
-                              Markup
-                          </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$screen-sm: 576px !default;</code></pre>
-          </details>
-              
+      
               <div class="kss-source kss-style">
-          Source: <code>variables/core/_breakpoints.scss</code>, line 18
+          Source: <code>components/index.scss</code>, line 31
         </div>
           </div>
   </article>
