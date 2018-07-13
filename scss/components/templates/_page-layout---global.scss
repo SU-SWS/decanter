@@ -45,4 +45,24 @@
       }
     }
   }
+
+  &:before {
+    content: "This is xs (#{$screen-xs} and up)";
+    display: block;
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+    @media #{$breakpoint-sm} {
+      content: "This is sm (#{$screen-sm} and up)";
+    }
+    @media #{$breakpoint-md} {
+      content: "This is md (#{$screen-md} and up)";
+    }
+    @media #{$breakpoint-lg} {
+      content: "This is lg (#{$screen-lg} and up)";
+    }
+    @media #{$breakpoint-xl} {
+      content: "This is xl (#{$screen-xl} and up)";
+    }
+  }
 }
