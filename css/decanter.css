@@ -1959,6 +1959,24 @@ a.decanter-button--unstyled {
       background-color: rgba(128, 0, 0, 0.2); }
     .page-layout .column--sidebar--second {
       background-color: rgba(0, 128, 0, 0.2); }
+  .page-layout:before {
+    content: "This is xs (0 and up)";
+    display: block;
+    text-align: center;
+    background-color: white;
+    padding: 10px; }
+    @media only screen and (min-width: 576px) {
+      .page-layout:before {
+        content: "This is sm (576px and up)"; } }
+    @media only screen and (min-width: 768px) {
+      .page-layout:before {
+        content: "This is md (768px and up)"; } }
+    @media only screen and (min-width: 1024px) {
+      .page-layout:before {
+        content: "This is lg (1024px and up)"; } }
+    @media only screen and (min-width: 1500px) {
+      .page-layout:before {
+        content: "This is xl (1500px and up)"; } }
 
 @media only screen and (min-width: 0) {
   .page-layout--three-column .column--head {
