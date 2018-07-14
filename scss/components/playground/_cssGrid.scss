@@ -1,0 +1,28 @@
+@mixin display-grid {
+  display: -ms-grid;
+  display: grid;
+}
+
+@mixin grid-item-spans ($col-start, $col-end, $row-start, $row-end) {
+  -ms-grid-column: $col-start;
+  -ms-grid-column-span: $col-end - $col-start;
+  -ms-grid-row: $row-start;
+  -ms-grid-row-span: $row-end - $row-start;
+  grid-column: #{$col-start}/#{$col-end};
+  grid-row: #{$row-start}/#{$row-end};
+}
+
+@mixin grid-columns($columns)  {
+  -ms-grid-columns: $columns;
+  grid-template-columns: $columns;
+}
+
+@mixin grid-rows($rows)  {
+  -ms-grid-rows: $rows;
+  grid-template-rows: $rows;
+}
+
+@mixin grid-column-gap($gap)  {
+  grid-column-gap: $gap;
+  column-gap: $gap;
+}
