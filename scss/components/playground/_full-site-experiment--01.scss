@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+//
+// Full Site Experiment 01
+//
+// A playground to test concepts.
+//
+// Markup: ../../templates/components/playground/full-site-experiment--01/full-site-experiment--01.twig
+//
+// Style guide: Playground.Full Site Experiment 01
+//
+
+$base-color--01: darken(#cde, 25%);
+
+// Grid
+.full-site-experiment--01 {
+
+  .content--wrapper {
+    @include display-grid;
+    @include grid-columns(repeat(12, 1fr));
+    @include grid-column-gap(20px);
+
+    max-width: $site-max-width;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
+  }
+
+  .region {
+    &--content-header {
+      @include grid-item-spans(1, 13, 1, 2);
+    }
+
+    &--content {
+      @include grid-item-spans(4, 10, 2, 3);
+    }
+
+    &--sidebar-first {
+      @include grid-item-spans(1, 4, 2, 3);
+    }
+
+    &--sidebar-second {
+      @include grid-item-spans(10, 13, 2, 3);
+    }
+
+    &--content-footer {
+      @include grid-item-spans(1, 13, 3, 4);
+    }
+  }
+}
+
+// Debug colors
+.full-site-experiment--01 {
+  background-color: $base-color--01;
+
+  .page-wrapper {
+  }
+
+  .site-header {
+    background-color: rgba(white, .25);
+    padding: 10px;
+  }
+
+  .site-footer {
+    background-color: rgba(white, .25);
+    padding: 10px;
+  }
+
+  .content--wrapper {
+    background-color: rgba(white, .5);
+  }
+
+  .region {
+    &--content-header {
+      background-color: rgba(white, .125);
+      padding: 10px;
+    }
+
+    &--content {
+      background-color: rgba(white, .75);
+      padding: 10px;
+    }
+
+    &--sidebar-first {
+      background-color: rgba(white, .3);
+      padding: 10px;
+    }
+
+    &--sidebar-second {
+      background-color: rgba(white, .5);
+      padding: 10px;
+    }
+
+    &--content-footer {
+      background-color: rgba(white, .125);
+      padding: 10px;
+    }
+  }
+}
