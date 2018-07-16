@@ -12,7 +12,7 @@
   grid-row: #{$row-start}/#{$row-end};
 }
 
-@mixin grid-columns($columns)  {
+@mixin grid-columns($columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr) {
   -ms-grid-columns: $columns;
   grid-template-columns: $columns;
 }
@@ -22,7 +22,8 @@
   grid-template-rows: $rows;
 }
 
-@mixin grid-column-gap($gap)  {
+@mixin grid-column-gap($gap: 30px)  {
   grid-column-gap: $gap;
   column-gap: $gap;
+  grid-gap: $gap;
 }
