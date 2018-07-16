@@ -1,0 +1,132 @@
+@mixin page-layout--three-column {
+
+  .content--wrapper {
+    @include display-grid;
+    max-width: $site-max-width;
+    margin: 0 auto;
+
+    @media #{$breakpoint-xs} {
+      @include grid-columns(1fr 1fr 1fr 1fr 1fr 1fr); // Can't use repeat() function in IE
+      padding-left: $layout-gutter--xs;
+      padding-right: $layout-gutter--xs;
+      @include grid-column-gap($layout-gutter--xs);
+    }
+    @media #{$breakpoint-sm} {
+      @include grid-columns(1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr); // Can't use repeat() function in IE
+      padding-left: $layout-gutter--sm;
+      padding-right: $layout-gutter--sm;
+      @include grid-column-gap($layout-gutter--sm);
+    }
+    @media #{$breakpoint-md} {
+      @include grid-columns(1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr); // Can't use repeat() function in IE
+      padding-left: $layout-gutter--md;
+      padding-right: $layout-gutter--md;
+      @include grid-column-gap($layout-gutter--md);
+    }
+    @media #{$breakpoint-lg} {
+      @include grid-columns(1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr); // Can't use repeat() function in IE
+      padding-left: $layout-gutter--lg;
+      padding-right: $layout-gutter--lg;
+      @include grid-column-gap($layout-gutter--lg);
+    }
+    @media #{$breakpoint-xl} {
+      @include grid-columns(1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr); // Can't use repeat() function in IE
+      padding-left: $layout-gutter--xl;
+      padding-right: $layout-gutter--xl;
+      @include grid-column-gap($layout-gutter--xl);
+    }
+  }
+
+  .region {
+
+    @media #{$breakpoint-xs} {
+      &--content-header {
+        @include grid-item-spans(1, 7, 1, 2);
+      }
+      &--content {
+        @include grid-item-spans(1, 7, 2, 3);
+      }
+      &--sidebar-first {
+        @include grid-item-spans(1, 7, 3, 4);
+      }
+      &--sidebar-second {
+        @include grid-item-spans(1, 7, 4, 5);
+      }
+      &--content-footer {
+        @include grid-item-spans(1, 7, 5, 6);
+      }
+    }
+
+    @media #{$breakpoint-sm} {
+      &--content-header {
+        @include grid-item-spans(1, 13, 1, 2);
+      }
+      &--content {
+        @include grid-item-spans(1, 13, 2, 3);
+      }
+      &--sidebar-first {
+        @include grid-item-spans(1, 13, 3, 4);
+      }
+      &--sidebar-second {
+        @include grid-item-spans(1, 13, 4, 5);
+      }
+      &--content-footer {
+        @include grid-item-spans(1, 13, 5, 6);
+      }
+    }
+
+    @media #{$breakpoint-md} {
+      &--content-header {
+        @include grid-item-spans(1, 13, 1, 2);
+      }
+      &--content {
+        @include grid-item-spans(1, 9, 3, 4);
+      }
+      &--sidebar-first {
+        @include grid-item-spans(1, 13, 2, 3);
+      }
+      &--sidebar-second {
+        @include grid-item-spans(9, 13, 3, 4);
+      }
+      &--content-footer {
+        @include grid-item-spans(1, 13, 5, 6);
+      }
+    }
+
+    @media #{$breakpoint-lg} {
+      &--content-header {
+        @include grid-item-spans(1, 13, 1, 2);
+      }
+      &--content {
+        @include grid-item-spans(4, 10, 2, 3);
+      }
+      &--sidebar-first {
+        @include grid-item-spans(1, 4, 2, 3);
+      }
+      &--sidebar-second {
+        @include grid-item-spans(10, 13, 2, 3);
+      }
+      &--content-footer {
+        @include grid-item-spans(1, 13, 3, 4);
+      }
+    }
+
+    @media #{$breakpoint-xl} {
+      &--content-header {
+        @include grid-item-spans(1, 13, 1, 2);
+      }
+      &--content {
+        @include grid-item-spans(4, 10, 2, 3);
+      }
+      &--sidebar-first {
+        @include grid-item-spans(1, 4, 2, 3);
+      }
+      &--sidebar-second {
+        @include grid-item-spans(10, 13, 2, 3);
+      }
+      &--content-footer {
+        @include grid-item-spans(1, 13, 3, 4);
+      }
+    }
+  }
+}
