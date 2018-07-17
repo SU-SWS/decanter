@@ -10,4 +10,8 @@
 @mixin h1 {
   font-size: $h1-font-size;
   font-weight: $font-bold;
+
+  &:first-child {
+    @include margin(0 null null);
+  }
 }
