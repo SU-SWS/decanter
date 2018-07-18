@@ -1,0 +1,67 @@
+@charset "UTF-8";
+
+//
+// Full Site Experiment 01
+//
+// A playground to test concepts.
+//
+// Markup: ../../templates/components/playground/full-site-experiment--01/full-site-experiment--01.twig
+//
+// Style guide: Playground.Full Site Experiment 01
+//
+
+$base-color--01: darken(#cde, 25%);
+
+// To implement a three-column grid, simply include the mixin!
+.full-site-experiment--01 {
+  @include page-layout--three-column;
+}
+
+// Debug colors
+.full-site-experiment--01 {
+  background-color: $base-color--01;
+
+  .page-wrapper {
+  }
+
+  .site-header {
+    background-color: rgba(white, .25);
+    padding: 10px;
+  }
+
+  .site-footer {
+    background-color: rgba(white, .25);
+    padding: 10px;
+  }
+
+  .content--wrapper {
+    background-color: rgba(white, .5);
+  }
+
+  .region {
+    &--content-header {
+      background-color: rgba(white, .125);
+      padding: 10px;
+    }
+
+    &--content {
+      background-color: rgba(white, .75);
+      padding: 10px;
+    }
+
+    &--sidebar-first {
+      background-color: rgba(white, .3);
+      padding: 10px;
+    }
+
+    &--sidebar-second {
+      background-color: rgba(white, .5);
+      padding: 10px;
+    }
+
+    &--content-footer {
+      background-color: rgba(white, .125);
+      padding: 10px;
+    }
+  }
+}

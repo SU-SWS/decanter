@@ -10,7 +10,7 @@
 // Style guide: Mixins.Menus.megamenu
 //
 @mixin megamenu {
-  @include media($nav-width) {
+  @media #{$breakpoint-navwidth} {
     @include padding(3.15rem null);
 
     left: -1rem;
@@ -18,7 +18,7 @@
   }
 
   &::before {
-    @include media($nav-width) {
+    @media #{$breakpoint-navwidth} {
       @include outer-megamenu;
 
       right: 100%;
@@ -26,7 +26,7 @@
   }
 
   &::after {
-    @include media($nav-width) {
+    @media #{$breakpoint-navwidth} {
       @include outer-megamenu;
 
       left: 100%;
@@ -34,11 +34,11 @@
   }
 
   .decanter-megamenu__col {
-    @include media($nav-width) {
-      @include span-columns(3);
+    @media #{$breakpoint-navwidth} {
+      @include grid-column(3);
 
       &:nth-child(2n) {
-        @include span-columns(3);
+        @include grid-column(3);
       }
 
       &:nth-child(4n) {
@@ -52,7 +52,7 @@
   }
 
   .decanter-nav {
-    @include media($nav-width) {
+    @media #{$breakpoint-navwidth} {
       width: 100%;
 
       @include padding(0 null null 0);
@@ -63,7 +63,7 @@
     display: flex;
     flex-direction: column;
 
-    @include media($nav-width) {
+    @media #{$breakpoint-navwidth} {
       display: block;
       float: right;
 
@@ -73,7 +73,7 @@
 
   .decanter-nav-submenu {
     .decanter-grid-full {
-      @include media($nav-width) {
+      @media #{$breakpoint-navwidth} {
         @include margin(null null null -1.8rem);
       }
     }
