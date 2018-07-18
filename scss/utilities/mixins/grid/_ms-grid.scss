@@ -24,7 +24,8 @@
 
 @mixin grid-column-gap($gap: 30px)  {
 
-  margin-right: -$gap;
+  margin-left: -($gap/2);
+  margin-right: -($gap/2);
   .region {
     margin-right: $gap;
   }
