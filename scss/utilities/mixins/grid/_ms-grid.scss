@@ -23,7 +23,19 @@
 }
 
 @mixin grid-column-gap($gap: 30px)  {
-  grid-column-gap: $gap;
-  column-gap: $gap;
-  grid-gap: $gap;
+
+  margin-right: -$gap;
+  .region {
+    margin-right: $gap;
+  }
+
+  @supports (display: grid) {
+    margin-right: 0;
+    grid-column-gap: $gap;
+    column-gap: $gap;
+    .region {
+      margin-right: 0;
+    }
+  }
+
 }

@@ -1,68 +1,46 @@
+.page-layout-wrapper {
+
+}
+
 .page-layout {
   max-width: $site-max-width;
   margin: 0 auto;
+  @include visible-grid;
+}
 
-  @include grid-media($grid-xs) {
-    @include grid-container($grid-xs);
-    @include grid-visual;
+// Background colors and typography to aid in debugging.
+
+#kss-node .page-layout .region {
+
+  padding: 0px;
+  font-size: .9em;
+
+  p {
+    padding: 0;
+    margin: 5px 0 0 0;
   }
 
-  @include grid-media($grid-sm) {
-    @include grid-container($grid-sm);
-    @include grid-visual;
+  &--content-header {
+    background-color: rgba(black, .15);
   }
 
-  @include grid-media($grid-md) {
-    @include grid-container($grid-md);
-    @include grid-visual;
+  &--content {
+    background-color: rgba(orange, .25);
   }
 
-  @include grid-media($grid-lg) {
-    @include grid-container($grid-lg);
-    @include grid-visual;
-  }
+  &--sidebar {
+    background-color: rgba(blue, .2);
 
-  @include grid-media($grid-xl) {
-    @include grid-container($grid-xl);
-    @include grid-visual;
-  }
-
-  // Background colors to aid in debugging.
-  .column {
-    &--head {
-      background-color: rgba(black, .15);
+    &--first {
+      background-color: rgba(maroon, .2);
     }
-    &--content {
-      background-color: rgba(orange, .25);
-    }
-    &--sidebar {
-      background-color: rgba(blue, .2);
-      &--first {
-        background-color: rgba(maroon, .2);
-      }
-      &--second {
-        background-color: rgba(green, .2);
-      }
+
+    &--second {
+      background-color: rgba(green, .2);
     }
   }
 
-  &:before {
-    content: "This is xs (#{$screen-xs} and up)";
-    display: block;
-    text-align: center;
-    background-color: white;
-    padding: 10px;
-    @media #{$breakpoint-sm} {
-      content: "This is sm (#{$screen-sm} and up)";
-    }
-    @media #{$breakpoint-md} {
-      content: "This is md (#{$screen-md} and up)";
-    }
-    @media #{$breakpoint-lg} {
-      content: "This is lg (#{$screen-lg} and up)";
-    }
-    @media #{$breakpoint-xl} {
-      content: "This is xl (#{$screen-xl} and up)";
-    }
+  &--content-footer {
+    background-color: rgba(black, .15);
   }
 }
