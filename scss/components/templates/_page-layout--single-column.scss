@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+//
+// Page Layout: Single column
+//
+// A basic, responsive single column page layout.
+//
+// Markup: ../../templates/components/templates/page-layout--single-column/page-layout--single-column.twig
+//
+// Style guide: Templates.Page Layout: Single column
+//
+
+.page-layout--single-column {
+  .column {
+    &--head {
+      @include grid-media($grid-xs) {
+        @include grid-column(6);
+      }
+
+      @include grid-media($grid-sm) {
+        @include grid-column(10);
+        @include grid-push(1);
+      }
+
+      @include grid-media($grid-md) {
+        @include grid-column(8);
+        @include grid-push(2);
+      }
+
+      @include grid-media($grid-lg) {
+        @include grid-column(8);
+        @include grid-push(2);
+      }
+
+      @include grid-media($grid-xl) {
+        @include grid-column(10);
+        @include grid-push(1);
+      }
+    }
+
+    &--content {
+      @include grid-media($grid-xs) {
+        @include grid-column(6);
+      }
+
+      @include grid-media($grid-sm) {
+        @include grid-column(10);
+        @include grid-push(1);
+      }
+
+      @include grid-media($grid-md) {
+        @include grid-column(8);
+        @include grid-push(2);
+      }
+
+      @include grid-media($grid-lg) {
+        @include grid-column(8);
+        @include grid-push(2);
+      }
+
+      @include grid-media($grid-xl) {
+        @include grid-column(10);
+        @include grid-push(1);
+      }
+    }
+  }
+}
+
