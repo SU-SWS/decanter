@@ -7,75 +7,31 @@
 //
 // Markup: ../../templates/components/templates/page-layout--right-sidebar/page-layout--right-sidebar.twig
 //
+// Weight: 2
+//
 // Style guide: Templates.Page Layout: Right sidebar
 //
 
+.page-layout-wrapper--right-sidebar {
+  @include page-layout--right-sidebar;
+}
+
 .page-layout--right-sidebar {
-  .column {
-    &--head {
-      @include grid-media($grid-xs) {
-        @include grid-column(6);
-      }
 
-      @include grid-media($grid-sm) {
-        @include grid-column(12);
-      }
-
-      @include grid-media($grid-md) {
-        @include grid-column(12);
-      }
-
-      @include grid-media($grid-lg) {
-        @include grid-column(12);
-      }
-
-      @include grid-media($grid-xl) {
-        @include grid-column(12);
-      }
+  .region {
+    &--content-header {
     }
 
     &--content {
-      @include grid-media($grid-xs) {
-        @include grid-column(6);
-      }
-
-      @include grid-media($grid-sm) {
-        @include grid-column(12);
-      }
-
-      @include grid-media($grid-md) {
-        @include grid-column(8);
-      }
-
-      @include grid-media($grid-lg) {
-        @include grid-column(8);
-      }
-
-      @include grid-media($grid-xl) {
-        @include grid-column(8);
-      }
     }
 
-    &--sidebar {
-      @include grid-media($grid-xs) {
-        @include grid-column(6);
-      }
+    &--sidebar--first {
+    }
 
-      @include grid-media($grid-sm) {
-        @include grid-column(12);
-      }
+    &--sidebar--second {
+    }
 
-      @include grid-media($grid-md) {
-        @include grid-column(4);
-      }
-
-      @include grid-media($grid-lg) {
-        @include grid-column(4);
-      }
-
-      @include grid-media($grid-xl) {
-        @include grid-column(4);
-      }
+    &--content-footer {
     }
   }
 }

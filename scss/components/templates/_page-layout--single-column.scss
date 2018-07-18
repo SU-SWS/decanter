@@ -7,62 +7,31 @@
 //
 // Markup: ../../templates/components/templates/page-layout--single-column/page-layout--single-column.twig
 //
+// Weight: 1
+//
 // Style guide: Templates.Page Layout: Single column
 //
 
+.page-layout-wrapper--single-column {
+  @include page-layout--single-column;
+}
+
 .page-layout--single-column {
-  .column {
-    &--head {
-      @include grid-media($grid-xs) {
-        @include grid-column(6);
-      }
 
-      @include grid-media($grid-sm) {
-        @include grid-column(10);
-        @include grid-push(1);
-      }
-
-      @include grid-media($grid-md) {
-        @include grid-column(8);
-        @include grid-push(2);
-      }
-
-      @include grid-media($grid-lg) {
-        @include grid-column(8);
-        @include grid-push(2);
-      }
-
-      @include grid-media($grid-xl) {
-        @include grid-column(10);
-        @include grid-push(1);
-      }
+  .region {
+    &--content-header {
     }
 
     &--content {
-      @include grid-media($grid-xs) {
-        @include grid-column(6);
-      }
+    }
 
-      @include grid-media($grid-sm) {
-        @include grid-column(10);
-        @include grid-push(1);
-      }
+    &--sidebar--first {
+    }
 
-      @include grid-media($grid-md) {
-        @include grid-column(8);
-        @include grid-push(2);
-      }
+    &--sidebar--second {
+    }
 
-      @include grid-media($grid-lg) {
-        @include grid-column(8);
-        @include grid-push(2);
-      }
-
-      @include grid-media($grid-xl) {
-        @include grid-column(10);
-        @include grid-push(1);
-      }
+    &--content-footer {
     }
   }
 }
-

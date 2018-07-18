@@ -93,7 +93,7 @@
                 <h2 class="kss-title kss-title--level-2">
           <a class="kss-title__permalink" href="#kssref-templates-page-layout-single-column">
             <span class="kss-title__ref">
-              4.3
+              4.1
               <span class="kss-title__permalink-hash">
                 Templates.Page Layout: Single column
               </span>
@@ -147,12 +147,17 @@
 
           
           <div class="kss-modifier__example">
-            <div class="page-layout page-layout--single-column">
-  <div class="column column--head">
-    <h1>Head Content</h1><h4>Egestas Dolor Inceptos Magna Dapibus</h4>
-  </div>
-  <div class="column column--content">
-    <h2>Main Content</h2><p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
+            <div class="page-layout-wrapper page-layout-wrapper--single-column">
+  <div class="page-layout page-layout--single-column">
+    <div class="region region--content-header">
+      <b>Content Header</b><p>This is a block of content that might appear just above the content area. In Figma, this is shown as a large image of the Quad, and occupies the entire width of a single column layout until the large breakpoint, at which point it only occupies 10 of the 12 columns.</p>
+    </div>
+    <div class="region region--content">
+      <b>Main Content</b><p>This is the main content area of the page. In Figma, this area occupies the entire width of a single column layout until the medium breakpoint, at which point it occupies 8 of the 12 columns. At the large breakpoint, it begins to occupy 10 of the 12 columns.</p>
+    </div>
+    <div class="region region--content-footer">
+      <b>Content Footer</b><p>This is a block of content that might appear just below the content area. In Figma, it is represented by a wide angle view of the approach to the Quad, and its behavior is the same as that of the header.</p>
+    </div>
   </div>
 </div>
 
@@ -164,12 +169,17 @@
             <summary>
                               Markup: <code>../templates/components/templates/page-layout--single-column/page-layout--single-column.twig</code>
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;div class=&quot;page-layout page-layout--single-column&quot;&gt;
-  &lt;div class=&quot;column column--head&quot;&gt;
-    &lt;h1&gt;Head Content&lt;/h1&gt;&lt;h4&gt;Egestas Dolor Inceptos Magna Dapibus&lt;/h4&gt;
-  &lt;/div&gt;
-  &lt;div class=&quot;column column--content&quot;&gt;
-    &lt;h2&gt;Main Content&lt;/h2&gt;&lt;p&gt;Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.&lt;/p&gt;
+            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;div class=&quot;page-layout-wrapper page-layout-wrapper--single-column&quot;&gt;
+  &lt;div class=&quot;page-layout page-layout--single-column&quot;&gt;
+    &lt;div class=&quot;region region--content-header&quot;&gt;
+      &lt;b&gt;Content Header&lt;/b&gt;&lt;p&gt;This is a block of content that might appear just above the content area. In Figma, this is shown as a large image of the Quad, and occupies the entire width of a single column layout until the large breakpoint, at which point it only occupies 10 of the 12 columns.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;region region--content&quot;&gt;
+      &lt;b&gt;Main Content&lt;/b&gt;&lt;p&gt;This is the main content area of the page. In Figma, this area occupies the entire width of a single column layout until the medium breakpoint, at which point it occupies 8 of the 12 columns. At the large breakpoint, it begins to occupy 10 of the 12 columns.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;region region--content-footer&quot;&gt;
+      &lt;b&gt;Content Footer&lt;/b&gt;&lt;p&gt;This is a block of content that might appear just below the content area. In Figma, it is represented by a wide angle view of the approach to the Quad, and its behavior is the same as that of the header.&lt;/p&gt;
+    &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
