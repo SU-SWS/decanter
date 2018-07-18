@@ -24,19 +24,16 @@
 
 @mixin grid-column-gap($gap: 30px)  {
 
-  margin-left: -($gap/2);
-  margin-right: -($gap/2);
   .region {
-    margin-right: $gap;
+    margin-left: $gap/2;
+    margin-right: $gap/2;
   }
 
-  @supports (display: grid) {
-    margin-right: 0;
+  @supports (grid-column-gap: 20px) {
     grid-column-gap: $gap;
-    column-gap: $gap;
     .region {
+      margin-left: 0;
       margin-right: 0;
     }
   }
-
 }
