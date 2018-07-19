@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+//
+// Class-based Grid.
+//
+// A playground to test concepts.
+//
+// Markup: ../../templates/core/grid/grid.twig
+//
+// Style guide: Core.Grid.Class-based Grid
+//
+
+$base-color--02: darken(#dce, 25%);
+$grid-gap: 10px;
+
+// Mixins
+@mixin decanter-grid($gap: $grid-gap) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: auto;
+}
+
+@mixin decanter-width-one-fourth {
+  margin-bottom: $grid-gap;
+  width: calc(1/4*100% - (#{(1 - 1/4)*$grid-gap}));
+}
+
+@mixin decanter-width-three-fourths {
+  margin-bottom: $grid-gap;
+  width: calc(3/4*100% - (#{(1 - 3/4)*$grid-gap}));
+}
+
+@mixin decanter-width-one-third {
+  margin-bottom: $grid-gap;
+  width: calc(1/3*100% - (#{(1 - 1/3)*$grid-gap}));
+}
+
+@mixin decanter-width-two-thirds {
+  margin-bottom: $grid-gap;
+  width: calc(2/3*100% - (#{(1 - 2/3)*$grid-gap}));
+}
+
+@mixin decanter-width-one-half {
+  margin-bottom: $grid-gap;
+  width: calc(1/2*100% - (#{(1 - 1/2)*$grid-gap}));
+}
+
+@mixin decanter-width-one-whole {
+  margin-bottom: $grid-gap;
+  width: 100%;
+}
+
+@mixin decanter-width-one-fifth {
+  margin-bottom: $grid-gap;
+  width: calc(1/5*100% - (#{(1 - 1/5)*$grid-gap}));
+}
+
+@mixin decanter-width-two-fifths {
+  margin-bottom: $grid-gap;
+  width: calc(2/5*100% - (#{(1 - 2/5)*$grid-gap}));
+}
+
+@mixin decanter-width-three-fifths {
+  margin-bottom: $grid-gap;
+  width: calc(3/5*100% - (#{(1 - 3/5)*$grid-gap}));
+}
+
+@mixin decanter-width-four-fifths {
+  margin-bottom: $grid-gap;
+  width: calc(4/5*100% - (#{(1 - 4/5)*$grid-gap}));
+}
+
+@mixin decanter-width-one-sixth {
+  margin-bottom: $grid-gap;
+  width: calc(1/6*100% - (#{(1 - 1/6)*$grid-gap}));
+}
+
+@mixin decanter-width-five-sixths {
+  margin-bottom: $grid-gap;
+  width: calc(5/6*100% - (#{(1 - 5/6)*$grid-gap}));
+}
+
+// The grid.
+.decanter-grid {
+  @include decanter-grid;
+}
+
+// Just some window dressing to make the boxes pretty.
+.decanter-grid--item {
+  padding: 10px;
+  background-color: rgba(black, .125);
+  &:nth-child(even) {
+    background-color: rgba(black, .25);
+  }
+}
+
+// Got classes if you want them.
+.decanter-width-one-fourth {
+  @include decanter-width-one-fourth;
+}
+
+.decanter-width-three-fourths {
+  @include decanter-width-three-fourths;
+}
+
+.decanter-width-one-third {
+  @include decanter-width-one-third;
+}
+
+.decanter-width-two-thirds {
+  @include decanter-width-two-thirds;
+}
+
+.decanter-width-one-half {
+  @include decanter-width-one-half;
+}
+
+.decanter-width-one-whole {
+  @include decanter-width-one-whole;
+}
+
+.decanter-width-one-fifth {
+  @include decanter-width-one-fifth;
+}
+
+.decanter-width-two-fifths {
+  @include decanter-width-two-fifths;
+}
+
+.decanter-width-three-fifths {
+  @include decanter-width-three-fifths;
+}
+
+.decanter-width-four-fifths {
+  @include decanter-width-four-fifths;
+}
+
+.decanter-width-one-sixth {
+  @include decanter-width-one-sixth;
+}
+
+.decanter-width-five-sixths {
+  @include decanter-width-five-sixths;
+}

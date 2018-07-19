@@ -1,10 +1,73 @@
-{% set items = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'] %}
-
-<h3>{{ classes }}one-fourth</h3>
-{% for row in items|batch(4, 'No item') %}
-<div class="decanter-grid">
-    {% for cell in row %}
-        <div class="decanter-width-one-fourth">{{ cell }}</div>
-    {% endfor %}
+<h4 style="text-align: center;">Whole & Halves</h4>
+  <div class="decanter-grid">
+    <div class="decanter-grid--item decanter-width-one-whole">one-whole</div>
+    <div class="decanter-grid--item decanter-width-one-half">one-half</div>
+    <div class="decanter-grid--item decanter-width-one-half">one-half</div>
+  </div>
 </div>
-{% endfor %}
+
+<h4 style="text-align: center;">Thirds</h4>
+<div class="decanter-grid">
+  <div class="decanter-grid--item decanter-width-one-third">one-third</div>
+  <div class="decanter-grid--item decanter-width-one-third">one-third</div>
+  <div class="decanter-grid--item decanter-width-one-third">one-third</div>
+
+  <div class="decanter-grid--item decanter-width-one-third">one-third</div>
+  <div class="decanter-grid--item decanter-width-two-thirds">two-thirds</div>
+</div>
+
+<h4 style="text-align: center;">Fourths & Halves</h4>
+<div class="decanter-grid">
+  <div class="decanter-grid--item decanter-width-one-fourth">one-fourth</div>
+  <div class="decanter-grid--item decanter-width-one-fourth">one-fourth</div>
+  <div class="decanter-grid--item decanter-width-one-fourth">one-fourth</div>
+  <div class="decanter-grid--item decanter-width-one-fourth">one-fourth</div>
+
+  <div class="decanter-grid--item decanter-width-one-fourth">one-fourth</div>
+  <div class="decanter-grid--item decanter-width-three-fourths">three-fourths</div>
+
+  <div class="decanter-grid--item decanter-width-one-fourth">one-fourth</div>
+  <div class="decanter-grid--item decanter-width-one-half">one-half</div>
+  <div class="decanter-grid--item decanter-width-one-fourth">one-fourth</div>
+</div>
+
+<h4 style="text-align: center;">Fifths</h4>
+<div class="decanter-grid">
+  <div class="decanter-grid--item decanter-width-one-fifth">one-fifth</div>
+  <div class="decanter-grid--item decanter-width-one-fifth">one-fifth</div>
+  <div class="decanter-grid--item decanter-width-one-fifth">one-fifth</div>
+  <div class="decanter-grid--item decanter-width-one-fifth">one-fifth</div>
+  <div class="decanter-grid--item decanter-width-one-fifth">one-fifth</div>
+
+  <div class="decanter-grid--item decanter-width-one-fifth">one-fifth</div>
+  <div class="decanter-grid--item decanter-width-two-fifths">two-fifths</div>
+  <div class="decanter-grid--item decanter-width-two-fifths">two-fifths</div>
+
+  <div class="decanter-grid--item decanter-width-one-fifth">one-fifth</div>
+  <div class="decanter-grid--item decanter-width-three-fifths">three-fifths</div>
+  <div class="decanter-grid--item decanter-width-one-fifth">one-fifth</div>
+
+  <div class="decanter-grid--item decanter-width-one-fifth">one-fifth</div>
+  <div class="decanter-grid--item decanter-width-four-fifths">four-fifths</div>
+</div>
+
+<h4 style="text-align: center;">Sixths, Halves, and Thirds</h4>
+<div class="decanter-grid">
+  <div class="decanter-grid--item decanter-width-one-sixth">one-sixth</div>
+  <div class="decanter-grid--item decanter-width-one-sixth">one-sixth</div>
+  <div class="decanter-grid--item decanter-width-one-sixth">one-sixth</div>
+  <div class="decanter-grid--item decanter-width-one-sixth">one-sixth</div>
+  <div class="decanter-grid--item decanter-width-one-sixth">one-sixth</div>
+  <div class="decanter-grid--item decanter-width-one-sixth">one-sixth</div>
+
+  <div class="decanter-grid--item decanter-width-one-sixth">one-sixth</div>
+  <div class="decanter-grid--item decanter-width-one-half">one-half</div>
+  <div class="decanter-grid--item decanter-width-one-third">one-third</div>
+
+  <div class="decanter-grid--item decanter-width-one-sixth">one-sixth</div>
+  <div class="decanter-grid--item decanter-width-two-thirds">two-thirds</div>
+  <div class="decanter-grid--item decanter-width-one-sixth">one-sixth</div>
+
+  <div class="decanter-grid--item decanter-width-one-sixth">one-sixth</div>
+  <div class="decanter-grid--item decanter-width-five-sixths">five-sixths</div>
+</div>
