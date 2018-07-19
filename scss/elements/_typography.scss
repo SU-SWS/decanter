@@ -17,6 +17,7 @@
 //
 // Style guide: Elements.Typography
 //
+
 html {
   font-family: $font-sans;
   font-size: $em-base;
@@ -106,55 +107,3 @@ dfn {
 .decanter-credits {
   @include credits;
 }
-
-// Removes top margin from first child and bottom margin from last child on
-// elements when they are within those layout elements.
-/*
-.decanter-grid,
-.decanter-grid-full {
-  > :first-child {
-    @include margin(0 null null);
-  }
-
-  > :last-child {
-    @include margin(null null 0);
-  }
-}
-*/
-
-// This might be incompatible with our Flexbox approach.
-/*
-.decanter-width-one-whole,
-.decanter-width-one-half,
-.decanter-width-one-third,
-.decanter-width-two-thirds,
-.decanter-width-one-fourth,
-.decanter-width-three-fourths,
-.decanter-width-one-sixth,
-.decanter-width-five-sixths,
-.decanter-width-one-twelfth {
-  &:first-child {
-    > :first-child {
-      @include margin(0 null null);
-    }
-  }
-
-  > :first-child {
-    @media #{$breakpoint-md} {
-      @include margin(0 null null);
-    }
-  }
-
-  &:last-child {
-    > :last-child {
-      @include margin(null null 0);
-    }
-  }
-
-  > :last-child {
-    @media #{$breakpoint-md} {
-      @include margin(null null 0);
-    }
-  }
-}
-*/

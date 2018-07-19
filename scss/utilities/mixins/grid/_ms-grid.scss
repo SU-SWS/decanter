@@ -8,8 +8,8 @@
   -ms-grid-column-span: $col-end - $col-start;
   -ms-grid-row: $row-start;
   -ms-grid-row-span: $row-end - $row-start;
-  grid-column: #{$col-start}/#{$col-end};
-  grid-row: #{$row-start}/#{$row-end};
+  grid-column: #{$col-start} / #{$col-end};
+  grid-row: #{$row-start} / #{$row-end};
 }
 
 @mixin grid-columns($columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr) {
@@ -17,20 +17,21 @@
   grid-template-columns: $columns;
 }
 
-@mixin grid-rows($rows)  {
+@mixin grid-rows($rows) {
   -ms-grid-rows: $rows;
   grid-template-rows: $rows;
 }
 
-@mixin grid-column-gap($gap: 30px)  {
+@mixin grid-column-gap($gap: 30px) {
 
   .region {
-    margin-left: $gap/2;
-    margin-right: $gap/2;
+    margin-left: $gap / 2;
+    margin-right: $gap / 2;
   }
 
   @supports (grid-column-gap: 20px) {
     grid-column-gap: $gap;
+
     .region {
       margin-left: 0;
       margin-right: 0;

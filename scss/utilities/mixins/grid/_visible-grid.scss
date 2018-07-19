@@ -3,14 +3,16 @@
   margin: 0;
   position: relative;
 
-  &:before {
+  &::before {
     position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     margin-right: auto;
     margin-left: auto;
     width: calc(100% - (2 * var(--offset)));
     max-width: var(--max_width);
-    // height: 100%;
     content: '';
     background-image: var(--background-columns), var(--background-baseline);
     background-size: var(--background-width) 100%;
@@ -19,7 +21,7 @@
     pointer-events: none;
   }
 
-  &:after {
+  &::after {
     content: var(--media-query);
     position: absolute;
     top: 4px;
@@ -36,8 +38,11 @@
   }
 }
 
-/* Helper variables */
+// Helper variables
 :root {
+  --max_width: $site-max-width;
+  --baseline: 3rem;
+  --baseline-shift: 2rem;
   --repeating-width: calc(100% / var(--columns));
   --column-width: calc((100% / var(--columns)) - var(--gutter));
   --background-width: calc(100% + var(--gutter));
@@ -53,17 +58,10 @@
   --background-baseline: repeating-linear-gradient(
     to bottom,
     var(--color),
-    var(--color) 0px,
-    transparent 0px,
+    var(--color) 0,
+    transparent 0,
     transparent var(--baseline)
   );
-}
-
-/* Settings */
-:root {
-  --max_width: $site-max-width;
-  --baseline: 3rem;
-  --baseline-shift: 2rem;
 }
 
 @media (min-width: $screen-xs) {

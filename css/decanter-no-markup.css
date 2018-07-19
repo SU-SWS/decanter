@@ -1,5 +1,7 @@
-/* Helper variables */
 :root {
+  --max_width: $site-max-width;
+  --baseline: 3rem;
+  --baseline-shift: 2rem;
   --repeating-width: calc(100% / var(--columns));
   --column-width: calc((100% / var(--columns)) - var(--gutter));
   --background-width: calc(100% + var(--gutter));
@@ -13,16 +15,10 @@
   --background-baseline: repeating-linear-gradient(
     to bottom,
     var(--color),
-    var(--color) 0px,
-    transparent 0px,
+    var(--color) 0,
+    transparent 0,
     transparent var(--baseline)
   ); }
-
-/* Settings */
-:root {
-  --max_width: $site-max-width;
-  --baseline: 3rem;
-  --baseline-shift: 2rem; }
 
 @media (min-width: 0) {
   :root {
