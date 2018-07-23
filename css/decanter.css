@@ -1101,6 +1101,8 @@ h6 {
 h1 {
   font-size: 4.3rem;
   font-weight: 600; }
+  h1:first-child {
+    margin-top: 0; }
 
 h2 {
   font-size: 3.3rem;
@@ -1166,7 +1168,9 @@ dfn {
   @media screen and (min-width: 481px) {
     .decanter-font-splash {
       font-size: 4.3rem;
-      font-weight: 600; } }
+      font-weight: 600; }
+      .decanter-font-splash:first-child {
+        margin-top: 0; } }
   @media screen and (min-width: 600px) {
     .decanter-font-splash {
       font-size: 5.5rem;
@@ -1241,7 +1245,6 @@ dfn {
     margin-bottom: 0; } }
 
 .decanter-button,
-a.decanter-button,
 button,
 [type=button],
 [type=submit],
@@ -1259,7 +1262,6 @@ button,
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 2rem;
   font-weight: 600;
   line-height: 1;
@@ -1269,7 +1271,6 @@ button,
   width: 100%; }
   @media screen and (min-width: 481px) {
     .decanter-button,
-    a.decanter-button,
     button,
     [type=button],
     [type=submit],
@@ -1277,7 +1278,6 @@ button,
     [type=image] {
       width: auto; } }
   .decanter-button:hover,
-  a.decanter-button:hover,
   button:hover,
   [type=button]:hover,
   [type=submit]:hover,
@@ -1288,7 +1288,6 @@ button,
     color: #ffffff;
     text-decoration: none; }
   .decanter-button:focus,
-  a.decanter-button:focus,
   button:focus,
   [type=button]:focus,
   [type=submit]:focus,
@@ -1297,8 +1296,7 @@ button,
     background-color: #2e2d29;
     box-shadow: 0 0 3px #4d4f53, 0 0 7px #4d4f53; }
 
-.decanter-button--secondary,
-a.decanter-button--secondary {
+.decanter-button--secondary {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   margin-top: 0.5em;
@@ -1312,7 +1310,6 @@ a.decanter-button--secondary {
   color: #b1040e;
   cursor: pointer;
   display: inline-block;
-  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 2rem;
   font-weight: 600;
   line-height: 1;
@@ -1321,24 +1318,20 @@ a.decanter-button--secondary {
   text-decoration: none;
   width: 100%; }
   @media screen and (min-width: 481px) {
-    .decanter-button--secondary,
-    a.decanter-button--secondary {
+    .decanter-button--secondary {
       width: auto; } }
-  .decanter-button--secondary:hover,
-  a.decanter-button--secondary:hover {
+  .decanter-button--secondary:hover {
     background-color: #ffffff;
     border-bottom: 0;
     box-shadow: inset 0 0 0 2px #2e2d29;
     color: #2e2d29;
     text-decoration: none; }
-  .decanter-button--secondary:focus,
-  a.decanter-button--secondary:focus {
+  .decanter-button--secondary:focus {
     background-color: #ffffff;
     box-shadow: inset 0 0 0 2px #2e2d29, 0 0 3px #4d4f53, 0 0 7px #4d4f53;
     color: #2e2d29; }
 
-.decanter-button--big,
-a.decanter-button--big {
+.decanter-button--big {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   margin-top: 0.5em;
@@ -1351,7 +1344,6 @@ a.decanter-button--big {
   color: #ffffff;
   cursor: pointer;
   display: inline-block;
-  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   font-size: 2.3rem;
   font-weight: 600;
   line-height: 1;
@@ -1360,22 +1352,18 @@ a.decanter-button--big {
   text-decoration: none;
   width: 100%; }
   @media screen and (min-width: 481px) {
-    .decanter-button--big,
-    a.decanter-button--big {
+    .decanter-button--big {
       width: auto; } }
-  .decanter-button--big:hover,
-  a.decanter-button--big:hover {
+  .decanter-button--big:hover {
     background-color: #2e2d29;
     border-bottom: 0;
     color: #ffffff;
     text-decoration: none; }
-  .decanter-button--big:focus,
-  a.decanter-button--big:focus {
+  .decanter-button--big:focus {
     background-color: #2e2d29;
     box-shadow: 0 0 3px #4d4f53, 0 0 7px #4d4f53; }
 
-.decanter-button--unstyled,
-a.decanter-button--unstyled {
+.decanter-button--unstyled {
   background-color: transparent;
   border: 0;
   font-weight: 400;
@@ -1384,8 +1372,7 @@ a.decanter-button--unstyled {
   -webkit-font-smoothing: auto;
   margin: 0;
   padding: 0; }
-  .decanter-button--unstyled:hover,
-  a.decanter-button--unstyled:hover {
+  .decanter-button--unstyled:hover {
     background-color: transparent; }
 
 .decanter-media-block__img {
