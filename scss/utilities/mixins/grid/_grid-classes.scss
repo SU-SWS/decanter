@@ -1,111 +1,118 @@
-@mixin decanter-grid($gap: $gutter-md) {
+@mixin decanter-grid {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
   flex-wrap: wrap;
-  margin: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  @media #{$breakpoint-xs} {
+    margin-left: (-$gutter-xs);
+  }
+  @media #{$breakpoint-sm} {
+    margin-left: (-$gutter-sm);
+  }
+  @media #{$breakpoint-md} {
+    margin-left: (-$gutter-md);
+  }
+  @media #{$breakpoint-lg} {
+    margin-left: (-$gutter-lg);
+  }
+  @media #{$breakpoint-xl} {
+    margin-left: (-$gutter-xl);
+  }
+}
+
+@mixin decanter-grid--item {
+  padding: 0 0 0 $gutter-xs;
+  @media #{$breakpoint-lg} {
+    padding: 0 0 0 $gutter-lg;
+  }
 }
 
 @mixin decanter-width-one-whole {
-  width: 100%;
+  flex: 0 0 100%;
 }
 
 @mixin decanter-width-one-half {
-  width: 100%;
-  @media #{$breakpoint-md} {
-    width: calc(1 / 2 * 100% - (#{(1 - 1 / 2) * $gutter-md}));
-  }
-  @media #{$breakpoint-lg} {
-    width: calc(1 / 2 * 100% - (#{(1 - 1 / 2) * $gutter-lg}));
-  }
-}
-
-@mixin decanter-width-one-fourth {
-  width: 100%;
-  @media #{$breakpoint-md} {
-    width: calc(1 / 2 * 100% - (#{(1 - 1 / 2) * $gutter-md}));
-  }
-  @media #{$breakpoint-lg} {
-    width: calc(1 / 4 * 100% - (#{(1 - 1 / 4) * $gutter-lg}));
-  }
-}
-
-@mixin decanter-width-three-fourths {
-  width: 100%;
-  @media #{$breakpoint-md} {
-    width: 100%;
-  }
-  @media #{$breakpoint-lg} {
-    width: calc(3 / 4 * 100% - (#{(1 - 3 / 4) * $gutter-lg}));
+  flex: 0 0 100%;
+  @media #{$breakpoint-sm} {
+    flex: 0 0 50%;
   }
 }
 
 @mixin decanter-width-one-third {
-  width: 100%;
-  @media #{$breakpoint-md} {
-    width: calc(1 / 3 * 100% - (#{(1 - 1 / 3) * $gutter-md}));
-  }
-  @media #{$breakpoint-lg} {
-    width: calc(1 / 3 * 100% - (#{(1 - 1 / 3) * $gutter-lg}));
+  flex: 0 0 100%;
+  @media #{$breakpoint-sm} {
+    flex: 0 0 (100% * (1 / 3));
   }
 }
 
 @mixin decanter-width-two-thirds {
-  width: 100%;
-  @media #{$breakpoint-md} {
-    width: calc(2 / 3 * 100% - (#{(1 - 2 / 3) * $gutter-md}));
+  flex: 0 0 100%;
+  @media #{$breakpoint-sm} {
+    flex: 0 0 (100% * (2 / 3));
   }
-  @media #{$breakpoint-lg} {
-    width: calc(2 / 3 * 100% - (#{(1 - 2 / 3) * $gutter-lg}));
+}
+
+@mixin decanter-width-one-fourth {
+  flex: 0 0 100%;
+  @media #{$breakpoint-sm} {
+    flex: 0 0 (100% * (1 / 4));
+  }
+}
+
+@mixin decanter-width-three-fourths {
+  flex: 0 0 100%;
+  @media #{$breakpoint-sm} {
+    flex: 0 0 (100% * (3 / 4));
   }
 }
 
 @mixin decanter-width-one-sixth {
-  width: 100%;
-  @media #{$breakpoint-md} {
-    width: calc(1 / 3 * 100% - (#{(1 - 1 / 3) * $gutter-md}));
+  flex: 0 0 100%;
+  @media #{$breakpoint-sm} {
+    flex: 0 0 (100% * (1 / 3));
   }
-  @media #{$breakpoint-lg} {
-    width: calc(1 / 6 * 100% - (#{(1 - 1 / 6) * $gutter-lg}));
+  @media #{$breakpoint-md} {
+    flex: 0 0 (100% * (1 / 6));
   }
 }
 
 @mixin decanter-width-five-sixths {
-  width: 100%;
-  @media #{$breakpoint-md} {
-    width: 100%;
+  flex: 0 0 100%;
+  @media #{$breakpoint-sm} {
+    flex: 0 0 (100% * (1 / 3));
   }
-  @media #{$breakpoint-lg} {
-    width: calc(5 / 6 * 100% - (#{(1 - 5 / 6) * $gutter-lg}));
+  @media #{$breakpoint-md} {
+    flex: 0 0 (100% * (5 / 6));
   }
 }
 
 @mixin decanter-width-one-twelfth {
-  width: 100%;
-  @media #{$breakpoint-md} {
-    width: calc(1 / 3 * 100% - (#{(1 - 1 / 3) * $gutter-md}));
+  flex: 0 0 100%;
+  @media #{$breakpoint-sm} {
+    flex: 0 0 (100% * (1 / 3));
   }
-  @media #{$breakpoint-lg} {
-    width: calc(1 / 12 * 100% - (#{(1 - 1 / 12) * $gutter-lg}));
+  @media #{$breakpoint-md} {
+    flex: 0 0 (100% * (1 / 12));
   }
 }
 
 @mixin decanter-width-five-twelfths {
-  width: 100%;
-  @media #{$breakpoint-md} {
-    width: calc(5 / 12 * 100% - (#{(1 - 5 / 12) * $gutter-md}));
+  flex: 0 0 100%;
+  @media #{$breakpoint-sm} {
+    flex: 0 0 (100% * (1 / 3));
   }
-  @media #{$breakpoint-lg} {
-    width: calc(5 / 12 * 100% - (#{(1 - 5 / 12) * $gutter-lg}));
+  @media #{$breakpoint-md} {
+    flex: 0 0 (100% * (5 / 12));
   }
 }
 
 @mixin decanter-width-seven-twelfths {
-  width: 100%;
-  @media #{$breakpoint-md} {
-    width: calc(7 / 12 * 100% - (#{(1 - 7 / 12) * $gutter-md}));
+  flex: 0 0 100%;
+  @media #{$breakpoint-sm} {
+    flex: 0 0 (100% * (1 / 3));
   }
-  @media #{$breakpoint-lg} {
-    width: calc(7 / 12 * 100% - (#{(1 - 7 / 12) * $gutter-lg}));
+  @media #{$breakpoint-md} {
+    flex: 0 0 (100% * (7 / 12));
   }
 }
