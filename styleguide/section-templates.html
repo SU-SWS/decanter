@@ -219,15 +219,15 @@
           <div class="kss-modifier__example">
             <div class="page-layout-wrapper page-layout-wrapper--single-column">
   <div class="page-layout page-layout--single-column">
-    <div class="region region--content-header">
-      <b>Content Header</b><p>This is a block of content that might appear just above the content area. In Figma, this is shown as a large image of the Quad, and occupies the entire width of a single column layout until the large breakpoint, at which point it only occupies 10 of the 12 columns.</p>
-    </div>
-    <div class="region region--content">
-      <b>Main Content</b><p>This is the main content area of the page. In Figma, this area occupies the entire width of a single column layout until the medium breakpoint, at which point it occupies 8 of the 12 columns. At the large breakpoint, it begins to occupy 10 of the 12 columns.</p>
-    </div>
-    <div class="region region--content-footer">
-      <b>Content Footer</b><p>This is a block of content that might appear just below the content area. In Figma, it is represented by a wide angle view of the approach to the Quad, and its behavior is the same as that of the header.</p>
-    </div>
+    <header class="region region--header">
+      <b>Site Header</b><p>This is the site header.</p>
+    </header>
+    <main class="region region--content">
+      <b>Main Content</b><p>This is the main content area.</p>
+    </main>
+    <footer class="region region--footer">
+      <b>Site Footer</b><p>This is the site footer.</p>
+    </footer>
   </div>
 </div>
 
@@ -241,15 +241,15 @@
                           </summary>
             <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;div class=&quot;page-layout-wrapper page-layout-wrapper--single-column&quot;&gt;
   &lt;div class=&quot;page-layout page-layout--single-column&quot;&gt;
-    &lt;div class=&quot;region region--content-header&quot;&gt;
-      &lt;b&gt;Content Header&lt;/b&gt;&lt;p&gt;This is a block of content that might appear just above the content area. In Figma, this is shown as a large image of the Quad, and occupies the entire width of a single column layout until the large breakpoint, at which point it only occupies 10 of the 12 columns.&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;region region--content&quot;&gt;
-      &lt;b&gt;Main Content&lt;/b&gt;&lt;p&gt;This is the main content area of the page. In Figma, this area occupies the entire width of a single column layout until the medium breakpoint, at which point it occupies 8 of the 12 columns. At the large breakpoint, it begins to occupy 10 of the 12 columns.&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;region region--content-footer&quot;&gt;
-      &lt;b&gt;Content Footer&lt;/b&gt;&lt;p&gt;This is a block of content that might appear just below the content area. In Figma, it is represented by a wide angle view of the approach to the Quad, and its behavior is the same as that of the header.&lt;/p&gt;
-    &lt;/div&gt;
+    &lt;header class=&quot;region region--header&quot;&gt;
+      &lt;b&gt;Site Header&lt;/b&gt;&lt;p&gt;This is the site header.&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;main class=&quot;region region--content&quot;&gt;
+      &lt;b&gt;Main Content&lt;/b&gt;&lt;p&gt;This is the main content area.&lt;/p&gt;
+    &lt;/main&gt;
+    &lt;footer class=&quot;region region--footer&quot;&gt;
+      &lt;b&gt;Site Footer&lt;/b&gt;&lt;p&gt;This is the site footer.&lt;/p&gt;
+    &lt;/footer&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -340,18 +340,18 @@
           <div class="kss-modifier__example">
             <div class="page-layout-wrapper page-layout-wrapper--right-sidebar">
   <div class="page-layout page-layout--right-sidebar">
-    <div class="region region--content-header">
-      <b>Content Header</b><p>This is a block of content that might appear just above the content area. In Figma, this is shown as a large image of the Quad, and occupies the entire width of both two-column layouts throughout all breakpoints.</p>
-    </div>
-    <div class="region region--content">
-      <b>Main Content</b><p>This is the main content area of the page. In Figma, this area occupies the entire width of a two column layout until the medium breakpoint, at which point it occupies the first 8 of 12 columns.</p>
-    </div>
+    <header class="region region--header">
+      <b>Site Header</b><p>This is the site header.</p>
+    </header>
+    <main class="region region--content">
+      <b>Main Content</b><p>This is the main content area.</p>
+    </main>
     <aside class="region region--sidebar region--sidebar--first">
-      <b>Sidebar</b><p>This is the only sidebar in a right sidebar layout.  In Figma, it is represented by a faculty photo, office hours, and other info. It appears below the main content until the medium breakpoint, at which point it moves to the right of the content, occupying 4 of 12 columns.</p>
+      <b>Sidebar</b><p>This is the only sidebar in a right sidebar layout.
     </aside>
-    <div class="region region--content-footer">
-      <b>Content Footer</b><p>This is a block of content that might appear just below the content area. It is not illustrated in this layout in Figma, but its behavior would likely match that of the content header.</p>
-    </div>
+    <footer class="region region--footer">
+      <b>Site Footer</b><p>This is the site footer.</p>
+    </footer>
   </div>
 </div>
 
@@ -365,18 +365,18 @@
                           </summary>
             <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;div class=&quot;page-layout-wrapper page-layout-wrapper--right-sidebar&quot;&gt;
   &lt;div class=&quot;page-layout page-layout--right-sidebar&quot;&gt;
-    &lt;div class=&quot;region region--content-header&quot;&gt;
-      &lt;b&gt;Content Header&lt;/b&gt;&lt;p&gt;This is a block of content that might appear just above the content area. In Figma, this is shown as a large image of the Quad, and occupies the entire width of both two-column layouts throughout all breakpoints.&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;region region--content&quot;&gt;
-      &lt;b&gt;Main Content&lt;/b&gt;&lt;p&gt;This is the main content area of the page. In Figma, this area occupies the entire width of a two column layout until the medium breakpoint, at which point it occupies the first 8 of 12 columns.&lt;/p&gt;
-    &lt;/div&gt;
+    &lt;header class=&quot;region region--header&quot;&gt;
+      &lt;b&gt;Site Header&lt;/b&gt;&lt;p&gt;This is the site header.&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;main class=&quot;region region--content&quot;&gt;
+      &lt;b&gt;Main Content&lt;/b&gt;&lt;p&gt;This is the main content area.&lt;/p&gt;
+    &lt;/main&gt;
     &lt;aside class=&quot;region region--sidebar region--sidebar--first&quot;&gt;
-      &lt;b&gt;Sidebar&lt;/b&gt;&lt;p&gt;This is the only sidebar in a right sidebar layout.  In Figma, it is represented by a faculty photo, office hours, and other info. It appears below the main content until the medium breakpoint, at which point it moves to the right of the content, occupying 4 of 12 columns.&lt;/p&gt;
+      &lt;b&gt;Sidebar&lt;/b&gt;&lt;p&gt;This is the only sidebar in a right sidebar layout.
     &lt;/aside&gt;
-    &lt;div class=&quot;region region--content-footer&quot;&gt;
-      &lt;b&gt;Content Footer&lt;/b&gt;&lt;p&gt;This is a block of content that might appear just below the content area. It is not illustrated in this layout in Figma, but its behavior would likely match that of the content header.&lt;/p&gt;
-    &lt;/div&gt;
+    &lt;footer class=&quot;region region--footer&quot;&gt;
+      &lt;b&gt;Site Footer&lt;/b&gt;&lt;p&gt;This is the site footer.&lt;/p&gt;
+    &lt;/footer&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -467,18 +467,18 @@
           <div class="kss-modifier__example">
             <div class="page-layout-wrapper page-layout-wrapper--left-sidebar">
   <div class="page-layout page-layout--left-sidebar">
-    <div class="region region--content-header">
-      <b>Content Header</b><p>This is a block of content that might appear just above the content area. In Figma, this is shown as a large image of the Quad, and occupies the entire width of both two-column layouts throughout all breakpoints.</p>
-    </div>
-    <div class="region region--content">
-      <b>Main Content</b><p>This is the main content area of the page. In Figma, this area occupies the entire width of a two column layout until the medium breakpoint, at which point it occupies the middle 10 of 12 columns. At the large breakpoint, it occupies the last 8 of 12 columns, with the sidebar to its left.</p>
-    </div>
+    <header class="region region--header">
+      <b>Site Header</b><p>This is the site header.</p>
+    </header>
+    <main class="region region--content">
+      <b>Main Content</b><p>This is the main content area.</p>
+    </main>
     <aside class="region region--sidebar region--sidebar--first">
-      <b>Sidebar</b><p>This is the only sidebar in a left sidebar layout.  In Figma, it is represented by the section menu system. Because it is a menu, it does not appear in Figma until the large breakpoint, at which point it occupies the first 4 of 12 columns.</p>
+      <b>Sidebar</b><p>This is the only sidebar in a left sidebar layout.
     </aside>
-    <div class="region region--content-footer">
-      <b>Content Footer</b><p>This is a block of content that might appear just below the content area. It is illustrated as a set of links in Figma; its behavior matches that of the content header.</p>
-    </div>
+    <footer class="region region--footer">
+      <b>Site Footer</b><p>This is the site footer.</p>
+    </footer>
   </div>
 </div>
 
@@ -492,18 +492,18 @@
                           </summary>
             <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;div class=&quot;page-layout-wrapper page-layout-wrapper--left-sidebar&quot;&gt;
   &lt;div class=&quot;page-layout page-layout--left-sidebar&quot;&gt;
-    &lt;div class=&quot;region region--content-header&quot;&gt;
-      &lt;b&gt;Content Header&lt;/b&gt;&lt;p&gt;This is a block of content that might appear just above the content area. In Figma, this is shown as a large image of the Quad, and occupies the entire width of both two-column layouts throughout all breakpoints.&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;region region--content&quot;&gt;
-      &lt;b&gt;Main Content&lt;/b&gt;&lt;p&gt;This is the main content area of the page. In Figma, this area occupies the entire width of a two column layout until the medium breakpoint, at which point it occupies the middle 10 of 12 columns. At the large breakpoint, it occupies the last 8 of 12 columns, with the sidebar to its left.&lt;/p&gt;
-    &lt;/div&gt;
+    &lt;header class=&quot;region region--header&quot;&gt;
+      &lt;b&gt;Site Header&lt;/b&gt;&lt;p&gt;This is the site header.&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;main class=&quot;region region--content&quot;&gt;
+      &lt;b&gt;Main Content&lt;/b&gt;&lt;p&gt;This is the main content area.&lt;/p&gt;
+    &lt;/main&gt;
     &lt;aside class=&quot;region region--sidebar region--sidebar--first&quot;&gt;
-      &lt;b&gt;Sidebar&lt;/b&gt;&lt;p&gt;This is the only sidebar in a left sidebar layout.  In Figma, it is represented by the section menu system. Because it is a menu, it does not appear in Figma until the large breakpoint, at which point it occupies the first 4 of 12 columns.&lt;/p&gt;
+      &lt;b&gt;Sidebar&lt;/b&gt;&lt;p&gt;This is the only sidebar in a left sidebar layout.
     &lt;/aside&gt;
-    &lt;div class=&quot;region region--content-footer&quot;&gt;
-      &lt;b&gt;Content Footer&lt;/b&gt;&lt;p&gt;This is a block of content that might appear just below the content area. It is illustrated as a set of links in Figma; its behavior matches that of the content header.&lt;/p&gt;
-    &lt;/div&gt;
+    &lt;footer class=&quot;region region--footer&quot;&gt;
+      &lt;b&gt;Site Footer&lt;/b&gt;&lt;p&gt;This is the site footer.&lt;/p&gt;
+    &lt;/footer&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
@@ -594,21 +594,21 @@
           <div class="kss-modifier__example">
             <div class="page-layout-wrapper page-layout-wrapper--three-column">
   <div class="page-layout page-layout--three-column">
-    <div class="region region--content-header">
-      <b>Content Header</b><p>This is a block of content that might appear just above the content area. In Figma, this is shown as a large image of the Quad, and occupies the entire width of both two-column layouts throughout all breakpoints.</p>
-    </div>
-    <div class="region region--content">
-      <b>Main Content</b><p>This is the main content area of the page. In Figma, this area occupies the entire width of a three column layout until the medium breakpoint, at which point it occupies the first 8 of 12 columns. At the large breakpoint, it occupies the middle 6 of 12 columns, sidebars to its right and left.</p>
-    </div>
+    <header class="region region--header">
+      <b>Site Header</b><p>This is the site header.</p>
+    </header>
+    <main class="region region--content">
+      <b>Main Content</b><p>This is the main content area.</p>
+    </main>
     <aside class="region region--sidebar region--sidebar--first">
-      <b>First Sidebar</b><p>In Figma, this sidebar is represented by the section menu system. Because it is a menu, it does not appear in Figma until the large breakpoint, at which point it occupies the first 3 of 12 columns.</p>
+      <b>First Sidebar</b><p>This is the first of two sidebars in a three column layout.</p>
     </aside>
     <aside class="region region--sidebar region--sidebar--second">
-      <b>Second Sidebar</b><p>In Figma, this sidebar is represented by a black & white photo and some text. It appears below the main content until the medium breakpoint, at which point it moves to the right of the content, occupying 4 of 12 columns. At the large breakpoint, it occupies 3 of 12 columns.</p>
+      <b>Second Sidebar</b><p>This is the second of two sidebars in a three column layout.</p>
     </aside>
-    <div class="region region--content-footer">
-      <b>Content Footer</b><p>This is a block of content that might appear just below the content area. It is illustrated as a set of links in Figma; its behavior matches that of the content header.</p>
-    </div>
+    <footer class="region region--footer">
+      <b>Site Footer</b><p>This is the site footer.</p>
+    </footer>
   </div>
 </div>
 
@@ -622,21 +622,21 @@
                           </summary>
             <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;div class=&quot;page-layout-wrapper page-layout-wrapper--three-column&quot;&gt;
   &lt;div class=&quot;page-layout page-layout--three-column&quot;&gt;
-    &lt;div class=&quot;region region--content-header&quot;&gt;
-      &lt;b&gt;Content Header&lt;/b&gt;&lt;p&gt;This is a block of content that might appear just above the content area. In Figma, this is shown as a large image of the Quad, and occupies the entire width of both two-column layouts throughout all breakpoints.&lt;/p&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;region region--content&quot;&gt;
-      &lt;b&gt;Main Content&lt;/b&gt;&lt;p&gt;This is the main content area of the page. In Figma, this area occupies the entire width of a three column layout until the medium breakpoint, at which point it occupies the first 8 of 12 columns. At the large breakpoint, it occupies the middle 6 of 12 columns, sidebars to its right and left.&lt;/p&gt;
-    &lt;/div&gt;
+    &lt;header class=&quot;region region--header&quot;&gt;
+      &lt;b&gt;Site Header&lt;/b&gt;&lt;p&gt;This is the site header.&lt;/p&gt;
+    &lt;/header&gt;
+    &lt;main class=&quot;region region--content&quot;&gt;
+      &lt;b&gt;Main Content&lt;/b&gt;&lt;p&gt;This is the main content area.&lt;/p&gt;
+    &lt;/main&gt;
     &lt;aside class=&quot;region region--sidebar region--sidebar--first&quot;&gt;
-      &lt;b&gt;First Sidebar&lt;/b&gt;&lt;p&gt;In Figma, this sidebar is represented by the section menu system. Because it is a menu, it does not appear in Figma until the large breakpoint, at which point it occupies the first 3 of 12 columns.&lt;/p&gt;
+      &lt;b&gt;First Sidebar&lt;/b&gt;&lt;p&gt;This is the first of two sidebars in a three column layout.&lt;/p&gt;
     &lt;/aside&gt;
     &lt;aside class=&quot;region region--sidebar region--sidebar--second&quot;&gt;
-      &lt;b&gt;Second Sidebar&lt;/b&gt;&lt;p&gt;In Figma, this sidebar is represented by a black &amp; white photo and some text. It appears below the main content until the medium breakpoint, at which point it moves to the right of the content, occupying 4 of 12 columns. At the large breakpoint, it occupies 3 of 12 columns.&lt;/p&gt;
+      &lt;b&gt;Second Sidebar&lt;/b&gt;&lt;p&gt;This is the second of two sidebars in a three column layout.&lt;/p&gt;
     &lt;/aside&gt;
-    &lt;div class=&quot;region region--content-footer&quot;&gt;
-      &lt;b&gt;Content Footer&lt;/b&gt;&lt;p&gt;This is a block of content that might appear just below the content area. It is illustrated as a set of links in Figma; its behavior matches that of the content header.&lt;/p&gt;
-    &lt;/div&gt;
+    &lt;footer class=&quot;region region--footer&quot;&gt;
+      &lt;b&gt;Site Footer&lt;/b&gt;&lt;p&gt;This is the site footer.&lt;/p&gt;
+    &lt;/footer&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 </code></pre>
