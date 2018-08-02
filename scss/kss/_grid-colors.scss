@@ -1,0 +1,39 @@
+.page-layout {
+  @include visible-grid;
+}
+
+// Background colors and typography to aid in debugging.
+
+.kss-section .page-layout .region {
+  padding: 15px;
+  font-size: .9em;
+
+  p {
+    padding: 0;
+    margin: 5px 0 0;
+  }
+
+  &--header {
+    background-color: rgba(black, .15);
+  }
+
+  &--content {
+    background-color: rgba(orange, .25);
+  }
+
+  &--sidebar {
+    background-color: rgba(blue, .2);
+
+    &--first {
+      background-color: rgba(maroon, .2);
+    }
+
+    &--second {
+      background-color: rgba(green, .2);
+    }
+  }
+
+  &--footer {
+    background-color: rgba(black, .15);
+  }
+}

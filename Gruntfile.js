@@ -5,8 +5,6 @@ module.exports = function(grunt) {
       options: {
         includePaths: [
           "node_modules/bourbon/core",
-          "node_modules/bourbon-neat/core",
-          "node_modules/neat-omega/core",
           "node_modules/normalize.css",
           "node_modules",
           "scss"
@@ -20,7 +18,8 @@ module.exports = function(grunt) {
         files: {
           'css/decanter.css': 'scss/decanter.scss',
           'css/decanter-no-markup.css': 'scss/decanter-no-markup.scss',
-          'css/decanter-grid.css': 'scss/decanter-grid.scss'
+          'css/decanter-grid.css': 'scss/decanter-grid.scss',
+          'css/decanter-kss.css': 'scss/decanter-kss.scss'
         }
       }
     },
