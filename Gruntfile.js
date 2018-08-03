@@ -5,6 +5,7 @@ module.exports = function(grunt) {
       options: {
         includePaths: [
           "node_modules/bourbon/core",
+          "node_modules/bourbon-neat/core",
           "node_modules/normalize.css",
           "node_modules",
           "scss"

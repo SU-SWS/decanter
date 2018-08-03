@@ -48,28 +48,28 @@
         </a>
               </li>
           <li class="kss-nav__menu-item">
-        <a class="kss-nav__menu-link" href="section-playground.html">
-          <span class="kss-nav__ref">5</span><span class="kss-nav__name">Playground</span>
-        </a>
-              </li>
-          <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="section-core.html">
-          <span class="kss-nav__ref">6</span><span class="kss-nav__name">Core</span>
+          <span class="kss-nav__ref">5</span><span class="kss-nav__name">Core</span>
         </a>
               </li>
           <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="section-elements.html">
-          <span class="kss-nav__ref">7</span><span class="kss-nav__name">Elements</span>
+          <span class="kss-nav__ref">6</span><span class="kss-nav__name">Elements</span>
         </a>
               </li>
           <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="section-functions.html">
-          <span class="kss-nav__ref">8</span><span class="kss-nav__name">Functions</span>
+          <span class="kss-nav__ref">7</span><span class="kss-nav__name">Functions</span>
         </a>
               </li>
           <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="section-mixins.html">
-          <span class="kss-nav__ref">9</span><span class="kss-nav__name">Mixins</span>
+          <span class="kss-nav__ref">8</span><span class="kss-nav__name">Mixins</span>
+        </a>
+              </li>
+          <li class="kss-nav__menu-item">
+        <a class="kss-nav__menu-link" href="section-only-grid-colors.html">
+          <span class="kss-nav__ref">9</span><span class="kss-nav__name">only grid colors</span>
         </a>
               </li>
           <li class="kss-nav__menu-item">
@@ -205,12 +205,12 @@
         
                   <div class="kss-description">
             <p>Variables are a way to store information that will be reused throughout a
-project. They store things like colors and fonts, or any CSS value that&#39;ll be
+project. They store things like colors and fonts, or any CSS value that'll be
 reused.
 Every variable is declared as !default so that it can be
 overridden by a previous import.
 If you want to override a variable, set that variable in one of your
-own partials, then @import &#39;{path/to/}core/variables&#39;.</p>
+own partials, then @import '{path/to/}core/variables'.</p>
 
           </div>
         
@@ -362,7 +362,7 @@ own partials, then @import &#39;{path/to/}core/variables&#39;.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$accordion-border: 1px solid $color-driftwood !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$accordion-border: 1px solid $color-driftwood !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -484,7 +484,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$alerts: map-merge($decanter-alerts, $decanter-custom-alerts);</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$alerts: map-merge($decanter-alerts, $decanter-custom-alerts);&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -584,12 +584,12 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$decanter-alerts: (
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$decanter-alerts: (
   success: rgba(23, 94, 84, 0.6), // $color-palo-alto at 60% opacity
   warning: rgba(234, 171, 0, 0.6), // $color-sun at 60% opacity
   error:   rgba(177, 4, 14, 0.5), // $color-bright-red at 50% opacity
   info:    rgba(0, 152, 219, 0.6), // $color-sky at 60% opacity
-);</code></pre>
+);&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -684,7 +684,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$decanter-custom-alerts: () !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$decanter-custom-alerts: () !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -803,7 +803,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$z-index-nav: 9000 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$z-index-nav: 9000 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -898,7 +898,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$z-index-main-menu: 7000 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$z-index-main-menu: 7000 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -993,7 +993,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$z-index-nav: 9000 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$z-index-nav: 9000 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -1088,7 +1088,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$z-index-overlay: 8000 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$z-index-overlay: 8000 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -1214,7 +1214,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
         
                   <div class="kss-description">
             <p>Mixin for basic mobile-first media query for lg-and-up screen size.</p>
-<p>$breakpoint-lg: (media: &#39;only screen and (min-width: #{$screen-lg})&#39;) !default;</p>
+<p>$breakpoint-lg: (media: 'only screen and (min-width: #{$screen-lg})') !default;</p>
 
           </div>
         
@@ -1236,7 +1236,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$breakpoint-lg: (media: &#039;only screen and (min-width: #{$screen-lg})&#039;) !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-lg: (media: &#039;only screen and (min-width: #{$screen-lg})&#039;) !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -1310,7 +1310,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
         
                   <div class="kss-description">
             <p>Mixin for basic mobile-first media query for md-and-up screen size.</p>
-<p>$breakpoint-md: (media: &#39;only screen and (min-width: #{$screen-md})&#39;) !default;</p>
+<p>$breakpoint-md: (media: 'only screen and (min-width: #{$screen-md})') !default;</p>
 
           </div>
         
@@ -1332,7 +1332,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$breakpoint-md: (media: &#039;only screen and (min-width: #{$screen-md})&#039;) !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-md: (media: &#039;only screen and (min-width: #{$screen-md})&#039;) !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -1406,7 +1406,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
         
                   <div class="kss-description">
             <p>Mixin for basic mobile-first media query for sm-and-up screen size.</p>
-<p>$breakpoint-sm: (media: &#39;only screen and (min-width: #{$screen-sm})&#39;) !default;</p>
+<p>$breakpoint-sm: (media: 'only screen and (min-width: #{$screen-sm})') !default;</p>
 
           </div>
         
@@ -1428,7 +1428,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$breakpoint-sm: (media: &#039;only screen and (min-width: #{$screen-sm})&#039;) !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-sm: (media: &#039;only screen and (min-width: #{$screen-sm})&#039;) !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -1502,7 +1502,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
         
                   <div class="kss-description">
             <p>Mixin for basic mobile-first media query for xs-and-up screen size.</p>
-<p>$breakpoint-xs: (media: &#39;only screen and (min-width: #{$screen-xs})&#39;) !default;</p>
+<p>$breakpoint-xs: (media: 'only screen and (min-width: #{$screen-xs})') !default;</p>
 
           </div>
         
@@ -1524,7 +1524,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$breakpoint-xs: (media: &#039;only screen and (min-width: #{$screen-xs})&#039;) !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-xs: (media: &#039;only screen and (min-width: #{$screen-xs})&#039;) !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -1615,7 +1615,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$columns-lg: 12 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$columns-lg: 12 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -1706,7 +1706,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$columns-md: 12 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$columns-md: 12 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -1797,7 +1797,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$columns-sm: 12 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$columns-sm: 12 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -1888,7 +1888,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$columns-xl: 12 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$columns-xl: 12 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -1979,7 +1979,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$columns-xs: 6 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$columns-xs: 6 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -2074,7 +2074,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$grid-lg: (columns: $columns-lg, gutter: $gutter-lg, media: $screen-lg);</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$grid-lg: (columns: $columns-lg, gutter: $gutter-lg, media: $screen-lg);&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -2169,7 +2169,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$grid-md: (columns: $columns-md, gutter: $gutter-md, media: $screen-md);</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$grid-md: (columns: $columns-md, gutter: $gutter-md, media: $screen-md);&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -2264,7 +2264,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$grid-sm: (columns: $columns-sm, gutter: $gutter-sm, media: $screen-sm);</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$grid-sm: (columns: $columns-sm, gutter: $gutter-sm, media: $screen-sm);&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -2359,7 +2359,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$grid-xl: (columns: $columns-xl, gutter: $gutter-xl, media: $screen-xl);</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$grid-xl: (columns: $columns-xl, gutter: $gutter-xl, media: $screen-xl);&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -2454,7 +2454,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$grid-xs: (columns: $columns-xs, gutter: $gutter-xs, media: $screen-xs);</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$grid-xs: (columns: $columns-xs, gutter: $gutter-xs, media: $screen-xs);&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -2549,7 +2549,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$breakpoint-navwidth: (media: &#039;only screen and (min-width: #{$screen-xl})&#039;) !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-navwidth: (media: &#039;only screen and (min-width: #{$screen-xl})&#039;) !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -2640,7 +2640,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$screen-lg: 992px !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$screen-lg: 992px !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -2731,7 +2731,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$screen-md: 768px !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$screen-md: 768px !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -2822,7 +2822,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$screen-sm: 576px !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$screen-sm: 576px !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -2913,7 +2913,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$screen-xl: 1200px !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$screen-xl: 1200px !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -3004,7 +3004,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$screen-xs: 0px !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$screen-xs: 0px !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -3078,7 +3078,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
         
                   <div class="kss-description">
             <p>Mixin for basic mobile-first media query for xl-and-up screen size.</p>
-<p>$breakpoint-xl: (media: &#39;only screen and (min-width: #{$screen-xl})&#39;) !default;</p>
+<p>$breakpoint-xl: (media: 'only screen and (min-width: #{$screen-xl})') !default;</p>
 
           </div>
         
@@ -3100,7 +3100,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$breakpoint-xl: (media: &#039;only screen and (min-width: #{$screen-xl})&#039;) !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-xl: (media: &#039;only screen and (min-width: #{$screen-xl})&#039;) !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -3126,7 +3126,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <p>Default color palette. Primary colors include Cardinal Red, White, Cool Grey,
 and Black. All other colors are supporting colors.
 See complete color palette at
-<a href="http://identity.stanford.edu/color.html#digital-color">http://identity.stanford.edu/color.html#digital-color</a>.</p>
+http://identity.stanford.edu/color.html#digital-color.</p>
 
           </div>
         
@@ -3222,7 +3222,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-black: #2e2d29 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-black: #2e2d29 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -3313,7 +3313,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-beige: #9d9573 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-beige: #9d9573 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -3404,7 +3404,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-blue: #00548f !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-blue: #00548f !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -3495,7 +3495,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-bright-blue: #006cb8 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-bright-blue: #006cb8 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -3586,7 +3586,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-bright-red: #b1040e !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-bright-red: #b1040e !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -3677,7 +3677,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-brown: #5e3032 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-brown: #5e3032 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -3768,7 +3768,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-cardinal-red: #8c1515 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-cardinal-red: #8c1515 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -3859,7 +3859,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-chocolate: #2f2424 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-chocolate: #2f2424 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -3950,7 +3950,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-clay: #5f574f !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-clay: #5f574f !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -4041,7 +4041,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-cloud: #dad7cb !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-cloud: #dad7cb !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -4132,7 +4132,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-cool-grey: #4d4f53 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-cool-grey: #4d4f53 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -4223,7 +4223,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-dark-red: #820000 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-dark-red: #820000 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -4314,7 +4314,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-driftwood: #b6b1a9 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-driftwood: #b6b1a9 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -4405,7 +4405,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-fog: #f4f4f4 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-fog: #f4f4f4 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -4496,7 +4496,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-gold: #b26f16 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-gold: #b26f16 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -4587,7 +4587,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-lagunita: #007c92 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-lagunita: #007c92 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -4678,7 +4678,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-light-sage: #c7d1c5 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-light-sage: #c7d1c5 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -4769,7 +4769,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-light-sandstone: #f9f6ef !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-light-sandstone: #f9f6ef !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -4860,7 +4860,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-mint: #009b76 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-mint: #009b76 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -4951,7 +4951,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-palo-alto: #175e54 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-palo-alto: #175e54 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -5042,7 +5042,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-poppy: #e98300 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-poppy: #e98300 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -5133,7 +5133,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-purple: #53284f !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-purple: #53284f !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -5224,7 +5224,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-redwood: #8d3c1e !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-redwood: #8d3c1e !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -5315,7 +5315,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-sandhill: #b3995d !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-sandhill: #b3995d !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -5406,7 +5406,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-sandstone: #d2c295 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-sandstone: #d2c295 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -5497,7 +5497,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-sky: #0098db !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-sky: #0098db !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -5588,7 +5588,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-stone: #544948 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-stone: #544948 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -5679,7 +5679,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-sun: #eaab00 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-sun: #eaab00 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -5770,7 +5770,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-teal: #00505c !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-teal: #00505c !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -5861,7 +5861,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-warm-grey: #3f3c30 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-warm-grey: #3f3c30 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -5952,7 +5952,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$color-white: #ffffff !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$color-white: #ffffff !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -6067,7 +6067,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$gutter-lg: 992px !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$gutter-lg: 992px !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -6158,7 +6158,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$gutter-md: 768px !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$gutter-md: 768px !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -6249,7 +6249,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$gutter-sm: 576px !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$gutter-sm: 576px !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -6340,7 +6340,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$gutter-xl: 1200px !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$gutter-xl: 1200px !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -6431,7 +6431,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$gutter-xs: 0px !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$gutter-xs: 0px !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -6554,7 +6554,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$border-radius: 3px !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$border-radius: 3px !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -6649,7 +6649,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2) !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$box-shadow: 0 2px 2px 0 rgba(0,0,0,0.2) !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -6744,7 +6744,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$focus-shadow: 0 0 3px $color-cool-grey, 0 0 7px $color-cool-grey !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$focus-shadow: 0 0 3px $color-cool-grey, 0 0 7px $color-cool-grey !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -6839,7 +6839,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$hit-area: 4.4rem !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$hit-area: 4.4rem !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -6934,7 +6934,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$input-max-width: 46rem !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$input-max-width: 46rem !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -7029,7 +7029,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$lead-max-width: 85rem !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$lead-max-width: 85rem !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -7124,7 +7124,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$nav-width: 951px !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$nav-width: 951px !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -7197,7 +7197,7 @@ See complete color palette at
           </p>
         
                   <div class="kss-description">
-            <p>For setting the margins of the project&#39;s grid system.</p>
+            <p>For setting the margins of the project's grid system.</p>
 
           </div>
         
@@ -7219,7 +7219,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$site-margins: 3rem !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$site-margins: 3rem !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -7292,7 +7292,7 @@ See complete color palette at
           </p>
         
                   <div class="kss-description">
-            <p>For setting the margins of the project&#39;s grid system in mobile.</p>
+            <p>For setting the margins of the project's grid system in mobile.</p>
 
           </div>
         
@@ -7314,7 +7314,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$site-margins-mobile: 1.5rem !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$site-margins-mobile: 1.5rem !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -7387,7 +7387,7 @@ See complete color palette at
           </p>
         
                   <div class="kss-description">
-            <p>For setting the max-width of the project&#39;s grid system.</p>
+            <p>For setting the max-width of the project's grid system.</p>
 
           </div>
         
@@ -7409,7 +7409,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$site-max-width: 1220px !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$site-max-width: 1220px !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -7504,7 +7504,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$text-max-width: 70rem !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$text-max-width: 70rem !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -7623,7 +7623,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$font-path:   &#039;../fonts&#039; !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$font-path:   &#039;../fonts&#039; !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -7718,7 +7718,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$image-path:  &#039;../img&#039; !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$image-path:  &#039;../img&#039; !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -7815,7 +7815,7 @@ See complete color palette at
           </p>
         
                   <div class="kss-description">
-            <p>Set $asset-pipeline to true if you&#39;re using the Rails Asset Pipeline</p>
+            <p>Set $asset-pipeline to true if you're using the Rails Asset Pipeline</p>
 
           </div>
         
@@ -7837,7 +7837,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$asset-pipeline: false !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$asset-pipeline: false !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -7956,7 +7956,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$base-font-size: 2rem !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$base-font-size: 2rem !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -8051,7 +8051,7 @@ See complete color palette at
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$base-line-height: 1.4 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$base-line-height: 1.4 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -8148,7 +8148,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$em-base: 10px;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$em-base: 10px;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -8243,7 +8243,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$font-bold: 600 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$font-bold: 600 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -8338,7 +8338,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$font-light: 200 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$font-light: 200 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -8433,7 +8433,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$font-normal: 400 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$font-normal: 400 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -8528,7 +8528,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$font-sans: &#039;Source Sans Pro&#039;, $helvetica !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$font-sans: &#039;Source Sans Pro&#039;, $helvetica !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -8623,7 +8623,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$font-serif: &#039;Crimson Text&#039;, $georgia !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$font-serif: &#039;Crimson Text&#039;, $georgia !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -8718,7 +8718,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$font-slab: &#039;Roboto Slab&#039;, $georgia !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$font-slab: &#039;Roboto Slab&#039;, $georgia !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -8813,7 +8813,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$font-x-bold: 700 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$font-x-bold: 700 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -8908,7 +8908,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$font-x-light: 100 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$font-x-light: 100 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -9003,7 +9003,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$h1-font-size: 4.3rem !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$h1-font-size: 4.3rem !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -9098,7 +9098,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$h2-font-size: 3.3rem !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$h2-font-size: 3.3rem !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -9193,7 +9193,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$h3-font-size: 2.3rem !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$h3-font-size: 2.3rem !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -9288,7 +9288,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$h4-font-size: 2rem !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$h4-font-size: 2rem !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -9383,7 +9383,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$h5-font-size: 1.8rem !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$h5-font-size: 1.8rem !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -9478,7 +9478,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$h6-font-size: 1.6rem !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$h6-font-size: 1.6rem !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -9573,7 +9573,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$heading-line-height: 1.2 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$heading-line-height: 1.2 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -9668,7 +9668,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$lead-font-size: 2.3rem !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$lead-font-size: 2.3rem !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -9763,7 +9763,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$lead-line-height: 1.5 !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$lead-line-height: 1.5 !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -9858,7 +9858,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$small-font-size: 1.7rem !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$small-font-size: 1.7rem !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -9953,7 +9953,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$splash-font-size: 5.5rem !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$splash-font-size: 5.5rem !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -10100,7 +10100,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$button-stroke: inset 0 0 0 2px !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$button-stroke: inset 0 0 0 2px !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -10219,7 +10219,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$aspect-height: 9;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$aspect-height: 9;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -10314,7 +10314,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$aspect-width: 16;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$aspect-width: 16;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -10433,7 +10433,7 @@ value from Bourbon.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$input-border-width: 0.1rem;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$input-border-width: 0.1rem;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -10529,7 +10529,7 @@ if height not explicitly set.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$input-height-exact: $base-font-size * $input-line-height + $input-padding-vertical * 2 + $input-border-width * 2;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$input-height-exact: $base-font-size * $input-line-height + $input-padding-vertical * 2 + $input-border-width * 2;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -10625,7 +10625,7 @@ if height not explicitly set.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$input-height: floor($input-height-exact * 10) / 10;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$input-height: floor($input-height-exact * 10) / 10;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -10720,7 +10720,7 @@ if height not explicitly set.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$input-line-height: 1.3;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$input-line-height: 1.3;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -10816,7 +10816,7 @@ Using rem instead of px so function uses same units.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$input-padding-vertical: 1rem;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$input-padding-vertical: 1rem;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -10857,12 +10857,10 @@ Using rem instead of px so function uses same units.</p>
 <!-- SCRIPTS -->
 <script src="kss-assets/kss.js"></script>
 <script src="kss-assets/scrollspy.js"></script>
-<script src="kss-assets/prettify.js"></script>
 <script src="kss-assets/kss-fullscreen.js"></script>
 <script src="kss-assets/kss-guides.js"></script>
 <script src="kss-assets/kss-markup.js"></script>
 <script>
-  prettyPrint();
   var spy = new ScrollSpy('#kss-node', {
     nav: '.kss-nav__menu-child > li > a',
     className: 'is-in-viewport'

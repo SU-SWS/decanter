@@ -68,8 +68,7 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
+  text-decoration: underline dotted;
   /* 2 */ }
 
 /**
@@ -301,6 +300,9 @@ template {
 body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
   padding: 22px; }
 
+#kssref-core-grid h4 {
+  text-align: center; }
+
 :root {
   --max_width: $site-max-width;
   --baseline: 3rem;
@@ -309,18 +311,18 @@ body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
   --column-width: calc((100% / var(--columns)) - var(--gutter));
   --background-width: calc(100% + var(--gutter));
   --background-columns: repeating-linear-gradient(
-          to right,
-          var(--color),
-          var(--color) var(--column-width),
-          transparent var(--column-width),
-          transparent var(--repeating-width)
+    to right,
+    var(--color),
+    var(--color) var(--column-width),
+    transparent var(--column-width),
+    transparent var(--repeating-width)
   );
   --background-baseline: repeating-linear-gradient(
-          to bottom,
-          var(--color),
-          var(--color) 0,
-          transparent 0,
-          transparent var(--baseline)
+    to bottom,
+    var(--color),
+    var(--color) 0,
+    transparent 0,
+    transparent var(--baseline)
   ); }
 
 @media (min-width: 0) {
@@ -421,4 +423,8 @@ body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
       background-color: rgba(0, 128, 0, 0.2); }
   .kss-section .page-layout .region--footer {
     background-color: rgba(0, 0, 0, 0.15); }
+
+#kssref-core-grid [class^="decanter-width-"] {
+  background: #bada55; }
+
 /*# sourceMappingURL=decanter-kss.css.map */

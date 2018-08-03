@@ -1,69 +1,71 @@
 @charset "UTF-8";
 
 //
-// Class-based Grid.
-//
-// A playground to test concepts.
-//
-// Markup: ../../templates/core/grid/grid.twig
+// Grid Class-based System
 //
 
-// The grid.
-.decanter-grid {
-  @include decanter-grid;
-}
-
-// Background colors to make the boxes pretty.
-.decanter-grid--item {
-  @include decanter-grid--item;
-  background-color: rgba(black, .125);
-
-  &:nth-child(even) {
-    background-color: rgba(black, .25);
+.decanter-width-one-whole {
+  @media #{$breakpoint-lg} {
+    @include grid-column(12);
   }
 }
 
-// Got classes if you want them.
-.decanter-width-one-fourth {
-  @include decanter-width-one-fourth;
-}
-
-.decanter-width-three-fourths {
-  @include decanter-width-three-fourths;
+.decanter-width-one-half {
+  @media #{$breakpoint-lg} {
+    @include grid-column(6);
+  }
 }
 
 .decanter-width-one-third {
-  @include decanter-width-one-third;
+  @media #{$breakpoint-lg} {
+    @include grid-column(4);
+  }
 }
 
 .decanter-width-two-thirds {
-  @include decanter-width-two-thirds;
+  @media #{$breakpoint-lg} {
+    @include grid-column(8);
+  }
 }
 
-.decanter-width-one-half {
-  @include decanter-width-one-half;
+.decanter-width-one-fourth {
+  @media #{$breakpoint-lg} {
+    @include grid-column(3);
+  }
 }
 
-.decanter-width-one-whole {
-  @include decanter-width-one-whole;
+.decanter-width-three-fourths {
+  @media #{$breakpoint-lg} {
+    @include grid-column(9);
+  }
 }
 
 .decanter-width-one-sixth {
-  @include decanter-width-one-sixth;
+  @media #{$breakpoint-lg} {
+    @include grid-column(2);
+  }
 }
 
 .decanter-width-five-sixths {
-  @include decanter-width-five-sixths;
+  @media #{$breakpoint-lg} {
+    @include grid-column(10);
+  }
 }
 
 .decanter-width-one-twelfth {
-  @include decanter-width-one-twelfth;
+  @media #{$breakpoint-lg} {
+    @include grid-column(1);
+  }
 }
 
 .decanter-width-five-twelfths {
-  @include decanter-width-five-twelfths;
+  @media #{$breakpoint-lg} {
+    @include grid-column(5);
+  }
 }
 
 .decanter-width-seven-twelfths {
-  @include decanter-width-seven-twelfths;
+  @media #{$breakpoint-lg} {
+    @include grid-column(7);
+  }
 }
