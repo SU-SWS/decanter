@@ -11,7 +11,8 @@ body {
   overflow-x: hidden; }
 
 .lt-ie9 * {
-  filter: none !important; }
+  -webkit-filter: none !important;
+          filter: none !important; }
 
 [hidden] {
   display: none !important; }
@@ -29,15 +30,33 @@ body {
   max-width: 100%;
   padding: 0; }
 
-@media only screen and (min-width: 1024px) {
+.decanter-grid {
+  margin-left: -20px;
+  margin-right: -20px;
+  width: calc(100% + 40px);
+  background-color: #bada55; }
+
+@media only screen and (min-width: 768px) {
   .decanter-width-one-whole {
     width: calc(100% - 40px);
     float: left;
     margin-left: 20px; } }
 
 @media only screen and (min-width: 1024px) {
+  .decanter-width-one-whole {
+    width: calc(100% - 40px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 576px) {
   .decanter-width-one-half {
     width: calc(50% - 30px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 768px) {
+  .decanter-width-one-third {
+    width: calc(33.3333333333% - 26.6666666667px);
     float: left;
     margin-left: 20px; } }
 
@@ -47,9 +66,21 @@ body {
     float: left;
     margin-left: 20px; } }
 
+@media only screen and (min-width: 768px) {
+  .decanter-width-two-thirds {
+    width: calc(66.6666666667% - 33.3333333333px);
+    float: left;
+    margin-left: 20px; } }
+
 @media only screen and (min-width: 1024px) {
   .decanter-width-two-thirds {
     width: calc(66.6666666667% - 33.3333333333px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 768px) {
+  .decanter-width-one-fourth {
+    width: calc(25% - 25px);
     float: left;
     margin-left: 20px; } }
 
@@ -59,9 +90,21 @@ body {
     float: left;
     margin-left: 20px; } }
 
+@media only screen and (min-width: 768px) {
+  .decanter-width-three-fourths {
+    width: calc(75% - 35px);
+    float: left;
+    margin-left: 20px; } }
+
 @media only screen and (min-width: 1024px) {
   .decanter-width-three-fourths {
     width: calc(75% - 35px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 768px) {
+  .decanter-width-one-sixth {
+    width: calc(33.3333333333% - 26.6666666667px);
     float: left;
     margin-left: 20px; } }
 
@@ -71,9 +114,21 @@ body {
     float: left;
     margin-left: 20px; } }
 
+@media only screen and (min-width: 768px) {
+  .decanter-width-five-sixths {
+    width: calc(83.3333333333% - 36.6666666667px);
+    float: left;
+    margin-left: 20px; } }
+
 @media only screen and (min-width: 1024px) {
   .decanter-width-five-sixths {
     width: calc(83.3333333333% - 36.6666666667px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 768px) {
+  .decanter-width-one-twelfth {
+    width: calc(33.3333333333% - 26.6666666667px);
     float: left;
     margin-left: 20px; } }
 
@@ -83,9 +138,21 @@ body {
     float: left;
     margin-left: 20px; } }
 
+@media only screen and (min-width: 768px) {
+  .decanter-width-five-twelfths {
+    width: calc(41.6666666667% - 28.3333333333px);
+    float: left;
+    margin-left: 20px; } }
+
 @media only screen and (min-width: 1024px) {
   .decanter-width-five-twelfths {
     width: calc(41.6666666667% - 28.3333333333px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 768px) {
+  .decanter-width-seven-twelfths {
+    width: calc(58.3333333333% - 31.6666666667px);
     float: left;
     margin-left: 20px; } }
 
@@ -138,5 +205,4 @@ body {
 .decanter-offset-eleven-twelfths {
   left: calc(91.6666666667% - 38.3333333333px + 20px);
   position: relative; }
-
 /*# sourceMappingURL=decanter-grid.css.map */

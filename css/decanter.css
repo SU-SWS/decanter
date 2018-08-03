@@ -68,7 +68,8 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */ }
 
 /**
@@ -442,15 +443,33 @@ template {
   max-width: 100%;
   padding: 0; }
 
-@media only screen and (min-width: 1024px) {
+.decanter-grid {
+  margin-left: -20px;
+  margin-right: -20px;
+  width: calc(100% + 40px);
+  background-color: #bada55; }
+
+@media only screen and (min-width: 768px) {
   .decanter-width-one-whole {
     width: calc(100% - 40px);
     float: left;
     margin-left: 20px; } }
 
 @media only screen and (min-width: 1024px) {
+  .decanter-width-one-whole {
+    width: calc(100% - 40px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 576px) {
   .decanter-width-one-half {
     width: calc(50% - 30px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 768px) {
+  .decanter-width-one-third {
+    width: calc(33.3333333333% - 26.6666666667px);
     float: left;
     margin-left: 20px; } }
 
@@ -460,9 +479,21 @@ template {
     float: left;
     margin-left: 20px; } }
 
+@media only screen and (min-width: 768px) {
+  .decanter-width-two-thirds {
+    width: calc(66.6666666667% - 33.3333333333px);
+    float: left;
+    margin-left: 20px; } }
+
 @media only screen and (min-width: 1024px) {
   .decanter-width-two-thirds {
     width: calc(66.6666666667% - 33.3333333333px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 768px) {
+  .decanter-width-one-fourth {
+    width: calc(25% - 25px);
     float: left;
     margin-left: 20px; } }
 
@@ -472,9 +503,21 @@ template {
     float: left;
     margin-left: 20px; } }
 
+@media only screen and (min-width: 768px) {
+  .decanter-width-three-fourths {
+    width: calc(75% - 35px);
+    float: left;
+    margin-left: 20px; } }
+
 @media only screen and (min-width: 1024px) {
   .decanter-width-three-fourths {
     width: calc(75% - 35px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 768px) {
+  .decanter-width-one-sixth {
+    width: calc(33.3333333333% - 26.6666666667px);
     float: left;
     margin-left: 20px; } }
 
@@ -484,9 +527,21 @@ template {
     float: left;
     margin-left: 20px; } }
 
+@media only screen and (min-width: 768px) {
+  .decanter-width-five-sixths {
+    width: calc(83.3333333333% - 36.6666666667px);
+    float: left;
+    margin-left: 20px; } }
+
 @media only screen and (min-width: 1024px) {
   .decanter-width-five-sixths {
     width: calc(83.3333333333% - 36.6666666667px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 768px) {
+  .decanter-width-one-twelfth {
+    width: calc(33.3333333333% - 26.6666666667px);
     float: left;
     margin-left: 20px; } }
 
@@ -496,9 +551,21 @@ template {
     float: left;
     margin-left: 20px; } }
 
+@media only screen and (min-width: 768px) {
+  .decanter-width-five-twelfths {
+    width: calc(41.6666666667% - 28.3333333333px);
+    float: left;
+    margin-left: 20px; } }
+
 @media only screen and (min-width: 1024px) {
   .decanter-width-five-twelfths {
     width: calc(41.6666666667% - 28.3333333333px);
+    float: left;
+    margin-left: 20px; } }
+
+@media only screen and (min-width: 768px) {
+  .decanter-width-seven-twelfths {
+    width: calc(58.3333333333% - 31.6666666667px);
     float: left;
     margin-left: 20px; } }
 
@@ -565,7 +632,8 @@ body {
   overflow-x: hidden; }
 
 .lt-ie9 * {
-  filter: none !important; }
+  -webkit-filter: none !important;
+          filter: none !important; }
 
 [hidden] {
   display: none !important; }
@@ -599,7 +667,9 @@ img {
 input,
 textarea,
 select {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border: 0.1rem solid #b6b1a9;
   border-radius: 0;
   box-sizing: border-box;
@@ -1068,7 +1138,9 @@ button,
   margin-right: 0.5em;
   margin-bottom: 0.5em;
   padding: 1rem 2rem;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: #b1040e;
   border: 0;
   color: #ffffff;
@@ -1115,7 +1187,9 @@ button,
   margin-right: 0.5em;
   margin-bottom: 0.5em;
   padding: 1rem 2rem;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: #ffffff;
   border: 0;
   box-shadow: inset 0 0 0 2px #b1040e;
@@ -1150,7 +1224,9 @@ button,
   margin-right: 0.5em;
   margin-bottom: 0.5em;
   padding: 1.5rem 3rem;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: #b1040e;
   border: 0;
   color: #ffffff;
@@ -1327,7 +1403,8 @@ button,
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  transform: translateX(26rem);
+  -webkit-transform: translateX(26rem);
+          transform: translateX(26rem);
   width: 26rem;
   z-index: 9000; }
   @media (media: "only screen and (min-width: 951px)") {
@@ -1340,10 +1417,12 @@ button,
       float: right;
       overflow-y: visible;
       position: relative;
-      transform: translateX(0);
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
       width: auto; } }
   .decanter-nav.is-visible {
-    transform: translateX(0);
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
     transition: all 0.3s ease-in-out; }
   .decanter-nav nav {
     margin-top: 6rem;
@@ -2646,5 +2725,4 @@ button,
     -ms-grid-row-span: 1;
     grid-column: 1 / 13;
     grid-row: 3 / 4; } }
-
 /*# sourceMappingURL=decanter.css.map */

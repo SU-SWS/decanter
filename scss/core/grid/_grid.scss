@@ -4,67 +4,105 @@
 // Grid Class-based System
 //
 
+.decanter-grid {
+  @include grid-collapse;
+  background-color: #bada55;
+}
+
+[class^="decanter-width-"] {
+}
+
 .decanter-width-one-whole {
+  @media #{$breakpoint-md} {
+    @include grid-column(12);
+  }
   @media #{$breakpoint-lg} {
     @include grid-column(12);
   }
 }
 
 .decanter-width-one-half {
-  @media #{$breakpoint-lg} {
+  @media #{$breakpoint-sm} {
     @include grid-column(6);
   }
 }
 
 .decanter-width-one-third {
+  @media #{$breakpoint-md} {
+    @include grid-column(4);
+  }
   @media #{$breakpoint-lg} {
     @include grid-column(4);
   }
 }
 
 .decanter-width-two-thirds {
+  @media #{$breakpoint-md} {
+    @include grid-column(8);
+  }
   @media #{$breakpoint-lg} {
     @include grid-column(8);
   }
 }
 
 .decanter-width-one-fourth {
+  @media #{$breakpoint-md} {
+    @include grid-column(3);
+  }
   @media #{$breakpoint-lg} {
     @include grid-column(3);
   }
 }
 
 .decanter-width-three-fourths {
+  @media #{$breakpoint-md} {
+    @include grid-column(9);
+  }
   @media #{$breakpoint-lg} {
     @include grid-column(9);
   }
 }
 
 .decanter-width-one-sixth {
+  @media #{$breakpoint-md} {
+    @include grid-column(4);
+  }
   @media #{$breakpoint-lg} {
     @include grid-column(2);
   }
 }
 
 .decanter-width-five-sixths {
+  @media #{$breakpoint-md} {
+    @include grid-column(10);
+  }
   @media #{$breakpoint-lg} {
     @include grid-column(10);
   }
 }
 
 .decanter-width-one-twelfth {
+  @media #{$breakpoint-md} {
+    @include grid-column(4);
+  }
   @media #{$breakpoint-lg} {
     @include grid-column(1);
   }
 }
 
 .decanter-width-five-twelfths {
+  @media #{$breakpoint-md} {
+    @include grid-column(5);
+  }
   @media #{$breakpoint-lg} {
     @include grid-column(5);
   }
 }
 
 .decanter-width-seven-twelfths {
+  @media #{$breakpoint-md} {
+    @include grid-column(7);
+  }
   @media #{$breakpoint-lg} {
     @include grid-column(7);
   }
