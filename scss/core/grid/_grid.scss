@@ -1,109 +1,63 @@
 @charset "UTF-8";
 
 //
-// Grid Class-based System
+// Class-based Grid.
+//
+// A playground to test concepts.
+//
+// Markup: ../../templates/core/grid/grid.twig
 //
 
+// The grid.
 .decanter-grid {
-  @include grid-collapse;
-  background-color: #bada55;
+  @include decanter-grid;
 }
 
-[class^="decanter-width-"] {
+.decanter-grid--item {
+  @include decanter-grid--item;
 }
 
-.decanter-width-one-whole {
-  @media #{$breakpoint-md} {
-    @include grid-column(12);
-  }
-  @media #{$breakpoint-lg} {
-    @include grid-column(12);
-  }
-}
-
-.decanter-width-one-half {
-  @media #{$breakpoint-sm} {
-    @include grid-column(6);
-  }
-}
-
-.decanter-width-one-third {
-  @media #{$breakpoint-md} {
-    @include grid-column(4);
-  }
-  @media #{$breakpoint-lg} {
-    @include grid-column(4);
-  }
-}
-
-.decanter-width-two-thirds {
-  @media #{$breakpoint-md} {
-    @include grid-column(8);
-  }
-  @media #{$breakpoint-lg} {
-    @include grid-column(8);
-  }
-}
-
+// Got classes if you want them.
 .decanter-width-one-fourth {
-  @media #{$breakpoint-md} {
-    @include grid-column(3);
-  }
-  @media #{$breakpoint-lg} {
-    @include grid-column(3);
-  }
+  @include decanter-width-one-fourth;
 }
 
 .decanter-width-three-fourths {
-  @media #{$breakpoint-md} {
-    @include grid-column(9);
-  }
-  @media #{$breakpoint-lg} {
-    @include grid-column(9);
-  }
+  @include decanter-width-three-fourths;
+}
+
+.decanter-width-one-third {
+  @include decanter-width-one-third;
+}
+
+.decanter-width-two-thirds {
+  @include decanter-width-two-thirds;
+}
+
+.decanter-width-one-half {
+  @include decanter-width-one-half;
+}
+
+.decanter-width-one-whole {
+  @include decanter-width-one-whole;
 }
 
 .decanter-width-one-sixth {
-  @media #{$breakpoint-md} {
-    @include grid-column(4);
-  }
-  @media #{$breakpoint-lg} {
-    @include grid-column(2);
-  }
+  @include decanter-width-one-sixth;
 }
 
 .decanter-width-five-sixths {
-  @media #{$breakpoint-md} {
-    @include grid-column(10);
-  }
-  @media #{$breakpoint-lg} {
-    @include grid-column(10);
-  }
+  @include decanter-width-five-sixths;
 }
 
 .decanter-width-one-twelfth {
-  @media #{$breakpoint-md} {
-    @include grid-column(4);
-  }
-  @media #{$breakpoint-lg} {
-    @include grid-column(1);
-  }
+  @include decanter-width-one-twelfth;
 }
 
 .decanter-width-five-twelfths {
-  @media #{$breakpoint-md} {
-    @include grid-column(5);
-  }
-  @media #{$breakpoint-lg} {
-    @include grid-column(5);
-  }
+  @include decanter-width-five-twelfths;
 }
 
 .decanter-width-seven-twelfths {
-  @media #{$breakpoint-md} {
-    @include grid-column(7);
-  }
-  @media #{$breakpoint-lg} {
-    @include grid-column(7);
-  }
+  @include decanter-width-seven-twelfths;
 }
