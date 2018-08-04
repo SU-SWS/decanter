@@ -1214,7 +1214,6 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
         
                   <div class="kss-description">
             <p>Mixin for basic mobile-first media query for lg-and-up screen size.</p>
-<p>$breakpoint-lg: (media: 'only screen and (min-width: #{$screen-lg})') !default;</p>
 
           </div>
         
@@ -1227,7 +1226,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
 
           
           <div class="kss-modifier__example">
-            $breakpoint-lg: (media: 'only screen and (min-width: #{$screen-lg})') !default;
+            $breakpoint-lg: 'only screen and (min-width: #{$screen-lg})' !default;
             <div class="kss-modifier__example-footer"></div>
           </div>
 
@@ -1236,11 +1235,106 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-lg: (media: &#039;only screen and (min-width: #{$screen-lg})&#039;) !default;&lt;/span&gt;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-lg: &#039;only screen and (min-width: #{$screen-lg})&#039; !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
-          Source: <code>variables/core/_breakpoints.scss</code>, line 192
+          Source: <code>variables/core/_breakpoints.scss</code>, line 216
+        </div>
+          </section>
+          <section id="kssref-variables-core-breakpoints-breakpoint-lg-only" class="kss-section kss-section--depth-4 ">
+      <div class="kss-style">
+                <h4 class="kss-title kss-title--level-4">
+          <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-breakpoint-lg-only">
+            <span class="kss-title__ref">
+              10.2.1.2
+              <span class="kss-title__permalink-hash">
+                Variables.Core.Breakpoints.breakpoint-lg-only
+              </span>
+            </span>
+            $breakpoint-lg-only
+          </a>
+        </h4>
+
+                  <p class="kss-toolbar">
+                          <a href="#kssref-variables-core-breakpoints-breakpoint-lg-only" data-kss-fullscreen="kssref-variables-core-breakpoints-breakpoint-lg-only">
+                <span class="kss-toolbar__tooltip">Toggle full screen</span>
+                <svg focusable="false" aria-hidden="true" class="off" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                  <path class="kss-toolbar__icon-fill" d="M64 0v26l-10-10-12 12-6-6 12-12-10-10zM28 42l-12 12 10 10h-26v-26l10 10 12-12z"></path>
+                </svg>
+                <svg focusable="false" aria-hidden="true" class="on" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                  <path class="kss-toolbar__icon-fill" d="M28 36v26l-10-10-12 12-6-6 12-12-10-10zM64 6l-12 12 10 10h-26v-26l10 10 12-12z"></path>
+                </svg>
+              </a>
+              <a href="item-variables-core-breakpoints-breakpoint-lg-only.html" target="_blank">
+                <span class="kss-toolbar__tooltip">Open in new window</span>
+                <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                  <rect x="0" y="20" width="40" height="44" fill="#fff"/>
+                  <path class="kss-toolbar__icon-fill" d="M40,64l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/>
+                  <rect class="kss-toolbar__icon-fill" x="0" y="20" width="40" height="10"/>
+                  <rect x="24" y="0" width="40" height="44" fill="#fff"/>
+                  <path class="kss-toolbar__icon-fill" d="M64,44l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/>
+                  <rect class="kss-toolbar__icon-fill" x="24" y="0" width="40" height="10"/>
+                </svg>
+              </a>
+                        <a href="#kssref-variables-core-breakpoints-breakpoint-lg-only" data-kss-guides="true">
+              <span class="kss-toolbar__tooltip">Toggle example guides</span>
+              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <rect class="kss-toolbar__icon-fill" x="5" y="35" width="5" height="9"/>
+                <rect class="kss-toolbar__icon-fill" x="54" y="21" width="5" height="9"/>
+                <rect class="kss-toolbar__icon-fill" x="54" y="35" width="5" height="9"/>
+                <rect class="kss-toolbar__icon-fill" x="5" y="21" width="5" height="9"/>
+                <rect class="kss-toolbar__icon-fill" x="5" y="0" width="5" height="15"/>
+                <rect class="kss-toolbar__icon-fill" x="35" y="5" width="9" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="20" y="5" width="9" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="0" y="5" width="15" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="54" y="0" width="5" height="15"/>
+                <rect class="kss-toolbar__icon-fill" x="49" y="5" width="15" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="54" y="49" width="5" height="15"/>
+                <rect class="kss-toolbar__icon-fill" x="49" y="54" width="15" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="5" y="49" width="5" height="15"/>
+                <rect class="kss-toolbar__icon-fill" x="0" y="54" width="15" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="35" y="54" width="9" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="20" y="54" width="9" height="5"/>
+              </svg>
+            </a>
+            <a href="#kssref-variables-core-breakpoints-breakpoint-lg-only" data-kss-markup="true">
+              <span class="kss-toolbar__tooltip">Toggle HTML markup</span>
+              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <path class="kss-toolbar__icon-fill" d="M37.555,46.239l6.103,6.103l20.342,-20.342l-20.342,-20.342l-6.103,6.103l14.24,14.239l-14.24,14.239Z"/>
+                <path class="kss-toolbar__icon-fill" d="M26.445,17.761l-6.103,-6.103l-20.342,20.342l20.342,20.342l6.103,-6.103l-14.24,-14.239l14.24,-14.239Z"/>
+              </svg>
+            </a>
+          </p>
+        
+                  <div class="kss-description">
+            <p>Mixin for basic mobile-first media query for lg-only screen size.</p>
+
+          </div>
+        
+        
+              </div>
+
+              <div class="kss-modifier__wrapper">
+          <div class="kss-modifier__heading kss-style">
+            Example          </div>
+
+          
+          <div class="kss-modifier__example">
+            $breakpoint-lg-only: 'only screen and (min-width: #{$screen-lg}) and (max-width: #{$screen-xl - 1})' !default;
+            <div class="kss-modifier__example-footer"></div>
+          </div>
+
+                  </div>
+                  <details class="kss-markup kss-style">
+            <summary>
+                              Markup
+                          </summary>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-lg-only: &#039;only screen and (min-width: #{$screen-lg}) and (max-width: #{$screen-xl - 1})&#039; !default;&lt;/span&gt;</code></pre>
+          </details>
+              
+              <div class="kss-source kss-style">
+          Source: <code>variables/core/_breakpoints.scss</code>, line 226
         </div>
           </section>
           <section id="kssref-variables-core-breakpoints-breakpoint-md" class="kss-section kss-section--depth-4 ">
@@ -1248,7 +1342,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-breakpoint-md">
             <span class="kss-title__ref">
-              10.2.1.2
+              10.2.1.3
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.breakpoint-md
               </span>
@@ -1310,7 +1404,6 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
         
                   <div class="kss-description">
             <p>Mixin for basic mobile-first media query for md-and-up screen size.</p>
-<p>$breakpoint-md: (media: 'only screen and (min-width: #{$screen-md})') !default;</p>
 
           </div>
         
@@ -1323,7 +1416,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
 
           
           <div class="kss-modifier__example">
-            $breakpoint-md: (media: 'only screen and (min-width: #{$screen-md})') !default;
+            $breakpoint-md: 'only screen and (min-width: #{$screen-md})' !default;
             <div class="kss-modifier__example-footer"></div>
           </div>
 
@@ -1332,11 +1425,106 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-md: (media: &#039;only screen and (min-width: #{$screen-md})&#039;) !default;&lt;/span&gt;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-md: &#039;only screen and (min-width: #{$screen-md})&#039; !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
-          Source: <code>variables/core/_breakpoints.scss</code>, line 180
+          Source: <code>variables/core/_breakpoints.scss</code>, line 196
+        </div>
+          </section>
+          <section id="kssref-variables-core-breakpoints-breakpoint-md-only" class="kss-section kss-section--depth-4 ">
+      <div class="kss-style">
+                <h4 class="kss-title kss-title--level-4">
+          <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-breakpoint-md-only">
+            <span class="kss-title__ref">
+              10.2.1.4
+              <span class="kss-title__permalink-hash">
+                Variables.Core.Breakpoints.breakpoint-md-only
+              </span>
+            </span>
+            $breakpoint-md-only
+          </a>
+        </h4>
+
+                  <p class="kss-toolbar">
+                          <a href="#kssref-variables-core-breakpoints-breakpoint-md-only" data-kss-fullscreen="kssref-variables-core-breakpoints-breakpoint-md-only">
+                <span class="kss-toolbar__tooltip">Toggle full screen</span>
+                <svg focusable="false" aria-hidden="true" class="off" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                  <path class="kss-toolbar__icon-fill" d="M64 0v26l-10-10-12 12-6-6 12-12-10-10zM28 42l-12 12 10 10h-26v-26l10 10 12-12z"></path>
+                </svg>
+                <svg focusable="false" aria-hidden="true" class="on" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                  <path class="kss-toolbar__icon-fill" d="M28 36v26l-10-10-12 12-6-6 12-12-10-10zM64 6l-12 12 10 10h-26v-26l10 10 12-12z"></path>
+                </svg>
+              </a>
+              <a href="item-variables-core-breakpoints-breakpoint-md-only.html" target="_blank">
+                <span class="kss-toolbar__tooltip">Open in new window</span>
+                <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                  <rect x="0" y="20" width="40" height="44" fill="#fff"/>
+                  <path class="kss-toolbar__icon-fill" d="M40,64l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/>
+                  <rect class="kss-toolbar__icon-fill" x="0" y="20" width="40" height="10"/>
+                  <rect x="24" y="0" width="40" height="44" fill="#fff"/>
+                  <path class="kss-toolbar__icon-fill" d="M64,44l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/>
+                  <rect class="kss-toolbar__icon-fill" x="24" y="0" width="40" height="10"/>
+                </svg>
+              </a>
+                        <a href="#kssref-variables-core-breakpoints-breakpoint-md-only" data-kss-guides="true">
+              <span class="kss-toolbar__tooltip">Toggle example guides</span>
+              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <rect class="kss-toolbar__icon-fill" x="5" y="35" width="5" height="9"/>
+                <rect class="kss-toolbar__icon-fill" x="54" y="21" width="5" height="9"/>
+                <rect class="kss-toolbar__icon-fill" x="54" y="35" width="5" height="9"/>
+                <rect class="kss-toolbar__icon-fill" x="5" y="21" width="5" height="9"/>
+                <rect class="kss-toolbar__icon-fill" x="5" y="0" width="5" height="15"/>
+                <rect class="kss-toolbar__icon-fill" x="35" y="5" width="9" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="20" y="5" width="9" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="0" y="5" width="15" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="54" y="0" width="5" height="15"/>
+                <rect class="kss-toolbar__icon-fill" x="49" y="5" width="15" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="54" y="49" width="5" height="15"/>
+                <rect class="kss-toolbar__icon-fill" x="49" y="54" width="15" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="5" y="49" width="5" height="15"/>
+                <rect class="kss-toolbar__icon-fill" x="0" y="54" width="15" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="35" y="54" width="9" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="20" y="54" width="9" height="5"/>
+              </svg>
+            </a>
+            <a href="#kssref-variables-core-breakpoints-breakpoint-md-only" data-kss-markup="true">
+              <span class="kss-toolbar__tooltip">Toggle HTML markup</span>
+              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <path class="kss-toolbar__icon-fill" d="M37.555,46.239l6.103,6.103l20.342,-20.342l-20.342,-20.342l-6.103,6.103l14.24,14.239l-14.24,14.239Z"/>
+                <path class="kss-toolbar__icon-fill" d="M26.445,17.761l-6.103,-6.103l-20.342,20.342l20.342,20.342l6.103,-6.103l-14.24,-14.239l14.24,-14.239Z"/>
+              </svg>
+            </a>
+          </p>
+        
+                  <div class="kss-description">
+            <p>Mixin for basic mobile-first media query for md-only screen size.</p>
+
+          </div>
+        
+        
+              </div>
+
+              <div class="kss-modifier__wrapper">
+          <div class="kss-modifier__heading kss-style">
+            Example          </div>
+
+          
+          <div class="kss-modifier__example">
+            $breakpoint-md-only: 'only screen and (min-width: #{$screen-md}) and (max-width: #{$screen-lg - 1})' !default;
+            <div class="kss-modifier__example-footer"></div>
+          </div>
+
+                  </div>
+                  <details class="kss-markup kss-style">
+            <summary>
+                              Markup
+                          </summary>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-md-only: &#039;only screen and (min-width: #{$screen-md}) and (max-width: #{$screen-lg - 1})&#039; !default;&lt;/span&gt;</code></pre>
+          </details>
+              
+              <div class="kss-source kss-style">
+          Source: <code>variables/core/_breakpoints.scss</code>, line 206
         </div>
           </section>
           <section id="kssref-variables-core-breakpoints-breakpoint-sm" class="kss-section kss-section--depth-4 ">
@@ -1344,7 +1532,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-breakpoint-sm">
             <span class="kss-title__ref">
-              10.2.1.3
+              10.2.1.5
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.breakpoint-sm
               </span>
@@ -1406,7 +1594,6 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
         
                   <div class="kss-description">
             <p>Mixin for basic mobile-first media query for sm-and-up screen size.</p>
-<p>$breakpoint-sm: (media: 'only screen and (min-width: #{$screen-sm})') !default;</p>
 
           </div>
         
@@ -1432,7 +1619,102 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
           </details>
               
               <div class="kss-source kss-style">
-          Source: <code>variables/core/_breakpoints.scss</code>, line 168
+          Source: <code>variables/core/_breakpoints.scss</code>, line 176
+        </div>
+          </section>
+          <section id="kssref-variables-core-breakpoints-breakpoint-sm-only" class="kss-section kss-section--depth-4 ">
+      <div class="kss-style">
+                <h4 class="kss-title kss-title--level-4">
+          <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-breakpoint-sm-only">
+            <span class="kss-title__ref">
+              10.2.1.6
+              <span class="kss-title__permalink-hash">
+                Variables.Core.Breakpoints.breakpoint-sm-only
+              </span>
+            </span>
+            $breakpoint-sm-only
+          </a>
+        </h4>
+
+                  <p class="kss-toolbar">
+                          <a href="#kssref-variables-core-breakpoints-breakpoint-sm-only" data-kss-fullscreen="kssref-variables-core-breakpoints-breakpoint-sm-only">
+                <span class="kss-toolbar__tooltip">Toggle full screen</span>
+                <svg focusable="false" aria-hidden="true" class="off" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                  <path class="kss-toolbar__icon-fill" d="M64 0v26l-10-10-12 12-6-6 12-12-10-10zM28 42l-12 12 10 10h-26v-26l10 10 12-12z"></path>
+                </svg>
+                <svg focusable="false" aria-hidden="true" class="on" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                  <path class="kss-toolbar__icon-fill" d="M28 36v26l-10-10-12 12-6-6 12-12-10-10zM64 6l-12 12 10 10h-26v-26l10 10 12-12z"></path>
+                </svg>
+              </a>
+              <a href="item-variables-core-breakpoints-breakpoint-sm-only.html" target="_blank">
+                <span class="kss-toolbar__tooltip">Open in new window</span>
+                <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                  <rect x="0" y="20" width="40" height="44" fill="#fff"/>
+                  <path class="kss-toolbar__icon-fill" d="M40,64l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/>
+                  <rect class="kss-toolbar__icon-fill" x="0" y="20" width="40" height="10"/>
+                  <rect x="24" y="0" width="40" height="44" fill="#fff"/>
+                  <path class="kss-toolbar__icon-fill" d="M64,44l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/>
+                  <rect class="kss-toolbar__icon-fill" x="24" y="0" width="40" height="10"/>
+                </svg>
+              </a>
+                        <a href="#kssref-variables-core-breakpoints-breakpoint-sm-only" data-kss-guides="true">
+              <span class="kss-toolbar__tooltip">Toggle example guides</span>
+              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <rect class="kss-toolbar__icon-fill" x="5" y="35" width="5" height="9"/>
+                <rect class="kss-toolbar__icon-fill" x="54" y="21" width="5" height="9"/>
+                <rect class="kss-toolbar__icon-fill" x="54" y="35" width="5" height="9"/>
+                <rect class="kss-toolbar__icon-fill" x="5" y="21" width="5" height="9"/>
+                <rect class="kss-toolbar__icon-fill" x="5" y="0" width="5" height="15"/>
+                <rect class="kss-toolbar__icon-fill" x="35" y="5" width="9" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="20" y="5" width="9" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="0" y="5" width="15" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="54" y="0" width="5" height="15"/>
+                <rect class="kss-toolbar__icon-fill" x="49" y="5" width="15" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="54" y="49" width="5" height="15"/>
+                <rect class="kss-toolbar__icon-fill" x="49" y="54" width="15" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="5" y="49" width="5" height="15"/>
+                <rect class="kss-toolbar__icon-fill" x="0" y="54" width="15" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="35" y="54" width="9" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="20" y="54" width="9" height="5"/>
+              </svg>
+            </a>
+            <a href="#kssref-variables-core-breakpoints-breakpoint-sm-only" data-kss-markup="true">
+              <span class="kss-toolbar__tooltip">Toggle HTML markup</span>
+              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <path class="kss-toolbar__icon-fill" d="M37.555,46.239l6.103,6.103l20.342,-20.342l-20.342,-20.342l-6.103,6.103l14.24,14.239l-14.24,14.239Z"/>
+                <path class="kss-toolbar__icon-fill" d="M26.445,17.761l-6.103,-6.103l-20.342,20.342l20.342,20.342l6.103,-6.103l-14.24,-14.239l14.24,-14.239Z"/>
+              </svg>
+            </a>
+          </p>
+        
+                  <div class="kss-description">
+            <p>Mixin for basic mobile-first media query for sm-only screen size.</p>
+
+          </div>
+        
+        
+              </div>
+
+              <div class="kss-modifier__wrapper">
+          <div class="kss-modifier__heading kss-style">
+            Example          </div>
+
+          
+          <div class="kss-modifier__example">
+            $breakpoint-sm-only: 'only screen and (min-width: #{$screen-sm}) and (max-width: #{$screen-md - 1})' !default;
+            <div class="kss-modifier__example-footer"></div>
+          </div>
+
+                  </div>
+                  <details class="kss-markup kss-style">
+            <summary>
+                              Markup
+                          </summary>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-sm-only: &#039;only screen and (min-width: #{$screen-sm}) and (max-width: #{$screen-md - 1})&#039; !default;&lt;/span&gt;</code></pre>
+          </details>
+              
+              <div class="kss-source kss-style">
+          Source: <code>variables/core/_breakpoints.scss</code>, line 186
         </div>
           </section>
           <section id="kssref-variables-core-breakpoints-breakpoint-xs" class="kss-section kss-section--depth-4 ">
@@ -1440,7 +1722,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-breakpoint-xs">
             <span class="kss-title__ref">
-              10.2.1.4
+              10.2.1.7
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.breakpoint-xs
               </span>
@@ -1502,7 +1784,6 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
         
                   <div class="kss-description">
             <p>Mixin for basic mobile-first media query for xs-and-up screen size.</p>
-<p>$breakpoint-xs: (media: 'only screen and (min-width: #{$screen-xs})') !default;</p>
 
           </div>
         
@@ -1515,7 +1796,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
 
           
           <div class="kss-modifier__example">
-            $breakpoint-xs: (media: 'only screen and (min-width: #{$screen-xs})') !default;
+            $breakpoint-xs: 'only screen and (min-width: #{$screen-xs})' !default;
             <div class="kss-modifier__example-footer"></div>
           </div>
 
@@ -1524,11 +1805,106 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-xs: (media: &#039;only screen and (min-width: #{$screen-xs})&#039;) !default;&lt;/span&gt;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-xs: &#039;only screen and (min-width: #{$screen-xs})&#039; !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
           Source: <code>variables/core/_breakpoints.scss</code>, line 156
+        </div>
+          </section>
+          <section id="kssref-variables-core-breakpoints-breakpoint-xs-only" class="kss-section kss-section--depth-4 ">
+      <div class="kss-style">
+                <h4 class="kss-title kss-title--level-4">
+          <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-breakpoint-xs-only">
+            <span class="kss-title__ref">
+              10.2.1.8
+              <span class="kss-title__permalink-hash">
+                Variables.Core.Breakpoints.breakpoint-xs-only
+              </span>
+            </span>
+            $breakpoint-xs-only
+          </a>
+        </h4>
+
+                  <p class="kss-toolbar">
+                          <a href="#kssref-variables-core-breakpoints-breakpoint-xs-only" data-kss-fullscreen="kssref-variables-core-breakpoints-breakpoint-xs-only">
+                <span class="kss-toolbar__tooltip">Toggle full screen</span>
+                <svg focusable="false" aria-hidden="true" class="off" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                  <path class="kss-toolbar__icon-fill" d="M64 0v26l-10-10-12 12-6-6 12-12-10-10zM28 42l-12 12 10 10h-26v-26l10 10 12-12z"></path>
+                </svg>
+                <svg focusable="false" aria-hidden="true" class="on" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                  <path class="kss-toolbar__icon-fill" d="M28 36v26l-10-10-12 12-6-6 12-12-10-10zM64 6l-12 12 10 10h-26v-26l10 10 12-12z"></path>
+                </svg>
+              </a>
+              <a href="item-variables-core-breakpoints-breakpoint-xs-only.html" target="_blank">
+                <span class="kss-toolbar__tooltip">Open in new window</span>
+                <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                  <rect x="0" y="20" width="40" height="44" fill="#fff"/>
+                  <path class="kss-toolbar__icon-fill" d="M40,64l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/>
+                  <rect class="kss-toolbar__icon-fill" x="0" y="20" width="40" height="10"/>
+                  <rect x="24" y="0" width="40" height="44" fill="#fff"/>
+                  <path class="kss-toolbar__icon-fill" d="M64,44l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/>
+                  <rect class="kss-toolbar__icon-fill" x="24" y="0" width="40" height="10"/>
+                </svg>
+              </a>
+                        <a href="#kssref-variables-core-breakpoints-breakpoint-xs-only" data-kss-guides="true">
+              <span class="kss-toolbar__tooltip">Toggle example guides</span>
+              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <rect class="kss-toolbar__icon-fill" x="5" y="35" width="5" height="9"/>
+                <rect class="kss-toolbar__icon-fill" x="54" y="21" width="5" height="9"/>
+                <rect class="kss-toolbar__icon-fill" x="54" y="35" width="5" height="9"/>
+                <rect class="kss-toolbar__icon-fill" x="5" y="21" width="5" height="9"/>
+                <rect class="kss-toolbar__icon-fill" x="5" y="0" width="5" height="15"/>
+                <rect class="kss-toolbar__icon-fill" x="35" y="5" width="9" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="20" y="5" width="9" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="0" y="5" width="15" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="54" y="0" width="5" height="15"/>
+                <rect class="kss-toolbar__icon-fill" x="49" y="5" width="15" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="54" y="49" width="5" height="15"/>
+                <rect class="kss-toolbar__icon-fill" x="49" y="54" width="15" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="5" y="49" width="5" height="15"/>
+                <rect class="kss-toolbar__icon-fill" x="0" y="54" width="15" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="35" y="54" width="9" height="5"/>
+                <rect class="kss-toolbar__icon-fill" x="20" y="54" width="9" height="5"/>
+              </svg>
+            </a>
+            <a href="#kssref-variables-core-breakpoints-breakpoint-xs-only" data-kss-markup="true">
+              <span class="kss-toolbar__tooltip">Toggle HTML markup</span>
+              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <path class="kss-toolbar__icon-fill" d="M37.555,46.239l6.103,6.103l20.342,-20.342l-20.342,-20.342l-6.103,6.103l14.24,14.239l-14.24,14.239Z"/>
+                <path class="kss-toolbar__icon-fill" d="M26.445,17.761l-6.103,-6.103l-20.342,20.342l20.342,20.342l6.103,-6.103l-14.24,-14.239l14.24,-14.239Z"/>
+              </svg>
+            </a>
+          </p>
+        
+                  <div class="kss-description">
+            <p>Mixin for basic mobile-first media query for xs-only screen size.</p>
+
+          </div>
+        
+        
+              </div>
+
+              <div class="kss-modifier__wrapper">
+          <div class="kss-modifier__heading kss-style">
+            Example          </div>
+
+          
+          <div class="kss-modifier__example">
+            $breakpoint-xs-only: 'only screen and (min-width: #{$screen-xs}) and (max-width: #{$screen-sm - 1})' !default;
+            <div class="kss-modifier__example-footer"></div>
+          </div>
+
+                  </div>
+                  <details class="kss-markup kss-style">
+            <summary>
+                              Markup
+                          </summary>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-xs-only: &#039;only screen and (min-width: #{$screen-xs}) and (max-width: #{$screen-sm - 1})&#039; !default;&lt;/span&gt;</code></pre>
+          </details>
+              
+              <div class="kss-source kss-style">
+          Source: <code>variables/core/_breakpoints.scss</code>, line 166
         </div>
           </section>
           <section id="kssref-variables-core-breakpoints-cols-lg" class="kss-section kss-section--depth-4 ">
@@ -1536,7 +1912,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-cols-lg">
             <span class="kss-title__ref">
-              10.2.1.5
+              10.2.1.9
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.cols-lg
               </span>
@@ -1627,7 +2003,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-cols-md">
             <span class="kss-title__ref">
-              10.2.1.6
+              10.2.1.10
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.cols-md
               </span>
@@ -1718,7 +2094,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-cols-sm">
             <span class="kss-title__ref">
-              10.2.1.7
+              10.2.1.11
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.cols-sm
               </span>
@@ -1809,7 +2185,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-cols-xl">
             <span class="kss-title__ref">
-              10.2.1.8
+              10.2.1.12
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.cols-xl
               </span>
@@ -1900,7 +2276,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-cols-xs">
             <span class="kss-title__ref">
-              10.2.1.9
+              10.2.1.13
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.cols-xs
               </span>
@@ -1991,7 +2367,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-grid-lg">
             <span class="kss-title__ref">
-              10.2.1.10
+              10.2.1.14
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.grid-lg
               </span>
@@ -2078,7 +2454,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
           </details>
               
               <div class="kss-source kss-style">
-          Source: <code>variables/core/_breakpoints.scss</code>, line 251
+          Source: <code>variables/core/_breakpoints.scss</code>, line 281
         </div>
           </section>
           <section id="kssref-variables-core-breakpoints-grid-md" class="kss-section kss-section--depth-4 ">
@@ -2086,7 +2462,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-grid-md">
             <span class="kss-title__ref">
-              10.2.1.11
+              10.2.1.15
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.grid-md
               </span>
@@ -2173,7 +2549,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
           </details>
               
               <div class="kss-source kss-style">
-          Source: <code>variables/core/_breakpoints.scss</code>, line 240
+          Source: <code>variables/core/_breakpoints.scss</code>, line 270
         </div>
           </section>
           <section id="kssref-variables-core-breakpoints-grid-sm" class="kss-section kss-section--depth-4 ">
@@ -2181,7 +2557,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-grid-sm">
             <span class="kss-title__ref">
-              10.2.1.12
+              10.2.1.16
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.grid-sm
               </span>
@@ -2268,7 +2644,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
           </details>
               
               <div class="kss-source kss-style">
-          Source: <code>variables/core/_breakpoints.scss</code>, line 229
+          Source: <code>variables/core/_breakpoints.scss</code>, line 259
         </div>
           </section>
           <section id="kssref-variables-core-breakpoints-grid-xl" class="kss-section kss-section--depth-4 ">
@@ -2276,7 +2652,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-grid-xl">
             <span class="kss-title__ref">
-              10.2.1.13
+              10.2.1.17
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.grid-xl
               </span>
@@ -2363,7 +2739,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
           </details>
               
               <div class="kss-source kss-style">
-          Source: <code>variables/core/_breakpoints.scss</code>, line 262
+          Source: <code>variables/core/_breakpoints.scss</code>, line 292
         </div>
           </section>
           <section id="kssref-variables-core-breakpoints-grid-xs" class="kss-section kss-section--depth-4 ">
@@ -2371,7 +2747,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-grid-xs">
             <span class="kss-title__ref">
-              10.2.1.14
+              10.2.1.18
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.grid-xs
               </span>
@@ -2458,7 +2834,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
           </details>
               
               <div class="kss-source kss-style">
-          Source: <code>variables/core/_breakpoints.scss</code>, line 218
+          Source: <code>variables/core/_breakpoints.scss</code>, line 248
         </div>
           </section>
           <section id="kssref-variables-core-breakpoints-navwidth" class="kss-section kss-section--depth-4 ">
@@ -2466,7 +2842,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-navwidth">
             <span class="kss-title__ref">
-              10.2.1.15
+              10.2.1.19
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.navwidth
               </span>
@@ -2561,7 +2937,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-screen-lg">
             <span class="kss-title__ref">
-              10.2.1.16
+              10.2.1.20
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.screen-lg
               </span>
@@ -2652,7 +3028,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-screen-md">
             <span class="kss-title__ref">
-              10.2.1.17
+              10.2.1.21
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.screen-md
               </span>
@@ -2743,7 +3119,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-screen-sm">
             <span class="kss-title__ref">
-              10.2.1.18
+              10.2.1.22
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.screen-sm
               </span>
@@ -2834,7 +3210,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-screen-xl">
             <span class="kss-title__ref">
-              10.2.1.19
+              10.2.1.23
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.screen-xl
               </span>
@@ -2925,7 +3301,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-screen-xs">
             <span class="kss-title__ref">
-              10.2.1.20
+              10.2.1.24
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.screen-xs
               </span>
@@ -3016,7 +3392,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-xl">
             <span class="kss-title__ref">
-              10.2.1.21
+              10.2.1.25
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.xl
               </span>
@@ -3078,7 +3454,6 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
         
                   <div class="kss-description">
             <p>Mixin for basic mobile-first media query for xl-and-up screen size.</p>
-<p>$breakpoint-xl: (media: 'only screen and (min-width: #{$screen-xl})') !default;</p>
 
           </div>
         
@@ -3091,7 +3466,7 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
 
           
           <div class="kss-modifier__example">
-            $breakpoint-xl: (media: 'only screen and (min-width: #{$screen-xl})') !default;
+            $breakpoint-xl: 'only screen and (min-width: #{$screen-xl})' !default;
             <div class="kss-modifier__example-footer"></div>
           </div>
 
@@ -3100,11 +3475,11 @@ $decanter-alerts. This is the best way to add new values to a map.</p>
             <summary>
                               Markup
                           </summary>
-            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-xl: (media: &#039;only screen and (min-width: #{$screen-xl})&#039;) !default;&lt;/span&gt;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-xl: &#039;only screen and (min-width: #{$screen-xl})&#039; !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
-          Source: <code>variables/core/_breakpoints.scss</code>, line 204
+          Source: <code>variables/core/_breakpoints.scss</code>, line 236
         </div>
           </section>
           <section id="kssref-variables-core-colors" class="kss-section kss-section--depth-3 ">
