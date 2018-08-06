@@ -4,18 +4,12 @@
 // Grid Base
 //
 
-// Grid container.
-.decanter-grid,
-.decanter-grid-full {
-  @include outer-container;
-}
-
 .decanter-grid {
   @include padding(null $site-margins-mobile);
 
   max-width: $site-max-width;
 
-  @include media($medium-screen) {
+  @media #{$breakpoint-md} {
     @include padding(null $site-margins);
   }
 }

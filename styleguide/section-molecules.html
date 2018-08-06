@@ -10,6 +10,7 @@
 
   <link rel="stylesheet" href="kss-assets/kss.css">
   <link rel="stylesheet" href="css/decanter.css">
+<link rel="stylesheet" href="css/decanter-kss.css">
 
 </head>
 <body id="kss-node" >
@@ -18,7 +19,7 @@
   <header class="kss-header">
     <h1 class="kss-doc-title">Decanter Style Guide and Pattern Library</h1>
   </header>
-  <nav class="kss-nav">
+  <nav class="kss-nav" aria-label="Style Guide">
     <ul class="kss-nav__menu">
       <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="./">
@@ -55,28 +56,16 @@
               </a>
             </li>
                       <li class="kss-nav__menu-item">
-              <a class="kss-nav__menu-link" href="section-molecules.html#kssref-molecules-mainmenu">
-                <span class="kss-nav__ref ">2.4</span
-                ><span class="kss-nav__name">Main Menu</span>
-              </a>
-            </li>
-                      <li class="kss-nav__menu-item">
-              <a class="kss-nav__menu-link" href="section-molecules.html#kssref-molecules-mega-menu">
-                <span class="kss-nav__ref ">2.5</span
-                ><span class="kss-nav__name">Mega Menu</span>
-              </a>
-            </li>
-                      <li class="kss-nav__menu-item">
               <a class="kss-nav__menu-link" href="section-molecules.html#kssref-molecules-sidenav">
-                <span class="kss-nav__ref ">2.6</span
+                <span class="kss-nav__ref ">2.4</span
                 ><span class="kss-nav__name">Sidenav</span>
               </a>
             </li>
                     </ul>
               </li>
           <li class="kss-nav__menu-item">
-        <a class="kss-nav__menu-link" href="section-organisims.html">
-          <span class="kss-nav__ref">3</span><span class="kss-nav__name">Organisims</span>
+        <a class="kss-nav__menu-link" href="section-organisms.html">
+          <span class="kss-nav__ref">3</span><span class="kss-nav__name">Organisms</span>
         </a>
               </li>
           <li class="kss-nav__menu-item">
@@ -105,14 +94,20 @@
         </a>
               </li>
           <li class="kss-nav__menu-item">
+        <a class="kss-nav__menu-link" href="section-only-grid-colors.html">
+          <span class="kss-nav__ref">9</span><span class="kss-nav__name">only grid colors</span>
+        </a>
+              </li>
+          <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="section-variables.html">
-          <span class="kss-nav__ref">9</span><span class="kss-nav__name">Variables</span>
+          <span class="kss-nav__ref">10</span><span class="kss-nav__name">Variables</span>
         </a>
               </li>
         </ul>
   </nav>
 </div>
-<article role="main" class="kss-main">
+<main class="kss-main" aria-label="content">
+<article>
 
   
           <div id="kssref-molecules" class="kss-section kss-section--depth-1 ">
@@ -141,6 +136,7 @@ together.</p>
 
           </div>
         
+        
               </div>
 
       
@@ -165,16 +161,16 @@ together.</p>
                   <p class="kss-toolbar">
                           <a href="#kssref-molecules-alerts" data-kss-fullscreen="kssref-molecules-alerts">
                 <span class="kss-toolbar__tooltip">Toggle full screen</span>
-                <svg class="off" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <svg focusable="false" aria-hidden="true" class="off" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                   <path class="kss-toolbar__icon-fill" d="M64 0v26l-10-10-12 12-6-6 12-12-10-10zM28 42l-12 12 10 10h-26v-26l10 10 12-12z"></path>
                 </svg>
-                <svg class="on" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <svg focusable="false" aria-hidden="true" class="on" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                   <path class="kss-toolbar__icon-fill" d="M28 36v26l-10-10-12 12-6-6 12-12-10-10zM64 6l-12 12 10 10h-26v-26l10 10 12-12z"></path>
                 </svg>
               </a>
               <a href="item-molecules-alerts.html" target="_blank">
                 <span class="kss-toolbar__tooltip">Open in new window</span>
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                   <rect x="0" y="20" width="40" height="44" fill="#fff"/>
                   <path class="kss-toolbar__icon-fill" d="M40,64l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/>
                   <rect class="kss-toolbar__icon-fill" x="0" y="20" width="40" height="10"/>
@@ -185,7 +181,7 @@ together.</p>
               </a>
                         <a href="#kssref-molecules-alerts" data-kss-guides="true">
               <span class="kss-toolbar__tooltip">Toggle example guides</span>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                 <rect class="kss-toolbar__icon-fill" x="5" y="35" width="5" height="9"/>
                 <rect class="kss-toolbar__icon-fill" x="54" y="21" width="5" height="9"/>
                 <rect class="kss-toolbar__icon-fill" x="54" y="35" width="5" height="9"/>
@@ -206,7 +202,7 @@ together.</p>
             </a>
             <a href="#kssref-molecules-alerts" data-kss-markup="true">
               <span class="kss-toolbar__tooltip">Toggle HTML markup</span>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                 <path class="kss-toolbar__icon-fill" d="M37.555,46.239l6.103,6.103l20.342,-20.342l-20.342,-20.342l-6.103,6.103l14.24,14.239l-14.24,14.239Z"/>
                 <path class="kss-toolbar__icon-fill" d="M26.445,17.761l-6.103,-6.103l-20.342,20.342l20.342,20.342l6.103,-6.103l-14.24,-14.239l14.24,-14.239Z"/>
               </svg>
@@ -219,6 +215,7 @@ of a status, or for displaying a validation message that
 alerts someone of an important piece of information.</p>
 
           </div>
+        
         
               </div>
 
@@ -310,13 +307,13 @@ alerts someone of an important piece of information.</p>
             <summary>
                               Markup: <code>../templates/components/molecules/alerts/alerts.twig</code>
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;div class=&quot;decanter-alert [modifier class]&quot;&gt;
-  &lt;div class=&quot;decanter-alert__body&quot;&gt;
-    &lt;h3 class=&quot;decanter-alert__heading&quot;&gt;Alert Heading&lt;/h3&gt;
-    &lt;p class=&quot;decanter-alert__text&quot;&gt;This is the details of the alert message.&lt;/p&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-alert [modifier class]&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-alert__body&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;h3&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-alert__heading&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Alert Heading&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;h3&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-alert__text&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;This is the details of the alert message.&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -340,16 +337,16 @@ alerts someone of an important piece of information.</p>
                   <p class="kss-toolbar">
                           <a href="#kssref-molecules-iconblock" data-kss-fullscreen="kssref-molecules-iconblock">
                 <span class="kss-toolbar__tooltip">Toggle full screen</span>
-                <svg class="off" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <svg focusable="false" aria-hidden="true" class="off" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                   <path class="kss-toolbar__icon-fill" d="M64 0v26l-10-10-12 12-6-6 12-12-10-10zM28 42l-12 12 10 10h-26v-26l10 10 12-12z"></path>
                 </svg>
-                <svg class="on" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <svg focusable="false" aria-hidden="true" class="on" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                   <path class="kss-toolbar__icon-fill" d="M28 36v26l-10-10-12 12-6-6 12-12-10-10zM64 6l-12 12 10 10h-26v-26l10 10 12-12z"></path>
                 </svg>
               </a>
               <a href="item-molecules-iconblock.html" target="_blank">
                 <span class="kss-toolbar__tooltip">Open in new window</span>
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                   <rect x="0" y="20" width="40" height="44" fill="#fff"/>
                   <path class="kss-toolbar__icon-fill" d="M40,64l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/>
                   <rect class="kss-toolbar__icon-fill" x="0" y="20" width="40" height="10"/>
@@ -360,7 +357,7 @@ alerts someone of an important piece of information.</p>
               </a>
                         <a href="#kssref-molecules-iconblock" data-kss-guides="true">
               <span class="kss-toolbar__tooltip">Toggle example guides</span>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                 <rect class="kss-toolbar__icon-fill" x="5" y="35" width="5" height="9"/>
                 <rect class="kss-toolbar__icon-fill" x="54" y="21" width="5" height="9"/>
                 <rect class="kss-toolbar__icon-fill" x="54" y="35" width="5" height="9"/>
@@ -381,7 +378,7 @@ alerts someone of an important piece of information.</p>
             </a>
             <a href="#kssref-molecules-iconblock" data-kss-markup="true">
               <span class="kss-toolbar__tooltip">Toggle HTML markup</span>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                 <path class="kss-toolbar__icon-fill" d="M37.555,46.239l6.103,6.103l20.342,-20.342l-20.342,-20.342l-6.103,6.103l14.24,14.239l-14.24,14.239Z"/>
                 <path class="kss-toolbar__icon-fill" d="M26.445,17.761l-6.103,-6.103l-20.342,20.342l20.342,20.342l6.103,-6.103l-14.24,-14.239l14.24,-14.239Z"/>
               </svg>
@@ -392,6 +389,7 @@ alerts someone of an important piece of information.</p>
             <p>A postcard block with an icon (or images) and text.</p>
 
           </div>
+        
         
               </div>
 
@@ -420,17 +418,17 @@ alerts someone of an important piece of information.</p>
             <summary>
                               Markup: <code>../templates/components/molecules/icon-block/icon-block.twig</code>
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;div class=&quot;decanter-icon-block &quot;&gt;
-  &lt;img class=&quot;decanter-icon-block__img&quot; src=&quot;../../../img/circle.png&quot; alt=&quot;Please provide alt text&quot;&gt;
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-icon-block &quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-icon-block__img&quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;../../../img/circle.png&quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;alt&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;Please provide alt text&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
 
-  &lt;div class=&quot;decanter-icon-block__body&quot;&gt;
-    &lt;p class=&quot;decanter-icon-block__heading&quot;&gt;Heading&lt;/p&gt;
-    &lt;p class=&quot;decanter-icon-block__detail&quot;&gt;Lorem ipsur adipisicing elit, sed do eiusmod tempor incididunt.&lt;/p&gt;
-    &lt;p class=&quot;decanter-icon-block__link&quot;&gt;&lt;a href=&quot;http://stanford.edu&quot;&gt;This is the link&lt;/a&gt;&lt;/p&gt;
-  &lt;/div&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-icon-block__body&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-icon-block__heading&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Heading&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-icon-block__detail&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;Lorem ipsur adipisicing elit, sed do eiusmod tempor incididunt.&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-icon-block__link&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;http://stanford.edu&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;This is the link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
 
-&lt;/div&gt;
-</code></pre>
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -454,16 +452,16 @@ alerts someone of an important piece of information.</p>
                   <p class="kss-toolbar">
                           <a href="#kssref-molecules-icongrid" data-kss-fullscreen="kssref-molecules-icongrid">
                 <span class="kss-toolbar__tooltip">Toggle full screen</span>
-                <svg class="off" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <svg focusable="false" aria-hidden="true" class="off" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                   <path class="kss-toolbar__icon-fill" d="M64 0v26l-10-10-12 12-6-6 12-12-10-10zM28 42l-12 12 10 10h-26v-26l10 10 12-12z"></path>
                 </svg>
-                <svg class="on" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <svg focusable="false" aria-hidden="true" class="on" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                   <path class="kss-toolbar__icon-fill" d="M28 36v26l-10-10-12 12-6-6 12-12-10-10zM64 6l-12 12 10 10h-26v-26l10 10 12-12z"></path>
                 </svg>
               </a>
               <a href="item-molecules-icongrid.html" target="_blank">
                 <span class="kss-toolbar__tooltip">Open in new window</span>
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                   <rect x="0" y="20" width="40" height="44" fill="#fff"/>
                   <path class="kss-toolbar__icon-fill" d="M40,64l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/>
                   <rect class="kss-toolbar__icon-fill" x="0" y="20" width="40" height="10"/>
@@ -474,7 +472,7 @@ alerts someone of an important piece of information.</p>
               </a>
                         <a href="#kssref-molecules-icongrid" data-kss-guides="true">
               <span class="kss-toolbar__tooltip">Toggle example guides</span>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                 <rect class="kss-toolbar__icon-fill" x="5" y="35" width="5" height="9"/>
                 <rect class="kss-toolbar__icon-fill" x="54" y="21" width="5" height="9"/>
                 <rect class="kss-toolbar__icon-fill" x="54" y="35" width="5" height="9"/>
@@ -495,7 +493,7 @@ alerts someone of an important piece of information.</p>
             </a>
             <a href="#kssref-molecules-icongrid" data-kss-markup="true">
               <span class="kss-toolbar__tooltip">Toggle HTML markup</span>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                 <path class="kss-toolbar__icon-fill" d="M37.555,46.239l6.103,6.103l20.342,-20.342l-20.342,-20.342l-6.103,6.103l14.24,14.239l-14.24,14.239Z"/>
                 <path class="kss-toolbar__icon-fill" d="M26.445,17.761l-6.103,-6.103l-20.342,20.342l20.342,20.342l6.103,-6.103l-14.24,-14.239l14.24,-14.239Z"/>
               </svg>
@@ -506,6 +504,7 @@ alerts someone of an important piece of information.</p>
             <p>Grid of icons (or images) with text.</p>
 
           </div>
+        
         
               </div>
 
@@ -567,336 +566,54 @@ alerts someone of an important piece of information.</p>
             <summary>
                               Markup: <code>../templates/components/molecules/icon-grid/icon-grid.twig</code>
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;div class=&quot;decanter-icon-grid &quot;&gt;
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-icon-grid &quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
   
-              &lt;div class=&quot;decanter-icon-grid__row &quot;&gt;
+              &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-icon-grid__row &quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
 
       
   
-            &lt;div class=&quot;decanter-media_block decanter-width-one-half&quot;&gt;
-  &lt;img class=&quot;decanter-media-block__img &quot; src=&quot;../../../img/circle.png&quot; alt=&quot;Please provide alt text&quot;&gt;
-  &lt;div class=&quot;decanter-media-block__body &quot;&gt;
-  &lt;h2&gt;Item One&lt;/h2&gt;
-  &lt;p&gt;Lorem ipsur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-          &lt;div class=&quot;decanter-media_block decanter-width-one-half&quot;&gt;
-  &lt;img class=&quot;decanter-media-block__img &quot; src=&quot;../../../img/circle.png&quot; alt=&quot;Please provide alt text&quot;&gt;
-  &lt;div class=&quot;decanter-media-block__body &quot;&gt;
-  &lt;h2&gt;Item Two&lt;/h2&gt;
-  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+            &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-media_block decanter-width-one-half&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-media-block__img &quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;../../../img/circle.png&quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;alt&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;Please provide alt text&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-media-block__body &quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;h2&lt;/span&gt;&amp;gt;&lt;/span&gt;Item One&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;h2&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;Lorem ipsur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-media_block decanter-width-one-half&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-media-block__img &quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;../../../img/circle.png&quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;alt&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;Please provide alt text&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-media-block__body &quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;h2&lt;/span&gt;&amp;gt;&lt;/span&gt;Item Two&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;h2&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
       
-&lt;/div&gt;
-          &lt;div class=&quot;decanter-icon-grid__row &quot;&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-icon-grid__row &quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
 
       
   
-            &lt;div class=&quot;decanter-media_block decanter-width-one-half&quot;&gt;
-  &lt;img class=&quot;decanter-media-block__img &quot; src=&quot;../../../img/circle.png&quot; alt=&quot;Please provide alt text&quot;&gt;
-  &lt;div class=&quot;decanter-media-block__body &quot;&gt;
-  &lt;h2&gt;Item Three&lt;/h2&gt;
-  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-          &lt;div class=&quot;decanter-media_block decanter-width-one-half&quot;&gt;
-  &lt;img class=&quot;decanter-media-block__img &quot; src=&quot;../../../img/circle.png&quot; alt=&quot;Please provide alt text&quot;&gt;
-  &lt;div class=&quot;decanter-media-block__body &quot;&gt;
-  &lt;h2&gt;Item Four&lt;/h2&gt;
-  &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+            &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-media_block decanter-width-one-half&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-media-block__img &quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;../../../img/circle.png&quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;alt&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;Please provide alt text&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-media-block__body &quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;h2&lt;/span&gt;&amp;gt;&lt;/span&gt;Item Three&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;h2&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-media_block decanter-width-one-half&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-media-block__img &quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;src&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;../../../img/circle.png&quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;alt&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;Please provide alt text&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-media-block__body &quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;h2&lt;/span&gt;&amp;gt;&lt;/span&gt;Item Four&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;h2&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
       
-&lt;/div&gt;
-      &lt;/div&gt;
-</code></pre>
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
           Source: <code>components/molecules/_icon-grid.scss</code>, line 3
-        </div>
-          </section>
-          <section id="kssref-molecules-mainmenu" class="kss-section kss-section--depth-2 ">
-      <div class="kss-style">
-                <h2 class="kss-title kss-title--level-2">
-          <a class="kss-title__permalink" href="#kssref-molecules-mainmenu">
-            <span class="kss-title__ref">
-              2.4
-              <span class="kss-title__permalink-hash">
-                Molecules.MainMenu
-              </span>
-            </span>
-            Main Menu
-          </a>
-        </h2>
-
-                  <p class="kss-toolbar">
-                          <a href="#kssref-molecules-mainmenu" data-kss-fullscreen="kssref-molecules-mainmenu">
-                <span class="kss-toolbar__tooltip">Toggle full screen</span>
-                <svg class="off" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
-                  <path class="kss-toolbar__icon-fill" d="M64 0v26l-10-10-12 12-6-6 12-12-10-10zM28 42l-12 12 10 10h-26v-26l10 10 12-12z"></path>
-                </svg>
-                <svg class="on" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
-                  <path class="kss-toolbar__icon-fill" d="M28 36v26l-10-10-12 12-6-6 12-12-10-10zM64 6l-12 12 10 10h-26v-26l10 10 12-12z"></path>
-                </svg>
-              </a>
-              <a href="item-molecules-mainmenu.html" target="_blank">
-                <span class="kss-toolbar__tooltip">Open in new window</span>
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
-                  <rect x="0" y="20" width="40" height="44" fill="#fff"/>
-                  <path class="kss-toolbar__icon-fill" d="M40,64l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/>
-                  <rect class="kss-toolbar__icon-fill" x="0" y="20" width="40" height="10"/>
-                  <rect x="24" y="0" width="40" height="44" fill="#fff"/>
-                  <path class="kss-toolbar__icon-fill" d="M64,44l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/>
-                  <rect class="kss-toolbar__icon-fill" x="24" y="0" width="40" height="10"/>
-                </svg>
-              </a>
-                        <a href="#kssref-molecules-mainmenu" data-kss-guides="true">
-              <span class="kss-toolbar__tooltip">Toggle example guides</span>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
-                <rect class="kss-toolbar__icon-fill" x="5" y="35" width="5" height="9"/>
-                <rect class="kss-toolbar__icon-fill" x="54" y="21" width="5" height="9"/>
-                <rect class="kss-toolbar__icon-fill" x="54" y="35" width="5" height="9"/>
-                <rect class="kss-toolbar__icon-fill" x="5" y="21" width="5" height="9"/>
-                <rect class="kss-toolbar__icon-fill" x="5" y="0" width="5" height="15"/>
-                <rect class="kss-toolbar__icon-fill" x="35" y="5" width="9" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="20" y="5" width="9" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="0" y="5" width="15" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="54" y="0" width="5" height="15"/>
-                <rect class="kss-toolbar__icon-fill" x="49" y="5" width="15" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="54" y="49" width="5" height="15"/>
-                <rect class="kss-toolbar__icon-fill" x="49" y="54" width="15" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="5" y="49" width="5" height="15"/>
-                <rect class="kss-toolbar__icon-fill" x="0" y="54" width="15" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="35" y="54" width="9" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="20" y="54" width="9" height="5"/>
-              </svg>
-            </a>
-            <a href="#kssref-molecules-mainmenu" data-kss-markup="true">
-              <span class="kss-toolbar__tooltip">Toggle HTML markup</span>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
-                <path class="kss-toolbar__icon-fill" d="M37.555,46.239l6.103,6.103l20.342,-20.342l-20.342,-20.342l-6.103,6.103l14.24,14.239l-14.24,14.239Z"/>
-                <path class="kss-toolbar__icon-fill" d="M26.445,17.761l-6.103,-6.103l-20.342,20.342l20.342,20.342l6.103,-6.103l-14.24,-14.239l14.24,-14.239Z"/>
-              </svg>
-            </a>
-          </p>
-        
-                  <div class="kss-description">
-            <p>A main navigation component with drop downs.</p>
-
-          </div>
-        
-              </div>
-
-              <div class="kss-modifier__wrapper">
-          <div class="kss-modifier__heading kss-style">
-            Example          </div>
-
-          
-          <div class="kss-modifier__example">
-            <div class="decanter-main-menu">
-  <div class="decanter-nav__container">
-    <button class="decanter-main-menu__btn">Menu</button>
-    <nav role="navigation" class="decanter-nav">
-      <button class="decanter-nav__close">
-        <img src="../../../img/close.svg" alt="close">
-      </button>
-      <ul class="decanter-nav-primary decanter-accordion">
-        <li><button class="decanter-accordion__button decanter-nav__link" aria-expanded="false" aria-controls="basic-nav-section-one">
-      Parent link
-    </button>
-          <ul id="basic-nav-section-one" class="decanter-nav-submenu">
-            <li>
-              <a href="#">Child link</a>
-            </li>
-            <li>
-              <a href="#">Child link</a>
-            </li>
-            <li>
-              <a href="#">Child link</a>
-            </li>
-          </ul>
-        </li>
-        <li><button class="decanter-accordion__button decanter-nav__link" aria-expanded="false" aria-controls="basic-nav-section-two">
-      Parent link
-    </button>
-          <ul id="basic-nav-section-two" class="decanter-nav-submenu">
-            <li>
-              <a href="#">Child link</a>
-            </li>
-            <li>
-              <a href="#">Child link</a>
-            </li>
-            <li>
-              <a href="#">Child link</a>
-            </li>
-          </ul>
-        </li>
-        <li><a class="decanter-nav__link" href="#">
-      Parent link
-    </a></li>
-      </ul>
-    </nav>
-  </div>
-</div>
-<div class="decanter-nav__overlay"></div>
-
-            <div class="kss-modifier__example-footer"></div>
-          </div>
-
-                  </div>
-                  <details class="kss-markup kss-style">
-            <summary>
-                              Markup: <code>../templates/components/molecules/main-menu/main-menu.twig</code>
-                          </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;div class=&quot;decanter-main-menu&quot;&gt;
-  &lt;div class=&quot;decanter-nav__container&quot;&gt;
-    &lt;button class=&quot;decanter-main-menu__btn&quot;&gt;Menu&lt;/button&gt;
-    &lt;nav role=&quot;navigation&quot; class=&quot;decanter-nav&quot;&gt;
-      &lt;button class=&quot;decanter-nav__close&quot;&gt;
-        &lt;img src=&quot;../../../img/close.svg&quot; alt=&quot;close&quot;&gt;
-      &lt;/button&gt;
-      &lt;ul class=&quot;decanter-nav-primary decanter-accordion&quot;&gt;
-        &lt;li&gt;&lt;button class=&quot;decanter-accordion__button decanter-nav__link&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;basic-nav-section-one&quot;&gt;
-      Parent link
-    &lt;/button&gt;
-          &lt;ul id=&quot;basic-nav-section-one&quot; class=&quot;decanter-nav-submenu&quot;&gt;
-            &lt;li&gt;
-              &lt;a href=&quot;#&quot;&gt;Child link&lt;/a&gt;
-            &lt;/li&gt;
-            &lt;li&gt;
-              &lt;a href=&quot;#&quot;&gt;Child link&lt;/a&gt;
-            &lt;/li&gt;
-            &lt;li&gt;
-              &lt;a href=&quot;#&quot;&gt;Child link&lt;/a&gt;
-            &lt;/li&gt;
-          &lt;/ul&gt;
-        &lt;/li&gt;
-        &lt;li&gt;&lt;button class=&quot;decanter-accordion__button decanter-nav__link&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;basic-nav-section-two&quot;&gt;
-      Parent link
-    &lt;/button&gt;
-          &lt;ul id=&quot;basic-nav-section-two&quot; class=&quot;decanter-nav-submenu&quot;&gt;
-            &lt;li&gt;
-              &lt;a href=&quot;#&quot;&gt;Child link&lt;/a&gt;
-            &lt;/li&gt;
-            &lt;li&gt;
-              &lt;a href=&quot;#&quot;&gt;Child link&lt;/a&gt;
-            &lt;/li&gt;
-            &lt;li&gt;
-              &lt;a href=&quot;#&quot;&gt;Child link&lt;/a&gt;
-            &lt;/li&gt;
-          &lt;/ul&gt;
-        &lt;/li&gt;
-        &lt;li&gt;&lt;a class=&quot;decanter-nav__link&quot; href=&quot;#&quot;&gt;
-      Parent link
-    &lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/nav&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;decanter-nav__overlay&quot;&gt;&lt;/div&gt;
-</code></pre>
-          </details>
-              
-              <div class="kss-source kss-style">
-          Source: <code>components/molecules/_main-menu.scss</code>, line 3
-        </div>
-          </section>
-          <section id="kssref-molecules-mega-menu" class="kss-section kss-section--depth-2 ">
-      <div class="kss-style">
-                <h2 class="kss-title kss-title--level-2">
-          <a class="kss-title__permalink" href="#kssref-molecules-mega-menu">
-            <span class="kss-title__ref">
-              2.5
-              <span class="kss-title__permalink-hash">
-                Molecules.Mega Menu
-              </span>
-            </span>
-            Mega Menu
-          </a>
-        </h2>
-
-                  <p class="kss-toolbar">
-                          <a href="#kssref-molecules-mega-menu" data-kss-fullscreen="kssref-molecules-mega-menu">
-                <span class="kss-toolbar__tooltip">Toggle full screen</span>
-                <svg class="off" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
-                  <path class="kss-toolbar__icon-fill" d="M64 0v26l-10-10-12 12-6-6 12-12-10-10zM28 42l-12 12 10 10h-26v-26l10 10 12-12z"></path>
-                </svg>
-                <svg class="on" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
-                  <path class="kss-toolbar__icon-fill" d="M28 36v26l-10-10-12 12-6-6 12-12-10-10zM64 6l-12 12 10 10h-26v-26l10 10 12-12z"></path>
-                </svg>
-              </a>
-              <a href="item-molecules-mega-menu.html" target="_blank">
-                <span class="kss-toolbar__tooltip">Open in new window</span>
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
-                  <rect x="0" y="20" width="40" height="44" fill="#fff"/>
-                  <path class="kss-toolbar__icon-fill" d="M40,64l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/>
-                  <rect class="kss-toolbar__icon-fill" x="0" y="20" width="40" height="10"/>
-                  <rect x="24" y="0" width="40" height="44" fill="#fff"/>
-                  <path class="kss-toolbar__icon-fill" d="M64,44l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/>
-                  <rect class="kss-toolbar__icon-fill" x="24" y="0" width="40" height="10"/>
-                </svg>
-              </a>
-                        <a href="#kssref-molecules-mega-menu" data-kss-guides="true">
-              <span class="kss-toolbar__tooltip">Toggle example guides</span>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
-                <rect class="kss-toolbar__icon-fill" x="5" y="35" width="5" height="9"/>
-                <rect class="kss-toolbar__icon-fill" x="54" y="21" width="5" height="9"/>
-                <rect class="kss-toolbar__icon-fill" x="54" y="35" width="5" height="9"/>
-                <rect class="kss-toolbar__icon-fill" x="5" y="21" width="5" height="9"/>
-                <rect class="kss-toolbar__icon-fill" x="5" y="0" width="5" height="15"/>
-                <rect class="kss-toolbar__icon-fill" x="35" y="5" width="9" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="20" y="5" width="9" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="0" y="5" width="15" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="54" y="0" width="5" height="15"/>
-                <rect class="kss-toolbar__icon-fill" x="49" y="5" width="15" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="54" y="49" width="5" height="15"/>
-                <rect class="kss-toolbar__icon-fill" x="49" y="54" width="15" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="5" y="49" width="5" height="15"/>
-                <rect class="kss-toolbar__icon-fill" x="0" y="54" width="15" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="35" y="54" width="9" height="5"/>
-                <rect class="kss-toolbar__icon-fill" x="20" y="54" width="9" height="5"/>
-              </svg>
-            </a>
-            <a href="#kssref-molecules-mega-menu" data-kss-markup="true">
-              <span class="kss-toolbar__tooltip">Toggle HTML markup</span>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
-                <path class="kss-toolbar__icon-fill" d="M37.555,46.239l6.103,6.103l20.342,-20.342l-20.342,-20.342l-6.103,6.103l14.24,14.239l-14.24,14.239Z"/>
-                <path class="kss-toolbar__icon-fill" d="M26.445,17.761l-6.103,-6.103l-20.342,20.342l20.342,20.342l6.103,-6.103l-14.24,-14.239l14.24,-14.239Z"/>
-              </svg>
-            </a>
-          </p>
-        
-                  <div class="kss-description">
-            <p>An expandable menu in which choices are displayed in a two-dimensional
-dropdown layout. Excellent design choice for accommodating a large number of
-options or for revealing lower-level site pages at a glance.</p>
-
-          </div>
-        
-              </div>
-
-              <div class="kss-modifier__wrapper">
-          <div class="kss-modifier__heading kss-style">
-            Example          </div>
-
-          
-          <div class="kss-modifier__example">
-            <h2>Hello</h2>
-            <div class="kss-modifier__example-footer"></div>
-          </div>
-
-                  </div>
-                  <details class="kss-markup kss-style">
-            <summary>
-                              Markup
-                          </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;h2&gt;Hello&lt;/h2&gt;</code></pre>
-          </details>
-              
-              <div class="kss-source kss-style">
-          Source: <code>components/molecules/_mega-menu.scss</code>, line 3
         </div>
           </section>
           <section id="kssref-molecules-sidenav" class="kss-section kss-section--depth-2 ">
@@ -904,7 +621,7 @@ options or for revealing lower-level site pages at a glance.</p>
                 <h2 class="kss-title kss-title--level-2">
           <a class="kss-title__permalink" href="#kssref-molecules-sidenav">
             <span class="kss-title__ref">
-              2.6
+              2.4
               <span class="kss-title__permalink-hash">
                 Molecules.Sidenav
               </span>
@@ -916,16 +633,16 @@ options or for revealing lower-level site pages at a glance.</p>
                   <p class="kss-toolbar">
                           <a href="#kssref-molecules-sidenav" data-kss-fullscreen="kssref-molecules-sidenav">
                 <span class="kss-toolbar__tooltip">Toggle full screen</span>
-                <svg class="off" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <svg focusable="false" aria-hidden="true" class="off" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                   <path class="kss-toolbar__icon-fill" d="M64 0v26l-10-10-12 12-6-6 12-12-10-10zM28 42l-12 12 10 10h-26v-26l10 10 12-12z"></path>
                 </svg>
-                <svg class="on" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <svg focusable="false" aria-hidden="true" class="on" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                   <path class="kss-toolbar__icon-fill" d="M28 36v26l-10-10-12 12-6-6 12-12-10-10zM64 6l-12 12 10 10h-26v-26l10 10 12-12z"></path>
                 </svg>
               </a>
               <a href="item-molecules-sidenav.html" target="_blank">
                 <span class="kss-toolbar__tooltip">Open in new window</span>
-                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+                <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                   <rect x="0" y="20" width="40" height="44" fill="#fff"/>
                   <path class="kss-toolbar__icon-fill" d="M40,64l-40,0l0,-44l40,0l0,44Zm-36,-40l0,36l32,0l0,-36l-32,0Z"/>
                   <rect class="kss-toolbar__icon-fill" x="0" y="20" width="40" height="10"/>
@@ -936,7 +653,7 @@ options or for revealing lower-level site pages at a glance.</p>
               </a>
                         <a href="#kssref-molecules-sidenav" data-kss-guides="true">
               <span class="kss-toolbar__tooltip">Toggle example guides</span>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                 <rect class="kss-toolbar__icon-fill" x="5" y="35" width="5" height="9"/>
                 <rect class="kss-toolbar__icon-fill" x="54" y="21" width="5" height="9"/>
                 <rect class="kss-toolbar__icon-fill" x="54" y="35" width="5" height="9"/>
@@ -957,7 +674,7 @@ options or for revealing lower-level site pages at a glance.</p>
             </a>
             <a href="#kssref-molecules-sidenav" data-kss-markup="true">
               <span class="kss-toolbar__tooltip">Toggle HTML markup</span>
-              <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
+              <svg focusable="false" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                 <path class="kss-toolbar__icon-fill" d="M37.555,46.239l6.103,6.103l20.342,-20.342l-20.342,-20.342l-6.103,6.103l14.24,14.239l-14.24,14.239Z"/>
                 <path class="kss-toolbar__icon-fill" d="M26.445,17.761l-6.103,-6.103l-20.342,20.342l20.342,20.342l6.103,-6.103l-14.24,-14.239l14.24,-14.239Z"/>
               </svg>
@@ -968,6 +685,7 @@ options or for revealing lower-level site pages at a glance.</p>
             <p>A side navigation component.</p>
 
           </div>
+        
         
               </div>
 
@@ -1025,46 +743,46 @@ options or for revealing lower-level site pages at a glance.</p>
             <summary>
                               Markup: <code>../templates/components/molecules/sidenav/sidenav.twig</code>
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;h3&gt;Single Level&lt;/h3&gt;
-  &lt;ul class=&quot;decanter-sidenav__list&quot;&gt;
-      &lt;li&gt;&lt;a class=&#039;decanter-nav__current&#039; href=&#039;&#039;#&#039;&gt;Active parent link&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&#039;#&#039;&gt;Parent link&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&#039;#&#039;&gt;Parent link&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;h3&lt;/span&gt;&amp;gt;&lt;/span&gt;Single Level&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;h3&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;ul&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-sidenav__list&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;decanter-nav__current&#039;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;&#039;&lt;/span&gt;#&#039;&amp;gt;&lt;/span&gt;Active parent link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;#&#039;&lt;/span&gt;&amp;gt;&lt;/span&gt;Parent link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;#&#039;&lt;/span&gt;&amp;gt;&lt;/span&gt;Parent link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;
 
-&lt;h3&gt;Two Levels&lt;/h3&gt;
-  &lt;ul class=&quot;decanter-sidenav__list&quot;&gt;
-      &lt;li&gt;&lt;a href=&#039;#&#039;&gt;Parent link&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a class=&#039;decanter-nav__current&#039; href=&#039;&#039;#&#039;&gt;Active parent link&lt;/a&gt;&lt;/li&gt;
-      &lt;ul class=&quot;decanter-sidenav__sublist&quot;&gt;
-          &lt;li&gt;&lt;a href=&#039;#&#039;&gt;Child link&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&#039;#&#039;&gt;Child link&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&#039;#&#039;&gt;Child link&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&#039;#&#039;&gt;Child link&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a class=&#039;decanter-nav__current&#039; href=&#039;&#039;#&#039;&gt;Active child link&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;li&gt;&lt;a href=&#039;#&#039;&gt;Parent link&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;h3&lt;/span&gt;&amp;gt;&lt;/span&gt;Two Levels&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;h3&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;ul&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-sidenav__list&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;#&#039;&lt;/span&gt;&amp;gt;&lt;/span&gt;Parent link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;decanter-nav__current&#039;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;&#039;&lt;/span&gt;#&#039;&amp;gt;&lt;/span&gt;Active parent link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;ul&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-sidenav__sublist&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;#&#039;&lt;/span&gt;&amp;gt;&lt;/span&gt;Child link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;#&#039;&lt;/span&gt;&amp;gt;&lt;/span&gt;Child link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;#&#039;&lt;/span&gt;&amp;gt;&lt;/span&gt;Child link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;#&#039;&lt;/span&gt;&amp;gt;&lt;/span&gt;Child link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;decanter-nav__current&#039;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;&#039;&lt;/span&gt;#&#039;&amp;gt;&lt;/span&gt;Active child link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;#&#039;&lt;/span&gt;&amp;gt;&lt;/span&gt;Parent link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;
 
-&lt;h3&gt;Three Levels&lt;/h3&gt;
-  &lt;ul class=&quot;decanter-sidenav__list&quot;&gt;
-      &lt;li&gt;&lt;a href=&#039;#&#039;&gt;Parent link&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a class=&#039;decanter-nav__current&#039; href=&#039;&#039;#&#039;&gt;Active parent link&lt;/a&gt;&lt;/li&gt;
-      &lt;ul class=&quot;decanter-sidenav__sublist&quot;&gt;
-          &lt;li&gt;&lt;a href=&#039;#&#039;&gt;Child link&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a class=&#039;decanter-nav__current&#039; href=&#039;&#039;#&#039;&gt;Active child link&lt;/a&gt;&lt;/li&gt;
-          &lt;ul class=&quot;decanter-sidenav__sublist&quot;&gt;
-              &lt;li&gt;&lt;a href=&#039;#&#039;&gt;Grandchild link&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a href=&#039;#&#039;&gt;Grandchild link&lt;/a&gt;&lt;/li&gt;
-              &lt;li&gt;&lt;a class=&#039;decanter-nav__current&#039; href=&#039;&#039;#&#039;&gt;Active grandchild link&lt;/a&gt;&lt;/li&gt;
-          &lt;/ul&gt;
-          &lt;li&gt;&lt;a href=&#039;#&#039;&gt;Child link&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&#039;#&#039;&gt;Child link&lt;/a&gt;&lt;/li&gt;
-          &lt;li&gt;&lt;a href=&#039;#&#039;&gt;Child link&lt;/a&gt;&lt;/li&gt;
-      &lt;/ul&gt;
-      &lt;li&gt;&lt;a href=&#039;#&#039;&gt;Parent link&lt;/a&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-</code></pre>
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;h3&lt;/span&gt;&amp;gt;&lt;/span&gt;Three Levels&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;h3&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;ul&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-sidenav__list&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;#&#039;&lt;/span&gt;&amp;gt;&lt;/span&gt;Parent link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;decanter-nav__current&#039;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;&#039;&lt;/span&gt;#&#039;&amp;gt;&lt;/span&gt;Active parent link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;ul&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-sidenav__sublist&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;#&#039;&lt;/span&gt;&amp;gt;&lt;/span&gt;Child link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;decanter-nav__current&#039;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;&#039;&lt;/span&gt;#&#039;&amp;gt;&lt;/span&gt;Active child link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;ul&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;decanter-sidenav__sublist&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;#&#039;&lt;/span&gt;&amp;gt;&lt;/span&gt;Grandchild link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;#&#039;&lt;/span&gt;&amp;gt;&lt;/span&gt;Grandchild link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+              &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;decanter-nav__current&#039;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;&#039;&lt;/span&gt;#&#039;&amp;gt;&lt;/span&gt;Active grandchild link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;#&#039;&lt;/span&gt;&amp;gt;&lt;/span&gt;Child link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;#&#039;&lt;/span&gt;&amp;gt;&lt;/span&gt;Child link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+          &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;#&#039;&lt;/span&gt;&amp;gt;&lt;/span&gt;Child link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;href&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&#039;#&#039;&lt;/span&gt;&amp;gt;&lt;/span&gt;Parent link&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;a&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;li&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;ul&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -1072,16 +790,15 @@ options or for revealing lower-level site pages at a glance.</p>
         </div>
           </section>
   </article>
+</main>
 
 <!-- SCRIPTS -->
 <script src="kss-assets/kss.js"></script>
 <script src="kss-assets/scrollspy.js"></script>
-<script src="kss-assets/prettify.js"></script>
 <script src="kss-assets/kss-fullscreen.js"></script>
 <script src="kss-assets/kss-guides.js"></script>
 <script src="kss-assets/kss-markup.js"></script>
 <script>
-  prettyPrint();
   var spy = new ScrollSpy('#kss-node', {
     nav: '.kss-nav__menu-child > li > a',
     className: 'is-in-viewport'
