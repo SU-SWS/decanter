@@ -48,28 +48,28 @@
         </a>
               </li>
           <li class="kss-nav__menu-item">
-        <a class="kss-nav__menu-link" href="section-playground.html">
-          <span class="kss-nav__ref">5</span><span class="kss-nav__name">Playground</span>
-        </a>
-              </li>
-          <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="section-core.html">
-          <span class="kss-nav__ref">6</span><span class="kss-nav__name">Core</span>
+          <span class="kss-nav__ref">5</span><span class="kss-nav__name">Core</span>
         </a>
               </li>
           <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="section-elements.html">
-          <span class="kss-nav__ref">7</span><span class="kss-nav__name">Elements</span>
+          <span class="kss-nav__ref">6</span><span class="kss-nav__name">Elements</span>
         </a>
               </li>
           <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="section-functions.html">
-          <span class="kss-nav__ref">8</span><span class="kss-nav__name">Functions</span>
+          <span class="kss-nav__ref">7</span><span class="kss-nav__name">Functions</span>
         </a>
               </li>
           <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="section-mixins.html">
-          <span class="kss-nav__ref">9</span><span class="kss-nav__name">Mixins</span>
+          <span class="kss-nav__ref">8</span><span class="kss-nav__name">Mixins</span>
+        </a>
+              </li>
+          <li class="kss-nav__menu-item">
+        <a class="kss-nav__menu-link" href="section-only-grid-colors.html">
+          <span class="kss-nav__ref">9</span><span class="kss-nav__name">only grid colors</span>
         </a>
               </li>
           <li class="kss-nav__menu-item">
@@ -89,7 +89,7 @@
                 <h4 class="kss-title kss-title--level-4">
           <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-breakpoint-md">
             <span class="kss-title__ref">
-              10.2.1.2
+              10.2.1.3
               <span class="kss-title__permalink-hash">
                 Variables.Core.Breakpoints.breakpoint-md
               </span>
@@ -131,7 +131,6 @@
         
                   <div class="kss-description">
             <p>Mixin for basic mobile-first media query for md-and-up screen size.</p>
-<p>$breakpoint-md: (media: &#39;only screen and (min-width: #{$screen-md})&#39;) !default;</p>
 
           </div>
         
@@ -144,7 +143,7 @@
 
           
           <div class="kss-modifier__example">
-            $breakpoint-md: (media: 'only screen and (min-width: #{$screen-md})') !default;
+            $breakpoint-md: 'only screen and (min-width: #{$screen-md})' !default;
             <div class="kss-modifier__example-footer"></div>
           </div>
 
@@ -153,11 +152,11 @@
             <summary>
                               Markup
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$breakpoint-md: (media: &#039;only screen and (min-width: #{$screen-md})&#039;) !default;</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;$breakpoint-md: &#039;only screen and (min-width: #{$screen-md})&#039; !default;&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
-          Source: <code>variables/core/_breakpoints.scss</code>, line 180
+          Source: <code>variables/core/_breakpoints.scss</code>, line 196
         </div>
           </div>
   </article>
@@ -166,12 +165,10 @@
 <!-- SCRIPTS -->
 <script src="kss-assets/kss.js"></script>
 <script src="kss-assets/scrollspy.js"></script>
-<script src="kss-assets/prettify.js"></script>
 <script src="kss-assets/kss-fullscreen.js"></script>
 <script src="kss-assets/kss-guides.js"></script>
 <script src="kss-assets/kss-markup.js"></script>
 <script>
-  prettyPrint();
   var spy = new ScrollSpy('#kss-node', {
     nav: '.kss-nav__menu-child > li > a',
     className: 'is-in-viewport'

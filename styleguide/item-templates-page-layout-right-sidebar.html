@@ -48,28 +48,28 @@
         </a>
               </li>
           <li class="kss-nav__menu-item">
-        <a class="kss-nav__menu-link" href="section-playground.html">
-          <span class="kss-nav__ref">5</span><span class="kss-nav__name">Playground</span>
-        </a>
-              </li>
-          <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="section-core.html">
-          <span class="kss-nav__ref">6</span><span class="kss-nav__name">Core</span>
+          <span class="kss-nav__ref">5</span><span class="kss-nav__name">Core</span>
         </a>
               </li>
           <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="section-elements.html">
-          <span class="kss-nav__ref">7</span><span class="kss-nav__name">Elements</span>
+          <span class="kss-nav__ref">6</span><span class="kss-nav__name">Elements</span>
         </a>
               </li>
           <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="section-functions.html">
-          <span class="kss-nav__ref">8</span><span class="kss-nav__name">Functions</span>
+          <span class="kss-nav__ref">7</span><span class="kss-nav__name">Functions</span>
         </a>
               </li>
           <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="section-mixins.html">
-          <span class="kss-nav__ref">9</span><span class="kss-nav__name">Mixins</span>
+          <span class="kss-nav__ref">8</span><span class="kss-nav__name">Mixins</span>
+        </a>
+              </li>
+          <li class="kss-nav__menu-item">
+        <a class="kss-nav__menu-link" href="section-only-grid-colors.html">
+          <span class="kss-nav__ref">9</span><span class="kss-nav__name">only grid colors</span>
         </a>
               </li>
           <li class="kss-nav__menu-item">
@@ -148,9 +148,9 @@
     <header class="region region--header">
       <b>Site Header</b><p>This is the site header.</p>
     </header>
-    <main class="region region--content">
+    <div role="main" class="region region--content">
       <b>Main Content</b><p>This is the main content area.</p>
-    </main>
+    </div>
     <aside class="region region--sidebar region--sidebar--first">
       <b>Sidebar</b><p>This is the only sidebar in a right sidebar layout.
     </aside>
@@ -168,23 +168,23 @@
             <summary>
                               Markup: <code>../templates/components/templates/page-layout--right-sidebar/page-layout--right-sidebar.twig</code>
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;div class=&quot;page-layout-wrapper page-layout-wrapper--right-sidebar&quot;&gt;
-  &lt;div class=&quot;page-layout page-layout--right-sidebar&quot;&gt;
-    &lt;header class=&quot;region region--header&quot;&gt;
-      &lt;b&gt;Site Header&lt;/b&gt;&lt;p&gt;This is the site header.&lt;/p&gt;
-    &lt;/header&gt;
-    &lt;main class=&quot;region region--content&quot;&gt;
-      &lt;b&gt;Main Content&lt;/b&gt;&lt;p&gt;This is the main content area.&lt;/p&gt;
-    &lt;/main&gt;
-    &lt;aside class=&quot;region region--sidebar region--sidebar--first&quot;&gt;
-      &lt;b&gt;Sidebar&lt;/b&gt;&lt;p&gt;This is the only sidebar in a right sidebar layout.
-    &lt;/aside&gt;
-    &lt;footer class=&quot;region region--footer&quot;&gt;
-      &lt;b&gt;Site Footer&lt;/b&gt;&lt;p&gt;This is the site footer.&lt;/p&gt;
-    &lt;/footer&gt;
-  &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+            <pre class="hljs"><code class="language-twig">&lt;span class=&quot;xml&quot;&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;page-layout-wrapper page-layout-wrapper--right-sidebar&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;page-layout page-layout--right-sidebar&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;header&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;region region--header&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;b&lt;/span&gt;&amp;gt;&lt;/span&gt;Site Header&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;b&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;This is the site header.&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;header&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;role&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;main&quot;&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;region region--content&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;b&lt;/span&gt;&amp;gt;&lt;/span&gt;Main Content&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;b&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;This is the main content area.&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;aside&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;region region--sidebar region--sidebar--first&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;b&lt;/span&gt;&amp;gt;&lt;/span&gt;Sidebar&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;b&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;This is the only sidebar in a right sidebar layout.
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;aside&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;footer&lt;/span&gt; &lt;span class=&quot;hljs-attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;hljs-string&quot;&gt;&quot;region region--footer&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;
+      &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;b&lt;/span&gt;&amp;gt;&lt;/span&gt;Site Footer&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;b&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;This is the site footer.&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;footer&lt;/span&gt;&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;hljs-tag&quot;&gt;&amp;lt;/&lt;span class=&quot;hljs-name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;</code></pre>
           </details>
               
               <div class="kss-source kss-style">
@@ -197,12 +197,10 @@
 <!-- SCRIPTS -->
 <script src="kss-assets/kss.js"></script>
 <script src="kss-assets/scrollspy.js"></script>
-<script src="kss-assets/prettify.js"></script>
 <script src="kss-assets/kss-fullscreen.js"></script>
 <script src="kss-assets/kss-guides.js"></script>
 <script src="kss-assets/kss-markup.js"></script>
 <script>
-  prettyPrint();
   var spy = new ScrollSpy('#kss-node', {
     nav: '.kss-nav__menu-child > li > a',
     className: 'is-in-viewport'

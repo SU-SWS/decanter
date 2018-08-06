@@ -301,6 +301,9 @@ template {
 body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
   padding: 22px; }
 
+#kssref-core-grid h4 {
+  text-align: center; }
+
 :root {
   --max_width: $site-max-width;
   --baseline: 3rem;
@@ -309,18 +312,18 @@ body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
   --column-width: calc((100% / var(--columns)) - var(--gutter));
   --background-width: calc(100% + var(--gutter));
   --background-columns: repeating-linear-gradient(
-          to right,
-          var(--color),
-          var(--color) var(--column-width),
-          transparent var(--column-width),
-          transparent var(--repeating-width)
+    to right,
+    var(--color),
+    var(--color) var(--column-width),
+    transparent var(--column-width),
+    transparent var(--repeating-width)
   );
   --background-baseline: repeating-linear-gradient(
-          to bottom,
-          var(--color),
-          var(--color) 0,
-          transparent 0,
-          transparent var(--baseline)
+    to bottom,
+    var(--color),
+    var(--color) 0,
+    transparent 0,
+    transparent var(--baseline)
   ); }
 
 @media (min-width: 0) {
@@ -402,23 +405,32 @@ body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
     border: 1px solid;
     border-radius: 6px;
     opacity: .8; }
+  .page-layout .region {
+    padding: 15px;
+    font-size: .9em; }
+    .page-layout .region p {
+      padding: 0;
+      margin: 5px 0 0; }
+    .page-layout .region--header {
+      background-color: rgba(0, 0, 0, 0.15); }
+    .page-layout .region--content {
+      background-color: rgba(255, 165, 0, 0.25); }
+    .page-layout .region--sidebar {
+      background-color: rgba(0, 0, 255, 0.2); }
+      .page-layout .region--sidebar--first {
+        background-color: rgba(128, 0, 0, 0.2); }
+      .page-layout .region--sidebar--second {
+        background-color: rgba(0, 128, 0, 0.2); }
+    .page-layout .region--footer {
+      background-color: rgba(0, 0, 0, 0.15); }
 
-.kss-section .page-layout .region {
-  padding: 15px;
-  font-size: .9em; }
-  .kss-section .page-layout .region p {
-    padding: 0;
-    margin: 5px 0 0; }
-  .kss-section .page-layout .region--header {
-    background-color: rgba(0, 0, 0, 0.15); }
-  .kss-section .page-layout .region--content {
-    background-color: rgba(255, 165, 0, 0.25); }
-  .kss-section .page-layout .region--sidebar {
-    background-color: rgba(0, 0, 255, 0.2); }
-    .kss-section .page-layout .region--sidebar--first {
-      background-color: rgba(128, 0, 0, 0.2); }
-    .kss-section .page-layout .region--sidebar--second {
-      background-color: rgba(0, 128, 0, 0.2); }
-  .kss-section .page-layout .region--footer {
-    background-color: rgba(0, 0, 0, 0.15); }
+.decanter-grid {
+  margin-bottom: 20px; }
+
+.decanter-grid--item {
+  padding: 10px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.125); }
+  .decanter-grid--item:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.25); }
 /*# sourceMappingURL=decanter-kss.css.map */
