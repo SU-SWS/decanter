@@ -2,6 +2,7 @@
   @include page-layout;
 }
 
+// @TODO : Eliminate this mixin if this element will never exist.
 @mixin page-layout--left-sidebar--header {
   @include page-layout--header;
 }
@@ -50,6 +51,7 @@
   }
 }
 
+// @TODO : Eliminate this mixin if this element will never exist.
 @mixin page-layout--left-sidebar--footer {
   @media #{$breakpoint-xs} {
     @include grid-item-spans(1, 7, 4, 5);

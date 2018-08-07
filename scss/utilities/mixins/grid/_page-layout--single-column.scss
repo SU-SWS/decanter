@@ -2,6 +2,7 @@
   @include page-layout;
 }
 
+// @TODO : Eliminate this mixin if this element will never exist.
 @mixin page-layout--single-column--header {
   @include page-layout--header;
 }
@@ -28,6 +29,7 @@
   }
 }
 
+// @TODO : Eliminate this mixin if this element will never exist.
 @mixin page-layout--single-column--footer {
   @media #{$breakpoint-xs} {
     @include grid-item-spans(1, 7, 3, 4);
