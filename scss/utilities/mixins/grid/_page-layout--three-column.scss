@@ -1,156 +1,98 @@
 @mixin page-layout--three-column {
+  @include page-layout;
+}
 
-  .page-layout {
-    @include display-grid;
-    max-width: $site-max-width;
-    margin: 0 auto;
+@mixin page-layout--three-column--header {
+  @include page-layout--header;
+}
 
-    @media #{$breakpoint-xs} {
-      @include grid-columns(1fr 1fr 1fr 1fr 1fr 1fr); // Can't use repeat() function in IE
-      padding-left: $gutter-xs;
-      padding-right: $gutter-xs;
-      @include grid-column-gap($gutter-xs);
-    }
-
-    @media #{$breakpoint-sm} {
-      @include grid-columns(1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr); // Can't use repeat() function in IE
-      padding-left: $gutter-sm;
-      padding-right: $gutter-sm;
-      @include grid-column-gap($gutter-sm);
-    }
-
-    @media #{$breakpoint-md} {
-      @include grid-columns(1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr); // Can't use repeat() function in IE
-      padding-left: $gutter-md;
-      padding-right: $gutter-md;
-      @include grid-column-gap($gutter-md);
-    }
-
-    @media #{$breakpoint-lg} {
-      @include grid-columns(1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr); // Can't use repeat() function in IE
-      padding-left: $gutter-lg;
-      padding-right: $gutter-lg;
-      @include grid-column-gap($gutter-lg);
-    }
-
-    @media #{$breakpoint-xl} {
-      @include grid-columns(1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr); // Can't use repeat() function in IE
-      padding-left: $gutter-xl;
-      padding-right: $gutter-xl;
-      @include grid-column-gap($gutter-xl);
-    }
+@mixin page-layout--three-column--content {
+  
+  @media #{$breakpoint-xs} {
+    @include grid-item-spans(1, 7, 2, 3);
   }
 
-  .region {
+  @media #{$breakpoint-sm} {
+    @include grid-item-spans(2, 12, 2, 3);
+  }
 
-    @media #{$breakpoint-xs} {
-      &--header {
-        @include grid-item-spans(1, 7, 1, 2);
-      }
+  @media #{$breakpoint-md} {
+    @include grid-item-spans(1, 9, 3, 4);
+  }
 
-      &--content {
-        @include grid-item-spans(1, 7, 2, 3);
-      }
+  @media #{$breakpoint-lg} {
+    @include grid-item-spans(4, 10, 2, 3);
+  }
 
-      &--sidebar--first {
-        @include grid-item-spans(1, 7, 3, 4);
-      }
+  @media #{$breakpoint-xl} {
+    @include grid-item-spans(4, 10, 2, 3);
+  }
+}
 
-      &--sidebar--second {
-        @include grid-item-spans(1, 7, 4, 5);
-      }
+@mixin page-layout--three-column--sidebar-first {
 
-      &--footer {
-        @include grid-item-spans(1, 7, 5, 6);
-      }
-    }
+  @media #{$breakpoint-xs} {
+    @include grid-item-spans(1, 7, 3, 4);
+  }
 
-    @media #{$breakpoint-sm} {
-      &--header {
-        @include grid-item-spans(1, 13, 1, 2);
-      }
+  @media #{$breakpoint-sm} {
+    @include grid-item-spans(2, 12, 3, 4);
+  }
 
-      &--content {
-        @include grid-item-spans(2, 12, 2, 3);
-      }
+  @media #{$breakpoint-md} {
+    @include grid-item-spans(1, 13, 2, 3);
+  }
 
-      &--sidebar--first {
-        @include grid-item-spans(2, 12, 3, 4);
-      }
+  @media #{$breakpoint-lg} {
+    @include grid-item-spans(1, 4, 2, 3);
+  }
 
-      &--sidebar--second {
-        @include grid-item-spans(2, 12, 4, 5);
-      }
+  @media #{$breakpoint-xl} {
+    @include grid-item-spans(1, 4, 2, 3);
+  }
+}
 
-      &--footer {
-        @include grid-item-spans(1, 13, 5, 6);
-      }
-    }
+@mixin page-layout--three-column--sidebar-second {
+      
+  @media #{$breakpoint-xs} {
+    @include grid-item-spans(1, 7, 4, 5);
+  }
 
-    @media #{$breakpoint-md} {
-      &--header {
-        @include grid-item-spans(1, 13, 1, 2);
-      }
+  @media #{$breakpoint-sm} {
+    @include grid-item-spans(2, 12, 4, 5);
+  }
 
-      &--content {
-        @include grid-item-spans(1, 9, 3, 4);
-      }
+  @media #{$breakpoint-md} {
+    @include grid-item-spans(9, 13, 3, 4);
+  }
 
-      &--sidebar--first {
-        @include grid-item-spans(1, 13, 2, 3);
-      }
+  @media #{$breakpoint-lg} {
+    @include grid-item-spans(10, 13, 2, 3);
+  }
 
-      &--sidebar--second {
-        @include grid-item-spans(9, 13, 3, 4);
-      }
+  @media #{$breakpoint-xl} {
+    @include grid-item-spans(10, 13, 2, 3);
+  }
+}
 
-      &--footer {
-        @include grid-item-spans(1, 13, 5, 6);
-      }
-    }
+@mixin page-layout--three-column--footer {
+  @media #{$breakpoint-xs} {
+    @include grid-item-spans(1, 7, 5, 6);
+  }
 
-    @media #{$breakpoint-lg} {
-      &--header {
-        @include grid-item-spans(1, 13, 1, 2);
-      }
+  @media #{$breakpoint-sm} {
+    @include grid-item-spans(1, 13, 5, 6);
+  }
 
-      &--content {
-        @include grid-item-spans(4, 10, 2, 3);
-      }
+  @media #{$breakpoint-md} {
+    @include grid-item-spans(1, 13, 4, 5);
+  }
 
-      &--sidebar--first {
-        @include grid-item-spans(1, 4, 2, 3);
-      }
+  @media #{$breakpoint-lg} {
+    @include grid-item-spans(1, 13, 3, 4);
+  }
 
-      &--sidebar--second {
-        @include grid-item-spans(10, 13, 2, 3);
-      }
-
-      &--footer {
-        @include grid-item-spans(1, 13, 4, 5);
-      }
-    }
-
-    @media #{$breakpoint-xl} {
-      &--header {
-        @include grid-item-spans(1, 13, 1, 2);
-      }
-
-      &--content {
-        @include grid-item-spans(4, 10, 2, 3);
-      }
-
-      &--sidebar--first {
-        @include grid-item-spans(1, 4, 2, 3);
-      }
-
-      &--sidebar--second {
-        @include grid-item-spans(10, 13, 2, 3);
-      }
-
-      &--footer {
-        @include grid-item-spans(1, 13, 3, 4);
-      }
-    }
+  @media #{$breakpoint-xl} {
+    @include grid-item-spans(1, 13, 3, 4);
   }
 }

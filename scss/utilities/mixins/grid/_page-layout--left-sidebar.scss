@@ -1,136 +1,73 @@
 @mixin page-layout--left-sidebar {
+  @include page-layout;
+}
 
-  .page-layout {
-    @include display-grid;
-    max-width: $site-max-width;
-    margin: 0 auto;
+@mixin page-layout--left-sidebar--header {
+  @include page-layout--header;
+}
 
-    @media #{$breakpoint-xs} {
-      @include grid-columns(1fr 1fr 1fr 1fr 1fr 1fr); // Can't use repeat() function in IE
-      padding-left: $gutter-xs;
-      padding-right: $gutter-xs;
-      @include grid-column-gap($gutter-xs);
-    }
-
-    @media #{$breakpoint-sm} {
-      @include grid-columns(1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr); // Can't use repeat() function in IE
-      padding-left: $gutter-sm;
-      padding-right: $gutter-sm;
-      @include grid-column-gap($gutter-sm);
-    }
-
-    @media #{$breakpoint-md} {
-      @include grid-columns(1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr); // Can't use repeat() function in IE
-      padding-left: $gutter-md;
-      padding-right: $gutter-md;
-      @include grid-column-gap($gutter-md);
-    }
-
-    @media #{$breakpoint-lg} {
-      @include grid-columns(1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr); // Can't use repeat() function in IE
-      padding-left: $gutter-lg;
-      padding-right: $gutter-lg;
-      @include grid-column-gap($gutter-lg);
-    }
-
-    @media #{$breakpoint-xl} {
-      @include grid-columns(1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr); // Can't use repeat() function in IE
-      padding-left: $gutter-xl;
-      padding-right: $gutter-xl;
-      @include grid-column-gap($gutter-xl);
-    }
+@mixin page-layout--left-sidebar--content {
+  @media #{$breakpoint-xs} {
+    @include grid-item-spans(1, 7, 3, 4);
   }
 
-  .region {
+  @media #{$breakpoint-sm} {
+    @include grid-item-spans(2, 12, 3, 4);
+  }
 
-    @media #{$breakpoint-xs} {
-      &--header {
-        @include grid-item-spans(1, 7, 1, 2);
-      }
+  @media #{$breakpoint-md} {
+    @include grid-item-spans(5, 13, 2, 3);
+  }
 
-      &--content {
-        @include grid-item-spans(1, 7, 3, 4);
-      }
+  @media #{$breakpoint-lg} {
+    @include grid-item-spans(5, 13, 2, 3);
+  }
 
-      &--sidebar {
-        @include grid-item-spans(1, 7, 2, 3);
-      }
+  @media #{$breakpoint-xl} {
+    @include grid-item-spans(5, 13, 2, 3);
+  }
+}
 
-      &--footer {
-        @include grid-item-spans(1, 7, 4, 5);
-      }
-    }
+@mixin page-layout--left-sidebar--sidebar {
+  @media #{$breakpoint-xs} {
+    @include grid-item-spans(1, 7, 2, 3);
+  }
 
-    @media #{$breakpoint-sm} {
-      &--header {
-        @include grid-item-spans(1, 13, 1, 2);
-      }
+  @media #{$breakpoint-sm} {
+    @include grid-item-spans(2, 12, 2, 3);
+  }
 
-      &--content {
-        @include grid-item-spans(2, 12, 3, 4);
-      }
+  @media #{$breakpoint-md} {
+    @include grid-item-spans(1, 5, 2, 3);
+  }
 
-      &--sidebar {
-        @include grid-item-spans(2, 12, 2, 3);
-      }
+  @media #{$breakpoint-lg} {
+    @include grid-item-spans(1, 5, 2, 3);
+  }
 
-      &--footer {
-        @include grid-item-spans(1, 13, 4, 5);
-      }
-    }
+  @media #{$breakpoint-xl} {
+    @include grid-item-spans(1, 5, 2, 3);
+  }
+}
 
-    @media #{$breakpoint-md} {
-      &--header {
-        @include grid-item-spans(1, 13, 1, 2);
-      }
+@mixin page-layout--left-sidebar--footer {
+  @media #{$breakpoint-xs} {
+    @include grid-item-spans(1, 7, 4, 5);
+  }
 
-      &--content {
-        @include grid-item-spans(5, 13, 2, 3);
-      }
+  @media #{$breakpoint-sm} {
+    @include grid-item-spans(1, 13, 4, 5);
+  }
 
-      &--sidebar {
-        @include grid-item-spans(1, 5, 2, 3);
-      }
+  @media #{$breakpoint-md} {
+    @include grid-item-spans(1, 13, 3, 4);
+  }
 
-      &--footer {
-        @include grid-item-spans(1, 13, 4, 5);
-      }
-    }
+  @media #{$breakpoint-lg} {
+    @include grid-item-spans(1, 13, 3, 4);
+  }
 
-    @media #{$breakpoint-lg} {
-      &--header {
-        @include grid-item-spans(1, 13, 1, 2);
-      }
-
-      &--content {
-        @include grid-item-spans(5, 13, 2, 3);
-      }
-
-      &--sidebar {
-        @include grid-item-spans(1, 5, 2, 3);
-      }
-
-      &--footer {
-        @include grid-item-spans(1, 13, 4, 5);
-      }
-    }
-
-    @media #{$breakpoint-xl} {
-      &--header {
-        @include grid-item-spans(1, 13, 1, 2);
-      }
-
-      &--content {
-        @include grid-item-spans(5, 13, 2, 3);
-      }
-
-      &--sidebar {
-        @include grid-item-spans(1, 5, 2, 3);
-      }
-
-      &--footer {
-        @include grid-item-spans(1, 13, 4, 5);
-      }
-    }
+  @media #{$breakpoint-xl} {
+    @include grid-item-spans(1, 13, 3, 4);
   }
 }
