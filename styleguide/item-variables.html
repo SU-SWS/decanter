@@ -19,7 +19,7 @@
   <header class="kss-header">
     <h1 class="kss-doc-title">Decanter Style Guide and Pattern Library</h1>
   </header>
-  <nav class="kss-nav">
+  <nav class="kss-nav" aria-label="Style Guide">
     <ul class="kss-nav__menu">
       <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="./">
@@ -184,7 +184,8 @@
         </ul>
   </nav>
 </div>
-<article role="main" class="kss-main">
+<main class="kss-main" aria-label="content">
+<article>
 
   
           <div id="kssref-variables" class="kss-section kss-section--depth-1 is-fullscreen">
@@ -204,14 +205,15 @@
         
                   <div class="kss-description">
             <p>Variables are a way to store information that will be reused throughout a
-project. They store things like colors and fonts, or any CSS value that&#39;ll be
+project. They store things like colors and fonts, or any CSS value that'll be
 reused.
 Every variable is declared as !default so that it can be
 overridden by a previous import.
 If you want to override a variable, set that variable in one of your
-own partials, then @import &#39;{path/to/}core/variables&#39;.</p>
+own partials, then @import '{path/to/}core/variables'.</p>
 
           </div>
+        
         
               </div>
 
@@ -221,16 +223,15 @@ own partials, then @import &#39;{path/to/}core/variables&#39;.</p>
         </div>
           </div>
   </article>
+</main>
 
 <!-- SCRIPTS -->
 <script src="kss-assets/kss.js"></script>
 <script src="kss-assets/scrollspy.js"></script>
-<script src="kss-assets/prettify.js"></script>
 <script src="kss-assets/kss-fullscreen.js"></script>
 <script src="kss-assets/kss-guides.js"></script>
 <script src="kss-assets/kss-markup.js"></script>
 <script>
-  prettyPrint();
   var spy = new ScrollSpy('#kss-node', {
     nav: '.kss-nav__menu-child > li > a',
     className: 'is-in-viewport'
