@@ -1,13 +1,24 @@
 @charset "UTF-8";
 
+//
+// @page-layout--left-sidebar
+//
+// Mixin to apply to the wrapper of a left-sidebar layout. Note: Includes global mixin @page-layout.
+//
+// Style guide: Mixins.Grid.page-layout--left-sidebar
+//
+
 @mixin page-layout--left-sidebar {
   @include page-layout;
 }
 
-// @TODO : Eliminate this mixin if this element will never exist.
-@mixin page-layout--left-sidebar--header {
-  @include page-layout--header;
-}
+//
+// @page-layout--left-sidebar--content
+//
+// Mixin to apply to the content region in a left-sidebar layout.
+//
+// Style guide: Mixins.Grid.page-layout--left-sidebar--content
+//
 
 @mixin page-layout--left-sidebar--content {
   @media #{$breakpoint-xs} {
@@ -30,6 +41,14 @@
     @include grid-item-spans(5, 13, 2, 3);
   }
 }
+
+//
+// @page-layout--left-sidebar--sidebar
+//
+// Mixin to apply to the sidebar in a left-sidebar layout.
+//
+// Style guide: Mixins.Grid.page-layout--left-sidebar--sidebar
+//
 
 @mixin page-layout--left-sidebar--sidebar {
   @media #{$breakpoint-xs} {

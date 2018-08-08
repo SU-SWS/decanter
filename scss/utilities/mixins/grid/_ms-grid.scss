@@ -1,9 +1,25 @@
 @charset "UTF-8";
 
+//
+// @display-grid
+//
+// Mixin to render cssGrid in all modern browsers, including IE11.
+//
+// Style guide: Mixins.Grid.display-grid
+//
+
 @mixin display-grid {
   display: -ms-grid;
   display: grid;
 }
+
+//
+// @grid-item-spans
+//
+// Mixin to render cssGrid column spans in all modern browsers, including IE11.
+//
+// Style guide: Mixins.Grid.grid-item-spans
+//
 
 @mixin grid-item-spans ($col-start, $col-end, $row-start, $row-end) {
   -ms-grid-column: $col-start;
@@ -14,15 +30,39 @@
   grid-row: #{$row-start} / #{$row-end};
 }
 
+//
+// @grid-columns
+//
+// Mixin to render cssGrid template columns in all modern browsers, including IE11.
+//
+// Style guide: Mixins.Grid.grid-columns
+//
+
 @mixin grid-columns($columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr) {
   -ms-grid-columns: $columns;
   grid-template-columns: $columns;
 }
 
+//
+// @grid-rows
+//
+// Mixin to render cssGrid in IE11 browsers.
+//
+// Style guide: Mixins.Grid.grid-rows
+//
+
 @mixin grid-rows($rows) {
   -ms-grid-rows: $rows;
   grid-template-rows: $rows;
 }
+
+//
+// @grid-column-gap
+//
+// Mixin to render cssGrid column gaps in all modern browsers, including IE11.
+//
+// Style guide: Mixins.Grid.grid-column-gap
+//
 
 @mixin grid-column-gap($gap: 30px) {
 

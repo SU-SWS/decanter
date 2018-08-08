@@ -1,13 +1,24 @@
-@charset "UTF-8";
+@charset "UTF-8";//
+
+//
+// @page-layout--single-column
+//
+// Mixin to apply to the wrapper of a single column layout.
+//
+// Style guide: Mixins.Grid.page-layout--single-column
+//
 
 @mixin page-layout--single-column {
   @include page-layout;
 }
 
-// @TODO : Eliminate this mixin if this element will never exist.
-@mixin page-layout--single-column--header {
-  @include page-layout--header;
-}
+//
+// @page-layout--single-column--content
+//
+// Mixin to apply to the content region in a single column layout.
+//
+// Style guide: Mixins.Grid.page-layout--single-column--content
+//
 
 @mixin page-layout--single-column--content {
   @media #{$breakpoint-xs} {

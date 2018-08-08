@@ -1,13 +1,24 @@
 @charset "UTF-8";
 
+//
+// @page-layout--three-column
+//
+// Mixin to apply to the wrapper of a three-column layout.
+//
+// Style guide: Mixins.Grid.page-layout--three-column
+//
+
 @mixin page-layout--three-column {
   @include page-layout;
 }
 
-// @TODO : Eliminate this mixin if this element will never exist.
-@mixin page-layout--three-column--header {
-  @include page-layout--header;
-}
+//
+// @page-layout--three-column--content
+//
+// Mixin to apply to the content region in a three-column layout.
+//
+// Style guide: Mixins.Grid.page-layout--three-column--content
+//
 
 @mixin page-layout--three-column--content {
   @media #{$breakpoint-xs} {
@@ -31,6 +42,14 @@
   }
 }
 
+//
+// @page-layout--three-column--sidebar-first
+//
+// Mixin to apply to the first sidebar in a three-column layout.
+//
+// Style guide: Mixins.Grid.page-layout--three-column--sidebar-first
+//
+
 @mixin page-layout--three-column--sidebar-first {
   @media #{$breakpoint-xs} {
     @include grid-item-spans(1, 7, 3, 4);
@@ -52,6 +71,14 @@
     @include grid-item-spans(1, 4, 2, 3);
   }
 }
+
+//
+// @page-layout--three-column--sidebar-second
+//
+// Mixin to apply to the second sidebar in a three-column layout.
+//
+// Style guide: Mixins.Grid.page-layout--three-column--sidebar-second
+//
 
 @mixin page-layout--three-column--sidebar-second {
   @media #{$breakpoint-xs} {
