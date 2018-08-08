@@ -72,26 +72,3 @@
     @include grid-item-spans(10, 13, 2, 3);
   }
 }
-
-// @TODO : Eliminate this mixin if this element will never exist.
-@mixin page-layout--three-column--footer {
-  @media #{$breakpoint-xs} {
-    @include grid-item-spans(1, 7, 5, 6);
-  }
-
-  @media #{$breakpoint-sm} {
-    @include grid-item-spans(1, 13, 5, 6);
-  }
-
-  @media #{$breakpoint-md} {
-    @include grid-item-spans(1, 13, 4, 5);
-  }
-
-  @media #{$breakpoint-lg} {
-    @include grid-item-spans(1, 13, 3, 4);
-  }
-
-  @media #{$breakpoint-xl} {
-    @include grid-item-spans(1, 13, 3, 4);
-  }
-}
