@@ -19,7 +19,7 @@
   <header class="kss-header">
     <h1 class="kss-doc-title">Decanter Style Guide and Pattern Library</h1>
   </header>
-  <nav class="kss-nav" aria-label="Style Guide">
+  <nav class="kss-nav">
     <ul class="kss-nav__menu">
       <li class="kss-nav__menu-item">
         <a class="kss-nav__menu-link" href="./">
@@ -80,8 +80,7 @@
         </ul>
   </nav>
 </div>
-<main class="kss-main" aria-label="content">
-<article>
+<article role="main" class="kss-main">
 
   
           <div id="kssref-mixins-tables-table-borderless" class="kss-section kss-section--depth-3 is-fullscreen">
@@ -104,7 +103,6 @@
 
           </div>
         
-        
               </div>
 
       
@@ -113,15 +111,16 @@
         </div>
           </div>
   </article>
-</main>
 
 <!-- SCRIPTS -->
 <script src="kss-assets/kss.js"></script>
 <script src="kss-assets/scrollspy.js"></script>
+<script src="kss-assets/prettify.js"></script>
 <script src="kss-assets/kss-fullscreen.js"></script>
 <script src="kss-assets/kss-guides.js"></script>
 <script src="kss-assets/kss-markup.js"></script>
 <script>
+  prettyPrint();
   var spy = new ScrollSpy('#kss-node', {
     nav: '.kss-nav__menu-child > li > a',
     className: 'is-in-viewport'

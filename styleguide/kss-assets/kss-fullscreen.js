@@ -26,11 +26,10 @@
 
     var self = this;
     // Initialize all fullscreen toggle buttons.
-    var elementList = document.querySelectorAll('a[data-kss-fullscreen]');
-    for (var button of elementList) {
+    document.querySelectorAll('a[data-kss-fullscreen]').forEach(function (button) {
       // Get the section reference from the data attribute.
       button.onclick = self.setFocus.bind(self, button.dataset.kssFullscreen);
-    }
+    });
   };
 
   // Activation function that takes the ID of the element that will receive
