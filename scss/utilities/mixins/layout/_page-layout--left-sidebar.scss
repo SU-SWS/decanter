@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+//
+// @page-layout--left-sidebar
+//
+// Mixin to apply to the wrapper of a left-sidebar layout. Note: Includes global mixin @page-layout.
+//
+// Style guide: Mixins.Layout.page-layout--left-sidebar
+//
+
+@mixin page-layout--left-sidebar {
+  @include page-layout;
+}
+
+//
+// @page-layout--left-sidebar--content
+//
+// Mixin to apply to the content region in a left-sidebar layout.
+//
+// Style guide: Mixins.Layout.page-layout--left-sidebar--content
+//
+
+@mixin page-layout--left-sidebar--content {
+  @media #{$breakpoint-xs} {
+    @include grid-item-spans(1, 7, 3, 4);
+  }
+
+  @media #{$breakpoint-sm} {
+    @include grid-item-spans(2, 12, 3, 4);
+  }
+
+  @media #{$breakpoint-md} {
+    @include grid-item-spans(5, 13, 2, 3);
+  }
+
+  @media #{$breakpoint-lg} {
+    @include grid-item-spans(5, 13, 2, 3);
+  }
+
+  @media #{$breakpoint-xl} {
+    @include grid-item-spans(5, 13, 2, 3);
+  }
+}
+
+//
+// @page-layout--left-sidebar--sidebar
+//
+// Mixin to apply to the sidebar in a left-sidebar layout.
+//
+// Style guide: Mixins.Layout.page-layout--left-sidebar--sidebar
+//
+
+@mixin page-layout--left-sidebar--sidebar {
+  @media #{$breakpoint-xs} {
+    @include grid-item-spans(1, 7, 2, 3);
+  }
+
+  @media #{$breakpoint-sm} {
+    @include grid-item-spans(2, 12, 2, 3);
+  }
+
+  @media #{$breakpoint-md} {
+    @include grid-item-spans(1, 5, 2, 3);
+  }
+
+  @media #{$breakpoint-lg} {
+    @include grid-item-spans(1, 5, 2, 3);
+  }
+
+  @media #{$breakpoint-xl} {
+    @include grid-item-spans(1, 5, 2, 3);
+  }
+}

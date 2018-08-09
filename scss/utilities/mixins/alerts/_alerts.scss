@@ -18,7 +18,7 @@
   @include margin(1.5em null null);
   @include padding(1em);
 
-  @include media($medium-screen) {
+  @media #{$breakpoint-md} {
     background-size: 5.2rem;
   }
 
@@ -42,7 +42,7 @@
 
     @include padding(null null null 3.5rem);
 
-    @include media($medium-screen) {
+    @media #{$breakpoint-md} {
       @include padding(null null null 5rem);
     }
 
@@ -57,7 +57,7 @@
     .decanter-alert__heading {
       @include margin(0 null .3rem);
 
-      @include media($medium-screen) {
+      @media #{$breakpoint-md} {
         @include margin(.3rem null null);
       }
     }
