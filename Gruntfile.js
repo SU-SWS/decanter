@@ -21,7 +21,7 @@ module.exports = function(grunt) {
           'css/decanter.css': 'scss/decanter.scss',
           'css/decanter-no-markup.css': 'scss/decanter-no-markup.scss',
           'css/decanter-grid.css': 'scss/decanter-grid.scss',
-          'css/decanter-kss.css': 'scss/decanter-kss.scss'
+          'builder/decanter/kss-assets/kss.css': 'builder/decanter/kss-assets/scss/kss.scss'
         }
       }
     },
