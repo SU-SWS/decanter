@@ -9,7 +9,7 @@ module.exports = function(grunt) {
           "node_modules/normalize.css",
           "node_modules/neat-omega/core",
           "node_modules",
-          "scss"
+          "dist/scss"
         ],
         lineNumbers: true,
         sourceMap: true,
@@ -18,10 +18,10 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'css/decanter.css': 'scss/decanter.scss',
-          'css/decanter-no-markup.css': 'scss/decanter-no-markup.scss',
-          'css/decanter-grid.css': 'scss/decanter-grid.scss',
-          'builder/decanter/kss-assets/kss.css': 'builder/decanter/kss-assets/scss/kss.scss'
+          'dist/css/decanter.css':                        'dist/scss/decanter.scss',
+          'dist/css/decanter-no-markup.css':              'dist/scss/decanter-no-markup.scss',
+          'dist/css/decanter-grid.css':                   'dist/scss/decanter-grid.scss',
+          'kss/builder/decanter/kss-assets/css/kss.css':  'kss/builder/decanter/scss/kss.scss'
         }
       }
     },
@@ -29,12 +29,12 @@ module.exports = function(grunt) {
       options: {
         configFile: '.sass-lint.yml'
       },
-      target: ['scss/\*\*/\*.scss']
+      target: ['dist/scss/\*\*/\*.scss']
     },
     uglify: {
       my_target: {
         files: {
-          'js/decanter.min.js': 'js/decanter.js',
+          'dist/js/decanter.min.js': 'dist/js/decanter.js',
         }
       }
     },
@@ -46,19 +46,19 @@ module.exports = function(grunt) {
         ]
       },
       dist: {
-        src: 'css/*.css'
+        src: 'dist/css/*.css'
       }
     },
     watch: {
       css: {
-        files: '**/*.scss',
+        files: ['**/*.scss'],
         tasks: ['sass', 'postcss', 'styleguide'],
         options: {
           livereload: true
         }
       },
       jsmin: {
-        files: 'js/**/*.js',
+        files: ['dist/**/*.js'],
         tasks: ['uglify']
       },
       twig: {
@@ -69,34 +69,34 @@ module.exports = function(grunt) {
     run: {
       styleguide: {
         "cmd": "./node_modules/.bin/kss",
-        "args": ['--config=kss-config.json']
+        "args": ['--config=kss/kss-config.json', '--verbose']
       }
     },
     symlink: {
       styleguidecss: {
         dest: 'styleguide/css',
-        relativeSrc: '../css',
+        relativeSrc: '../dist/css',
         options: {
           type: 'dir'
         }
       },
       styleguidejs: {
         dest: 'styleguide/js',
-        relativeSrc: '../js',
+        relativeSrc: '../dist/js',
         options: {
           type: 'dir'
         }
       },
       styleguideimg: {
         dest: 'styleguide/img',
-        relativeSrc: '../img',
+        relativeSrc: '../dist/img',
         options: {
           type: 'dir'
         }
       },
       styleguidefonts: {
         dest: 'styleguide/fonts',
-        relativeSrc: '../fonts',
+        relativeSrc: '../dist/fonts',
         options: {
           type: 'dir'
         }
@@ -121,7 +121,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-verbosity');
   grunt.loadNpmTasks('grunt-postcss');
 
-  grunt.registerTask('styleguide', ['run:styleguide', 'verbosity:symlinkquiet']);
+  grunt.registerTask('styleguide', ['compile', 'uglify', 'run:styleguide', 'symlink']);
   grunt.registerTask('compile', ['sass:dist', 'postcss:dist']);
   grunt.registerTask('default', ['watch']);
 
