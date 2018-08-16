@@ -431,24 +431,18 @@ template {
   font-weight: 700; }
 
 .decanter-grid {
-  padding-right: 1.5rem;
-  padding-left: 1.5rem;
-  max-width: 1220px; }
-  @media only screen and (min-width: 768px) {
-    .decanter-grid {
-      padding-right: 3rem;
-      padding-left: 3rem; } }
-
-.decanter-grid-full {
-  padding: 0;
-  max-width: 100%; }
-
-.decanter-grid {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: auto; }
+  margin: auto;
+  max-width: 1220px;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem; }
+  @media only screen and (min-width: 768px) {
+    .decanter-grid {
+      padding-right: 3rem;
+      padding-left: 3rem; } }
 
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .decanter-grid--item:last-child:nth-child(odd) {
