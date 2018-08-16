@@ -68,7 +68,8 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */ }
 
 /**
@@ -422,14 +423,25 @@ body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
     .region--sidebar-second {
       background-color: rgba(0, 128, 0, 0.2); }
 
-.decanter-grid {
+.grid--container {
   margin-bottom: 20px; }
 
-.decanter-grid--item {
+.grid--item {
   padding: 10px;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.125); }
-  .decanter-grid--item:nth-child(even) {
+  .grid--item:nth-child(even) {
     background-color: rgba(0, 0, 0, 0.25); }
 
+.colors-demo {
+  line-height: 1.2; }
+  .colors-demo--item {
+    margin-bottom: 1em; }
+    .colors-demo--item .inner {
+      padding: .5em; }
+  .colors-demo--colorname {
+    font-size: .8em;
+    margin-bottom: .16em; }
+  .colors-demo--colorhex {
+    font-family: monospace; }
 /*# sourceMappingURL=decanter-kss.css.map */
