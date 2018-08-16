@@ -1,5 +1,10 @@
 # Changelog
 
+Version 4.1.0                      2018-08-16
+---------------------------------------------
+- Added class-based grid system
+- Added new Flexbox grid mixins
+
 Version 4.0.0                      2018-08-09
 ---------------------------------------------
 - Added new CSS Grid mixins
