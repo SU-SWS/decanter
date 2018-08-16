@@ -1,10 +1,34 @@
+@charset "UTF-8";
+
+//
+// @decanter-grid
+//
+// Mixin to apply to the wrapper of all class-based layouts.
+//
+// Style guide: Mixins.Grid.decanter-grid
+//
+
 @mixin decanter-grid($gap: $gutter-md) {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
   margin: auto;
+  max-width: $site-max-width;
+  @include padding(null $site-margins-mobile);
+
+  @media #{$breakpoint-md} {
+    @include padding(null $site-margins);
+  }
 }
+
+//
+// @decanter-grid--item
+//
+// Mixin to apply to an element within a class-based grid row.
+//
+// Style guide: Mixins.Grid.decanter-grid--item
+//
 
 @mixin decanter-grid--item {
   @media #{$breakpoint-md-only} {
@@ -14,9 +38,25 @@
   }
 }
 
+//
+// @decanter-width-one-whole
+//
+// Mixin to apply to an element that should occupy 1/1 of a class-based grid row.
+//
+// Style guide: Mixins.Grid.decanter-width-one-whole
+//
+
 @mixin decanter-width-one-whole {
   width: 100%;
 }
+
+//
+// @decanter-width-one-half
+//
+// Mixin to apply to an element that should occupy 1/2 of a class-based grid row.
+//
+// Style guide: Mixins.Grid.decanter-width-one-half
+//
 
 @mixin decanter-width-one-half {
   width: 100%;
@@ -30,6 +70,14 @@
   }
 }
 
+//
+// @decanter-width-one-fourth
+//
+// Mixin to apply to an element that should occupy 1/4 of a class-based grid row.
+//
+// Style guide: Mixins.Grid.decanter-width-one-fourth
+//
+
 @mixin decanter-width-one-fourth {
   width: 100%;
 
@@ -41,6 +89,14 @@
     width: calc(1 / 4 * 100% - (#{(1 - 1 / 4) * $gutter-lg}));
   }
 }
+
+//
+// @decanter-width-three-fourths
+//
+// Mixin to apply to an element that should occupy 3/4 of a class-based grid row.
+//
+// Style guide: Mixins.Grid.decanter-width-three-fourths
+//
 
 @mixin decanter-width-three-fourths {
   width: 100%;
@@ -54,6 +110,14 @@
   }
 }
 
+//
+// @decanter-width-one-third
+//
+// Mixin to apply to an element that should occupy 1/3 of a class-based grid row.
+//
+// Style guide: Mixins.Grid.decanter-width-one-third
+//
+
 @mixin decanter-width-one-third {
   width: 100%;
 
@@ -65,6 +129,14 @@
     width: calc(1 / 3 * 100% - (#{(1 - 1 / 3) * $gutter-lg}));
   }
 }
+
+//
+// @decanter-width-two-thirds
+//
+// Mixin to apply to an element that should occupy 2/3 of a class-based grid row.
+//
+// Style guide: Mixins.Grid.decanter-width-two-thirds
+//
 
 @mixin decanter-width-two-thirds {
   width: 100%;
@@ -78,6 +150,14 @@
   }
 }
 
+//
+// @decanter-width-one-sixth
+//
+// Mixin to apply to an element that should occupy 1/6 of a class-based grid row.
+//
+// Style guide: Mixins.Grid.decanter-width-one-sixth
+//
+
 @mixin decanter-width-one-sixth {
   width: 100%;
 
@@ -89,6 +169,14 @@
     width: calc(1 / 6 * 100% - (#{(1 - 1 / 6) * $gutter-lg}));
   }
 }
+
+//
+// @decanter-width-five-sixths
+//
+// Mixin to apply to an element that should occupy 5/6 of a class-based grid row.
+//
+// Style guide: Mixins.Grid.decanter-width-five-sixths
+//
 
 @mixin decanter-width-five-sixths {
   width: 100%;
@@ -102,6 +190,14 @@
   }
 }
 
+//
+// @decanter-width-one-twelfth
+//
+// Mixin to apply to an element that should occupy 1/12 of a class-based grid row.
+//
+// Style guide: Mixins.Grid.decanter-width-one-twelfth
+//
+
 @mixin decanter-width-one-twelfth {
   width: 100%;
 
@@ -114,6 +210,14 @@
   }
 }
 
+//
+// @decanter-width-five-twelfths
+//
+// Mixin to apply to an element that should occupy 5/12 of a class-based grid row.
+//
+// Style guide: Mixins.Grid.decanter-width-five-twelfths
+//
+
 @mixin decanter-width-five-twelfths {
   width: 100%;
 
@@ -125,6 +229,14 @@
     width: calc(5 / 12 * 100% - (#{(1 - 5 / 12) * $gutter-lg}));
   }
 }
+
+//
+// @decanter-width-seven-twelfths
+//
+// Mixin to apply to an element that should occupy 7/12 of a class-based grid row.
+//
+// Style guide: Mixins.Grid.decanter-width-seven-twelfths
+//
 
 @mixin decanter-width-seven-twelfths {
   width: 100%;
