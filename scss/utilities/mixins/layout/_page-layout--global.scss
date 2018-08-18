@@ -1,6 +1,61 @@
 @charset "UTF-8";
 
 //
+// @page-layout--html
+//
+// Mixin to apply to the html element for all pages whose footers should be sticky.
+//
+// Style guide: Mixins.Layout.page-layout--html
+//
+
+// @TODO : Confirm that it is necessary to make 100% height.
+@mixin page-layout--html {
+  height: 100%;
+}
+
+//
+// @page-layout--body
+//
+// Mixin to apply to the body element for all pages whose footers should be sticky.
+//
+// Style guide: Mixins.Layout.page-layout--body
+//
+
+@mixin page-layout--body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; // Avoid the IE 10-11 `min-height` bug.
+  padding: 0;
+  margin: 0;
+}
+
+//
+// @page-layout--header
+//
+// Mixin to apply to the site header div for all pages whose footers should be sticky.  This prevents Chrome, Opera,
+// and Safari from letting these items shrink to smaller than their content's default minimum size.
+//
+// Style guide: Mixins.Layout.page-layout--header
+//
+
+@mixin page-layout--header {
+  flex-shrink: 0;
+}
+
+//
+// @page-layout--footer
+//
+// Mixin to apply to the site footer div for all pages whose footers should be sticky. This prevents Chrome, Opera,
+// and Safari from letting these items shrink to smaller than their content's default minimum size.
+//
+// Style guide: Mixins.Layout.page-layout--footer
+//
+
+@mixin page-layout--footer {
+  flex-shrink: 0;
+}
+
+//
 // @page-layout
 //
 // Mixin to apply to the wrapper of all layouts. Note: Is included in all column-specific mixins.
@@ -12,6 +67,7 @@
   @include display-grid;
   max-width: $site-max-width;
   margin: 0 auto;
+  flex: 1 0 auto;
 
   @media #{$breakpoint-xs} {
     @include grid-columns(1fr 1fr 1fr 1fr 1fr 1fr); // Can't use repeat() function in IE
