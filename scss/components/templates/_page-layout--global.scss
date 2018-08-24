@@ -10,22 +10,19 @@
 // Style guide: Templates.Page Layout: Global
 //
 
-html {
-  @include page-layout--html;
-}
-
 body {
-  @include page-layout--body;
+  @include sticky-footer--body;
 }
 
 header.region--header {
-  @include page-layout--header;
+  @include sticky-footer--header;
 }
 
 .page-layout {
   @include page-layout;
+  @include sticky-footer--main;
 }
 
 footer.region--footer {
-  @include page-layout--footer;
+  @include sticky-footer--footer;
 }

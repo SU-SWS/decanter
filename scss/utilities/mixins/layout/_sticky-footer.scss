@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+//
+// @sticky-footer--body
+//
+// Mixin to apply to the body element for all pages whose footers should be sticky.
+//
+// Style guide: Mixins.Layout.sticky-footer--body
+//
+
+@mixin sticky-footer--body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; // Avoid the IE 10-11 `min-height` bug.
+  padding: 0;
+  margin: 0;
+}
+
+//
+// @sticky-footer--header
+//
+// Mixin to apply to the site header div for all pages whose footers should be sticky.  This prevents Chrome, Opera,
+// and Safari from letting these items shrink to smaller than their content's default minimum size.
+//
+// Style guide: Mixins.Layout.sticky-footer--header
+//
+
+@mixin sticky-footer--header {
+  flex-shrink: 0;
+}
+
+//
+// @sticky-footer--main
+//
+// Mixin to apply to the main element for all pages whose footers should be sticky.
+//
+// Style guide: Mixins.Layout.sticky-footer--main
+//
+
+@mixin sticky-footer--main {
+  flex: 1 0 auto;
+}
+
+//
+// @sticky-footer--footer
+//
+// Mixin to apply to the site footer div for all pages whose footers should be sticky. This prevents Chrome, Opera,
+// and Safari from letting these items shrink to smaller than their content's default minimum size.
+//
+// Style guide: Mixins.Layout.sticky-footer--footer
+//
+
+@mixin sticky-footer--footer {
+  flex-shrink: 0;
+}
