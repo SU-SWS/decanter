@@ -1,22 +1,5 @@
-// ------------------------------------------------------------------------------
-//   Variables - Colors, Fonts, etc.
-// ------------------------------------------------------------------------------
-$kss-colors-background    : #fff;
+@charset "UTF-8";
 
-$kss-colors-foreground    : #444;
-$kss-colors-heading       : #111;
-$kss-colors-quotes        : #666;
-
-$kss-colors-link          : #0645ad;
-$kss-colors-link-visited  : #0645ad;
-$kss-colors-link-hover    : lighten($kss-colors-link, 20%);
-$kss-colors-link-active   : #faa700;
-
-$kss-font-body            : Helvetica, 'Helvetica Neue', Arial, sans-serif;
-$kss-font-code            : Menlo, 'Ubuntu Mono', 'Lucida Console', 'Courier New', Courier, monospace;
-
-$kss-font-size            : 16px;
-$kss-vertical-rhythm      : $kss-font-size * 1.5;
 
 // ------------------------------------------------------------------------------
 // Wrap all of this builder's base HTML styling inside a .kss-style selector.
@@ -186,7 +169,7 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
 
   .kss-main {
     width: 100%;
-    margin: 0 auto;
+    margin: 40px auto 0 auto;
 
     @media screen and (min-width: 769px) {
       width: 80%;
@@ -205,10 +188,11 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
       overflow: auto;
       padding: 0 10px 0 20px;
       border-bottom: 0;
-      background-image: url(noise-low.png), -ms-radial-gradient(#fff, #eee);
-      background-image: url(noise-low.png), -o-radial-gradient(#fff, #eee);
-      background-image: url(noise-low.png), -webkit-radial-gradient(#fff, #eee);
-      background-image: url(noise-low.png), radial-gradient(#fff, #eee);
+      // background-image: url(noise-low.png), -ms-radial-gradient(#fff, #eee);
+      // background-image: url(noise-low.png), -o-radial-gradient(#fff, #eee);
+      // background-image: url(noise-low.png), -webkit-radial-gradient(#fff, #eee);
+      // background-image: url(noise-low.png), radial-gradient(#fff, #eee);
+      background-color: $color-light-sandstone;
       box-shadow: inset -10px 0 10px -10px rgba(0,0,0,0.7);
     }
   }
@@ -742,4 +726,19 @@ $kss-vertical-rhythm      : $kss-font-size * 1.5;
       background: #fcfcfc;
     }
   }
+}
+
+//
+// KSS Fullscreen Scrolling Fix
+//
+// Adding 2px to the default kss fullscreen padding. This resolves the 1-2px
+// horizontal scrolling issue.
+//
+
+body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
+  padding: 22px;
+}
+
+#kssref-core-grid h4 {
+  text-align: center;
 }
