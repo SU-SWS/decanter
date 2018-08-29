@@ -1,7 +1,12 @@
 # [Decanter](https://github.com/SU-SWS/decanter)
-##### Version: 4.1.0
+##### Version: 5.0.0-dev
 
 Changelog: [CHANGELOG.md](CHANGELOG.md)
+
+Demo
+---
+
+To see a live demo of Decanter please [view the styleguide](/view the styleguide)
 
 Description
 ---
