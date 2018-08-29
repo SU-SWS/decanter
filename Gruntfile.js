@@ -68,7 +68,9 @@ module.exports = function(grunt) {
     },
     clean: {
       styleguide: {
-        src: ['styleguide/*.html']
+        src: [
+          'styleguide'
+        ]
       }
     },
     run: {
@@ -106,14 +108,6 @@ module.exports = function(grunt) {
           type: 'dir'
         }
       }
-    },
-    verbosity: {
-      symlinkquiet: {
-        options: {
-          mode: 'hidden'
-        },
-        tasks: ["symlink"]
-      }
     }
   });
 
@@ -124,10 +118,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-symlink');
-  grunt.loadNpmTasks('grunt-verbosity');
   grunt.loadNpmTasks('grunt-postcss');
 
-  grunt.registerTask('styleguide', ['compile', 'uglify', 'clean:styleguide', 'run:styleguide', 'verbosity:symlinkquiet']);
+  grunt.registerTask('styleguide', ['compile', 'uglify', 'clean:styleguide', 'run:styleguide', 'symlink']);
   grunt.registerTask('compile', ['sass:dist', 'postcss:dist']);
   grunt.registerTask('default', ['watch']);
 
