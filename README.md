@@ -6,7 +6,7 @@ Changelog: [CHANGELOG.md](CHANGELOG.md)
 Demo
 ---
 
-To see a live demo of Decanter please [view the styleguide](/view the styleguide)
+To see a live demo of Decanter please [view the styleguide](/styleguide)
 
 Description
 ---
