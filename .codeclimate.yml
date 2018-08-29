@@ -1,3 +1,4 @@
+version: "2"
 engines:
   # https://docs.codeclimate.com/docs/eslint
   # ES Linting requires an .eslintrc file to tweak checks.
@@ -63,21 +64,13 @@ engines:
       - BUG
       - TODO
       - todo
-ratings:
-  paths:
-  - "**.css"
-  - "**.scss"
-  - "**.sass"
-  - "**.js"
-  - "**.md"
 # exclude these files/paths
-exclude_paths:
+exclude_patterns:
 - "test"
 - "tests"
 - "vendor"
 - "vendors"
 - "node_modules"
 - "styleguide"
-- "kss/builder/base"
-- "kss/builder/decanter/kss-assets"
+- "kss/**/*"
 - "core/js"
