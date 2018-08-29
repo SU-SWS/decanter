@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+//
+// Footer Mixins
+//
+// Mixins for the global footer.
+//
+// Style guide: Mixins.Organisms.Footer
+//
+
+@mixin footer-colors {
+  background-color: $color-cardinal-red;
+  color: $color-white;
+  a {
+    color: rgba($color-white, .9);
+    text-decoration: none;
+    &:hover {
+      color: $color-white;
+      text-decoration: underline;
+    }
+  }
+}
+
+@mixin footer-wrapper {
+  @include footer-colors;
+  display: flex;
+  padding: 2.5rem;
+}
+
+@mixin footer-copyright {
+  @include footer-colors;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
