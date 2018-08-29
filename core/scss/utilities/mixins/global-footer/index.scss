@@ -1,0 +1,57 @@
+@charset "UTF-8";
+
+//
+// Global Footer
+//
+// Mixins for the global footer.
+//
+// Style guide: Mixins.Organisms.Footer
+//
+@mixin global-footer {
+  background-color: $color-cardinal-red;
+  color: $color-white;
+  display: flex;
+  padding: 2.5rem;
+
+  .global-footer__brand {
+    padding: 0 4rem 0 0;
+  }
+
+  .global-footer__copyright {
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+
+  .global-footer__menu {
+    margin: 0 0 1rem;
+    list-style-type: none;
+    margin: 0 0 .625rem;
+    padding: 0;
+    display: flex;
+
+    li {
+      margin: 0 2rem 0 0;
+      padding: 0;
+    }
+  }
+
+  .global-footer__menu--global {
+    font-size: 1.75rem;
+  }
+
+  .global-footer__menu--policy {
+    font-size: 1.5rem;
+    font-weight: 300;
+  }
+
+  a {
+    color: rgba($color-white, .9);
+    text-decoration: none;
+
+    &:hover {
+      color: $color-white;
+      text-decoration: underline;
+    }
+  }
+
+}
