@@ -9,7 +9,7 @@ module.exports = function(grunt) {
           "node_modules/normalize.css",
           "node_modules/neat-omega/core",
           "node_modules",
-          "dist/scss"
+          "core/scss"
         ],
         lineNumbers: true,
         sourceMap: true,
@@ -18,9 +18,9 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'dist/css/decanter.css':                        'dist/scss/decanter.scss',
-          'dist/css/decanter-no-markup.css':              'dist/scss/decanter-no-markup.scss',
-          'dist/css/decanter-grid.css':                   'dist/scss/decanter-grid.scss',
+          'core/css/decanter.css':                        'core/scss/decanter.scss',
+          'core/css/decanter-no-markup.css':              'core/scss/decanter-no-markup.scss',
+          'core/css/decanter-grid.css':                   'core/scss/decanter-grid.scss',
           'kss/builder/decanter/kss-assets/css/kss.css':  'kss/builder/decanter/scss/kss.scss'
         }
       }
@@ -29,12 +29,12 @@ module.exports = function(grunt) {
       options: {
         configFile: '.sass-lint.yml'
       },
-      target: ['dist/scss/\*\*/\*.scss']
+      target: ['core/scss/\*\*/\*.scss']
     },
     uglify: {
       my_target: {
         files: {
-          'dist/js/decanter.min.js': 'dist/js/decanter.js',
+          'core/js/decanter.min.js': 'core/js/decanter.js',
         }
       }
     },
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
         ]
       },
       dist: {
-        src: 'dist/css/*.css'
+        src: 'core/css/*.css'
       }
     },
     watch: {
@@ -58,12 +58,17 @@ module.exports = function(grunt) {
         }
       },
       jsmin: {
-        files: ['dist/**/*.js'],
+        files: ['core/**/*.js'],
         tasks: ['uglify']
       },
       twig: {
         files: ['**/*.twig'],
         tasks: ['uglify', 'sass', 'styleguide']
+      }
+    },
+    clean: {
+      styleguide: {
+        src: ['styleguide/*.html']
       }
     },
     run: {
@@ -75,28 +80,28 @@ module.exports = function(grunt) {
     symlink: {
       styleguidecss: {
         dest: 'styleguide/css',
-        relativeSrc: '../dist/css',
+        relativeSrc: '../core/css',
         options: {
           type: 'dir'
         }
       },
       styleguidejs: {
         dest: 'styleguide/js',
-        relativeSrc: '../dist/js',
+        relativeSrc: '../core/js',
         options: {
           type: 'dir'
         }
       },
       styleguideimg: {
         dest: 'styleguide/img',
-        relativeSrc: '../dist/img',
+        relativeSrc: '../core/img',
         options: {
           type: 'dir'
         }
       },
       styleguidefonts: {
         dest: 'styleguide/fonts',
-        relativeSrc: '../dist/fonts',
+        relativeSrc: '../core/fonts',
         options: {
           type: 'dir'
         }
@@ -113,6 +118,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-run');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-sass-lint');
@@ -121,7 +127,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-verbosity');
   grunt.loadNpmTasks('grunt-postcss');
 
-  grunt.registerTask('styleguide', ['compile', 'uglify', 'run:styleguide', 'symlink']);
+  grunt.registerTask('styleguide', ['compile', 'uglify', 'clean:styleguide', 'run:styleguide', 'verbosity:symlinkquiet']);
   grunt.registerTask('compile', ['sass:dist', 'postcss:dist']);
   grunt.registerTask('default', ['watch']);
 
