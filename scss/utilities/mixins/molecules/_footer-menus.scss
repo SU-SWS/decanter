@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+//
+// Footer Menu Mixins
+//
+// Mixins for the menus that appear in the global footer.
+//
+// Style guide: Mixins.Molecules.Footer Menus
+//
+
+@mixin footer-menus {
+  margin: 0 0 1rem;
+}
+
+@mixin footer-menu {
+  @include footer-colors;
+  list-style-type: none;
+  margin: 0 0 .625rem;
+  padding: 0;
+  display: flex;
+
+  li {
+    margin: 0 2rem 0 0;
+    padding: 0;
+  }
+}
+
+@mixin footer-menu--global {
+  @include footer-menu;
+  font-size: 1.75rem;
+}
+
+@mixin footer-menu--policy {
+  @include footer-menu;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
