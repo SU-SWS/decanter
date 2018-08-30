@@ -15,44 +15,19 @@
 
   .global-footer__container {
     @include display-grid;
-
-    @media #{$breakpoint-sm} {
-      justify-items: left;
-      @include grid-columns(1fr 11fr); // Can't use repeat() function in IE
-      padding-left: $gutter-sm;
-      padding-right: $gutter-sm;
-      @include grid-column-gap($gutter-sm);
+    @include grid-media('xs', 100%) {
+      @include grid-rows(auto auto);
+      justify-items: center;
     }
 
-    @media #{$breakpoint-md} {
+    @include grid-media('sm', 2fr 10fr) {
       justify-items: left;
-      @include grid-columns(1fr 11fr); // Can't use repeat() function in IE
-      padding-left: $gutter-md;
-      padding-right: $gutter-md;
-      @include grid-column-gap($gutter-md);
     }
 
-    @media #{$breakpoint-lg} {
+    @include grid-media('md', 1fr 10fr) {
       justify-items: left;
-      @include grid-columns(1fr 11fr); // Can't use repeat() function in IE
-      padding-left: $gutter-lg;
-      padding-right: $gutter-lg;
-      @include grid-column-gap($gutter-lg);
     }
 
-    @media #{$breakpoint-xl} {
-      justify-items: left;
-      @include grid-columns(1fr 11fr); // Can't use repeat() function in IE
-      padding-left: $gutter-xl;
-      padding-right: $gutter-xl;
-      @include grid-column-gap($gutter-xl);
-    }
-
-    grid-template-columns: 100%;
-    grid-template-rows: auto auto;
-    justify-items: center;
-    padding-left: $gutter-xs;
-    padding-right: $gutter-xs;
   }
 
   .global-footer__brand {
@@ -62,10 +37,10 @@
   }
 
   .global-footer__nav {
-    @media #{$breakpoint-xs-only} {
+    @include grid-media-only('xs', 1fr 1fr) {
       @include display-grid;
-      @include grid-columns(1fr 1fr);
       justify-content: center;
+      justify-items: center;
     }
   }
 
