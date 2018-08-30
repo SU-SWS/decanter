@@ -1,31 +1,31 @@
-<footer class="global-footer">
+<footer{{attributes}} class="global-footer {{ modifier_class }}">
+  <div class="global-footer__container">
+    <div class="global-footer__brand">
+      <a class="global-footer__logo" href="https://www.stanford.edu">
+        <img src="{{ src|default("../../img/footer-stanford-logo@2x.png") }}" alt="{{ alt|default("Stanford University") }}" width="105" height="49" />
+      </a>
+    </div>
 
-  <div class="global-footer__brand">
-    <a{{ attributes }} class="global-footer__logo {{ modifier_class }}" href="https://www.stanford.edu">
-      <img src="{{ src|default("../../img/footer-stanford-logo@2x.png") }}" alt="{{ alt|default("Stanford University") }}" width="105" height="49" />
-    </a>
-  </div>
-
-  <div class="global-footer__content">
-    <nav class="global-footer__nav" role="navigation">
-      <ul class="global-footer__menu global-footer__menu--global">
-        <li><a href="https://www.stanford.edu">Stanford Home</a></li>
-        <li><a href="https://visit.stanford.edu/plan/">Maps & Directions</a></li>
-        <li><a href="https://www.stanford.edu/search/">Search Stanford</a></li>
-        <li><a href="https://emergency.stanford.edu">Emergency Info</a></li>
-      </ul>
-      <ul class="global-footer__menu global-footer__menu--policy ">
-        <li><a href="https://www.stanford.edu/site/terms/">Terms of Use</a></li>
-        <li><a href="https://www.stanford.edu/site/privacy/">Privacy</a></li>
-        <li><a href="https://uit.stanford.edu/security/copyright-infringement">Copyright</a></li>
-        <li><a href="https://adminguide.stanford.edu/chapter-1/subchapter-5/policy-1-5-4">Trademarks</a></li>
-        <li><a href="http://exploredegrees.stanford.edu/nonacademicregulations/nondiscrimination/">Non-Discrimination</a></li>
-        <li><a href="https://www.stanford.edu/site/accessibility">Accessibility</a></li>
-      </ul>
-    </nav>
-    <div class="global-footer__copyright">
-      &copy; Stanford University. Stanford, California 94305.
+    <div class="global-footer__content">
+      <nav class="global-footer__nav" role="navigation">
+        <ul class="global-footer__menu global-footer__menu--global">
+          <li><a href="https://www.stanford.edu">Stanford Home</a></li>
+          <li><a href="https://visit.stanford.edu/plan/">Maps & Directions</a></li>
+          <li><a href="https://www.stanford.edu/search/">Search Stanford</a></li>
+          <li><a href="https://emergency.stanford.edu">Emergency Info</a></li>
+        </ul>
+        <ul class="global-footer__menu global-footer__menu--policy">
+          <li><a href="https://www.stanford.edu/site/terms/" title="Terms of use for sites">Terms of Use</a></li>
+          <li><a href="https://www.stanford.edu/site/privacy/" title="Privacy and cookie policy">Privacy</a></li>
+          <li><a href="https://uit.stanford.edu/security/copyright-infringement" title="Report alleged copyright infringement">Copyright</a></li>
+          <li><a href="https://adminguide.stanford.edu/chapter-1/subchapter-5/policy-1-5-4" title="Ownership and use of Stanford trademarks and images">Trademarks</a></li>
+          <li><a href="http://exploredegrees.stanford.edu/nonacademicregulations/nondiscrimination/" title="Non-discrimination policy">Non-Discrimination</a></li>
+          <li><a href="https://www.stanford.edu/site/accessibility" title="Report web accessibility issues">Accessibility</a></li>
+        </ul>
+      </nav>
+      <div class="global-footer__copyright">
+        &copy; Stanford University. Stanford, California 94305.
+      </div>
     </div>
   </div>
-
 </footer> <!-- global-footer end -->

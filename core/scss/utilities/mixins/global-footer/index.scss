@@ -8,13 +8,65 @@
 // Style guide: Mixins.Organisms.Footer
 //
 @mixin global-footer {
+  @include centered-grid-container;
   background-color: $color-cardinal-red;
   color: $color-white;
-  display: flex;
-  padding: 2.5rem;
+  padding: 2.5rem 0;
+
+  .global-footer__container {
+    @include display-grid;
+
+    @media #{$breakpoint-sm} {
+      justify-items: left;
+      @include grid-columns(1fr 11fr); // Can't use repeat() function in IE
+      padding-left: $gutter-sm;
+      padding-right: $gutter-sm;
+      @include grid-column-gap($gutter-sm);
+    }
+
+    @media #{$breakpoint-md} {
+      justify-items: left;
+      @include grid-columns(1fr 11fr); // Can't use repeat() function in IE
+      padding-left: $gutter-md;
+      padding-right: $gutter-md;
+      @include grid-column-gap($gutter-md);
+    }
+
+    @media #{$breakpoint-lg} {
+      justify-items: left;
+      @include grid-columns(1fr 11fr); // Can't use repeat() function in IE
+      padding-left: $gutter-lg;
+      padding-right: $gutter-lg;
+      @include grid-column-gap($gutter-lg);
+    }
+
+    @media #{$breakpoint-xl} {
+      justify-items: left;
+      @include grid-columns(1fr 11fr); // Can't use repeat() function in IE
+      padding-left: $gutter-xl;
+      padding-right: $gutter-xl;
+      @include grid-column-gap($gutter-xl);
+    }
+
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    padding-left: $gutter-xs;
+    padding-right: $gutter-xs;
+  }
 
   .global-footer__brand {
-    padding: 0 4rem 0 0;
+    a {
+      display: block;
+    }
+  }
+
+  .global-footer__nav {
+    @media #{$breakpoint-xs-only} {
+      @include display-grid;
+      @include grid-columns(1fr 1fr);
+      justify-content: center;
+    }
   }
 
   .global-footer__copyright {
@@ -27,11 +79,14 @@
     list-style-type: none;
     margin: 0 0 .625rem;
     padding: 0;
-    display: flex;
 
     li {
       margin: 0 2rem 0 0;
       padding: 0;
+      display: inline-block;
+      @media #{$breakpoint-xs-only} {
+        width: 100%
+      }
     }
   }
 
