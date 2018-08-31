@@ -15,17 +15,17 @@
   }
 
   @media #{$breakpoint-sm} {
-    grid-template-columns: auto $screen-sm auto;
+    @include  grid-columns(auto $screen-sm auto);
   }
   @media #{$breakpoint-md} {
-    grid-template-columns: auto $screen-md auto;
+    @include  grid-columns(auto $screen-md auto);
   }
   @media #{$breakpoint-lg} {
-    grid-template-columns: auto $screen-lg auto;
+    @include  grid-columns(auto $screen-lg auto);
   }
   @media #{$breakpoint-xl} {
-    grid-template-columns: auto $screen-xl auto;
+    @include  grid-columns(auto $screen-xl auto);
   }
 
-  grid-template-columns: auto 100% auto;
+  @include  grid-columns(auto 100% auto);
 }
