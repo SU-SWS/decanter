@@ -49,7 +49,10 @@
 //
 // Styleguide Mixins.Layout.Grid.Grid Media
 //
-@mixin grid-media-only($breakpoint: 'xs', $columns: 1fr 1fr 1fr 1fr) {
+@mixin grid-media-only(
+  $breakpoint: 'xs',
+  $columns: 1fr 1fr 1fr 1fr,
+  $gutters: 1) {
 
   $breakpoint-map: (
     'xs': $breakpoint-xs-only,
@@ -69,8 +72,10 @@
 
   @media #{map-get($breakpoint-map, $breakpoint)} {
     @include grid-columns($columns); // Can't use repeat() function in IE
-    padding-left: map-get($gutter-map, $breakpoint);
-    padding-right: map-get($gutter-map, $breakpoint);
+    @if $gutters == 1 {
+      padding-left: map-get($gutter-map, $breakpoint);
+      padding-right: map-get($gutter-map, $breakpoint);
+    }
     @include grid-column-gap(map-get($gutter-map, $breakpoint));
     @content;
   }
