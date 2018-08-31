@@ -49,12 +49,23 @@
   .global-footer__brand {
     margin: 0 0 1.25rem;
     width: 16rem;
+    padding-top: 5px;
 
     // Logo should have no margin at higher breakpoints.
     @media #{$breakpoint-sm} {
       margin-bottom: 0;
       width: 100%;
     }
+
+    // The Ligature Logo.
+    a {
+      @include ligature-logo;
+      @media #{$breakpoint-xs-only} {
+        font-size: 3.3rem;
+      }
+      font-size: 3rem;
+    }
+
   }
 
   // Grid settings for footer nav region; passing 0 for no outer gutters.

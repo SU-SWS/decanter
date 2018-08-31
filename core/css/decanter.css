@@ -1192,13 +1192,14 @@ button,
   .decanter-button--unstyled:hover {
     background-color: transparent; }
 
-.stanford-logo {
-  display: block;
+.ligature-logo {
+  display: inline-block;
   font-family: Stanford, 'Source Serif Pro', Georgia, Times, 'Times New Roman', serif;
   font-style: normal;
   font-weight: 400;
   font-variant: normal;
   text-transform: none;
+  text-decoration: none;
   line-height: .75;
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
@@ -1828,11 +1829,35 @@ button,
               margin-right: 0; } } }
   .global-footer .global-footer__brand {
     margin: 0 0 1.25rem;
-    width: 16rem; }
+    width: 16rem;
+    padding-top: 5px; }
     @media only screen and (min-width: 576px) {
       .global-footer .global-footer__brand {
         margin-bottom: 0;
         width: 100%; } }
+    .global-footer .global-footer__brand a {
+      display: inline-block;
+      font-family: Stanford, 'Source Serif Pro', Georgia, Times, 'Times New Roman', serif;
+      font-style: normal;
+      font-weight: 400;
+      font-variant: normal;
+      text-transform: none;
+      text-decoration: none;
+      line-height: .75;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      letter-spacing: 0;
+      -webkit-font-feature-settings: "liga";
+      -ms-font-feature-settings: "liga" 1;
+      font-feature-settings: "liga";
+      -webkit-font-variant-ligatures: discretionary-ligatures;
+      font-variant-ligatures: discretionary-ligatures;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-size: 3rem; }
+      @media only screen and (min-width: 0) and (max-width: 575px) {
+        .global-footer .global-footer__brand a {
+          font-size: 3.3rem; } }
   @media only screen and (min-width: 0) and (max-width: 575px) {
     .global-footer nav {
       -ms-grid-columns: 1fr 1fr;
