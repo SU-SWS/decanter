@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+//
+// @list-horizontal
+//
+// Generates a horizontal list.
+//
+// Style guide: Mixins.Lists.list-horizontal
+//
+
+@mixin list-horizontal(
+  $separator: '',
+  $padding: '.75em',
+  $breakpoint: '0'
+  ) {
+  @include list-unstyled;
+
+  @media screen and (min-width: #{$breakpoint}) {
+    word-spacing: -1em;
+    display: table;
+    width: 100%;
+
+    li {
+      display: inline-block;
+      word-spacing: 0;
+
+      &:not(.last) {
+        padding-right: #{$padding};
+      }
+
+      @if $separator != '' {
+        &:not(.last):after {
+          content: $separator;
+          padding-left: #{$padding};
+        }
+      }
+    }
+  }
+}
