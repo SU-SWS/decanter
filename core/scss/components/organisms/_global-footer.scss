@@ -71,29 +71,18 @@
   }
 }
 
+// Using list-horizontal mixin, passing a breakpoint value for the point at which we want the menu to become horizontal.
 .global-footer__menu {
-  list-style-type: none;
-  padding: 0;
+  @include list-horizontal($breakpoint: '#{$screen-md}');
   margin: 0 0 1.5rem;
+  text-align: center;
+
+  @media #{$breakpoint-sm} {
+    text-align: left;
+  }
 
   @media #{$breakpoint-md} {
     margin-bottom: .625rem;
-  }
-
-  li {
-    margin: 0;
-    padding: 0;
-    display: block;
-    text-align: center;
-
-    @media #{$breakpoint-sm} {
-      text-align: left;
-    }
-
-    @media #{$breakpoint-md} {
-      display: inline-block;
-      margin-right: 2rem;
-    }
   }
 }
 
