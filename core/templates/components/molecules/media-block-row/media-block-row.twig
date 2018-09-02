@@ -1,4 +1,4 @@
-<div{{ attributes }} class="decanter-icon-grid__row {{ classes }}">
+<div{{ attributes }} class="decanter-icon-grid__row {{ modifier_class }}">
 
   {% if blocks not empty %}
     {{ blocks }}
@@ -6,7 +6,7 @@
 
   {% if items not empty %}
     {% for item in items %}
-      {% include "../../molecules/media-block/media-block.twig" with item %}
+      {% include "@decanter/components/molecules/media-block/media-block.twig" with item %}
     {% endfor %}
   {% endif %}
 

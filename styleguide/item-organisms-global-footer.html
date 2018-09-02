@@ -83,22 +83,22 @@
 <article role="main" class="kss-main">
 
   
-          <div id="kssref-variables-core-breakpoints-grid-xs" class="kss-section kss-section--depth-4 is-fullscreen">
+          <div id="kssref-organisms-global-footer" class="kss-section kss-section--depth-2 is-fullscreen">
       <div class="kss-style">
-                <h4 class="kss-title kss-title--level-4">
-          <a class="kss-title__permalink" href="#kssref-variables-core-breakpoints-grid-xs">
+                <h2 class="kss-title kss-title--level-2">
+          <a class="kss-title__permalink" href="#kssref-organisms-global-footer">
             <span class="kss-title__ref">
-              9.2.1.18
+              3.2
               <span class="kss-title__permalink-hash">
-                Variables.Core.Breakpoints.grid-xs
+                Organisms.Global Footer
               </span>
             </span>
-            $grid-xs
+            Global Footer
           </a>
-        </h4>
+        </h2>
 
                   <p class="kss-toolbar">
-                        <a href="#kssref-variables-core-breakpoints-grid-xs" data-kss-guides="true">
+                        <a href="#kssref-organisms-global-footer" data-kss-guides="true">
               <span class="kss-toolbar__tooltip">Toggle example guides</span>
               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                 <rect class="kss-toolbar__icon-fill" x="5" y="35" width="5" height="9"/>
@@ -119,7 +119,7 @@
                 <rect class="kss-toolbar__icon-fill" x="20" y="54" width="9" height="5"/>
               </svg>
             </a>
-            <a href="#kssref-variables-core-breakpoints-grid-xs" data-kss-markup="true">
+            <a href="#kssref-organisms-global-footer" data-kss-markup="true">
               <span class="kss-toolbar__tooltip">Toggle HTML markup</span>
               <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%" viewBox="0 0 64 64">
                 <path class="kss-toolbar__icon-fill" d="M37.555,46.239l6.103,6.103l20.342,-20.342l-20.342,-20.342l-6.103,6.103l14.24,14.239l-14.24,14.239Z"/>
@@ -129,7 +129,7 @@
           </p>
         
                   <div class="kss-description">
-            <p>Mixin for basic mobile-first media query for xs (and up) screen size.</p>
+            <p>Global footer element as specified by the Identity Guidelines.</p>
 
           </div>
         
@@ -141,20 +141,86 @@
 
           
           <div class="kss-modifier__example">
-            $grid-xs: (columns: $columns-xs, gutter: $gutter-xs, media: $screen-xs);
+            <footer class="global-footer ">
+  <div class="global-footer__container">
+    <div class="global-footer__brand">
+      <a class="logo global-footer__logo" href="https://www.stanford.edu">
+  <img src="../../img/footer-stanford-logo@2x.png" alt="Stanford University" />
+</a>
+
+    </div>
+
+    <div class="global-footer__content">
+      <nav class="global-footer__nav" role="navigation">
+        <ul class="global-footer__menu global-footer__menu--global">
+          <li><a href="https://www.stanford.edu">Stanford Home</a></li>
+          <li><a href="https://visit.stanford.edu/plan/">Maps &amp; Directions</a></li>
+          <li><a href="https://www.stanford.edu/search/">Search Stanford</a></li>
+          <li><a href="https://emergency.stanford.edu">Emergency Info</a></li>
+        </ul>
+        <ul class="global-footer__menu global-footer__menu--policy">
+          <li><a href="https://www.stanford.edu/site/terms/" title="Terms of use for sites">Terms of Use</a></li>
+          <li><a href="https://www.stanford.edu/site/privacy/" title="Privacy and cookie policy">Privacy</a></li>
+          <li><a href="https://uit.stanford.edu/security/copyright-infringement" title="Report alleged copyright infringement">Copyright</a></li>
+          <li><a href="https://adminguide.stanford.edu/chapter-1/subchapter-5/policy-1-5-4" title="Ownership and use of Stanford trademarks and images">Trademarks</a></li>
+          <li><a href="http://exploredegrees.stanford.edu/nonacademicregulations/nondiscrimination/" title="Non-discrimination policy">Non-Discrimination</a></li>
+          <li><a href="https://www.stanford.edu/site/accessibility" title="Report web accessibility issues">Accessibility</a></li>
+        </ul>
+      </nav>
+      <div class="global-footer__copyright">
+        <span class="global-footer__copyright--line">&copy; Stanford University.</span>
+        <span class="global-footer__copyright--line">&nbsp; Stanford, California 94305. &nbsp;</span>
+      </div>
+    </div>
+  </div>
+</footer> <!-- global-footer end -->
+
             <div class="kss-modifier__example-footer"></div>
           </div>
 
                   </div>
                   <details class="kss-markup kss-style">
             <summary>
-                              Markup
+                              Markup: <code>../templates/components/organisms/global-footer/global-footer.twig</code>
                           </summary>
-            <pre class="prettyprint linenums lang-html"><code data-language="html">$grid-xs: (columns: $columns-xs, gutter: $gutter-xs, media: $screen-xs);</code></pre>
+            <pre class="prettyprint linenums lang-html"><code data-language="html">&lt;footer class=&quot;global-footer &quot;&gt;
+  &lt;div class=&quot;global-footer__container&quot;&gt;
+    &lt;div class=&quot;global-footer__brand&quot;&gt;
+      &lt;a class=&quot;logo global-footer__logo&quot; href=&quot;https://www.stanford.edu&quot;&gt;
+  &lt;img src=&quot;../../img/footer-stanford-logo@2x.png&quot; alt=&quot;Stanford University&quot; /&gt;
+&lt;/a&gt;
+
+    &lt;/div&gt;
+
+    &lt;div class=&quot;global-footer__content&quot;&gt;
+      &lt;nav class=&quot;global-footer__nav&quot; role=&quot;navigation&quot;&gt;
+        &lt;ul class=&quot;global-footer__menu global-footer__menu--global&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.stanford.edu&quot;&gt;Stanford Home&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://visit.stanford.edu/plan/&quot;&gt;Maps &amp;amp; Directions&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.stanford.edu/search/&quot;&gt;Search Stanford&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://emergency.stanford.edu&quot;&gt;Emergency Info&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;ul class=&quot;global-footer__menu global-footer__menu--policy&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.stanford.edu/site/terms/&quot; title=&quot;Terms of use for sites&quot;&gt;Terms of Use&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.stanford.edu/site/privacy/&quot; title=&quot;Privacy and cookie policy&quot;&gt;Privacy&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://uit.stanford.edu/security/copyright-infringement&quot; title=&quot;Report alleged copyright infringement&quot;&gt;Copyright&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://adminguide.stanford.edu/chapter-1/subchapter-5/policy-1-5-4&quot; title=&quot;Ownership and use of Stanford trademarks and images&quot;&gt;Trademarks&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;http://exploredegrees.stanford.edu/nonacademicregulations/nondiscrimination/&quot; title=&quot;Non-discrimination policy&quot;&gt;Non-Discrimination&lt;/a&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;a href=&quot;https://www.stanford.edu/site/accessibility&quot; title=&quot;Report web accessibility issues&quot;&gt;Accessibility&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/nav&gt;
+      &lt;div class=&quot;global-footer__copyright&quot;&gt;
+        &lt;span class=&quot;global-footer__copyright--line&quot;&gt;&amp;copy; Stanford University.&lt;/span&gt;
+        &lt;span class=&quot;global-footer__copyright--line&quot;&gt;&amp;nbsp; Stanford, California 94305. &amp;nbsp;&lt;/span&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/footer&gt; &lt;!-- global-footer end --&gt;
+</code></pre>
           </details>
               
               <div class="kss-source kss-style">
-          Source: <code>variables/core/_breakpoints.scss</code>, line 248
+          Source: <code>components/organisms/_global-footer.scss</code>, line 3
         </div>
           </div>
   </article>

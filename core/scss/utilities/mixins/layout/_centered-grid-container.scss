@@ -1,0 +1,31 @@
+@charset 'UTF-8';
+
+//
+// Centered Grid Container
+//
+// Creates a responsive centered grid for all breakpoints
+//
+// Styleguide: Mixins.Layout.Centered Grid Container
+//
+@mixin centered-grid-container {
+  @include display-grid;
+
+  > :first-child  {
+    grid-column: 2;
+  }
+
+  @media #{$breakpoint-sm} {
+    grid-template-columns: auto $screen-sm auto;
+  }
+  @media #{$breakpoint-md} {
+    grid-template-columns: auto $screen-md auto;
+  }
+  @media #{$breakpoint-lg} {
+    grid-template-columns: auto $screen-lg auto;
+  }
+  @media #{$breakpoint-xl} {
+    grid-template-columns: auto $screen-xl auto;
+  }
+
+  grid-template-columns: auto 100% auto;
+}
