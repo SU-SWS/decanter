@@ -1655,6 +1655,24 @@ button,
     .decanter-sidenav__sublist .decanter-sidenav__sublist a:hover {
       padding-left: 3.8rem; }
 
+.list--horizontal {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style-type: none; }
+  .list--horizontal > li {
+    margin-bottom: 0; }
+  @media screen and (min-width: 0) {
+    .list--horizontal {
+      word-spacing: -1em;
+      display: table;
+      width: 100%; }
+      .list--horizontal li {
+        display: inline-block;
+        word-spacing: 0; }
+        .list--horizontal li:not(:last-of-type) {
+          padding-right: 1.25em; } }
+
 .decanter-accordion {
   margin-top: 0;
   margin-bottom: 0;
@@ -1852,24 +1870,30 @@ button,
     margin-bottom: 1.125rem; } }
 
 .global-footer__menu {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
   list-style-type: none;
-  padding: 0;
-  margin: 0 0 1.5rem; }
+  margin: 0 0 1.5rem;
+  text-align: center; }
+  .global-footer__menu > li {
+    margin-bottom: 0; }
+  @media screen and (min-width: 768px) {
+    .global-footer__menu {
+      word-spacing: -1em;
+      display: table;
+      width: 100%; }
+      .global-footer__menu li {
+        display: inline-block;
+        word-spacing: 0; }
+        .global-footer__menu li:not(:last-of-type) {
+          padding-right: 1.25em; } }
+  @media only screen and (min-width: 576px) {
+    .global-footer__menu {
+      text-align: left; } }
   @media only screen and (min-width: 768px) {
     .global-footer__menu {
       margin-bottom: .625rem; } }
-  .global-footer__menu li {
-    margin: 0;
-    padding: 0;
-    display: block;
-    text-align: center; }
-    @media only screen and (min-width: 576px) {
-      .global-footer__menu li {
-        text-align: left; } }
-    @media only screen and (min-width: 768px) {
-      .global-footer__menu li {
-        display: inline-block;
-        margin-right: 2rem; } }
 
 .global-footer__menu--global {
   font-size: 1.75rem; }
