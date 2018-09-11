@@ -16,7 +16,8 @@
   @include centered-grid-container;
   background-color: $color-cardinal-red;
   color: $color-white;
-  padding: 2.5rem 0;
+
+  @include padding(2.5rem 0);
 
   a {
     color: rgba($color-white, .9);
@@ -29,32 +30,39 @@
   }
 
   // Grid settings for footer container.
-  .global-footer__container {
-    @include display-grid;
+.global-footer__container {
+  @include display-grid;
 
-    @include grid-media('xs', 100%) {
-      @include grid-rows(auto auto);
-      justify-items: center;
-    }
+  @include grid-media("xs", 100%) {
+    @include grid-rows(auto auto);
 
-    @include grid-media('sm', 15rem auto) {
-      justify-items: left;
-    }
-
-    @include grid-media('md', 11rem auto) {
-      justify-items: left;
-    }
+    justify-items: center;
   }
 
+  @include grid-media("sm", 15rem auto) {
+    justify-items: left;
+  }
+
+  @include grid-media("md", 11rem auto) {
+    justify-items: left;
+
+    @supports (grid-column-gap: 20px) {
+      grid-column-gap: 50px;
+    }
+  }
+}
+
   .global-footer__brand {
-    margin: 0 0 1.25rem;
-    padding-top: 5px;
     width: 16rem;
+
+    @include margin(0 0 1.25rem);
+    @include padding(5px null null);
 
     // Logo should have no margin at higher breakpoints.
     @media #{$breakpoint-sm} {
-      margin-bottom: 0;
       width: 100%;
+
+      @include margin(null null 0);
     }
 
     // The Ligature Logo.
@@ -62,10 +70,10 @@
       @include ligature-logo;
 
       @media #{$breakpoint-xs-only} {
-        font-size: 3.3rem;
+        font-size: 3.2rem;
       }
 
-      font-size: 3rem;
+      font-size: 3.4rem;
     }
 
   }
@@ -81,34 +89,38 @@
     }
 
     @media #{$breakpoint-md} {
-      margin-bottom: 1.125rem;
+      @include margin(null null .75rem);
     }
   }
 
   .global-footer__menu {
     list-style-type: none;
-    margin: 0 0 1.5rem;
-    padding: 0;
+
+    @include margin(0 0 1.5rem);
+    @include padding(0);
 
     @media #{$breakpoint-md} {
-      margin-bottom: .625rem;
+      @include margin(null null .625rem);
     }
 
     li {
       display: block;
-      margin: 0;
-      padding: 0;
       text-align: center;
+
+      @include margin(0);
+      @include padding(0);
 
       @media #{$breakpoint-xs-only} {
         font-weight: normal;
-        padding: .25em 0;
         text-align: left;
+
+        @include padding(.25em 0);
       }
 
       @media #{$breakpoint-md} {
         display: inline-block;
-        margin-right: 2rem;
+
+        @include margin(null 2rem null null);
       }
 
     }
@@ -119,12 +131,12 @@
   }
 
   .global-footer__menu--policy {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 300;
   }
 
   .global-footer__copyright {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 300;
     line-height: 1.5;
     text-align: center;
