@@ -1,7 +1,7 @@
 @charset 'UTF-8';
 
 //
-// @grid-media($breakpoint: 'xs', $grid: '1fr 1fr 1fr 1fr')
+// @grid-media-only($breakpoint: 'xs', $grid: '1fr 1fr 1fr 1fr')
 //
 // A mixin for quickly defining a grid at a provided breakpoint.
 //
@@ -11,13 +11,13 @@
 //
 // Style guide Mixins.Layout.Grid.Grid Media
 //
-@mixin grid-media($breakpoint: 'xs', $columns: 1fr 1fr 1fr 1fr, $gutters: 1) {
+@mixin grid-media-only($breakpoint: 'xs', $columns: 1fr 1fr 1fr 1fr, $gutters: 1) {
 
   $breakpoint-map: (
-    'xs': $breakpoint-xs,
-    'sm': $breakpoint-sm,
-    'md': $breakpoint-md,
-    'lg': $breakpoint-lg,
+    'xs': $breakpoint-xs-only,
+    'sm': $breakpoint-sm-only,
+    'md': $breakpoint-md-only,
+    'lg': $breakpoint-lg-only,
     'xl': $breakpoint-xl
   );
 

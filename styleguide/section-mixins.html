@@ -363,7 +363,7 @@
                       <li class="kss-nav__menu-item">
               <a class="kss-nav__menu-link" href="section-mixins.html#kssref-mixins-layout-centered-grid-container">
                 <span class="kss-nav__ref kss-nav__ref-child">8.11.1</span
-                ><span class="kss-nav__name">Centered Grid Container</span>
+                ><span class="kss-nav__name">@centered-grid-container</span>
               </a>
             </li>
                       <li class="kss-nav__menu-item">
@@ -381,13 +381,13 @@
                       <li class="kss-nav__menu-item">
               <a class="kss-nav__menu-link" href="section-mixins.html#kssref-mixins-layout-grid-grid-media">
                 <span class="kss-nav__ref kss-nav__ref-child">8.11.3.1</span
-                ><span class="kss-nav__name">@grid-media($breakpoint: &#039;xs&#039;, $grid: &#039;1fr 1fr 1fr 1fr&#039;)</span>
+                ><span class="kss-nav__name">@grid-media-only($breakpoint: &#039;xs&#039;, $grid: &#039;1fr 1fr 1fr 1fr&#039;)</span>
               </a>
             </li>
                       <li class="kss-nav__menu-item">
               <a class="kss-nav__menu-link" href="section-mixins.html#kssref-mixins-layout-grid-grid-media">
                 <span class="kss-nav__ref kss-nav__ref-child">8.11.3.1</span
-                ><span class="kss-nav__name">@grid-media-only($breakpoint: &#039;xs&#039;, $grid: &#039;1fr 1fr 1fr 1fr&#039;)</span>
+                ><span class="kss-nav__name">@grid-media($breakpoint: &#039;xs&#039;, $grid: &#039;1fr 1fr 1fr 1fr&#039;)</span>
               </a>
             </li>
                       <li class="kss-nav__menu-item">
@@ -2123,13 +2123,15 @@ when floating images alongside other content.</p>
                 Mixins.Layout.Centered Grid Container
               </span>
             </span>
-            Centered Grid Container
+            @centered-grid-container
           </a>
         </h3>
 
         
                   <div class="kss-description">
-            <p>Creates a responsive centered grid for all breakpoints</p>
+            <p>Creates a responsive centered grid for all breakpoints by using CSS grid.
+This creates a three column row and places the first html element in to the
+second column with a max with of the current breakpoint screen size.</p>
 
           </div>
         
@@ -2197,6 +2199,54 @@ when floating images alongside other content.</p>
                 Mixins.Layout.Grid.Grid Media
               </span>
             </span>
+            @grid-media-only($breakpoint: &#039;xs&#039;, $grid: &#039;1fr 1fr 1fr 1fr&#039;)
+          </a>
+        </h4>
+
+        
+                  <div class="kss-description">
+            <p>A mixin for quickly defining a grid at a provided breakpoint.</p>
+
+          </div>
+        
+                              <div class="kss-parameters__title">Parameters:</div>
+            <ul class="kss-parameters">
+                      <li class="kss-parameters__item">
+              <div class="kss-parameters__name"><code>$breakpoint</code></div>
+              <div class="kss-parameters__description">
+                String: One of xs, sm, md, lg, xl
+                              </div>
+            </li>
+                                        <li class="kss-parameters__item">
+              <div class="kss-parameters__name"><code>$grid</code></div>
+              <div class="kss-parameters__description">
+                String: CSS grid definition of grid-columns
+                              </div>
+            </li>
+                                        <li class="kss-parameters__item">
+              <div class="kss-parameters__name"><code>$gutters</code></div>
+              <div class="kss-parameters__description">
+                Mixed: 0 for disabled, 1 for enabled, or a specific setting.
+                              </div>
+            </li>
+                      </ul>
+                        </div>
+
+      
+              <div class="kss-source kss-style">
+          Source: <code>utilities/mixins/layout/_grid-media-only.scss</code>, line 3
+        </div>
+          </section>
+          <section id="kssref-mixins-layout-grid-grid-media" class="kss-section kss-section--depth-4 ">
+      <div class="kss-style">
+                <h4 class="kss-title kss-title--level-4">
+          <a class="kss-title__permalink" href="#kssref-mixins-layout-grid-grid-media">
+            <span class="kss-title__ref">
+              8.11.3.1
+              <span class="kss-title__permalink-hash">
+                Mixins.Layout.Grid.Grid Media
+              </span>
+            </span>
             @grid-media($breakpoint: &#039;xs&#039;, $grid: &#039;1fr 1fr 1fr 1fr&#039;)
           </a>
         </h4>
@@ -2233,54 +2283,6 @@ when floating images alongside other content.</p>
       
               <div class="kss-source kss-style">
           Source: <code>utilities/mixins/layout/_grid-media.scss</code>, line 3
-        </div>
-          </section>
-          <section id="kssref-mixins-layout-grid-grid-media" class="kss-section kss-section--depth-4 ">
-      <div class="kss-style">
-                <h4 class="kss-title kss-title--level-4">
-          <a class="kss-title__permalink" href="#kssref-mixins-layout-grid-grid-media">
-            <span class="kss-title__ref">
-              8.11.3.1
-              <span class="kss-title__permalink-hash">
-                Mixins.Layout.Grid.Grid Media
-              </span>
-            </span>
-            @grid-media-only($breakpoint: &#039;xs&#039;, $grid: &#039;1fr 1fr 1fr 1fr&#039;)
-          </a>
-        </h4>
-
-        
-                  <div class="kss-description">
-            <p>A mixin for quickly defining a grid at a provided breakpoint.</p>
-
-          </div>
-        
-                              <div class="kss-parameters__title">Parameters:</div>
-            <ul class="kss-parameters">
-                      <li class="kss-parameters__item">
-              <div class="kss-parameters__name"><code>$breakpoint</code></div>
-              <div class="kss-parameters__description">
-                String: One of xs, sm, md, lg, xl
-                              </div>
-            </li>
-                                        <li class="kss-parameters__item">
-              <div class="kss-parameters__name"><code>$grid</code></div>
-              <div class="kss-parameters__description">
-                String: CSS grid definition of grid-columns
-                              </div>
-            </li>
-                                        <li class="kss-parameters__item">
-              <div class="kss-parameters__name"><code>$gutters</code></div>
-              <div class="kss-parameters__description">
-                Mixed: 0 for disabled, 1 for enabled, or a specific setting.
-                              </div>
-            </li>
-                      </ul>
-                        </div>
-
-      
-              <div class="kss-source kss-style">
-          Source: <code>utilities/mixins/layout/_grid-media.scss</code>, line 50
         </div>
           </section>
           <section id="kssref-mixins-layout-grid-column-gap" class="kss-section kss-section--depth-3 ">

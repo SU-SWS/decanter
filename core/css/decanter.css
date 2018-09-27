@@ -1932,6 +1932,30 @@ button,
       .global-footer .global-footer__copyright {
         text-align: left; } }
 
+.centered-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 100% auto;
+  grid-template-columns: auto 100% auto; }
+  .centered-container > :first-child {
+    grid-column: 2; }
+  @media only screen and (min-width: 576px) {
+    .centered-container {
+      -ms-grid-columns: auto 576px auto;
+      grid-template-columns: auto 576px auto; } }
+  @media only screen and (min-width: 768px) {
+    .centered-container {
+      -ms-grid-columns: auto 768px auto;
+      grid-template-columns: auto 768px auto; } }
+  @media only screen and (min-width: 1024px) {
+    .centered-container {
+      -ms-grid-columns: auto 1024px auto;
+      grid-template-columns: auto 1024px auto; } }
+  @media only screen and (min-width: 1500px) {
+    .centered-container {
+      -ms-grid-columns: auto 1500px auto;
+      grid-template-columns: auto 1500px auto; } }
+
 .page-layout--three-column {
   display: -ms-grid;
   display: grid;
