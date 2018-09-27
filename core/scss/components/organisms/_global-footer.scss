@@ -14,10 +14,9 @@
 .global-footer {
 
   @include centered-grid-container;
+  @include padding(2.5rem 0);
   background-color: $color-cardinal-red;
   color: $color-white;
-
-  @include padding(2.5rem 0);
 
   a {
     color: rgba($color-white, .9);
@@ -30,39 +29,38 @@
   }
 
   // Grid settings for footer container.
-.global-footer__container {
-  @include display-grid;
+  .global-footer__container {
+    @include display-grid;
 
-  @include grid-media("xs", 100%) {
-    @include grid-rows(auto auto);
+    @include grid-media("xs", 100%) {
+      @include grid-rows(auto auto);
 
-    justify-items: center;
-  }
+      justify-items: center;
+    }
 
-  @include grid-media("sm", 15rem auto) {
-    justify-items: left;
-  }
+    @include grid-media("sm", 15rem auto) {
+      justify-items: left;
+    }
 
-  @include grid-media("md", 11rem auto) {
-    justify-items: left;
+    @include grid-media("md", 11rem auto) {
+      justify-items: left;
 
-    @supports (grid-column-gap: 20px) {
-      grid-column-gap: 50px;
+      @supports (grid-column-gap: 20px) {
+        grid-column-gap: 50px;
+      }
     }
   }
-}
 
   .global-footer__brand {
-    width: 16rem;
-
     @include margin(0 0 1.25rem);
     @include padding(5px null null);
 
+    width: 16rem;
+
     // Logo should have no margin at higher breakpoints.
     @media #{$breakpoint-sm} {
-      width: 100%;
-
       @include margin(null null 0);
+      width: 100%;
     }
 
     // The Ligature Logo.
@@ -94,35 +92,30 @@
   }
 
   .global-footer__menu {
-    list-style-type: none;
-
     @include margin(0 0 1.5rem);
     @include padding(0);
+    list-style-type: none;
 
     @media #{$breakpoint-md} {
       @include margin(null null .625rem);
     }
 
     li {
+      @include margin(0);
+      @include padding(0);
       display: block;
       text-align: center;
 
-      @include margin(0);
-      @include padding(0);
-
       @media #{$breakpoint-xs-only} {
+        @include padding(.25em 0);
         font-weight: normal;
         text-align: left;
-
-        @include padding(.25em 0);
       }
 
       @media #{$breakpoint-md} {
-        display: inline-block;
-
         @include margin(null 2rem null null);
+        display: inline-block;
       }
-
     }
   }
 
