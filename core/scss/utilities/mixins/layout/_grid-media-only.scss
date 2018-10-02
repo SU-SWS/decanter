@@ -1,0 +1,47 @@
+@charset 'UTF-8';
+
+//
+// @grid-media-only($breakpoint: 'xs', $grid: '1fr 1fr 1fr 1fr')
+//
+// A mixin for quickly defining a grid at a provided breakpoint.
+//
+// $breakpoint  - String: One of xs, sm, md, lg, xl
+// $grid        - String: CSS grid definition of grid-columns
+// $gutters     - Mixed: 0 for disabled, 1 for enabled, or a specific setting.
+//
+// Style guide Mixins.Layout.Grid.Grid Media
+//
+@mixin grid-media-only($breakpoint: 'xs', $columns: 1fr 1fr 1fr 1fr, $gutters: 1) {
+
+  $breakpoint-map: (
+    'xs': $breakpoint-xs-only,
+    'sm': $breakpoint-sm-only,
+    'md': $breakpoint-md-only,
+    'lg': $breakpoint-lg-only,
+    'xl': $breakpoint-xl
+  );
+
+  $gutter-map:  (
+    'xs': $gutter-xs,
+    'sm': $gutter-sm,
+    'md': $gutter-md,
+    'lg': $gutter-lg,
+    'xl': $gutter-xl
+  );
+
+  @media #{map-get($breakpoint-map, $breakpoint)} {
+    @include grid-columns($columns); // Can't use repeat() function in IE
+
+    @if $gutters == 1 {
+      padding-left: map-get($gutter-map, $breakpoint);
+      padding-right: map-get($gutter-map, $breakpoint);
+    } @elseif $gutters != 0 {
+      padding-left: $gutters;
+      padding-right: $gutters;
+    }
+
+    @include grid-column-gap(map-get($gutter-map, $breakpoint));
+    @content;
+  }
+
+}
