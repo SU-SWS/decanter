@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+//
+// @cta--button-bottom-icon
+//
+// Image CTA with icon in the center of image and a button under the image
+//
+// Style guide: Mixins.CTAs.cta--button-bottom-icon
+//
+@mixin cta--button-bottom-icon {
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  line-height: 0;
+  backface-visibility: hidden;
+  perspective: 1000px;
+
+  .decanter-cta__img {
+    @include image-defaults;
+    width: 100%;
+    z-index: 0;
+    transition: all .3s ease-in;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  &:hover {
+    .decanter-cta__img {
+      transform: scale(1.02,1.02);
+    }
+  }
+
+  .decanter-cta__button {
+    @include button-primary;
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
+
+    @media #{$breakpoint-xs} {
+      width: 100%;
+      z-index: 100;
+    }
+
+  }
+}
