@@ -71,44 +71,41 @@ module.exports = function(grunt) {
         src: [
           'styleguide'
         ]
+      },
+      postdeploy: {
+        src: [
+          '.styleguide_site'
+        ]
       }
     },
     run: {
       styleguide: {
         "cmd": "./node_modules/.bin/kss",
-        "args": ['--config=kss/kss-config.json', '--verbose']
+        "args": ['--config=kss/kss-config.json']
       }
     },
-    symlink: {
-      styleguidecss: {
-        dest: 'styleguide/css',
-        relativeSrc: '../core/css',
+    deploy_site: {
+      styleguide: {
         options: {
-          type: 'dir'
-        }
-      },
-      styleguidejs: {
-        dest: 'styleguide/js',
-        relativeSrc: '../core/js',
-        options: {
-          type: 'dir'
-        }
-      },
-      styleguideimg: {
-        dest: 'styleguide/img',
-        relativeSrc: '../core/img',
-        options: {
-          type: 'dir'
-        }
-      },
-      styleguidefonts: {
-        dest: 'styleguide/fonts',
-        relativeSrc: '../core/fonts',
-        options: {
-          type: 'dir'
-        }
+          branch: 'master',
+          commit_msg: 'autocommit',
+          deploy_url: 'http://decanter.stanford.edu'
+        },
+        base_path: 'styleguide',
+        remote_url: 'git@github.com:SU-SWS/decanter.github.io'
       }
-    }
+    },
+    copy: {
+      styleguide: {
+        files: [
+          // includes files within path
+          {expand: true, cwd: 'core/css', src: ['**'], dest: 'styleguide/css/'},
+          {expand: true, cwd: 'core/fonts', src: ['**'], dest: 'styleguide/fonts/'},
+          {expand: true, cwd: 'core/js', src: ['**'], dest: 'styleguide/js/'},
+          {expand: true, cwd: 'core/img', src: ['**'], dest: 'styleguide/img/'},
+        ],
+      },
+    },
   });
 
   grunt.loadNpmTasks('grunt-run');
@@ -119,8 +116,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-symlink');
   grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-deploy-site');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('styleguide', ['compile', 'uglify', 'clean:styleguide', 'run:styleguide', 'symlink']);
+  grunt.registerTask('deploy', ['styleguide', 'copy:styleguide', 'deploy_site:styleguide', 'clean:postdeploy']);
+  grunt.registerTask('styleguide', ['compile', 'uglify', 'clean:styleguide', 'run:styleguide']);
   grunt.registerTask('compile', ['sass:dist', 'postcss:dist']);
   grunt.registerTask('default', ['watch']);
 
