@@ -119,8 +119,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-deploy-site');
   grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('deploy', ['styleguide', 'copy:styleguide', 'deploy_site:styleguide', 'clean:postdeploy']);
-  grunt.registerTask('styleguide', ['compile', 'uglify', 'clean:styleguide', 'run:styleguide']);
+  grunt.registerTask('deploy', ['styleguide', 'deploy_site:styleguide', 'clean:postdeploy']);
+  grunt.registerTask('styleguide', ['compile', 'uglify', 'clean:styleguide', 'run:styleguide', 'copy:styleguide']);
   grunt.registerTask('compile', ['sass:dist', 'postcss:dist']);
   grunt.registerTask('default', ['watch']);
 
