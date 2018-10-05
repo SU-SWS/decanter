@@ -13,8 +13,6 @@
   flex-direction: column;
   overflow: hidden;
   line-height: 0;
-  backface-visibility: hidden;
-  perspective: 1000px;
 
   .decanter-cta__img {
     @include image-defaults;
@@ -22,7 +20,6 @@
     z-index: 0;
     transition: all .3s ease-in;
     will-change: transform;
-    transform: translateZ(0);
   }
 
   &:hover {
