@@ -114,7 +114,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-symlink');
   grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-deploy-site');
   grunt.loadNpmTasks('grunt-contrib-copy');
