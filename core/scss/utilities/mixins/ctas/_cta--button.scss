@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 //
-// @cta--button-bottom
+// @cta--button
 //
-// Image CTA with a button under the image
+// CTA with an image and a button
 //
-// Style guide: Mixins.CTAs.cta--button-bottom
+// Style guide: Mixins.CTA.cta--button
 //
-@mixin cta--button-bottom {
+@mixin cta--button {
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -18,7 +18,7 @@
     width: 100%;
     z-index: 0;
     will-change: transform;
-    transition: all .3s ease-in;
+    transition: all .3s ease-out;
   }
 
   &:hover {
@@ -34,14 +34,17 @@
 
   .decanter-cta__button {
     @include button-big;
-    margin-top: 0;
-    margin-right: 0;
-    margin-left: 0;
+
+    margin: 0;
 
     @media #{$breakpoint-xs} {
       width: 100%;
       z-index: 100;
     }
 
+  }
+
+  .decanter-cta__icon {
+    display: none;
   }
 }
