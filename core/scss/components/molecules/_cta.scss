@@ -1,17 +1,17 @@
 @charset "UTF-8";
 
 //
-// CTAs
+// CTA
 //
-// A call-to-action block with a clickable image and a button
+// A call-to-action block
 //
 // .decanter-cta--button-bottom           - Button under image link
 // .decanter-cta--button-bottom-icon      - Icon centered on image link with button underneath
 // .decanter-cta--button-center           - Button centered on image link
 //
-// Markup: ../templates/components/molecules/ctas/ctas.twig
+// Markup: ../templates/components/molecules/cta/cta.twig
 //
-// Style guide: Molecules.CTAs
+// Style guide: Molecules.CTA
 //
 
 .decanter-cta--button-bottom,
@@ -20,9 +20,6 @@
 }
 
 .decanter-cta--button-bottom-icon {
-  @include cta--button;
-
-  @import "https://use.fontawesome.com/releases/v5.4.1/css/all.css";
 
   position: relative;
 
@@ -32,7 +29,7 @@
     top: 50%;
     left: 50%;
     $_btn-height: $lead-font-size + 3rem; //height of the button
-    $_shift: calc( #{-50%} - #{$_btn-height / 2} ); //calculate the extra shift up for the icon to compensate for the button height
+    $_shift: calc(#{-50%} - #{$_btn-height / 2}); //calculate the extra shift up for the icon to compensate for the button height
     transform: translate(-50%, $_shift);
     color: #fff;
     font-size: 4em;
@@ -42,7 +39,6 @@
 }
 
 .decanter-cta--button-center {
-  @include cta--button;
 
   position: relative;
 
