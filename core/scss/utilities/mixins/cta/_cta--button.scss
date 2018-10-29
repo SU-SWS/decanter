@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+//
+// @cta--button
+//
+// CTA with an image and a button
+//
+// Style guide: Mixins.CTA.cta--button
+//
+@mixin cta--button {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  line-height: 0;
+
+  .decanter-cta__img {
+    @include image-defaults;
+    width: 100%;
+    z-index: 0;
+    will-change: transform;
+    transition: all .3s ease-out;
+  }
+
+  &:hover {
+    .decanter-cta__img {
+      transform: scale(1.02, 1.02);
+    }
+
+    .decanter-cta__button {
+      background-color: $color-black;
+      text-decoration: none;
+    }
+  }
+
+  .decanter-cta__button {
+    @include button-big;
+
+    margin: 0;
+
+    @media #{$breakpoint-xs} {
+      width: 100%;
+      z-index: 100;
+    }
+
+  }
+
+  .decanter-cta__icon {
+    display: none;
+  }
+}
