@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+//
+// Link
+//
+// Default link styling, as well as special link treatment styling.
+//
+// .su-external-link  - External Link
+// .su-more-link      - More Link
+//
+// Markup: ../../templates/elements/links/links.twig
+//
+// Style guide: Elements.Link
+//
+a {
+  @include link;
+}
+
+.su-external-link {
+  @include external-link(external-link, external-link-hover);
+}
+
+.su-more-link {
+  @include more-link(more-link, more-link-hover);
+}
