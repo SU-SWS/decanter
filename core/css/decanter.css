@@ -1242,7 +1242,6 @@ button,
   display: grid;
   -ms-grid-columns: auto 100% auto;
   grid-template-columns: auto 100% auto;
-  padding: 8px 0 0 20px;
   width: 100%;
   height: 30px;
   background-color: #8c1515; }
@@ -1269,8 +1268,8 @@ button,
     .su-brand-bar--default {
       -ms-grid-columns: auto 1500px auto;
       grid-template-columns: auto 1500px auto; } }
-  #su-brand-bar .su-ligature-logo,
-  .su-brand-bar--default .su-ligature-logo {
+  #su-brand-bar .su-brand-bar__logo,
+  .su-brand-bar--default .su-brand-bar__logo {
     display: inline-block;
     font-family: Stanford, 'Source Serif Pro', Georgia, Times, 'Times New Roman', serif;
     font-style: normal;
@@ -1289,6 +1288,8 @@ button,
     font-variant-ligatures: discretionary-ligatures;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    padding: 8px 0 0 20px;
+    white-space: nowrap;
     color: #ffffff; }
 
 #su-brand-bar.su-brand-bar--bright {
@@ -1299,8 +1300,10 @@ button,
 
 #su-brand-bar.su-brand-bar--white {
   background-color: #ffffff; }
-  #su-brand-bar.su-brand-bar--white .su-ligature-logo {
-    color: #8c1515; }
+  #su-brand-bar.su-brand-bar--white .su-brand-bar__logo {
+    color: #8c1515;
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto; }
 
 .decanter-alert {
   background-color: #f4f4f4;
