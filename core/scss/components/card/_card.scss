@@ -14,22 +14,24 @@
 //
 .su-card {
   @include box-shadow('shallow');
-  max-width: 455px;
 
   > img {
-    max-width: 455px;
     width: 100%;
+
+    // Hide the image on the smallest screen sizes.
+    @media #{$breakpoint-xs-only} {
+      display: none;
+    }
   }
 }
 
-// Card contents padding from everything.
+// Card contents spacing.
 .su-card__contents {
   @include modular-margin;
 
   *:last-child {
     margin-bottom: 0;
   }
-
 }
 
 // Call to action link.
@@ -39,5 +41,5 @@
 
 // Button to click on.
 .su-card__button {
-  @include button-big;
+  text-align: center;
 }

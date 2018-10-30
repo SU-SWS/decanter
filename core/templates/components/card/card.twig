@@ -57,13 +57,15 @@
 
   {# Big ol button. Adds a BEM class for targeting. #}
   {% if card_button_link is not empty %}
+    <div class="su-card__button">
     {% include "@decanter/components/atoms/buttons/buttons.twig" with
       {
-      "href": card_button_link,
-      "label": card_button_label,
-      "modifier_class": "su-card__button",
+      "button_href": card_button_link,
+      "button_label": card_button_label,
+      "modifier_class": "su-button--big"
       }
     %}
+  </div>
   {% endif %}
 
   </div> {# /su-card__contents #}

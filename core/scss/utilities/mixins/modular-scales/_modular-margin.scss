@@ -1,5 +1,13 @@
 @charset 'UTF-8';
 
+$modular-spacing: (
+  'xs': 32px,
+  'sm': 32px,
+  'md': 36px,
+  'lg': 36px,
+  'xl': 38px
+);
+
 //
 // @modular-margin;
 //
@@ -8,12 +16,17 @@
 @mixin modular-margin {
 
   @media #{$breakpoint-xl} {
-    margin: 38px;
+    margin: map-get($modular-spacing, 'xl');
   }
 
   @media #{$breakpoint-md} {
-    margin: 36px;
+    margin: map-get($modular-spacing, 'md');
   }
 
-  margin: 32px;
+  margin: map-get($modular-spacing, 'xs');
+}
+
+// Function to get value.
+@function modular-margin-get-value($breakpoint) {
+  @return map-get($modular-spacing, $breakpoint);
 }
