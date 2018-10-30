@@ -11,12 +11,11 @@
 //
 // 1. Pre-vendor settings
 // 2. Vendors
-// 3. Post-vendor settings
-// 4. Utilities (functions, mixins, extends)
+// 3. Utilities (functions, mixins, variables, extends)
 
 // 1. Pre-vendor settings.
 @import
-  'variables/pre-vendor/index';
+  'utilities/variables/pre-vendor/index';
 
 // 1.5 Special to remove vendor markup.
 // We don't want to touch the normal pre-vendor settings so we override here.
@@ -26,10 +25,6 @@ $border-box-sizing: false;
 @import
   'bourbon';
 
-// 3. Post Vendor Settings.
-@import
-  'variables/index';
-
-// 4. Utilities.
+// 3. Utilities.
 @import
   'utilities/index';
