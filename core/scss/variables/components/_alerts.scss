@@ -7,31 +7,31 @@
 //
 
 //
-// $decanter-custom-alerts
+// $custom-alerts
 //
 // Color map for custom alert components.
 //
-// Markup: $decanter-custom-alerts: () !default;
+// Markup: $custom-alerts: () !default;
 //
-// Styleguide: Variables.Components.Alerts.decanter-custom-alerts
+// Styleguide: Variables.Components.Alerts.su-custom-alerts
 //
-$decanter-custom-alerts: () !default;
+$custom-alerts: () !default;
 
 //
-// $decanter-alerts
+// $alerts
 //
 // Color map for alert components.
 //
-// Markup: $decanter-alerts: (
+// Markup: $alerts: (
 //   success: rgba(23, 94, 84, 0.6), // $color-palo-alto at 60% opacity
 //   warning: rgba(234, 171, 0, 0.6), // $color-sun at 60% opacity
 //   error:   rgba(177, 4, 14, 0.5), // $color-bright-red at 50% opacity
 //   info:    rgba(0, 152, 219, 0.6), // $color-sky at 60% opacity
 //);
 //
-// Styleguide: Variables.Components.Alerts.decanter-alerts
+// Styleguide: Variables.Components.Alerts.su-alerts
 //
-$decanter-alerts: (
+$alerts: (
   success: rgba(23, 94, 84, 0.6), // $color-palo-alto at 60% opacity
   warning: rgba(234, 171, 0, 0.6), // $color-sun at 60% opacity
   error:   rgba(177, 4, 14, 0.5), // $color-bright-red at 50% opacity
@@ -41,13 +41,13 @@ $decanter-alerts: (
 //
 // $alerts
 //
-// Merges $decanter-alerts and $decanter-custom-alerts maps into a new, single
+// Merges $alerts and $custom-alerts maps into a new, single
 // map.
-// Keys in $decanter-custom-alerts will take precedence over keys in
-// $decanter-alerts. This is the best way to add new values to a map.
+// Keys in $custom-alerts will take precedence over keys in
+// $alerts. This is the best way to add new values to a map.
 //
-// Markup: $alerts: map-merge($decanter-alerts, $decanter-custom-alerts);
+// Markup: $alerts: map-merge($alerts, $custom-alerts);
 //
 // Styleguide: Variables.Components.Alerts.alerts
 //
-$alerts: map-merge($decanter-alerts, $decanter-custom-alerts);
+$alerts: map-merge($alerts, $custom-alerts);
