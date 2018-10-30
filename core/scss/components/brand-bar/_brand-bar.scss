@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+//
+// Brand Bar
+//
+// Stanford brand bar with wordmark logo
+//
+// .su-brand-bar--default - Default brand bar with white wordmark on cardinal red background
+// .su-brand-bar--bright - White wordmark on bright red background
+// .su-brand-bar--dark - White wordmark on dark grey background
+// .su-brand-bar--white - cardinal red wordmark on white background
+//
+// Markup: ../../templates/components/brand-bar/brand-bar.twig
+//
+// Style guide: Components.Brand Bar
+//
+
+#su-brand-bar,
+.su-brand-bar--default {
+
+  @include centered-grid-container;
+  padding: 8px 0 0 20px;
+  width: 100%;
+  height: 30px;
+  background-color: $color-cardinal-red;
+
+  .su-ligature-logo {
+    @include ligature-logo;
+    color: $color-white;
+  }
+}
