@@ -76,7 +76,7 @@
           $(this).parent().addClass('kss-colors-container');
           $(this).addClass('kss-color').css('background', colorCode);
           $(this).find('.kss-parameters__description').html(colorContent);
-          $('.kss-parameters__title').remove();
+          $(this).parent().prev('.kss-parameters__title').remove();
         }
       });
     }
