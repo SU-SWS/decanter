@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+//
+// Alerts
+//
+// For displaying a notification that keeps people informed
+// of a status, or for displaying a validation message that
+// alerts someone of an important piece of information.
+//
+// .su-alert-success  - Successful Transaction Message
+// .su-alert-warning  - Warning Message
+// .su-alert-error    - Error Message
+// .su-alert-info     - Informative Message
+//
+// Markup: ../templates/components/molecules/alerts/alerts.twig
+//
+// Style guide: Molecules.Alerts
+//
+.su-alert {
+  @include alerts;
+}
+
+// Loops through color option settings.
+@include alerts-icons-colors;
