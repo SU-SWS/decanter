@@ -6,22 +6,38 @@
 // One of the primary building block compontents. This card component comes with
 // several variants to ensure flexibility.
 //
-// .su-card--horizontal  - Postcard
+// .su-card--horizontal - Postcard
+//
+// Markup: ../templates/components/card/card.twig
 //
 // Style guide: Components.Card
 //
 .su-card {
+  @include box-shadow('shallow');
+  max-width: 455px;
 
+  > img {
+    max-width: 455px;
+    width: 100%;
+  }
 }
 
+// Card contents padding from everything.
 .su-card__contents {
+  @include modular-margin;
+
+  *:last-child {
+    margin-bottom: 0;
+  }
 
 }
 
+// Call to action link.
 .su-card__cta-link {
-
+  display: block;
 }
 
+// Button to click on.
 .su-card__button {
-
+  @include button-big;
 }
