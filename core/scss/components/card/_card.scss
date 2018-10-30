@@ -32,11 +32,48 @@
   *:last-child {
     margin-bottom: 0;
   }
+
+  // TODO: Refactor this to a mixin when typo headings available.
+  > h5 {
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 17px;
+    margin-bottom: 11px;
+    margin-top: 0;
+    text-transform: uppercase;
+
+    @media #{$breakpoint-md} {
+      margin-bottom: 12px;
+    }
+
+    @media #{$breakpoint-xl} {
+      margin-bottom: 13px;
+    }
+
+  }
+
+  // TODO: Refactor this to a mixin when typo headings available.
+  > h3 {
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 31px;
+    margin-bottom: 18px;
+    margin-top: 0;
+
+    @media #{$breakpoint-xl} {
+      margin-bottom: 19px;
+    }
+
+  }
+
 }
 
 // Call to action link.
 .su-card__cta-link {
   display: block;
+  color: $color-bright-blue;
+  font-size: 16px;
+  text-decoration: none;
 }
 
 // Button to click on.

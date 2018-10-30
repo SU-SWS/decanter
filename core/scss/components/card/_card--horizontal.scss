@@ -8,31 +8,33 @@
   @include display-grid;
 
   // One column on smallest screen sizes.
-  @include grid-media("xs", 100%) {
-    @include grid-rows(auto auto);
-  }
+  @include grid-media("xs", 100%);
 
   // 50/50 side by side on all screen sizes above small.
-  @include grid-media("sm", 1fr 1fr);
+  @include grid-media("sm", 1fr 1fr, modular-margin-get-value('sm'));
 
   > img {
     @media #{$breakpoint-sm} {
-      margin-top: modular-margin-get-value('sm');
+      margin: modular-margin-get-value('sm') 0;
     }
 
     @media #{$breakpoint-md} {
-      margin-top: modular-margin-get-value('md');
+      margin: modular-margin-get-value('md') 0;
     }
 
     @media #{$breakpoint-lg} {
-      margin-top: modular-margin-get-value('lg');
+      margin: modular-margin-get-value('lg') 0;
     }
 
     @media #{$breakpoint-xl} {
-      margin-top: modular-margin-get-value('xl');
+      margin: modular-margin-get-value('xl') 0;
     }
 
-    margin-top: modular-margin-get-value('xs')
+    margin: modular-margin-get-value('xs') 0;
+  }
+
+  .su-card__button {
+
   }
 
 }
