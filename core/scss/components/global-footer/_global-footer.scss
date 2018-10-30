@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+//
+// Global Footer
+//
+// Global footer element as specified by the Identity Guidelines.
+//
+// Markup: ../../templates/components/global-footer/global-footer.twig
+//
+// Style guide: Components.Global Footer
+//
+
+// Global styles for the global footer.
+.global-footer {
+
+  @include centered-grid-container;
+  @include padding(2.5rem 0);
+  background-color: $color-cardinal-red;
+  color: $color-white;
+
+  a {
+    color: rgba($color-white, .9);
+    text-decoration: none;
+
+    &:hover {
+      color: $color-white;
+      text-decoration: underline;
+    }
+  }
+
+  // Grid settings for footer container.
+  .global-footer__container {
+    @include display-grid;
+
+    @include grid-media("xs", 100%) {
+      @include grid-rows(auto auto);
+
+      justify-items: center;
+    }
+
+    @include grid-media("sm", 15rem auto) {
+      justify-items: left;
+    }
+
+    @include grid-media("md", 11rem auto) {
+      justify-items: left;
+
+      @supports (grid-column-gap: 20px) {
+        grid-column-gap: 50px;
+      }
+    }
+  }
+
+  .global-footer__brand {
+    @include margin(0 0 1.25rem);
+    @include padding(5px null null);
+
+    width: 16rem;
+
+    // Logo should have no margin at higher breakpoints.
+    @media #{$breakpoint-sm} {
+      @include margin(null null 0);
+      width: 100%;
+    }
+
+    // The Logo.
+    a {
+      @include logo;
+
+      @media #{$breakpoint-xs-only} {
+        font-size: 3.2rem;
+      }
+
+      font-size: 3.4rem;
+    }
+
+  }
+
+  // Grid settings for footer nav region; passing 0 for no outer gutters.
+  nav {
+    @include grid-media-only('xs', 1fr 1fr, 0) {
+      @include display-grid;
+    }
+
+    @include grid-media-only('sm', max-content auto, 0) {
+      @include display-grid;
+    }
+
+    @media #{$breakpoint-md} {
+      @include margin(null null .75rem);
+    }
+  }
+
+  .global-footer__menu {
+    @include margin(0 0 1.5rem);
+    @include padding(0);
+    list-style-type: none;
+
+    @media #{$breakpoint-md} {
+      @include margin(null null .625rem);
+    }
+
+    li {
+      @include margin(0);
+      @include padding(0);
+      display: block;
+      text-align: center;
+
+      @media #{$breakpoint-xs-only} {
+        @include padding(.25em 0);
+        font-weight: normal;
+        text-align: left;
+      }
+
+      @media #{$breakpoint-md} {
+        @include margin(null 2rem null null);
+        display: inline-block;
+      }
+    }
+  }
+
+  .global-footer__menu--global {
+    font-size: 1.75rem;
+  }
+
+  .global-footer__menu--policy {
+    font-size: 1.6rem;
+    font-weight: 300;
+  }
+
+  .global-footer__copyright {
+    font-size: 1.6rem;
+    font-weight: 300;
+    line-height: 1.5;
+    text-align: center;
+
+    span {
+      white-space: nowrap;
+    }
+
+    @media #{$breakpoint-sm} {
+      text-align: left;
+    }
+
+  }
+}

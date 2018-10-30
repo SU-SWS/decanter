@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+//
+// Typography
+//
+// Default typography styling for base HTML typography elements, including
+// paragraphs and headings. Also includes special type treatment classes such as
+// splash font and lead font.
+//
+// .su-font-lead          - Lead Font
+// .su-font-splash        - Splash Font
+// .su-caption            - Caption Font
+// .su-credits            - Credits Font
+//
+// Markup: ../../templates/elements/typography/typography.twig
+//
+// Style guide: Elements.Typography
+//
+
+html {
+  font-family: $font-sans;
+  font-size: $em-base;
+}
+
+body {
+  color: $color-black;
+  font-size: $base-font-size;
+}
+
+p {
+  line-height: $base-line-height;
+
+  @include margin(1em null);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include headings;
+}
+
+h1 {
+  @include h1;
+}
+
+h2 {
+  @include h2;
+}
+
+h3 {
+  @include h3;
+}
+
+h4 {
+  @include h4;
+}
+
+h5 {
+  @include h5;
+}
+
+h6 {
+  @include h6;
+}
+
+// Remove user agent styles.
+cite,
+var,
+address,
+dfn {
+  font-style: normal;
+}
+
+// Custom typography.
+.su-sans {
+  @include sans;
+}
+
+.su-serif {
+  @include serif;
+}
+
+.su-slab {
+  @include slab;
+}
+
+.su-font-lead {
+  @include font-lead;
+}
+
+.su-font-splash {
+  @include font-splash;
+}
+
+.su-caption {
+  @include caption;
+}
+
+.su-credits {
+  @include credits;
+}

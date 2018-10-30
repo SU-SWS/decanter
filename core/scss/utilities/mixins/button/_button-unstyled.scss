@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+//
+// @button-unstyled
+//
+// Removes styling from a button.
+//
+// Style guide: Mixins.Button.button-unstyled
+//
+@mixin button-unstyled {
+  background-color: transparent;
+  border: 0;
+  font-weight: $font-normal;
+  outline: 0;
+  text-align: left;
+  -webkit-font-smoothing: auto;
+
+  @include margin(0);
+  @include padding(0);
+
+  &:hover {
+    background-color: transparent;
+  }
+}

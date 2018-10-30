@@ -1,19 +1,111 @@
-html {
-  box-sizing: border-box; }
+.grid--container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 1220px;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem; }
+  @media only screen and (min-width: 768px) {
+    .grid--container {
+      padding-right: 3rem;
+      padding-left: 3rem; } }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit; }
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .grid--item:last-child:nth-child(odd) {
+    width: calc(1 / 1 * 100% - (0px)); } }
 
-body {
-  background-color: #ffffff;
-  overflow-x: hidden; }
+.grid--3-of-12 {
+  width: 100%; }
+  @media only screen and (min-width: 768px) {
+    .grid--3-of-12 {
+      width: calc(1 / 2 * 100% - (10px)); } }
+  @media only screen and (min-width: 1024px) {
+    .grid--3-of-12 {
+      width: calc(3 / 12 * 100% - (22.5px)); } }
 
-.lt-ie9 * {
-  -webkit-filter: none !important;
-          filter: none !important; }
+.grid--9-of-12 {
+  width: 100%; }
+  @media only screen and (min-width: 768px) {
+    .grid--9-of-12 {
+      width: calc(1 / 2 * 100% - (10px)); } }
+  @media only screen and (min-width: 1024px) {
+    .grid--9-of-12 {
+      width: calc(9 / 12 * 100% - (7.5px)); } }
 
-[hidden] {
-  display: none !important; }
+.grid--4-of-12 {
+  width: 100%; }
+  @media only screen and (min-width: 768px) {
+    .grid--4-of-12 {
+      width: calc(1 / 2 * 100% - (10px)); } }
+  @media only screen and (min-width: 1024px) {
+    .grid--4-of-12 {
+      width: calc(4 / 12 * 100% - (20px)); } }
+
+.grid--8-of-12 {
+  width: 100%; }
+  @media only screen and (min-width: 768px) {
+    .grid--8-of-12 {
+      width: calc(1 / 2 * 100% - (10px)); } }
+  @media only screen and (min-width: 1024px) {
+    .grid--8-of-12 {
+      width: calc(8 / 12 * 100% - (10px)); } }
+
+.grid--6-of-12 {
+  width: 100%; }
+  @media only screen and (min-width: 768px) {
+    .grid--6-of-12 {
+      width: calc(1 / 2 * 100% - (10px)); } }
+  @media only screen and (min-width: 1024px) {
+    .grid--6-of-12 {
+      width: calc(6 / 12 * 100% - (15px)); } }
+
+.grid--12-of-12 {
+  width: 100%; }
+
+.grid--2-of-12 {
+  width: 100%; }
+  @media only screen and (min-width: 768px) {
+    .grid--2-of-12 {
+      width: calc(1 / 2 * 100% - (10px)); } }
+  @media only screen and (min-width: 1024px) {
+    .grid--2-of-12 {
+      width: calc(2 / 12 * 100% - (25px)); } }
+
+.grid--10-of-12 {
+  width: 100%; }
+  @media only screen and (min-width: 768px) {
+    .grid--10-of-12 {
+      width: calc(1 / 2 * 100% - (10px)); } }
+  @media only screen and (min-width: 1024px) {
+    .grid--10-of-12 {
+      width: calc(10 / 12 * 100% - (5px)); } }
+
+.grid--1-of-12 {
+  width: 100%; }
+  @media only screen and (min-width: 768px) {
+    .grid--1-of-12 {
+      width: calc(1 / 2 * 100% - (10px)); } }
+  @media only screen and (min-width: 1024px) {
+    .grid--1-of-12 {
+      width: calc(1 / 12 * 100% - (27.5px)); } }
+
+.grid--5-of-12 {
+  width: 100%; }
+  @media only screen and (min-width: 768px) {
+    .grid--5-of-12 {
+      width: calc(1 / 2 * 100% - (10px)); } }
+  @media only screen and (min-width: 1024px) {
+    .grid--5-of-12 {
+      width: calc(5 / 12 * 100% - (17.5px)); } }
+
+.grid--7-of-12 {
+  width: 100%; }
+  @media only screen and (min-width: 768px) {
+    .grid--7-of-12 {
+      width: calc(1 / 2 * 100% - (10px)); } }
+  @media only screen and (min-width: 1024px) {
+    .grid--7-of-12 {
+      width: calc(7 / 12 * 100% - (12.5px)); } }
 /*# sourceMappingURL=decanter-grid.css.map */

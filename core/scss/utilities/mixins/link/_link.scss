@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+//
+// @link
+//
+// Default link styling.
+//
+// Style guide: Mixins.Link.link
+//
+@mixin link {
+  color: $color-bright-red;
+  text-decoration: underline;
+
+  &:hover,
+  &:active {
+    color: $color-black;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
