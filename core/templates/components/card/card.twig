@@ -1,18 +1,68 @@
+{#
+/**
+ * @file
+ * Card Component.
+ *
+ * Basic building block component with two variants
+ *   - Horizontal: An image beside text content
+ *   - Vertical (default): An image above text content
+ *
+ * Available variables:
+ * - attributes: For additional HTML attributes not already provided.
+ * - modifier_class: Additional css classes to change look and behaviour.
+ * -- su-card--horizontal
+ * - card_image: A full HTML entity for an image.
+ * - card_super_headline: Text heading
+ * - card_headline: Text heading
+ * - block_body: An open variable for anything. Generally this would be for
+ *     WYSIWYG editor contents.
+ * - card_cta_link: The href value for the cta field link
+ * - card_cta_attributes: Any html attributes on the cta link that need to be
+ *     added. For example: _target.
+ * - card_cta_label: The clickable text for the CTA link
+ * - card_button_link: The href property of the button component.
+ * - card_button_label: The text label of the button component.
+ */
+#}
 <div{{ attributes }} class="su-card {{ modifier_class }}">
-  {% if not empty image %}
-    {{ image }}
+
+  {# Card Image #}
+  {% if not empty card_image %}
+    {{ card_image }}
   {% endif %}
-  {% block card_title %}
-    <h2>{{ title }}</h2>
-  {% endblock %}
+
   <div class="su-card__contents">
+
+  {# CTA Super Headline #}
+  {% block card_super_headline %}
+    {% if not empty super_headline %}
+      <h5>{{ super_headline }}</h5>
+    {% endif %}
+
+  {# CTA Headline #}
+  {% endblock %}
+  {% block card_headline %}
+    {% if not empty card_headline %}
+      <h3>{{ card_headline }}</h3>
+    {% endif %}
+  {% endblock %}
+
+  {# An open field for body content #}
   {{ block_body }}
-  </div>
-  {% include "@decanter/components/buttons/buttons.twig" with
+
+  {# CTA Super Headline #}
+  {% if is not empty card_cta_link %}
+    <a{{ card_cta_attributes }} href="{{ card_cta_link }}" class="su-card__cta-link">{{ card_cta_label }}</a>
+  {% endif %}
+
+  {# Big ol button. Adds a BEM class for targeting. #}
+  {% include "@decanter/components/atoms/buttons/buttons.twig" with
     {
-    "href": button_link,
-    "label": button_label,
-    "modifier_class": "su-card__button su-button--pill"
+    "href": card_button_link,
+    "label": card_button_label,
+    "modifier_class": "su-card__button"
     }
   %}
-</div>
+
+  </div> {# /su-card__contents #}
+</div> {# /su-card #}
