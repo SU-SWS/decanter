@@ -2007,6 +2007,21 @@ button,
             margin-right: 0; } } }
   @media only screen and (min-width: 576px) {
     .su-card--horizontal {
+      -ms-grid-columns: 1fr 3fr;
+      grid-template-columns: 1fr 3fr;
+      padding-left: 32px;
+      padding-right: 32px; }
+      .su-card--horizontal > * {
+        margin-left: 10px;
+        margin-right: 10px; }
+      @supports (grid-column-gap: 20px) {
+        .su-card--horizontal {
+          grid-column-gap: 20px; }
+          .su-card--horizontal > * {
+            margin-left: 0;
+            margin-right: 0; } } }
+  @media only screen and (min-width: 768px) {
+    .su-card--horizontal {
       -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
       padding-left: 32px;
