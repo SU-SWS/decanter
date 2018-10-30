@@ -13,6 +13,7 @@
   // 50/50 side by side on all screen sizes above small.
   @include grid-media("sm", 1fr 1fr, modular-margin-get-value('sm'));
 
+  // Modular padding on images too.
   > img {
     @media #{$breakpoint-sm} {
       margin: modular-margin-get-value('sm') 0;
@@ -31,10 +32,6 @@
     }
 
     margin: modular-margin-get-value('xs') 0;
-  }
-
-  .su-card__button {
-
   }
 
 }
