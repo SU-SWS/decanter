@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+//
+// Button
+//
+// Simple button element to aid in creating interactive design.
+//
+// .su-button--secondary - Secondary button
+// .su-button--big - Big button
+// .su-button--unstyled - Unstyled button
+//
+// Markup: ../../templates/components/button/button.twig
+//
+// Style guide: Components.Button
+//
+.su-button,
+button,
+[type=button],
+[type=submit],
+[type=reset],
+[type=image] {
+  @include button-primary;
+}
+
+.su-button--secondary {
+  @include button-secondary;
+}
+
+.su-button--big {
+  @include button-big;
+}
+
+.su-button--unstyled {
+  @include button-unstyled;
+}

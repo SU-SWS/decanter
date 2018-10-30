@@ -6,7 +6,6 @@ module.exports = function(grunt) {
         includePaths: [
           "node_modules/bourbon/core",
           "node_modules/bourbon-neat/app/assets/stylesheets",
-          "node_modules/normalize.css",
           "node_modules/neat-omega/core",
           "node_modules",
           "core/scss"
@@ -52,7 +51,7 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: ['**/*.scss'],
-        tasks: ['sass', 'postcss', 'styleguide'],
+        tasks: ['styleguide'],
         options: {
           livereload: true
         }
