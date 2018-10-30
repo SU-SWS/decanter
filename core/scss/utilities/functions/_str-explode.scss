@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+//
+// str-explode($string, $delimiter)
+//
+// split a string into a list at delimiter
+//
+// $string - the string you want to split
+// $delimiter - the string used to separate $string into list items - empty string splits $string into individual characters
+//
+// Style guide: Functions.str-explode
+//
+
+@function str-xplode ($string, $delimiter: '') {
+  @if type-of($string) != 'string' {
+    @error 'The argument $string: `#{$string}` is of incorrect type: `#{type-of($string)}`. Type of `String` is required!';
+  }
+  @if type-of($delimiter) != 'string' {
+    @error 'The argument $string: `#{$delimiter}` is of incorrect type: `#{type-of($delimiter)}`. Type of `String` is required!';
+  }
+
+  $result: ();
+  @if str-length($delimiter) == 0 { // if no delimiter, split string into individual characters
+    @for $i from 1 through str-length($string) {
+      $result: append($result, str-slice($string, $i, $i));
+    }
+    @return $result;
+  }
+  $running: true;
+  @while $running {
+    $index: str-index($string, $delimiter);
+    @if $index != null {
+      $item: str-slice($string, 1, ($index - 1));
+      $result: append($result, $item);
+      $string: str-slice($string, ($index + str-length($delimiter)));
+    }
+    @else {
+      $running: false;
+    }
+  }
+  @return append($result, $string);
+}
