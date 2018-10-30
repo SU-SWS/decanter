@@ -1,0 +1,18 @@
+<div{{ attributes }} class="su-card {{ modifier_class }}">
+  {% if not empty image %}
+    {{ image }}
+  {% endif %}
+  {% block card_title %}
+    <h2>{{ title }}</h2>
+  {% endblock %}
+  <div class="su-card__contents">
+  {{ block_body }}
+  </div>
+  {% include "@decanter/components/buttons/buttons.twig" with
+    {
+    "href": button_link,
+    "label": button_label,
+    "modifier_class": "su-card__button su-button--pill"
+    }
+  %}
+</div>
