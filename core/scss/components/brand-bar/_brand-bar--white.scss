@@ -1,11 +1,13 @@
 @charset "UTF-8";
 
-#su-brand-bar.su-brand-bar--white {
+// Brand bar with cardinal red wordmark on white background
+
+.su-brand-bar--white {
   background-color: $color-white;
 
   .su-brand-bar__logo {
     color: $color-cardinal-red;
-    -webkit-font-smoothing: auto;
+    -webkit-font-smoothing: auto; //override font-smoothing setting in logo because of darker text on light background
     -moz-osx-font-smoothing: auto;
   }
 }

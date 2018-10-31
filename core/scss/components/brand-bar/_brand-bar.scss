@@ -3,30 +3,34 @@
 //
 // Brand Bar
 //
-// Stanford brand bar with wordmark logo. This sits at the very top of a website.
+// Stanford brand bar with the wordmark logo that links to the Stanford homepage. The brand bar sits at the very top of a website.
 //
-// .su-brand-bar--default - Default brand bar with white wordmark on cardinal red background
+// .su-brand-bar - Default brand bar with white wordmark on cardinal red background
 // .su-brand-bar--bright - White wordmark on bright red background
 // .su-brand-bar--dark - White wordmark on dark grey background
-// .su-brand-bar--white - cardinal red wordmark on white background
+// .su-brand-bar--white - Cardinal red wordmark on white background
 //
 // Markup: ../../templates/components/brand-bar/brand-bar.twig
 //
 // Style guide: Components.Brand Bar
 //
 
-#su-brand-bar,
-.su-brand-bar--default {
-
+.su-brand-bar {
   @include centered-grid-container;
   width: 100%;
   height: 30px;
   background-color: $color-cardinal-red;
+}
 
-  .su-brand-bar__logo {
-    @include logo;
-    padding: 8px 0 0 20px;
-    white-space: nowrap;
+.su-brand-bar__logo {
+  @include logo;
+  @include margin(8px null null 20px);
+  white-space: nowrap;
+  color: $color-white;
+
+  &:hover,
+  &:active,
+  &:focus {
     color: $color-white;
   }
 }

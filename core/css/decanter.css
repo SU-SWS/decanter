@@ -1799,8 +1799,7 @@ dfn {
   background-image: url("../img/info.png");
   background-image: url("../img/info.svg"); }
 
-#su-brand-bar,
-.su-brand-bar--default {
+.su-brand-bar {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: auto 100% auto;
@@ -1808,62 +1807,60 @@ dfn {
   width: 100%;
   height: 30px;
   background-color: #8c1515; }
-  #su-brand-bar > :first-child,
-  .su-brand-bar--default > :first-child {
+  .su-brand-bar > :first-child {
     grid-column: 2; }
   @media only screen and (min-width: 576px) {
-    #su-brand-bar,
-    .su-brand-bar--default {
+    .su-brand-bar {
       -ms-grid-columns: auto 576px auto;
       grid-template-columns: auto 576px auto; } }
   @media only screen and (min-width: 768px) {
-    #su-brand-bar,
-    .su-brand-bar--default {
+    .su-brand-bar {
       -ms-grid-columns: auto 768px auto;
       grid-template-columns: auto 768px auto; } }
   @media only screen and (min-width: 1024px) {
-    #su-brand-bar,
-    .su-brand-bar--default {
+    .su-brand-bar {
       -ms-grid-columns: auto 1024px auto;
       grid-template-columns: auto 1024px auto; } }
   @media only screen and (min-width: 1500px) {
-    #su-brand-bar,
-    .su-brand-bar--default {
+    .su-brand-bar {
       -ms-grid-columns: auto 1500px auto;
       grid-template-columns: auto 1500px auto; } }
-  #su-brand-bar .su-brand-bar__logo,
-  .su-brand-bar--default .su-brand-bar__logo {
-    display: inline-block;
-    font-family: Stanford, 'Source Serif Pro', Georgia, Times, 'Times New Roman', serif;
-    font-style: normal;
-    font-weight: 400;
-    font-variant: normal;
-    text-transform: none;
-    text-decoration: none;
-    line-height: .75;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    letter-spacing: 0;
-    -webkit-font-feature-settings: "liga";
-    -ms-font-feature-settings: "liga" 1;
-    font-feature-settings: "liga";
-    -webkit-font-variant-ligatures: discretionary-ligatures;
-    font-variant-ligatures: discretionary-ligatures;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    padding: 8px 0 0 20px;
-    white-space: nowrap;
+
+.su-brand-bar__logo {
+  display: inline-block;
+  font-family: Stanford, 'Source Serif Pro', Georgia, Times, 'Times New Roman', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  text-decoration: none;
+  line-height: .75;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 8px;
+  margin-left: 20px;
+  white-space: nowrap;
+  color: #ffffff; }
+  .su-brand-bar__logo:hover, .su-brand-bar__logo:active, .su-brand-bar__logo:focus {
     color: #ffffff; }
 
-#su-brand-bar.su-brand-bar--bright {
+.su-brand-bar--bright {
   background-color: #b1040e; }
 
-#su-brand-bar.su-brand-bar--dark {
+.su-brand-bar--dark {
   background-color: #2e2d29; }
 
-#su-brand-bar.su-brand-bar--white {
+.su-brand-bar--white {
   background-color: #ffffff; }
-  #su-brand-bar.su-brand-bar--white .su-brand-bar__logo {
+  .su-brand-bar--white .su-brand-bar__logo {
     color: #8c1515;
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto; }
