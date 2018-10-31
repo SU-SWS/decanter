@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Lockup Component.
+ *
+ * A lockup with the Stanford wordmark logo and department/unit name.
+ *
+ * Available variables:
+ * - link: The URL of the department/unit website.
+ * - line_one: Name of the department/unit. Also the site name.
+ * - line_five: Name of the parent department/unit.
+ */
+#}
+<a{{ attributes }} href="{{ link }}" class="su-lockup {{ modifier_class }}">
+  <span class="su-lockup__wordmark">Stanford</span><span class="su-lockup__unit-line-one">{{ line_one }}</span>
+  {# Line 5 #}
+  {% if line_five is not empty %}
+    <span class="su-lockup__unit-line-five">{{ line_five }}</span>
+  {% endif %}
+</a>
