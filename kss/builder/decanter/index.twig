@@ -11,7 +11,8 @@
   <link rel="stylesheet" href="kss-assets/css/kss.css">
   {{ styles|raw }}
 </head>
-<body id="kss-node" {% if template.isItem %}class="kss-fullscreen-mode"{% endif %}>
+<body id="kss-node" class="{% if template.isItem %}kss-fullscreen-mode{% endif %}{% if template.isHomepage %} kss-home{% endif %}">
+
 <div class="brand-bar">
   <div class="su-grid">
     <a href="https://www.stanford.edu/">
@@ -19,6 +20,9 @@
     </a>
   </div>
 </div>
+
+{% if not template.isHomepage %}
+
 <div class="kss-sidebar kss-style">
   <header class="kss-header">
     <h1 class="kss-doc-title">{{ options.title }}</h1>
@@ -53,6 +57,9 @@
     </ul>
   </nav>
 </div>
+
+{% endif %}
+
 <article role="main" class="kss-main">
 {% if template.isHomepage %}
   {% if homepage %}

@@ -1,0 +1,66 @@
+#kss-node.kss-home .kss-main {
+  width: 100%;
+  margin: 30px 0 0 0;
+}
+
+#kss-node.kss-home {
+  background: #2E2D29;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+    color: $color-white;
+  }
+
+  // The logo and the nav wrapper.
+  header {
+    @include display-grid;
+    @include grid-columns(1fr 11fr);
+    @include padding(30px 0 0 0);
+
+    @include grid-media-only('xs') {
+      @include grid-columns(1fr);
+      @include grid-rows(auto auto);
+    }
+
+  }
+
+  // Main navigation.
+  .main-nav {
+    @include margin(0);
+    text-align: right;
+    vertical-align: middle;
+
+    @include grid-media-only('xs') {
+      text-align: center;
+    }
+
+    li {
+      @include padding(0);
+      display: inline-block;
+
+      a {
+        @include padding(5px);
+        display: inline-block;
+        color: darken($color-white, 40%);
+        font-family: $font-sans;
+        font-size: em(16px);
+      }
+
+      &:first-child > a,
+      a:hover {
+        color: $color-white;
+        border-bottom: solid 3px $color-bright-blue;
+      }
+    }
+  }
+
+  // Welcome Section.
+  .section--welcome {
+    max-width: 80%
+  }
+
+}
