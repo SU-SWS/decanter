@@ -6,15 +6,28 @@
  * A lockup with the Stanford wordmark logo and department/unit name.
  *
  * Available variables:
- * - link: The URL of the department/unit website.
- * - line_one: Name of the department/unit. Also the site name.
- * - line_five: Name of the parent department/unit.
+ * - link: The URL of the department/unit website
+ * - line_one: Line 1 of the unit/site name
+ * - line_two: Line 2 of the unit/site name
+ * - line_five: Line 5 of the unit/site name (appears at the bottom part of the lockup)
+ * - line_one_modifier_class: Classes for line one font variants
+ * - line_five_modifier_class: Classes for line five font variants
  */
 #}
-<a{{ attributes }} href="{{ link }}" class="su-lockup {{ modifier_class }}">
-  <span class="su-lockup__wordmark">Stanford</span><span class="su-lockup__unit-line-one">{{ line_one }}</span>
-  {# Line 5 #}
+<a{{ attributes }} href="{{ link }}" class="su-lockup {{ lockup_modifier_class }}">
+  <span class="su-lockup__wordmark">Stanford</span>
+  <span class="su-lockup__pipe"></span>
+
+  {# Line 1 of Site Name - Required #}
+  <span class="su-lockup__unit-line1 {{ line_one_modifier_class }}">{{ line_one }}</span>
+
+  {# Line 2 of Site Name - Optional #}
+  {% if line_two is not empty %}
+    <span class="su-lockup__unit-line2">{{ line_two }}</span>
+  {% endif %}
+
+  {# Line 5 of Site Name - Optional #}
   {% if line_five is not empty %}
-    <span class="su-lockup__unit-line-five">{{ line_five }}</span>
+    <span class="su-lockup__unit-line5 {{ line_five_modifier_class }}">{{ line_five }}</span>
   {% endif %}
 </a>
