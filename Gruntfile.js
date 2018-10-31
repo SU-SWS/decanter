@@ -22,6 +22,11 @@ module.exports = function(grunt) {
           'core/css/decanter-grid.css':                   'core/scss/decanter-grid.scss',
           'kss/builder/decanter/kss-assets/css/kss.css':  'kss/builder/decanter/scss/kss.scss'
         }
+      },
+      test: {
+        files: {
+          'test/css/test.css': 'test/scss/test.scss'
+        }
       }
     },
     sasslint: {

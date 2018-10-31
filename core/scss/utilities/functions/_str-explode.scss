@@ -12,6 +12,9 @@
 //
 
 @function str-xplode ($string, $delimiter: '') {
+  @debug $string;
+  @debug $delimiter;
+
   @if type-of($string) != 'string' {
     @error 'The argument $string: `#{$string}` is of incorrect type: `#{type-of($string)}`. Type of `String` is required!';
   }
@@ -33,10 +36,11 @@
       $item: str-slice($string, 1, ($index - 1));
       $result: append($result, $item);
       $string: str-slice($string, ($index + str-length($delimiter)));
-    }
-    @else {
+    } @else {
       $running: false;
     }
   }
-  @return append($result, $string);
+  $string: append($result, $string);
+  @debug $string;
+  @return $string;
 }
