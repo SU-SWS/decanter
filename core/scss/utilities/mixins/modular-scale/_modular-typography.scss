@@ -1,0 +1,35 @@
+@charset 'UTF-8';
+
+$modular-typography: (
+  'xs': 16px,
+  'sm': 16px,
+  'md': 18px,
+  'lg': 18px,
+  'xl': 19px
+);
+
+//
+// @modular-typography;
+//
+// A modular margin mixin for typography.
+//
+@mixin modular-typography ($scale: 1) {
+
+  @media #{$breakpoint-xl} {
+    font-size: modular-scale($scale, map-get($modular-typography, 'xl'));
+  }
+
+  @media #{$breakpoint-lg} {
+    font-size: modular-scale($scale, map-get($modular-typography, 'lg'));
+  }
+
+  @media #{$breakpoint-md} {
+    font-size: modular-scale($scale, map-get($modular-typography, 'md'));
+  }
+
+  @media #{$breakpoint-sm} {
+    font-size: modular-scale($scale, map-get($modular-typography, 'sm'));
+  }
+
+  font-size: modular-scale($scale, map-get($modular-typography, 'xs'));
+}
