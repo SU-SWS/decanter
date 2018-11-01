@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+//
+// @modular-margin;
+//
+// A modular margin mixin for default spacing around an element.
+//
+@mixin modular-margin {
+
+  @media #{$breakpoint-xl} {
+    margin: map-get($modular-spacing, 'xl');
+  }
+
+  @media #{$breakpoint-lg} {
+    margin: map-get($modular-spacing, 'lg');
+  }
+
+  @media #{$breakpoint-md} {
+    margin: map-get($modular-spacing, 'md');
+  }
+
+  @media #{$breakpoint-sm} {
+    margin: map-get($modular-spacing, 'sm');
+  }
+
+  margin: map-get($modular-spacing, 'xs');
+}
