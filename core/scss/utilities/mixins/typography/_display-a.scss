@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+//
+// @h1
+//
+// Default heading 1 styling.
+//
+// Style guide: Mixins.Typography.h1
+//
+@mixin h1 {
+  font: {
+    family: su_deep_map_get($sans, 'display-a.family');
+    weight: su_deep_map_get($sans, 'display-a.weight');
+    size:   modular-scale(su_deep_map_get($sans, 'display-a.size-multiplier'))
+  }
+  color: su_deep_map_get($sans, 'display-a.color');
+  line-height: su_deep_map_get($sans, 'display-a.line-height');
+  
+
+  &:first-child {
+    @include margin(0 null null);
+  }
+}

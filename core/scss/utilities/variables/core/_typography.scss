@@ -252,3 +252,67 @@ $font-bold: 600 !default;
 // Style guide: Variables.Core.Typography.font-x-bold
 //
 $font-x-bold: 700 !default;
+
+
+//
+// $text-colors
+//
+// Map containing default colors for various text elements / styles
+//
+// Markup: Markup for $text-colors goes here // TODO
+//
+// Style guide: Variables.Core.Typography.text-colors
+//
+$text-colors: (
+  text:                 $color-black,
+  text--alt:            $color-bright-red,
+  reverse-text:         #fff,
+  reverse-text--active: #fff,
+  link:                 #006CB8,
+  link--active:         #00548F,
+);
+
+//
+// $sans
+//
+// Map containing font specifications for all elements in our sans-serif (default) font
+//
+// Markup: Markup for $sans goes here // TODO
+//
+// Style guide: Variables.Core.Typography.sans
+//
+$sans: (
+  'display-a': (
+    'family':          $font-sans,
+    'weight':          $font-bold,
+    'style':           normal,
+    'size-multiplier': 5,
+    'color':           map_get($text-colors, text),
+    'line-height':     0 + 49/39,
+  ),
+  'display-b': (
+    'family':          $font-sans,
+    'weight':          $font-bold,
+    'style':           normal,
+    'size-multiplier': 4,
+    'color':           map_get($text-colors, text),
+    'line-height':     0 + 39/31.25,
+  ),
+  'display-c': (
+    'family':          $font-sans,
+    'weight':          $font-bold,
+    'style':           normal,
+    'size-multiplier': 3,
+    'color':           map_get($text-colors, text),
+    'line-height':     0 + 31/25,
+  ),
+  'display-d': (
+    'family':          $font-sans,
+    'weight':          $font-bold,
+    'style':           normal,
+    'size-multiplier': 2,
+    'color':           map_get($text-colors, text),
+    'line-height':     0 + 26/20,
+  ),
+);
+@debug $sans;
