@@ -6,8 +6,7 @@
   background-color: $color-white;
 
   .su-brand-bar__logo {
+    @include font-smoothing(auto);
     color: $color-cardinal-red;
-    -webkit-font-smoothing: auto; //override font-smoothing setting in logo because of darker text on light background
-    -moz-osx-font-smoothing: auto;
   }
 }
