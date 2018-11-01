@@ -34,11 +34,11 @@
 
   // TODO: Refactor this to a mixin when typo headings available.
   > h5 {
+    @include margin(0 null 11px);
     font-size: 13px;
     font-weight: bold;
     line-height: 17px;
     margin-bottom: 11px;
-    @include margin(0 null 11px);
     text-transform: uppercase;
 
     @media #{$breakpoint-md} {
@@ -53,14 +53,14 @@
 
   // TODO: Refactor this to a mixin when typo headings available.
   > h3 {
+    @include margin(0 null 18px);
     font-size: 25px;
     font-weight: bold;
     line-height: 31px;
     margin-bottom: 18px;
-    @include margin(0 null 18px);
 
     @media #{$breakpoint-xl} {
-    @include margin(null null 19px);
+      @include margin(null null 19px);
     }
 
   }
