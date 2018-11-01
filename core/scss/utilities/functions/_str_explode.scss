@@ -1,25 +1,26 @@
 @charset "UTF-8";
 
 //
-// str-explode($string, $delimiter)
+// su_str_explode($string, $delimiter)
 //
 // split a string into a list at delimiter
 //
 // $string - the string you want to split
-// $delimiter - the string used to separate $string into list items - empty string splits $string into individual characters
+// $delimiter - the string used to separate $string into list items; empty string splits $string into individual characters; default is '.'
 //
-// Style guide: Functions.str-explode
+// Style guide: Functions.su_str_explode
 //
 
-@function str-xplode ($string, $delimiter: '') {
-  @debug $string;
-  @debug $delimiter;
+@function su_str_explode($string, $delimiter: '.') {
+  //@debug 'su_str_explode';
+  //@debug '$string=#{$string}';
+  //@debug '$delimiter=#{$delimiter}';
 
   @if type-of($string) != 'string' {
-    @error 'The argument $string: `#{$string}` is of incorrect type: `#{type-of($string)}`. Type of `String` is required!';
+    @error 'The argument $string: `#{$string}` is of incorrect type: `#{type-of($string)}`. Type of `string` is required!';
   }
   @if type-of($delimiter) != 'string' {
-    @error 'The argument $string: `#{$delimiter}` is of incorrect type: `#{type-of($delimiter)}`. Type of `String` is required!';
+    @error 'The argument $delimiter: `#{$delimiter}` is of incorrect type: `#{type-of($delimiter)}`. Type of `string` is required!';
   }
 
   $result: ();
@@ -40,7 +41,8 @@
       $running: false;
     }
   }
-  $string: append($result, $string);
-  @debug $string;
-  @return $string;
+  $result: append($result, $string);
+  //@debug 'returning:#{$result}';
+  //@debug '';
+  @return $result;
 }

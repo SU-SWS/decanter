@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+//
+// su_deep_map_has_key($map, $key, $delimeter)
+//
+// search a nested map to see if $key resolves to a value
+//
+// $map - the map you want to search; may be nested multiple levels
+// $key - the key you want to search for; use $delimiter to separate levels
+// $delimiter - optional - the string used to separate $key into levels - default is '.'
+//
+// Style guide: Functions.su_deep_map_has_key
+//
+
+@function su_deep_map_has_key($map, $key, $delimeter: '.') {
+  @debug 'su-deep-map-has-key';
+  //@debug '$map=#{$map}';
+  @debug '$key=#{$key}';
+  @debug '$delimeter=#{$delimeter}';
+
+  @if type-of($map) != 'map' {
+    @error 'The argument $map: `#{$map}` is of incorrect type: `#{type-of($map)}`. Type of `map` is required!';
+  }
+  @if type-of($key) != 'string' {
+    @error 'The argument $key: `#{$key}` is of incorrect type: `#{type-of($key)}`. Type of `string` is required!';
+  }
+  @if type-of($delimeter) != 'string' {
+    @error 'The argument $delimeter: `#{$delimeter}` is of incorrect type: `#{type-of($delimeter)}`. Type of `string` is required!';
+  }
+
+  $keys: su_str_explode( $key, $delimeter );
+  @debug '$keys=#{$keys}';
+  @each $key in $keys {
+    @if not map-has-key($map, $key) {
+      @debug 'returning:false';
+      @debug '';
+      @return false;
+    }
+    $map: map-get($map, $key);
+  }
+  @debug 'returning:true';
+  @debug '';
+  @return true;
+}
