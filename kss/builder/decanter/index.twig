@@ -12,13 +12,7 @@
   {{ styles|raw }}
 </head>
 <body id="kss-node" {% if template.isItem %}class="kss-fullscreen-mode"{% endif %}>
-<div class="brand-bar">
-  <div class="su-grid">
-    <a href="https://www.stanford.edu/">
-      <img src="kss-assets/header-stanford-logo@2x.png" alt="Stanford University"/>
-    </a>
-  </div>
-</div>
+{% include "@decanter/components/brand-bar/brand-bar.twig" with {} only %}
 <div class="kss-sidebar kss-style">
   <header class="kss-header">
     <h1 class="kss-doc-title">{{ options.title }}</h1>
@@ -223,6 +217,7 @@
 </article>
 
 <!-- SCRIPTS -->
+<script src="kss-assets/js/jquery.js"></script>
 <script src="kss-assets/js/kss.js"></script>
 <script src="kss-assets/js/scrollspy.js"></script>
 <script src="kss-assets/js/prettify.js"></script>
