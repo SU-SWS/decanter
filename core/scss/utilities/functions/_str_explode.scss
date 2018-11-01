@@ -12,15 +12,11 @@
 //
 
 @function su_str_explode($string, $delimiter: '.') {
-  //@debug 'su_str_explode';
-  //@debug '$string=#{$string}';
-  //@debug '$delimiter=#{$delimiter}';
-
   @if type-of($string) != 'string' {
-    @error 'The argument $string: `#{$string}` is of incorrect type: `#{type-of($string)}`. Type of `string` is required!';
+    @error 'su_str_explode: $string must be a string. Received "#{$string}"';
   }
   @if type-of($delimiter) != 'string' {
-    @error 'The argument $delimiter: `#{$delimiter}` is of incorrect type: `#{type-of($delimiter)}`. Type of `string` is required!';
+    @error 'su_str_explode: $delimiter must be a string. Received "#{$delimiter}"';
   }
 
   $result: ();
@@ -42,7 +38,5 @@
     }
   }
   $result: append($result, $string);
-  //@debug 'returning:#{$result}';
-  //@debug '';
   @return $result;
 }

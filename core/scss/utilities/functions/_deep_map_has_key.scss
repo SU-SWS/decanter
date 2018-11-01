@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 //
-// su_deep_map_has_key($map, $key, $delimeter)
+// su_deep_map_has_key($map, $key, $delimiter)
 //
 // search a nested map to see if $key resolves to a value
 //
@@ -12,33 +12,23 @@
 // Style guide: Functions.su_deep_map_has_key
 //
 
-@function su_deep_map_has_key($map, $key, $delimeter: '.') {
-  @debug 'su-deep-map-has-key';
-  //@debug '$map=#{$map}';
-  @debug '$key=#{$key}';
-  @debug '$delimeter=#{$delimeter}';
-
-  @if type-of($map) != 'map' {
-    @error 'The argument $map: `#{$map}` is of incorrect type: `#{type-of($map)}`. Type of `map` is required!';
+@function su_deep_map_has_key($map, $key, $delimiter: '.') {
+  @if type_of($map) != 'map' {
+    @error 'su_deep_map_has_key: $map must be a map. Received "#{$map}"';
   }
   @if type-of($key) != 'string' {
-    @error 'The argument $key: `#{$key}` is of incorrect type: `#{type-of($key)}`. Type of `string` is required!';
+    @error 'su_deep_map_has_key: $key must be a string. Received "#{$key}"';
   }
-  @if type-of($delimeter) != 'string' {
-    @error 'The argument $delimeter: `#{$delimeter}` is of incorrect type: `#{type-of($delimeter)}`. Type of `string` is required!';
+  @if type-of($delimiter) != 'string' {
+    @error 'su_deep_map_has_key: $delimiter must be a string. Received "#{$delimiter}"';
   }
 
-  $keys: su_str_explode( $key, $delimeter );
-  @debug '$keys=#{$keys}';
+  $keys: su_str_explode( $key, $delimiter);
   @each $key in $keys {
-    @if not map-has-key($map, $key) {
-      @debug 'returning:false';
-      @debug '';
+    @if type_of( $map ) != 'map' or not map-has-key($map, $key) {
       @return false;
     }
     $map: map-get($map, $key);
   }
-  @debug 'returning:true';
-  @debug '';
   @return true;
 }

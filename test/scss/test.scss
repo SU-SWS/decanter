@@ -55,6 +55,7 @@ $deep-map: (
     ),
   ),
 );
+@debug '$deep-map:';
 @debug $deep-map;
 
 $test: (
@@ -63,27 +64,36 @@ $test: (
     'default_delim_1': su_str_explode( 'one' ),
     'default_delim_2': su_str_explode( 'one.two' ),
     'default_delim_3': su_str_explode( 'one.two.three' ),
-    'custom_delim_1': su_str_explode( 'one', '|' ),
-    'custom_delim_2': su_str_explode( 'one|two', '|' ),
-    'custom_delim_3': su_str_explode( 'one|two|three', '|' ),
+    'custom_delim_1': su_str_explode( 'a', '|' ),
+    'custom_delim_2': su_str_explode( 'a|bb', '|' ),
+    'custom_delim_3': su_str_explode( 'a|bb|ccc', '|' ),
+    //'bad_param_1': su_str_explode( false ),
+    //'bad_param_2': su_str_explode( 'one.two.three', false ),
   ),
   'deep_map_has_key': (
     'level-1': su_deep_map_has_key( $deep-map, 'key-1' ),
     'level-2': su_deep_map_has_key( $deep-map, 'key-2.key-2-2' ),
-    'level-3': su_deep_map_has_key( $deep-map, 'key-3.key-3-3.key-3-3-3' ),
+    'level-3': su_deep_map_has_key( $deep-map, 'key-3|key-3-3|key-3-3-3', '|' ),
     'no-level-1': su_deep_map_has_key( $deep-map, 'key-4' ),
     'no-level-2': su_deep_map_has_key( $deep-map, 'key-2.key-2-4' ),
     'no-level-3': su_deep_map_has_key( $deep-map, 'key-3.key-3-3.key-3-3-4' ),
-    'no-level-4': su_deep_map_has_key( $deep-map, 'key-4.key-4-4.key-4-4-4.key-4-4-4-4' ),
+    'no-level-4': su_deep_map_has_key( $deep-map, 'key-3.key-3-3.key-3-3-3.key-3-3-3-4' ),
+    //'bad_param_1': su_deep_map_has_key( false, 'key-1' ),
+    //'bad_param_2': su_deep_map_has_key( $deep-map, false ),
+    //'bad_param_3': su_deep_map_has_key( $deep-map, 'key-1', false ),
   ),
   'deep_map_get': (
     'level-1': su_deep_map_get( $deep-map, 'key-1' ),
     'level-2': su_deep_map_get( $deep-map, 'key-2.key-2-2' ),
-    'level-3': su_deep_map_get( $deep-map, 'key-3.key-3-3.key-3-3-3' ),
-    'no-level-1': su_deep_map_get( $deep-map, 'key-4' ),
-    'no-level-2': su_deep_map_get( $deep-map, 'key-2.key-2-4' ),
-    'no-level-3': su_deep_map_get( $deep-map, 'key-3.key-3-3.key-3-3-4' ),
-    'no-level-4': su_deep_map_get( $deep-map, 'key-4.key-4-4.key-4-4-4.key-4-4-4-4' ),
+    'level-3': su_deep_map_get( $deep-map, 'key-3|key-3-3|key-3-3-3', '|' ),
+    //'no-level-1': su_deep_map_get( $deep-map, 'key-4' ),
+    //'no-level-2': su_deep_map_get( $deep-map, 'key-2.key-2-4' ),
+    //'no-level-3': su_deep_map_get( $deep-map, 'key-3.key-3-3.key-3-3-4' ),
+    //'no-level-4': su_deep_map_get( $deep-map, 'key-3.key-3-3.key-3-3-3.key-3-3-3-4' ),
+    //'bad_param_1': su_deep_map_get( false, 'key-1' ),
+    //'bad_param_2': su_deep_map_get( $deep-map, false ),
+    //'bad_param_3': su_deep_map_get( $deep-map, 'key-1', false ),
   ),
 );
+@debug '$test:';
 @debug $test;
