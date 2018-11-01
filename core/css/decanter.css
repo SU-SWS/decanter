@@ -2009,17 +2009,6 @@ button,
   flex-direction: column;
   overflow: hidden;
   line-height: 0; }
-  .su-cta--button-bottom .su-cta__img,
-  .su-cta .su-cta__img {
-    display: block;
-    height: auto;
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    z-index: 0;
-    will-change: transform;
-    transition: all .3s ease-out; }
   .su-cta--button-bottom:hover .su-cta__img,
   .su-cta:hover .su-cta__img {
     -webkit-transform: scale(1.02, 1.02);
@@ -2028,6 +2017,11 @@ button,
   .su-cta:hover .su-cta__button {
     background-color: #2e2d29;
     text-decoration: none; }
+  .su-cta--button-bottom .su-cta__img,
+  .su-cta .su-cta__img {
+    width: 100%;
+    z-index: 0;
+    transition: all .3s ease-out; }
   .su-cta--button-bottom .su-cta__button,
   .su-cta .su-cta__button {
     -webkit-font-smoothing: antialiased;
@@ -2079,14 +2073,12 @@ button,
   position: relative; }
   .su-cta--button-bottom-icon .su-cta__icon {
     display: block;
+    max-width: 30%;
     position: absolute;
     top: 50%;
     left: 50%;
     -webkit-transform: translate(-50%, calc(-50% - 2.65rem));
-            transform: translate(-50%, calc(-50% - 2.65rem));
-    color: #fff;
-    font-size: 4em;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.4); }
+            transform: translate(-50%, calc(-50% - 2.65rem)); }
 
 .su-cta--button-center {
   position: relative; }
