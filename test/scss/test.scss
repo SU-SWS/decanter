@@ -2,8 +2,81 @@
 
 @import "../../core/scss/utilities/functions/index";
 
+$deep-map: (
+  key-1: (
+    key-1-1: (
+      key-1-1-1: value-1-1-1,
+      key-1-1-2: value-1-1-2,
+      key-1-1-3: value-1-1-3,
+    ),
+    key-1-2: (
+      key-1-2-1: value-1-2-1,
+      key-1-2-2: value-1-2-2,
+      key-1-2-3: value-1-2-3,
+    ),
+    key-1-3: (
+      key-1-3-1: value-1-3-1,
+      key-1-3-2: value-1-3-2,
+      key-1-3-3: value-1-3-3,
+    ),
+  ),
+  key-2: (
+    key-2-1: (
+      key-2-1-1: value-2-1-1,
+      key-2-1-2: value-2-1-2,
+      key-2-1-3: value-2-1-3,
+    ),
+    key-2-2: (
+      key-2-2-1: value-2-2-1,
+      key-2-2-2: value-2-2-2,
+      key-2-2-3: value-2-2-3,
+    ),
+    key-2-3: (
+      key-2-3-1: value-2-3-1,
+      key-2-3-2: value-2-3-2,
+      key-2-3-3: value-2-3-3,
+    ),
+  ),
+  key-3: (
+    key-3-1: (
+      key-3-1-1: value-3-1-1,
+      key-3-1-2: value-3-1-2,
+      key-3-1-3: value-3-1-3,
+    ),
+    key-3-2: (
+      key-3-2-1: value-3-2-1,
+      key-3-2-2: value-3-2-2,
+      key-3-2-3: value-3-2-3,
+    ),
+    key-3-3: (
+      key-3-3-1: value-3-3-1,
+      key-3-3-2: value-3-3-2,
+      key-3-3-3: value-3-3-3,
+    ),
+  ),
+);
+@debug $deep-map;
+
 p {
   &.test-str-explode {
-    content: str-xplode( 'this.is.a.test.string', '.' );
+    content: su_str_explode( 'this.is.a.test.string', '.' );
+  }
+  &.test-deep-map-has-key {
+    content: su_deep_map_has_key( $deep-map, 'key-1' );
+    content: su_deep_map_has_key( $deep-map, 'key-2.key-2-2' );
+    content: su_deep_map_has_key( $deep-map, 'key-3.key-3-3.key-3-3-3' );
+    content: su_deep_map_has_key( $deep-map, 'key-4' );
+    content: su_deep_map_has_key( $deep-map, 'key-2.key-2-4' );
+    content: su_deep_map_has_key( $deep-map, 'key-3.key-3-3.key-3-3-4' );
+    content: su_deep_map_has_key( $deep-map, 'key-4.key-4-4.key-4-4-4.key-4-4-4-4' );
+  }
+  &.test-deep-map-get {
+    content: su_deep_map_get( $deep-map, 'key-1' );
+    content: su_deep_map_get( $deep-map, 'key-2.key-2-2' );
+    content: su_deep_map_get( $deep-map, 'key-3.key-3-3.key-3-3-3' );
+    content: su_deep_map_get( $deep-map, 'key-4' );
+    content: su_deep_map_get( $deep-map, 'key-2.key-2-4' );
+    content: su_deep_map_get( $deep-map, 'key-3.key-3-3.key-3-3-4' );
+    content: su_deep_map_get( $deep-map, 'key-4.key-4-4.key-4-4-4.key-4-4-4-4' );
   }
 }
