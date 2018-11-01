@@ -11,14 +11,6 @@
 // Style guide: Mixins.Shadow.Box Shadow
 //
 
-$box-shadow-depth: (
-  'flat': '',
-  'shallow': '0px 3px 6px rgba(0, 0, 0, 0.13), 0px 3px 6px rgba(0, 0, 0, 0.1)',
-  'medium': '0px 10px 20px rgba(0, 0, 0, 0.15), 0px 6px 6px rgba(0, 0, 0, 0.2)',
-  'medium-deep': '0px 14px 28px rgba(0, 0, 0, 0.2), 0px 5px 10px rgba(0, 0, 0, 0.22)',
-  'deep': '0px 19px 38px rgba(0, 0, 0, 0.25), 0px 5px 12px rgba(0, 0, 0, 0.18)'
-) !default;
-
 @mixin box-shadow($depth: 'flat', $stroke: '1px solid #C6C6C6') {
   border: #{$stroke};
   box-shadow: #{map-get($box-shadow-depth, $depth)};
