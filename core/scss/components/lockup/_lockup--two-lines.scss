@@ -1,0 +1,46 @@
+.su-lockup--two-lines {
+
+  @include grid-rows(auto auto auto);
+
+  .su-lockup__wordmark {
+    grid-row: 1 / span 2;
+  }
+
+  .su-lockup__pipe {
+    grid-row: 1 / span 2;
+  }
+
+  .su-lockup__unit-line1,
+  .su-lockup__unit-line2 {
+    font-size: 22px;
+  }
+
+  .su-lockup__unit-line2 {
+    display: block;
+  }
+
+  .su-lockup__unit-line5 {
+    grid-row: 3 / span 1;
+  }
+
+  .su-lockup__unit-line1--small,
+  .su-lockup__unit-line1--supersmall {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+  }
+
+  .su-lockup__unit-line1--small {
+    font-size: 16px;
+    line-height: .5;
+  }
+
+  .su-lockup__unit-line1--supersmall {
+    font-size: 13px;
+    line-height: .2;
+
+    & + .su-lockup__unit-line2 {
+      font-size: 27px;
+    }
+  }
+
+}
