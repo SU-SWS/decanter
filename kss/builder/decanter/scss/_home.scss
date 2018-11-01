@@ -5,16 +5,7 @@
 }
 
 #kss-node.kss-home {
-  background: #2E2D29;
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  p {
-    color: $color-white;
-  }
+  background: $color-black;
 
   // The logo and the nav wrapper.
   header {
@@ -66,20 +57,33 @@
 
   // Welcome Section.
   .section--welcome {
-    max-width: 80%
+    @include centered-grid-container;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+      color: $color-white;
+    }
   }
 
   // UI Components Section.
   .section--ui-components {
     background: $color-white;
+    clear: both;
   }
 
   // Developer Resources Section
   .section--dev-resources {
+    @include centered-grid-container;
     background: $color-light-sandstone;
   }
 
+  // More Info Section
   .section--more-info {
+    @include centered-grid-container;
     background: $color-mint;
   }
 
