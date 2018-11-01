@@ -392,27 +392,6 @@ template {
       color: #faa700; }
     .kss-style a:hover, .kss-style a:active {
       outline: 0; }
-  .kss-style p {
-    margin: 15px 0 30px 0; }
-  .kss-style h1, .kss-style h2, .kss-style h3, .kss-style h4, .kss-style h5, .kss-style h6 {
-    margin: 30px 0 0 0;
-    font-family: "Roboto Slab", "Georgia", "Times", "Times New Roman", serif;
-    color: #2e2d29;
-    line-height: 1.15em; }
-  .kss-style h4, .kss-style h5, .kss-style h6 {
-    font-weight: bold; }
-  .kss-style h1 {
-    font-size: 50px; }
-  .kss-style h2 {
-    font-size: 45px; }
-  .kss-style h3 {
-    font-size: 42.5px; }
-  .kss-style h4 {
-    font-size: 40px; }
-  .kss-style h5 {
-    font-size: 37.5px; }
-  .kss-style h6 {
-    font-size: 35px; }
   .kss-style blockquote {
     color: #666;
     margin: 0;
@@ -1013,31 +992,37 @@ body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
 
 #kss-node.kss-home {
   background: #2e2d29; }
+  #kss-node.kss-home h2, #kss-node.kss-home h3, #kss-node.kss-home h4, #kss-node.kss-home h5, #kss-node.kss-home p, #kss-node.kss-home li {
+    color: #2e2d29; }
   #kss-node.kss-home header {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr 11fr;
-    grid-template-columns: 1fr 11fr;
+    -ms-grid-columns: auto 100% auto;
+    grid-template-columns: auto 100% auto;
     padding: 30px 0 0; }
-    @media only screen and (min-width: 0) and (max-width: 575px) {
+    #kss-node.kss-home header > :first-child {
+      grid-column: 2; }
+    @media only screen and (min-width: 576px) {
       #kss-node.kss-home header {
-        -ms-grid-columns: 1fr 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        padding-left: 20px;
-        padding-right: 20px;
-        -ms-grid-columns: 1fr;
-        grid-template-columns: 1fr;
-        -ms-grid-rows: auto auto;
-        grid-template-rows: auto auto; }
-        #kss-node.kss-home header > * {
-          margin-left: 10px;
-          margin-right: 10px; }
-        @supports (grid-column-gap: 20px) {
-          #kss-node.kss-home header {
-            grid-column-gap: 20px; }
-            #kss-node.kss-home header > * {
-              margin-left: 0;
-              margin-right: 0; } } }
+        -ms-grid-columns: auto 576px auto;
+        grid-template-columns: auto 576px auto; } }
+    @media only screen and (min-width: 768px) {
+      #kss-node.kss-home header {
+        -ms-grid-columns: auto 768px auto;
+        grid-template-columns: auto 768px auto; } }
+    @media only screen and (min-width: 1024px) {
+      #kss-node.kss-home header {
+        -ms-grid-columns: auto 1024px auto;
+        grid-template-columns: auto 1024px auto; } }
+    @media only screen and (min-width: 1500px) {
+      #kss-node.kss-home header {
+        -ms-grid-columns: auto 1500px auto;
+        grid-template-columns: auto 1500px auto; } }
+    #kss-node.kss-home header div {
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-columns: 1fr 6fr;
+      grid-template-columns: 1fr 6fr; }
   #kss-node.kss-home .main-nav {
     margin: 0;
     text-align: right;
@@ -1104,9 +1089,35 @@ body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
     #kss-node.kss-home .section--welcome h5,
     #kss-node.kss-home .section--welcome p {
       color: #ffffff; }
+    #kss-node.kss-home .section--welcome h2 {
+      font-size: 3.0517578125em; }
+    #kss-node.kss-home .section--welcome p {
+      font-size: 1.953125em; }
   #kss-node.kss-home .section--ui-components {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto 100% auto;
+    grid-template-columns: auto 100% auto;
     background: #ffffff;
     clear: both; }
+    #kss-node.kss-home .section--ui-components > :first-child {
+      grid-column: 2; }
+    @media only screen and (min-width: 576px) {
+      #kss-node.kss-home .section--ui-components {
+        -ms-grid-columns: auto 576px auto;
+        grid-template-columns: auto 576px auto; } }
+    @media only screen and (min-width: 768px) {
+      #kss-node.kss-home .section--ui-components {
+        -ms-grid-columns: auto 768px auto;
+        grid-template-columns: auto 768px auto; } }
+    @media only screen and (min-width: 1024px) {
+      #kss-node.kss-home .section--ui-components {
+        -ms-grid-columns: auto 1024px auto;
+        grid-template-columns: auto 1024px auto; } }
+    @media only screen and (min-width: 1500px) {
+      #kss-node.kss-home .section--ui-components {
+        -ms-grid-columns: auto 1500px auto;
+        grid-template-columns: auto 1500px auto; } }
   #kss-node.kss-home .section--dev-resources {
     display: -ms-grid;
     display: grid;

@@ -1,19 +1,21 @@
 <header>
-  <h1 class="logo">Decanter</h1>
-  <ul class="main-nav">
-    <li><a href="/">Home</a></li>
-    <li><a href="https://decanter.stanford.edu/">Visual Guidelines</a></li>
-    <li><a href="/section-components.html">Components</a></li>
-    <li><a href="/section-layout.html">Page Layouts</a></li>
-    <li><a href="https://decanter.stanford.edu/">Examples in Action</a></li>
-    <li><a href="#devres">Developer Resources</a></li>
-  </ul>
+  <div>
+    <h1>Decanter</h1>
+    <ul class="main-nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="https://decanter.stanford.edu/">Visual Guidelines</a></li>
+      <li><a href="/section-components.html">Components</a></li>
+      <li><a href="/section-layout.html">Page Layouts</a></li>
+      <li><a href="https://decanter.stanford.edu/">Examples in Action</a></li>
+      <li><a href="#devres">Developer Resources</a></li>
+    </ul>
+  </div>
 </header>
 
 <div class="section section--welcome">
   <div>
-    <h1>Welcome to the Decanter Style Guide and Pattern Library.</h1>
-    <p class="">Decanter is an artifact (and tool) of the design and development system that while aligned with a single product line, has a chief goal of housing patterns that can be used in any project. It is also a browsable collection of design patterns that have been vetted and translated into code.</p>
+    <h2>Welcome to the Decanter Style Guide and Pattern Library.</h2>
+    <p>Decanter is an artifact (and tool) of the design and development system that while aligned with a single product line, has a chief goal of housing patterns that can be used in any project. It is also a browsable collection of design patterns that have been vetted and translated into code.</p>
   </div>
 </div>
 
@@ -32,12 +34,12 @@
     <h2>Developer Resources</h2>
     <ul>
       <li>
-        <h5>Components</h5>
+        <h3>Components</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <p><a href="https://stanford.edu" class="su-link--action">Work with components</a></p>
       </li>
       <li>
-        <h5>Documentation</h5>
+        <h3>Documentation</h3>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <p><a href="https://stanford.edu" class="su-link--action">Work with components</a></p>
       </li>

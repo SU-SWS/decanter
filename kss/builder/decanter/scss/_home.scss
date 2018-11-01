@@ -7,15 +7,18 @@
 #kss-node.kss-home {
   background: $color-black;
 
+  h2,h3,h4,h5,p,li {
+    color: $color-black;
+  }
+
   // The logo and the nav wrapper.
   header {
-    @include display-grid;
-    @include grid-columns(1fr 11fr);
+    @include centered-grid-container;
     @include padding(30px 0 0 0);
 
-    @include grid-media-only('xs') {
-      @include grid-columns(1fr);
-      @include grid-rows(auto auto);
+    div {
+      @include display-grid;
+      @include grid-columns(1fr 6fr);
     }
 
   }
@@ -67,10 +70,20 @@
     p {
       color: $color-white;
     }
+
+    h2 {
+      font-size: modular-scale(5);
+    }
+
+    p {
+      font-size: modular-scale(3);
+    }
+
   }
 
   // UI Components Section.
   .section--ui-components {
+    @include centered-grid-container;
     background: $color-white;
     clear: both;
   }
