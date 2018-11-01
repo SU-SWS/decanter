@@ -1,13 +1,15 @@
 @charset "UTF-8";
 
 //
-// Get a value out of the modular-spacing map
+// _modular-spacing-get-value($breakpoint)
 //
+// Get a value out of the modular-spacing map
 // Returns the pixel value of the $modular-spacing variable at a breakpoint.
 //
 // $breakpoint - One of `xs`, `sm`, `md`, `lg`, `xl
 //
-// Style guide: Functions.Modular Scale._modular-spacing-get-value
-@function _modular-spacing-get-value($breakpoint) {
+// Style guide: Functions._modular-spacing-get-value
+//
+@function _modular-spacing-get-value($breakpoint: 'xs') {
   @return map-get($modular-spacing, $breakpoint);
 }
