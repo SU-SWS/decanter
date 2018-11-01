@@ -2329,8 +2329,10 @@ button,
     left: 0;
     position: relative;
     transition: left .4s ease-in-out; }
-  .su-link--action:hover::after {
-    left: 3px; }
+  .su-link--action:hover {
+    color: #2e2d29; }
+    .su-link--action:hover::after {
+      left: 3px; }
 
 .su-link--button {
   -moz-osx-font-smoothing: grayscale;
@@ -2367,15 +2369,15 @@ button,
     box-shadow: 0 0 3px #4d4f53, 0 0 7px #4d4f53; }
 
 .su-link--external::after {
+  margin-bottom: -1px;
+  margin-left: 4px;
   background: url("../img/external-link.png") no-repeat 0 0;
   background: url("../img/external-link.svg") no-repeat 0 0;
   background-size: 100%;
   content: '';
   display: inline-block;
-  height: 0.65em;
-  width: 0.65em;
-  margin-bottom: -1px;
-  margin-left: 4px; }
+  height: .65em;
+  width: .65em; }
 
 .su-link--external:hover::after {
   background-image: url("../img/external-link-hover.png");
