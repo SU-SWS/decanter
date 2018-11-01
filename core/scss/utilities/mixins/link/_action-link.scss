@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+//
+// @action-link($color: $color-bright-blue)
+//
+// Provides a right carat link with alternate color.
+//
+// $color - Default color. Defaults to $color-bright-blue.
+// $hover - Hover color. Defaults to $color-black.
+//
+// Style guide: Mixins.Link.action-link
+//
+@mixin action-link($color: $color-bright-blue, $hover: $color-black) {
+  text-decoration: none;
+  color: $color;
+
+  &::after {
+    content: ' ›';
+    font-size: 1.25em;
+    left: 0;
+    position: relative;
+    transition: left .4s ease-in-out;
+  }
+
+  &:hover {
+    color: $hover;
+
+    &::after {
+      left: 3px;
+    }
+  }
+}
