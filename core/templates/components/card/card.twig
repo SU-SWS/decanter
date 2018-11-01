@@ -50,18 +50,27 @@
   {# An open field for body content #}
   {{ card_body }}
 
-  {# CTA Super Headline #}
+  {# Card CTA Link #}
   {% if card_cta_link is not empty %}
-    <a {{ card_cta_attributes }} href="{{ card_cta_link }}" class="su-card__cta-link">{{ card_cta_label }}</a>
+    {% include "@decanter/components/link/link.twig" with
+      {
+      "link_href": card_cta_link,
+      "link_content": card_cta_label,
+      "attributes": card_cta_attributes,
+      "modifier_class": "su-link--action",
+      }
+      only
+    %}
   {% endif %}
 
   {# Big ol button. Adds a BEM class for targeting. #}
   {% if card_button_link is not empty %}
     <div class="su-card__button">
-    {% include "@decanter/components/button/button.twig" with
+    {% include "@decanter/components/link/link.twig" with
       {
-      "button_href": card_button_link,
-      "button_label": card_button_label,
+      "link_href": card_button_link,
+      "link_content": card_button_label,
+      "modifier_class": "su-link--button",
       }
       only
     %}

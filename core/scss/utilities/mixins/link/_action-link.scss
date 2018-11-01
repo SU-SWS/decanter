@@ -1,0 +1,25 @@
+@charset 'UTF-8';
+
+//
+// @action-link
+//
+// Provides a right carat link with alternate color.
+//
+@mixin action-link($color: $color-bright-blue) {
+  text-decoration: none;
+  color: $color;
+
+  &::after {
+    content: ' ›';
+    font-size: 1.25em;
+    left: 0;
+    position: relative;
+    transition: left .4s ease-in-out;
+  }
+
+  &:hover {
+    &::after {
+      left: 3px;
+    }
+  }
+}
