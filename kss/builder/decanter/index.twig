@@ -12,9 +12,7 @@
   {{ styles|raw }}
 </head>
 <body id="kss-node" {% if template.isItem %}class="kss-fullscreen-mode"{% endif %}>
-{%
-  include "@decanter/components/brand-bar/brand-bar.twig"
-%}
+{% include "@decanter/components/brand-bar/brand-bar.twig" with {} only %}
 <div class="kss-sidebar kss-style">
   <header class="kss-header">
     <h1 class="kss-doc-title">{{ options.title }}</h1>
