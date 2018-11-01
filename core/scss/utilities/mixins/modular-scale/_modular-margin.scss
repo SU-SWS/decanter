@@ -1,12 +1,4 @@
-@charset 'UTF-8';
-
-$modular-spacing: (
-  'xs': 32px,
-  'sm': 32px,
-  'md': 36px,
-  'lg': 36px,
-  'xl': 38px
-);
+@charset "UTF-8";
 
 //
 // @modular-margin;
@@ -24,9 +16,4 @@ $modular-spacing: (
   }
 
   margin: map-get($modular-spacing, 'xs');
-}
-
-// Function to get value.
-@function modular-margin-get-value($breakpoint) {
-  @return map-get($modular-spacing, $breakpoint);
 }
