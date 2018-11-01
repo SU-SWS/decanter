@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+//
+// Card
+//
+// One of the primary building block compontents. This card component comes with
+// several fields to ensure flexibility.
+//
+// .su-card--horizontal - Postcard
+//
+// Markup: ../templates/components/card/card.twig
+//
+// Style guide: Components.Card
+//
+.su-card {
+  @include box-shadow('shallow');
+
+  > img {
+    // Hide the image on the smallest screen sizes.
+    @media #{$breakpoint-xs-only} {
+      display: none;
+    }
+  }
+}
+
+// Card contents spacing.
+.su-card__contents {
+  @include modular-margin;
+
+  // Ensure no bottom margins on last item.
+  *:last-child {
+    @include margin(null null 0);
+  }
+
+  // TODO: Refactor this to a mixin when typo headings available.
+  > h5 {
+    @include margin(0 null 11px);
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 17px;
+    margin-bottom: 11px;
+    text-transform: uppercase;
+
+    @media #{$breakpoint-md} {
+      margin-bottom: 12px;
+    }
+
+    @media #{$breakpoint-xl} {
+      margin-bottom: 13px;
+    }
+
+  }
+
+  // TODO: Refactor this to a mixin when typo headings available.
+  > h3 {
+    @include margin(0 null 18px);
+    font-size: 25px;
+    font-weight: bold;
+    line-height: 31px;
+    margin-bottom: 18px;
+
+    @media #{$breakpoint-xl} {
+      @include margin(null null 19px);
+    }
+
+  }
+
+}
+
+// Button to click on.
+.su-card__button {
+  text-align: center;
+}
