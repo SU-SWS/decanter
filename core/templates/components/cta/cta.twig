@@ -4,28 +4,30 @@
  * CTA Component.
  *
  * Call to action component with clickable image and button.
+ *
  * Variants:
- *   - Default - Button at the bottom: With full-width button under the image
- *   - Button in the center: With button in the center of the clickable image
- *   - Button at the bottom with icon in the center: With full-width button under the image and an icon in the center of the image
+ * - .su-cta--button-bottom - Full-width button under the image
+ * - .su-cta--button-center - Button at the center of the image
+ * - .su-cta--button-bottom-icon - Full-width button under the image with an icon in the center of the image
  *
  * Available variables:
  * - attributes: For additional HTML attributes not already provided.
  * - modifier_class: Additional css classes to change look and behaviour.
- * - src: The href property of the image.
- * - alt: Alt text for the image.
+ * - image_src: The href property of the image.
+ * - image_alt: Alt text for the image.
  * - link: The href property of the CTA.
- * - text: The text label of the button.
+ * - button_text: The text label of the button.
  * - icon_src: The href property of the icon image.
+ * - icon_alt: Alt text for the icon image.
  */
 #}
 <a{{ attributes }} href="{{ link|default("https://stanford.edu") }}" class="su-cta {{ modifier_class }}">
-  <img class="su-cta__img" src="{{ src|default("../../../img/hero-banner.png") }}" alt="{{ alt|default("Please provide alt text") }}" />
+  <img src="{{ image_src|default("../../../img/hero-banner.png") }}" alt="{{ image_alt|default("Alt text for image") }}" class="su-cta__img" />
 
   {# CTA icon #}
   {% if icon_src is not empty %}
-    <img src="{{ icon_src }}" class="su-cta__icon" />
+    <img src="{{ icon_src }}" alt="{{ icon_alt|default("Alt text for icon") }}" class="su-cta__icon" role="presentation" />
   {% endif %}
 
-  <h2 class="su-cta__button">{{ text|default("Button text") }}</h2>
+  <h2 class="su-cta__button">{{ button_text|default("Button text") }}</h2>
 </a> <!-- cta end -->
