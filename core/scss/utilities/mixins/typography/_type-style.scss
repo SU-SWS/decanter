@@ -28,7 +28,12 @@
 
   @each $property, $value in $styles {
     @if $property == 'size-modscale-steps' {
-      @include modular-typography($value);
+      @if $value == 'inherit' {
+        font-size: inherit;
+      }
+      @else {
+        @include modular-typography($value);
+      }
     }
     @else {
       #{$property}: $value;
