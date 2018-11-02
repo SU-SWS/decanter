@@ -271,12 +271,11 @@ $text-colors: (
 );
 
 $sans-defaults: ( // styles for "Big paragraph"
-  'family':              $font-sans,
-  'weight':              $font-normal,
-  'color':               map_get($text-colors, text),
+  'font-family':         $font-sans,
+  'font-weight':         $font-normal,
   'size-modscale-steps': 0,
+  'color':               map_get($text-colors, text),
   'line-height':         0 + 24/16, // 0 + forces / to do division
-  'text-decoration':     none,
 );
 
 //
@@ -290,32 +289,32 @@ $sans-defaults: ( // styles for "Big paragraph"
 //
 $sans: (
   'display-a': map-merge($sans-defaults, (
-      'weight':              $font-bold,
+      'font-weight':         $font-bold,
       'size-modscale-steps': 4,
       'line-height':         0 + 49/39, // 0 + forces / to do division
   )),
   'display-b': map-merge($sans-defaults, (
-      'weight':              $font-bold,
+      'font-weight':         $font-bold,
       'size-modscale-steps': 3,
       'line-height':         0 + 39/31.25,
   )),
   'display-c': map-merge($sans-defaults, (
-      'weight':              $font-bold,
+      'font-weight':         $font-bold,
       'size-modscale-steps': 2,
       'line-height':         0 + 31/25,
   )),
   'display-d': map-merge($sans-defaults, (
-      'weight':              $font-bold,
+      'font-weight':         $font-bold,
       'size-modscale-steps': 1,
       'line-height':         0 + 26/20,
   )),
   'display-e': map-merge($sans-defaults, (
-      'weight':              $font-bold,
+      'font-weight':         $font-bold,
       'size-modscale-steps': 0,
       'line-height':         0 + 21/16,
   )),
   'display-f': map-merge($sans-defaults, (
-      'weight':              $font-bold,
+      'font-weight':         $font-bold,
       'size-modscale-steps': -1,
       'line-height':         0 + 17/13,
       'text-transform':      uppercase,
@@ -324,7 +323,7 @@ $sans: (
       'size-modscale-steps': 1,
   )),
   'splash-text': map-merge($sans-defaults, ( // TODO: Verify this is the same as display-a - may not need splash-text
-      'weight':              $font-bold,
+      'font-weight':         $font-bold,
       'size-modscale-steps': 4,
       'line-height':         0 + 49/39,
   )),
@@ -341,14 +340,14 @@ $sans: (
       'line-height':         0 + 19/16,
   )),
   'caption': map-merge($sans-defaults, (
-      'style':               italic,
+      'font-style':          italic,
       'line-height':         0 + 21/16,
   )),
   'credit': map-merge($sans-defaults, (
       'line-height':         0 + 21/16,
   )),
   'quote': map-merge($sans-defaults, (
-    'style':               italic,
+    'font-style':          italic,
     'size-modscale-steps': 1,
     'line-height':         0 + 30/20,
   )),

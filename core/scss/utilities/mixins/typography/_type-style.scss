@@ -25,31 +25,13 @@
     @error "type-style(#{$text-type}): $map does not have key #{$text-type}";
   }
   $styles: map_get($map, $text-type); // TODO: replace with su_deep_map_get when we implement skins
-  font: {
-    @if map_has_key($styles, 'family') {
-      family: map_get($styles, 'family');
-    }
-    @if map_has_key($styles, 'weight') {
-      weight: map_get($styles, 'weight');
-    }
-    @if map_has_key($styles, 'style') {
-      style: map_get($styles, 'style');
-    }
-  }
-  @if map_has_key($styles, 'size-modscale-steps') {
-    @include modular-typography(map_get($styles, 'size-modscale-steps'));
-  }
-  @if map_has_key($styles, 'color') {
-    color: map_get($styles, 'color');
-  }
-  @if map_has_key($styles, 'line-height') {
-    line-height: map_get($styles, 'line-height');
-  }
-  @if map_has_key($styles, 'text-transform') {
-    text-transform: map_get($styles, 'text-transform');
-  }
 
-  &:first-child {
-    @include margin(0 null null);
+  @each $property, $value in $styles {
+    @if $property == 'size-modscale-steps' {
+      @include modular-typography($value);
+    }
+    @else {
+      #{$property}: $value;
+    }
   }
 }
