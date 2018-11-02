@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+// Local variable not for changing.
+$_su-hero-height: (
+  'xs': 315px,
+  'sm': 315px,
+  'md': 640px,
+  'lg': 640px,
+  'xl': 728px
+);
+
+.su-hero--youtube {
+
+  @media #{$breakpoint-md} {
+    min-height: map-get($_su-hero-height, 'md');
+  }
+
+  @media #{$breakpoint-lg} {
+    min-height: map-get($_su-hero-height, 'lg');
+  }
+
+  @media #{$breakpoint-xl} {
+    min-height: map-get($_su-hero-height, 'xl');
+  }
+
+  min-height: map-get($_su-hero-height, 'xs');
+
+  .su-hero__media {
+    iframe {
+
+      @media #{$breakpoint-md} {
+        height: 100%;
+      }
+
+      width: 100%;
+    }
+  }
+
+}

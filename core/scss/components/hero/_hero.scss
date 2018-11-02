@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+// Local variable not for changing.
+$_su-hero-height: (
+  'xs': 208px,
+  'sm': 208px,
+  'md': 320px,
+  'lg': 409px,
+  'xl': 520px
+);
+
 //
 // Hero
 //
@@ -15,82 +24,69 @@
 //
 .su-hero {
   position: relative;
-  min-height: 150px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  @media #{$breakpoint-sm} {
-    min-height: 200px;
-  }
   @media #{$breakpoint-md} {
-    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: map-get($_su-hero-height, 'md');
   }
   @media #{$breakpoint-lg} {
-    min-height: 450px;
+    min-height: map-get($_su-hero-height, 'lg');
   }
   @media #{$breakpoint-xl} {
-    min-height: 680px;
+    min-height: map-get($_su-hero-height, 'xl');
   }
-
 }
 
 // The media element.
 // Big tall wide and in a little bid of a shade.
 .su-hero__media {
-  position: absolute;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  background: $color-black;
+
+  @media #{$breakpoint-md} {
+    min-height: map-get($_su-hero-height, 'md');
+    position: absolute;
+  }
+  @media #{$breakpoint-lg} {
+    min-height: map-get($_su-hero-height, 'lg');
+    position: absolute;
+  }
+  @media #{$breakpoint-xl} {
+    min-height: map-get($_su-hero-height, 'xl');
+    position: absolute;
+  }
 
   img,
-  picture,
-  iframe {
+  picture{
     object-fit: cover;
     object-position: 50% 50%;
     height: 100%;
     width: 100%;
   }
 
-  // Adds a background shade.
-  &.su-hero__media--with-shade {
-    &::before {
-      content: '';
-      display: block;
-      background-color: rgba(0, 0, 0, 0.35);
-      position: absolute;
-      width: 100%;
-      height: 100%;
-    }
-  }
-
 }
 
-// The content container for centering the contents.
-// This is likely WYSIWYG content.
-.su-hero__content {
-  @include padding($gutter-md);
+// The content
+.su-hero__card {
   position: relative;
-  z-index: 1;
-  width: 100%;
-  color: $color-white;
+  z-index: 10;
+  background: $color-white;
 
   @media #{$breakpoint-md} {
-    max-width: $screen-md;
+    @include margin(45px null);
+    left: 45px;
+    max-width: 400px;
   }
   @media #{$breakpoint-lg} {
-    max-width: $screen-lg / 2;
+    max-width: 450px;
   }
   @media #{$breakpoint-xl} {
-    max-width: $screen-xl / 2;
+    @include margin(96px null 0 null);
+    max-width: 450px;
+    top: auto;
+    bottom: 48px;
+    left: 48px;
   }
-
-}
-
-// Hero headline (h2)
-.su-hero__headline {
-  @include margin(0 null null null);
-  font-size: modular-scale(8);
-  color: $color-white;
 }
