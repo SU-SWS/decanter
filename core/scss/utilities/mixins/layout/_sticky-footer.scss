@@ -6,7 +6,14 @@
 // Slam the footer to the bottom of the window below all content no matter
 // the size of the browser or content.
 //
-// Apply this mixin to the body tag only.
+// Apply this mixin to the body tag only. It will set the body tag height to
+// 100% and set it to display as #grid. This mixin will then target a direct
+// decendant element with the class `.global-footer` and set it to css grid's
+// align-self: flex-end; This will keep the footer at the bottom of the page
+// when the content is shorter than the window but all the content to push the
+// footer below the viewport when the page is long.
+//
+// Style guide: Mixins.Layout.Sticky Footer
 //
 @mixin sticky-footer {
   display: grid;
@@ -14,7 +21,7 @@
   @include padding(0);
   @include margin(0);
 
-  .global-footer {
+  > .global-footer {
     align-self: flex-end;
   }
 }
