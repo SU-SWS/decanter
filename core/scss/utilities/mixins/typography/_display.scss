@@ -7,13 +7,17 @@
 //
 // Style guide: Mixins.Typography.h1
 //
-@mixin display-a {
-  $styles: map_get($sans, 'display-a'); // TODO: replace with su_deep_map_get when we implement skins
+@mixin display($level: 'a') {
+  $key: 'display-#{$level}';
+  @if not map_has_key($sans, $key) {
+    @error "display(#{$level}): $sans does not have key #{$key}";
+  }
+  $styles: map_get($sans, $key); // TODO: replace with su_deep_map_get when we implement skins
   @debug "display-a styles: #{$styles}";
   @debug 'family: '; @debug map_has_key($styles, 'family');
   @debug 'weight: '; @debug map_has_key($styles, 'weight');
   @debug 'style: ';  @debug map_has_key($styles, 'style');
-  @debug 'size-multiplier: '; @debug map_has_key($styles, 'size-multiplier');
+  @debug 'size-modscale-steps: '; @debug map_has_key($styles, 'size-modscale-steps');
   @debug 'color: ';  @debug map_has_key($styles, 'color');
   @debug 'line-height: '; @debug map_has_key($styles, 'line-height');
   @debug 'text-transform: '; @debug map_has_key($styles, 'text-transform');
@@ -28,8 +32,8 @@
       style: map_get($styles, 'style');
     }
   }
-  @if map_has_key($styles, 'size-multiplier') {
-    @include modular-typography(map_get($styles, 'size-multiplier'));
+  @if map_has_key($styles, 'size-modscale-steps') {
+    @include modular-typography(map_get($styles, 'size-modscale-steps'));
   }
   @if map_has_key($styles, 'color') {
     color: map_get($styles, 'color');

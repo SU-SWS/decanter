@@ -31,6 +31,13 @@ p {
   line-height: $base-line-height;
 
   @include margin(1em null);
+
+  @each $step in -2, -1, 0, 1, 2, 3, 4, 5 {
+    &.ms-step-#{$step} {
+      @include modular-typography($step);
+    }
+  }
+
 }
 
 h1,
@@ -42,28 +49,70 @@ h6 {
   @include headings;
 }
 
+//
+// h1
+//
+// Markup: <h1>Heading Level 1</h1>
+//
+// Style guide: Elements.Headings.h1
+//
 h1 {
-  @include display-a;
+  @include display(a);
 }
 
+//
+// h2
+//
+// Markup: <h2>Heading Level 2</h2>
+//
+// Style guide: Elements.Headings.h2
+//
 h2 {
-  @include h2;
+  @include display(b);
 }
 
+//
+// h3
+//
+// Markup: <h3>Heading Level 3</h3>
+//
+// Style guide: Elements.Headings.h3
+//
 h3 {
-  @include h3;
+  @include display(c);
 }
 
+//
+// h4
+//
+// Markup: <h4>Heading Level 4</h4>
+//
+// Style guide: Elements.Headings.h4
+//
 h4 {
-  @include h4;
+  @include display(d);
 }
 
+//
+// h5
+//
+// Markup: <h5>Heading Level 5</h5>
+//
+// Style guide: Elements.Headings.h5
+//
 h5 {
-  @include h5;
+  @include display(e);
 }
 
+//
+// h6
+//
+// Markup: <h6>Heading Level 6</h6>
+//
+// Style guide: Elements.Headings.h6
+//
 h6 {
-  @include h6;
+  @include display(f);
 }
 
 // Remove user agent styles.

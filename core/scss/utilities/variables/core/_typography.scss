@@ -270,6 +270,15 @@ $text-colors: (
   link--active:         #00548F,
 );
 
+$sans-defaults: ( // styles for "Big paragraph"
+  'family':              $font-sans,
+  'weight':              $font-normal,
+  'color':               map_get($text-colors, text),
+  'size-modscale-steps': 1,
+  'line-height':         0 + 24/16, // 0 + forces / to do division
+  'text-decoration':     none,
+);
+
 //
 // $sans
 //
@@ -280,34 +289,41 @@ $text-colors: (
 // Style guide: Variables.Core.Typography.sans
 //
 $sans: (
-  'display-a': (
-    'family':          $font-sans,
-    'weight':          $font-bold,
-    'size-multiplier': 5,
-    'color':           map_get($text-colors, text),
-    'line-height':     0 + 49/39,
-  ),
-  'display-b': (
-    'family':          $font-sans,
-    'weight':          $font-bold,
-    'size-multiplier': 4,
-    'color':           map_get($text-colors, text),
-    'line-height':     0 + 39/31.25,
-  ),
-  'display-c': (
-    'family':          $font-sans,
-    'weight':          $font-bold,
-    'size-multiplier': 3,
-    'color':           map_get($text-colors, text),
-    'line-height':     0 + 31/25,
-  ),
-  'display-d': (
-    'family':          $font-sans,
-    'weight':          $font-bold,
-    'style':           normal,
-    'size-multiplier': 2,
-    'color':           map_get($text-colors, text),
-    'line-height':     0 + 26/20,
-  ),
+  'display-a': map-merge( $sans-defaults, (
+    'weight':              $font-bold,
+    'size-modscale-steps': 4,
+    'line-height':         0 + 49/39, // 0 + forces / to do division
+  ) ),
+  'display-b': map-merge( $sans-defaults, (
+    'weight':              $font-bold,
+    'size-modscale-steps': 3,
+    'line-height':         0 + 39/31.25,
+  ) ),
+  'display-c': map-merge( $sans-defaults, (
+    'weight':              $font-bold,
+    'size-modscale-steps': 2,
+    'line-height':         0 + 31/25,
+  ) ),
+  'display-d': map-merge( $sans-defaults, (
+    'weight':              $font-bold,
+    'size-modscale-steps': 1,
+    'line-height':         0 + 26/20,
+  ) ),
+  'display-e': map-merge( $sans-defaults, (
+    'weight':              $font-bold,
+    'size-modscale-steps': 0,
+    'line-height':         0 + 21/16,
+  ) ),
+  'display-f': map-merge( $sans-defaults, (
+    'weight':              $font-bold,
+    'size-modscale-steps': -1,
+    'line-height':         0 + 17/13,
+    'text-transform':      uppercase,
+  ) ),
+  'splash-text': map-merge( $sans-defaults, (
+    'weight':              $font-bold,
+    'size-modscale-steps': 4,
+    'line-height':         0 + 49/39, // 0 + forces / to do division
+  ) ),
 );
 //@debug $sans;
