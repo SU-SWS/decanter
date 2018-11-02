@@ -9,9 +9,6 @@
 // Style guide: Mixins.Typography.font-lead
 //
 @mixin font-lead {
-  font-family: $font-sans;
-  font-size: $lead-font-size;
-  font-weight: $font-light;
-  line-height: $lead-line-height;
+  @include type-style('intro-text');
   max-width: $lead-max-width;
 }

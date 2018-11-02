@@ -8,15 +8,6 @@
 // Style guide: Mixins.Typography.font-splash
 //
 @mixin font-splash {
-  @include type-style('display-c');
+  @include type-style('splash-text');
   @include margin(null null 0);
-
-  @media #{$breakpoint-sm} {
-    @include type-style('display-a');
-  }
-
-  @media #{$breakpoint-md} {
-    font-size: $splash-font-size;
-    font-weight: $font-bold;
-  }
 }
