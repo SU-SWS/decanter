@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+//
+// Site Search
+//
+// A global site search component
+//
+// Markup: ../templates/components/site-search/site-search.twig
+//
+// Style guide: Components.Site Search
+//
+
+.su-site-search__input {
+  @include font-smoothing(auto);
+  @include padding(.3em .9em);
+
+  height: 40px;
+  width: 100%;
+  border-radius: 20px;
+  border: $color-driftwood solid 1px;
+  font-size: .8em;
+  color: $color-black;
+
+
+  @media #{$breakpoint-lg} {
+    width: 320px;
+  }
+}
+
+.su-site-search__sr-label {
+  @include sr-only;
+}
