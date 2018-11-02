@@ -1,18 +1,30 @@
 @charset "UTF-8";
 
 //
-// @h1
+// @type-style
 //
-// Default heading 1 styling.
+// Emit the following type styles for the specified text type:
+// - font-family
+// - font-weight
+// - font-style
+// - font-size
+// - color
+// - line-height
+// - text-transfrom
 //
-// Style guide: Mixins.Typography.h1
+// $text-type - specify type of text, e.g. 'display-a', 'subheading', 'caption', ...
+// $map - map containing the type styles. **Default:** `$sans`
 //
-@mixin display($level: 'a') {
-  $key: 'display-#{$level}';
-  @if not map_has_key($sans, $key) {
-    @error "display(#{$level}): $sans does not have key #{$key}";
+// Style guide: Mixins.Typography.type-style
+//
+@mixin type-style($text-type, $map: $sans) {
+  @if type_of($map) != 'map' {
+    @error "type-style(#{$text-type}, #{$map}): $map must be a map";
   }
-  $styles: map_get($sans, $key); // TODO: replace with su_deep_map_get when we implement skins
+  @if not map_has_key($map, $text-type) {
+    @error "type-style(#{$text-type}): $map does not have key #{$text-type}";
+  }
+  $styles: map_get($map, $text-type); // TODO: replace with su_deep_map_get when we implement skins
   font: {
     @if map_has_key($styles, 'family') {
       family: map_get($styles, 'family');

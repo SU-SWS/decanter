@@ -8,11 +8,11 @@
 // Style guide: Mixins.Typography.font-splash
 //
 @mixin font-splash {
-  @include display(c);
+  @include type-style('display-c');
   @include margin(null null 0);
 
   @media #{$breakpoint-sm} {
-    @include display(a);
+    @include type-style('display-a');
   }
 
   @media #{$breakpoint-md} {
