@@ -31,13 +31,6 @@ p {
   line-height: $base-line-height;
 
   @include margin(1em null);
-
-  @each $step in -2, -1, 0, 1, 2, 3, 4, 5 {
-    &.ms-step-#{$step} {
-      @include modular-typography($step);
-    }
-  }
-
 }
 
 h1,
