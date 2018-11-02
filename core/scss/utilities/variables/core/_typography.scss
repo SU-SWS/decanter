@@ -347,9 +347,17 @@ $sans: (
       'line-height':         0 + 21/16,
   )),
   'quote': map-merge($sans-defaults, (
-    'font-style':          italic,
-    'size-modscale-steps': 1,
-    'line-height':         0 + 30/20,
+      'font-style':          italic,
+      'size-modscale-steps': 1,
+      'line-height':         0 + 30/20,
+  )),
+  'link': map-merge($sans-defaults, (
+      'color':               $color-bright-blue,
+      'text-decoration':     underline,
+  )),
+  'link:hover': map-merge($sans-defaults, (
+      'color':               $color-blue,
+      'text-decoration':     underline,
   )),
 );
 //@debug $sans;
