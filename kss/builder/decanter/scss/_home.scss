@@ -14,11 +14,8 @@
   // The logo and the nav wrapper.
   header {
     @include centered-grid-container;
-    @include padding(30px 0 0 0);
-
-    div {
-      @include display-grid;
-      @include grid-columns(1fr 6fr);
+    h1{
+      color: $color-white;
     }
 
   }
@@ -26,7 +23,6 @@
   // Main navigation.
   .main-nav {
     @include margin(0);
-    text-align: right;
     vertical-align: middle;
 
     @include grid-media-only('xs') {
@@ -54,13 +50,12 @@
   }
 
   .section {
-    @include margin(0);
+    @include centered-grid-container;
     @include padding(20px);
   }
 
   // Welcome Section.
   .section--welcome {
-    @include centered-grid-container;
 
     h1,
     h2,
@@ -69,6 +64,7 @@
     h5,
     p {
       color: $color-white;
+      max-width: 80%;
     }
 
     h2 {
@@ -83,20 +79,17 @@
 
   // UI Components Section.
   .section--ui-components {
-    @include centered-grid-container;
     background: $color-white;
     clear: both;
   }
 
   // Developer Resources Section
   .section--dev-resources {
-    @include centered-grid-container;
     background: $color-light-sandstone;
   }
 
   // More Info Section
   .section--more-info {
-    @include centered-grid-container;
     background: $color-mint;
   }
 
