@@ -7,7 +7,7 @@
       <li><a href="/section-components.html">Components</a></li>
       <li><a href="/section-layout.html">Page Layouts</a></li>
       <!-- <li><a href="https://decanter.stanford.edu/">Examples in Action</a></li> -->
-      <li><a href="#devres">Developer Resources</a></li>
+      <li><a href="/section-variables.html">Developer Resources</a></li>
     </ul>
   </div>
 </header>
@@ -34,16 +34,16 @@
   <h2>Developer Resources</h2>
 
   <div class="su-card">
-    <img src="/kss-assets/sample.png" alt="Star" role="presentation" />
+    <img src="/img/cubes.png" alt="Cubes" role="presentation" />
     <div class="su-card__contents">
       <h3>Components</h3>
-      <p>Browse our catalog of compontens and view the markup.</p>
+      <p>Browse our catalog of components and view the markup.</p>
       <a href="/section-components.html" class="su-link su-link--action">Browse</a>
     </div>
   </div>
 
   <div class="su-card card-2">
-    <img src="/kss-assets/sample.png" alt="Star" role="presentation" />
+    <img src="/img/file.png" alt="File" role="presentation" />
     <div class="su-card__contents">
       <h3>Documentation</h3>
       <p>From coding standards to best practices follow the link to find out more.</p>

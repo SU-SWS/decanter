@@ -12,7 +12,12 @@
   {{ styles|raw }}
 </head>
 <body id="kss-node" class="{% if template.isItem %}kss-fullscreen-mode{% endif %}{% if template.isHomepage %} kss-home{% endif %}">
-{% include "@decanter/components/brand-bar/brand-bar.twig" with {} only %}
+{% include "@decanter/components/brand-bar/brand-bar.twig" with
+  {
+    "modifier_class": "su-brand-bar--bright",
+    }
+    only
+    %}
 
 {% if not template.isHomepage %}
 
