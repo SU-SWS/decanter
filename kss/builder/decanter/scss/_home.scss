@@ -14,19 +14,33 @@
   // The logo and the nav wrapper.
   header {
     @include centered-grid-container;
-    h1{
-      color: $color-white;
+    @include padding(15px null null null);
+
+    div {
+      @include display-grid;
+      @include grid-columns(1fr 11fr);
+      align-items: center;
+
+      @include grid-media-only('xs') {
+        @include grid-columns(1fr);
+        @include grid-rows(auto auto);
+      }
     }
 
+    h1{
+      color: $color-white;
+      text-align: center;
+    }
   }
 
   // Main navigation.
   .main-nav {
     @include margin(0);
-    vertical-align: middle;
+    @include padding(0);
+    text-align: center;
 
-    @include grid-media-only('xs') {
-      text-align: center;
+    @include grid-media('sm') {
+      text-align: right;
     }
 
     li {
@@ -36,9 +50,10 @@
       a {
         @include padding(5px);
         display: inline-block;
-        color: darken($color-white, 40%);
+        color: darken($color-white, 30%);
         font-family: $font-sans;
         font-size: em(16px);
+        border-bottom: solid 3px $color-black;
       }
 
       &:first-child > a,
@@ -49,13 +64,17 @@
     }
   }
 
+  // --------------------------------
+  // SECTIONS
+  // --------------------------------
+
   .section {
-    @include centered-grid-container;
     @include padding(20px);
   }
 
   // Welcome Section.
   .section--welcome {
+    @include centered-grid-container;
 
     h1,
     h2,
@@ -64,33 +83,146 @@
     h5,
     p {
       color: $color-white;
-      max-width: 80%;
+      @media #{$breakpoint-sm} {
+        max-width: 80%;
+      }
     }
 
     h2 {
-      font-size: modular-scale(5);
+      @include margin(0);
+
+      @media #{$breakpoint-sm} {
+        font-size: modular-scale(3);
+      }
+      @media #{$breakpoint-md} {
+        font-size: modular-scale(4);
+      }
+      @media #{$breakpoint-lg} {
+        font-size: modular-scale(4);
+      }
+      @media #{$breakpoint-xl} {
+        font-size: modular-scale(6);
+      }
+      font-size: modular-scale(3);
+
     }
 
     p {
-      font-size: modular-scale(3);
+      @media #{$breakpoint-sm} {
+        font-size: modular-scale(1);
+      }
+      @media #{$breakpoint-sm} {
+        font-size: modular-scale(1);
+      }
+      @media #{$breakpoint-sm} {
+        font-size: modular-scale(2);
+      }
+      @media #{$breakpoint-sm} {
+        font-size: modular-scale(2);
+      }
+      font-size: modular-scale(0);
     }
 
   }
 
   // UI Components Section.
   .section--ui-components {
+    @include centered-grid-container;
     background: $color-white;
-    clear: both;
+    .su-card {
+      box-shadow: none;
+      border: 0;
+    }
   }
 
   // Developer Resources Section
   .section--dev-resources {
+    @include display-grid;
+    @include grid-column-gap;
+    @include grid-columns(1fr);
+
+    @include grid-media('sm') {
+      $width: ($screen-sm/2) - $gutter-sm;
+      @include grid-columns(auto $width $width auto);
+    }
+
+    @include grid-media('md') {
+      $width: ($screen-md/2) - $gutter-md;
+      @include grid-columns(auto $width $width auto);
+    }
+
+    @include grid-media('lg') {
+      $width: ($screen-lg/2) - $gutter-lg;
+      @include grid-columns(auto $width $width auto);
+    }
+
+    @include grid-media('xl') {
+      $width: ($screen-xl/2) - $gutter-xl;
+      @include grid-columns(auto $width $width auto);
+    }
+
+
+
     background: $color-light-sandstone;
+
+    h2 {
+      @media #{$breakpoint-sm} {
+        grid-column-start: 2;
+      }
+    }
+
+    .su-card {
+      @media #{$breakpoint-sm} {
+        grid-row-start: row2-start;
+        grid-column-start: 2;
+      }
+      border: 0;
+      box-shadow: none;
+      img {
+        max-width: 100px;
+        margin: $gutter-md auto;
+      }
+      h3 {
+        @media #{$breakpoint-sm} {
+          text-align: center;
+        }
+      }
+    }
+    .card-2 {
+      @media #{$breakpoint-sm} {
+        grid-column-start: 3;
+      }
+    }
   }
 
   // More Info Section
   .section--more-info {
+    @include centered-grid-container;
     background: $color-mint;
+
+    h2 {
+      text-align: center;
+    }
+
+    ul {
+      @include display-grid;
+      @include grid-media('sm', 1fr 1fr 1fr);
+    }
+
+    li {
+      list-style: none;
+      list-style-type: none;
+    }
+
+    a {
+      color: $color-black;
+      text-decoration: underline;
+
+      &:hover {
+        color: $color-white;
+      }
+    }
+
   }
 
 }

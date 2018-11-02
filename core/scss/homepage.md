@@ -3,10 +3,10 @@
     <h1>Decanter</h1>
     <ul class="main-nav">
       <li><a href="/">Home</a></li>
-      <li><a href="https://decanter.stanford.edu/">Visual Guidelines</a></li>
+      <!-- <li><a href="https://decanter.stanford.edu/">Visual Guidelines</a></li> -->
       <li><a href="/section-components.html">Components</a></li>
       <li><a href="/section-layout.html">Page Layouts</a></li>
-      <li><a href="https://decanter.stanford.edu/">Examples in Action</a></li>
+      <!-- <li><a href="https://decanter.stanford.edu/">Examples in Action</a></li> -->
       <li><a href="#devres">Developer Resources</a></li>
     </ul>
   </div>
@@ -20,29 +20,35 @@
 </div>
 
 <div class="section section--ui-components">
-  <div>
-    <h2>Explore our UI components</h2>
-    <p>From buttons, to rows of cards, to full article level pages, Decanter breaks down and builds components thoughtfully, allowing your content to be displayed exactly the way you want.</p>
-    <p><a href="https://stanford.edu/">Browse ›</a></p>
-    <img src="/kss-assets/ui-components.png" alt="UI-Components" />
+  <div class="su-card su-card--horizontal">
+    <img src='/kss-assets/ui-components.png' alt='UI-Components' />
+    <div class="su-card__contents">
+      <h2>Explore our UI components</h2>
+      <p>From buttons, to rows of cards, to full article level pages, Decanter breaks down and builds components thoughtfully, allowing your content to be displayed exactly the way you want.</p>
+      <a href="/section-components.html" class="su-link su-link--action">Browse</a>
+    </div>
   </div>
 </div>
 
 <div class="section section--dev-resources">
-  <div>
-    <a href="#" id="devres" name="devres"></a>
-    <h2>Developer Resources</h2>
-    <ul>
-      <li>
-        <h3>Components</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p><a href="https://stanford.edu" class="su-link--action">Work with components</a></p>
-      </li>
-      <li>
-        <h3>Documentation</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p><a href="https://stanford.edu" class="su-link--action">Work with components</a></p>
-      </li>
+  <h2>Developer Resources</h2>
+
+  <div class="su-card">
+    <img src="/kss-assets/sample.png" alt="Star" role="presentation" />
+    <div class="su-card__contents">
+      <h3>Components</h3>
+      <p>Browse our catalog of compontens and view the markup.</p>
+      <a href="/section-components.html" class="su-link su-link--action">Browse</a>
+    </div>
+  </div>
+
+  <div class="su-card card-2">
+    <img src="/kss-assets/sample.png" alt="Star" role="presentation" />
+    <div class="su-card__contents">
+      <h3>Documentation</h3>
+      <p>From coding standards to best practices follow the link to find out more.</p>
+      <a href="https://github.com/SU-SWS/decanter/wiki" class="su-link su-link--action">Wiki Docs</a>
+    </div>
   </div>
 </div>
 
