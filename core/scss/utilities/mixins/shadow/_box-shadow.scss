@@ -1,0 +1,17 @@
+@charset 'UTF-8';
+
+//
+// @box-shadow($depth: 'flat')
+//
+// Box shadows for element containers.
+//
+// $depth   - String: One of flat, shallow, medium, medium-deep, deep
+// $stroke  - border css properties
+//
+// Style guide: Mixins.Shadow.Box Shadow
+//
+
+@mixin box-shadow($depth: 'flat', $stroke: '1px solid #C6C6C6') {
+  border: #{$stroke};
+  box-shadow: #{map-get($box-shadow-depth, $depth)};
+}

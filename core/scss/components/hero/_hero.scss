@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+// Local variable not for changing.
+$_su-hero-height: (
+  'xs': 208px,
+  'sm': 208px,
+  'md': 320px,
+  'lg': 409px,
+  'xl': 520px
+);
+
+//
+// Hero
+//
+// A hero block that can be either an image or a video with some overlay text.
+//
+// Experimental: The youtube player has not been finished.
+//
+// .su-hero--youtube - A youtube video in the background.
+//
+// Markup: ../templates/components/hero/hero.twig
+//
+// Style guide: Components.Hero
+//
+.su-hero {
+  position: relative;
+
+  @media #{$breakpoint-md} {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: map-get($_su-hero-height, 'md');
+  }
+
+  @media #{$breakpoint-lg} {
+    min-height: map-get($_su-hero-height, 'lg');
+  }
+
+  @media #{$breakpoint-xl} {
+    min-height: map-get($_su-hero-height, 'xl');
+  }
+}
+
+// The media element.
+// Big tall wide and in a little bid of a shade.
+.su-hero__media {
+  background: $color-black;
+  height: 100%;
+  width: 100%;
+
+  @media #{$breakpoint-md} {
+    min-height: map-get($_su-hero-height, 'md');
+    position: absolute;
+  }
+
+  @media #{$breakpoint-lg} {
+    min-height: map-get($_su-hero-height, 'lg');
+    position: absolute;
+  }
+
+  @media #{$breakpoint-xl} {
+    min-height: map-get($_su-hero-height, 'xl');
+    position: absolute;
+  }
+
+  img,
+  picture {
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 50%;
+    width: 100%;
+  }
+
+}
+
+// The content
+.su-hero__card {
+  background: $color-white;
+  position: relative;
+  z-index: 10;
+
+  @media #{$breakpoint-md} {
+    @include margin(45px null);
+    left: 45px;
+    max-width: 400px;
+  }
+
+  @media #{$breakpoint-lg} {
+    max-width: 450px;
+  }
+
+  @media #{$breakpoint-xl} {
+    @include margin(96px null 0 null);
+    bottom: 48px;
+    left: 48px;
+    max-width: 450px;
+    top: auto;
+  }
+
+}
