@@ -1,0 +1,61 @@
+{#
+/**
+ * @file
+ * Hero Component
+ *
+ * A big graphic for use as a focal point or a large video.
+ *
+ */
+#}
+<div{{ attributes }} class="su-hero {{ modifier_class }}">
+
+  <div class="su-hero__media {% if 'su-hero--youtube' not in modifier_class %}su-hero__media--with-shade{% endif %}">
+    {% if 'su-hero--youtube' in modifier_class %}
+    {{ hero_media }}
+    {% else %}
+    {{ hero_image}}
+    {% endif %}
+  </div>
+
+  {# If any content is available render the container. #}
+  {% if hero_headline is not empty or hero_content is not empty %}
+  <div class="su-hero__content">
+
+  {# Hero Headline #}
+  {% block block_hero_headline %}
+    {% if hero_headline is not empty %}
+      <h2 class="su-hero__headline">{{ hero_headline }}</h2>
+    {% endif %}
+  {% endblock %}
+
+  {# Hero Content #}
+  {% block block_hero_content %}
+    {% if hero_content is not empty %}
+      {{ hero_content }}
+    {% endif %}
+  {% endblock %}
+
+  {# Big ol button. Adds a BEM class for targeting. #}
+  {% if hero_button_link is not empty and 'su-hero--youtube' not in modifier_class %}
+    <div class="su-card__button">
+    {% include "@decanter/components/link/link.twig" with
+      {
+      "link_href": hero_button_link,
+      "link_content": hero_button_label,
+      "modifier_class": "su-link--button",
+      }
+      only
+    %}
+  </div>
+  {% elseif 'su-hero--youtube' in modifier_class %}
+  <a href="#" class="su-link--button su-hero__play" title="Click to play video">Play Video</a>
+  {% endif %}
+
+  </div>{# .su-hero__content #}
+  {% endif %}
+
+</div>
+
+{% if hero_footer is not empty %}
+  <div class="su-hero__footer">{{ hero_footer }}</div>
+{% endif %}
