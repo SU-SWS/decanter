@@ -17,21 +17,21 @@
 //
 @mixin modular-typography($scale: 1) {
 
-  @media #{$breakpoint-xl} {
-    font-size: modular-scale($scale, map-get($modular-typography, 'xl'));
-  }
+  font-size: modular-scale($scale, map-get($modular-typography, 'xs'));
 
-  @media #{$breakpoint-lg} {
-    font-size: modular-scale($scale, map-get($modular-typography, 'lg'));
+  @media #{$breakpoint-sm} {
+    font-size: modular-scale($scale, map-get($modular-typography, 'sm'));
   }
 
   @media #{$breakpoint-md} {
     font-size: modular-scale($scale, map-get($modular-typography, 'md'));
   }
 
-  @media #{$breakpoint-sm} {
-    font-size: modular-scale($scale, map-get($modular-typography, 'sm'));
+  @media #{$breakpoint-lg} {
+    font-size: modular-scale($scale, map-get($modular-typography, 'lg'));
   }
 
-  font-size: modular-scale($scale, map-get($modular-typography, 'xs'));
+  @media #{$breakpoint-xl} {
+    font-size: modular-scale($scale, map-get($modular-typography, 'xl'));
+  }
 }
