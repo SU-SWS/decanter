@@ -9,16 +9,15 @@
 //
 // Style guide: Components.Site Search
 //
-
 .su-site-search__input {
   @include font-smoothing(auto);
   @include padding(.3em 1em);
 
+  display: inline-block;
   height: 40px;
   max-width: 100%;
   border-radius: 20px;
   font-size: .8em;
-  background: url("../../../img/icon-search.svg") transparent right 1em center no-repeat;
 
   &::placeholder {
     color: $color-black;
@@ -32,4 +31,43 @@
 
 .su-site-search__sr-label {
   @include sr-only;
+}
+
+.su-site-search__submit {
+  @include padding(0);
+  @include margin(0 0 0 null);
+
+  background-color: transparent;
+  opacity: .6;
+  position: absolute;
+  top: 11px;
+  right: 12px;
+  width: auto;
+
+  @media #{$breakpoint-lg} {
+    position: relative;
+    top: 7px;
+    right: 40px;
+  }
+
+  img {
+    display: inline-block;
+  }
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: transparent;
+    opacity: 1;
+  }
+
+  &:active,
+  &:focus {
+    box-shadow: none;
+  }
+
+  &:focus {
+    outline: #aaa solid 3px;
+    outline: -webkit-focus-ring-color auto 5px;
+  }
 }
