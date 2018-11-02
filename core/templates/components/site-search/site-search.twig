@@ -1,4 +1,22 @@
-<form action="{{ action }}" method="{{ method }}" accept-charset="UTF-8" _lpchecked="1" class="su-site-search">
+{#
+/**
+ * @file
+ * Global Site Searach Component
+ *
+ * A default link component.
+ *
+ * Available variables:
+ * - action: Action of the form field
+ * - method: Method of the form field
+ * - input_attributes: Additional attributes for the input field
+ * - placeholder: Placeholder text for the input field
+ * - additional_fields: Any additional fields, e.g., hidden input fields
+ *
+ */
+#}
+<form action="{{ action }}" method="{{ method }}" class="su-site-search" accept-charset="UTF-8" role="search">
   <label class="su-site-search__sr-label" for="search-field">Search term</label>
-  <input type="text" id="search-field" class="su-site-search__input" placeholder="{{ placeholder }}" maxlength="128">
+  <input{{ input_attributes }} type="text" id="search-field" class="su-site-search__input" placeholder="{{ placeholder }}" maxlength="128">
+  {# Any additional eg. hidden input fields #}
+  {{ additional_fields }}
 </form>

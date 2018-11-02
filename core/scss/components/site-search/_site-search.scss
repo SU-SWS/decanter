@@ -12,15 +12,18 @@
 
 .su-site-search__input {
   @include font-smoothing(auto);
-  @include padding(.3em .9em);
+  @include padding(.3em 1em);
 
   height: 40px;
-  width: 100%;
+  max-width: 100%;
   border-radius: 20px;
-  border: $color-driftwood solid 1px;
   font-size: .8em;
-  color: $color-black;
+  background: url("../../../img/icon-search.svg") transparent right 1em center no-repeat;
 
+  &::placeholder {
+    color: $color-black;
+    opacity: 1; // For Firefox
+  }
 
   @media #{$breakpoint-lg} {
     width: 320px;
