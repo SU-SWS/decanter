@@ -2101,9 +2101,31 @@ button,
         width: auto; } }
 
 .global-footer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 100% auto;
+  grid-template-columns: auto 100% auto;
   padding: 2.5rem 0;
   background-color: #8c1515;
   color: #ffffff; }
+  .global-footer > :first-child {
+    grid-column: 2; }
+  @media only screen and (min-width: 576px) {
+    .global-footer {
+      -ms-grid-columns: auto 576px auto;
+      grid-template-columns: auto 576px auto; } }
+  @media only screen and (min-width: 768px) {
+    .global-footer {
+      -ms-grid-columns: auto 768px auto;
+      grid-template-columns: auto 768px auto; } }
+  @media only screen and (min-width: 1024px) {
+    .global-footer {
+      -ms-grid-columns: auto 1024px auto;
+      grid-template-columns: auto 1024px auto; } }
+  @media only screen and (min-width: 1500px) {
+    .global-footer {
+      -ms-grid-columns: auto 1500px auto;
+      grid-template-columns: auto 1500px auto; } }
   .global-footer a {
     color: rgba(255, 255, 255, 0.9);
     text-decoration: none; }

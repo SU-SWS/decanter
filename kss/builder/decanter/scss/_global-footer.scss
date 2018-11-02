@@ -1,5 +1,18 @@
 @charset "UTF-8";
 
+
 body#kss-node {
   @include sticky-footer;
+
+
+  // To support the sticky footer we must put the sidebar behind the footer.
+  .kss-sidebar {
+    @include padding(null null 150px null);
+    z-index: 0;
+  }
+
+  .global-footer {
+    position: relative;
+    z-index: 10;
+  }
 }
