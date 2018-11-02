@@ -1,0 +1,237 @@
+#kss-node.kss-home .kss-main {
+  width: 100%;
+
+  @include margin(30px 0 0 0);
+  @include padding(0);
+}
+
+#kss-node.kss-home {
+  background: $color-black;
+
+  .kss-section {
+      @include margin(null null 0);
+  }
+
+  p {
+    @include modular-typography(0);
+  }
+
+  h2, h3, h4, h5, p, li {
+    color: $color-black;
+  }
+
+  h2 {
+    @include modular-typography(3);
+
+    font-weight: $font-x-bold;
+  }
+
+  // The logo and the nav wrapper.
+  header {
+    @include box-shadow("shallow", "0");
+    @include centered-grid-container;
+    @include padding(15px null null null);
+
+    div {
+      @include display-grid;
+      @include grid-columns(1fr 11fr);
+      align-items: center;
+
+      @include grid-media-only("xs") {
+        @include grid-columns(1fr);
+        @include grid-rows(auto auto);
+      }
+    }
+
+    h1 {
+      @include modular-typography(2);
+      color: $color-white;
+      font-weight: $font-x-bold;
+      text-align: center;
+    }
+  }
+
+  // Main navigation.
+  .main-nav {
+    @include margin(0);
+    @include padding(0);
+    text-align: center;
+
+    @include grid-media("sm") {
+      text-align: right;
+    }
+
+
+    li {
+      @include padding(0);
+      display: inline-block;
+
+      a {
+        @include margin(null 20px null null);
+        @include padding(5px);
+        display: inline-block;
+        color: darken($color-white, 30%);
+        font-family: $font-sans;
+        font-size: em(16px);
+        border-bottom: solid 3px $color-black;
+      }
+
+      &:first-child > a,
+      a:hover {
+        color: $color-white;
+        border-bottom: solid 3px $color-white;
+      }
+
+      &:last-child > a {
+        @include margin(0);
+      }
+    }
+  }
+
+  // --------------------------------
+  // SECTIONS
+  // --------------------------------
+
+  .section {
+    @include padding(60px);
+  }
+
+  // Welcome Section.
+  .section--welcome {
+    @include centered-grid-container;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+      color: $color-white;
+
+      @media #{$breakpoint-sm} {
+        max-width: 65%;
+      }
+    }
+
+    p {
+      @include modular-typography(1);
+      font-weight: 200;
+    }
+
+    h2 {
+      @include margin(0);
+    }
+  }
+
+  // UI Components Section.
+  .section--ui-components {
+    @include centered-grid-container;
+
+    background: $color-white;
+
+    .su-card {
+      box-shadow: none;
+      border: 0;
+    }
+
+    p {
+      max-width: 55%;
+    }
+  }
+
+  // Developer Resources Section
+  .section--dev-resources {
+    @include centered-grid-container;
+    @include display-grid;
+    @include grid-column-gap;
+    @include grid-columns(1fr);
+
+    @include grid-media("sm") {
+      $width: $screen-sm / 2 - $gutter-sm;
+
+      @include grid-columns(auto $width $width auto);
+    }
+
+    @include grid-media("md") {
+      $width: $screen-md / 2 - $gutter-md;
+
+      @include grid-columns(auto $width $width auto);
+    }
+
+    @include grid-media("lg") {
+      $width: $screen-lg / 4 - $gutter-lg;
+
+      @include grid-columns(auto $width $width auto);
+    }
+
+    @include grid-media("xl") {
+      $width: $screen-xl / 4 - $gutter-xl;
+
+      @include grid-columns(auto $width $width auto);
+    }
+
+    background: $color-light-sandstone;
+
+    h2 {
+      @media #{$breakpoint-sm} {
+        grid-column-start: 2;
+      }
+    }
+
+    .su-card {
+      @media #{$breakpoint-sm} {
+        grid-row-start: row2-start;
+        grid-column-start: 2;
+      }
+
+      border: 0;
+      box-shadow: none;
+
+      img {
+        max-width: 100px;
+        margin: $gutter-md auto;
+      }
+
+      h3 {
+        @media #{$breakpoint-sm} {
+          text-align: center;
+        }
+      }
+    }
+
+    .card-2 {
+      @media #{$breakpoint-sm} {
+        grid-column-start: 3;
+      }
+    }
+  }
+
+  // More Info Section
+  .section--more-info {
+    @include centered-grid-container;
+    background: lighten($color-mint, 5%);
+
+    h2 {
+      text-align: center;
+    }
+
+    ul {
+      @include display-grid;
+      @include grid-media("lg", 1fr 1fr 1fr, 200px);
+    }
+
+    li {
+      list-style: none;
+      list-style-type: none;
+    }
+
+    a {
+      color: $color-black;
+      text-decoration: underline;
+
+      &:hover {
+        color: $color-white;
+      }
+    }
+  }
+}
