@@ -2472,7 +2472,7 @@ button,
 
 .su-main-nav {
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: auto;
+  -moz-osx-font-smoothing: grayscale;
   font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
   .su-main-nav ul {
     margin-top: 0;
@@ -2509,8 +2509,10 @@ button,
         color: #2e2d29;
         font-weight: 600;
         border-bottom: 0; }
-        .su-main-nav__menu-level1 > li a:active {
+        .su-main-nav__menu-level1 > li a:hover, .su-main-nav__menu-level1 > li a:focus {
           color: #820000; }
+        .su-main-nav__menu-level1 > li a:active {
+          color: #2e2d29; }
       .su-main-nav__menu-level1 > li:first-child a {
         margin-left: 0; }
       .su-main-nav__menu-level1 > li:last-child a {
@@ -2540,7 +2542,6 @@ button,
       height: 6px;
       bottom: 0px;
       left: 0;
-      background-color: #2e2d29;
       visibility: hidden;
       -webkit-transform: scaleX(0);
               transform: scaleX(0);
@@ -2549,6 +2550,7 @@ button,
     .su-main-nav__menu-level1 > li a:hover, .su-main-nav__menu-level1 > li a:focus {
       text-decoration: none; }
       .su-main-nav__menu-level1 > li a:hover::after, .su-main-nav__menu-level1 > li a:focus::after {
+        background-color: #820000;
         visibility: visible;
         -webkit-transform: scaleX(1);
                 transform: scaleX(1);
@@ -2556,11 +2558,11 @@ button,
     .su-main-nav__menu-level1 > li a:active {
       text-decoration: none; }
       .su-main-nav__menu-level1 > li a:active::after {
+        background-color: #2e2d29;
         visibility: visible;
         -webkit-transform: scaleX(1);
                 transform: scaleX(1);
-        transition: all 0.05s ease-out;
-        bottom: -3px; } }
+        transition: all 0.05s ease-out; } }
 
 .su-main-nav--center ul {
   justify-content: center; }

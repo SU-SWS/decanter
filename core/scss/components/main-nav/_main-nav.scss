@@ -14,7 +14,7 @@
 //
 
 .su-main-nav {
-  @include font-smoothing(auto);
+  @include font-smoothing(antialiased);
   font-family: $font-sans;
 
   ul {
@@ -63,8 +63,13 @@
         font-weight: 600;
         border-bottom: 0;
 
-        &:active {
+        &:hover,
+        &:focus {
           color: $color-dark-red;
+        }
+
+        &:active {
+          color: $color-black;
         }
 
         &:hover {
@@ -126,16 +131,18 @@
       height: 6px;
       bottom: 0px;
       left: 0;
-      background-color: $color-black;
       visibility: hidden;
       transform: scaleX(0);
       transition: all 0.15s ease-in;
       z-index: 1;
     }
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       text-decoration: none;
+
       &::after {
+        background-color: $color-dark-red;
         visibility: visible;
         transform: scaleX(1);
         transition: all 0.25s ease-out;
@@ -145,10 +152,10 @@
     &:active {
       text-decoration: none;
       &::after {
+        background-color: $color-black;
         visibility: visible;
         transform: scaleX(1);
         transition: all 0.05s ease-out;
-        bottom: -3px;
       }
     }
   }
