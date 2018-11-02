@@ -370,9 +370,6 @@ template {
     position: fixed;
     top: 0;
     z-index: 9999; }
-    @media screen and (max-width: 769px) {
-      #kss-node > .su-brand-bar {
-        margin-left: -20px; } }
 
 .kss-style {
   color: #3D3D3D;
@@ -993,6 +990,8 @@ body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
 
 #kss-node.kss-home {
   background: #2e2d29; }
+  #kss-node.kss-home .kss-section {
+    margin-bottom: 0; }
   #kss-node.kss-home h2, #kss-node.kss-home h3, #kss-node.kss-home h4, #kss-node.kss-home h5, #kss-node.kss-home p, #kss-node.kss-home li {
     color: #2e2d29; }
   #kss-node.kss-home header {
@@ -1383,5 +1382,13 @@ body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
       background-color: rgba(128, 0, 0, 0.2); }
     .region--sidebar-second {
       background-color: rgba(0, 128, 0, 0.2); }
+
+body#kss-node {
+  display: grid;
+  height: 100vh;
+  padding: 0;
+  margin: 0; }
+  body#kss-node .global-footer {
+    align-self: flex-end; }
 
 /*# sourceMappingURL=kss.css.map */
