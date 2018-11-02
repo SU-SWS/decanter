@@ -11,6 +11,7 @@
  * - input_attributes: Additional attributes for the input field
  * - placeholder: Placeholder text for the input field
  * - button_attributes: Additional button attributes
+ * - search_icon_src: The href property of the icon image
  * - additional_fields: Any additional fields, e.g., hidden input fields
  *
  */
@@ -19,7 +20,7 @@
  <form action="{{ action }}" method="{{ method }}" accept-charset="UTF-8">
   <label class="su-site-search__sr-label" for="search-field">Search this site</label>
   <input{{ input_attributes }} type="text" id="search-field" class="su-site-search__input" placeholder="{{ placeholder }}" maxlength="128">
-  <button{{ button_attributes }} type="submit" class="su-site-search__submit" aria-label="Search"><img src="../../../img/icon-search.svg" alt="Search button"/></button>
+  <button{{ button_attributes }} type="submit" class="su-site-search__submit" aria-label="Search"><img src="{{ search_icon_src }}" alt="Search button"/></button>
   {# Any additional eg. hidden input fields #}
   {{ additional_fields }}
  </form>
