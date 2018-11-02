@@ -13,6 +13,7 @@
 
   // The logo and the nav wrapper.
   header {
+    @include box-shadow('shallow', '0');
     @include centered-grid-container;
     @include padding(15px null null null);
 
@@ -48,6 +49,7 @@
       display: inline-block;
 
       a {
+        @include margin(null 20px null null);
         @include padding(5px);
         display: inline-block;
         color: darken($color-white, 30%);
@@ -59,7 +61,11 @@
       &:first-child > a,
       a:hover {
         color: $color-white;
-        border-bottom: solid 3px $color-bright-blue;
+        border-bottom: solid 3px $color-white;
+      }
+
+      &:last-child > a {
+        @include margin(0);
       }
     }
   }
@@ -90,21 +96,7 @@
 
     h2 {
       @include margin(0);
-
-      @media #{$breakpoint-sm} {
-        font-size: modular-scale(3);
-      }
-      @media #{$breakpoint-md} {
-        font-size: modular-scale(4);
-      }
-      @media #{$breakpoint-lg} {
-        font-size: modular-scale(4);
-      }
-      @media #{$breakpoint-xl} {
-        font-size: modular-scale(6);
-      }
-      font-size: modular-scale(3);
-
+      @include modular-typography(3);
     }
 
     p {

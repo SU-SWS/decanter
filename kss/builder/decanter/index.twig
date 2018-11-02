@@ -220,6 +220,7 @@
     </{{ sectionElement }}>
   {% endfor %}
 {% endif %}
+{% include "@decanter/components/global-footer/global-footer.twig" with {} only %}
 </article>
 
 <!-- SCRIPTS -->
@@ -250,7 +251,6 @@
   });
 </script>
 {{ scripts|raw }}
-
 {# This will only be included in the demo page. #}
 {% if options.demo %}
   <footer class="kss-github">
