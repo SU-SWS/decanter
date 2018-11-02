@@ -1,0 +1,155 @@
+@charset "UTF-8";
+
+//
+// Main Navigation
+//
+// The primary site navigation that is usually in the header region of a website. It is horizontal on larger devices and collapses on small devices.
+//
+// .su-main-nav--center - Centered main nav
+// .su-main-nav--right - Right-aligned main nav
+//
+// Markup: ../templates/components/main-nav/main-nav.twig
+//
+// Style guide: Components.Main Navigation
+//
+
+.su-main-nav {
+  @include font-smoothing(auto);
+  font-family: $font-sans;
+
+  ul {
+    @include margin(0 null);
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: $color-black;
+  }
+}
+
+.su-main-nav__menu-level1 {
+  display: flex;
+  flex-direction: column;
+  background-color: $color-black;
+  width: 100%;
+
+  > li {
+
+    @include margin(null null 0);
+
+    a {
+      @extend %fancyhover;
+      @include padding(.8em .4em .8em 0);
+      display: block;
+      color: $color-white;
+      font-size: .9em;
+      border-bottom: $color-cool-grey solid 1px;
+    }
+  }
+
+  @media #{$breakpoint-lg} {
+    @include padding(null null null 0);
+    flex-direction: row;
+    background-color: transparent;
+
+    > li {
+
+      a {
+        @include padding(null 0 .8em);
+        @include margin(0 .58em);
+        font-size: 1.05em;
+        color: $color-black;
+        font-weight: 600;
+        border-bottom: 0;
+
+        &:active {
+          color: $color-dark-red;
+        }
+
+        &:hover {
+          + .su-main-nav__menu-level2 {
+            //display: flex;
+          }
+        }
+      }
+
+      &:first-child {
+        a {
+          @include margin(null null null 0);
+        }
+      }
+
+      &:last-child {
+        a {
+          @include margin(null 0 null null);
+        }
+      }
+
+
+    }
+  }
+}
+
+.su-main-nav__menu-level2 {
+  //display: none;
+  background-color: $color-black;
+  flex-direction: column;
+  position: relative;
+  top: .6em;
+
+  li {
+    a {
+      color: $color-white;
+      font-size: .9em;
+      font-weight: 400;
+
+      &:hover,
+      &:focus {
+        color: $color-white;
+      }
+
+    }
+  }
+}
+
+%fancyhover {
+  @media #{$breakpoint-lg} {
+    text-decoration: none;
+    position: relative;
+    padding-bottom: .65em;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 6px;
+      bottom: 0px;
+      left: 0;
+      background-color: $color-black;
+      visibility: hidden;
+      transform: scaleX(0);
+      transition: all 0.15s ease-in;
+      z-index: 1;
+    }
+
+    &:hover, &:focus {
+      text-decoration: none;
+      &::after {
+        visibility: visible;
+        transform: scaleX(1);
+        transition: all 0.25s ease-out;
+      }
+    }
+
+    &:active {
+      text-decoration: none;
+      &::after {
+        visibility: visible;
+        transform: scaleX(1);
+        transition: all 0.05s ease-out;
+        bottom: -3px;
+      }
+    }
+  }
+}
