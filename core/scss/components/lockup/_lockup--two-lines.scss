@@ -1,26 +1,38 @@
 .su-lockup--two-lines {
 
-  @include grid-rows(auto auto auto);
-
   .su-lockup__wordmark {
-    grid-row: 1 / span 2;
+    @media #{$breakpoint-md} {
+      grid-row: 1 / span 2;
+    }
   }
 
   .su-lockup__pipe {
-    grid-row: 1 / span 2;
+    @media #{$breakpoint-md} {
+      grid-row: 1 / span 2;
+    }
   }
 
   .su-lockup__unit-line1,
   .su-lockup__unit-line2 {
-    font-size: 22px;
+    font-size: 17px;
+    @media #{$breakpoint-md} {
+      font-size: 22px;
+    }
   }
 
   .su-lockup__unit-line2 {
     display: block;
+    grid-row: 5 / span 1;
+    @media #{$breakpoint-md} {
+      grid-row: 2 / span 1;
+      grid-column: 3 / span 1;
+    }
   }
 
   .su-lockup__unit-line5 {
-    grid-row: 3 / span 1;
+    @media #{$breakpoint-md} {
+      grid-row: 3 / span 1;
+    }
   }
 
   .su-lockup__unit-line1--small,
@@ -30,16 +42,22 @@
   }
 
   .su-lockup__unit-line1--small {
-    font-size: 16px;
-    line-height: .5;
+    font-size: 15px;
+    @media #{$breakpoint-md} {
+      font-size: 16px;
+      line-height: .5;
+    }
   }
 
   .su-lockup__unit-line1--supersmall {
     font-size: 13px;
-    line-height: .2;
 
-    & + .su-lockup__unit-line2 {
-      font-size: 27px;
+    @media #{$breakpoint-md} {
+      line-height: .2;
+
+      + .su-lockup__unit-line2 {
+        font-size: 27px;
+      }
     }
   }
 
