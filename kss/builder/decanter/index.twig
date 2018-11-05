@@ -11,8 +11,16 @@
   <link rel="stylesheet" href="kss-assets/css/kss.css">
   {{ styles|raw }}
 </head>
-<body id="kss-node" {% if template.isItem %}class="kss-fullscreen-mode"{% endif %}>
-{% include "@decanter/components/brand-bar/brand-bar.twig" with {} only %}
+<body id="kss-node" class="{% if template.isItem %}kss-fullscreen-mode{% endif %}{% if template.isHomepage %} kss-home{% endif %}">
+{% include "@decanter/components/brand-bar/brand-bar.twig" with
+  {
+    "modifier_class": "su-brand-bar--bright",
+    }
+    only
+    %}
+
+{% if not template.isHomepage %}
+
 <div class="kss-sidebar kss-style">
   <header class="kss-header">
     <h1 class="kss-doc-title">{{ options.title }}</h1>
@@ -47,6 +55,9 @@
     </ul>
   </nav>
 </div>
+
+{% endif %}
+
 <article role="main" class="kss-main">
 {% if template.isHomepage %}
   {% if homepage %}
@@ -214,6 +225,7 @@
     </{{ sectionElement }}>
   {% endfor %}
 {% endif %}
+{% include "@decanter/components/global-footer/global-footer.twig" with {} only %}
 </article>
 
 <!-- SCRIPTS -->
@@ -244,7 +256,6 @@
   });
 </script>
 {{ scripts|raw }}
-
 {# This will only be included in the demo page. #}
 {% if options.demo %}
   <footer class="kss-github">

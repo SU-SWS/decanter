@@ -1,21 +1,43 @@
-// 1. Vendors.
+@charset "UTF-8";
+
+///
+/// KSS
+///
+
+// Load Order
+//
+// 1. Pre-vendor settings
+// 2. Vendors
+// 3. Utilities (functions, mixins, variables, extends)
+// 4. Decanter
+// 5. KSS
+
+
+
+// 1. Pre-vendor settings.
+@import
+  'utilities/variables/pre-vendor/index';
+
+// 2. Vendors.
 @import
   'bourbon',
   'core/normalize';
 
-// 2. Post Vendor Settings.
+// 3. Utilities.
 @import
   'utilities/variables/index',
   'kss-variables';
 
+// 4. Decanter.
 @import
   'decanter-no-markup';
 
-// 4. KSS.
+// 5. KSS.
 @import
   'visible-grid',
   'brand-bar',
   'builder',
   'class-based-grid',
   'colors-demo',
+  'home',
   'layout-colors';
