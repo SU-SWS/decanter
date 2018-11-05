@@ -7,10 +7,10 @@
 // of a status, or for displaying a validation message that
 // alerts someone of an important piece of information.
 //
-// .su-alert-success  - Successful Transaction Message
-// .su-alert-warning  - Warning Message
-// .su-alert-error    - Error Message
-// .su-alert-info     - Informative Message
+// .su-alert--success  - Successful Transaction Message
+// .su-alert--warning  - Warning Message
+// .su-alert--error    - Error Message
+// .su-alert--info     - Informative Message
 //
 // Markup: ../templates/components/alert/alert.twig
 //
@@ -23,6 +23,7 @@
   background-position: 1rem center;
   background-repeat: no-repeat;
   background-size: 4rem;
+  color: $color-black;
 
   @media #{$breakpoint-md} {
     background-size: 5.2rem;
@@ -59,6 +60,3 @@
     }
   }
 }
-
-// Loops through color option settings.
-@include alerts-icons-colors;

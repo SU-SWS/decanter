@@ -15,11 +15,13 @@
  * Available variables:
  * - attributes: For additional HTML attributes not already provided.
  * - modifier_class: Additional css classes to change look and behaviour.
+ * - alert_header: Text heading.
+ * - alert_body: Text details of the alert message.
  */
 #}
 <div {{ attributes }} class="su-alert {{ modifier_class }}">
   <div class="su-alert__body">
-    <h3 class="su-alert__heading">{{ header }}</h3>
-    <p class="su-alert__text">{{ text }}</p>
+    <h3 class="su-alert__heading">{{ alert_header }}</h3>
+    <p class="su-alert__text">{{ alert_text }}</p>
   </div>
 </div>
