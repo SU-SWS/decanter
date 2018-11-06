@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+//
+// Horizontal Card
+//
+.su-card--horizontal {
+  // Set up the grid for this component.
+  @include display-grid;
+
+  // One column on smallest screen sizes.
+  @include grid-media("xs", 100%);
+
+  // 33/66 for small.
+  @include grid-media("sm", 1fr 2fr, _modular-spacing-get-value('sm'));
+
+  // 50/50 side by side on all screen sizes above small.
+  @include grid-media("md", 1fr 1fr, _modular-spacing-get-value('md'));
+
+  // Modular padding on images too.
+  > img {
+    @media #{$breakpoint-sm} {
+      margin: _modular-spacing-get-value('sm') 0;
+    }
+
+    @media #{$breakpoint-md} {
+      margin: _modular-spacing-get-value('md') 0;
+    }
+
+    @media #{$breakpoint-lg} {
+      margin: _modular-spacing-get-value('lg') 0;
+    }
+
+    @media #{$breakpoint-xl} {
+      margin: _modular-spacing-get-value('xl') 0;
+    }
+
+    margin: _modular-spacing-get-value('xs') 0;
+  }
+
+}
