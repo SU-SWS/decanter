@@ -3,31 +3,63 @@
  * @file
  * Lockup Component.
  *
- * A lockup with the Stanford wordmark logo and department/unit name.
+ * A lockup with the Stanford wordmark logo and department/site name. It links to the homepage of the department/unit.
+ *
+ * Available variants for the lockup:
+ * - .su-lockup - Lockup with one line to the right of the wordmark.
+ * - .su-lockup--two-lines - Lockup with two lines to the right of the wordmark.
+ *
+  * Available variants for the individual site name lines:
+ * - .su-lockup__sitename-line1 - Regular font style for line 1
+ * - .su-lockup__sitename-line1-small - Small font size for line 1
+ * - .su-lockup__sitename-line1-supersmall - Supersmall font size for line 1
+ * - .su-lockup__sitename-line1-uppercase - Uppercase and bold font for line 1
+ * - .su-lockup__sitename-line2 - Regular font style for line 2
+ * - .su-lockup__sitename-line5 - Regular font style for line 5
+ * - .su-lockup__sitename-line5-uppercase - Uppercase, bold and smaller font for line 5
  *
  * Available variables:
- * - link: The URL of the department/unit website
- * - line_one: Line 1 of the unit/site name
- * - line_two: Line 2 of the unit/site name
- * - line_five: Line 5 of the unit/site name (appears at the bottom part of the lockup)
- * - line_one_modifier_class: Classes for line one font variants
- * - line_five_modifier_class: Classes for line five font variants
+ * - link: The URL that the lockup links to.
+ * - line1: Line 1 of the unit/site name text (to the right of the wordmark).
+ * - line2: Line 2 of the unit/site name text (to the right of the wordmark).
+ * - line5: Line 5 of the unit/site name text (at the bottom part of the lockup).
+ * - line1_modifier_class: Classes for line 1 font variants
+ * - line5_modifier_class: Classes for line 5 font variants
  */
 #}
-<a{{ attributes }} href="{{ link }}" class="su-lockup {{ modifier_class }}">
-  <span class="su-lockup__wordmark">Stanford</span>
-  <span class="su-lockup__pipe"></span>
+{% if line2 is not empty %}
+  <a{{ attributes }} href="{{ link }}" class="su-lockup su-lockup--two-lines {{ modifier_class }}">
+    <span class="su-lockup__wordmark">Stanford</span>
 
-  {# Line 1 of Site Name - Required #}
-  <span class="su-lockup__unit-line1 {{ line_one_modifier_class }}">{{ line_one }}</span>
+    {# Line 5 of Site Name - Optional #}
+    {% if line5 is not empty %}
+      <span class="su-lockup__sitename-line5 {{ line5_modifier_class }}">{{ line5 }}</span>
+    {% endif %}
 
-  {# Line 2 of Site Name - Optional #}
-  {% if line_two is not empty %}
-    <span class="su-lockup__unit-line2">{{ line_two }}</span>
-  {% endif %}
+    {# Divider line - Hide on mobile if no line 5 #}
+    <span class="su-lockup__pipe"></span>
 
-  {# Line 5 of Site Name - Optional #}
-  {% if line_five is not empty %}
-    <span class="su-lockup__unit-line5 {{ line_five_modifier_class }}">{{ line_five }}</span>
-  {% endif %}
-</a>
+    {# Line 1 of Site Name - Required #}
+    <span class="su-lockup__sitename-line1 {{ line1_modifier_class }}">{{ line1 }}</span>
+
+    {# Line 2 of Site Name - Optional #}
+    <span class="su-lockup__sitename-line2">{{ line2 }}</span>
+
+  </a>
+{% else %}
+  <a{{ attributes }} href="{{ link }}" class="su-lockup {{ modifier_class }}">
+    <span class="su-lockup__wordmark">Stanford</span>
+
+    {# Line 5 of Site Name - Optional #}
+    {% if line5 is not empty %}
+      <span class="su-lockup__sitename-line5 {{ line5_modifier_class }}">{{ line5 }}</span>
+    {% endif %}
+
+    {# Divider line - Hide on mobile if no line 5 #}
+    <span class="su-lockup__pipe"></span>
+
+    {# Line 1 of Site Name - Required #}
+    <span class="su-lockup__sitename-line1 {{ line1_modifier_class }}">{{ line1 }}</span>
+
+  </a>
+{% endif %}

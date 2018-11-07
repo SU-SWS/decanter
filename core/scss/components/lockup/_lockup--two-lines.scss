@@ -12,15 +12,16 @@
     }
   }
 
-  .su-lockup__unit-line1,
-  .su-lockup__unit-line2 {
-    font-size: 17px;
+  .su-lockup__sitename-line1,
+  .su-lockup__sitename-line2 {
+    font-size: 22px;
     @media #{$breakpoint-md} {
       font-size: 22px;
     }
   }
 
-  .su-lockup__unit-line2 {
+  .su-lockup__sitename-line2 {
+    @include padding(6px null null);
     display: block;
     grid-row: 5 / span 1;
     @media #{$breakpoint-md} {
@@ -29,19 +30,19 @@
     }
   }
 
-  .su-lockup__unit-line5 {
+  .su-lockup__sitename-line5 {
     @media #{$breakpoint-md} {
       grid-row: 3 / span 1;
     }
   }
 
-  .su-lockup__unit-line1--small,
-  .su-lockup__unit-line1--supersmall {
+  .su-lockup__sitename-line1--small,
+  .su-lockup__sitename-line1--supersmall {
     -webkit-font-smoothing: auto;
     -moz-osx-font-smoothing: auto;
   }
 
-  .su-lockup__unit-line1--small {
+  .su-lockup__sitename-line1--small {
     font-size: 15px;
     @media #{$breakpoint-md} {
       font-size: 16px;
@@ -49,13 +50,15 @@
     }
   }
 
-  .su-lockup__unit-line1--supersmall {
+
+  .su-lockup__sitename-line1--supersmall {
     font-size: 13px;
 
     @media #{$breakpoint-md} {
       line-height: .2;
 
-      + .su-lockup__unit-line2 {
+      + .su-lockup__sitename-line2 {
+        @include padding(3px null null);
         font-size: 27px;
       }
     }

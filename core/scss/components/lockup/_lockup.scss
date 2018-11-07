@@ -3,10 +3,7 @@
 //
 // Lockup
 //
-// A lockup with the Stanford wordmark logo and department/unit name. It is used in the header of a website and links to the homepage of the department/unit.
-//
-// .su-lockup - Lockup with one line to the right of the wordmark
-// .su-lockup--two-lines - Lockup with two lines to the right of the wordmark
+// A lockup with the Stanford wordmark logo and department/unit name. It is used in the header of a website and links to the homepage of the department/unit. When building a department lockup, besides the Stanford wordmark, the most obvious element should be the most granular relevant department.
 //
 // Markup: ../templates/components/lockup/lockup.twig
 //
@@ -17,7 +14,6 @@
   @include display-grid;
   @include grid-columns(1fr);
   @include grid-rows(auto auto auto);
-  grid-gap: 7px;
   align-items: end;
   text-decoration: none;
 
@@ -43,6 +39,7 @@
 
 //Put the pipe in its own CSS grid cell so that its height auto adjusts to the tallest part of the lockup
 .su-lockup__pipe {
+  @include margin(7px null null);
   grid-row: 3 / span 1;
   content: "";
   display: block;
@@ -50,26 +47,48 @@
   height: 1px;
   background-color: $color-black;
   @media #{$breakpoint-md} {
+    @include margin(0 7px);
     grid-row: 1 / span 1;
     grid-column: 2 / span 1;
     display: inline-block;
     width: 1px;
     height: 100%;
   }
+
+  // Add spacing above line 1 on mobile if there is no line 5
+  + .su-lockup__sitename-line1 {
+    @include padding(7px null null null);
+
+    @media #{$breakpoint-md} {
+      @include padding(0 null null null null);
+    }
+  }
 }
 
-.su-lockup__unit-line1,
-.su-lockup__unit-line2,
-.su-lockup__unit-line5 {
+// Hide pipe/horizontal line on smaller devices if there is no line 5
+.su-lockup__wordmark + .su-lockup__pipe {
+  display: none;
+  @media #{$breakpoint-md} {
+    display: block;
+  }
+}
+
+.su-lockup__sitename-line1,
+.su-lockup__sitename-line2,
+.su-lockup__sitename-line5 {
   @include font-smoothing;
   grid-column: 1 / span 1;
   color: $color-black;
   line-height: .8;
+
+  @media #{$breakpoint-md} {
+    white-space: nowrap;
+  }
 }
 
-.su-lockup__unit-line1 {
+.su-lockup__sitename-line1 {
   grid-row: 4 / span 1;
-  font-size: 17px;
+  font-size: 22px;
   @media #{$breakpoint-md} {
     grid-row: 1 / span 1;
     grid-column: 3 / span 1;
@@ -77,22 +96,28 @@
   }
 }
 
-.su-lockup__unit-line2 {
+.su-lockup__sitename-line2 {
   display: none;
 }
 
-.su-lockup__unit-line5 {
-  font-size: 19px;
+.su-lockup__sitename-line5 {
+  @include padding(6px null null null);
   grid-row: 2 / span 1;
+  font-size: 20px;
   @media #{$breakpoint-md} {
+    @include padding(10px null null null);
     grid-row: 2 / span 1;
     grid-column: 1 / span 3;
-    font-size: 21px;
+    font-size: 27px;
   }
 }
 
-.su-lockup__unit-line1--uppercase,
-.su-lockup__unit-line5--uppercase {
+.su-lockup__sitename-line1--uppercase,
+.su-lockup__sitename-line5--uppercase {
   text-transform: uppercase;
   font-weight: 700;
+}
+
+.su-lockup__sitename-line5--uppercase {
+  font-size: 18px;
 }
