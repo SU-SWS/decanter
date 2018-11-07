@@ -1,5 +1,11 @@
 .su-lockup--two-lines {
 
+  @include grid-rows(auto auto auto auto auto);
+
+  @media #{$breakpoint-md} {
+    @include grid-rows(auto auto auto);
+  }
+
   .su-lockup__wordmark {
     @media #{$breakpoint-md} {
       grid-row: 1 / span 2;

@@ -9,11 +9,10 @@
 //
 // Style guide: Components.Lockup
 //
-
 .su-lockup {
   @include display-grid;
   @include grid-columns(1fr);
-  @include grid-rows(auto auto auto);
+  @include grid-rows(auto auto auto auto);
   align-items: end;
   text-decoration: none;
 
@@ -35,6 +34,15 @@
     height: 33px;
     line-height: .96;
   }
+
+  // Hide pipe/horizontal line on smaller devices if there is no line 5
+  + .su-lockup__pipe {
+    display: none;
+
+    @media #{$breakpoint-md} {
+      display: block;
+    }
+  }
 }
 
 //Put the pipe in its own CSS grid cell so that its height auto adjusts to the tallest part of the lockup
@@ -46,6 +54,7 @@
   width: 118px;
   height: 1px;
   background-color: $color-black;
+
   @media #{$breakpoint-md} {
     @include margin(0 7px);
     grid-row: 1 / span 1;
@@ -65,14 +74,6 @@
   }
 }
 
-// Hide pipe/horizontal line on smaller devices if there is no line 5
-.su-lockup__wordmark + .su-lockup__pipe {
-  display: none;
-  @media #{$breakpoint-md} {
-    display: block;
-  }
-}
-
 .su-lockup__sitename-line1,
 .su-lockup__sitename-line2,
 .su-lockup__sitename-line5 {
@@ -89,6 +90,7 @@
 .su-lockup__sitename-line1 {
   grid-row: 4 / span 1;
   font-size: 22px;
+
   @media #{$breakpoint-md} {
     grid-row: 1 / span 1;
     grid-column: 3 / span 1;
@@ -104,6 +106,7 @@
   @include padding(6px null null null);
   grid-row: 2 / span 1;
   font-size: 20px;
+
   @media #{$breakpoint-md} {
     @include padding(10px null null null);
     grid-row: 2 / span 1;
