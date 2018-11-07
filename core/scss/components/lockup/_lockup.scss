@@ -24,10 +24,16 @@
 
 .su-lockup__wordmark {
   @include logo;
+  display: block;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
   grid-row: 1 / span 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / span 1;
   color: $color-cardinal-red;
   font-size: 36px;
-  line-height: .6;
+  line-height: 1;
 
   @media #{$breakpoint-md} {
     font-size: 46px;
@@ -47,10 +53,15 @@
 
 //Put the pipe in its own CSS grid cell so that its height auto adjusts to the tallest part of the lockup
 .su-lockup__pipe {
-  @include margin(7px null null);
-  grid-row: 3 / span 1;
-  content: "";
+  @include margin(7px null);
   display: block;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3 / span 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / span 1;
+  content: "";
   width: 118px;
   height: 1px;
   background-color: $color-black;
@@ -58,27 +69,26 @@
   @media #{$breakpoint-md} {
     @include margin(0 7px);
     grid-row: 1 / span 1;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
     grid-column: 2 / span 1;
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 1;
     display: inline-block;
     width: 1px;
     height: 100%;
   }
 
-  // Add spacing above line 1 on mobile if there is no line 5
-  + .su-lockup__sitename-line1 {
-    @include padding(7px null null null);
-
-    @media #{$breakpoint-md} {
-      @include padding(0 null null null null);
-    }
-  }
 }
 
 .su-lockup__sitename-line1,
 .su-lockup__sitename-line2,
 .su-lockup__sitename-line5 {
   @include font-smoothing;
+  display: block;
   grid-column: 1 / span 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
   color: $color-black;
   line-height: .8;
 
@@ -89,11 +99,17 @@
 
 .su-lockup__sitename-line1 {
   grid-row: 4 / span 1;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
   font-size: 22px;
 
   @media #{$breakpoint-md} {
     grid-row: 1 / span 1;
+    -ms-grid-row: 1;
+    -ms-grid-row-span: 1;
     grid-column: 3 / span 1;
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 1;
     font-size: 30px;
   }
 }
@@ -103,14 +119,19 @@
 }
 
 .su-lockup__sitename-line5 {
-  @include padding(6px null null null);
   grid-row: 2 / span 1;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
   font-size: 20px;
 
   @media #{$breakpoint-md} {
-    @include padding(10px null null null);
+    @include padding(10px null null);
     grid-row: 2 / span 1;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 1;
     grid-column: 1 / span 3;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
     font-size: 27px;
   }
 }
