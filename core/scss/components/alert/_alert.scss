@@ -7,18 +7,51 @@
 // of a status, or for displaying a validation message that
 // alerts someone of an important piece of information.
 //
-// .su-alert-success  - Successful Transaction Message
-// .su-alert-warning  - Warning Message
-// .su-alert-error    - Error Message
-// .su-alert-info     - Informative Message
+// .su-alert--success  - Successful Transaction Message
+// .su-alert--warning  - Warning Message
+// .su-alert--error    - Error Message
+// .su-alert--info     - Informative Message
 //
 // Markup: ../templates/components/alert/alert.twig
 //
 // Style guide: Components.Alert
 //
 .su-alert {
-  @include alerts;
-}
+  @include padding(2rem);
+  background-color: $color-fog;
+  background-position: 1rem center;
+  background-repeat: no-repeat;
+  background-size: 4rem;
+  color: $color-black;
 
-// Loops through color option settings.
-@include alerts-icons-colors;
+  @media #{$breakpoint-md} {
+    background-size: 5.2rem;
+  }
+
+  .su-alert__body {
+    display: table-cell;
+    vertical-align: top;
+
+    @include padding(null null null 3.5rem);
+
+    @media #{$breakpoint-md} {
+      @include padding(null null null 5rem);
+    }
+
+    p:last-child {
+      @include margin(null null 0.8rem);
+    }
+
+    .su-alert__heading {
+      @include margin(0 null 0.3rem);
+
+      @media #{$breakpoint-md} {
+        @include margin(0.3rem null null);
+      }
+    }
+
+    .su-alert__text {
+      @include margin(0 null);
+    }
+  }
+}
