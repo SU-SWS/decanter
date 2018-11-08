@@ -925,11 +925,11 @@ body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
 .grid--container {
   margin-bottom: 20px; }
 
-.grid--item {
+.flex-item {
   padding: 10px;
   overflow: hidden;
   background-color: rgba(0, 0, 0, 0.125); }
-  .grid--item:nth-child(even) {
+  .flex-item:nth-child(even) {
     background-color: rgba(0, 0, 0, 0.25); }
 
 .kss-colors-container {
@@ -1057,25 +1057,12 @@ body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
       -ms-grid-columns: 1fr 11fr;
       grid-template-columns: 1fr 11fr;
       align-items: center; }
-      @media only screen and (min-width: 0) and (max-width: 575px) {
+      @media only screen and (min-width: 0) {
         #kss-node.kss-home header div {
-          -ms-grid-columns: 1fr 1fr 1fr 1fr;
-          grid-template-columns: 1fr 1fr 1fr 1fr;
-          padding-left: 20px;
-          padding-right: 20px;
           -ms-grid-columns: 1fr;
           grid-template-columns: 1fr;
           -ms-grid-rows: auto auto;
-          grid-template-rows: auto auto; }
-          #kss-node.kss-home header div > * {
-            margin-left: 10px;
-            margin-right: 10px; }
-          @supports (grid-column-gap: 20px) {
-            #kss-node.kss-home header div {
-              grid-column-gap: 20px; }
-              #kss-node.kss-home header div > * {
-                margin-left: 0;
-                margin-right: 0; } } }
+          grid-template-rows: auto auto; } }
     #kss-node.kss-home header h1 {
       font-size: 2.5rem;
       color: #ffffff;
@@ -1099,20 +1086,7 @@ body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
     text-align: center; }
     @media only screen and (min-width: 576px) {
       #kss-node.kss-home .main-nav {
-        -ms-grid-columns: 1fr 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        padding-left: 20px;
-        padding-right: 20px;
-        text-align: right; }
-        #kss-node.kss-home .main-nav > * {
-          margin-left: 10px;
-          margin-right: 10px; }
-        @supports (grid-column-gap: 20px) {
-          #kss-node.kss-home .main-nav {
-            grid-column-gap: 20px; }
-            #kss-node.kss-home .main-nav > * {
-              margin-left: 0;
-              margin-right: 0; } } }
+        text-align: right; } }
     #kss-node.kss-home .main-nav li {
       padding: 0;
       display: inline-block; }
@@ -1255,72 +1229,20 @@ body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
           margin-right: 0; } }
     @media only screen and (min-width: 576px) {
       #kss-node.kss-home .section--dev-resources {
-        -ms-grid-columns: 1fr 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        padding-left: 20px;
-        padding-right: 20px;
         -ms-grid-columns: auto 268px 268px auto;
-        grid-template-columns: auto 268px 268px auto; }
-        #kss-node.kss-home .section--dev-resources > * {
-          margin-left: 10px;
-          margin-right: 10px; }
-        @supports (grid-column-gap: 20px) {
-          #kss-node.kss-home .section--dev-resources {
-            grid-column-gap: 20px; }
-            #kss-node.kss-home .section--dev-resources > * {
-              margin-left: 0;
-              margin-right: 0; } } }
+        grid-template-columns: auto 268px 268px auto; } }
     @media only screen and (min-width: 768px) {
       #kss-node.kss-home .section--dev-resources {
-        -ms-grid-columns: 1fr 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        padding-left: 20px;
-        padding-right: 20px;
         -ms-grid-columns: auto 364px 364px auto;
-        grid-template-columns: auto 364px 364px auto; }
-        #kss-node.kss-home .section--dev-resources > * {
-          margin-left: 10px;
-          margin-right: 10px; }
-        @supports (grid-column-gap: 20px) {
-          #kss-node.kss-home .section--dev-resources {
-            grid-column-gap: 20px; }
-            #kss-node.kss-home .section--dev-resources > * {
-              margin-left: 0;
-              margin-right: 0; } } }
+        grid-template-columns: auto 364px 364px auto; } }
     @media only screen and (min-width: 1024px) {
       #kss-node.kss-home .section--dev-resources {
-        -ms-grid-columns: 1fr 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        padding-left: 30px;
-        padding-right: 30px;
         -ms-grid-columns: auto 226px 226px auto;
-        grid-template-columns: auto 226px 226px auto; }
-        #kss-node.kss-home .section--dev-resources > * {
-          margin-left: 15px;
-          margin-right: 15px; }
-        @supports (grid-column-gap: 20px) {
-          #kss-node.kss-home .section--dev-resources {
-            grid-column-gap: 30px; }
-            #kss-node.kss-home .section--dev-resources > * {
-              margin-left: 0;
-              margin-right: 0; } } }
+        grid-template-columns: auto 226px 226px auto; } }
     @media only screen and (min-width: 1500px) {
       #kss-node.kss-home .section--dev-resources {
-        -ms-grid-columns: 1fr 1fr 1fr 1fr;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        padding-left: 30px;
-        padding-right: 30px;
         -ms-grid-columns: auto 345px 345px auto;
-        grid-template-columns: auto 345px 345px auto; }
-        #kss-node.kss-home .section--dev-resources > * {
-          margin-left: 15px;
-          margin-right: 15px; }
-        @supports (grid-column-gap: 20px) {
-          #kss-node.kss-home .section--dev-resources {
-            grid-column-gap: 30px; }
-            #kss-node.kss-home .section--dev-resources > * {
-              margin-left: 0;
-              margin-right: 0; } } }
+        grid-template-columns: auto 345px 345px auto; } }
     @media only screen and (min-width: 576px) {
       #kss-node.kss-home .section--dev-resources h2 {
         grid-column-start: 2; } }
@@ -1374,16 +1296,7 @@ body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
           -ms-grid-columns: 1fr 1fr 1fr;
           grid-template-columns: 1fr 1fr 1fr;
           padding-left: 200px;
-          padding-right: 200px; }
-          #kss-node.kss-home .section--more-info ul > * {
-            margin-left: 15px;
-            margin-right: 15px; }
-          @supports (grid-column-gap: 20px) {
-            #kss-node.kss-home .section--more-info ul {
-              grid-column-gap: 30px; }
-              #kss-node.kss-home .section--more-info ul > * {
-                margin-left: 0;
-                margin-right: 0; } } }
+          padding-right: 200px; } }
     #kss-node.kss-home .section--more-info li {
       list-style: none;
       list-style-type: none; }

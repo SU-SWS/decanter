@@ -1,37 +1,5 @@
 @charset "UTF-8";
 
-$responsive-columns-default: (
-  $breakpoint-xs: 1fr,
-  $breakpoint-sm: 1fr 1fr,
-  $breakpoint-md: 1fr 1fr,
-  $breakpoint-lg: 1fr 1fr,
-  $breakpoint-xl: 1fr 1fr
-);
-
-$responsive-columns-three: (
-  $breakpoint-xs: 1fr,
-  $breakpoint-sm: 1fr 1fr,
-  $breakpoint-md: 1fr 1fr,
-  $breakpoint-lg: 1fr 1fr 1fr,
-  $breakpoint-xl: 1fr 1fr 1fr
-);
-
-$responsive-columns-four: (
-  $breakpoint-xs: 1fr,
-  $breakpoint-sm: 1fr 1fr,
-  $breakpoint-md: 1fr 1fr,
-  $breakpoint-lg: 1fr 1fr 1fr 1fr,
-  $breakpoint-xl: 1fr 1fr 1fr 1fr
-);
-
-$responsive-gutters-default:(
-  $breakpoint-xs: $gutter-xs,
-  $breakpoint-sm: $gutter-sm,
-  $breakpoint-md: $gutter-md,
-  $breakpoint-lg: $gutter-lg,
-  $breakpoint-xl: $gutter-xl
-);
-
 //
 // responsive-grid-columns($grid-map)
 //
@@ -47,7 +15,7 @@ $responsive-gutters-default:(
   @each $breakpoint, $columns in $grid-map {
     @media #{$breakpoint} {
       // Todo: Add breakpoint sized gap.
-      @include grid-column-gap(map-get($breakpoint, $responsive-gutters-default));
+      @include grid-column-gap(map-get($responsive-gutters-default, $breakpoint));
       @include grid-columns($columns);
     }
   }

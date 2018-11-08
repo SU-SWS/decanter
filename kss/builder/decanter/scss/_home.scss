@@ -37,7 +37,7 @@
       @include grid-columns(1fr 11fr);
       align-items: center;
 
-      @include grid-media-only("xs") {
+      @media #{$breakpoint-xs} {
         @include grid-columns(1fr);
         @include grid-rows(auto auto);
       }
@@ -57,7 +57,7 @@
     @include padding(0);
     text-align: center;
 
-    @include grid-media("sm") {
+    @media #{$breakpoint-sm} {
       text-align: right;
     }
 
@@ -217,7 +217,11 @@
 
     ul {
       @include display-grid;
-      @include grid-media("lg", 1fr 1fr 1fr, 200px);
+      @include grid-media("lg") {
+        @include grid-columns(1fr 1fr 1fr);
+        padding-left: 200px;
+        padding-right: 200px;
+      };
     }
 
     li {

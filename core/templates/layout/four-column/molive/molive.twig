@@ -19,25 +19,27 @@
     {# A centered max-width header region #}
     {% if header is not empty %}
     <header>
+      <div>
       {{ header }}
+      </div>
     </header>
     {% endif %}
 
     {# Because of the responsive behaviour each column is required. #}
-    <section>
-      <div>
+    <section class="layout__columns">
+      <div class="layout__first">
         {{ first }}
       </div>
 
-      <div>
+      <div class="layout__first">
         {{ second }}
       </div>
 
-      <div>
+      <div class="layout__first">
         {{ third }}
       </div>
 
-      <div>
+      <div class="layout__first">
         {{ fourth }}
       </div>
     </section>
@@ -45,7 +47,9 @@
     {# Centered max-width footer region #}
     {% if footer is not empty %}
     <footer>
+      <div>
       {{ footer }}
+      </div>
     </footer>
     {% endif %}
   </div>

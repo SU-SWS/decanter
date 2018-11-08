@@ -1,0 +1,12 @@
+@charset 'UTF-8';
+
+//
+// grid-media($breakpoint: 'xs')
+//
+// A helper to quickly generate a media query
+//
+@mixin grid-media-only($breakpoint: 'xs') {
+  @media #{map-get($grid-media-only, $breakpoint)} {
+    @content;
+  }
+}
