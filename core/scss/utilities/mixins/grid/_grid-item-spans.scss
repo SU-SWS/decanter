@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+//
+// @grid-item-spans
+//
+// Mixin to render cssGrid column spans in all modern browsers, including IE11.
+//
+// Style guide: Mixins.Grid.grid-item-spans
+//
+@mixin grid-item-spans($col-start, $col-end, $row-start, $row-end) {
+  -ms-grid-column: $col-start;
+  -ms-grid-column-span: $col-end - $col-start;
+  -ms-grid-row: $row-start;
+  -ms-grid-row-span: $row-end - $row-start;
+  grid-column: #{$col-start} / #{$col-end};
+  grid-row: #{$row-start} / #{$row-end};
+}

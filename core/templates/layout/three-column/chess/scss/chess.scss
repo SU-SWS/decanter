@@ -1,0 +1,34 @@
+@charset 'UTF-8';
+
+// My grids
+@import "config/grid-system";
+
+// Decant.
+@import "decanter/core/utilities/decanter-utilities";
+
+// Responsive grid patterns for the column.
+$column: (
+  'xs': 1 of 1,
+  'sm': 1 of 2,
+  'md': 1 of 3,
+  'lg': 1 of 3,
+  'xl': 1 of 3,
+  'print': 1 of 3
+);
+
+.layout--chess {
+  @include responsive-container($default-container);
+
+  .grid-collapse {
+    @include responsive-grid-collapse;
+    @include clearfix;
+  }
+
+  .column {
+    @include responsive-grid-column($column, $default-container);
+  }
+
+  .column--fifth {
+    clear: left;
+  }
+}

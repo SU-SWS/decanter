@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+//
+// @flex-container
+//
+// Mixin to apply to the wrapper of all class-based layouts.
+//
+// Style guide: Mixins.Flex.flex-container
+//
+@mixin flex-container($gap: $gutter-md) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: $site-max-width;
+  @include padding(null $site-margins-mobile);
+
+  @media #{$breakpoint-md} {
+    @include padding(null $site-margins);
+  }
+}

@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+//
+// @flex-item
+//
+// Mixin to apply to an element within a class-based grid row.
+//
+// Style guide: Mixins.Flex.flex-item
+//
+
+@mixin flex-item {
+  @media #{$breakpoint-md-only} {
+    &:last-child:nth-child(odd) {
+      width: calc(1 / 1 * 100% - (#{(1 - 1 / 1) * $gutter-md}));
+    }
+  }
+}

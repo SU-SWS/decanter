@@ -1,0 +1,27 @@
+@charset 'UTF-8';
+
+// My grids
+@import "config/grid-system";
+
+// Decant.
+@import "decanter/core/utilities/decanter-utilities";
+
+.layout--ibeam {
+
+  .full-width {
+    @include clearfix;
+    clear: both;
+  }
+
+  .ibeam-centered {
+    @include responsive-container($default-container);
+    @include clearfix;
+    clear: both;
+
+    .grid-collapse {
+      @include responsive-grid-collapse($default-container);
+      @include clearfix;
+    }
+
+  }
+}

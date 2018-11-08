@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+//
+// @grid-column-gap
+//
+// Mixin to render cssGrid column gaps in all modern browsers, including IE11.
+//
+// Style guide: Mixins.Grid.grid-column-gap
+//
+@mixin grid-column-gap($gap: 30px) {
+
+  > * {
+    margin-left: $gap / 2;
+    margin-right: $gap / 2;
+  }
+
+  @supports (grid-column-gap: 20px) {
+    grid-column-gap: $gap;
+
+    > * {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+}

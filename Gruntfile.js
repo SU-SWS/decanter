@@ -1,8 +1,24 @@
+/**
+ * Gruntfile.
+ * @type {[type]}
+ */
 module.exports = function(grunt) {
+
+  /**
+   * [sass description]
+   * @type {[type]}
+   */
+  const sass = require('node-sass');
+
+  /**
+   * [pkg description]
+   * @type {[type]}
+   */
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     sass: {
       options: {
+        implementation: sass,
         includePaths: [
           "node_modules/bourbon/core",
           "node_modules/bourbon-neat/app/assets/stylesheets",

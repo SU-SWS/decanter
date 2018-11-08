@@ -1,8 +1,25 @@
-<div{{attributes}} class="centered-container{{ modifier_class }}">
+{#
+/**
+ * @file
+ * Centered container
+ *
+ * An example of how to center a container in the page.
+ *
+ * Available modifiers
+ *  - None so far
+ *
+ * Available Variables
+ * - attributes: A series of tag attributes for the wrapper
+ * - modifier_class: Modifier css classes for this component.
+ * - body: A block element that is expected to be replaced with your content.
+ * - content: Your content
+ *
+ */
+#}
+<div{{attributes}} class="centered-container {{ modifier_class }}">}
   <div>
     {% block body %}
-    <h1> My Centered Content</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    {{ content }}
     {% endblock %}
   </div>
 </div>

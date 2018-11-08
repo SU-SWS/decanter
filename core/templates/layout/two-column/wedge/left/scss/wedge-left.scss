@@ -1,0 +1,51 @@
+@charset 'UTF-8';
+
+// My grids
+@import "config/grid-system";
+
+// Decant.
+@import "decanter/core/utilities/decanter-utilities";
+
+// Responsive grid patterns for the column.
+$column: (
+  'xs': 1 of 1,
+  'sm': 1 of 1,
+  'md': 3 of 4,
+  'lg': 3 of 4,
+  'xl': 3 of 4,
+  'print': 3 of 4
+);
+
+// Responsive grid patterns for the column.
+$column-second: (
+  'xs': 1 of 1,
+  'sm': 1 of 1,
+  'md': 1 of 4,
+  'lg': 1 of 4,
+  'xl': 1 of 4,
+  'print': 1 of 4
+);
+
+.layout--wedge--left {
+  @include responsive-container($default-container);
+
+  @include grid-media($media-md) {
+    @include flex-container();
+  }
+
+  .grid-collapse {
+    @include responsive-grid-collapse;
+    @include clearfix;
+  }
+
+  .column--first {
+    order: 10;
+    @include responsive-grid-column($column, $default-container);
+  }
+
+  .column--second {
+    order: 1;
+    @include responsive-grid-column($column-second, $default-container);
+  }
+
+}

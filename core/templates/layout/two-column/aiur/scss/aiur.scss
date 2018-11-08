@@ -1,0 +1,36 @@
+@charset 'UTF-8';
+
+// My grids
+@import "config/grid-system";
+
+// Decant.
+@import "decanter/core/utilities/decanter-utilities";
+
+.layout--aiur {
+
+  .with-floating_sidebar {
+    position: relative;
+    min-height: 600px;
+  }
+
+  #floating_sidebar__wrapper {
+    @include responsive-container($default-container);
+    @include grid-media($media-md) {
+      height: 1px;
+      max-height: 1px;
+    }
+  }
+
+  #floating_sidebar {
+    background: rgba(238, 238, 238, 0.9);
+    height: 100%;
+    min-height: 100%;
+
+    @include grid-media($media-md) {
+      width: grid-columns(1 of 12);
+      position: absolute;
+      top: 0px;
+      z-index: 50;
+    }
+  }
+}

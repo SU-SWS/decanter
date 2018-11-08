@@ -1,0 +1,36 @@
+@charset 'UTF-8';
+
+//
+// @centered-grid-container
+//
+// Creates a responsive centered grid for all breakpoints by using CSS grid.
+// This creates a three column row and places the first html element in to the
+// second column with a max width of the current breakpoint screen size.
+//
+// Style guide Mixins.Grid.Centered Grid Container
+//
+@mixin centered-grid-container {
+  @include display-grid;
+
+  > :first-child {
+    grid-column: 2;
+  }
+
+  @media #{$breakpoint-sm} {
+    @include grid-columns(auto $screen-sm auto);
+  }
+
+  @media #{$breakpoint-md} {
+    @include grid-columns(auto $screen-md auto);
+  }
+
+  @media #{$breakpoint-lg} {
+    @include grid-columns(auto $screen-lg auto);
+  }
+
+  @media #{$breakpoint-xl} {
+    @include grid-columns(auto $screen-xl auto);
+  }
+
+  @include grid-columns(auto 100% auto);
+}

@@ -1,0 +1,94 @@
+.layout--aiur .with-floating_sidebar {
+  position: relative;
+  min-height: 600px;
+}
+
+@media only screen and (max-width: 575px) {
+  .layout--aiur #floating_sidebar__wrapper {
+    padding: 1em calc(((50% /12) * 0) + 20px);
+  }
+  .layout--aiur #floating_sidebar__wrapper::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .layout--aiur #floating_sidebar__wrapper {
+    padding: 1em calc(((50% /12) * 0) + 20px);
+  }
+  .layout--aiur #floating_sidebar__wrapper::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .layout--aiur #floating_sidebar__wrapper {
+    padding: 1em calc(((50% /12) * 0) + 40px);
+  }
+  .layout--aiur #floating_sidebar__wrapper::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1499px) {
+  .layout--aiur #floating_sidebar__wrapper {
+    padding: 1em calc(((50% /12) * 0) + 40px);
+  }
+  .layout--aiur #floating_sidebar__wrapper::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .layout--aiur #floating_sidebar__wrapper {
+    padding: 1em calc(50% - (750px - 60px));
+  }
+  .layout--aiur #floating_sidebar__wrapper::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@media only print {
+  .layout--aiur #floating_sidebar__wrapper {
+    padding: 1em calc(((50% /12) * 0) + 0.25in);
+  }
+  .layout--aiur #floating_sidebar__wrapper::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .layout--aiur #floating_sidebar__wrapper {
+    height: 1px;
+    max-height: 1px;
+  }
+}
+
+.layout--aiur #floating_sidebar {
+  background: rgba(238, 238, 238, 0.9);
+  height: 100%;
+  min-height: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .layout--aiur #floating_sidebar {
+    width: grid-columns(1 of 12);
+    position: absolute;
+    top: 0px;
+    z-index: 50;
+  }
+}
+
+/*# sourceMappingURL=aiur.css.map */
