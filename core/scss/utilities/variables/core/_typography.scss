@@ -369,6 +369,15 @@ $sans: (
       'color':               $color-blue,
       'text-decoration':     underline,
   )),
+  'button': map-merge($sans-defaults, (
+      'text-align':          center,
+      'text-decoration':     none,
+      'color':               $color-white,
+      'line-height':         0 + 21/16,
+  )),
+  'button:hover': map-merge($sans-defaults, (
+      'text-decoration':     none,
+  )),
   'inherit': (
     'font-family':           inherit,
     'font-weight':           inherit,
