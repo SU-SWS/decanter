@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+///
+///
+///
+@mixin responsive-flex-column($columns, $grid: $grid-media, $gutters: $grid-gutters) {
+  @each $key, $breakpoint in $grid {
+    @include grid-media($key) {
+      @include flex-column($columns, map-get($gutters, $key));
+    }
+  }
+}
