@@ -14,28 +14,26 @@
  *   - $content['second']: Content in the right column.
  */
 #}
-<div class="layout--valmer-left" {% if css_id %}{{ css_id }}{% endif %}>
-
-  <header class="column column--header">
-    {{ content.header }}
-  </header>
-
-  <section class="grid-collapse">
-    <div class="column column--first">
-      {{ content.first }}
+<div{{ attributes }} class="layout layout-thions {{ modifier_class }}">
+  <div>
+    <div>
+      {{ first }}
     </div>
 
-    <div class="column column--second">
-      {{ content.second }}
+    <div>
+      {{ second }}
     </div>
 
-    <div class="column column--third">
-      {{ content.third }}
+    <div>
+      {{ third }}
     </div>
-  </section>
 
-  <footer class="column column--footer">
-    {{ content.footer }}
-  </footer>
+    <div>
+      {{ fourth }}
+    </div>
 
+    <div>
+      {{ fifth }}
+    </div>
+  </div>
 </div>
