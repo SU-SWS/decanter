@@ -928,7 +928,8 @@ dfn {
   margin-top: 0; }
 
 .layout--ibeam > section {
-  margin: 0 auto; }
+  margin: 0 auto;
+  margin: 32px; }
   @media only screen and (min-width: 0) {
     .layout--ibeam > section {
       max-width: 100%; } }
@@ -944,6 +945,18 @@ dfn {
   @media only screen and (min-width: 1500px) {
     .layout--ibeam > section {
       max-width: 1500px; } }
+  @media only screen and (min-width: 1500px) {
+    .layout--ibeam > section {
+      margin: 38px; } }
+  @media only screen and (min-width: 1024px) {
+    .layout--ibeam > section {
+      margin: 36px; } }
+  @media only screen and (min-width: 768px) {
+    .layout--ibeam > section {
+      margin: 36px; } }
+  @media only screen and (min-width: 576px) {
+    .layout--ibeam > section {
+      margin: 32px; } }
 
 .layout--bricks .layout__columns {
   margin: 0 auto;
@@ -1552,30 +1565,107 @@ dfn {
   @media only screen and (min-width: 1500px) {
     .layout-blastila > div {
       max-width: 1500px; } }
+  @media only screen and (min-width: 0) {
+    .layout-blastila > div > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-blastila > div {
+        grid-column-gap: 20px; }
+        .layout-blastila > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-blastila > div > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-blastila > div {
+        grid-row-gap: 20px; }
+        .layout-blastila > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 576px) {
+    .layout-blastila > div > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-blastila > div {
+        grid-column-gap: 20px; }
+        .layout-blastila > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-blastila > div > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-blastila > div {
+        grid-row-gap: 20px; }
+        .layout-blastila > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 768px) {
+    .layout-blastila > div > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-blastila > div {
+        grid-column-gap: 20px; }
+        .layout-blastila > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-blastila > div > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-blastila > div {
+        grid-row-gap: 20px; }
+        .layout-blastila > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 1024px) {
+    .layout-blastila > div > * {
+      margin-right: 15px;
+      margin-left: 15px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-blastila > div {
+        grid-column-gap: 30px; }
+        .layout-blastila > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-blastila > div > * {
+      margin-top: 15px;
+      margin-bottom: 15px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-blastila > div {
+        grid-row-gap: 30px; }
+        .layout-blastila > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 1500px) {
+    .layout-blastila > div > * {
+      margin-right: 15px;
+      margin-left: 15px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-blastila > div {
+        grid-column-gap: 30px; }
+        .layout-blastila > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-blastila > div > * {
+      margin-top: 15px;
+      margin-bottom: 15px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-blastila > div {
+        grid-row-gap: 30px; }
+        .layout-blastila > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
   @media only screen and (min-width: 768px) {
     .layout-blastila > div {
       display: grid;
       display: -ms-grid;
       -ms-grid-columns: 1fr 1fr 1fr;
-      grid-template-columns: 1fr 1fr 1fr; }
-      .layout-blastila > div > * {
-        margin-right: 10px;
-        margin-left: 10px; }
-      @supports (grid-column-gap: 20px) {
-        .layout-blastila > div {
-          grid-column-gap: 20px; }
-          .layout-blastila > div > * {
-            margin-right: 0;
-            margin-left: 0; } }
-      .layout-blastila > div > * {
-        margin-top: 10px;
-        margin-bottom: 10px; }
-      @supports (grid-row-gap: 20px) {
-        .layout-blastila > div {
-          grid-row-gap: 20px; }
-          .layout-blastila > div > * {
-            margin-top: 0;
-            margin-bottom: 0; } } }
+      grid-template-columns: 1fr 1fr 1fr; } }
   .layout-blastila > div > aside {
     -ms-grid-column: 1;
     grid-column: 1 / 1;
@@ -1632,6 +1722,795 @@ dfn {
   -ms-grid-row: 2;
   grid-row: 2 / span 1;
   -ms-grid-row-span: span 1-2; }
+
+.layout--chess > header,
+.layout--chess > footer {
+  margin: 0 auto; }
+  @media only screen and (min-width: 0) {
+    .layout--chess > header,
+    .layout--chess > footer {
+      max-width: 100%; } }
+  @media only screen and (min-width: 576px) {
+    .layout--chess > header,
+    .layout--chess > footer {
+      max-width: 576px; } }
+  @media only screen and (min-width: 768px) {
+    .layout--chess > header,
+    .layout--chess > footer {
+      max-width: 768px; } }
+  @media only screen and (min-width: 1024px) {
+    .layout--chess > header,
+    .layout--chess > footer {
+      max-width: 1024px; } }
+  @media only screen and (min-width: 1500px) {
+    .layout--chess > header,
+    .layout--chess > footer {
+      max-width: 1500px; } }
+
+.layout--chess > section {
+  margin: 0 auto; }
+  @media only screen and (min-width: 0) {
+    .layout--chess > section {
+      max-width: 100%; } }
+  @media only screen and (min-width: 576px) {
+    .layout--chess > section {
+      max-width: 576px; } }
+  @media only screen and (min-width: 768px) {
+    .layout--chess > section {
+      max-width: 768px; } }
+  @media only screen and (min-width: 1024px) {
+    .layout--chess > section {
+      max-width: 1024px; } }
+  @media only screen and (min-width: 1500px) {
+    .layout--chess > section {
+      max-width: 1500px; } }
+  @media only screen and (min-width: 0) {
+    .layout--chess > section > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout--chess > section {
+        grid-column-gap: 20px; }
+        .layout--chess > section > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout--chess > section > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout--chess > section {
+        grid-row-gap: 20px; }
+        .layout--chess > section > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 576px) {
+    .layout--chess > section > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout--chess > section {
+        grid-column-gap: 20px; }
+        .layout--chess > section > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout--chess > section > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout--chess > section {
+        grid-row-gap: 20px; }
+        .layout--chess > section > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 768px) {
+    .layout--chess > section > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout--chess > section {
+        grid-column-gap: 20px; }
+        .layout--chess > section > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout--chess > section > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout--chess > section {
+        grid-row-gap: 20px; }
+        .layout--chess > section > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 1024px) {
+    .layout--chess > section > * {
+      margin-right: 15px;
+      margin-left: 15px; }
+    @supports (grid-column-gap: 20px) {
+      .layout--chess > section {
+        grid-column-gap: 30px; }
+        .layout--chess > section > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout--chess > section > * {
+      margin-top: 15px;
+      margin-bottom: 15px; }
+    @supports (grid-row-gap: 20px) {
+      .layout--chess > section {
+        grid-row-gap: 30px; }
+        .layout--chess > section > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 1500px) {
+    .layout--chess > section > * {
+      margin-right: 15px;
+      margin-left: 15px; }
+    @supports (grid-column-gap: 20px) {
+      .layout--chess > section {
+        grid-column-gap: 30px; }
+        .layout--chess > section > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout--chess > section > * {
+      margin-top: 15px;
+      margin-bottom: 15px; }
+    @supports (grid-row-gap: 20px) {
+      .layout--chess > section {
+        grid-row-gap: 30px; }
+        .layout--chess > section > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 768px) {
+    .layout--chess > section {
+      display: grid;
+      display: -ms-grid;
+      -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr; } }
+  @media only screen and (min-width: 1024px) {
+    .layout--chess > section {
+      -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr; } }
+
+.layout-cuttoner > div {
+  margin: 0 auto; }
+  @media only screen and (min-width: 0) {
+    .layout-cuttoner > div {
+      max-width: 100%; } }
+  @media only screen and (min-width: 576px) {
+    .layout-cuttoner > div {
+      max-width: 576px; } }
+  @media only screen and (min-width: 768px) {
+    .layout-cuttoner > div {
+      max-width: 768px; } }
+  @media only screen and (min-width: 1024px) {
+    .layout-cuttoner > div {
+      max-width: 1024px; } }
+  @media only screen and (min-width: 1500px) {
+    .layout-cuttoner > div {
+      max-width: 1500px; } }
+  @media only screen and (min-width: 0) {
+    .layout-cuttoner > div > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-cuttoner > div {
+        grid-column-gap: 20px; }
+        .layout-cuttoner > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-cuttoner > div > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-cuttoner > div {
+        grid-row-gap: 20px; }
+        .layout-cuttoner > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 576px) {
+    .layout-cuttoner > div > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-cuttoner > div {
+        grid-column-gap: 20px; }
+        .layout-cuttoner > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-cuttoner > div > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-cuttoner > div {
+        grid-row-gap: 20px; }
+        .layout-cuttoner > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 768px) {
+    .layout-cuttoner > div > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-cuttoner > div {
+        grid-column-gap: 20px; }
+        .layout-cuttoner > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-cuttoner > div > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-cuttoner > div {
+        grid-row-gap: 20px; }
+        .layout-cuttoner > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 1024px) {
+    .layout-cuttoner > div > * {
+      margin-right: 15px;
+      margin-left: 15px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-cuttoner > div {
+        grid-column-gap: 30px; }
+        .layout-cuttoner > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-cuttoner > div > * {
+      margin-top: 15px;
+      margin-bottom: 15px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-cuttoner > div {
+        grid-row-gap: 30px; }
+        .layout-cuttoner > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 1500px) {
+    .layout-cuttoner > div > * {
+      margin-right: 15px;
+      margin-left: 15px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-cuttoner > div {
+        grid-column-gap: 30px; }
+        .layout-cuttoner > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-cuttoner > div > * {
+      margin-top: 15px;
+      margin-bottom: 15px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-cuttoner > div {
+        grid-row-gap: 30px; }
+        .layout-cuttoner > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 576px) {
+    .layout-cuttoner > div {
+      display: grid;
+      display: -ms-grid;
+      -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr; } }
+  @media only screen and (min-width: 0) {
+    .layout-cuttoner > div > section > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-cuttoner > div > section {
+        grid-column-gap: 20px; }
+        .layout-cuttoner > div > section > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-cuttoner > div > section > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-cuttoner > div > section {
+        grid-row-gap: 20px; }
+        .layout-cuttoner > div > section > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 576px) {
+    .layout-cuttoner > div > section > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-cuttoner > div > section {
+        grid-column-gap: 20px; }
+        .layout-cuttoner > div > section > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-cuttoner > div > section > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-cuttoner > div > section {
+        grid-row-gap: 20px; }
+        .layout-cuttoner > div > section > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 768px) {
+    .layout-cuttoner > div > section > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-cuttoner > div > section {
+        grid-column-gap: 20px; }
+        .layout-cuttoner > div > section > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-cuttoner > div > section > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-cuttoner > div > section {
+        grid-row-gap: 20px; }
+        .layout-cuttoner > div > section > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 1024px) {
+    .layout-cuttoner > div > section > * {
+      margin-right: 15px;
+      margin-left: 15px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-cuttoner > div > section {
+        grid-column-gap: 30px; }
+        .layout-cuttoner > div > section > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-cuttoner > div > section > * {
+      margin-top: 15px;
+      margin-bottom: 15px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-cuttoner > div > section {
+        grid-row-gap: 30px; }
+        .layout-cuttoner > div > section > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 1500px) {
+    .layout-cuttoner > div > section > * {
+      margin-right: 15px;
+      margin-left: 15px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-cuttoner > div > section {
+        grid-column-gap: 30px; }
+        .layout-cuttoner > div > section > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-cuttoner > div > section > * {
+      margin-top: 15px;
+      margin-bottom: 15px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-cuttoner > div > section {
+        grid-row-gap: 30px; }
+        .layout-cuttoner > div > section > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 576px) {
+    .layout-cuttoner > div > section {
+      -ms-grid-column: 1;
+      grid-column: 1 / span 2;
+      -ms-grid-column-span: span 2-1;
+      display: grid;
+      display: -ms-grid;
+      -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr; } }
+  @media only screen and (min-width: 576px) {
+    .layout-cuttoner > div > section > header,
+    .layout-cuttoner > div > section > footer {
+      -ms-grid-column: 1;
+      grid-column: 1 / span 2;
+      -ms-grid-column-span: span 2-1; } }
+  @media only screen and (min-width: 576px) {
+    .layout-cuttoner > div > aside {
+      -ms-grid-column: 3;
+      grid-column: 3 / span 1;
+      -ms-grid-column-span: span 1-3; } }
+
+@media only screen and (min-width: 576px) {
+  .layout-cuttoner--right > div > section {
+    -ms-grid-column: 2;
+    grid-column: 2 / span 2;
+    -ms-grid-column-span: span 2-2; } }
+
+@media only screen and (min-width: 576px) {
+  .layout-cuttoner--right > div > aside {
+    -ms-grid-column: 1;
+    grid-column: 1 / span 1;
+    -ms-grid-column-span: span 1-1;
+    -ms-grid-row: 1;
+    grid-row: 1 / 1;
+    -ms-grid-row-span: 0; } }
+
+.layout-percles > div {
+  margin: 0 auto; }
+  @media only screen and (min-width: 0) {
+    .layout-percles > div {
+      max-width: 100%; } }
+  @media only screen and (min-width: 576px) {
+    .layout-percles > div {
+      max-width: 576px; } }
+  @media only screen and (min-width: 768px) {
+    .layout-percles > div {
+      max-width: 768px; } }
+  @media only screen and (min-width: 1024px) {
+    .layout-percles > div {
+      max-width: 1024px; } }
+  @media only screen and (min-width: 1500px) {
+    .layout-percles > div {
+      max-width: 1500px; } }
+  @media only screen and (min-width: 0) {
+    .layout-percles > div > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-percles > div {
+        grid-column-gap: 20px; }
+        .layout-percles > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-percles > div > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-percles > div {
+        grid-row-gap: 20px; }
+        .layout-percles > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 576px) {
+    .layout-percles > div > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-percles > div {
+        grid-column-gap: 20px; }
+        .layout-percles > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-percles > div > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-percles > div {
+        grid-row-gap: 20px; }
+        .layout-percles > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 768px) {
+    .layout-percles > div > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-percles > div {
+        grid-column-gap: 20px; }
+        .layout-percles > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-percles > div > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-percles > div {
+        grid-row-gap: 20px; }
+        .layout-percles > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 1024px) {
+    .layout-percles > div > * {
+      margin-right: 15px;
+      margin-left: 15px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-percles > div {
+        grid-column-gap: 30px; }
+        .layout-percles > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-percles > div > * {
+      margin-top: 15px;
+      margin-bottom: 15px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-percles > div {
+        grid-row-gap: 30px; }
+        .layout-percles > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 1500px) {
+    .layout-percles > div > * {
+      margin-right: 15px;
+      margin-left: 15px; }
+    @supports (grid-column-gap: 20px) {
+      .layout-percles > div {
+        grid-column-gap: 30px; }
+        .layout-percles > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout-percles > div > * {
+      margin-top: 15px;
+      margin-bottom: 15px; }
+    @supports (grid-row-gap: 20px) {
+      .layout-percles > div {
+        grid-row-gap: 30px; }
+        .layout-percles > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 576px) {
+    .layout-percles > div {
+      display: grid;
+      display: -ms-grid;
+      -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr; } }
+  > .layout-percles > div:first-child {
+    -ms-grid-column: 1;
+    grid-column: 1 / span 1;
+    -ms-grid-column-span: span 1-1; }
+  .layout-percles > div > header {
+    -ms-grid-column: 2;
+    grid-column: 2 / span 2;
+    -ms-grid-column-span: span 2-2; }
+
+> .layout-percles--right > div:first-child {
+  -ms-grid-column: 3;
+  grid-column: 3 / span 1;
+  -ms-grid-column-span: span 1-3;
+  -ms-grid-row: 1;
+  grid-row: 1 / 1;
+  -ms-grid-row-span: 0; }
+
+.layout-percles--right > div > header {
+  -ms-grid-column: 1;
+  grid-column: 1 / span 2;
+  -ms-grid-column-span: span 2-1;
+  -ms-grid-row: 1;
+  grid-row: 1 / 1;
+  -ms-grid-row-span: 0; }
+
+.layout--robot > div {
+  margin: 0 auto; }
+  @media only screen and (min-width: 0) {
+    .layout--robot > div {
+      max-width: 100%; } }
+  @media only screen and (min-width: 576px) {
+    .layout--robot > div {
+      max-width: 576px; } }
+  @media only screen and (min-width: 768px) {
+    .layout--robot > div {
+      max-width: 768px; } }
+  @media only screen and (min-width: 1024px) {
+    .layout--robot > div {
+      max-width: 1024px; } }
+  @media only screen and (min-width: 1500px) {
+    .layout--robot > div {
+      max-width: 1500px; } }
+  @media only screen and (min-width: 0) {
+    .layout--robot > div > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout--robot > div {
+        grid-column-gap: 20px; }
+        .layout--robot > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout--robot > div > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout--robot > div {
+        grid-row-gap: 20px; }
+        .layout--robot > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 576px) {
+    .layout--robot > div > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout--robot > div {
+        grid-column-gap: 20px; }
+        .layout--robot > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout--robot > div > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout--robot > div {
+        grid-row-gap: 20px; }
+        .layout--robot > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 768px) {
+    .layout--robot > div > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout--robot > div {
+        grid-column-gap: 20px; }
+        .layout--robot > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout--robot > div > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout--robot > div {
+        grid-row-gap: 20px; }
+        .layout--robot > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 1024px) {
+    .layout--robot > div > * {
+      margin-right: 15px;
+      margin-left: 15px; }
+    @supports (grid-column-gap: 20px) {
+      .layout--robot > div {
+        grid-column-gap: 30px; }
+        .layout--robot > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout--robot > div > * {
+      margin-top: 15px;
+      margin-bottom: 15px; }
+    @supports (grid-row-gap: 20px) {
+      .layout--robot > div {
+        grid-row-gap: 30px; }
+        .layout--robot > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 1500px) {
+    .layout--robot > div > * {
+      margin-right: 15px;
+      margin-left: 15px; }
+    @supports (grid-column-gap: 20px) {
+      .layout--robot > div {
+        grid-column-gap: 30px; }
+        .layout--robot > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout--robot > div > * {
+      margin-top: 15px;
+      margin-bottom: 15px; }
+    @supports (grid-row-gap: 20px) {
+      .layout--robot > div {
+        grid-row-gap: 30px; }
+        .layout--robot > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 576px) {
+    .layout--robot > div {
+      display: grid;
+      display: -ms-grid;
+      -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr; } }
+  .layout--robot > div > header {
+    -ms-grid-column: 1;
+    grid-column: 1 / span 4;
+    -ms-grid-column-span: span 4-1; }
+  .layout--robot > div > div:nth-of-type(2) {
+    -ms-grid-column: 2;
+    grid-column: 2 / span 2;
+    -ms-grid-column-span: span 2-2; }
+
+.layout--space-invader > div {
+  margin: 0 auto; }
+  @media only screen and (min-width: 0) {
+    .layout--space-invader > div {
+      max-width: 100%; } }
+  @media only screen and (min-width: 576px) {
+    .layout--space-invader > div {
+      max-width: 576px; } }
+  @media only screen and (min-width: 768px) {
+    .layout--space-invader > div {
+      max-width: 768px; } }
+  @media only screen and (min-width: 1024px) {
+    .layout--space-invader > div {
+      max-width: 1024px; } }
+  @media only screen and (min-width: 1500px) {
+    .layout--space-invader > div {
+      max-width: 1500px; } }
+  @media only screen and (min-width: 0) {
+    .layout--space-invader > div > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout--space-invader > div {
+        grid-column-gap: 20px; }
+        .layout--space-invader > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout--space-invader > div > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout--space-invader > div {
+        grid-row-gap: 20px; }
+        .layout--space-invader > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 576px) {
+    .layout--space-invader > div > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout--space-invader > div {
+        grid-column-gap: 20px; }
+        .layout--space-invader > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout--space-invader > div > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout--space-invader > div {
+        grid-row-gap: 20px; }
+        .layout--space-invader > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 768px) {
+    .layout--space-invader > div > * {
+      margin-right: 10px;
+      margin-left: 10px; }
+    @supports (grid-column-gap: 20px) {
+      .layout--space-invader > div {
+        grid-column-gap: 20px; }
+        .layout--space-invader > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout--space-invader > div > * {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+    @supports (grid-row-gap: 20px) {
+      .layout--space-invader > div {
+        grid-row-gap: 20px; }
+        .layout--space-invader > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 1024px) {
+    .layout--space-invader > div > * {
+      margin-right: 15px;
+      margin-left: 15px; }
+    @supports (grid-column-gap: 20px) {
+      .layout--space-invader > div {
+        grid-column-gap: 30px; }
+        .layout--space-invader > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout--space-invader > div > * {
+      margin-top: 15px;
+      margin-bottom: 15px; }
+    @supports (grid-row-gap: 20px) {
+      .layout--space-invader > div {
+        grid-row-gap: 30px; }
+        .layout--space-invader > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 1500px) {
+    .layout--space-invader > div > * {
+      margin-right: 15px;
+      margin-left: 15px; }
+    @supports (grid-column-gap: 20px) {
+      .layout--space-invader > div {
+        grid-column-gap: 30px; }
+        .layout--space-invader > div > * {
+          margin-right: 0;
+          margin-left: 0; } }
+    .layout--space-invader > div > * {
+      margin-top: 15px;
+      margin-bottom: 15px; }
+    @supports (grid-row-gap: 20px) {
+      .layout--space-invader > div {
+        grid-row-gap: 30px; }
+        .layout--space-invader > div > * {
+          margin-top: 0;
+          margin-bottom: 0; } } }
+  @media only screen and (min-width: 576px) {
+    .layout--space-invader > div {
+      display: grid;
+      display: -ms-grid;
+      -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr; } }
+  .layout--space-invader > div > header {
+    -ms-grid-column: 1;
+    grid-column: 1 / span 3;
+    -ms-grid-column-span: span 3-1; }
 
 .layout--donies > section,
 .layout--donies > header,

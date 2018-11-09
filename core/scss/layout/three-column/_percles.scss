@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+//
+// Percles
+//
+// A complext three column layout
+//
+// .layout-percles--right - Right side variant.
+//
+// Markup: ../../../../../templates/layout/three-column/percles/percles.twig
+//
+// Style guide: Layout.3Column.Percles
+//
+.layout-percles {
+
+  > div {
+    @include centered-column;
+    @include responsive-grid-gap;
+
+    @include grid-media('sm') {
+      @include display-grid;
+      @include grid-columns(1fr 1fr 1fr);
+    }
+
+    > &:first-child {
+      @include grid-item-spans(1, span 1);
+    }
+
+    > header {
+      @include grid-item-spans(2, span 2);
+    }
+  }
+
+}
