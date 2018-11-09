@@ -6,10 +6,17 @@
 // For displaying the Stanford University logo using custom font and glyphs.
 // Can be used with the generic logo twig template.
 //
-// Markup: <a href="/" class="logo">Stanford<br>University</a>
+// Markup: ../templates/components/logo/logo.twig
 //
 // Style guide: Components.Logo
 //
 .su-logo {
   @include logo;
+  color: $color-cardinal-red;
+
+  &:hover,
+  &:active,
+  &:focus {
+    color: $color-cardinal-red;
+  }
 }

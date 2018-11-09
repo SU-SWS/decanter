@@ -12,7 +12,12 @@
   {{ styles|raw }}
 </head>
 <body id="kss-node" class="{% if template.isItem %}kss-fullscreen-mode{% endif %}{% if template.isHomepage %} kss-home{% endif %}">
-{% include "@decanter/components/brand-bar/brand-bar.twig" with {} only %}
+{% include "@decanter/components/brand-bar/brand-bar.twig" with
+  {
+    "modifier_class": "su-brand-bar--bright",
+    }
+    only
+    %}
 
 {% if not template.isHomepage %}
 
@@ -220,6 +225,7 @@
     </{{ sectionElement }}>
   {% endfor %}
 {% endif %}
+{% include "@decanter/components/global-footer/global-footer.twig" with {} only %}
 </article>
 
 <!-- SCRIPTS -->
@@ -250,7 +256,6 @@
   });
 </script>
 {{ scripts|raw }}
-
 {# This will only be included in the demo page. #}
 {% if options.demo %}
   <footer class="kss-github">
@@ -258,7 +263,6 @@
     <a href="https://github.com/kss-node/kss-node"><img src="kss-assets/github-fork--black.png" alt="Fork me on GitHub"></a>
   </footer>
 {% endif %}
-{% include "@decanter/components/global-footer/global-footer.twig" with {} only %}
 
 <!-- Automatically built using <a href="https://github.com/kss-node/kss-node">kss-node</a>. -->
 </body>
