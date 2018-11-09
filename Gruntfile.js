@@ -65,6 +65,19 @@ module.exports = function(grunt) {
         tasks: ['styleguide']
       }
     },
+    browserSync: {
+      dev: {
+        bsFiles: {
+          src : [
+            'core/css/decanter.css'
+          ]
+        },
+        options: {
+          watchTask: true,
+          server: './styleguide'
+        }
+      }
+    },
     clean: {
       styleguide: {
         src: [
@@ -108,6 +121,7 @@ module.exports = function(grunt) {
   });
 
   grunt.loadNpmTasks('grunt-run');
+  grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-sass');
@@ -120,6 +134,7 @@ module.exports = function(grunt) {
   grunt.registerTask('deploy', ['styleguide', 'deploy_site:styleguide', 'clean:postdeploy']);
   grunt.registerTask('styleguide', ['compile', 'uglify', 'clean:styleguide', 'run:styleguide', 'copy:styleguide']);
   grunt.registerTask('compile', ['sass:dist', 'postcss:dist']);
+  grunt.registerTask('dev', ['styleguide', 'browserSync', 'watch']);
   grunt.registerTask('default', ['watch']);
 
 }
