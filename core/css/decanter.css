@@ -571,8 +571,8 @@ fieldset {
 .su-fieldset-inputs label {
   margin-top: 0; }
 
-[type="checkbox"],
-[type="radio"] {
+[type=checkbox],
+[type=radio] {
   position: absolute;
   left: -999em; }
   .lt-ie9 [type=checkbox], .lt-ie9
@@ -2496,6 +2496,9 @@ button,
       flex-direction: row;
       background-color: transparent; }
       .su-main-nav__menu-level1 > li a {
+        text-decoration: none;
+        position: relative;
+        padding-bottom: .65em;
         padding-right: 0;
         padding-bottom: 0.8em;
         padding-left: 0;
@@ -2504,6 +2507,34 @@ button,
         color: #2e2d29;
         font-weight: 600;
         border-bottom: 0; }
+        .su-main-nav__menu-level1 > li a::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          height: 6px;
+          bottom: 0;
+          left: 0;
+          visibility: hidden;
+          -webkit-transform: scaleX(0);
+                  transform: scaleX(0);
+          transition: all .15s ease-in;
+          z-index: 1; }
+        .su-main-nav__menu-level1 > li a:hover, .su-main-nav__menu-level1 > li a:focus {
+          text-decoration: none; }
+          .su-main-nav__menu-level1 > li a:hover::after, .su-main-nav__menu-level1 > li a:focus::after {
+            background-color: #820000;
+            visibility: visible;
+            -webkit-transform: scaleX(1);
+                    transform: scaleX(1);
+            transition: all .25s ease-out; }
+        .su-main-nav__menu-level1 > li a:active {
+          text-decoration: none; }
+          .su-main-nav__menu-level1 > li a:active::after {
+            background-color: #2e2d29;
+            visibility: visible;
+            -webkit-transform: scaleX(1);
+                    transform: scaleX(1);
+            transition: all .05s ease-out; }
         .su-main-nav__menu-level1 > li a:hover, .su-main-nav__menu-level1 > li a:focus {
           color: #820000; }
         .su-main-nav__menu-level1 > li a:active {
@@ -2524,40 +2555,6 @@ button,
     font-weight: 400; }
     .su-main-nav__menu-level2 li a:hover, .su-main-nav__menu-level2 li a:focus {
       color: #ffffff; }
-
-@media only screen and (min-width: 1024px) {
-  .su-main-nav__menu-level1 > li a {
-    text-decoration: none;
-    position: relative;
-    padding-bottom: .65em; }
-    .su-main-nav__menu-level1 > li a::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 6px;
-      bottom: 0px;
-      left: 0;
-      visibility: hidden;
-      -webkit-transform: scaleX(0);
-              transform: scaleX(0);
-      transition: all 0.15s ease-in;
-      z-index: 1; }
-    .su-main-nav__menu-level1 > li a:hover, .su-main-nav__menu-level1 > li a:focus {
-      text-decoration: none; }
-      .su-main-nav__menu-level1 > li a:hover::after, .su-main-nav__menu-level1 > li a:focus::after {
-        background-color: #820000;
-        visibility: visible;
-        -webkit-transform: scaleX(1);
-                transform: scaleX(1);
-        transition: all 0.25s ease-out; }
-    .su-main-nav__menu-level1 > li a:active {
-      text-decoration: none; }
-      .su-main-nav__menu-level1 > li a:active::after {
-        background-color: #2e2d29;
-        visibility: visible;
-        -webkit-transform: scaleX(1);
-                transform: scaleX(1);
-        transition: all 0.05s ease-out; } }
 
 .su-main-nav--center ul {
   justify-content: center; }

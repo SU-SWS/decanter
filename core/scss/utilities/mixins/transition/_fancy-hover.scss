@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+//
+// @fancy-hover($color: $color-dark-red)
+//
+// Display a thick line that expands out from the middle when a link is hovered over.
+//
+// $color - Default hover color. Defaults to $color-dark-red.
+// $active - Active color. Defaults to $color-black.
+// $thickness - Thickness of the line. Defaults to 6px.
+//
+// Style guide: Mixins.Transition.Fancy Hover
+//
+@mixin fancy-hover($color: $color-dark-red, $active: $color-black, $thickness: '6px') {
+  text-decoration: none;
+  position: relative;
+  padding-bottom: .65em;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: #{$thickness};
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all .15s ease-in;
+    z-index: 1;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+
+    &::after {
+      background-color: $color;
+      visibility: visible;
+      transform: scaleX(1);
+      transition: all .25s ease-out;
+    }
+  }
+
+  &:active {
+    text-decoration: none;
+    &::after {
+      background-color: $active;
+      visibility: visible;
+      transform: scaleX(1);
+      transition: all .05s ease-out;
+    }
+  }
+}

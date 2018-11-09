@@ -12,7 +12,6 @@
 //
 // Style guide: Components.Main Navigation
 //
-
 .su-main-nav {
   @include font-smoothing(antialiased);
   font-family: $font-sans;
@@ -39,7 +38,6 @@
     @include margin(null null 0);
 
     a {
-      @extend %fancyhover;
       @include padding(.8em .4em .8em 0);
       display: block;
       color: $color-white;
@@ -56,6 +54,7 @@
     > li {
 
       a {
+        @include fancy-hover;
         @include padding(null 0 .8em);
         @include margin(0 .58em);
         font-size: 1.05em;
@@ -118,45 +117,3 @@
   }
 }
 
-%fancyhover {
-  @media #{$breakpoint-lg} {
-    text-decoration: none;
-    position: relative;
-    padding-bottom: .65em;
-
-    &::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 6px;
-      bottom: 0px;
-      left: 0;
-      visibility: hidden;
-      transform: scaleX(0);
-      transition: all 0.15s ease-in;
-      z-index: 1;
-    }
-
-    &:hover,
-    &:focus {
-      text-decoration: none;
-
-      &::after {
-        background-color: $color-dark-red;
-        visibility: visible;
-        transform: scaleX(1);
-        transition: all 0.25s ease-out;
-      }
-    }
-
-    &:active {
-      text-decoration: none;
-      &::after {
-        background-color: $color-black;
-        visibility: visible;
-        transform: scaleX(1);
-        transition: all 0.05s ease-out;
-      }
-    }
-  }
-}
