@@ -14,27 +14,23 @@
  *   - $content['second']: Content in the right column.
  */
 #}
-<div class="layout--sunset-delorean--right" {% if css_id %}{{ css_id }}{% endif %}>
-  <div class="grid-collapse">
+<div{{ attributes }} class="layout layout-sunset-delorean {{ modifier_class}}">
+  <div>
+    <header>
+      {{ header }}
+    </header>
+
     <section>
-      <div class="grid-collapse">
-        <header class="column column--header">
-          {{ content.header }}
-        </header>
-
-        <div class="column column--first">
-          {{ content.first }}
-        </div>
-
-        <div class="column--second">
-            {{ content.second }}
-        </div>
-      </div>
+      {{ first }}
     </section>
 
-    <!-- The left sidebar //-->
-    <aside class="column column--third">
-      {{ content.third }}
+    <section>
+      {{ second }}
+    </section>
+
+    {# Sidebar #}
+    <aside>
+      {{ sidebar }}
     </aside>
   </div>
 </div>
