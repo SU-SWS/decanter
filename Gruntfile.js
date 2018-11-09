@@ -61,8 +61,8 @@ module.exports = function(grunt) {
         tasks: ['uglify']
       },
       twig: {
-        files: ['**/*.twig'],
-        tasks: ['uglify', 'sass', 'styleguide']
+        files: ['**/*.twig', '**/*.json'],
+        tasks: ['styleguide']
       }
     },
     clean: {
