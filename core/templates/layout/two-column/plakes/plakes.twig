@@ -14,17 +14,25 @@
  *   - $content['second']: Content in the right column.
  */
 #}
-<div class="layout--plakes--left" {% if css_id %}{{ css_id }}{% endif %}>
+<div{{ attributes }} class="layout layout-plakes {{ modifier_class }}">
+  {# Optional Header #}
+  {% if header is not empty %}
   <header>
-    {{ content.header }}
+    {{ header }}
   </header>
-  <section class="grid-collapse">
-    <div class="column column--first">
-      {{ content.first }}
-    </div>
+  {% endif %}
 
-    <div class="column column--second">
-      {{ content.second }}
-    </div>
-  </section>
+  {# Grid Container #}
+  <div>
+    {# Manditory sidebar #}
+    <aside>
+      {{ sidebar }}
+    </aside>
+
+    {# Manditory content #}
+    <section>
+      {{ content }}
+    </section>
+  </div>
+
 </div>

@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+//
+// Plakes
+//
+// A two column centered 25/75 template with header
+//
+// .layout-plakes--right - Right sidebar variant.
+//
+// Markup: ../../../../../templates/layout/two-column/plakes/plakes.twig
+//
+// Style guide: Layout.2Column.Plakes
+//
+
+$_layout-plakes-columns: (
+  $breakpoint-xs: 1fr,
+  $breakpoint-sm: 1fr 1fr 1fr,
+  $breakpoint-md: 1fr 1fr 1fr,
+  $breakpoint-lg: 1fr 1fr 1fr 1fr,
+  $breakpoint-xl: 1fr 1fr 1fr 1fr
+);
+
+.layout-plakes {
+
+  > div,
+  > header,
+  > footer {
+    @include centered-column;
+  }
+
+  > div {
+    @include responsive-grid-columns($_layout-plakes-columns);
+
+    aside {
+      @include grid-media('sm') {
+        @include grid-item-spans(1, 1);
+      }
+    }
+
+    section {
+      @include grid-media('sm') {
+        @include grid-item-spans(2, span 3, 1, 1);
+      }
+    }
+
+  }
+
+}
