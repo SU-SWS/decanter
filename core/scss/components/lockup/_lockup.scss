@@ -91,18 +91,15 @@
   -ms-grid-column: 1;
   -ms-grid-column-span: 1;
   color: $color-black;
-  line-height: .8;
-
-  @media #{$breakpoint-md} {
-    white-space: nowrap;
-  }
 }
+
 
 .su-lockup__sitename-line1 {
   grid-row: 4 / span 1;
   -ms-grid-row: 4;
   -ms-grid-row-span: 1;
   font-size: 22px;
+  line-height: .8;
 
   @media #{$breakpoint-md} {
     grid-row: 1 / span 1;
@@ -124,9 +121,10 @@
   -ms-grid-row: 2;
   -ms-grid-row-span: 1;
   font-size: 20px;
+  line-height: 1.1;
 
   @media #{$breakpoint-md} {
-    @include padding(10px null null);
+    @include padding(8px null null);
     grid-row: 2 / span 1;
     -ms-grid-row: 2;
     -ms-grid-row-span: 1;
