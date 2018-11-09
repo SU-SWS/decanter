@@ -1,34 +1,11 @@
 @charset "UTF-8";
 
 //
-// Blastila
+// Blastila Right - Variant
 //
-// A complext three column layout with a centered max width header a left
-// sidebar and a mini two column with header content area.
-//
-// .layout--blastila-left   - Left sidebar version
-// .layout--blastila-right  - Right sidebar version
-//
-// Markup: ../../../../../templates/layout/three-column/blastila/blastila.twig
-//
-// Style guide: Layout.3Column.Blastila
-//
-.layout--blastila-right {
-
-  > header {
-    @include centered-column;
-  }
+.layout-blastila--right {
 
   > div {
-    @include centered-column;
-
-    // Enable the grid on md and higher.
-    // let everything be one column on xs and sm.
-    @include grid-media('md') {
-      @include display-grid;
-      @include grid-columns(1fr 1fr 1fr);
-      @include grid-gap($gutter-md);
-    }
 
     > aside {
       // First column, for 1 column, but down two columns.
