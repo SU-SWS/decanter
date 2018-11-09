@@ -1,0 +1,63 @@
+{#
+/**
+ * @file
+ * Template for a complex column panel layout.
+ *
+ * This template provides a complex column panel display layout, with
+ * each column roughly equal in width.
+ *
+ * Variables:
+ * -
+ * -
+ *
+ *
+ *
+ */
+#}
+<div{{ attributes }} class="layout {{ modifier_class }}">
+  <div>
+    <div>
+      {{ first }}
+    </div>
+
+    <div>
+      {{ second }}
+    </div>
+
+    {% if third is not empty %}
+    <div>
+      {{ third }}
+    </div>
+    {% endif %}
+
+    {% if fourth is not empty %}
+    <div>
+      {{ fourth }}
+    </div>
+    {% endif %}
+
+    {% if fifth is not empty %}
+    <div>
+      {{ fifth }}
+    </div>
+    {% endif %}
+
+    {% if sixth is not empty %}
+    <div>
+      {{ sixth }}
+    </div>
+    {% endif %}
+
+    {% if seventh is not empty %}
+    <div>
+      {{ seventh }}
+    </div>
+    {% endif %}
+
+    {% if eighth is not empty %}
+    <div>
+      {{ eighth }}
+    </div>
+    {% endif %}
+  </div>
+</div>
