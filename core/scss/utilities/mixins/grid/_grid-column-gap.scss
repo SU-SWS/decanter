@@ -10,16 +10,15 @@
 @mixin grid-column-gap($gap: 30px) {
 
   > * {
-    margin-left: $gap / 2;
-    margin-right: $gap / 2;
+    $hgap: $gap / 2;
+    @include margin(null $hgap);
   }
 
   @supports (grid-column-gap: 20px) {
     grid-column-gap: $gap;
 
     > * {
-      margin-left: 0;
-      margin-right: 0;
+      @include margin(null 0);
     }
   }
 }

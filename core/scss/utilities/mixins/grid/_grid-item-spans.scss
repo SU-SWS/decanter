@@ -14,8 +14,8 @@
   }
 
   @if ($col-end != null and $col-start != null) {
-    -ms-grid-column-span: $col-end - $col-start;
     grid-column: #{$col-start} / #{$col-end};
+    -ms-grid-column-span: $col-end - $col-start;
   }
 
   @if ($row-start != null) {
@@ -23,8 +23,8 @@
   }
 
   @if ($row-end != null and $row-start != null) {
-    -ms-grid-row-span: $row-end - $row-start;
     grid-row: #{$row-start} / #{$row-end};
+    -ms-grid-row-span: $row-end - $row-start;
   }
 
 }

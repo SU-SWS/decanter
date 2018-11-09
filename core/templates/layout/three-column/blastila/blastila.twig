@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Template for a complex column panel layout.
+ *
+ * This template provides a complex column panel display layout, with
+ * each column roughly equal in width.
+ *
+ * Variables:
+ * -
+ * -
+ *
+ *
+ *
+ */
+#}
+<div{{ attributes }} class="layout {{ modifier_class }}">
+
+  {% if header is not empty %}
+  <header>
+    {{ header }}
+  </header>
+  {% endif %}
+
+  {# Div for grid container #}
+  <div>
+
+    {# Sidebar #}
+    <aside>
+      {{ sidebar }}
+    </aside>
+
+    {# Mini header area #}
+    <section>
+      {{ first }}
+    </section>
+
+    {# Left content column #}
+    <div>
+      {{ second }}
+    </div>
+
+    {# Right content column #}
+    <div>
+      {{ third }}
+    </div>
+
+  </div>{# end grid container #}
+
+</div>

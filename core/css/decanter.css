@@ -947,8 +947,8 @@ dfn {
 
 .layout--bricks .layout__columns {
   margin: 0 auto;
-  display: -ms-grid;
-  display: grid; }
+  display: grid;
+  display: -ms-grid; }
   @media only screen and (min-width: 0) {
     .layout--bricks .layout__columns {
       max-width: 100%; } }
@@ -969,70 +969,115 @@ dfn {
       -ms-grid-columns: 1fr;
       grid-template-columns: 1fr; }
       .layout--bricks .layout__columns > * {
-        margin-left: 10px;
-        margin-right: 10px; }
+        margin-right: 10px;
+        margin-left: 10px; }
       @supports (grid-column-gap: 20px) {
         .layout--bricks .layout__columns {
           grid-column-gap: 20px; }
           .layout--bricks .layout__columns > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--bricks .layout__columns > * {
+        margin-top: 10px;
+        margin-bottom: 10px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--bricks .layout__columns {
+          grid-row-gap: 20px; }
+          .layout--bricks .layout__columns > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
   @media only screen and (min-width: 576px) {
     .layout--bricks .layout__columns {
       -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr; }
       .layout--bricks .layout__columns > * {
-        margin-left: 10px;
-        margin-right: 10px; }
+        margin-right: 10px;
+        margin-left: 10px; }
       @supports (grid-column-gap: 20px) {
         .layout--bricks .layout__columns {
           grid-column-gap: 20px; }
           .layout--bricks .layout__columns > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--bricks .layout__columns > * {
+        margin-top: 10px;
+        margin-bottom: 10px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--bricks .layout__columns {
+          grid-row-gap: 20px; }
+          .layout--bricks .layout__columns > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
   @media only screen and (min-width: 768px) {
     .layout--bricks .layout__columns {
       -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr; }
       .layout--bricks .layout__columns > * {
-        margin-left: 10px;
-        margin-right: 10px; }
+        margin-right: 10px;
+        margin-left: 10px; }
       @supports (grid-column-gap: 20px) {
         .layout--bricks .layout__columns {
           grid-column-gap: 20px; }
           .layout--bricks .layout__columns > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--bricks .layout__columns > * {
+        margin-top: 10px;
+        margin-bottom: 10px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--bricks .layout__columns {
+          grid-row-gap: 20px; }
+          .layout--bricks .layout__columns > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
   @media only screen and (min-width: 1024px) {
     .layout--bricks .layout__columns {
       -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr; }
       .layout--bricks .layout__columns > * {
-        margin-left: 15px;
-        margin-right: 15px; }
+        margin-right: 15px;
+        margin-left: 15px; }
       @supports (grid-column-gap: 20px) {
         .layout--bricks .layout__columns {
           grid-column-gap: 30px; }
           .layout--bricks .layout__columns > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--bricks .layout__columns > * {
+        margin-top: 15px;
+        margin-bottom: 15px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--bricks .layout__columns {
+          grid-row-gap: 30px; }
+          .layout--bricks .layout__columns > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
   @media only screen and (min-width: 1500px) {
     .layout--bricks .layout__columns {
       -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr; }
       .layout--bricks .layout__columns > * {
-        margin-left: 15px;
-        margin-right: 15px; }
+        margin-right: 15px;
+        margin-left: 15px; }
       @supports (grid-column-gap: 20px) {
         .layout--bricks .layout__columns {
           grid-column-gap: 30px; }
           .layout--bricks .layout__columns > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--bricks .layout__columns > * {
+        margin-top: 15px;
+        margin-bottom: 15px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--bricks .layout__columns {
+          grid-row-gap: 30px; }
+          .layout--bricks .layout__columns > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
 
 .layout--molive > header {
-  display: -ms-grid;
   display: grid;
+  display: -ms-grid;
   -ms-grid-columns: auto 100% auto;
   grid-template-columns: auto 100% auto; }
   .layout--molive > header > :first-child {
@@ -1056,8 +1101,8 @@ dfn {
 
 .layout--molive > section {
   margin: 0 auto;
-  display: -ms-grid;
-  display: grid; }
+  display: grid;
+  display: -ms-grid; }
   @media only screen and (min-width: 0) {
     .layout--molive > section {
       max-width: 100%; } }
@@ -1078,70 +1123,115 @@ dfn {
       -ms-grid-columns: 1fr;
       grid-template-columns: 1fr; }
       .layout--molive > section > * {
-        margin-left: 10px;
-        margin-right: 10px; }
+        margin-right: 10px;
+        margin-left: 10px; }
       @supports (grid-column-gap: 20px) {
         .layout--molive > section {
           grid-column-gap: 20px; }
           .layout--molive > section > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--molive > section > * {
+        margin-top: 10px;
+        margin-bottom: 10px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--molive > section {
+          grid-row-gap: 20px; }
+          .layout--molive > section > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
   @media only screen and (min-width: 576px) {
     .layout--molive > section {
       -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr; }
       .layout--molive > section > * {
-        margin-left: 10px;
-        margin-right: 10px; }
+        margin-right: 10px;
+        margin-left: 10px; }
       @supports (grid-column-gap: 20px) {
         .layout--molive > section {
           grid-column-gap: 20px; }
           .layout--molive > section > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--molive > section > * {
+        margin-top: 10px;
+        margin-bottom: 10px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--molive > section {
+          grid-row-gap: 20px; }
+          .layout--molive > section > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
   @media only screen and (min-width: 768px) {
     .layout--molive > section {
       -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr; }
       .layout--molive > section > * {
-        margin-left: 10px;
-        margin-right: 10px; }
+        margin-right: 10px;
+        margin-left: 10px; }
       @supports (grid-column-gap: 20px) {
         .layout--molive > section {
           grid-column-gap: 20px; }
           .layout--molive > section > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--molive > section > * {
+        margin-top: 10px;
+        margin-bottom: 10px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--molive > section {
+          grid-row-gap: 20px; }
+          .layout--molive > section > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
   @media only screen and (min-width: 1024px) {
     .layout--molive > section {
       -ms-grid-columns: 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr; }
       .layout--molive > section > * {
-        margin-left: 15px;
-        margin-right: 15px; }
+        margin-right: 15px;
+        margin-left: 15px; }
       @supports (grid-column-gap: 20px) {
         .layout--molive > section {
           grid-column-gap: 30px; }
           .layout--molive > section > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--molive > section > * {
+        margin-top: 15px;
+        margin-bottom: 15px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--molive > section {
+          grid-row-gap: 30px; }
+          .layout--molive > section > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
   @media only screen and (min-width: 1500px) {
     .layout--molive > section {
       -ms-grid-columns: 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr; }
       .layout--molive > section > * {
-        margin-left: 15px;
-        margin-right: 15px; }
+        margin-right: 15px;
+        margin-left: 15px; }
       @supports (grid-column-gap: 20px) {
         .layout--molive > section {
           grid-column-gap: 30px; }
           .layout--molive > section > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--molive > section > * {
+        margin-top: 15px;
+        margin-bottom: 15px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--molive > section {
+          grid-row-gap: 30px; }
+          .layout--molive > section > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
 
 .layout--molive > footer {
-  display: -ms-grid;
   display: grid;
+  display: -ms-grid;
   -ms-grid-columns: auto 100% auto;
   grid-template-columns: auto 100% auto; }
   .layout--molive > footer > :first-child {
@@ -1165,8 +1255,8 @@ dfn {
 
 .layout--bars > div {
   margin: 0 auto;
-  display: -ms-grid;
-  display: grid; }
+  display: grid;
+  display: -ms-grid; }
   @media only screen and (min-width: 0) {
     .layout--bars > div {
       max-width: 100%; } }
@@ -1187,71 +1277,116 @@ dfn {
       -ms-grid-columns: 1fr;
       grid-template-columns: 1fr; }
       .layout--bars > div > * {
-        margin-left: 10px;
-        margin-right: 10px; }
+        margin-right: 10px;
+        margin-left: 10px; }
       @supports (grid-column-gap: 20px) {
         .layout--bars > div {
           grid-column-gap: 20px; }
           .layout--bars > div > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--bars > div > * {
+        margin-top: 10px;
+        margin-bottom: 10px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--bars > div {
+          grid-row-gap: 20px; }
+          .layout--bars > div > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
   @media only screen and (min-width: 576px) {
     .layout--bars > div {
       -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr; }
       .layout--bars > div > * {
-        margin-left: 10px;
-        margin-right: 10px; }
+        margin-right: 10px;
+        margin-left: 10px; }
       @supports (grid-column-gap: 20px) {
         .layout--bars > div {
           grid-column-gap: 20px; }
           .layout--bars > div > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--bars > div > * {
+        margin-top: 10px;
+        margin-bottom: 10px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--bars > div {
+          grid-row-gap: 20px; }
+          .layout--bars > div > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
   @media only screen and (min-width: 768px) {
     .layout--bars > div {
       -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr; }
       .layout--bars > div > * {
-        margin-left: 10px;
-        margin-right: 10px; }
+        margin-right: 10px;
+        margin-left: 10px; }
       @supports (grid-column-gap: 20px) {
         .layout--bars > div {
           grid-column-gap: 20px; }
           .layout--bars > div > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--bars > div > * {
+        margin-top: 10px;
+        margin-bottom: 10px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--bars > div {
+          grid-row-gap: 20px; }
+          .layout--bars > div > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
   @media only screen and (min-width: 1024px) {
     .layout--bars > div {
       -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr; }
       .layout--bars > div > * {
-        margin-left: 15px;
-        margin-right: 15px; }
+        margin-right: 15px;
+        margin-left: 15px; }
       @supports (grid-column-gap: 20px) {
         .layout--bars > div {
           grid-column-gap: 30px; }
           .layout--bars > div > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--bars > div > * {
+        margin-top: 15px;
+        margin-bottom: 15px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--bars > div {
+          grid-row-gap: 30px; }
+          .layout--bars > div > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
   @media only screen and (min-width: 1500px) {
     .layout--bars > div {
       -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr; }
       .layout--bars > div > * {
-        margin-left: 15px;
-        margin-right: 15px; }
+        margin-right: 15px;
+        margin-left: 15px; }
       @supports (grid-column-gap: 20px) {
         .layout--bars > div {
           grid-column-gap: 30px; }
           .layout--bars > div > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--bars > div > * {
+        margin-top: 15px;
+        margin-bottom: 15px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--bars > div {
+          grid-row-gap: 30px; }
+          .layout--bars > div > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
 
 .layout--battleship > div {
   margin: 0 auto;
-  display: -ms-grid;
-  display: grid; }
+  display: grid;
+  display: -ms-grid; }
   @media only screen and (min-width: 0) {
     .layout--battleship > div {
       max-width: 100%; } }
@@ -1272,70 +1407,431 @@ dfn {
       -ms-grid-columns: 1fr;
       grid-template-columns: 1fr; }
       .layout--battleship > div > * {
-        margin-left: 10px;
-        margin-right: 10px; }
+        margin-right: 10px;
+        margin-left: 10px; }
       @supports (grid-column-gap: 20px) {
         .layout--battleship > div {
           grid-column-gap: 20px; }
           .layout--battleship > div > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--battleship > div > * {
+        margin-top: 10px;
+        margin-bottom: 10px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--battleship > div {
+          grid-row-gap: 20px; }
+          .layout--battleship > div > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
   @media only screen and (min-width: 576px) {
     .layout--battleship > div {
       -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr; }
       .layout--battleship > div > * {
-        margin-left: 10px;
-        margin-right: 10px; }
+        margin-right: 10px;
+        margin-left: 10px; }
       @supports (grid-column-gap: 20px) {
         .layout--battleship > div {
           grid-column-gap: 20px; }
           .layout--battleship > div > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--battleship > div > * {
+        margin-top: 10px;
+        margin-bottom: 10px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--battleship > div {
+          grid-row-gap: 20px; }
+          .layout--battleship > div > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
   @media only screen and (min-width: 768px) {
     .layout--battleship > div {
       -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr; }
       .layout--battleship > div > * {
-        margin-left: 10px;
-        margin-right: 10px; }
+        margin-right: 10px;
+        margin-left: 10px; }
       @supports (grid-column-gap: 20px) {
         .layout--battleship > div {
           grid-column-gap: 20px; }
           .layout--battleship > div > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--battleship > div > * {
+        margin-top: 10px;
+        margin-bottom: 10px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--battleship > div {
+          grid-row-gap: 20px; }
+          .layout--battleship > div > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
   @media only screen and (min-width: 1024px) {
     .layout--battleship > div {
       -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr; }
       .layout--battleship > div > * {
-        margin-left: 15px;
-        margin-right: 15px; }
+        margin-right: 15px;
+        margin-left: 15px; }
       @supports (grid-column-gap: 20px) {
         .layout--battleship > div {
           grid-column-gap: 30px; }
           .layout--battleship > div > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--battleship > div > * {
+        margin-top: 15px;
+        margin-bottom: 15px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--battleship > div {
+          grid-row-gap: 30px; }
+          .layout--battleship > div > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
   @media only screen and (min-width: 1500px) {
     .layout--battleship > div {
       -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr; }
       .layout--battleship > div > * {
-        margin-left: 15px;
-        margin-right: 15px; }
+        margin-right: 15px;
+        margin-left: 15px; }
       @supports (grid-column-gap: 20px) {
         .layout--battleship > div {
           grid-column-gap: 30px; }
           .layout--battleship > div > * {
-            margin-left: 0;
-            margin-right: 0; } } }
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--battleship > div > * {
+        margin-top: 15px;
+        margin-bottom: 15px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--battleship > div {
+          grid-row-gap: 30px; }
+          .layout--battleship > div > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
   .layout--battleship > div :first-child {
     -ms-grid-column: 1;
+    grid-column: 1 / span 2;
+    -ms-grid-column-span: span 2-1; }
+
+.layout--blastila-left > header {
+  margin: 0 auto; }
+  @media only screen and (min-width: 0) {
+    .layout--blastila-left > header {
+      max-width: 100%; } }
+  @media only screen and (min-width: 576px) {
+    .layout--blastila-left > header {
+      max-width: 576px; } }
+  @media only screen and (min-width: 768px) {
+    .layout--blastila-left > header {
+      max-width: 768px; } }
+  @media only screen and (min-width: 1024px) {
+    .layout--blastila-left > header {
+      max-width: 1024px; } }
+  @media only screen and (min-width: 1500px) {
+    .layout--blastila-left > header {
+      max-width: 1500px; } }
+
+.layout--blastila-left > div {
+  margin: 0 auto; }
+  @media only screen and (min-width: 0) {
+    .layout--blastila-left > div {
+      max-width: 100%; } }
+  @media only screen and (min-width: 576px) {
+    .layout--blastila-left > div {
+      max-width: 576px; } }
+  @media only screen and (min-width: 768px) {
+    .layout--blastila-left > div {
+      max-width: 768px; } }
+  @media only screen and (min-width: 1024px) {
+    .layout--blastila-left > div {
+      max-width: 1024px; } }
+  @media only screen and (min-width: 1500px) {
+    .layout--blastila-left > div {
+      max-width: 1500px; } }
+  @media only screen and (min-width: 768px) {
+    .layout--blastila-left > div {
+      display: grid;
+      display: -ms-grid;
+      -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr; }
+      .layout--blastila-left > div > * {
+        margin-right: 10px;
+        margin-left: 10px; }
+      @supports (grid-column-gap: 20px) {
+        .layout--blastila-left > div {
+          grid-column-gap: 20px; }
+          .layout--blastila-left > div > * {
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--blastila-left > div > * {
+        margin-top: 10px;
+        margin-bottom: 10px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--blastila-left > div {
+          grid-row-gap: 20px; }
+          .layout--blastila-left > div > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
+  .layout--blastila-left > div > aside {
+    -ms-grid-column: 1;
+    grid-column: 1 / 1;
+    -ms-grid-column-span: 0;
+    -ms-grid-row: 1;
+    grid-row: 1 / span 2;
+    -ms-grid-row-span: span 2-1; }
+  .layout--blastila-left > div > section {
+    -ms-grid-column: 2;
+    grid-column: 2 / span 2;
+    -ms-grid-column-span: span 2-2;
+    -ms-grid-row: 2; }
+  .layout--blastila-left > div > div {
+    -ms-grid-column: 2;
+    grid-column: 2 / span 1;
+    -ms-grid-column-span: span 1-2;
+    -ms-grid-row: 2;
+    grid-row: 2 / span 1;
+    -ms-grid-row-span: span 1-2; }
+  .layout--blastila-left > div div ~ div {
+    -ms-grid-column: 3;
+    grid-column: 3 / span 1;
+    -ms-grid-column-span: span 1-3;
+    -ms-grid-row: 2;
+    grid-row: 2 / span 1;
+    -ms-grid-row-span: span 1-2; }
+
+.layout--blastila-right > header {
+  margin: 0 auto; }
+  @media only screen and (min-width: 0) {
+    .layout--blastila-right > header {
+      max-width: 100%; } }
+  @media only screen and (min-width: 576px) {
+    .layout--blastila-right > header {
+      max-width: 576px; } }
+  @media only screen and (min-width: 768px) {
+    .layout--blastila-right > header {
+      max-width: 768px; } }
+  @media only screen and (min-width: 1024px) {
+    .layout--blastila-right > header {
+      max-width: 1024px; } }
+  @media only screen and (min-width: 1500px) {
+    .layout--blastila-right > header {
+      max-width: 1500px; } }
+
+.layout--blastila-right > div {
+  margin: 0 auto; }
+  @media only screen and (min-width: 0) {
+    .layout--blastila-right > div {
+      max-width: 100%; } }
+  @media only screen and (min-width: 576px) {
+    .layout--blastila-right > div {
+      max-width: 576px; } }
+  @media only screen and (min-width: 768px) {
+    .layout--blastila-right > div {
+      max-width: 768px; } }
+  @media only screen and (min-width: 1024px) {
+    .layout--blastila-right > div {
+      max-width: 1024px; } }
+  @media only screen and (min-width: 1500px) {
+    .layout--blastila-right > div {
+      max-width: 1500px; } }
+  @media only screen and (min-width: 768px) {
+    .layout--blastila-right > div {
+      display: grid;
+      display: -ms-grid;
+      -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr; }
+      .layout--blastila-right > div > * {
+        margin-right: 10px;
+        margin-left: 10px; }
+      @supports (grid-column-gap: 20px) {
+        .layout--blastila-right > div {
+          grid-column-gap: 20px; }
+          .layout--blastila-right > div > * {
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--blastila-right > div > * {
+        margin-top: 10px;
+        margin-bottom: 10px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--blastila-right > div {
+          grid-row-gap: 20px; }
+          .layout--blastila-right > div > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
+  .layout--blastila-right > div > aside {
+    -ms-grid-column: 3;
+    grid-column: 3 / 3;
+    -ms-grid-column-span: 0;
+    -ms-grid-row: 1;
+    grid-row: 1 / span 2;
+    -ms-grid-row-span: span 2-1; }
+  .layout--blastila-right > div > section {
+    -ms-grid-column: 1;
+    grid-column: 1 / span 2;
     -ms-grid-column-span: span 2-1;
-    grid-column: 1 / span 2; }
+    -ms-grid-row: 1; }
+  .layout--blastila-right > div > div {
+    -ms-grid-column: 1;
+    grid-column: 1 / span 1;
+    -ms-grid-column-span: span 1-1;
+    -ms-grid-row: 2;
+    grid-row: 2 / span 1;
+    -ms-grid-row-span: span 1-2; }
+  .layout--blastila-right > div div ~ div {
+    -ms-grid-column: 2;
+    grid-column: 2 / span 1;
+    -ms-grid-column-span: span 1-2;
+    -ms-grid-row: 2;
+    grid-row: 2 / span 1;
+    -ms-grid-row-span: span 1-2; }
+
+.layout--donies > section,
+.layout--donies > header,
+.layout--donies > footer {
+  margin: 0 auto; }
+  @media only screen and (min-width: 0) {
+    .layout--donies > section,
+    .layout--donies > header,
+    .layout--donies > footer {
+      max-width: 100%; } }
+  @media only screen and (min-width: 576px) {
+    .layout--donies > section,
+    .layout--donies > header,
+    .layout--donies > footer {
+      max-width: 576px; } }
+  @media only screen and (min-width: 768px) {
+    .layout--donies > section,
+    .layout--donies > header,
+    .layout--donies > footer {
+      max-width: 768px; } }
+  @media only screen and (min-width: 1024px) {
+    .layout--donies > section,
+    .layout--donies > header,
+    .layout--donies > footer {
+      max-width: 1024px; } }
+  @media only screen and (min-width: 1500px) {
+    .layout--donies > section,
+    .layout--donies > header,
+    .layout--donies > footer {
+      max-width: 1500px; } }
+
+.layout--donies > section {
+  display: grid;
+  display: -ms-grid; }
+  @media only screen and (min-width: 0) {
+    .layout--donies > section {
+      -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr; }
+      .layout--donies > section > * {
+        margin-right: 10px;
+        margin-left: 10px; }
+      @supports (grid-column-gap: 20px) {
+        .layout--donies > section {
+          grid-column-gap: 20px; }
+          .layout--donies > section > * {
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--donies > section > * {
+        margin-top: 10px;
+        margin-bottom: 10px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--donies > section {
+          grid-row-gap: 20px; }
+          .layout--donies > section > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
+  @media only screen and (min-width: 576px) {
+    .layout--donies > section {
+      -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr; }
+      .layout--donies > section > * {
+        margin-right: 10px;
+        margin-left: 10px; }
+      @supports (grid-column-gap: 20px) {
+        .layout--donies > section {
+          grid-column-gap: 20px; }
+          .layout--donies > section > * {
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--donies > section > * {
+        margin-top: 10px;
+        margin-bottom: 10px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--donies > section {
+          grid-row-gap: 20px; }
+          .layout--donies > section > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
+  @media only screen and (min-width: 768px) {
+    .layout--donies > section {
+      -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr; }
+      .layout--donies > section > * {
+        margin-right: 10px;
+        margin-left: 10px; }
+      @supports (grid-column-gap: 20px) {
+        .layout--donies > section {
+          grid-column-gap: 20px; }
+          .layout--donies > section > * {
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--donies > section > * {
+        margin-top: 10px;
+        margin-bottom: 10px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--donies > section {
+          grid-row-gap: 20px; }
+          .layout--donies > section > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
+  @media only screen and (min-width: 1024px) {
+    .layout--donies > section {
+      -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr; }
+      .layout--donies > section > * {
+        margin-right: 15px;
+        margin-left: 15px; }
+      @supports (grid-column-gap: 20px) {
+        .layout--donies > section {
+          grid-column-gap: 30px; }
+          .layout--donies > section > * {
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--donies > section > * {
+        margin-top: 15px;
+        margin-bottom: 15px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--donies > section {
+          grid-row-gap: 30px; }
+          .layout--donies > section > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
+  @media only screen and (min-width: 1500px) {
+    .layout--donies > section {
+      -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr; }
+      .layout--donies > section > * {
+        margin-right: 15px;
+        margin-left: 15px; }
+      @supports (grid-column-gap: 20px) {
+        .layout--donies > section {
+          grid-column-gap: 30px; }
+          .layout--donies > section > * {
+            margin-right: 0;
+            margin-left: 0; } }
+      .layout--donies > section > * {
+        margin-top: 15px;
+        margin-bottom: 15px; }
+      @supports (grid-row-gap: 20px) {
+        .layout--donies > section {
+          grid-row-gap: 30px; }
+          .layout--donies > section > * {
+            margin-top: 0;
+            margin-bottom: 0; } } }
 
 .layout--basic > header,
 .layout--basic > section,
@@ -1368,8 +1864,8 @@ dfn {
       max-width: 1500px; } }
 
 .centered-container {
-  display: -ms-grid;
   display: grid;
+  display: -ms-grid;
   -ms-grid-columns: auto 100% auto;
   grid-template-columns: auto 100% auto; }
   .centered-container > :first-child {
@@ -1444,8 +1940,8 @@ dfn {
   background-image: url("../img/alert-warning.svg"); }
 
 .su-brand-bar {
-  display: -ms-grid;
   display: grid;
+  display: -ms-grid;
   -ms-grid-columns: auto 100% auto;
   grid-template-columns: auto 100% auto;
   width: 100%;
@@ -1697,8 +2193,8 @@ button,
   text-align: center; }
 
 .su-card--horizontal {
-  display: -ms-grid;
-  display: grid; }
+  display: grid;
+  display: -ms-grid; }
   @media only screen and (min-width: 0) {
     .su-card--horizontal {
       -ms-grid-columns: 100%;
@@ -1816,8 +2312,8 @@ button,
         width: auto; } }
 
 .global-footer {
-  display: -ms-grid;
   display: grid;
+  display: -ms-grid;
   -ms-grid-columns: auto 100% auto;
   grid-template-columns: auto 100% auto;
   padding: 2.5rem 0;
@@ -1848,8 +2344,8 @@ button,
       color: #ffffff;
       text-decoration: underline; }
   .global-footer .global-footer__container {
-    display: -ms-grid;
-    display: grid; }
+    display: grid;
+    display: -ms-grid; }
     @media only screen and (min-width: 0) {
       .global-footer .global-footer__container {
         -ms-grid-columns: 100%;
@@ -1905,15 +2401,15 @@ button,
     .global-footer nav {
       -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
-      display: -ms-grid;
-      display: grid; } }
+      display: grid;
+      display: -ms-grid; } }
   @media only screen and (min-width: 576px) {
     .global-footer nav {
       -ms-grid-columns: max-content auto;
       grid-template-columns: -webkit-max-content auto;
       grid-template-columns: max-content auto;
-      display: -ms-grid;
-      display: grid; } }
+      display: grid;
+      display: -ms-grid; } }
   @media only screen and (min-width: 768px) {
     .global-footer nav {
       margin-bottom: 0.75rem; } }
