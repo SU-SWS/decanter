@@ -69,7 +69,8 @@ module.exports = function(grunt) {
       dev: {
         bsFiles: {
           src : [
-            'core/css/decanter.css'
+            'styleguide/css/decanter.css',
+            'styleguide/**/*.html'
           ]
         },
         options: {
