@@ -365,7 +365,7 @@ template {
     --media-query: 'xl'; } }
 
 #kss-node {
-  padding-top: 40px; }
+  padding-top: 40px !important; }
   #kss-node > .su-brand-bar {
     position: fixed;
     top: 0;
@@ -981,6 +981,20 @@ body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
 .kss-color .kss-parameters__name,
 .kss-color code {
   display: none; }
+
+article.kss-main {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  height: 100vh; }
+  article.kss-main .global-footer {
+    align-self: flex-end; }
+  article.kss-main .kss-sidebar {
+    padding-bottom: 150px;
+    z-index: 0; }
+  article.kss-main .global-footer {
+    position: relative;
+    z-index: 10; }
 
 #kss-node.kss-home .kss-main {
   width: 100%;

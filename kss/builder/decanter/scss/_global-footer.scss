@@ -1,9 +1,10 @@
 @charset "UTF-8";
 
 
-body#kss-node {
-  @include sticky-footer;
+article.kss-main {
+  $footer: '.global-footer';
 
+  @include sticky-footer($footer);
 
   // To support the sticky footer we must put the sidebar behind the footer.
   .kss-sidebar {
@@ -11,7 +12,7 @@ body#kss-node {
     z-index: 0;
   }
 
-  .global-footer {
+  #{$footer} {
     position: relative;
     z-index: 10;
   }
