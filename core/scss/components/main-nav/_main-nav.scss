@@ -21,28 +21,61 @@
     list-style: none;
   }
 
+  li {
+    @include margin(null null 0);
+  }
+
   a {
     text-decoration: none;
     color: $color-black;
   }
 }
 
-.su-main-nav__menu-level1 {
+.su-main-nav__menu-lv1 {
   display: flex;
   flex-direction: column;
   background-color: $color-black;
   width: 100%;
 
   > li {
-
     @include margin(null null 0);
 
+    &:hover,
+    &:focus,
+    &:active {
+
+      @media #{$breakpoint-lg} {
+
+        > .su-main-nav__menu-lv2 {
+          visibility: visible;
+        }
+      }
+    }
+
     a {
-      @include padding(.8em .4em .8em 0);
+      @include fancy-hover($color: $color-white, $active: $color-bright-red);
+      @include padding(.8em .4em .8em 1em);
       display: block;
       color: $color-white;
       font-size: .9em;
       border-bottom: $color-cool-grey solid 1px;
+
+      &::after {
+        height: 100%;
+        width: 5px;
+        transform: scaleX(0);
+        transform: scaleY(0);
+      }
+
+      &:hover,
+      &:focus {
+
+        &:after {
+          transform: scaleX(0);
+          transform: scaleY(1);
+        }
+      }
+
     }
   }
 
@@ -53,7 +86,7 @@
 
     > li {
 
-      a {
+      > a {
         @include fancy-hover;
         @include padding(null 0 .8em);
         @include margin(0 .58em);
@@ -71,11 +104,6 @@
           color: $color-black;
         }
 
-        &:hover {
-          + .su-main-nav__menu-level2 {
-            //display: flex;
-          }
-        }
       }
 
       &:first-child {
@@ -89,18 +117,13 @@
           @include margin(null 0 null null);
         }
       }
-
-
     }
   }
 }
 
-.su-main-nav__menu-level2 {
-  //display: none;
+.su-main-nav__menu-lv2 {
   background-color: $color-black;
   flex-direction: column;
-  position: relative;
-  top: .6em;
 
   li {
     a {
@@ -112,8 +135,16 @@
       &:focus {
         color: $color-white;
       }
-
     }
+  }
+
+  @media #{$breakpoint-lg} {
+    position: absolute;
+    width: 18.75em;
+    visibility: hidden;
   }
 }
 
+.su-main-nav__item-lv2--current {
+  font-weight: 600;
+}

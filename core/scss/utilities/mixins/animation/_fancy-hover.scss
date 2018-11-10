@@ -7,11 +7,10 @@
 //
 // $color - Default hover color. Defaults to $color-dark-red.
 // $active - Active color. Defaults to $color-black.
-// $thickness - Thickness of the line. Defaults to 6px.
 //
 // Style guide: Mixins.Transition.Fancy Hover
 //
-@mixin fancy-hover($color: $color-dark-red, $active: $color-black, $thickness: '6px') {
+@mixin fancy-hover($color: $color-dark-red, $active: $color-black) {
   text-decoration: none;
   position: relative;
   padding-bottom: .65em;
@@ -20,7 +19,7 @@
     content: "";
     position: absolute;
     width: 100%;
-    height: #{$thickness};
+    height: 6px;
     bottom: 0;
     left: 0;
     visibility: hidden;
