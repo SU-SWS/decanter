@@ -9,6 +9,10 @@
 //
 @mixin modular-margin {
 
+  @include grid-media('2xl') {
+    margin: map-get($modular-spacing, '2xl');
+  }
+
   @include grid-media('xl') {
     margin: map-get($modular-spacing, 'xl');
   }
