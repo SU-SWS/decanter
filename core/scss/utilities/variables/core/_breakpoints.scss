@@ -36,20 +36,29 @@ $screen-md: 768px !default;
 //
 // $screen-lg
 //
-// Markup: $screen-lg: 1024px !default;
+// Markup: $screen-lg: 992px !default;
 //
 // Styleguide: Variables.Core.Breakpoints.screen-lg
 //
-$screen-lg: 1024px !default;
+$screen-lg: 992px !default;
 
 //
 // $screen-xl
 //
-// Markup: $screen-xl: 1500px !default;
+// Markup: $screen-xl: 1200px !default;
 //
 // Styleguide: Variables.Core.Breakpoints.screen-xl
 //
-$screen-xl: 1500px !default;
+$screen-xl: 1200px !default;
+
+//
+// $screen-2xl
+//
+// Markup: $screen-2xl: 1500px !default;
+//
+// Styleguide: Variables.Core.Breakpoints.screen-2xl
+//
+$screen-2xl: 1500px !default;
 
 //
 // $breakpoint-xs
@@ -141,6 +150,26 @@ $breakpoint-lg-only: 'only screen and (min-width: #{$screen-lg}) and (max-width:
 // Styleguide: Variables.Core.Breakpoints.xl
 $breakpoint-xl: 'only screen and (min-width: #{$screen-xl})' !default;
 
+//
+// $breakpoint-xl-only
+//
+// Mixin for basic mobile-first media query for xl-only screen size.
+//
+// Markup: $breakpoint-xl-only: 'only screen and (min-width: #{$screen-xl}) and (max-width: #{$screen-2xl - 1})' !default;
+//
+// Styleguide: Variables.Core.Breakpoints.breakpoint-xl-only
+$breakpoint-xl-only: 'only screen and (min-width: #{$screen-xl}) and (max-width: #{$screen-2xl - 1})' !default;
+
+//
+// $breakpoint-2xl
+//
+// Mixin for basic mobile-first media query for 2xl-and-up screen size.
+//
+// Markup: $breakpoint-2xl: 'only screen and (min-width: #{$screen-2xl})' !default;
+//
+// Styleguide: Variables.Core.Breakpoints.2xl
+$breakpoint-2xl: 'only screen and (min-width: #{$screen-2xl})' !default;
+
 //////////////////////////////////////////////////////////////////////////////
 
 //
@@ -194,6 +223,15 @@ $columns-lg: 12 !default;
 //
 $columns-xl: 12 !default;
 
+//
+// $columns-2xl
+//
+// Markup: $columns-2xl: 12 !default;
+//
+// Styleguide: Variables.Core.Columns.cols-2xl
+//
+$columns-2xl: 12 !default;
+
 //////////////////////////////////////////////////////////////////////////////
 
 //
@@ -232,17 +270,26 @@ $gutter-md: 20px !default;
 //
 // $gutter-lg
 //
-// Markup: $gutter-lg: 30px !default;
+// Markup: $gutter-lg: 36px !default;
 //
 // Styleguide: Variables.Core.Gutters.gutter-lg
 //
-$gutter-lg: 30px !default;
+$gutter-lg: 36px !default;
 
 //
 // $gutter-xl
 //
-// Markup: $gutter-xl: 30px !default;
+// Markup: $gutter-xl: 40px !default;
 //
 // Styleguide: Variables.Core.Gutters.gutter-xl
 //
-$gutter-xl: 30px !default;
+$gutter-xl: 40px !default;
+
+//
+// $gutter-2xl
+//
+// Markup: $gutter-2xl: 48px !default;
+//
+// Styleguide: Variables.Core.Gutters.gutter-2xl
+//
+$gutter-2xl: 48px !default;
