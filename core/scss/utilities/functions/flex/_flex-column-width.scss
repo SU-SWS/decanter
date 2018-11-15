@@ -1,20 +1,17 @@
 @charset "UTF-8";
 
-/// Return a calulated column width that can then be passed in to a `calc()`.
-///
-/// @argument {map} $grid
-///
-/// @argument {number} $columns
-///
-/// @return {string}
-///
-/// @example scss
-///   _neat-column-width($neat-grid, 4)
-///
-/// @access private
-
-@function flex-column-width($columns, $gutter, $grid-columns) {
-  $_column-ratio: flex-column-ratio($grid-columns, $columns);
+// flex-column-width($columns, $gutter: $gutter-xs, $grid-columns: 12)
+//
+// Return a calulated column width that can then be passed in to a `calc()`.
+//
+// $columns - mixed: Number of columns either as integer or `x of y`
+// $gutter - unit: The width of the gutter in a css unit
+// $grid-columns - integer: the number of columns in the grid
+//
+// Style guide: Functions.Flex.flex-column-width
+//
+@function flex-column-width($columns, $gutter: $gutter-xs, $grid-columns: 12) {
+  $_column-ratio: flex-column-ratio($columns, $grid-columns);
 
   // Make note here.
   $_total-columns: $grid-columns;

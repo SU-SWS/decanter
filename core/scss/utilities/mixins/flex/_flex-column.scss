@@ -1,28 +1,14 @@
 @charset "UTF-8";
 
+//
+// @flex-column($columns: null, $gutter: $gutter-xs, $grid-columns: 12)
+//
 // Creates a grid column of requested size.
 //
-// @group features
+// $columns - list: Specifies the number of columns an element should span based on the total columns of the grid. eg: `3 of 5`
 //
-// @name Grid column
+// Style guide: Mixins.Flex.flex-column
 //
-// @argument {number (unitless)} $columns [null]
-//   Specifies the number of columns an element should span based on the total
-//   columns of the grid.
-//
-//   This can also be defined in a shorthand syntaxt which also contains the
-//   total column count such as `3 of 5`.
-//
-// @example scss
-//   .element {
-//     @include flex-column(3);
-//   }
-//
-// @example css
-//   .element {
-//     width: calc(25% - 25px);
-//     margin-left: 20px;
-//   }
-@mixin flex-column($columns: null, $gutter: $gutter-xs, $grid-columns: 12) {
+@mixin flex-column($columns, $gutter: $gutter-xs, $grid-columns: 12) {
   width: calc(#{flex-column-width($columns, $gutter, $grid-columns)});
 }

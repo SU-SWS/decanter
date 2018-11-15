@@ -24,23 +24,28 @@
 
   // Modular padding on images too.
   > img {
-    @media #{$breakpoint-sm} {
-      margin: _modular-spacing-get-value('sm') 0;
+    @include grid-media('sm') {
+      margin: modular-spacing-get-value('sm') 0;
     }
 
-    @media #{$breakpoint-md} {
-      margin: _modular-spacing-get-value('md') 0;
+    @include grid-media('md') {
+      margin: modular-spacing-get-value('md') 0;
     }
 
-    @media #{$breakpoint-lg} {
-      margin: _modular-spacing-get-value('lg') 0;
+    @include grid-media('lg') {
+      margin: modular-spacing-get-value('lg') 0;
     }
 
-    @media #{$breakpoint-xl} {
-      margin: _modular-spacing-get-value('xl') 0;
+    @include grid-media('xl') {
+      margin: modular-spacing-get-value('xl') 0;
     }
 
-    margin: _modular-spacing-get-value('xs') 0;
+    @include grid-media('2xl') {
+      margin: modular-spacing-get-value('2xl') 0;
+    }
+
+    margin: modular-spacing-get-value('xs') 0;
+
   }
 
 }

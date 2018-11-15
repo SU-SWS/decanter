@@ -6,7 +6,8 @@ $_su-hero-height: (
   'sm': 208px,
   'md': 320px,
   'lg': 409px,
-  'xl': 520px
+  'xl': 520px,
+  '2xl': 520px
 );
 
 //
@@ -25,18 +26,18 @@ $_su-hero-height: (
 .su-hero {
   position: relative;
 
-  @media #{$breakpoint-md} {
+  @include grid-media('md') {
     display: flex;
     flex-direction: column;
     justify-content: center;
     min-height: map-get($_su-hero-height, 'md');
   }
 
-  @media #{$breakpoint-lg} {
+  @include grid-media('lg') {
     min-height: map-get($_su-hero-height, 'lg');
   }
 
-  @media #{$breakpoint-xl} {
+  @include grid-media('xl') {
     min-height: map-get($_su-hero-height, 'xl');
   }
 }
@@ -48,17 +49,17 @@ $_su-hero-height: (
   height: 100%;
   width: 100%;
 
-  @media #{$breakpoint-md} {
+  @include grid-media('md') {
     min-height: map-get($_su-hero-height, 'md');
     position: absolute;
   }
 
-  @media #{$breakpoint-lg} {
+  @include grid-media('lg') {
     min-height: map-get($_su-hero-height, 'lg');
     position: absolute;
   }
 
-  @media #{$breakpoint-xl} {
+  @include grid-media('xl') {
     min-height: map-get($_su-hero-height, 'xl');
     position: absolute;
   }
@@ -79,17 +80,17 @@ $_su-hero-height: (
   position: relative;
   z-index: 10;
 
-  @media #{$breakpoint-md} {
+  @include grid-media('md') {
     @include margin(45px null);
     left: 45px;
     max-width: 400px;
   }
 
-  @media #{$breakpoint-lg} {
+  @include grid-media('lg') {
     max-width: 450px;
   }
 
-  @media #{$breakpoint-xl} {
+  @include grid-media('xl') {
     @include margin(96px null 0 null);
     bottom: 48px;
     left: 48px;

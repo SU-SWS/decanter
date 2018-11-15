@@ -12,9 +12,7 @@
 
 // Global styles for the global footer.
 .global-footer {
-
-  @include centered-grid-container;
-  @include padding(2.5rem 0);
+  @include padding(2.5rem 10px);
   background-color: $color-cardinal-red;
   color: $color-white;
 
@@ -30,12 +28,13 @@
 
   // Grid settings for footer container.
   .global-footer__container {
+    @include centered-column;
     @include display-grid;
+    @include grid-column-gap;
 
     @include grid-media("xs") {
       @include grid-columns(100%);
       @include grid-rows(auto auto);
-
       justify-items: center;
     }
 
@@ -47,10 +46,6 @@
     @include grid-media("md") {
       @include grid-columns(11rem auto);
       justify-items: left;
-
-      @supports (grid-column-gap: 20px) {
-        grid-column-gap: 50px;
-      }
     }
   }
 
@@ -61,7 +56,7 @@
     width: 16rem;
 
     // Logo should have no margin at higher breakpoints.
-    @media #{$breakpoint-sm} {
+    @include grid-media('sm') {
       @include margin(null null 0);
       width: 100%;
     }
@@ -70,7 +65,7 @@
     a {
       @include logo;
 
-      @media #{$breakpoint-xs-only} {
+      @include grid-media-only('xs') {
         font-size: 3.2rem;
       }
 
@@ -81,17 +76,18 @@
 
   // Grid settings for footer nav region; passing 0 for no outer gutters.
   nav {
-    @media #{$breakpoint-xs} {
+    @include display-grid;
+
+    @include grid-media('xs') {
       @include grid-columns(1fr 1fr);
-      @include display-grid;
     }
 
-    @media #{$breakpoint-sm} {
-      @include grid-columns(max-content auto);
-      @include display-grid;
+    @include grid-media('sm') {
+      @include grid-columns(1fr 1fr);
     }
 
-    @media #{$breakpoint-md} {
+    @include grid-media('md') {
+      @include grid-columns(1fr);
       @include margin(null null .75rem);
     }
   }
@@ -101,7 +97,7 @@
     @include padding(0);
     list-style-type: none;
 
-    @media #{$breakpoint-md} {
+    @include grid-media('md') {
       @include margin(null null .625rem);
     }
 
@@ -111,13 +107,13 @@
       display: block;
       text-align: center;
 
-      @media #{$breakpoint-xs-only} {
+      @include grid-media-only('xs') {
         @include padding(.25em 0);
         font-weight: normal;
         text-align: left;
       }
 
-      @media #{$breakpoint-md} {
+      @include grid-media('md') {
         @include margin(null 2rem null null);
         display: inline-block;
       }
@@ -143,7 +139,7 @@
       white-space: nowrap;
     }
 
-    @media #{$breakpoint-sm} {
+    @include grid-media('sm') {
       text-align: left;
     }
 
