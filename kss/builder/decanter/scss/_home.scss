@@ -47,7 +47,6 @@
       @include modular-typography(2);
       color: $color-white;
       font-weight: $font-x-bold;
-      text-align: center;
     }
   }
 
@@ -172,9 +171,15 @@
 
     background: $color-light-sandstone;
 
-    h2 {
-      @media #{$breakpoint-sm} {
-        grid-column-start: 2;
+    h2:first-child {
+      @include grid-media("xs") {
+        @include grid-item-spans(1, span 1);
+        text-align: center;
+      }
+
+      @include grid-media("sm") {
+        @include grid-item-spans(2, span 2);
+        text-align: center;
       }
     }
 
