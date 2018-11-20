@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+// The $grid-screens map defined in the grid variables file is used as the
+// $breakpoints argument by default.
+
+// Media query of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Applies to the passed through breakpoint and below.
+@mixin grid-media-max($name, $breakpoints: $grid-screens) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

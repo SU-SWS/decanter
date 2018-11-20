@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+// The $grid-screens map defined in the grid variables file is used as the
+// $breakpoints argument by default.
+
+// Media query of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Applies to the passed through breakpoint and above.
+@mixin grid-media-min($name, $breakpoints: $grid-screens) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}

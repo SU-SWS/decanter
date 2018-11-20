@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+//
+// @generate-grid-column
+//
+
+@mixin generate-grid-column($size, $columns: $grid-columns) {
+  flex: 0 0 percentage($size / $columns);
+  max-width: percentage($size / $columns);
+}

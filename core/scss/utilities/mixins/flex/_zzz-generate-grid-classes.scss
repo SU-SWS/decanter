@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+//
+// @generate-grid-classes
+//
+// The $grid-screens map defined in the grid variables file is used as the
+// $breakpoints argument by default.
+//
+
+// Generates grid classes given the value of the $grid-columns grid variable value.
+@mixin generate-grid-classes($columns: $grid-columns, $gutter: 36px, $breakpoints: $grid-screens) {
+  // Properties for all breakpoints.
+  %grid-column {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: ($gutter / 2);
+    padding-left: ($gutter / 2);
+  }
+
+  @each $breakpoint in map-keys($breakpoints) {
+    $insert: breakpoint-insert($breakpoint, $breakpoints);
+
+    // Allow columns to stretch full width below their breakpoints.
+    @for $n from 1 through $columns {
+      .grid#{$insert}-#{$n}-of-12 {
+        @extend %grid-column;
+      }
+    }
+    .grid#{$insert}-of-12,
+    .grid#{$insert}-auto {
+      @extend %grid-column;
+    }
+
+    @include grid-media-min($breakpoint, $breakpoints) {
+      // Provide .grid-{bp}-of-12 classes for equal width flexbox columns.
+      .grid#{$insert}-of-12 {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+      .grid#{$insert}-auto {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: none;
+      }
+
+      @for $n from 1 through $columns {
+        .grid#{$insert}-#{$n}-of-12 {
+          @include generate-grid-column($n, $columns);
+        }
+      }
+
+      @for $n from 0 through ($columns - 1) {
+        @if not ($insert == "" and $n == 0) { // No .grid-push-0.
+          .grid-push#{$insert}-#{$n} {
+            @include generate-grid-push($n, $columns);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Generates grid classes if variable is set to true.
+@if $grid-classes-enabled {
+  @include generate-grid-classes();
+
+  .grid--container {
+    @include flex-container;
+  }
+}
