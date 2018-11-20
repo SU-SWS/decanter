@@ -4,7 +4,7 @@
 // @generate-grid-column
 //
 
-@mixin generate-grid-column($size, $columns: $grid-columns) {
-  flex: 0 0 percentage($size / $columns);
-  max-width: percentage($size / $columns);
+@mixin generate-grid-column($size, $columns: $grid-columns, $gutter: 36px) {
+  flex: 0 0 calc(#{percentage($size / $columns)} - #{$gutter});
+  max-width: calc(#{percentage($size / $columns)} - #{$gutter});
 }

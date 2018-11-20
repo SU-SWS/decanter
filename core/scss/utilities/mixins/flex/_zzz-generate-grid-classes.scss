@@ -8,14 +8,13 @@
 //
 
 // Generates grid classes given the value of the $grid-columns grid variable value.
-@mixin generate-grid-classes($columns: $grid-columns, $gutter: 36px, $breakpoints: $grid-screens) {
+@mixin generate-grid-classes($columns: $grid-columns, $breakpoints: $grid-screens) {
   // Properties for all breakpoints.
   %grid-column {
     position: relative;
     width: 100%;
     min-height: 1px;
-    padding-right: ($gutter / 2);
-    padding-left: ($gutter / 2);
+    padding: 1rem;
   }
 
   @each $breakpoint in map-keys($breakpoints) {

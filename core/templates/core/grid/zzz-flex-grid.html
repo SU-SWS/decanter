@@ -12,8 +12,6 @@
 
     <style>
       [class*="grid-"] {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
         background-color: #006BB6;
         border: 2px solid #FDB927;
         color: #FFFFFF;
@@ -21,6 +19,10 @@
       .grid--container {
         background-color: transparent;
         border: 0;
+        margin-bottom: 1rem;
+      }
+      .grid--container h1 {
+        color: black;
       }
     </style>
 
@@ -29,7 +31,9 @@
   <body>
     <div class="container">
 
-      <h1>Flex Grid</h1>
+      <div class="grid--container">
+        <h1>Flex Grid</h1>
+      </div>
 
       <div class="grid--container">
         <div class="grid-4-of-12">.grid-4-of-12</div>
