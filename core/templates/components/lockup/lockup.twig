@@ -35,6 +35,9 @@
 #}
 {% if line2 is not empty %}
   <a{{ attributes }} href="{{ link }}" class="su-lockup su-lockup--two-lines {{ modifier_class }}">
+{% else %}
+  <a{{ attributes }} href="{{ link }}" class="su-lockup {{ modifier_class }}">
+{% endif %}
     <span class="su-lockup__wordmark">Stanford</span>
 
     {# Line 5 of Site Name - Optional #}
@@ -48,24 +51,9 @@
     {# Line 1 of Site Name - Required #}
     <span class="su-lockup__sitename-line1 {{ line1_modifier_class }}">{{ line1 }}</span>
 
+    {% if line2 is not empty %}
     {# Line 2 of Site Name - Optional #}
     <span class="su-lockup__sitename-line2">{{ line2 }}</span>
 
-  </a>
-{% else %}
-  <a{{ attributes }} href="{{ link }}" class="su-lockup {{ modifier_class }}">
-    <span class="su-lockup__wordmark">Stanford</span>
-
-    {# Line 5 of Site Name - Optional #}
-    {% if line5 is not empty %}
-      <span class="su-lockup__sitename-line5 {{ line5_modifier_class }}">{{ line5 }}</span>
     {% endif %}
-
-    {# Divider line - Hide on mobile if no line 5 #}
-    <span class="su-lockup__pipe"></span>
-
-    {# Line 1 of Site Name - Required #}
-    <span class="su-lockup__sitename-line1 {{ line1_modifier_class }}">{{ line1 }}</span>
-
   </a>
-{% endif %}
