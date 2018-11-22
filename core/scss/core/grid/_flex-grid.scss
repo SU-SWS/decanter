@@ -6,56 +6,64 @@
 //
 // Style guide: Core.FlexGrid
 
-// The grid.
-.grid--container {
-  @include flex-container;
-}
+// Generates grid classes if variable is set to true.
+@if $grid-classes-enabled {
 
-// Got classes if you want them.
-.grid--1-of-12 {
-  @include grid--1-of-12;
-}
+  .flex-container {
+    @include flex-container;
+  }
 
-.grid--2-of-12 {
-  @include grid--2-of-12;
-}
+  // Properties for all breakpoints.
+  %grid-column {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding: 1rem;
+  }
 
-.grid--3-of-12 {
-  @include grid--3-of-12;
-}
+  @each $breakpoint in map-keys($grid-screens) {
+    $insert: breakpoint-insert($breakpoint, $grid-screens);
+    $gutter: map-get($grid-gutters, $breakpoint);
 
-.grid--4-of-12 {
-  @include grid--4-of-12;
-}
+    // Allow columns to stretch full width below their breakpoints.
+    @for $n from 1 through $grid-columns {
+      .flex#{$insert}-#{$n}-of-12 {
+        @extend %grid-column;
+      }
+    }
+    .flex#{$insert}-of-12,
+    .flex#{$insert}-auto {
+      @extend %grid-column;
+    }
 
-.grid--5-of-12 {
-  @include grid--5-of-12;
-}
+    @include grid-media-min($breakpoint, $grid-screens) {
 
-.grid--6-of-12 {
-  @include grid--6-of-12;
-}
+      // Provide .flex-{bp}-of-12 classes for equal width flexbox columns.
+      .flex#{$insert}-of-12 {
+        flex-basis: 0;
+        flex-grow: 1;
+        max-width: 100%;
+      }
+      .flex#{$insert}-auto {
+        flex: 0 0 auto;
+        width: auto;
+        max-width: none;
+      }
 
-.grid--7-of-12 {
-  @include grid--7-of-12;
-}
+      @for $n from 1 through $grid-columns {
+        .flex#{$insert}-#{$n}-of-12 {
+          @include flex-column($n, $gutter, $grid-columns);
+        }
+      }
 
-.grid--8-of-12 {
-  @include grid--8-of-12;
-}
+      @for $n from 0 through ($grid-columns - 1) {
+        @if not ($insert == "" and $n == 0) { // No .flex-push-0.
+          .flex-push#{$insert}-#{$n} {
+            @include flex-grid-push($n, $grid-columns);
+          }
+        }
+      }
+    }
+  }
 
-.grid--9-of-12 {
-  @include grid--9-of-12;
-}
-
-.grid--10-of-12 {
-  @include grid--10-of-12;
-}
-
-.grid--11-of-12 {
-  @include grid--11-of-12;
-}
-
-.grid--12-of-12 {
-  @include grid--12-of-12;
 }

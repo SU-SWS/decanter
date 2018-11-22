@@ -1,11 +1,11 @@
 @charset "UTF-8";
 
 //
-// @generate-grid-push
+// @flex-grid-push
 //
 
 // Pushes a grid column by changing its left margin.
-@mixin generate-grid-push($size, $columns: $grid-columns) {
+@mixin flex-grid-push($size, $columns: $grid-columns) {
   $number: $size / $columns;
   margin-left: if($number == 0, 0, percentage($number));
 }

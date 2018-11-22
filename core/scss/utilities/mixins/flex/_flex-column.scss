@@ -9,6 +9,7 @@
 //
 // Style guide: Mixins.Flex.flex-column
 //
-@mixin flex-column($columns, $gutter: $gutter-xs, $grid-columns: 12) {
-  width: calc(#{flex-column-width($columns, $gutter, $grid-columns)});
+@mixin flex-column($columns, $gutter: $gutter-xs, $grid-columns: $grid-columns) {
+  flex: 0 0 calc(#{flex-column-width($columns, $gutter, $grid-columns)});
+  max-width: calc(#{flex-column-width($columns, $gutter, $grid-columns)});
 }

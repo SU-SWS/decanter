@@ -7,12 +7,14 @@
 //
 // Style guide: Mixins.Grid.centered-column
 //
-@mixin centered-column($grid: $grid-media, $screens: $grid-screens) {
+@mixin centered-column($grid: $grid-media, $screens: $grid-screens, $gutters: $grid-gutters) {
   @include margin(0 auto);
   @each $code, $breakpoint in $grid {
     $max-width: map-get($screens, $code);
+    $gutter: map-get($gutters, $code);
+
     @media #{$breakpoint} {
-      max-width: $max-width;
+      max-width: $max-width - $gutter;
     }
   }
 
