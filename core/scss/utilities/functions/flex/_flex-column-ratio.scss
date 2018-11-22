@@ -12,8 +12,7 @@
 // $grid-columns - The number of columns for the item to span
 //
 // Style guide: Functions.Flex.flex-column-ratio
-
-@function flex-column-ratio($columns, $grid-columns: 12) {
+@function flex-column-ratio($columns, $grid-columns: $grid-columns) {
   @if length($columns) > 1 {
     @return nth($columns, 1) / flex-parse-columns($columns);
   } @else if $columns {

@@ -1,14 +1,14 @@
 @charset "UTF-8";
 
 //
-// @cta--button
+// @cta-button
 //
 // CTA with an image and a button
 //
-// Style guide: Mixins.CTA.cta--button
+// Style guide: Mixins.CTA.cta-button
 //
 
-@mixin cta--button {
+@mixin cta-button {
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -36,7 +36,7 @@
 
     margin: 0;
 
-    @media #{$breakpoint-xs} {
+    @include grid-media('xs') {
       width: 100%;
       z-index: 100;
     }

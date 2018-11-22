@@ -72,7 +72,10 @@
 
 // Loop through each column and breakpoint creating a responsive flex column.
 // The gutter sizes change as the breakpoints change so as the breakpoints
-// get larger for each breakpoint class we have to adjust the gutter.
+// get larger for each breakpoint class we have to adjust the gutter. For
+// example, the flex-md-1-of-12 grid class will need a breakpoint wrapping
+// and gutter size for breakpoints md -> 2xl but flex-xl-1-of-12 will only need
+// breakpoints wrapping for breakpoints xl -> 2xl.
 @for $n from 1 through $grid-columns {
 
   // Storage for breakpoint codes through each loop of columns.
