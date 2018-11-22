@@ -1,10 +1,16 @@
 @charset "UTF-8";
 
-// The $grid-screens map defined in the grid variables file is used as the
-// $breakpoints argument by default.
-
+// grid-media-between($lower, $upper, $breakpoints: $grid-screens)
+//
 // Media query that spans multiple breakpoint widths (between the min and max breakpoints).
-@mixin grid-media-between($lower, $upper, $breakpoints: $grid-screens) {
+//
+// $lower - The lower breakpoint key code eg: 'sm'
+// $upper - The upper breakpoint key code eg: 'xl'
+// $breakpoints - A map of each of the screen breakpoint sizes.
+//
+// Style guide: Mixins.Breakpoint.grid-media-between
+
+@mixin grid-media-between($lower: 'xs', $upper: 'sm', $breakpoints: $grid-screens) {
   $min: breakpoint-min($lower, $breakpoints);
   $max: breakpoint-max($upper, $breakpoints);
 

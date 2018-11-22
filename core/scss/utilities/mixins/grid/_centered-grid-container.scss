@@ -16,20 +16,24 @@
     grid-column: 2;
   }
 
-  @media #{$breakpoint-sm} {
+  @include grid-media('sm') {
     @include grid-columns(auto $screen-sm auto);
   }
 
-  @media #{$breakpoint-md} {
+  @include grid-media('md') {
     @include grid-columns(auto $screen-md auto);
   }
 
-  @media #{$breakpoint-lg} {
+  @include grid-media('lg') {
     @include grid-columns(auto $screen-lg auto);
   }
 
-  @media #{$breakpoint-xl} {
+  @include grid-media('xl') {
     @include grid-columns(auto $screen-xl auto);
+  }
+
+  @include grid-media('2xl') {
+    @include grid-columns(auto $screen-2xl auto);
   }
 
   @include grid-columns(auto 100% auto);

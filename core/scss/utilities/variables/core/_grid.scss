@@ -1,7 +1,12 @@
 @charset "UTF-8";
 
-$grid-classes-enabled:       true !default;
-$grid-columns:                12 !default;
+// $grid-columns
+//
+// The number of columns used by default for the flex grid.
+//
+// Style guide: Variables.Core.grid-columns
+//
+$grid-columns: 12 !default;
 
 // $grid-screens
 //
@@ -114,34 +119,4 @@ $responsive-columns-six: (
   $breakpoint-lg: 1fr 1fr 1fr 1fr 1fr,
   $breakpoint-xl: 1fr 1fr 1fr 1fr 1fr 1fr,
   $breakpoint-2xl: 1fr 1fr 1fr 1fr 1fr 1fr
-) !default;
-
-// $grid-gutters
-//
-// A sass map of css gutter width values keyed by breakpoint short codes.
-//
-// Style guide: Variables.Core.grid-gutters
-//
-$grid-gutters: (
-  'xs': $gutter-xs,
-  'sm': $gutter-sm,
-  'md': $gutter-md,
-  'lg': $gutter-lg,
-  'xl': $gutter-xl,
-  '2xl': $gutter-2xl
-) !default;
-
-// $responsive-gutters-default
-//
-// A sass map of css grid gap width keyed with breakpoint media queries.
-//
-// Style guide: Variables.Core.responsive-gutters-default
-//
-$responsive-gutters-default:(
-  $breakpoint-xs: $gutter-xs,
-  $breakpoint-sm: $gutter-sm,
-  $breakpoint-md: $gutter-md,
-  $breakpoint-lg: $gutter-lg,
-  $breakpoint-xl: $gutter-xl,
-  $breakpoint-2xl: $gutter-2xl
 ) !default;
