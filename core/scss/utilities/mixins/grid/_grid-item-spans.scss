@@ -20,7 +20,13 @@
 
   @if ($col-end != null and $col-start != null) {
     grid-column: #{$col-start} / #{$col-end};
-    -ms-grid-column-span: $col-end - $col-start;
+
+     @if (str-index(#{$col-end}, 'span ')) {
+       -ms-grid-column-span: str-replace(#{$col-end}, "span ", '');
+     } @else {
+       -ms-grid-column-span: $col-end - $col-start;
+     }
+
   }
 
   @if ($row-start != null) {
@@ -29,7 +35,13 @@
 
   @if ($row-end != null and $row-start != null) {
     grid-row: #{$row-start} / #{$row-end};
-    -ms-grid-row-span: $row-end - $row-start;
+
+    @if (str-index(#{$row-end}, "span ")) {
+      -ms-grid-row-span: str-replace(#{$row-end}, "span ", '');
+    } @else {
+      -ms-grid-row-span: $row-end - $row-start;
+    }
+
   }
 
 }
