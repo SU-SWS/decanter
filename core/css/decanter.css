@@ -2465,6 +2465,208 @@ button,
   .su-logo:hover, .su-logo:active, .su-logo:focus {
     color: #8c1515; }
 
+.su-lockup {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
+  -ms-grid-rows: auto auto auto auto;
+  grid-template-rows: auto auto auto auto;
+  align-items: end;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-decoration: none; }
+  @media only screen and (min-width: 768px) {
+    .su-lockup {
+      -ms-grid-columns: auto auto 1fr;
+      grid-template-columns: auto auto 1fr;
+      -ms-grid-rows: auto auto;
+      grid-template-rows: auto auto; } }
+
+.su-lockup__wordmark {
+  display: inline-block;
+  font-family: Stanford, 'Source Serif Pro', Georgia, Times, 'Times New Roman', serif;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  text-decoration: none;
+  line-height: .75;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  letter-spacing: 0;
+  -webkit-font-feature-settings: "liga";
+  -ms-font-feature-settings: "liga" 1;
+  font-feature-settings: "liga";
+  -webkit-font-variant-ligatures: discretionary-ligatures;
+  font-variant-ligatures: discretionary-ligatures;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: block;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1 / span 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / span 1;
+  color: #8c1515;
+  font-size: 36px;
+  line-height: 1; }
+  @media only screen and (min-width: 768px) {
+    .su-lockup__wordmark {
+      font-size: 46px;
+      height: 33px;
+      line-height: .96; } }
+  .su-lockup__wordmark + .su-lockup__pipe {
+    display: none; }
+    @media only screen and (min-width: 768px) {
+      .su-lockup__wordmark + .su-lockup__pipe {
+        display: block; } }
+
+.su-lockup__pipe {
+  margin-top: 7px;
+  margin-bottom: 7px;
+  display: block;
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 1;
+  grid-row: 3 / span 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / span 1;
+  content: "";
+  width: 118px;
+  height: 1px;
+  background-color: #2e2d29; }
+  @media only screen and (min-width: 768px) {
+    .su-lockup__pipe {
+      margin: 0 7px;
+      grid-row: 1 / span 1;
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 1;
+      grid-column: 2 / span 1;
+      -ms-grid-column: 2;
+      -ms-grid-column-span: 1;
+      display: inline-block;
+      width: 1px;
+      height: 100%; } }
+
+.su-lockup__sitename-line1,
+.su-lockup__sitename-line2,
+.su-lockup__sitename-line5 {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: block;
+  grid-column: 1 / span 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  color: #2e2d29; }
+
+.su-lockup__sitename-line1 {
+  grid-row: 4 / span 1;
+  -ms-grid-row: 4;
+  -ms-grid-row-span: 1;
+  font-size: 22px;
+  line-height: .8; }
+  @media only screen and (min-width: 768px) {
+    .su-lockup__sitename-line1 {
+      grid-row: 1 / span 1;
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 1;
+      grid-column: 3 / span 1;
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 1;
+      font-size: 30px; } }
+
+.su-lockup__sitename-line2 {
+  display: none; }
+
+.su-lockup__sitename-line5 {
+  grid-row: 2 / span 1;
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 1;
+  font-size: 20px;
+  line-height: 1.1; }
+  @media only screen and (min-width: 768px) {
+    .su-lockup__sitename-line5 {
+      padding-top: 8px;
+      grid-row: 2 / span 1;
+      -ms-grid-row: 2;
+      -ms-grid-row-span: 1;
+      grid-column: 1 / span 3;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 3;
+      font-size: 27px; } }
+
+.su-lockup__sitename-line1--uppercase,
+.su-lockup__sitename-line5--uppercase {
+  text-transform: uppercase;
+  font-weight: 700; }
+
+.su-lockup__sitename-line5--uppercase {
+  font-size: 18px; }
+
+.su-lockup--two-lines {
+  -ms-grid-rows: auto auto auto auto auto;
+  grid-template-rows: auto auto auto auto auto; }
+  @media only screen and (min-width: 768px) {
+    .su-lockup--two-lines {
+      -ms-grid-rows: auto auto auto;
+      grid-template-rows: auto auto auto; } }
+  @media only screen and (min-width: 768px) {
+    .su-lockup--two-lines .su-lockup__wordmark {
+      grid-row: 1 / span 2;
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 2; } }
+  @media only screen and (min-width: 768px) {
+    .su-lockup--two-lines .su-lockup__pipe {
+      grid-row: 1 / span 2;
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 2; } }
+  .su-lockup--two-lines .su-lockup__sitename-line1,
+  .su-lockup--two-lines .su-lockup__sitename-line2 {
+    font-size: 22px; }
+    @media only screen and (min-width: 768px) {
+      .su-lockup--two-lines .su-lockup__sitename-line1,
+      .su-lockup--two-lines .su-lockup__sitename-line2 {
+        font-size: 22px; } }
+  .su-lockup--two-lines .su-lockup__sitename-line2 {
+    padding-top: 6px;
+    display: block;
+    grid-row: 5 / span 1;
+    -ms-grid-row: 5;
+    -ms-grid-row-span: 1;
+    line-height: .8; }
+    @media only screen and (min-width: 768px) {
+      .su-lockup--two-lines .su-lockup__sitename-line2 {
+        grid-row: 2 / span 1;
+        -ms-grid-row: 2;
+        -ms-grid-row-span: 1;
+        grid-column: 3 / span 1;
+        -ms-grid-column: 3;
+        -ms-grid-column-span: 1; } }
+  @media only screen and (min-width: 768px) {
+    .su-lockup--two-lines .su-lockup__sitename-line5 {
+      grid-row: 3 / span 1;
+      -ms-grid-row: 3;
+      -ms-grid-row-span: 1; } }
+  .su-lockup--two-lines .su-lockup__sitename-line1--small,
+  .su-lockup--two-lines .su-lockup__sitename-line1--supersmall {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto; }
+  .su-lockup--two-lines .su-lockup__sitename-line1--small {
+    font-size: 15px; }
+    @media only screen and (min-width: 768px) {
+      .su-lockup--two-lines .su-lockup__sitename-line1--small {
+        font-size: 16px;
+        line-height: .5; } }
+  .su-lockup--two-lines .su-lockup__sitename-line1--supersmall {
+    font-size: 13px; }
+    @media only screen and (min-width: 768px) {
+      .su-lockup--two-lines .su-lockup__sitename-line1--supersmall + .su-lockup__sitename-line2 {
+        padding-top: 3px;
+        font-size: 27px; } }
+
 .su-main-nav {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
