@@ -17,23 +17,23 @@
   }
 
   @include grid-media('sm') {
-    @include grid-columns(auto $screen-sm auto);
+    @include grid-columns(auto $screen-sm - $gutter-sm auto);
   }
 
   @include grid-media('md') {
-    @include grid-columns(auto $screen-md auto);
+    @include grid-columns(auto $screen-md - $gutter-md auto);
   }
 
   @include grid-media('lg') {
-    @include grid-columns(auto $screen-lg auto);
+    @include grid-columns(auto $screen-lg - $gutter-lg auto);
   }
 
   @include grid-media('xl') {
-    @include grid-columns(auto $screen-xl auto);
+    @include grid-columns(auto $screen-xl - $gutter-xl auto);
   }
 
   @include grid-media('2xl') {
-    @include grid-columns(auto $screen-2xl auto);
+    @include grid-columns(auto $screen-2xl - $gutter-2xl auto);
   }
 
   @include grid-columns(auto 100% auto);

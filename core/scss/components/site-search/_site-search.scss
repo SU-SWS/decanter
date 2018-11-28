@@ -9,6 +9,11 @@
 //
 // Style guide: Components.Site Search
 //
+
+.su-site-search {
+  position: relative;
+}
+
 .su-site-search__input {
   @include font-smoothing;
   @include padding(.3em 1em);
@@ -22,10 +27,6 @@
   &::placeholder {
     color: $color-black;
     opacity: 1; // For Firefox
-  }
-
-  @include grid-media('lg') {
-    max-width: 20em;
   }
 }
 
@@ -43,12 +44,6 @@
   top: 11px;
   right: 12px;
   width: auto;
-
-  @include grid-media('lg') {
-    position: relative;
-    top: 7px;
-    right: 40px;
-  }
 
   img {
     display: inline-block;
