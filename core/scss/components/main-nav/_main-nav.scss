@@ -5,8 +5,6 @@
 //
 // The primary site navigation that is usually in the header region of a website. It is horizontal on larger devices and collapses on small devices.
 //
-// .su-main-nav--center - Centered main nav
-// .su-main-nav--right - Right-aligned main nav
 //
 // Markup: ../templates/components/main-nav/main-nav.twig
 //
@@ -27,7 +25,6 @@
 
   a {
     text-decoration: none;
-    color: $color-black;
   }
 }
 
@@ -37,55 +34,12 @@
   background-color: $color-black;
   width: 100%;
 
-  > li {
-    @include margin(null null 0);
-
-    &:hover,
-    &:focus,
-    &:active {
-
-      @media #{$breakpoint-lg} {
-
-        > .su-main-nav__menu-lv2 {
-          visibility: visible;
-        }
-      }
-    }
-
-    a {
-      @include fancy-hover($color: $color-white, $active: $color-bright-red);
-      @include padding(.8em .4em .8em 1em);
-      display: block;
-      color: $color-white;
-      font-size: .9em;
-      border-bottom: $color-cool-grey solid 1px;
-
-      &::after {
-        height: 100%;
-        width: 5px;
-        transform: scaleX(0);
-        transform: scaleY(0);
-      }
-
-      &:hover,
-      &:focus {
-
-        &:after {
-          transform: scaleX(0);
-          transform: scaleY(1);
-        }
-      }
-
-    }
-  }
-
   @media #{$breakpoint-lg} {
     @include padding(null null null 0);
     flex-direction: row;
     background-color: transparent;
 
     > li {
-
       > a {
         @include fancy-hover;
         @include padding(null 0 .8em);
@@ -105,16 +59,112 @@
         }
 
       }
+    }
+  }
+}
 
-      &:first-child {
-        a {
-          @include margin(null null null 0);
-        }
+.su-main-nav__item-lv1 {
+  @include margin(null null 0);
+
+  a {
+    @include fancy-hover($color: $color-white, $active: $color-bright-red);
+    @include padding(.8em .4em .8em 1em);
+    display: block;
+    color: $color-white;
+    font-size: .9em;
+    font-weight: 600;
+    border-bottom: $color-cool-grey solid 1px;
+
+    &::before {
+      height: 100%;
+      width: 5px;
+      transform: scaleX(0);
+      transform: scaleY(0);
+    }
+
+    &:hover,
+    &:focus {
+
+      &::before {
+        transform: scaleX(0);
+        transform: scaleY(1);
+      }
+    }
+
+  }
+
+  @media #{$breakpoint-lg} {
+    &:first-child {
+      a {
+        @include margin(null null null 0);
+      }
+    }
+
+    &:last-child {
+      a {
+        @include margin(null 0 null null);
+      }
+    }
+
+    > a {
+      @include padding(null 0 .8em);
+      @include margin(0 .58em);
+      font-size: 1.05em;
+      color: $color-black;
+      font-weight: 600;
+      border-bottom: 0;
+
+      &:hover,
+      &:focus {
+        color: $color-dark-red;
       }
 
-      &:last-child {
-        a {
-          @include margin(null 0 null null);
+    }
+  }
+/*
+  &:hover,
+  &:focus,
+  &:active,
+  &:focus-within {
+    > .su-main-nav__menu-lv2 {
+      visibility: visible;
+      display: flex;
+    }
+  }
+  */
+
+}
+
+
+
+.su-main-nav__item-lv1--current {
+  > a {
+    font-weight: 600;
+
+    &::before {
+      visibility: visible !important;
+      transform: scaleY(1);
+      background-color: $color-bright-red;
+    }
+
+    &:hover {
+      &::before {
+        left: 5px;
+      }
+    }
+  }
+
+  @media #{$breakpoint-lg} {
+    > a {
+      &::before {
+        transform: scaleX(1) !important;
+        transform: scaleY(0);
+        background-color: $color-black;
+      }
+
+      &:hover {
+        &::before {
+          left: 0;
         }
       }
     }
@@ -122,29 +172,101 @@
 }
 
 .su-main-nav__menu-lv2 {
+  @include padding(null null null .6em);
   background-color: $color-black;
   flex-direction: column;
-
-  li {
-    a {
-      color: $color-white;
-      font-size: .9em;
-      font-weight: 400;
-
-      &:hover,
-      &:focus {
-        color: $color-white;
-      }
-    }
-  }
+  visibility: hidden;
+  display: none;
 
   @media #{$breakpoint-lg} {
     position: absolute;
     width: 18.75em;
-    visibility: hidden;
+    z-index: 1000;
   }
 }
 
-.su-main-nav__item-lv2--current {
-  font-weight: 600;
+.su-main-nav__item-lv2 {
+  a {
+    color: $color-white;
+    font-size: .9em;
+    font-weight: 400;
+
+    &:hover,
+    &:focus {
+      color: $color-white;
+    }
+
+    &:active {
+      font-weight: 600;
+    }
+  }
 }
+
+.su-main-nav__item-lv1--parent {
+
+  &:hover,
+  &:active,
+  &:focus,
+  &:focus-within,
+  &[aria-expanded="true"] {
+
+    > .su-main-nav__menu-lv2 {
+      visibility: visible;
+      display: flex;
+    }
+
+    .su-main-nav__item-lv2--current {
+      a {
+        font-weight: 600;
+
+        &::before {
+          visibility: visible;
+          transform: scaleY(1);
+          background-color: $color-bright-red;
+        }
+
+        &:hover {
+          &::before {
+            left: 5px;
+          }
+        }
+
+      }
+    }
+  }
+
+  > a {
+    &::after {
+      background: url("#{$image-path}/plus-white.png") no-repeat 0 0;
+      background-size: 100%;
+      content: "";
+      display: inline-block;
+      position: absolute;
+      right: 1em;
+      top: 1em;
+      height: .9em;
+      width: .9em;
+    }
+
+    @media #{$breakpoint-lg} {
+      &::after {
+        @include margin (null null 1px 6px);
+        background: url("#{$image-path}/caret-down-black.png") no-repeat 0 0;
+        background-size: 100%;
+        position: relative;
+        right: unset;
+        top: unset;
+        height: .5em;
+        width: .5em;
+        transition: all .3s ease-out;
+      }
+
+      &:hover {
+        &::after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
+
