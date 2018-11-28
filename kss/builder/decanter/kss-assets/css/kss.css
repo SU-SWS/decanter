@@ -990,12 +990,13 @@ body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
 body {
   padding: 0;
   margin: 0;
-  display: -ms-grid;
-  display: grid;
   height: 100vh;
-  z-index: 9999; }
-  body > footer {
-    align-self: flex-end; }
+  min-height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column; }
+  body > .global-footer {
+    margin-top: auto; }
 
 #kss-node.kss-home .kss-main {
   width: 100%;
