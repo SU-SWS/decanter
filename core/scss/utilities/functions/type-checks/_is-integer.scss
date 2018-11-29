@@ -1,0 +1,13 @@
+@charset 'UTF-8';
+
+// is-integer($value)
+//
+// Validates wether something is an integer
+//
+// $value - the value to type check
+//
+// Style guide: functions.type-checks.is-integer
+//
+@function is-integer($value) {
+  @return is-number($value) and round($value) == $value;
+}

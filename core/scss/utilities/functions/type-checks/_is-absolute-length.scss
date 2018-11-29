@@ -1,0 +1,13 @@
+@charset 'UTF-8';
+
+// is-absolute-length($value)
+//
+// Validates wether something is an absolute unit.
+//
+// $value - the value to type check
+//
+// Style guide: functions.type-checks.is-absolute-length
+//
+@function is-absolute-length($value) {
+  @return is-number($value) and index('cm' 'mm' 'in' 'px' 'pt' 'pc', unit($value)) != null;
+}

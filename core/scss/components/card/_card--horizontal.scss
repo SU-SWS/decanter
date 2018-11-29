@@ -10,41 +10,45 @@
   // One column on smallest screen sizes.
   @include grid-media("xs") {
     @include grid-columns(100%);
+    @include grid-gap('xs');
   }
 
   // 33/66 for small.
   @include grid-media("sm") {
     @include grid-columns(1fr 2fr);
+    @include grid-gap('sm');
   }
 
   // 50/50 side by side on all screen sizes above small.
   @include grid-media("md") {
     @include grid-columns(1fr 1fr);
+    @include grid-gap('md');
   }
 
-  // Modular padding on images too.
-  > img {
+  // Modular padding.
+  > img,
+  .su-card__contents {
     @include grid-media('sm') {
-      margin: modular-spacing-get-value('sm') 0;
+      margin: modular-spacing-get-value('sm');
     }
 
     @include grid-media('md') {
-      margin: modular-spacing-get-value('md') 0;
+      margin: modular-spacing-get-value('md');
     }
 
     @include grid-media('lg') {
-      margin: modular-spacing-get-value('lg') 0;
+      margin: modular-spacing-get-value('lg');
     }
 
     @include grid-media('xl') {
-      margin: modular-spacing-get-value('xl') 0;
+      margin: modular-spacing-get-value('xl');
     }
 
     @include grid-media('2xl') {
-      margin: modular-spacing-get-value('2xl') 0;
+      margin: modular-spacing-get-value('2xl');
     }
 
-    margin: modular-spacing-get-value('xs') 0;
+    margin: modular-spacing-get-value('xs');
 
   }
 

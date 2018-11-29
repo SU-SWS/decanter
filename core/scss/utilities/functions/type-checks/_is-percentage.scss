@@ -1,0 +1,13 @@
+@charset 'UTF-8';
+
+// is-percentage($value)
+//
+// Validates wether something is a percentage unit
+//
+// $value - the value to type check
+//
+// Style guide: functions.type-checks.is-percentage
+//
+@function is-percentage($value) {
+  @return is-number($value) and unit($value) == '%';
+}
