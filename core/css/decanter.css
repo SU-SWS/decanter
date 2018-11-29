@@ -2683,6 +2683,7 @@ button,
 .su-main-nav__menu-lv1 {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   background-color: #2e2d29;
   width: 100%; }
   @media only screen and (min-width: 1024px) {
@@ -2742,18 +2743,7 @@ button,
           color: #2e2d29; } }
 
 .su-main-nav__item-lv1 {
-  margin-bottom: 0;
-  /*
-  &:hover,
-  &:focus,
-  &:active,
-  &:focus-within {
-    > .su-main-nav__menu-lv2 {
-      visibility: visible;
-      display: flex;
-    }
-  }
-  */ }
+  margin-bottom: 0; }
   .su-main-nav__item-lv1 a {
     text-decoration: none;
     position: relative;
@@ -2834,8 +2824,9 @@ button,
     -webkit-transform: scaleY(1);
             transform: scaleY(1);
     background-color: #b1040e; }
-  .su-main-nav__item-lv1--current > a:hover::before {
-    left: 5px; }
+  .su-main-nav__item-lv1--current > a:hover::before, .su-main-nav__item-lv1--current > a:focus::before {
+    left: 5px;
+    background-color: #b1040e; }
 
 @media only screen and (min-width: 1024px) {
   .su-main-nav__item-lv1--current > a::before {
@@ -2844,7 +2835,7 @@ button,
     -webkit-transform: scaleY(0);
             transform: scaleY(0);
     background-color: #2e2d29; }
-  .su-main-nav__item-lv1--current > a:hover::before {
+  .su-main-nav__item-lv1--current > a:hover::before, .su-main-nav__item-lv1--current > a:focus::before {
     left: 0; } }
 
 .su-main-nav__menu-lv2 {
@@ -2868,18 +2859,18 @@ button,
   .su-main-nav__item-lv2 a:active {
     font-weight: 600; }
 
-.su-main-nav__item-lv1--parent:hover > .su-main-nav__menu-lv2, .su-main-nav__item-lv1--parent:active > .su-main-nav__menu-lv2, .su-main-nav__item-lv1--parent:focus > .su-main-nav__menu-lv2, .su-main-nav__item-lv1--parent:focus-within > .su-main-nav__menu-lv2, .su-main-nav__item-lv1--parent[aria-expanded="true"] > .su-main-nav__menu-lv2 {
+.su-main-nav__item-lv1--parent:focus > .su-main-nav__menu-lv2, .su-main-nav__item-lv1--parent[aria-expanded="true"] > .su-main-nav__menu-lv2 {
   visibility: visible;
   display: flex; }
 
-.su-main-nav__item-lv1--parent:hover .su-main-nav__item-lv2--current a, .su-main-nav__item-lv1--parent:active .su-main-nav__item-lv2--current a, .su-main-nav__item-lv1--parent:focus .su-main-nav__item-lv2--current a, .su-main-nav__item-lv1--parent:focus-within .su-main-nav__item-lv2--current a, .su-main-nav__item-lv1--parent[aria-expanded="true"] .su-main-nav__item-lv2--current a {
+.su-main-nav__item-lv1--parent:focus .su-main-nav__item-lv2--current a, .su-main-nav__item-lv1--parent[aria-expanded="true"] .su-main-nav__item-lv2--current a {
   font-weight: 600; }
-  .su-main-nav__item-lv1--parent:hover .su-main-nav__item-lv2--current a::before, .su-main-nav__item-lv1--parent:active .su-main-nav__item-lv2--current a::before, .su-main-nav__item-lv1--parent:focus .su-main-nav__item-lv2--current a::before, .su-main-nav__item-lv1--parent:focus-within .su-main-nav__item-lv2--current a::before, .su-main-nav__item-lv1--parent[aria-expanded="true"] .su-main-nav__item-lv2--current a::before {
+  .su-main-nav__item-lv1--parent:focus .su-main-nav__item-lv2--current a::before, .su-main-nav__item-lv1--parent[aria-expanded="true"] .su-main-nav__item-lv2--current a::before {
     visibility: visible;
     -webkit-transform: scaleY(1);
             transform: scaleY(1);
     background-color: #b1040e; }
-  .su-main-nav__item-lv1--parent:hover .su-main-nav__item-lv2--current a:hover::before, .su-main-nav__item-lv1--parent:active .su-main-nav__item-lv2--current a:hover::before, .su-main-nav__item-lv1--parent:focus .su-main-nav__item-lv2--current a:hover::before, .su-main-nav__item-lv1--parent:focus-within .su-main-nav__item-lv2--current a:hover::before, .su-main-nav__item-lv1--parent[aria-expanded="true"] .su-main-nav__item-lv2--current a:hover::before {
+  .su-main-nav__item-lv1--parent:focus .su-main-nav__item-lv2--current a:hover::before, .su-main-nav__item-lv1--parent:focus .su-main-nav__item-lv2--current a:focus::before, .su-main-nav__item-lv1--parent[aria-expanded="true"] .su-main-nav__item-lv2--current a:hover::before, .su-main-nav__item-lv1--parent[aria-expanded="true"] .su-main-nav__item-lv2--current a:focus::before {
     left: 5px; }
 
 .su-main-nav__item-lv1--parent > a::after {
@@ -2897,17 +2888,24 @@ button,
   .su-main-nav__item-lv1--parent > a::after {
     margin-bottom: 1px;
     margin-left: 6px;
-    background: url("../img/caret-down-black.png") no-repeat 0 0;
+    background: url("../img/caret-down-black.svg") no-repeat 0 0;
     background-size: 100%;
     position: relative;
     right: unset;
     top: unset;
     height: .5em;
     width: .5em;
-    transition: all .3s ease-out; }
-  .su-main-nav__item-lv1--parent > a:hover::after {
+    transition: all .3s ease-out; } }
+
+@media only screen and (min-width: 1024px) {
+  .su-main-nav__item-lv1--parent[aria-expanded="true"] > a::after {
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg); } }
+
+@media only screen and (min-width: 1024px) {
+  .su-main-nav__menu-lv3 {
+    visibility: hidden;
+    display: none; } }
 
 .su-main-nav--center ul {
   justify-content: center; }

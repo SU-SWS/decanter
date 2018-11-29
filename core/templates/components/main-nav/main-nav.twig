@@ -3,9 +3,9 @@
     <li class="su-main-nav__item-lv1">
       <a href="#">Home</a>
     </li>
-    <li aria-expanded="true" class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent su-main-nav__item-lv1--current">
+    <li aria-expanded="false" class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent su-main-nav__item-lv1--current">
       <a href="#">Admissions &amp; Aid</a>
-      <ul class="su-main-nav__menu-lv2" role="menu" aria-label="submenu" aria-hidden="true">
+      <ul class="su-main-nav__menu-lv2" role="menu" aria-label="submenu">
         <li class="su-main-nav__item-lv2">
           <a href="#">Overview</a>
         </li>
@@ -23,8 +23,33 @@
     <li class="su-main-nav__item-lv1">
       <a href="#">Students &amp; Academics</a>
     </li>
-    <li class="su-main-nav__item-lv1">
-      <a href="#">Faculty &amp; Research</a>
+    <li aria-expanded="false" class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent">
+      <a href="#">Research</a>
+      <ul class="su-main-nav__menu-lv2" role="menu" aria-label="submenu">
+        <li class="su-main-nav__item-lv2">
+          <a href="#">Overview</a>
+        </li>
+        <li class="su-main-nav__item-lv2">
+          <a href="#">Arts</a>
+        </li>
+        <li class="su-main-nav__item-lv2 su-main-nav__item-lv2--current">
+          <a href="#">Humanities</a>
+        </li>
+        <li aria-expanded="false" class="su-main-nav__item-lv2 su-main-nav__item-lv2--parent">
+          <a href="https://stanford.edu">Science</a>
+          <ul class="su-main-nav__menu-lv3" role="menu" aria-label="submenu">
+            <li class="su-main-nav__item-lv3">
+              <a href="#">Astronomy</a>
+            </li>
+            <li class="su-main-nav__item-lv3">
+              <a href="#">Biology</a>
+            </li>
+            <li class="su-main-nav__item-lv3 su-main-nav__item-lv3--current">
+              <a href="#">Physics</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
     </li>
     <li class="su-main-nav__item-lv1">
       <a href="#">Get Involved</a>
@@ -34,3 +59,29 @@
     </li>
   </ul>
 </nav>
+<script>
+  var parents = document.querySelectorAll("li.su-main-nav__item-lv1--parent");
+
+  for(let j=0; j<parents.length; j++){
+    parents[j].addEventListener("click", function(e){
+      if( parents[j].getAttribute('aria-expanded') === 'false') {
+        parents[j].setAttribute('aria-expanded', 'true');
+      } else {
+        parents[j].setAttribute('aria-expanded', 'false');
+      }
+      e.preventDefault();
+    });
+  }
+
+  // Close opened drop down menus when click elsewhere
+  document.addEventListener('click', function(ev) {
+    var ev = ev ? ev : window.event;
+    var event_element = ev.target ? ev.target : ev.srcElement;
+    if (!event_element.closest("li.su-main-nav__item-lv1--parent")) {
+      for(let i=0; i<parents.length; i++) {
+        parents[i].setAttribute('aria-expanded', 'false');
+      }
+    }
+  }, false);
+
+</script>

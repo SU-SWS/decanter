@@ -31,6 +31,7 @@
 .su-main-nav__menu-lv1 {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   background-color: $color-black;
   width: 100%;
 
@@ -121,21 +122,8 @@
 
     }
   }
-/*
-  &:hover,
-  &:focus,
-  &:active,
-  &:focus-within {
-    > .su-main-nav__menu-lv2 {
-      visibility: visible;
-      display: flex;
-    }
-  }
-  */
 
 }
-
-
 
 .su-main-nav__item-lv1--current {
   > a {
@@ -147,9 +135,11 @@
       background-color: $color-bright-red;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       &::before {
         left: 5px;
+        background-color: $color-bright-red;
       }
     }
   }
@@ -162,7 +152,8 @@
         background-color: $color-black;
       }
 
-      &:hover {
+      &:hover,
+      &:focus {
         &::before {
           left: 0;
         }
@@ -204,10 +195,10 @@
 
 .su-main-nav__item-lv1--parent {
 
-  &:hover,
-  &:active,
+  //&:hover,
+  //&:active,
   &:focus,
-  &:focus-within,
+  //&:focus-within,
   &[aria-expanded="true"] {
 
     > .su-main-nav__menu-lv2 {
@@ -225,7 +216,8 @@
           background-color: $color-bright-red;
         }
 
-        &:hover {
+        &:hover,
+        &:focus {
           &::before {
             left: 5px;
           }
@@ -251,7 +243,7 @@
     @media #{$breakpoint-lg} {
       &::after {
         @include margin (null null 1px 6px);
-        background: url("#{$image-path}/caret-down-black.png") no-repeat 0 0;
+        background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
         background-size: 100%;
         position: relative;
         right: unset;
@@ -260,8 +252,12 @@
         width: .5em;
         transition: all .3s ease-out;
       }
+    }
+  }
 
-      &:hover {
+  @media #{$breakpoint-lg} {
+    &[aria-expanded="true"] {
+      > a {
         &::after {
           transform: rotate(180deg);
         }
@@ -270,3 +266,9 @@
   }
 }
 
+.su-main-nav__menu-lv3 {
+  @media #{$breakpoint-lg} {
+    visibility: hidden;
+    display: none;
+  }
+}
