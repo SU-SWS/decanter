@@ -21,6 +21,7 @@
 
   li {
     @include margin(null null 0);
+    cursor: pointer;
   }
 
   a {
@@ -229,13 +230,13 @@
 
   > a {
     &::after {
-      background: url("#{$image-path}/plus-white.png") no-repeat 0 0;
+      background: url("#{$image-path}/plus-white.svg") no-repeat 0 0;
       background-size: 100%;
       content: "";
       display: inline-block;
       position: absolute;
       right: 1em;
-      top: 1em;
+      top: 1.03em;
       height: .9em;
       width: .9em;
     }
@@ -255,10 +256,27 @@
     }
   }
 
-  @media #{$breakpoint-lg} {
-    &[aria-expanded="true"] {
-      > a {
-        &::after {
+  &[aria-expanded="true"] {
+    > a {
+      &::after {
+        background: url("#{$image-path}/minus-white.svg") no-repeat 0 0;
+        background-size: 100%;
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: 1em;
+        top: 1.03em;
+        height: .9em;
+        width: .9em;
+
+        @media #{$breakpoint-lg} {
+          background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
+          background-size: 100%;
+          position: relative;
+          right: unset;
+          top: unset;
+          height: .5em;
+          width: .5em;
           transform: rotate(180deg);
         }
       }
@@ -270,5 +288,12 @@
   @media #{$breakpoint-lg} {
     visibility: hidden;
     display: none;
+  }
+}
+
+.su-main-nav__item-lv3 {
+  > a {
+    @include padding(.6em .4em .6em 1em);
+    font-size: .8em;
   }
 }

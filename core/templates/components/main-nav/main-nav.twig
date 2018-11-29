@@ -60,16 +60,27 @@
   </ul>
 </nav>
 <script>
-  var parents = document.querySelectorAll("li.su-main-nav__item-lv1--parent");
+  NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEach;
+  var parents = document.querySelectorAll(".su-main-nav__item-lv1--parent");
+  var parentLinks = document.querySelectorAll(".su-main-nav__item-lv1--parent > a");
 
   for(let j=0; j<parents.length; j++){
-    parents[j].addEventListener("click", function(e){
+    parents[j].addEventListener('click', function(){
       if( parents[j].getAttribute('aria-expanded') === 'false') {
+        // Close all opened drop down menus
+        parents.forEach( (function(x){ x.setAttribute('aria-expanded', 'false');}) );
+        //parents.forEach( x=> x.setAttribute('aria-expanded', 'false')); ES6
+
+        // Expand drop down menu that was clicked
         parents[j].setAttribute('aria-expanded', 'true');
       } else {
         parents[j].setAttribute('aria-expanded', 'false');
       }
-      e.preventDefault();
+    }, false);
+
+    // Make parent links inactive and act as drop down toggles
+    parentLinks[j].addEventListener('click', function(event){
+      event.preventDefault();
     });
   }
 
@@ -77,11 +88,10 @@
   document.addEventListener('click', function(ev) {
     var ev = ev ? ev : window.event;
     var event_element = ev.target ? ev.target : ev.srcElement;
-    if (!event_element.closest("li.su-main-nav__item-lv1--parent")) {
+    if (!event_element.closest('.su-main-nav__item-lv1--parent')) {
       for(let i=0; i<parents.length; i++) {
         parents[i].setAttribute('aria-expanded', 'false');
       }
     }
   }, false);
-
 </script>

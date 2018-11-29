@@ -2676,7 +2676,8 @@ button,
     margin-bottom: 0;
     list-style: none; }
   .su-main-nav li {
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    cursor: pointer; }
   .su-main-nav a {
     text-decoration: none; }
 
@@ -2874,13 +2875,13 @@ button,
     left: 5px; }
 
 .su-main-nav__item-lv1--parent > a::after {
-  background: url("../img/plus-white.png") no-repeat 0 0;
+  background: url("../img/plus-white.svg") no-repeat 0 0;
   background-size: 100%;
   content: "";
   display: inline-block;
   position: absolute;
   right: 1em;
-  top: 1em;
+  top: 1.03em;
   height: .9em;
   width: .9em; }
 
@@ -2897,15 +2898,36 @@ button,
     width: .5em;
     transition: all .3s ease-out; } }
 
-@media only screen and (min-width: 1024px) {
-  .su-main-nav__item-lv1--parent[aria-expanded="true"] > a::after {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg); } }
+.su-main-nav__item-lv1--parent[aria-expanded="true"] > a::after {
+  background: url("../img/minus-white.svg") no-repeat 0 0;
+  background-size: 100%;
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: 1em;
+  top: 1.03em;
+  height: .9em;
+  width: .9em; }
+  @media only screen and (min-width: 1024px) {
+    .su-main-nav__item-lv1--parent[aria-expanded="true"] > a::after {
+      background: url("../img/caret-down-black.svg") no-repeat 0 0;
+      background-size: 100%;
+      position: relative;
+      right: unset;
+      top: unset;
+      height: .5em;
+      width: .5em;
+      -webkit-transform: rotate(180deg);
+              transform: rotate(180deg); } }
 
 @media only screen and (min-width: 1024px) {
   .su-main-nav__menu-lv3 {
     visibility: hidden;
     display: none; } }
+
+.su-main-nav__item-lv3 > a {
+  padding: 0.6em 0.4em 0.6em 1em;
+  font-size: .8em; }
 
 .su-main-nav--center ul {
   justify-content: center; }
