@@ -368,14 +368,11 @@ template {
     --media-query: '2xl'; } }
 
 #kss-node {
-  padding-top: 40px; }
+  padding-top: 20px !important; }
   #kss-node > .su-brand-bar {
     position: fixed;
     top: 0;
     z-index: 9999; }
-    @media screen and (max-width: 769px) {
-      #kss-node > .su-brand-bar {
-        margin-left: -20px; } }
 
 .kss-style {
   color: #3D3D3D;
@@ -476,6 +473,9 @@ template {
     .kss-style h2, .kss-style h3 {
       page-break-after: avoid; } }
 
+body > div {
+  position: relative; }
+
 #kss-node {
   margin: 0;
   padding: 20px;
@@ -504,7 +504,9 @@ template {
     border-bottom: 1px solid #ddd; }
     @media screen and (min-width: 769px) {
       #kss-node .kss-sidebar {
-        position: fixed;
+        position: absolute;
+        top: 0px;
+        left: 0px;
         width: 20%;
         height: 100%;
         overflow: auto;
@@ -987,6 +989,17 @@ body#kss-node.kss-fullscreen-mode .kss-section.is-fullscreen {
 .kss-color .kss-parameters__name,
 .kss-color code {
   display: none; }
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  min-height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column; }
+  body > .global-footer {
+    margin-top: auto; }
 
 #kss-node.kss-home .kss-main {
   width: 100%;

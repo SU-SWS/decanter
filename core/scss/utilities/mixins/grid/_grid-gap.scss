@@ -11,13 +11,12 @@
 //
 @mixin grid-gap($gap: $gutter-xs) {
 
-  $val: is-length($gap);
-  @debug $val;
-
   // If the caller passes in a breakpoint shortcode eg: xs, sm, md, etc
   // return back the appropriate gap from the global map.
-  @if map-has-key($grid-gutters, $gap) {
-    $gap: map-get($grid-gutters, $gap);
+  @if is-length($gap) == false {
+    @if map-has-key($grid-gutters, $gap) {
+      $gap: map-get($grid-gutters, $gap);
+    }
   }
 
   @include grid-column-gap($gap);
