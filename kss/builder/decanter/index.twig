@@ -12,16 +12,17 @@
   {{ styles|raw }}
 </head>
 <body id="kss-node" class="{% if template.isItem %}kss-fullscreen-mode{% endif %}{% if template.isHomepage %} kss-home{% endif %}">
-{% include "@decanter/components/brand-bar/brand-bar.twig" with
+
+{%
+  include "@decanter/components/brand-bar/brand-bar.twig" with
   {
     "modifier_class": "su-brand-bar--bright",
-    }
-    only
-    %}
+  }
+  only
+%}
 
-
-  {% if not template.isHomepage %}
-
+<div class="main-page-layout">
+{% if not template.isHomepage %}
   <div class="kss-sidebar kss-style">
     <header class="kss-header">
       <h1 class="kss-doc-title">{{ options.title }}</h1>
@@ -30,22 +31,23 @@
       <ul class="kss-nav__menu">
         <li class="kss-nav__menu-item">
           <a class="kss-nav__menu-link" href="./">
-            <span class="kss-nav__ref">0</span
-            ><span class="kss-nav__name">Overview</span>
+            <span class="kss-nav__ref">0</span>
+            <span class="kss-nav__name">Overview</span>
           </a>
         </li>
       {% for menu_item in menu %}
         <li class="kss-nav__menu-item">
           <a class="kss-nav__menu-link" href="section-{{ menu_item.referenceURI }}.html">
-            <span class="kss-nav__ref">{{ menu_item.referenceNumber }}</span><span class="kss-nav__name">{{ menu_item.header }}</span>
+            <span class="kss-nav__ref">{{ menu_item.referenceNumber }}</span>
+            <span class="kss-nav__name">{{ menu_item.header }}</span>
           </a>
           {% if menu_item.isActive and menu_item.children is not empty %}
             <ul class="kss-nav__menu-child">
             {% for menu_child in menu_item.children %}
               <li class="kss-nav__menu-item">
                 <a class="kss-nav__menu-link" href="section-{{ menu_item.referenceURI }}.html#kssref-{{ menu_child.referenceURI }}">
-                  <span class="kss-nav__ref {% if menu_child.isGrandChild %}kss-nav__ref-child{% endif %}">{{ menu_child.referenceNumber }}</span
-                  ><span class="kss-nav__name">{{ menu_child.header }}</span>
+                  <span class="kss-nav__ref {% if menu_child.isGrandChild %}kss-nav__ref-child{% endif %}">{{ menu_child.referenceNumber }}</span>
+                  <span class="kss-nav__name">{{ menu_child.header }}</span>
                 </a>
               </li>
             {% endfor %}
@@ -56,8 +58,7 @@
       </ul>
     </nav>
   </div>
-
-  {% endif %}
+{% endif %}
 
   <article role="main" class="kss-main">
   {% if template.isHomepage %}
@@ -226,7 +227,8 @@
     </{{ sectionElement }}>
   {% endfor %}
 {% endif %}
-</article>
+  </article>
+</div>
 
 <!-- SCRIPTS -->
 <script src="kss-assets/js/jquery.js"></script>
