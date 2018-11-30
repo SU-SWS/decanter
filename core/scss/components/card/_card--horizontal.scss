@@ -40,27 +40,7 @@
   // Modular padding.
   > img,
   .su-card__contents {
-    @include grid-media('sm') {
-      margin: modular-spacing-get-value('sm');
-    }
-
-    @include grid-media('md') {
-      margin: modular-spacing-get-value('md');
-    }
-
-    @include grid-media('lg') {
-      margin: modular-spacing-get-value('lg');
-    }
-
-    @include grid-media('xl') {
-      margin: modular-spacing-get-value('xl');
-    }
-
-    @include grid-media('2xl') {
-      margin: modular-spacing-get-value('2xl');
-    }
-
-    margin: 0;
+    @include modular-margin();
   }
 
   .su-card__contents {

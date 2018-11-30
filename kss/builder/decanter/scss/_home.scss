@@ -69,10 +69,13 @@
     background: $color-white;
 
     .su-card {
+      @include centered-column;
       box-shadow: none;
       border: 0;
       > img {
         display: block;
+        margin-left: 0;
+        margin-right: 0;
       }
     }
 
@@ -87,10 +90,12 @@
     background: $color-light-sandstone;
 
     h2 {
+      @include centered-column;
       text-align: center;
     }
 
     .cards-container {
+      @include centered-column;
       @include responsive-grid-columns($responsive-columns-default);
     }
 
@@ -109,6 +114,13 @@
           text-align: center;
         }
       }
+
+      @include grid-media('xl') {
+        .su-card__contents {
+          text-align: center;
+        }
+      }
+
     }
   }
 
