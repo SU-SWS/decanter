@@ -36,7 +36,7 @@
   background-color: $color-black;
   width: 100%;
 
-  @media #{$breakpoint-lg} {
+  @include grid-media('lg') {
     @include padding(null null null 0);
     flex-direction: row;
     background-color: transparent;
@@ -95,7 +95,7 @@
 
   }
 
-  @media #{$breakpoint-lg} {
+  @include grid-media('lg') {
     &:first-child {
       a {
         @include margin(null null null 0);
@@ -145,7 +145,7 @@
     }
   }
 
-  @media #{$breakpoint-lg} {
+  @include grid-media('lg') {
     > a {
       &::before {
         transform: scaleX(1) !important;
@@ -170,7 +170,7 @@
   visibility: hidden;
   display: none;
 
-  @media #{$breakpoint-lg} {
+  @include grid-media('lg') {
     position: absolute;
     width: 18.75em;
     z-index: 1000;
@@ -238,7 +238,7 @@
       height: .9em;
       width: .9em;
 
-      @media #{$breakpoint-lg} {
+      @include grid-media('lg') {
         @include margin (null null 1px 6px);
         background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
         background-size: 100%;
@@ -264,7 +264,7 @@
         height: .9em;
         width: .9em;
 
-        @media #{$breakpoint-lg} {
+        @include grid-media('lg') {
           background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
           background-size: 100%;
           position: relative;
@@ -281,7 +281,7 @@
 
 .su-main-nav__menu-lv3 {
 
-  @media #{$breakpoint-lg} {
+  @include grid-media('lg') {
     visibility: hidden;
     display: none;
   }

@@ -62,16 +62,13 @@
 <script>
   NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEach;
   var parents = document.querySelectorAll(".su-main-nav__item-lv1--parent");
-  //var parentsLv2 = document.querySelectorAll(".su-main-nav__item-lv2--parent");
   var parentLinks = document.querySelectorAll(".su-main-nav__item-lv1--parent > a");
-  //var parentLinksLv2 = document.querySelectorAll(".su-main-nav__item-lv2--parent > a");
 
   for(let j=0; j<parents.length; j++){
     parents[j].addEventListener('click', function(){
       if( parents[j].getAttribute('aria-expanded') === 'false') {
         // Close all opened drop down menus
         parents.forEach( (function(x){ x.setAttribute('aria-expanded', 'false');}) );
-        //parents.forEach( x=> x.setAttribute('aria-expanded', 'false')); ES6
 
         // Expand drop down menu that was clicked
         parents[j].setAttribute('aria-expanded', 'true');
@@ -85,23 +82,6 @@
       event.preventDefault();
     });
   }
-
-  /*
-  for(let k=0; k<parentsLv2.length; k++){
-    parentsLv2[k].addEventListener('click', function(){
-      if( parentsLv2[k].getAttribute('aria-expanded') === 'false') {
-        parentsLv2[k].setAttribute('aria-expanded', 'true');
-      } else {
-        parentsLv2[k].setAttribute('aria-expanded', 'false');
-      }
-    }, false);
-
-    // Make parent links inactive and act as drop down toggles
-    parentLinksLv2[k].addEventListener('click', function(event){
-      event.preventDefault();
-    });
-  }
-  */
 
   // Close opened drop down menus when click elsewhere
   document.addEventListener('click', function(ev) {
