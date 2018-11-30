@@ -11,7 +11,11 @@
 // Returns "md"
 //
 // Style guide: Functions.Flex.breakpoint-next
-@function breakpoint-next($name, $breakpoint-names: map-keys($breakpoints)) {
-  $n: index($breakpoint-names, $name);
-  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+@function breakpoint-next($name, $breakpoints: map-keys($grid-screens)) {
+  $n: index($breakpoints, $name);
+  @if is-integer($n) {
+    @return if($n < length($breakpoints), nth($breakpoints, $n + 1), null);
+  } @else {
+    @error "Could not find breakpoint shortcode in breakpoint-next mixin";
+  }
 }

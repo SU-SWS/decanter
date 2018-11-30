@@ -1,35 +1,46 @@
 @charset 'UTF-8';
 
-.kss-doc-title {
-  display: none;
+.kss-sidebar {
+  position: relative;
+  overflow: hidden;
+  background: $color-fog;
+}
+
+.scrollable {
+  width: 100%;
+  @include grid-media('md') {
+    @include padding(null null 160px);
+    height: 100vh;
+    position: absolute;
+    top: 0px;
+    overflow-y: scroll;
+  }
 }
 
 .kss-nav__menu {
   margin-top: ($kss-vertical-rhythm/2);
   margin-bottom: ($kss-vertical-rhythm/2);
-  padding: 10px;
+  padding: 10px 30px 10px 31px;
   list-style-type: none;
 }
 
 .kss-nav__menu-item {
   display: inline-block;
-  padding-right: $kss-vertical-rhythm;
-
-  @media screen and (min-width: 769px) {
+  @include grid-media('md') {
     display: list-item;
-    padding-right: 0;
   }
 }
 
 .kss-nav__menu-link {
   position: relative;
   display: inline-block;
+  font-weight: bold;
 
   &:before {
-    @media screen and (min-width: 769px) {
+    @include grid-media('md') {
       content: ' ';
       position: absolute;
-      left: -10px;
+      left: -31px;
       width: 0;
       height: 100%;
       background-color: rgba(#000, 0);
@@ -43,11 +54,18 @@
   }
 }
 
-
 .kss-nav__menu-child {
   display: none;
 
-  @media screen and (min-width: 769px) {
+  .kss-nav__menu-item {
+    margin-bottom: 6px;
+  }
+
+  .kss-nav__menu-link {
+    font-weight: normal;
+  }
+
+  @include grid-media('md') {
     display: block;
     list-style-type: none;
     margin: 0;
@@ -56,27 +74,35 @@
     // @TODO: The ul is output even when there are no children. Fix this, so
     // we can put these :first-child and :last child styles back on the ul.
     li:first-child {
-      margin-top: 10px;
-      border-top: 1px solid #ccc;
-      padding: 10px 0 0;
+      margin-top: 20px;
+      border-top: 2px solid #ccc;
+      padding: 20px 0 0;
     }
 
     li:last-child {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       border-bottom: 1px solid #ccc;
-      padding: 0 0 10px;
+      padding: 0 0 20px;
     }
   }
 }
 
 .kss-nav__ref {
-  color: #333;
+  color: $color-black;
   font-weight: bold;
 
   &:after {
     content: ' ';
   }
 }
+
 .kss-nav__ref-child {
   font-weight: normal;
+}
+
+.kss-nav__menu-child {
+  .kss-nav__ref {
+    font-weight: normal;
+    color: lighten($color-black, 15%);
+  }
 }

@@ -14,6 +14,7 @@
 //
 // Style guide: Functions.Flex.beakpoint-max
 @function breakpoint-max($name, $breakpoints: $grid-screens) {
-  $next: breakpoint-next($name, $breakpoints);
+  $next: breakpoint-next($name, map-keys($breakpoints));
+  @debug $next;
   @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
 }

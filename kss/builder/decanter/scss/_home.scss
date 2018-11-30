@@ -1,17 +1,16 @@
 @charset 'UTF-8';
 
 #kss-node.kss-home .kss-main {
-  width: 100%;
-
   @include margin(30px 0 0 0);
   @include padding(0);
+  width: 100%;
 }
 
 #kss-node.kss-home {
   background: $color-black;
 
   .kss-section {
-      @include margin(null null 0);
+    @include margin(null null 0);
   }
 
   p {
@@ -24,69 +23,7 @@
 
   h2 {
     @include modular-typography(3);
-
     font-weight: $font-x-bold;
-  }
-
-  // The logo and the nav wrapper.
-  header {
-    @include box-shadow("shallow", "0");
-    @include centered-grid-container;
-    @include padding(15px null null null);
-
-    div {
-      @include display-grid;
-      @include grid-columns(1fr 11fr);
-      align-items: center;
-
-      @media #{$breakpoint-xs} {
-        @include grid-columns(1fr);
-        @include grid-rows(auto auto);
-      }
-    }
-
-    h1 {
-      @include modular-typography(2);
-      color: $color-white;
-      font-weight: $font-x-bold;
-    }
-  }
-
-  // Main navigation.
-  .main-nav {
-    @include margin(0);
-    @include padding(0);
-    text-align: center;
-
-    @media #{$breakpoint-sm} {
-      text-align: right;
-    }
-
-
-    li {
-      @include padding(0);
-      display: inline-block;
-
-      a {
-        @include margin(null 20px null null);
-        @include padding(5px);
-        display: inline-block;
-        color: darken($color-white, 30%);
-        font-family: $font-sans;
-        font-size: em(16px);
-        border-bottom: solid 3px $color-black;
-      }
-
-      &:first-child > a,
-      a:hover {
-        color: $color-white;
-        border-bottom: solid 3px $color-white;
-      }
-
-      &:last-child > a {
-        @include margin(0);
-      }
-    }
   }
 
   // --------------------------------
@@ -94,7 +31,10 @@
   // --------------------------------
 
   .section {
-    @include padding(60px);
+    @include padding(20px);
+    @include grid-media('md') {
+      @include padding(60px);
+    }
   }
 
   // Welcome Section.
@@ -109,7 +49,7 @@
     p {
       color: $color-white;
 
-      @media #{$breakpoint-sm} {
+      @include grid-media('sm') {
         max-width: 65%;
       }
     }
@@ -126,89 +66,48 @@
 
   // UI Components Section.
   .section--ui-components {
-    @include centered-grid-container;
-
     background: $color-white;
 
     .su-card {
       box-shadow: none;
       border: 0;
+      > img {
+        display: block;
+      }
     }
 
     p {
       max-width: 55%;
     }
+
   }
 
   // Developer Resources Section
   .section--dev-resources {
-    @include centered-grid-container;
-    @include display-grid;
-    @include grid-column-gap;
-    @include grid-columns(1fr);
-
-    @include grid-media("sm") {
-      $width: $screen-sm / 2 - $gutter-sm;
-
-      @include grid-columns(auto $width $width auto);
-    }
-
-    @include grid-media("md") {
-      $width: $screen-md / 2 - $gutter-md;
-
-      @include grid-columns(auto $width $width auto);
-    }
-
-    @include grid-media("lg") {
-      $width: $screen-lg / 4 - $gutter-lg;
-
-      @include grid-columns(auto $width $width auto);
-    }
-
-    @include grid-media("xl") {
-      $width: $screen-xl / 4 - $gutter-xl;
-
-      @include grid-columns(auto $width $width auto);
-    }
-
     background: $color-light-sandstone;
 
-    h2:first-child {
-      @include grid-media("xs") {
-        @include grid-item-spans(1, span 1);
-        text-align: center;
-      }
+    h2 {
+      text-align: center;
+    }
 
-      @include grid-media("sm") {
-        @include grid-item-spans(2, span 2);
-        text-align: center;
-      }
+    .cards-container {
+      @include responsive-grid-columns($responsive-columns-default);
     }
 
     .su-card {
-      @media #{$breakpoint-sm} {
-        grid-row-start: row2-start;
-        grid-column-start: 2;
-      }
-
       border: 0;
       box-shadow: none;
 
       img {
         max-width: 100px;
         margin: $gutter-md auto;
+        display: block;
       }
 
       h3 {
-        @media #{$breakpoint-sm} {
+        @include grid-media('sm') {
           text-align: center;
         }
-      }
-    }
-
-    .card-2 {
-      @media #{$breakpoint-sm} {
-        grid-column-start: 3;
       }
     }
   }
@@ -223,12 +122,7 @@
     }
 
     ul {
-      @include display-grid;
-      @include grid-media("lg") {
-        @include grid-columns(1fr 1fr 1fr);
-        padding-left: 200px;
-        padding-right: 200px;
-      };
+      @include responsive-grid-columns($responsive-columns-three);
     }
 
     li {
@@ -243,6 +137,11 @@
       &:hover {
         color: $color-white;
       }
+
+      &::after {
+        text-decoration-color: $color-mint;
+      }
+
     }
   }
 }

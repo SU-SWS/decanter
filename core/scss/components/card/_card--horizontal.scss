@@ -60,8 +60,15 @@
       margin: modular-spacing-get-value('2xl');
     }
 
-    margin: modular-spacing-get-value('xs');
+    margin: 0;
+  }
 
+  .su-card__contents {
+    > h2 {
+      @include grid-media-max('sm') {
+        margin-top: 0;
+      }
+    }
   }
 
 }
