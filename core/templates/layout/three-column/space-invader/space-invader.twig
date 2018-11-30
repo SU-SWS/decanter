@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Template for a complex column panel layout.
+ *
+ * This template provides a complex column panel display layout, with
+ * each column roughly equal in width.
+ *
+ * Variables:
+ * -
+ * -
+ *
+ *
+ *
+ */
+#}
+<div{{ attributes }} class="layout layout-space-invader {{ modifier_class }}">
+  <div>
+
+    {% if header is not empty %}
+    <header>
+      {{ header }}
+    </header>
+    {% endif %}
+
+    <div>
+      {{ first }}
+    </div>
+
+    <div>
+      {{ second }}
+    </div>
+
+    <div>
+      {{ third }}
+    </div>
+
+  </div>
+</div>

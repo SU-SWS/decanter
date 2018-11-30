@@ -9,19 +9,23 @@
 //
 @mixin modular-margin {
 
-  @media #{$breakpoint-xl} {
+  @include grid-media('2xl') {
+    margin: map-get($modular-spacing, '2xl');
+  }
+
+  @include grid-media('xl') {
     margin: map-get($modular-spacing, 'xl');
   }
 
-  @media #{$breakpoint-lg} {
+  @include grid-media('lg') {
     margin: map-get($modular-spacing, 'lg');
   }
 
-  @media #{$breakpoint-md} {
+  @include grid-media('md') {
     margin: map-get($modular-spacing, 'md');
   }
 
-  @media #{$breakpoint-sm} {
+  @include grid-media('sm') {
     margin: map-get($modular-spacing, 'sm');
   }
 

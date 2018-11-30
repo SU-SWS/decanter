@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+//
+// @cta-button
+//
+// CTA with an image and a button
+//
+// Style guide: Mixins.CTA.cta-button
+//
+@mixin cta-button {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  line-height: 0;
+
+  &:hover {
+    .su-cta__img {
+      transform: scale(1.02, 1.02);
+    }
+
+    .su-cta__button {
+      background-color: $color-black;
+      text-decoration: none;
+    }
+  }
+
+  .su-cta__img {
+    width: 100%;
+    z-index: 0;
+    transition: all .3s ease-out;
+  }
+
+  .su-cta__button {
+    @include button-big;
+
+    margin: 0;
+
+    @include grid-media('xs') {
+      width: 100%;
+      z-index: 100;
+    }
+  }
+
+  .su-cta__icon {
+    display: none;
+  }
+}

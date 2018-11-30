@@ -1,0 +1,60 @@
+{#
+/**
+ * @file
+ * Template for a complex column panel layout.
+ *
+ * This template provides a complex column panel display layout, with
+ * each column roughly equal in width.
+ *
+ * Variables:
+ * - attributes
+ * - modifier_class
+ * - hero
+ * - first
+ * - second
+ * - hero2
+ * - third
+ * - fourth
+ */
+#}
+<div{{ attributes}} class="layout layout-bricks {{ modifier_class }}">
+
+  {# Full width region #}
+  {% if hero is not empty %}
+  <section class="layout__hero">
+    {{ hero }}
+  </section>
+  {% endif %}
+
+  {# Required two equal column centered content area. #}
+  <section class="layout__columns">
+    <div>
+      {{ first }}
+    </div>
+
+    <div>
+      {{ second}}
+    </div>
+  </section>
+
+  {# Full width region #}
+  {% if hero2 is not empty %}
+  <section class="layout__hero2">
+    {{ hero2 }}
+  </section>
+  {% endif %}
+
+  {# Optional two equal column centered content area. #}
+  {% if third is not empty %}
+  <section class="layout__columns">
+    <div>
+      {{ third }}
+    </div>
+
+    <div>
+      {{ fourth }}
+    </div>
+  </section>
+  {% endif %}
+
+</div>

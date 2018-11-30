@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+// Right side variant.
+.layout-pacman--right {
+
+  > div {
+
+    aside {
+      @include grid-media('sm') {
+        @include grid-item-spans(3, span 1);
+      }
+    }
+
+    section {
+      @include grid-media('sm') {
+        @include grid-item-spans(1, span 2);
+      }
+    }
+
+  }
+
+}

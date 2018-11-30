@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+// Right sidebar variant of Trunks.
+.layout-wedge--right {
+  > section {
+    div {
+      &:first-child {
+        @include grid-media('sm') {
+          @include grid-item-spans(3, span 1);
+        }
+
+        @include grid-media('md') {
+          @include grid-item-spans(4, span 1);
+        }
+      }
+
+      &:nth-child(2) {
+        @include grid-media('sm') {
+          @include grid-item-spans(1, span 2);
+        }
+
+        @include grid-media('md') {
+          @include grid-item-spans(1, span 3);
+        }
+      }
+    }
+  }
+}

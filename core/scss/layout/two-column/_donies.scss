@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+//
+// Donies
+//
+// A two column centered 50/50 template with header and footer.
+//
+// Markup: ../../../../../templates/layout/two-column/donies/donies.twig
+//
+// Style guide: Layout.2Column.Donies
+//
+.layout-donies {
+
+  > section,
+  > header,
+  > footer {
+    @include centered-column;
+  }
+
+  > section {
+    @include responsive-grid-columns($responsive-columns-two);
+  }
+
+}

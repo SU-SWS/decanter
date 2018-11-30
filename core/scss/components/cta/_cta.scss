@@ -13,10 +13,9 @@
 //
 // Style guide: Components.CTA
 //
-
 .su-cta--button-bottom,
 .su-cta {
-  @include cta--button;
+  @include cta-button;
 }
 
 .su-cta--button-bottom-icon {
@@ -46,7 +45,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
-    @media #{$breakpoint-xs} {
+    @include grid-media('xs') {
       width: auto;
     }
   }

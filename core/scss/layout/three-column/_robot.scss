@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+//
+// Robot
+//
+// A complext three column layout.
+//
+// Markup: ../../../../../templates/layout/three-column/robot/robot.twig
+//
+// Style guide: Layout.3Column.Robot
+//
+.layout-robot {
+  > div {
+    @include centered-column;
+    @include responsive-grid-gap;
+
+    // Enable grid after sm sizes.
+    @include grid-media('sm') {
+      @include display-grid;
+      @include grid-columns(1fr 1fr 1fr 1fr);
+    }
+
+    > header {
+      @include grid-item-spans(1, span 4);
+    }
+
+    > div:nth-of-type(2) {
+      @include grid-item-spans(2, span 2);
+    }
+
+  }
+}

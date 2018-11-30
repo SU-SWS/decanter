@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+// Right side variant.
+.layout-cuttoner--right {
+
+  > div {
+    > section {
+      @include grid-media('sm') {
+        @include grid-item-spans(2, span 2);
+      }
+    }
+
+    > aside {
+      @include grid-media('sm') {
+        @include grid-item-spans(1, span 1, 1, span 1);
+      }
+    }
+  }
+
+}

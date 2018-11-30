@@ -1,0 +1,99 @@
+.kss-toolbar {
+  margin: 6px 0 24px;
+  display: inline-block;
+  border: 1px solid #eee;
+  background-color: #f9f9f9;
+  border-right-color: #e0e0e0;
+  border-bottom-color: #e0e0e0;
+  line-height: 1;
+  padding: 3px;
+
+  a {
+    box-sizing: content-box;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    padding: 3px;
+    vertical-align: top;
+    // Tooltip wrapper styles:
+    position: relative;
+    overflow: visible;
+
+    + a {
+      margin-left: 6px;
+    }
+
+    .kss-toolbar__icon-fill {
+      fill: #ccc;
+    }
+
+    svg.on {
+      display: none;
+    }
+
+    &:focus,
+    &:hover {
+      border-color: #000;
+
+      .kss-toolbar__icon-fill {
+        fill: #000;
+      }
+    }
+  }
+}
+
+.kss-toolbar__tooltip {
+  position: absolute;
+  z-index: 1;
+  display: inline-block;
+  bottom: 100%;
+  left: -10px;
+  margin-bottom: 5px;
+  border: solid 1px #666;
+  padding: 8px 10px 6px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+  white-space: nowrap;
+  color: #000;
+  background: #fff;
+  cursor: help;
+  opacity: 0;
+  transition: opacity 0.25s;
+  // Visually hidden
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  word-wrap: normal;
+
+  // Solid grey triangle.
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 15px;
+    width: 0;
+    height: 0;
+    border-width: 7px 5px 0;
+    border-color: #666 transparent;
+    border-style: solid;
+  }
+
+  // White triangle knock-out.
+  &:after {
+    bottom: -6px;
+    border-top-color: #fff;
+  }
+}
+
+a:focus,
+a:hover {
+  > .kss-toolbar__tooltip {
+    opacity: 1;
+    // Visually hidden off
+    clip: auto;
+    height: auto;
+    width: auto;
+    overflow: visible;
+  }
+}

@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+//
+// @grid-columns($columns)
+//
+// Mixin to render cssGrid template columns in all modern browsers, including IE11.
+//
+// $columns - list: A value for grid-template-columns.
+//
+// Style guide: Mixins.Grid.grid-columns
+//
+@mixin grid-columns($columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr) {
+  -ms-grid-columns: $columns;
+  grid-template-columns: $columns;
+}

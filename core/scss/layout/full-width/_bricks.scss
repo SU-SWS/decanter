@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+//
+// Bricks
+//
+// A Full width by 2 column collapsible layout that repeats.
+//
+// Markup: ../../../../../templates/layout/full-width/bricks/bricks.twig
+//
+// Style guide: Layout.FullWidth.Bricks
+//
+.layout-bricks {
+
+  // A centered column broken in to four equal parts.
+  // Collapses to 2 columns by 2 columns ad the breakpoint-md
+  // Collapses to 1 column at mobile screens.
+  .layout__columns {
+    @include centered-column;
+    @include responsive-grid-columns($responsive-columns-two);
+  }
+
+}

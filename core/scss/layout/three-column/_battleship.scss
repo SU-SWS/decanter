@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+//
+// Battleship
+//
+// A three column cell with header and footer. This layout has a single column
+// that is centered on the page with a max width determined by the breakpoints.
+//
+// Markup: ../../../../../templates/layout/three-column/battleship/battleship.twig
+//
+// Style guide: Layout.3Column.Battleship
+//
+.layout-battleship {
+  > div {
+    @include centered-column;
+    @include responsive-grid-columns($responsive-columns-three);
+
+    :first-child {
+      @include grid-item-spans(1, span 2);
+    }
+  }
+}
