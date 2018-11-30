@@ -9,13 +9,12 @@
 // Returns the breakpoint name with a dash in front. If the smallest breakpoint
 // (xs) is passed through, a blank string is returned.
 //
-
 // breakpoint-insert(xs, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, 2xl: 1500px))
 // Returns a blank string
 // breakpoint-insert(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, 2xl: 1500px))
 // Returns "-sm"
 //
-// Style guide: Functions.Flex.breakpoint-insert
+// Style guide: Functions.Breakpoint.breakpoint-insert
 @function breakpoint-insert($name, $breakpoints: $grid-screens) {
   @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
 }

@@ -11,7 +11,7 @@
 // breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, 2xl: 1500px))
 // Returns "576px"
 //
-// Style guide: Functions.Flex.beakpoint-min
+// Style guide: Functions.Breakpoint.beakpoint-min
 @function breakpoint-min($name, $breakpoints: $grid-screens) {
   $min: map-get($breakpoints, $name);
   @return if($min != 0, $min, null);

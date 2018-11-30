@@ -11,7 +11,7 @@
 // breakpoint-next(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, 2xl: 1500px))
 // Returns "md"
 //
-// Style guide: Functions.Flex.breakpoint-next
+// Style guide: Functions.Breakpoint.breakpoint-next
 @function breakpoint-next($name, $breakpoints: map-keys($grid-screens)) {
   $n: index($breakpoints, $name);
   @if is-integer($n) {
