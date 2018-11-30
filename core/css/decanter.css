@@ -2699,7 +2699,7 @@ button,
         padding-right: 0;
         padding-bottom: 0.8em;
         padding-left: 0;
-        margin: 0 0.58em;
+        margin: 0 1.16em 0 0;
         font-size: 1.05em;
         color: #2e2d29;
         font-weight: 600;
@@ -2810,7 +2810,7 @@ button,
       padding-right: 0;
       padding-bottom: 0.8em;
       padding-left: 0;
-      margin: 0 0.58em;
+      margin: 0 1.16em 0 0;
       font-size: 1.05em;
       color: #2e2d29;
       font-weight: 600;
@@ -2884,24 +2884,22 @@ button,
   top: 1.03em;
   height: .9em;
   width: .9em; }
-
-@media only screen and (min-width: 1024px) {
-  .su-main-nav__item-lv1--parent > a::after {
-    margin-bottom: 1px;
-    margin-left: 6px;
-    background: url("../img/caret-down-black.svg") no-repeat 0 0;
-    background-size: 100%;
-    position: relative;
-    right: unset;
-    top: unset;
-    height: .5em;
-    width: .5em;
-    transition: all .3s ease-out; } }
+  @media only screen and (min-width: 1024px) {
+    .su-main-nav__item-lv1--parent > a::after {
+      margin-bottom: 1px;
+      margin-left: 6px;
+      background: url("../img/caret-down-black.svg") no-repeat 0 0;
+      background-size: 100%;
+      position: relative;
+      right: unset;
+      top: unset;
+      height: .5em;
+      width: .5em;
+      transition: all .3s ease-out; } }
 
 .su-main-nav__item-lv1--parent[aria-expanded="true"] > a::after {
   background: url("../img/minus-white.svg") no-repeat 0 0;
   background-size: 100%;
-  content: "";
   display: inline-block;
   position: absolute;
   right: 1em;

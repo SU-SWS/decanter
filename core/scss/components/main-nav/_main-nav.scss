@@ -45,7 +45,7 @@
       > a {
         @include fancy-hover;
         @include padding(null 0 .8em);
-        @include margin(0 .58em);
+        @include margin(0 1.16em 0 0);
         font-size: 1.05em;
         color: $color-black;
         font-weight: 600;
@@ -110,7 +110,7 @@
 
     > a {
       @include padding(null 0 .8em);
-      @include margin(0 .58em);
+      @include margin(0 1.16em 0 0);
       font-size: 1.05em;
       color: $color-black;
       font-weight: 600;
@@ -196,10 +196,7 @@
 
 .su-main-nav__item-lv1--parent {
 
-  //&:hover,
-  //&:active,
   &:focus,
-  //&:focus-within,
   &[aria-expanded="true"] {
 
     > .su-main-nav__menu-lv2 {
@@ -223,11 +220,12 @@
             left: 5px;
           }
         }
-
       }
     }
   }
+}
 
+.su-main-nav__item-lv1--parent {
   > a {
     &::after {
       background: url("#{$image-path}/plus-white.svg") no-repeat 0 0;
@@ -239,10 +237,8 @@
       top: 1.03em;
       height: .9em;
       width: .9em;
-    }
 
-    @media #{$breakpoint-lg} {
-      &::after {
+      @media #{$breakpoint-lg} {
         @include margin (null null 1px 6px);
         background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
         background-size: 100%;
@@ -261,7 +257,6 @@
       &::after {
         background: url("#{$image-path}/minus-white.svg") no-repeat 0 0;
         background-size: 100%;
-        content: "";
         display: inline-block;
         position: absolute;
         right: 1em;
@@ -285,6 +280,7 @@
 }
 
 .su-main-nav__menu-lv3 {
+
   @media #{$breakpoint-lg} {
     visibility: hidden;
     display: none;
@@ -296,4 +292,5 @@
     @include padding(.6em .4em .6em 1em);
     font-size: .8em;
   }
+
 }

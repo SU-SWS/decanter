@@ -62,7 +62,9 @@
 <script>
   NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEach;
   var parents = document.querySelectorAll(".su-main-nav__item-lv1--parent");
+  //var parentsLv2 = document.querySelectorAll(".su-main-nav__item-lv2--parent");
   var parentLinks = document.querySelectorAll(".su-main-nav__item-lv1--parent > a");
+  //var parentLinksLv2 = document.querySelectorAll(".su-main-nav__item-lv2--parent > a");
 
   for(let j=0; j<parents.length; j++){
     parents[j].addEventListener('click', function(){
@@ -84,11 +86,28 @@
     });
   }
 
+  /*
+  for(let k=0; k<parentsLv2.length; k++){
+    parentsLv2[k].addEventListener('click', function(){
+      if( parentsLv2[k].getAttribute('aria-expanded') === 'false') {
+        parentsLv2[k].setAttribute('aria-expanded', 'true');
+      } else {
+        parentsLv2[k].setAttribute('aria-expanded', 'false');
+      }
+    }, false);
+
+    // Make parent links inactive and act as drop down toggles
+    parentLinksLv2[k].addEventListener('click', function(event){
+      event.preventDefault();
+    });
+  }
+  */
+
   // Close opened drop down menus when click elsewhere
   document.addEventListener('click', function(ev) {
     var ev = ev ? ev : window.event;
     var event_element = ev.target ? ev.target : ev.srcElement;
-    if (!event_element.closest('.su-main-nav__item-lv1--parent')) {
+    if ( !event_element.closest('.su-main-nav__item-lv1--parent') ) {
       for(let i=0; i<parents.length; i++) {
         parents[i].setAttribute('aria-expanded', 'false');
       }
