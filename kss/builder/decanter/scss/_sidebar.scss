@@ -1,0 +1,82 @@
+@charset 'UTF-8';
+
+.kss-doc-title {
+  display: none;
+}
+
+.kss-nav__menu {
+  margin-top: ($kss-vertical-rhythm/2);
+  margin-bottom: ($kss-vertical-rhythm/2);
+  padding: 10px;
+  list-style-type: none;
+}
+
+.kss-nav__menu-item {
+  display: inline-block;
+  padding-right: $kss-vertical-rhythm;
+
+  @media screen and (min-width: 769px) {
+    display: list-item;
+    padding-right: 0;
+  }
+}
+
+.kss-nav__menu-link {
+  position: relative;
+  display: inline-block;
+
+  &:before {
+    @media screen and (min-width: 769px) {
+      content: ' ';
+      position: absolute;
+      left: -10px;
+      width: 0;
+      height: 100%;
+      background-color: rgba(#000, 0);
+    }
+  }
+
+  &.is-in-viewport:before {
+    background-color: #000;
+    width: 5px;
+    transition: background-color .4s, width .6s;
+  }
+}
+
+
+.kss-nav__menu-child {
+  display: none;
+
+  @media screen and (min-width: 769px) {
+    display: block;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    // @TODO: The ul is output even when there are no children. Fix this, so
+    // we can put these :first-child and :last child styles back on the ul.
+    li:first-child {
+      margin-top: 10px;
+      border-top: 1px solid #ccc;
+      padding: 10px 0 0;
+    }
+
+    li:last-child {
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+      padding: 0 0 10px;
+    }
+  }
+}
+
+.kss-nav__ref {
+  color: #333;
+  font-weight: bold;
+
+  &:after {
+    content: ' ';
+  }
+}
+.kss-nav__ref-child {
+  font-weight: normal;
+}

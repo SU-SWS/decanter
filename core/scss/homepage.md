@@ -1,17 +1,3 @@
-<header>
-  <div>
-    <h1>Decanter</h1>
-    <ul class="main-nav">
-      <li><a href="/">Home</a></li>
-      <!-- <li><a href="https://decanter.stanford.edu/">Visual Guidelines</a></li> -->
-      <li><a href="/section-components.html">Components</a></li>
-      <li><a href="/section-layout.html">Page Layouts</a></li>
-      <!-- <li><a href="https://decanter.stanford.edu/">Examples in Action</a></li> -->
-      <li><a href="/section-variables.html">Developer Resources</a></li>
-    </ul>
-  </div>
-</header>
-
 <div class="section section--welcome">
   <div>
     <h2>Welcome to the Decanter Style Guide and Pattern Library.</h2>

@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+// -----------------------------------------------------------------------------
+// Main page scaffolding structure.
+// -----------------------------------------------------------------------------
+
 $grid-columns: (
   $breakpoint-xs: 1fr,
   $breakpoint-sm: 1fr 1fr 1fr 1fr,
@@ -25,5 +29,15 @@ $grid-columns: (
 
   @include grid-media('lg') {
     @include grid-item-spans(2, span 5);
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Home Page Layout
+// -----------------------------------------------------------------------------
+
+.kss-home {
+  .main-page-layout {
+    display: block;
   }
 }
