@@ -1,16 +1,19 @@
 {#
 /**
  * @file
- * Template for a complex column panel layout.
+ * A three column layout with a 3 span header and an unequal three column layout
+ * below it where the center column is 50%
  *
- * This template provides a complex column panel display layout, with
- * each column roughly equal in width.
+ * 100
+ * 25/50/25
  *
  * Variables:
- * -
- * -
- *
- *
+ * attributes - html attributes for the template wrapper tag
+ * modifier_class - Variant modifier css classes
+ * header - A single column centered content area.
+ * first - A skinny 25% width left sidebar.
+ * second - A larger 50% width centered column.
+ * third - A skinny 25% width right sidebar
  *
  */
 #}
@@ -23,17 +26,23 @@
     </header>
     {% endif %}
 
+    {% if first is not empty %}
     <div>
       {{ first }}
     </div>
+    {% endif %}
 
+    {% if second is not empty %}
     <div>
       {{ second }}
     </div>
+    {% endif %}
 
+    {% if third is not empty %}
     <div>
       {{ third }}
     </div>
+    {% endif %}
 
   </div>
 </div>

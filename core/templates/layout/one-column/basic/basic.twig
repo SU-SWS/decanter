@@ -1,17 +1,14 @@
 {#
 /**
  * @file
- * Template for a complex column panel layout.
- *
- * This template provides a complex column panel display layout, with
- * each column roughly equal in width.
+ * Template for a single celled centered content layout.
  *
  * Variables:
- * - attributes
- * - modifier_class
- * - header
- * - footer
- * - content
+ * attributes - html attributes for the template wrapper tag
+ * modifier_class - Variant modifier css classes
+ * header - Centered single column open content area
+ * footer - Centered single column open content area
+ * content - Centered single column open content area
  */
 #}
 <div{{ attributes }} class="layout layout-basic {{ modifier_class }}">
@@ -22,9 +19,11 @@
   </header>
   {% endif %}
 
+  {% if content is not empty %}
   <section>
   {{ content}}
   </section>
+  {% endif %}
 
   {% if footer is not empty %}
   <footer>

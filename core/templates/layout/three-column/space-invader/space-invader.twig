@@ -1,17 +1,19 @@
 {#
 /**
  * @file
- * Template for a complex column panel layout.
+ * A three column layout with a 3 span header and an equal three column layout
+ * below it.
  *
- * This template provides a complex column panel display layout, with
- * each column roughly equal in width.
+ * 100
+ * 33/33/33
  *
  * Variables:
- * -
- * -
- *
- *
- *
+ * attributes - html attributes for the template wrapper tag
+ * modifier_class - Variant modifier css classes
+ * header - A single column centered content area.
+ * first - A 33% width content column.
+ * second - A 33% width content column.
+ * third - A 33% width content column.
  */
 #}
 <div{{ attributes }} class="layout layout-space-invader {{ modifier_class }}">
@@ -23,17 +25,23 @@
     </header>
     {% endif %}
 
+    {% if first is not empty %}
     <div>
       {{ first }}
     </div>
+    {% endif %}
 
+    {% if second is not empty %}
     <div>
       {{ second }}
     </div>
+    {% endif %}
 
+    {% if third is not empty %}
     <div>
       {{ third }}
     </div>
+    {% endif %}
 
   </div>
 </div>

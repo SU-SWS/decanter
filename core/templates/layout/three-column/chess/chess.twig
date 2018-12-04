@@ -1,17 +1,21 @@
 {#
 /**
  * @file
- * Template for a complex column panel layout.
- *
- * This template provides a complex column panel display layout, with
- * each column roughly equal in width.
+ * A two row three column layout bookended by single column centered header
+ * and footer content regions.
  *
  * Variables:
- * -
- * -
- *
- *
- *
+ * attributes - html attributes for the template wrapper tag
+ * modifier_class - Variant modifier css classes
+ * header - A single cell centered column header
+ * first - First row 1/3 width column
+ * second - First row 1/3 width column
+ * third - First row 1/3 width column
+ * fourth - Second row 1/3 width column
+ * fifth - Second row 1/3 width column
+ * sixth - Second row 1/3 width column
+ * footer - A single cell centered column content area
+ * body - An overridable block region.
  */
 #}
 <div{{ attributes }} class="layout layout-chess {{ modifier_class }}">
@@ -23,29 +27,43 @@
   {% endif %}
 
   <section>
+    {% block body %}
+    {% if first is not empty %}
     <div>
       {{ first }}
     </div>
+    {% endif %}
 
+    {% if second is not empty %}
     <div>
       {{ second }}
     </div>
+    {% endif %}
 
+    {% if third is not empty %}
     <div>
       {{ third }}
     </div>
+    {% endif %}
 
+    {% if fourth is not empty %}
     <div>
       {{ fourth }}
     </div>
+    {% endif %}
 
+    {% if fifth is not empty %}
     <div>
       {{ fifth }}
     </div>
+    {% endif %}
 
+    {% if sixth is not empty %}
     <div>
       {{ sixth }}
     </div>
+    {% endif %}
+    {% endblock %}
   </section>
 
   {% if footer is not empty %}

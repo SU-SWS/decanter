@@ -1,20 +1,18 @@
 {#
 /**
  * @file
- * Template for a complex column panel layout.
- *
- * This template provides a complex column panel display layout, with
- * each column roughly equal in width.
+ * Bricks
+ * A two column 50/50 centered row followed by a full width region.
  *
  * Variables:
- * - attributes
- * - modifier_class
- * - hero
- * - first
- * - second
- * - hero2
- * - third
- * - fourth
+ * attributes - html attributes for the template wrapper tag
+ * modifier_class - Variant modifier css classes
+ * hero - The top most full width region.
+ * first - First of a 50/50 centered column
+ * second - Second of a 50/50 centered column
+ * hero2 - Second full width region
+ * third - First of a 50/50 centered column
+ * fourth - Second of a 50/50 centered column
  */
 #}
 <div{{ attributes}} class="layout layout-bricks {{ modifier_class }}">
@@ -27,6 +25,7 @@
   {% endif %}
 
   {# Required two equal column centered content area. #}
+  {% if first is not empty or second is not empty %}
   <section class="layout__columns">
     <div>
       {{ first }}
@@ -36,6 +35,7 @@
       {{ second}}
     </div>
   </section>
+  {% endif %}
 
   {# Full width region #}
   {% if hero2 is not empty %}
@@ -45,7 +45,7 @@
   {% endif %}
 
   {# Optional two equal column centered content area. #}
-  {% if third is not empty %}
+  {% if third is not empty or fourth is not empty %}
   <section class="layout__columns">
     <div>
       {{ third }}
