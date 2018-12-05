@@ -1,36 +1,46 @@
 {#
 /**
  * @file
- * Template for a complex column panel layout.
+ * A three column layout with a 2 span header and an equal three column layout.
  *
- * This template provides a complex column panel display layout, with
- * each column roughly equal in width.
+ * AA BB BB
+ * AA CC DD
+ * AA CC DD
  *
  * Variables:
- * - $id: An optional CSS id to use for the layout.
- * - $content: An array of content, each item in the array is keyed to one
- *   panel of the layout. This layout supports the following sections:
- *   - $content['first']: Content in the left column.
- *   - $content['second']: Content in the right column.
+ * attributes - html attributes for the template wrapper tag
+ * modifier_class - Variant modifier css classes
+ * header - A single column centered content area.
+ * first - A 33% width content column.
+ * second - A 33% width content column.
+ * third - A 33% width content column.
  */
 #}
 <div{{ attributes }} class="layout layout-sunset-delorean {{ modifier_class}}">
   <div>
+    {% if header is not empty %}
     <header>
       {{ header }}
     </header>
+    {% endif %}
 
+    {% if first is not empty %}
     <section>
       {{ first }}
     </section>
+    {% endif %}
 
+    {% if second is not empty %}
     <section>
       {{ second }}
     </section>
+    {% endif %}
 
     {# Sidebar #}
+    {% if sidebar is not empty %}
     <aside>
       {{ sidebar }}
     </aside>
+    {% endif %}
   </div>
 </div>
