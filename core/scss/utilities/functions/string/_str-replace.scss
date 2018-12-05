@@ -4,16 +4,14 @@
 // str-replace($string, $search, $replace: '')
 //
 // Replaces a substring with another string.
+// Replaces $search with $replace in $string
+//
+// $string - Initial string
+// $search - Substring to replace
+// $replace ('') - New value
 //
 // Style guide: Functions.String.str-replace
 //
-
-/// Replace `$search` with `$replace` in `$string`
-/// @author Hugo Giraudel
-/// @param {String} $string - Initial string
-/// @param {String} $search - Substring to replace
-/// @param {String} $replace ('') - New value
-/// @return {String} - Updated string
 @function str-replace($string, $search, $replace: '') {
   $index: str-index($string, $search);
 
