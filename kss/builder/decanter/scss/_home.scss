@@ -39,7 +39,10 @@
 
   // Welcome Section.
   .section--welcome {
-    @include centered-grid-container;
+
+    &:first-child {
+      @include centered-column;
+    }
 
     h1,
     h2,
@@ -126,7 +129,9 @@
 
   // More Info Section
   .section--more-info {
-    @include centered-grid-container;
+    &:first-child {
+      @include centered-column;
+    }
     background: lighten($color-mint, 5%);
 
     h2 {

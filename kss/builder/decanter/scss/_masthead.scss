@@ -3,17 +3,15 @@
 // The logo and the nav wrapper.
 .masthead {
   @include box-shadow("shallow", "0");
-  @include centered-grid-container;
   @include padding(0);
   background: $color-black;
   position: relative;
   z-index: 20;
 
   div {
-    @include grid-media('sm') {
-      @include display-grid;
-      @include grid-columns(1fr 11fr);
-    }
+    @include centered-column;
+    @include display-grid;
+    @include grid-columns(1fr 11fr);
   }
 
   .brand-logo {
@@ -26,4 +24,5 @@
     line-height: 69px;
     text-align: center;
   }
+
 }
