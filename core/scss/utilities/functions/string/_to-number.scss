@@ -3,23 +3,13 @@
 //
 // Converts a string to number.
 //
+// String to number converter.
+// Returns a number value.
+//
+// $value - Value to be parsed
+//
 // Style guide: Functions.String.to-number
 //
-
-////
-/// String to number converter
-/// @author Hugo Giraudel
-/// @access private
-////
-
-
-///
-/// Casts a string into a number
-///
-/// @param {String | Number} $value - Value to be parsed
-///
-/// @return {Number}
-///
 @function to-number($value) {
   @if type-of($value) == 'number' {
     @return $value;
