@@ -55,13 +55,16 @@ module.exports = function(grunt) {
     },
     postcss: {
       options: {
-        map: true,
+        map: true, // inline sourcemaps
         processors: [
-          require('autoprefixer')
+          require('autoprefixer')({ grid: true, browsers: ['last 2 versions', 'ie 11']}) // add vendor prefixes
         ]
       },
       dist: {
-        src: 'core/css/*.css'
+        src: [
+          'core/css/*.css',
+          'kss/builder/decanter/kss-assets/css/*.css'
+        ]
       }
     },
     watch: {
