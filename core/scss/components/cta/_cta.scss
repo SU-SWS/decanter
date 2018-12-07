@@ -5,7 +5,6 @@
 //
 // A call-to-action block
 //
-// .su-cta--button-bottom           - Button under image link
 // .su-cta--button-bottom-icon      - Icon centered on image link with button underneath
 // .su-cta--button-center           - Button centered on image link
 //
@@ -17,6 +16,10 @@
 .su-cta--button-bottom,
 .su-cta {
   @include cta--button;
+}
+
+.su-cta__img {
+  min-height: 1px; //IE fix
 }
 
 .su-cta--button-bottom-icon {
