@@ -10,9 +10,12 @@
   KssGuides.prototype.init = function () {
     var self = this;
     // Initialize all guides toggle buttons.
-    document.querySelectorAll('a[data-kss-guides]').forEach(function (el) {
-      el.onclick = self.showGuides.bind(self);
-    });
+    var guides = document.querySelectorAll('a[data-kss-guides]');
+    if (guides.length) {
+      guides.forEach(function (el) {
+        el.onclick = self.showGuides.bind(self);
+      });
+    }
   };
 
   // Toggle the guides mode.
