@@ -2045,6 +2045,7 @@ button,
     text-align: center;
     text-decoration: none;
     width: 100%;
+    font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
     margin: 0; }
     @media only screen and (min-width: 576px) {
       .su-cta--button-bottom .su-cta__button,
@@ -2069,6 +2070,9 @@ button,
   .su-cta .su-cta__icon {
     display: none; }
 
+.su-cta__img {
+  min-height: 1px; }
+
 .su-cta--button-bottom-icon {
   position: relative; }
   .su-cta--button-bottom-icon .su-cta__icon {
@@ -2077,8 +2081,8 @@ button,
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, calc(-50% - 2.65rem));
-            transform: translate(-50%, calc(-50% - 2.65rem)); }
+    -webkit-transform: translateX(-50%) translateY(-50%) translateY(-2.65rem);
+            transform: translateX(-50%) translateY(-50%) translateY(-2.65rem); }
 
 .su-cta--button-center {
   position: relative; }
