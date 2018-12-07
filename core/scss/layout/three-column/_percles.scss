@@ -19,16 +19,30 @@
 
     @include grid-media('sm') {
       @include display-grid;
-      @include grid-columns(1fr 1fr 1fr);
-    }
-
-    > &:first-child {
-      @include grid-item-spans(1, span 1);
+      @include grid-columns(1fr 1fr 1fr, false);
     }
 
     > header {
       @include grid-item-spans(2, span 2);
+      -ms-grid-row: 1;
+      -ms-grid-column: 2;
     }
+
+    // IE 11 fixes.
+    :nth-child(3),
+    :nth-child(4),
+    :nth-child(5) {
+      -ms-grid-row: 2;
+      -ms-grid-column: 1;
+    }
+
+    :nth-child(4) {
+      -ms-grid-column: 2;
+    }
+    :nth-child(5) {
+      -ms-grid-column: 3;
+    }
+
   }
 
 }

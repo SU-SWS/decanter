@@ -14,5 +14,13 @@
   > div {
     @include centered-column;
     @include responsive-grid-columns($responsive-columns-three);
+
+    // IE 11 fix.
+    @include grid-media-between('sm', 'md') {
+      :nth-child(3) {
+        -ms-grid-row: 2;
+        -ms-grid-column: 1;
+      }
+    }
   }
 }

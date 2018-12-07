@@ -22,32 +22,33 @@
     @include centered-column;
     @include responsive-grid-gap;
 
-    // Enable the grid on md and higher.
-    // let everything be one column on xs and sm.
-    @include grid-media('md') {
+    // Turn on the grid on screens bigger than sm
+    @include grid-media('sm') {
       @include display-grid;
-      @include grid-columns(1fr 1fr 1fr);
     }
 
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "sidebar head head"
+    "sidebar A B";
+
     > aside {
-      // First column, for 1 column, but down two columns.
-      @include grid-item-spans(1, span 1, 1, span 2);
+      grid-area: sidebar;
     }
 
     > section {
-      // Row 2, column 2 for 2 cells.
-      @include grid-item-spans(2, span 2, 2);
+      grid-area: head;
     }
 
-    > div {
-      // Row 2, column 2 for 1 cell.
-      @include grid-item-spans(2, span 1, 2, span 1);
+    :nth-child(3) {
+      grid-area: A;
     }
 
-    div ~ div {
-      // Row 2, column 3 for 1 cell.
-      @include grid-item-spans(3, span 1, 2, span 1);
+    :nth-child(4) {
+      grid-area: B;
     }
+
   }
 
 

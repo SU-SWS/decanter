@@ -7,10 +7,11 @@
 //
 // $grid-map: A sass map with the columns per breakpoint.
 // $gutters-map: A complimentary map to the $grid-map.
+// $ie-fix-mobile: Set the mobile breakpoint to block for IE 11.
 //
 // Styleguide: Mixins.Grid.responsive-grid-columns
 //
-@mixin responsive-grid-columns($grid-map: $responsive-columns-default, $gutters-map: $responsive-gutters-default) {
+@mixin responsive-grid-columns($grid-map: $responsive-columns-default, $gutters-map: $responsive-gutters-default, $ie-fix-mobile: true) {
   @include display-grid;
 
   // Loop through each breakpoint generating the media query and grid.
@@ -25,6 +26,13 @@
 
       // Create the grid.
       @include grid-columns($columns);
+    }
+  }
+
+  // IE 11 FIX.
+  @if $ie-fix-mobile {
+    @include grid-media-only('xs') {
+      display: block;
     }
   }
 }

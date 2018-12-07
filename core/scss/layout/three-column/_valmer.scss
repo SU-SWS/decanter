@@ -23,11 +23,19 @@
     // Enable grid after sm sizes.
     @include grid-media('sm') {
       @include display-grid;
-      @include grid-columns(1fr 1fr 1fr 1fr);
+      @include grid-columns(1fr 1fr 1fr 1fr, false);
     }
 
     > div:nth-of-type(1) {
       @include grid-item-spans(1, span 2);
+    }
+
+    > div:nth-of-type(2) {
+      -ms-grid-column: 3;
+    }
+
+    > div:nth-of-type(3) {
+      -ms-grid-column: 4;
     }
 
   }
