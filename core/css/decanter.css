@@ -7541,9 +7541,19 @@ button,
       .su-card--horizontal > img,
       .su-card--horizontal .su-card__contents {
         margin: 32px; } }
-  @media (max-width: 767px) {
-    .su-card--horizontal .su-card__contents > h2 {
-      margin-top: 0; } }
+  .su-card--horizontal img {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1; }
+  .su-card--horizontal .su-card__contents {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1; }
+    @media only screen and (min-width: 576px) {
+      .su-card--horizontal .su-card__contents {
+        -ms-grid-row: 1;
+        -ms-grid-column: 2; } }
+    @media (max-width: 767px) {
+      .su-card--horizontal .su-card__contents > h2 {
+        margin-top: 0; } }
 
 .su-cta--button-bottom,
 .su-cta {
