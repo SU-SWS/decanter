@@ -92,11 +92,10 @@
   $_codes: ();
 
   @each $_code, $_screen in $grid-screens {
+    // The breakpoint short code. eg: xs, sm, lg with a dash
+    $_insert: breakpoint-insert($_code, $grid-screens);
 
     @if $_code != 'xs' {
-      // The breakpoint short code. eg: xs, sm, lg with a dash
-      $_insert: breakpoint-insert($_code, $grid-screens);
-
       // The flex-breakpoint-column class.
       .flex#{$_insert}-#{$n}-of-#{$grid-columns} {
         // Generate the media queries and column size.
