@@ -16,5 +16,5 @@
 //
 // Style guide: Functions.Breakpoint.breakpoint-insert
 @function breakpoint-insert($name, $breakpoints: $grid-screens) {
-  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+  @return "-#{$name}";
 }
