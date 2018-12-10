@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+//
+// Blastila
+//
+// A complext three column layout with a centered max width header a left
+// sidebar and a mini two column with header content area.
+//
+// .layout-blastila--right  - Right sidebar version
+//
+// Markup: ../../../../../templates/layout/grid/three-column/blastila/blastila.twig
+//
+// Style guide: Layout.Grid.3Column.Blastila
+//
+.layout-blastila {
+
+  > header {
+    @include centered-column;
+  }
+
+  > div {
+    @include centered-column;
+    @include responsive-grid-gap;
+
+    // Enable the grid on md and higher.
+    // let everything be one column on xs and sm.
+    @include grid-media('md') {
+      @include display-grid;
+      @include grid-columns(1fr 1fr 1fr);
+    }
+
+    > aside {
+      // First column, for 1 column, but down two columns.
+      @include grid-item-spans(1, span 1, 1, span 2);
+    }
+
+    > section {
+      // Row 2, column 2 for 2 cells.
+      @include grid-item-spans(2, span 2, 2);
+    }
+
+    > div {
+      // Row 2, column 2 for 1 cell.
+      @include grid-item-spans(2, span 1, 2, span 1);
+    }
+
+    div ~ div {
+      // Row 2, column 3 for 1 cell.
+      @include grid-item-spans(3, span 1, 2, span 1);
+    }
+  }
+
+
+
+
+}
