@@ -72,6 +72,9 @@
   }
 }
 
+
+
+
 // Loop through each column and breakpoint creating a responsive flex column.
 // The gutter sizes change as the breakpoints change so as the breakpoints
 // get larger for each breakpoint class we have to adjust the gutter. For
@@ -80,34 +83,27 @@
 // breakpoints wrapping for breakpoints xl -> 2xl.
 @for $n from 1 through $grid-columns {
 
+  .flex-#{$n}-of-#{$grid-columns} {
+    $cols: $n of $grid-columns;
+    @include responsive-flex-column($cols, map-remove($grid-media, 'xs'));
+  }
+
   // Storage for breakpoint codes through each loop of columns.
   $_codes: ();
 
   @each $_code, $_screen in $grid-screens {
 
-    // The breakpoint short code. eg: xs, sm, lg with a dash
-    $_insert: breakpoint-insert($_code, $grid-screens);
+    @if $_code != 'xs' {
+      // The breakpoint short code. eg: xs, sm, lg with a dash
+      $_insert: breakpoint-insert($_code, $grid-screens);
 
-    // The flex-breakpoint-column class.
-    .flex#{$_insert}-#{$n}-of-#{$grid-columns} {
-
-      // Loop through the already used breakpoints and remove them
-      // from the grid map as we only want to create a responsive
-      // column for the current breakpoint and larger. Smaller screens
-      // collapse to 100%.
-      $_grids: $grid-media;
-      @each $sh in $_codes {
-        $_grids: map-remove($_grids, $sh);
+      // The flex-breakpoint-column class.
+      .flex#{$_insert}-#{$n}-of-#{$grid-columns} {
+        // Generate the media queries and column size.
+        @include grid-media-only($_code) {
+          @include flex-column($n of $grid-columns);
+        }
       }
-
-      // Generate the media queries and column size.
-      @if (length($_grids) > 0) {
-        @include responsive-flex-column($n, $_grids);
-      }
-
-      // Add the current BP code to the storage for next round.
-      $_codes: append($_codes, $_code);
-
     }
   }
 }
