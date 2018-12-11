@@ -75,6 +75,7 @@ class DecanterBuilder extends BaseTwigBuilder {
    */
   build(styleGuide) {
     let options = {};
+
     // Returns a promise to read/load a template provided by the builder.
     options.readBuilderTemplate = name => {
       return this.Twig.twigAsync({
@@ -82,6 +83,7 @@ class DecanterBuilder extends BaseTwigBuilder {
         path: path.resolve(this.options.builder, name + '.twig')
       });
     };
+
     // Returns a promise to read/load a template specified by a section.
     options.readSectionTemplate = (name, filepath) => {
       return this.Twig.twigAsync({
@@ -89,6 +91,7 @@ class DecanterBuilder extends BaseTwigBuilder {
         path: filepath
       });
     };
+
     // Returns a promise to load an inline template from markup.
     options.loadInlineTemplate = (name, markup) => {
       return this.Twig.twigAsync({
@@ -96,6 +99,7 @@ class DecanterBuilder extends BaseTwigBuilder {
         data: markup
       });
     };
+
     // Returns a promise to load the data context given a template file path.
     options.loadContext = filepath => {
       let context;
@@ -111,12 +115,14 @@ class DecanterBuilder extends BaseTwigBuilder {
       }
       return Promise.resolve(context);
     };
+
     // Returns a promise to get a template by name.
     options.getTemplate = name => {
       return this.Twig.twigAsync({
         ref: name
       });
     };
+
     // Returns a promise to get a template's markup by name.
     options.getTemplateMarkup = name => {
       // We don't wrap the rendered template in "new handlebars.SafeString()"
@@ -127,15 +133,18 @@ class DecanterBuilder extends BaseTwigBuilder {
         return template.rawMarkup;
       });
     };
+
     // Renders a template and returns the markup.
     options.templateRender = (template, context) => {
       return template.render(context);
     };
+
     // Converts a filename into a Twig template name.
     options.filenameToTemplateRef = filename => {
       // Return the filename path hash.
       return md5(filename);
     };
+
     options.templateExtension = 'twig';
     options.emptyTemplate = '{# Cannot be an empty string. #}';
 
