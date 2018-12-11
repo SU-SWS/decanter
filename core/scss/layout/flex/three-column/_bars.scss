@@ -6,21 +6,7 @@
 // A three column cell with header and footer. This layout has a single column
 // that is centered on the page with a max width determined by the breakpoints.
 //
-// Markup: ../../../../../templates/layout/flex/three-column/bars/bars.twig
+// Markup: ../../../../../templates/layout/flex/three-column/bars/bars-flex.twig
 //
 // Style guide: Layout.Flex.3Column.Bars
 //
-.layout-bars {
-  > div {
-    @include centered-column;
-    @include responsive-grid-columns($responsive-columns-three);
-
-    // IE 11 fix.
-    @include grid-media-between('sm', 'md') {
-      :nth-child(3) {
-        -ms-grid-row: 2;
-        -ms-grid-column: 1;
-      }
-    }
-  }
-}
