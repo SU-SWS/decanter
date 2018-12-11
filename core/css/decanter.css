@@ -4508,9 +4508,9 @@ dfn {
 
 .layout-blastila > div {
   margin: 0 auto;
-  -ms-grid-columns: 1fr 1fr 1fr;
+      -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-rows: auto;
+      -ms-grid-rows: auto;
       grid-template-rows: auto;
       grid-template-areas: "sidebar head head" "sidebar A B"; }
   @media only screen and (min-width: 0) {
@@ -5139,11 +5139,17 @@ dfn {
         -ms-grid-column: 1;
         grid-column: 1 / span 2;
         -ms-grid-column-span: 2;
-        -ms-grid-columns: 1fr 1fr;
+            -ms-grid-columns: 1fr 1fr;
             grid-template-columns: 1fr 1fr;
-        -ms-grid-rows: auto;
+            -ms-grid-rows: auto;
             grid-template-rows: auto;
-            grid-template-areas: "head head" "A B" "foot foot"; }
+            grid-template-areas: "head head" "A B" "foot foot"; } }
+    .layout-cuttoner > div > section > header {
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 2;
+      grid-area: head; }
+    @media only screen and (min-width: 576px) {
       .layout-blastila > div > section {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
@@ -5157,22 +5163,7 @@ dfn {
       .layout-cuttoner > div > section > header {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
-    -ms-grid-column-span: 2; }
-      .layout-cuttoner > div > section > footer {
-    -ms-grid-row: 3;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 2; }
-      .layout-cuttoner > div > section :nth-child(2) {
-    -ms-grid-row: 2;
-    -ms-grid-column: 1; }
-      .layout-cuttoner > div > section :nth-child(3) {
-    -ms-grid-row: 2;
-    -ms-grid-column: 2; } }
-    .layout-cuttoner > div > section > header {
-      -ms-grid-row: 1;
-      -ms-grid-column: 1;
-      -ms-grid-column-span: 2;
-      grid-area: head; }
+    -ms-grid-column-span: 2; } }
     .layout-cuttoner > div > section > footer {
       grid-area: foot; }
     .layout-cuttoner > div > section :nth-child(2) {
@@ -9093,9 +9084,6 @@ a {
   border-radius: 30px;
   font-size: .8em; }
   .su-site-search__input::-webkit-input-placeholder {
-    color: #2e2d29;
-    opacity: 1; }
-  .su-site-search__input:-ms-input-placeholder {
     color: #2e2d29;
     opacity: 1; }
   .su-site-search__input::-ms-input-placeholder {

@@ -16,30 +16,16 @@
  * @module kss/builder/twig
  */
 
-const path = require('path'),
-  Promise = require('bluebird');
-const fs = Promise.promisifyAll(require('fs-extra'));
-const md5 = require('md5');
-
+const path = require('path');
+const crypto = require('crypto');
 
 // We want to extend kss-node's Twig builder so we can add options that
 // are used in our templates.
 let BaseTwigBuilder;
 
-try {
-  // In order for a builder to be "kss clone"-able, it must use the
-  // require('kss/builder/path') syntax.
-  BaseTwigBuilder = require('kss/builder/base/twig');
-} catch (e) {
-  // The above require() line will always work.
-  //
-  // Unless you are one of the developers of kss-node and are using a git clone
-  // of kss-node where this code will not be inside a "node_modules/kss" folder
-  // which would allow node.js to find it with require('kss/anything'), forcing
-  // you to write a long-winded comment and catch the error and try again using
-  // a relative path.
-  BaseTwigBuilder = require('../base/twig');
-}
+// In order for a builder to be "kss clone"-able, it must use the
+// require('kss/builder/path') syntax.
+BaseTwigBuilder = require('kss/builder/base/twig');
 
 /**
  * A kss-node builder that takes input files and builds a style guide using Twig
@@ -55,7 +41,7 @@ class DecanterBuilder extends BaseTwigBuilder {
 
     // Then tell kss which Yargs-like options this builder adds.
     this.addOptionDefinitions({
-      title: {
+      'title': {
         group: 'Style guide:',
         string: true,
         multiple: false,
@@ -63,7 +49,12 @@ class DecanterBuilder extends BaseTwigBuilder {
         default: 'KSS Style Guide'
       }
     });
+  }
 
+  // add builder extend
+  prepareExtend(templateEngine) {
+    this.options.extend.push(path.resolve(__dirname, 'extend'));
+    return super.prepareExtend(templateEngine);
   }
 
   /**
@@ -75,7 +66,6 @@ class DecanterBuilder extends BaseTwigBuilder {
    */
   build(styleGuide) {
     let options = {};
-
     // Returns a promise to read/load a template provided by the builder.
     options.readBuilderTemplate = name => {
       return this.Twig.twigAsync({
@@ -83,7 +73,6 @@ class DecanterBuilder extends BaseTwigBuilder {
         path: path.resolve(this.options.builder, name + '.twig')
       });
     };
-
     // Returns a promise to read/load a template specified by a section.
     options.readSectionTemplate = (name, filepath) => {
       return this.Twig.twigAsync({
@@ -91,7 +80,6 @@ class DecanterBuilder extends BaseTwigBuilder {
         path: filepath
       });
     };
-
     // Returns a promise to load an inline template from markup.
     options.loadInlineTemplate = (name, markup) => {
       return this.Twig.twigAsync({
@@ -99,7 +87,6 @@ class DecanterBuilder extends BaseTwigBuilder {
         data: markup
       });
     };
-
     // Returns a promise to load the data context given a template file path.
     options.loadContext = filepath => {
       let context;
@@ -115,36 +102,28 @@ class DecanterBuilder extends BaseTwigBuilder {
       }
       return Promise.resolve(context);
     };
-
     // Returns a promise to get a template by name.
     options.getTemplate = name => {
       return this.Twig.twigAsync({
         ref: name
       });
     };
-
     // Returns a promise to get a template's markup by name.
     options.getTemplateMarkup = name => {
-      // We don't wrap the rendered template in "new handlebars.SafeString()"
-      // since we want the ability to display it as a code sample with {{ }} and
-      // as rendered HTML with {{{ }}}.
       return options.getTemplate(name).then(template => {
-         // The rawMarkup is a custom property set in twigAsync().
+        // The rawMarkup is a custom property set in twigAsync().
         return template.rawMarkup;
       });
     };
-
     // Renders a template and returns the markup.
     options.templateRender = (template, context) => {
       return template.render(context);
     };
-
     // Converts a filename into a Twig template name.
     options.filenameToTemplateRef = filename => {
-      // Return the filename path hash.
-      return md5(filename);
+      // Return the filename without the full path.
+      return crypto.createHash('md5').update(filename).digest('hex');
     };
-
     options.templateExtension = 'twig';
     options.emptyTemplate = '{# Cannot be an empty string. #}';
 
