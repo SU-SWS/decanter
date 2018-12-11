@@ -65,14 +65,18 @@
 
 .is-fullscreen {
 
+  > .kss-style {
+    @include centered-column;
+  }
+
   .kss-title {
     margin-top: 0;
   }
 
   .kss-modifier__wrapper {
     // Un-do padding on .kss-section.
-    margin-left: -20px;
-    margin-right: -20px;
+    // margin-left: -20px;
+    // margin-right: -20px;
     // Remove all padding on the wrapper
     padding-left: 0;
     padding-right: 0;
