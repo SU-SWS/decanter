@@ -18,7 +18,7 @@
 #}
 <div{{ attributes }} class="layout {{ modifier_class }}">
   <div class="flex-container">
-    <div class="flex-4-of-12">
+    <div class="flex-4-of-12 flex-no-padding">
       {# Sidebar #}
       {% if sidebar is not empty %}
         <aside>
@@ -27,7 +27,7 @@
       {% endif %}
     </div>
 
-    <div class="flex-8-of-12">
+    <div class="flex-8-of-12 flex-no-padding">
       <div class="flex-container--no-outter-gutter">
         <div class="flex-12-of-12">
           {% if header is not empty %}

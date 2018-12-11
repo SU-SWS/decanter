@@ -11,7 +11,7 @@
 .flex-container {
   @include flex-container;
 
-  // Remove outter gutters from the container.
+  // Removes the outter gutters from the container.
   &--no-outter-gutter {
     @include flex-container;
     @include padding(0);
@@ -19,6 +19,13 @@
     @include grid-media('md') {
       @include padding(0);
     }
+  }
+}
+
+// Removes the padding from an item.
+[class^="flex-"] {
+  &.flex-no-padding {
+    @include padding(0);
   }
 }
 
@@ -30,6 +37,7 @@
   padding: 1rem;
 }
 
+// Sizes item according to its width/height properties and/or size of content.
 .flex-auto {
   @extend %grid-column;
   flex: 0 0 auto;
