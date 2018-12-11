@@ -21,45 +21,47 @@
 <div{{ attributes }} class="layout {{ modifier_class }}">
 
   {% if header is not empty %}
-  <header>
-    {{ header }}
+  <header class="flex-container">
+    <div class="flex-12-of-12">
+      {{ header }}
+    </div>
   </header>
   {% endif %}
 
-  <section>
+  <section class="flex-container">
     {% block body %}
     {% if first is not empty %}
-    <div>
+    <div class="flex-md-4-of-12 flex-lg-4-of-12 flex-xl-4-of-12 flex-2xl-4-of-12">
       {{ first }}
     </div>
     {% endif %}
 
     {% if second is not empty %}
-    <div>
+    <div class="flex-md-4-of-12 flex-lg-4-of-12 flex-xl-4-of-12 flex-2xl-4-of-12">
       {{ second }}
     </div>
     {% endif %}
 
     {% if third is not empty %}
-    <div>
+    <div class="flex-md-4-of-12 flex-lg-4-of-12 flex-xl-4-of-12 flex-2xl-4-of-12">
       {{ third }}
     </div>
     {% endif %}
 
     {% if fourth is not empty %}
-    <div>
+    <div class="flex-md-4-of-12 flex-lg-4-of-12 flex-xl-4-of-12 flex-2xl-4-of-12">
       {{ fourth }}
     </div>
     {% endif %}
 
     {% if fifth is not empty %}
-    <div>
+    <div class="flex-md-4-of-12 flex-lg-4-of-12 flex-xl-4-of-12 flex-2xl-4-of-12">
       {{ fifth }}
     </div>
     {% endif %}
 
     {% if sixth is not empty %}
-    <div>
+    <div class="flex-md-4-of-12 flex-lg-4-of-12 flex-xl-4-of-12 flex-2xl-4-of-12">
       {{ sixth }}
     </div>
     {% endif %}
@@ -67,8 +69,10 @@
   </section>
 
   {% if footer is not empty %}
-  <footer>
-    {{ footer }}
+  <footer class="flex-container">
+    <div class="flex-12-of-12">
+      {{ footer }}
+    </div>
   </footer>
   {% endif %}
 

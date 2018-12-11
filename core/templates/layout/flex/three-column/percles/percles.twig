@@ -9,7 +9,7 @@
  * 33/33/33
  *
  * Variants:
- * layout-precles--right - A right side weighted header variant to the layout.
+ * layout-precles-flex--right - A right side weighted header variant to the layout.
  *
  * Variables:
  * attributes - html attributes for the template wrapper tag
@@ -23,33 +23,33 @@
  */
 #}
 <div{{ attributes }} class="layout {{ modifier_class }}">
-  <div>
+  <div class="flex-container">
     {% if first is not empty %}
-    <div>
+    <div class="flex-md-4-of-12 flex-lg-4-of-12 flex-xl-4-of-12 flex-2xl-4-of-12">
       {{ first }}
     </div>
     {% endif %}
 
     {% if second is not empty %}
-    <header>
+    <header class="flex-md-8-of-12 flex-lg-8-of-12 flex-xl-8-of-12 flex-2xl-8-of-12">
       {{ second }}
     </header>
     {% endif %}
 
     {% if third is not empty %}
-    <div>
+    <div class="flex-md-4-of-12 flex-lg-4-of-12 flex-xl-4-of-12 flex-2xl-4-of-12">
       {{ third }}
     </div>
     {% endif %}
 
     {% if fourth is not empty %}
-    <div>
+    <div class="flex-md-4-of-12 flex-lg-4-of-12 flex-xl-4-of-12 flex-2xl-4-of-12">
       {{ fourth }}
     </div>
     {% endif %}
 
     {% if fifth is not empty %}
-    <div>
+    <div class="flex-md-4-of-12 flex-lg-4-of-12 flex-xl-4-of-12 flex-2xl-4-of-12">
       {{ fifth }}
     </div>
     {% endif %}

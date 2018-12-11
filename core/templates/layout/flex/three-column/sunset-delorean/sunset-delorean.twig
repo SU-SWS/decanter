@@ -17,30 +17,40 @@
  */
 #}
 <div{{ attributes }} class="layout {{ modifier_class }}">
-  <div>
-    {% if header is not empty %}
-    <header>
-      {{ header }}
-    </header>
-    {% endif %}
+  <div class="flex-container">
+    <div class="flex-4-of-12">
+      {# Sidebar #}
+      {% if sidebar is not empty %}
+        <aside>
+          {{ sidebar }}
+        </aside>
+      {% endif %}
+    </div>
 
-    {% if first is not empty %}
-    <section>
-      {{ first }}
-    </section>
-    {% endif %}
-
-    {% if second is not empty %}
-    <section>
-      {{ second }}
-    </section>
-    {% endif %}
-
-    {# Sidebar #}
-    {% if sidebar is not empty %}
-    <aside>
-      {{ sidebar }}
-    </aside>
-    {% endif %}
+    <div class="flex-8-of-12">
+      <div class="flex-container">
+        <div class="flex-12-of-12">
+          {% if header is not empty %}
+            <header>
+              {{ header }}
+            </header>
+          {% endif %}
+        </div>
+        <div class="flex-6-of-12">
+          {% if first is not empty %}
+            <section>
+              {{ first }}
+            </section>
+          {% endif %}
+        </div>
+        <div class="flex-6-of-12">
+          {% if second is not empty %}
+            <section>
+              {{ second }}
+            </section>
+          {% endif %}
+        </div>
+      </div>
+    </div>
   </div>
 </div>
