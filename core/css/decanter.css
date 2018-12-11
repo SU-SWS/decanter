@@ -327,6 +327,31 @@ template {
     .flex-container {
       padding-right: 3rem;
       padding-left: 3rem; } }
+  .flex-container--no-outter-gutter {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin: auto;
+    max-width: 1500px;
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    padding: 0; }
+    @media only screen and (min-width: 768px) {
+      .flex-container--no-outter-gutter {
+        padding-right: 3rem;
+        padding-left: 3rem; } }
+    @media only screen and (min-width: 768px) {
+      .flex-container--no-outter-gutter {
+        padding: 0; } }
 
 .flex-auto, .flex-xs-1-of-12,
 .flex-1-of-12, .flex-xs-2-of-12,
