@@ -17,8 +17,10 @@
 <div{{ attributes }} class="layout {{ modifier_class }}">
   {# Optional header region #}
   {% if header is not empty %}
-  <header class="flex-12-of-12">
-    {{ header }}
+  <header class="flex-container">
+    <div class="flex-12-of-12">
+      {{ header }}
+    </div>
   </header>
   {% endif %}
 
@@ -35,8 +37,10 @@
 
   {# Optional footer region #}
   {% if footer is not empty %}
-  <footer class="flex-12-of-12">
-    {{ footer }}
+  <footer class="flex-container">
+    <div class="flex-12-of-12">
+      {{ footer }}
+    </div>
   </footer>
   {% endif %}
 </div>

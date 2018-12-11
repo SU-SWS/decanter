@@ -9,19 +9,3 @@
 //
 // Style guide: Layout.Flex.3Column.SpaceInvader
 //
-.layout-space-invader {
-  > div {
-    @include centered-column;
-    @include responsive-grid-gap;
-
-    // Enable grid after sm sizes.
-    @include grid-media('sm') {
-      @include display-grid;
-      @include grid-columns(1fr 1fr 1fr);
-    }
-
-    > header {
-      @include grid-item-spans(1, span 3);
-    }
-  }
-}

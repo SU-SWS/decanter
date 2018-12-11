@@ -17,8 +17,10 @@
 <div{{ attributes }} class="layout {{ modifier_class }}">
   {# Optional Header #}
   {% if header is not empty %}
-  <header class="flex-12-of-12">
-    {{ header }}
+  <header class="flex-container">
+    <div class="flex-12-of-12">
+      {{ header }}
+    </div>
   </header>
   {% endif %}
 

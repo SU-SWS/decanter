@@ -22,6 +22,12 @@
 <div{{ attributes }} class="layout layout-cuttoner {{ modifier_class }}" >
   <div>
 
+    {% if sidebar is not empty %}
+    <aside>
+      {{ sidebar }}
+    </aside>
+    {% endif %}
+
     <section>
       {% if header is not empty %}
       <header>
@@ -47,12 +53,6 @@
       </footer>
       {% endif %}
     </section>
-
-    {% if sidebar is not empty %}
-    <aside>
-      {{ sidebar }}
-    </aside>
-    {% endif %}
 
   </div>
 </div>

@@ -6,7 +6,7 @@
 // A complext three column layout with a sidebar and a 2 column content area
 // with header and footer.
 //
-// .layout-cuttoner--right - Right sidebar variant.
+// .layout-cuttoner--right - Right sidebar variant
 //
 // Markup: ../../../../../templates/layout/grid/three-column/cuttoner/cuttoner.twig
 //
@@ -29,7 +29,7 @@
 
       @include grid-media('sm') {
         @include display-grid;
-        @include grid-item-spans(1, span 2);
+        @include grid-item-spans(2, span 2);
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
         grid-template-areas:
@@ -58,7 +58,7 @@
 
     > aside {
       @include grid-media('sm') {
-        @include grid-item-spans(3, span 1);
+        @include grid-item-spans(1, span 1);
       }
       -ms-grid-row: 1;
       -ms-grid-column: 3;

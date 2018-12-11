@@ -5,28 +5,9 @@
 //
 // A complext three column layout.
 //
+// .layout-valmer-flex--right - Right sidebar variant
+//
 // Markup: ../../../../../templates/layout/flex/three-column/valmer/valmer.twig
 //
 // Style guide: Layout.Flex.3Column.Valmer
 //
-.layout-valmer {
-  > header,
-  > footer,
-  > section {
-    @include centered-column;
-    @include responsive-grid-gap;
-  }
-
-  > section {
-    // Enable grid after sm sizes.
-    @include grid-media('sm') {
-      @include display-grid;
-      @include grid-columns(1fr 1fr 1fr 1fr);
-    }
-
-    > div:nth-of-type(1) {
-      @include grid-item-spans(1, span 2);
-    }
-
-  }
-}

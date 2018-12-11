@@ -10,28 +10,3 @@
 //
 // Style guide: Layout.Flex.3Column.Chess
 //
-.layout-chess {
-
-  > header,
-  > footer {
-    @include centered-column;
-  }
-
-  > section {
-    @include centered-column;
-    @include responsive-grid-gap;
-
-    // Enable the grid on md and higher.
-    // let everything be one column on xs and sm.
-    @include grid-media('md') {
-      @include display-grid;
-      @include grid-columns(1fr 1fr);
-    }
-
-    @include grid-media('lg') {
-      @include grid-columns(1fr 1fr 1fr);
-    }
-
-  }
-
-}

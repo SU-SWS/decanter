@@ -18,28 +18,28 @@
  */
 #}
 <div{{ attributes }} class="layout {{ modifier_class }}">
-  <div>
+  <div class="flex-container">
 
     {% if header is not empty %}
-    <header>
+    <header class="flex-12-of-12">
       {{ header }}
     </header>
     {% endif %}
 
     {% if first is not empty %}
-    <div>
+    <div class="flex-md-3-of-12 flex-lg-3-of-12 flex-xl-3-of-12 flex-2xl-3-of-12">
       {{ first }}
     </div>
     {% endif %}
 
     {% if second is not empty %}
-    <div>
+    <div class="flex-md-6-of-12 flex-lg-6-of-12 flex-xl-6-of-12 flex-2xl-6-of-12">
       {{ second }}
     </div>
     {% endif %}
 
     {% if third is not empty %}
-    <div>
+    <div class="flex-md-3-of-12 flex-lg-3-of-12 flex-xl-3-of-12 flex-2xl-3-of-12">
       {{ third }}
     </div>
     {% endif %}
