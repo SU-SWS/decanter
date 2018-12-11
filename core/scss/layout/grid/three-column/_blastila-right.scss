@@ -7,25 +7,29 @@
 
   > div {
 
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+    "head head sidebar"
+    "A B sidebar";
+
     > aside {
-      // First column, for 1 column, but down two columns.
-      @include grid-item-spans(3, span 1, 1, span 2);
+      grid-area: sidebar;
     }
 
     > section {
-      // Row 2, column 2 for 2 cells.
-      @include grid-item-spans(1, span 2, 1);
+      grid-area: head;
     }
 
-    > div {
-      // Row 2, column 2 for 1 cell.
-      @include grid-item-spans(1, span 1, 2, span 1);
+    :nth-child(3) {
+      grid-area: A;
     }
 
-    div ~ div {
-      // Row 2, column 3 for 1 cell.
-      @include grid-item-spans(2, span 1, 2, span 1);
+    :nth-child(4) {
+      grid-area: B;
     }
+
+
   }
 
 }
