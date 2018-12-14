@@ -11,22 +11,26 @@
 .flex-container {
   @include flex-container;
 
-  // Removes the outter gutters from the container.
-  &--no-outter-gutter {
-    @include flex-container;
-    @include padding(0);
+  &--collapse {
+    @include margin(0 null);
 
+    @include grid-media('sm') {
+      @include margin(0 null);
+    }
     @include grid-media('md') {
-      @include padding(0);
+      @include margin(0 null);
+    }
+    @include grid-media('lg') {
+      @include margin(0 null);
+    }
+    @include grid-media('xl') {
+      @include margin(0 null);
+    }
+    @include grid-media('2xl') {
+      @include margin(0 null);
     }
   }
-}
 
-// Removes the padding from an item.
-[class^="flex-"] {
-  &.flex-no-padding {
-    @include padding(0);
-  }
 }
 
 // Properties for all columns at all breakpoints.
@@ -34,7 +38,6 @@
   position: relative;
   width: 100%;
   min-height: 1px;
-  padding: 1rem;
 }
 
 // Sizes item according to its width/height properties and/or size of content.

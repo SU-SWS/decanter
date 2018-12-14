@@ -12,12 +12,25 @@
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: auto;
   max-width: $site-max-width;
 
-  @include padding(null $site-margins-mobile);
 
-  @include grid-media('md') {
-    @include padding(null $site-margins);
+  @include margin(null null $gutter-xs * -1 null);
+
+  @include grid-media('sm') {
+    @include margin(null null $gutter-sm * -1 null);
   }
+  @include grid-media('md') {
+    @include margin(null null $gutter-md * -1 null);
+  }
+  @include grid-media('lg') {
+    @include margin(null null $gutter-lg * -1 null);
+  }
+  @include grid-media('xl') {
+    @include margin(null null $gutter-xl * -1 null);
+  }
+  @include grid-media('2xl') {
+    @include margin(null null $gutter-2xl * -1 null);
+  }
+
 }
