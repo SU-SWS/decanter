@@ -15,11 +15,11 @@
  * fourth - Second of a 50/50 centered column
  */
 #}
-<div{{ attributes}} class="layout {{ modifier_class }}">
+<div{{ attributes}} class="layout centered-container {{ modifier_class }}">
 
   {# Full width region #}
   {% if hero is not empty %}
-  <section class="flex-12-of-12">
+  <section>
     {{ hero }}
   </section>
   {% endif %}
@@ -39,7 +39,7 @@
 
   {# Full width region #}
   {% if hero2 is not empty %}
-  <section class="flex-12-of-12">
+  <section>
     {{ hero2 }}
   </section>
   {% endif %}

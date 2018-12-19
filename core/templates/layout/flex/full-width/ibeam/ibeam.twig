@@ -16,30 +16,30 @@
 <div{{ attributes }} class="layout {{ modifier_class }}">
 
   {% if full_width is not empty %}
-  <div class="flex-12-of-12">
+  <div>
     {{ full_width }}
   </div>
   {% endif %}
 
   {% if content is not empty %}
-  <section class="flex-container">
+  <section class="flex-container centered-container">
     <div class="flex-12-of-12">
-    {{ content }}
-  </div>
+      {{ content }}
+    </div>
   </section>
   {% endif %}
 
   {% if full_width2 is not empty %}
-  <div class="flex-12-of-12">
+  <div>
     {{ full_width2 }}
   </div>
   {% endif %}
 
   {% if content2 is not empty %}
-  <section class="flex-container">
+  <section class="flex-container centered-container">
     <div class="flex-12-of-12">
-    {{ content2 }}
-  </div>
+      {{ content2 }}
+    </div>
   </section>
   {% endif %}
 

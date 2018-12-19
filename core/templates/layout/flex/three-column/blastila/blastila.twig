@@ -24,7 +24,7 @@
 <div{{ attributes }} class="layout {{ modifier_class }}">
 
   {% if header is not empty %}
-  <header class="flex-container">
+  <header class="flex-container centered-container">
     <div class="flex-12-of-12">
       {{ header }}
     </div>
@@ -32,43 +32,41 @@
   {% endif %}
 
   {# Div for grid container #}
-  <div class="flex-container">
+  <div class="flex-container centered-container">
 
-<div class="flex-4-of-12 ">
-    {# Sidebar #}
-    {% if sidebar is not empty %}
-    <aside class="flex-12-of-12">
-      {{ sidebar }}
-    </aside>
-    {% endif %}
-</div>
-
-<div class="flex-8-of-12 ">
-  <div class="flex-container">
-    {# Mini header area #}
-    {% if first is not empty %}
-    <section class="flex-12-of-12">
-      {{ first }}
-    </section>
-    {% endif %}
-
-    {# Left content column #}
-    {% if second is not empty %}
-    <div class="flex-6-of-12">
-      {{ second }}
+    <div class="flex-4-of-12 ">
+      {# Sidebar #}
+      {% if sidebar is not empty %}
+      <aside class="flex-12-of-12">
+        {{ sidebar }}
+      </aside>
+      {% endif %}
     </div>
-    {% endif %}
 
-    {# Right content column #}
-    {% if third is not empty %}
-    <div class="flex-6-of-12">
-      {{ third }}
+    <div class="flex-8-of-12 ">
+      <div class="flex-container">
+        {# Mini header area #}
+        {% if first is not empty %}
+        <section class="flex-12-of-12">
+          {{ first }}
+        </section>
+        {% endif %}
+
+        {# Left content column #}
+        {% if second is not empty %}
+        <div class="flex-6-of-12">
+          {{ second }}
+        </div>
+        {% endif %}
+
+        {# Right content column #}
+        {% if third is not empty %}
+        <div class="flex-6-of-12">
+          {{ third }}
+        </div>
+        {% endif %}
+      </div>
     </div>
-    {% endif %}
-</div>
-  </div>
-
   </div>
   {# end grid container #}
-
 </div>

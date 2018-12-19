@@ -17,7 +17,7 @@
 <div{{ attributes }} class="layout {{ modifier_class }}">
   {# Optional Header #}
   {% if header is not empty %}
-  <header class="flex-container">
+  <header class="flex-container centered-container">
     <div class="flex-12-of-12">
       {{ header }}
     </div>
@@ -25,7 +25,7 @@
   {% endif %}
 
   {# Required content section #}
-  <div class="flex-container">
+  <div class="flex-container centered-container">
     <aside class="flex-md-4-of-12 flex-lg-4-of-12 flex-xl-4-of-12 flex-2xl-4-of-12">
       {{ sidebar }}
     </aside>
@@ -37,7 +37,7 @@
 
   {# Optional footer #}
   {% if footer is not empty %}
-  <footer class="flex-container">
+  <footer class="flex-container centered-container">
     <div class="flex-12-of-12">
       {{ footer }}
     </div>

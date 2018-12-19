@@ -54,8 +54,6 @@
 
   // The breakpoint short code. eg: xs, sm, lg
   $_insert: breakpoint-insert($_breakpoint, $grid-screens);
-  // The gutter size at this breakpoint.
-  $_gutter: map-get($grid-gutters, $_breakpoint);
 
   // For all breakpoints and columns create a default state.
   @for $n from 1 through $grid-columns {
@@ -97,11 +95,14 @@
   @each $_code, $_screen in $grid-screens {
     // The breakpoint short code. eg: xs, sm, lg with a dash
     $_insert: breakpoint-insert($_code, $grid-screens);
+    // The gutter size at this breakpoint.
+    $_gutter: map-get($grid-gutters, $_code);
+
     // The flex-breakpoint-column class.
     .flex#{$_insert}-#{$n}-of-#{$grid-columns} {
       // Generate the media queries and column size.
       @include grid-media-only($_code) {
-        @include flex-column($n of $grid-columns);
+        @include flex-column($n of $grid-columns, $_gutter);
       }
     }
   }

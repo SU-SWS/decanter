@@ -14,23 +14,4 @@
 @mixin flex-column($columns, $gutter: $gutter-xs, $grid-columns: $grid-columns) {
   flex: 0 0 calc(#{flex-column-width($columns, $gutter, $grid-columns)});
   max-width: calc(#{flex-column-width($columns, $gutter, $grid-columns)});
-
-  @include padding(null null $gutter-xs null);
-
-  @include grid-media('sm') {
-    @include padding(null null $gutter-sm null);
-  }
-  @include grid-media('md') {
-    @include padding(null null $gutter-md null);
-  }
-  @include grid-media('lg') {
-    @include padding(null null $gutter-lg null);
-  }
-  @include grid-media('xl') {
-    @include padding(null null $gutter-xl null);
-  }
-  @include grid-media('2xl') {
-    @include padding(null null $gutter-2xl null);
-  }
-
 }
