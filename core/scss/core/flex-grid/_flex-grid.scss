@@ -31,6 +31,16 @@
     }
   }
 
+  &--row-gap {
+    > * {
+      @include modular-margin-vertical(0.5);
+    }
+
+    :first-child[class="flex-12-of-12"] {
+      @include margin(0 null null null);
+    }
+  }
+
 }
 
 // Properties for all columns at all breakpoints.
