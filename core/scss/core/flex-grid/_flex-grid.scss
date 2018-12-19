@@ -33,11 +33,27 @@
 
   &--row-gap {
     > * {
-      @include modular-margin-vertical(0.5);
-    }
+      @include grid-media('2xl') {
+        @include margin(0 0 map-get($modular-spacing, '2xl') 0);
+      }
 
-    :first-child[class="flex-12-of-12"] {
-      @include margin(0 null null null);
+      @include grid-media('xl') {
+        @include margin(0 0 map-get($modular-spacing, 'xl') 0);
+      }
+
+      @include grid-media('lg') {
+        @include margin(0 0 map-get($modular-spacing, 'lg') 0);
+      }
+
+      @include grid-media('md') {
+        @include margin(0 0 map-get($modular-spacing, 'md') 0);
+      }
+
+      @include grid-media('sm') {
+        @include margin(0 0 map-get($modular-spacing, 'sm') 0);
+      }
+
+      @include margin(0 0 map-get($modular-spacing, 'xs') 0);
     }
   }
 
