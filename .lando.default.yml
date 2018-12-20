@@ -1,0 +1,20 @@
+name: decanter
+proxy:
+  appserver:
+    - decanter.sws
+    - decanter.loc
+    - decanter.lndo.site
+# Spin up services to run the styleguide
+services:
+  # Create a php 7.1 instance served by the latest apache with https turned on
+  appserver:
+    type: php:7.1
+    via: apache
+    ssl: true
+    webroot: styleguide
+# Add some nice command routing
+tooling:
+  php:
+    service: appserver
+  git:
+    service: appserver

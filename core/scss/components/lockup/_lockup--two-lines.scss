@@ -1,0 +1,89 @@
+.su-lockup--two-lines {
+  @include grid-rows(auto auto auto auto auto);
+
+  @media #{$breakpoint-md} {
+    @include grid-rows(auto auto auto);
+  }
+
+  .su-lockup__wordmark {
+
+    @media #{$breakpoint-md} {
+      grid-row: 1 / span 2;
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 2;
+    }
+  }
+
+  .su-lockup__pipe {
+
+    @media #{$breakpoint-md} {
+      grid-row: 1 / span 2;
+      -ms-grid-row: 1;
+      -ms-grid-row-span: 2;
+    }
+  }
+
+  .su-lockup__sitename-line1,
+  .su-lockup__sitename-line2 {
+    font-size: 22px;
+
+    @media #{$breakpoint-md} {
+      font-size: 22px;
+    }
+  }
+
+  .su-lockup__sitename-line2 {
+    @include padding(6px null null);
+    display: block;
+    grid-row: 5 / span 1;
+    -ms-grid-row: 5;
+    -ms-grid-row-span: 1;
+    line-height: .8;
+
+    @media #{$breakpoint-md} {
+      grid-row: 2 / span 1;
+      -ms-grid-row: 2;
+      -ms-grid-row-span: 1;
+      grid-column: 3 / span 1;
+      -ms-grid-column: 3;
+      -ms-grid-column-span: 1;
+    }
+  }
+
+  .su-lockup__sitename-line5 {
+
+    @media #{$breakpoint-md} {
+      grid-row: 3 / span 1;
+      -ms-grid-row: 3;
+      -ms-grid-row-span: 1;
+    }
+  }
+
+  .su-lockup__sitename-line1--small,
+  .su-lockup__sitename-line1--supersmall {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+  }
+
+  .su-lockup__sitename-line1--small {
+    font-size: 15px;
+
+    @media #{$breakpoint-md} {
+      font-size: 16px;
+      line-height: .5;
+    }
+  }
+
+
+  .su-lockup__sitename-line1--supersmall {
+    font-size: 13px;
+
+    @media #{$breakpoint-md} {
+      + .su-lockup__sitename-line2 {
+        @include padding(3px null null);
+        font-size: 27px;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+//
+// @more-link($color, $hover)
+//
+// Default more link styling, with raquo.
+//
+// $color - Default up color
+// $hover - Default hover color
+//
+// Style guide: Mixins.Link.more-link
+//
+@mixin more-link($color: $color-bright-red, $hover: $color-black) {
+  &::after {
+    color: $color;
+    content: '\00BB';
+    display: inline-block;
+    @include margin(null null null 4px);
+  }
+
+  &:hover::after {
+    color: $hover;
+  }
+}

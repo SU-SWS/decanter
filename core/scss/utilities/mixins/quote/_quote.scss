@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+//
+// @quote
+//
+// Default styling for a quote element.
+//
+// Style guide: Mixins.Quote.quote
+//
+@mixin quote {
+  @include padding(1em);
+  @include overflow;
+
+  .su-quote__img {
+    border-radius: 150px;
+    border: 7px solid;
+    float: left;
+    height: 300px;
+    width: 300px;
+
+    @include margin(null 2em null null);
+  }
+
+  .su-quote__body {
+    .su-quote__heading {
+      font-size: 2em;
+      font-weight: 600;
+      margin-bottom: .5em;
+    }
+
+    .su-quote__bio {
+      margin: 0;
+    }
+
+    .su-quote__quote {
+      font-size: 1.5em;
+      font-weight: 600;
+    }
+  }
+}

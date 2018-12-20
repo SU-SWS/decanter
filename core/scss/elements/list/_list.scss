@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+//
+// List
+//
+// Default styling for lists, including ordered and unordered lists.
+//
+// Markup: ../../templates/elements/list/list.twig
+//
+// Style guide: Elements.List
+//
+ul,
+ol {
+  @include margin(1em null);
+  @include padding(null null null 1em);
+}
+
+li {
+  line-height: $base-line-height;
+  @include margin(null null 0.5em);
+
+  &:last-child {
+    @include margin(null null 0);
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  + ul,
+  + ol {
+    @include margin(0 null null);
+  }
+}
+
+// To remove the styling from a list.
+.su-list-unstyled {
+  @include list-unstyled;
+}

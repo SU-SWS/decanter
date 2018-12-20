@@ -4,13 +4,11 @@ module.exports = function(grunt) {
     sass: {
       options: {
         includePaths: [
-          "node_modules/bourbon/app/assets/stylesheets",
+          "node_modules/bourbon/core",
           "node_modules/bourbon-neat/app/assets/stylesheets",
-          "node_modules/font-awesome/scss",
-          "node_modules/normalize.css",
           "node_modules/neat-omega/core",
           "node_modules",
-          "scss"
+          "core/scss"
         ],
         lineNumbers: true,
         sourceMap: true,
@@ -19,9 +17,10 @@ module.exports = function(grunt) {
       },
       dist: {
         files: {
-          'css/decanter.css': 'scss/decanter.scss',
-          'css/decanter-no-markup.css': 'scss/decanter-no-markup.scss',
-          'css/decanter-grid.css': 'scss/decanter-grid.scss'
+          'core/css/decanter.css':                        'core/scss/decanter.scss',
+          'core/css/decanter-no-markup.css':              'core/scss/decanter-no-markup.scss',
+          'core/css/decanter-grid.css':                   'core/scss/decanter-grid.scss',
+          'kss/builder/decanter/kss-assets/css/kss.css':  'kss/builder/decanter/scss/kss.scss'
         }
       }
     },
@@ -29,74 +28,114 @@ module.exports = function(grunt) {
       options: {
         configFile: '.sass-lint.yml'
       },
-      target: ['scss/\*\*/\*.scss']
+      target: ['core/scss/\*\*/\*.scss']
     },
     uglify: {
       my_target: {
         files: {
-          'js/decanter.min.js': 'js/decanter.js',
+          'core/js/decanter.min.js': 'core/js/decanter.js',
         }
+      }
+    },
+    postcss: {
+      options: {
+        map: true,
+        processors: [
+          require('autoprefixer')
+        ]
+      },
+      dist: {
+        src: 'core/css/*.css'
       }
     },
     watch: {
       css: {
-        files: '**/*.scss',
-        tasks: ['sass', 'styleguide']
+        files: ['**/*.scss'],
+        tasks: ['styleguide'],
+        options: {
+          livereload: true
+        }
       },
       jsmin: {
-        files: 'js/**/*.js',
+        files: ['core/**/*.js'],
         tasks: ['uglify']
       },
       twig: {
-        files: ['**/*.html.twig'],
-        tasks: ['uglify', 'sass', 'styleguide']
+        files: ['**/*.twig', '**/*.json'],
+        tasks: ['styleguide']
+      }
+    },
+    browserSync: {
+      dev: {
+        bsFiles: {
+          src : [
+            'styleguide/css/decanter.css',
+            'styleguide/**/*.html'
+          ]
+        },
+        options: {
+          watchTask: true,
+          server: './styleguide'
+        }
+      }
+    },
+    clean: {
+      styleguide: {
+        src: [
+          'styleguide'
+        ]
+      },
+      postdeploy: {
+        src: [
+          '.styleguide_site'
+        ]
       }
     },
     run: {
       styleguide: {
-        "cmd": "kss",
-        "args": ['--config=kss-config.json']
+        "cmd": "./node_modules/.bin/kss",
+        "args": ['--config=kss/kss-config.json']
       }
     },
-    symlink: {
-      styleguidecss: {
-        dest: 'styleguide/css',
-        relativeSrc: '../css',
-        options: {type: 'dir'}
-      },
-      styleguidejs: {
-        dest: 'styleguide/js',
-        relativeSrc: '../js',
-        options: {type: 'dir'}
-      },
-      styleguideimg: {
-        dest: 'styleguide/img',
-        relativeSrc: '../img',
-        options: {type: 'dir'}
-      },
-      styleguidefonts: {
-        dest: 'styleguide/fonts',
-        relativeSrc: '../fonts',
-        options: {type: 'dir'}
+    deploy_site: {
+      styleguide: {
+        options: {
+          branch: 'master',
+          commit_msg: 'autocommit',
+          deploy_url: 'http://decanter.stanford.edu'
+        },
+        base_path: 'styleguide',
+        remote_url: 'git@github.com:SU-SWS/decanter.github.io'
       }
     },
-    verbosity: {
-      symlinkquiet: {
-        options: { mode: 'hidden' },
-        tasks: ["symlink"]
-      }
-    }
+    copy: {
+      styleguide: {
+        files: [
+          // includes files within path
+          {expand: true, cwd: 'core/css', src: ['**'], dest: 'styleguide/css/'},
+          {expand: true, cwd: 'core/fonts', src: ['**'], dest: 'styleguide/fonts/'},
+          {expand: true, cwd: 'core/js', src: ['**'], dest: 'styleguide/js/'},
+          {expand: true, cwd: 'core/img', src: ['**'], dest: 'styleguide/img/'},
+        ],
+      },
+    },
   });
 
   grunt.loadNpmTasks('grunt-run');
+  grunt.loadNpmTasks('grunt-browser-sync');
+  grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-symlink');
-  grunt.loadNpmTasks('grunt-verbosity');
+  grunt.loadNpmTasks('grunt-postcss');
+  grunt.loadNpmTasks('grunt-deploy-site');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
-  grunt.registerTask('styleguide', ['run:styleguide', 'verbosity:symlinkquiet']);
+  grunt.registerTask('deploy', ['styleguide', 'deploy_site:styleguide', 'clean:postdeploy']);
+  grunt.registerTask('styleguide', ['compile', 'uglify', 'clean:styleguide', 'run:styleguide', 'copy:styleguide']);
+  grunt.registerTask('compile', ['sass:dist', 'postcss:dist']);
+  grunt.registerTask('dev', ['styleguide', 'browserSync', 'watch']);
   grunt.registerTask('default', ['watch']);
 
 }

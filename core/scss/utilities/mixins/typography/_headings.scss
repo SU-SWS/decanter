@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+//
+// @headings
+//
+// Default heading shared styling.
+//
+// Style guide: Mixins.Typography.headings
+//
+@mixin headings {
+  clear: both;
+  line-height: $heading-line-height;
+
+  @include margin(1.5em null 0.5em);
+
+  .su-sans & {
+    font-family: $font-sans;
+  }
+
+  .su-serif & {
+    font-family: $font-serif;
+  }
+
+  .su-slab & {
+    font-family: $font-slab;
+  }
+
+  .su-handwriting & {
+    font-family: $font-handwriting;
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
