@@ -1,0 +1,42 @@
+@charset 'UTF-8';
+
+// Main navigation.
+.main-nav {
+  @include margin(0);
+  @include padding(0);
+  text-align: center;
+  vertical-align: middle;
+
+  @include grid-media("md") {
+    text-align: right;
+  }
+
+  li {
+    @include padding(0);
+    @include margin(0);
+    line-height: 69px;
+    vertical-align: middle;
+    display: inline-block;
+
+    a {
+      @include margin(0 20px 0 0);
+      @include padding(5px);
+      display: block;
+      color: darken($color-white, 30%);
+      font-family: $font-sans;
+      font-size: em(16px);
+      border-bottom: solid 3px $color-black;
+      height: 69px;
+    }
+
+    a.active,
+    a:hover {
+      color: $color-white;
+      border-bottom: solid 3px $color-white;
+    }
+
+    &:last-child > a {
+      @include margin(0);
+    }
+  }
+}

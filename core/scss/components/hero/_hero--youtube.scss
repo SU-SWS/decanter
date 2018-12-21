@@ -6,20 +6,21 @@ $_su-hero-height: (
   'sm': 315px,
   'md': 640px,
   'lg': 640px,
-  'xl': 728px
+  'xl': 728px,
+  '2xl': 728px
 );
 
 .su-hero--youtube {
 
-  @media #{$breakpoint-md} {
+  @include grid-media('md') {
     min-height: map-get($_su-hero-height, 'md');
   }
 
-  @media #{$breakpoint-lg} {
+  @include grid-media('lg') {
     min-height: map-get($_su-hero-height, 'lg');
   }
 
-  @media #{$breakpoint-xl} {
+  @include grid-media('xl') {
     min-height: map-get($_su-hero-height, 'xl');
   }
 
@@ -28,7 +29,7 @@ $_su-hero-height: (
   .su-hero__media {
     iframe {
 
-      @media #{$breakpoint-md} {
+      @include grid-media('md') {
         height: 100%;
       }
 

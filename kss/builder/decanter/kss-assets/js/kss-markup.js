@@ -11,9 +11,12 @@
   KssMarkup.prototype.init = function () {
     var self = this;
     // Initialize all markup toggle buttons.
-    document.querySelectorAll('a[data-kss-markup]').forEach(function (el) {
-      el.onclick = self.showGuides.bind(self);
-    });
+    var mkup = document.querySelectorAll('a[data-kss-markup]');
+    if (mkup.length) {
+      mkup.forEach(function (el) {
+        el.onclick = self.showGuides.bind(self);
+      });
+    }
   };
 
   // Activation function that takes the ID of the element that will receive

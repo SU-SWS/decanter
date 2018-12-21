@@ -1,0 +1,56 @@
+{#
+/**
+ * @file
+ * A three column layout with a 2 span header and an equal three column layout.
+ *
+ * AA BB BB
+ * AA CC DD
+ * AA CC DD
+ *
+ * Variables:
+ * attributes - html attributes for the template wrapper tag
+ * modifier_class - Variant modifier css classes
+ * header - A single column centered content area.
+ * first - A 33% width content column.
+ * second - A 33% width content column.
+ * third - A 33% width content column.
+ */
+#}
+<div{{ attributes }} class="layout {{ modifier_class }}">
+  <div class="flex-container centered-container">
+    <div class="flex-4-of-12 ">
+      {# Sidebar #}
+      {% if sidebar is not empty %}
+        <aside>
+          {{ sidebar }}
+        </aside>
+      {% endif %}
+    </div>
+
+    <div class="flex-8-of-12 ">
+      <div class="flex-container flex-container--row-gap">
+        <div class="flex-12-of-12">
+          {% if header is not empty %}
+            <header>
+              {{ header }}
+            </header>
+          {% endif %}
+        </div>
+        <div class="flex-6-of-12">
+          {% if first is not empty %}
+            <section>
+              {{ first }}
+            </section>
+          {% endif %}
+        </div>
+        <div class="flex-6-of-12">
+          {% if second is not empty %}
+            <section>
+              {{ second }}
+            </section>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

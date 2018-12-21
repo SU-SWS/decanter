@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+//
+// Cuttoner Right - Variant
+//
+.layout-cuttoner--right {
+
+  > div {
+    > section {
+      @include grid-media('sm') {
+        @include grid-item-spans(1, span 2);
+      }
+    }
+
+    > aside {
+      @include grid-media('sm') {
+        @include grid-item-spans(3, span 1, 1, span 1);
+      }
+    }
+  }
+
+}
