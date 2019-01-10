@@ -12,8 +12,7 @@
 @mixin grid-column-gap($gap: $gutter-xs) {
 
   > * {
-    $hgap: $gap / 2;
-    @include margin(null $hgap);
+    @include margin(null $gap null null);
   }
 
   @supports (grid-column-gap: 20px) {

@@ -43,7 +43,20 @@
     @include modular-margin();
   }
 
+  img {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+
   .su-card__contents {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+
+    @include grid-media('sm') {
+      -ms-grid-row: 1;
+      -ms-grid-column: 2;
+    }
+
     > h2 {
       @include grid-media-max('sm') {
         margin-top: 0;

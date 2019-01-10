@@ -7,7 +7,7 @@
 
 <div class="section section--ui-components">
   <div class="su-card su-card--horizontal">
-    <img src='/kss-assets/ui-components.png' alt='UI-Components' />
+    <img src='./kss-assets/ui-components.png' alt='UI-Components' />
     <div class="su-card__contents">
       <h2>Explore our UI components</h2>
       <p>From buttons, to rows of cards, to full article level pages, Decanter breaks down and builds components thoughtfully, allowing your content to be displayed exactly the way you want.</p>
