@@ -1,60 +1,50 @@
-<nav {{ attributes }} class="su-main-nav {{ modifier_class }}">
-  <ul class="su-main-nav__menu-lv1">
-    <li class="su-main-nav__item-lv1">
+<nav {{ attributes }} class="su-main-nav {{ modifier_class }}" aria-label="Main Menu">
+  <button id="su-main-nav__toggle" class="su-main-nav__toggle" aria-expanded="false" aria-haspopup="menu">Menu</button>
+  <ul class="su-main-nav__menu-lv1" role="menubar">
+    <li role="menuitem" class="su-main-nav__item-lv1">
       <a href="#">Home</a>
     </li>
-    <li aria-expanded="false" class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent su-main-nav__item-lv1--current">
+    <li role="menuitem" aria-haspopup="true" aria-expanded="false" class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent su-main-nav__item-lv1--current">
       <a href="#">Admissions &amp; Aid</a>
       <ul class="su-main-nav__menu-lv2" role="menu" aria-label="submenu">
-        <li class="su-main-nav__item-lv2">
+        <li role="menuitem" class="su-main-nav__item-lv2">
           <a href="#">Overview</a>
         </li>
-        <li class="su-main-nav__item-lv2">
+        <li role="menuitem" class="su-main-nav__item-lv2">
           <a href="#">Name &amp; Emblems</a>
         </li>
-        <li class="su-main-nav__item-lv2 su-main-nav__item-lv2--current">
+        <li role="menuitem" class="su-main-nav__item-lv2 su-main-nav__item-lv2--current">
           <a href="#">Department Branding</a>
         </li>
-        <li class="su-main-nav__item-lv2">
+        <li role="menuitem" class="su-main-nav__item-lv2">
           <a href="#">Color</a>
         </li>
       </ul>
     </li>
-    <li class="su-main-nav__item-lv1">
+    <li role="menuitem" class="su-main-nav__item-lv1">
       <a href="#">Students &amp; Academics</a>
     </li>
-    <li aria-expanded="false" class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent">
+    <li role="menuitem" aria-haspopup="true" aria-expanded="false" class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent">
       <a href="#">Research</a>
       <ul class="su-main-nav__menu-lv2" role="menu" aria-label="submenu">
-        <li class="su-main-nav__item-lv2">
+        <li role="menuitem" class="su-main-nav__item-lv2">
           <a href="#">Overview</a>
         </li>
-        <li class="su-main-nav__item-lv2">
+        <li role="menuitem" class="su-main-nav__item-lv2">
           <a href="#">Arts</a>
         </li>
-        <li class="su-main-nav__item-lv2 su-main-nav__item-lv2--current">
+        <li role="menuitem" class="su-main-nav__item-lv2">
           <a href="#">Humanities</a>
         </li>
-        <li aria-expanded="false" class="su-main-nav__item-lv2 su-main-nav__item-lv2--parent">
+        <li role="menuitem" class="su-main-nav__item-lv2">
           <a href="https://stanford.edu">Science</a>
-          <ul class="su-main-nav__menu-lv3" role="menu" aria-label="submenu">
-            <li class="su-main-nav__item-lv3">
-              <a href="#">Astronomy</a>
-            </li>
-            <li class="su-main-nav__item-lv3">
-              <a href="#">Biology</a>
-            </li>
-            <li class="su-main-nav__item-lv3 su-main-nav__item-lv3--current">
-              <a href="#">Physics</a>
-            </li>
-          </ul>
         </li>
       </ul>
     </li>
-    <li class="su-main-nav__item-lv1">
+    <li role="menuitem" class="su-main-nav__item-lv1">
       <a href="#">Get Involved</a>
     </li>
-    <li class="su-main-nav__item-lv1">
+    <li role="menuitem" class="su-main-nav__item-lv1">
       <a href="#">About</a>
     </li>
   </ul>
@@ -63,34 +53,69 @@
   NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEach;
   var parents = document.querySelectorAll(".su-main-nav__item-lv1--parent");
   var parentLinks = document.querySelectorAll(".su-main-nav__item-lv1--parent > a");
+  var mainNavToggle = document.querySelector("#su-main-nav__toggle");
 
-  for(let j=0; j<parents.length; j++){
-    parents[j].addEventListener('click', function(){
-      if( parents[j].getAttribute('aria-expanded') === 'false') {
+  function ariaSetTrue (x) {
+    x.setAttribute('aria-expanded', 'true');
+  }
+
+  function ariaSetFalse (x) {
+    x.setAttribute('aria-expanded', 'false');
+  }
+
+  for(let j=0; j<parents.length; j++) {
+    parents[j].addEventListener('click', function(e) {
+
+      if( parents[j].getAttribute('aria-expanded') === 'false' ) {
+
         // Close all opened drop down menus
-        parents.forEach( (function(x){ x.setAttribute('aria-expanded', 'false');}) );
+        parents.forEach( (function(x) {x.setAttribute('aria-expanded', 'false');}));
 
-        // Expand drop down menu that was clicked
-        parents[j].setAttribute('aria-expanded', 'true');
-      } else {
-        parents[j].setAttribute('aria-expanded', 'false');
+        // Toggle 2nd level menu
+        ariaSetTrue(parents[j]);
+      } else if( parents[j].getAttribute('aria-expanded') === 'true' ) {
+        ariaSetFalse(parents[j]);
       }
     }, false);
 
     // Make parent links inactive and act as drop down toggles
-    parentLinks[j].addEventListener('click', function(event){
-      event.preventDefault();
+    parentLinks[j].addEventListener('click', function(e) {
+      e.preventDefault();
     });
   }
 
   // Close opened drop down menus when click elsewhere
-  document.addEventListener('click', function(ev) {
-    var ev = ev ? ev : window.event;
-    var event_element = ev.target ? ev.target : ev.srcElement;
+  document.addEventListener('click', function(e) {
+    var e = e ? e : window.event;
+    var event_element = e.target ? e.target : e.srcElement;
     if ( !event_element.closest('.su-main-nav__item-lv1--parent') ) {
       for(let i=0; i<parents.length; i++) {
-        parents[i].setAttribute('aria-expanded', 'false');
+        ariaSetFalse(parents[i]);
       }
     }
   }, false);
+
+  mainNavToggle.addEventListener('click', function(e) {
+    if( mainNavToggle.getAttribute('aria-expanded') === 'false' ) {
+      ariaSetTrue(mainNavToggle);
+      mainNavToggle.innerHTML = 'Close';
+    } else if( mainNavToggle.getAttribute('aria-expanded') === 'true' ) {
+      ariaSetFalse(mainNavToggle);
+      mainNavToggle.innerHTML = 'Menu';
+    }
+  }, false);
+
+  window.onkeyup = function(e) {
+    var press = e.keyCode;
+
+    // Close all opened drop down menus when esc key is pressed
+    if (press == 27) {
+      for(let j=0; j<parents.length; j++) {
+        //parents[j].setAttribute('aria-expanded', 'false');
+        ariaSetFalse(parents[j]);
+      }
+      ariaSetFalse(mainNavToggle);
+    }
+  }
+
 </script>
