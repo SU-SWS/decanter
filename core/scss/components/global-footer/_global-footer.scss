@@ -58,16 +58,19 @@
   }
 
   .global-footer__content {
-    flex-grow: 1;
     @include grid-media('xl') {
       padding-left: 52px;
     }
+
     @include grid-media('md') {
       padding-left: 45px;
     }
+
     @include grid-media-only('sm') {
       text-align: center;
     }
+
+    flex-grow: 1;
   }
 
   // Grid settings for footer nav region; passing 0 for no outer gutters.
@@ -137,16 +140,20 @@
   .global-footer__menu--global {
     font-size: 1.75rem;
     font-weight: normal;
+
     @include grid-media('md') {
       font-size: 1.85rem;
     }
+
   }
 
   .global-footer__menu--policy {
     font-size: 1.6rem;
+
     @include grid-media('sm') {
       font-weight: 300;
     }
+
   }
 
   .global-footer__copyright {
