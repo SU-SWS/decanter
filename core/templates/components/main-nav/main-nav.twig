@@ -1,56 +1,56 @@
 <nav {{ attributes }} class="su-main-nav {{ modifier_class }}" aria-label="Main Menu">
   <button id="su-main-nav__toggle" class="su-main-nav__toggle" aria-expanded="false" aria-haspopup="menu">Menu</button>
-  <ul class="su-main-nav__menu-lv1" role="menubar">
-    <li role="menuitem" class="su-main-nav__item-lv1">
+  <ul class="su-main-nav__menu-lv1">
+    <li class="su-main-nav__item-lv1">
       <a href="#">Home</a>
     </li>
-    <li role="menuitem" aria-haspopup="true" aria-expanded="false" class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent su-main-nav__item-lv1--current">
+    <li aria-haspopup="true" aria-expanded="false" class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent su-main-nav__item-lv1--current">
       <a href="#">Admissions &amp; Aid</a>
       <ul class="su-main-nav__menu-lv2" role="menu" aria-label="submenu">
-        <li role="menuitem" class="su-main-nav__item-lv2">
+        <li class="su-main-nav__item-lv2">
           <a href="#">Overview</a>
         </li>
-        <li role="menuitem" class="su-main-nav__item-lv2">
+        <li class="su-main-nav__item-lv2">
           <a href="#">Name &amp; Emblems</a>
         </li>
-        <li role="menuitem" class="su-main-nav__item-lv2 su-main-nav__item-lv2--current">
+        <li class="su-main-nav__item-lv2 su-main-nav__item-lv2--current">
           <a href="#">Department Branding</a>
         </li>
-        <li role="menuitem" class="su-main-nav__item-lv2">
+        <li class="su-main-nav__item-lv2">
           <a href="#">Color</a>
         </li>
       </ul>
     </li>
-    <li role="menuitem" class="su-main-nav__item-lv1">
+    <li class="su-main-nav__item-lv1">
       <a href="#">Students &amp; Academics</a>
     </li>
-    <li role="menuitem" aria-haspopup="true" aria-expanded="false" class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent">
+    <li aria-haspopup="true" aria-expanded="false" class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent">
       <a href="#">Research</a>
       <ul class="su-main-nav__menu-lv2" role="menu" aria-label="submenu">
-        <li role="menuitem" class="su-main-nav__item-lv2">
+        <li class="su-main-nav__item-lv2">
           <a href="#">Overview</a>
         </li>
-        <li role="menuitem" class="su-main-nav__item-lv2">
+        <li class="su-main-nav__item-lv2">
           <a href="#">Arts</a>
         </li>
-        <li role="menuitem" class="su-main-nav__item-lv2">
+        <li class="su-main-nav__item-lv2">
           <a href="#">Humanities</a>
         </li>
-        <li role="menuitem" class="su-main-nav__item-lv2">
+        <li class="su-main-nav__item-lv2">
           <a href="https://stanford.edu">Science</a>
         </li>
       </ul>
     </li>
-    <li role="menuitem" class="su-main-nav__item-lv1">
+    <li class="su-main-nav__item-lv1">
       <a href="#">Get Involved</a>
     </li>
-    <li role="menuitem" class="su-main-nav__item-lv1">
+    <li class="su-main-nav__item-lv1">
       <a href="#">About</a>
     </li>
   </ul>
 </nav>
 <script>
-  NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEach;
+  NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEach; //Make nodelists behave like arrays
   var parents = document.querySelectorAll(".su-main-nav__item-lv1--parent");
   var parentLinks = document.querySelectorAll(".su-main-nav__item-lv1--parent > a");
   var mainNavToggle = document.querySelector("#su-main-nav__toggle");
