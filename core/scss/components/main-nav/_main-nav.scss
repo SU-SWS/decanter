@@ -27,13 +27,11 @@
   a {
     text-decoration: none;
   }
-
-  @include grid-media-only('md') {
-    max-width: 21em;
-  }
 }
 
 .su-main-nav__toggle {
+  @include fancy-hover;
+  @include padding(0 0 1em);
   background-color: transparent;
   color: $color-black;
   font-size: .8em;
@@ -41,9 +39,8 @@
   line-height: .7;
   width: 40px;
   margin: 0;
-  padding: 0;
 
-  &::before {
+  &::after {
     background: url("#{$image-path}/hamburger-black.svg") no-repeat 3px 0;
     content: "";
     display: inline-block;
@@ -53,6 +50,10 @@
 
   &[aria-expanded="true"] {
     &::before {
+      background-color: $color-black;
+    }
+
+    &::after {
       background: url("#{$image-path}/close-black.svg") no-repeat 3px 0;
     }
   }
@@ -62,6 +63,7 @@
   &:focus {
     background-color: transparent;
     color: $color-black;
+    box-shadow: none;
   }
 
   @include grid-media('lg') {
@@ -72,6 +74,13 @@
     &[aria-expanded="false"] {
       + .su-main-nav__menu-lv1 {
         display: none;
+      }
+    }
+
+    &[aria-expanded="true"] {
+      + .su-main-nav__menu-lv1 {
+        position: absolute;
+        max-width: 21em;
       }
     }
   }
@@ -117,30 +126,13 @@
   @include margin(null null 0);
 
   a {
-    @include fancy-hover($color: $color-white, $active: $color-bright-red);
+    @include fancy-hover-vertical($color: $color-white, $active: $color-bright-red);
     @include padding(.8em .4em .8em 1em);
     display: block;
     color: $color-white;
     font-size: .9em;
     font-weight: 600;
     border-bottom: $color-cool-grey solid 1px;
-
-    &::before {
-      height: 100%;
-      width: 5px;
-      transform: scaleX(0);
-      transform: scaleY(0);
-    }
-
-    &:hover,
-    &:focus {
-
-      &::before {
-        transform: scaleX(0);
-        transform: scaleY(1);
-      }
-    }
-
   }
 
   @include grid-media('lg') {
@@ -195,6 +187,7 @@
 
   @include grid-media('lg') {
     > a {
+
       &::before {
         transform: scaleX(1) !important;
         transform: scaleY(0);
@@ -243,7 +236,6 @@
 }
 
 .su-main-nav__item-lv1--parent {
-
   &:focus,
   &[aria-expanded="true"] {
 
@@ -271,9 +263,7 @@
       }
     }
   }
-}
 
-.su-main-nav__item-lv1--parent {
   > a {
     &::after {
       background: url("#{$image-path}/plus-white.svg") no-repeat 0 0;
@@ -326,4 +316,3 @@
     }
   }
 }
-

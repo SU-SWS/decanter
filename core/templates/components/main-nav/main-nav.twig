@@ -111,7 +111,6 @@
     // Close all opened drop down menus when esc key is pressed
     if (press == 27) {
       for(let j=0; j<parents.length; j++) {
-        //parents[j].setAttribute('aria-expanded', 'false');
         ariaSetFalse(parents[j]);
       }
       ariaSetFalse(mainNavToggle);

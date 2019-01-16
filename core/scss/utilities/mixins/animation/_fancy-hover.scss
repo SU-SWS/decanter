@@ -1,53 +1,72 @@
 @charset "UTF-8";
 
 //
-// @fancy-hover($color: $color-dark-red)
+// @fancy-hover($color, $active)
 //
-// Display a thick line that expands out from the middle when a link is hovered over.
+// Display a thick bottom border that expands out from the middle when an element is hovered over.
 //
-// $color - Default hover color. Defaults to $color-dark-red.
-// $active - Active color. Defaults to $color-black.
+// $color - Hover/focus border color. Defaults to $color-dark-red.
+// $active - Active border color. Defaults to $color-black.
 //
 // Style guide: Mixins.Animation.Fancy Hover
 //
-@mixin fancy-hover($color: $color-dark-red, $active: $color-black) {
+@mixin fancy-hover-setup {
   text-decoration: none;
   position: relative;
-  padding-bottom: .65em;
 
   &::before {
     content: "";
     position: absolute;
-    width: 100%;
-    height: 6px;
     bottom: 0;
     left: 0;
     visibility: hidden;
-    transform: scaleX(0);
-    transition: transform .15s ease-in;
+    transition: transform .25s ease-in;
     z-index: 1;
   }
 
   &:hover,
-  &:focus {
+  &:focus,
+  &:active,
+  &[aria-expanded="true"] {
     text-decoration: none;
 
     &::before {
-      background-color: $color;
       visibility: visible;
-      transform: scaleX(1);
       transition: transform .25s ease-out;
     }
   }
+}
 
-  &:active {
-    text-decoration: none;
+@mixin fancy-hover($color: $color-dark-red, $active: $color-black) {
+  @include fancy-hover-setup;
+  padding-bottom: .65em;
 
+  &::before {
+    width: 100%;
+    height: 6px;
+    transform: scaleX(0);
+  }
+
+  &:hover,
+  &:focus,
+  &:active,
+  &[aria-expanded="true"] {
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    &::before {
+      background-color: $color;
+    }
+  }
+
+  &:active,
+  &[aria-expanded="true"] {
     &::before {
       background-color: $active;
-      visibility: visible;
-      transform: scaleX(1);
-      transition: transform .05s ease-out;
     }
   }
 }
