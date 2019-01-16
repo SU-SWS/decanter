@@ -19,19 +19,23 @@
 
   font-size: modular-scale($scale, map-get($modular-typography, 'xs'));
 
-  @media #{$breakpoint-sm} {
+  @include grid-media('sm') {
     font-size: modular-scale($scale, map-get($modular-typography, 'sm'));
   }
 
-  @media #{$breakpoint-md} {
+  @include grid-media('md') {
     font-size: modular-scale($scale, map-get($modular-typography, 'md'));
   }
 
-  @media #{$breakpoint-lg} {
+  @include grid-media('lg') {
     font-size: modular-scale($scale, map-get($modular-typography, 'lg'));
   }
 
-  @media #{$breakpoint-xl} {
+  @include grid-media('xl') {
     font-size: modular-scale($scale, map-get($modular-typography, 'xl'));
+  }
+
+  @include grid-media('2xl') {
+    font-size: modular-scale($scale, map-get($modular-typography, '2xl'));
   }
 }

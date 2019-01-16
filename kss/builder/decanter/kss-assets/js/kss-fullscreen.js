@@ -26,10 +26,13 @@
 
     var self = this;
     // Initialize all fullscreen toggle buttons.
-    document.querySelectorAll('a[data-kss-fullscreen]').forEach(function (button) {
-      // Get the section reference from the data attribute.
-      button.onclick = self.setFocus.bind(self, button.dataset.kssFullscreen);
-    });
+    var fulls = document.querySelectorAll('a[data-kss-fullscreen]');
+    if (fulls.length) {
+      fulls.forEach(function (button) {
+        // Get the section reference from the data attribute.
+        button.onclick = self.setFocus.bind(self, button.dataset.kssFullscreen);
+      });
+    }
   };
 
   // Activation function that takes the ID of the element that will receive

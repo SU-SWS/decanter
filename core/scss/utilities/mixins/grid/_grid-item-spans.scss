@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+//
+// @grid-item-spans($col-start, $col-end, $row-start, $row-end)
+//
+// Mixin to render cssGrid column spans in all modern browsers, including IE11.
+//
+// $col-start - integer: The column integer to start at
+// $col-end - list: A column integer or span
+// $row-start - integer: The row integer to start at
+// $row-end - list: A row integer or span
+//
+// Style guide: Mixins.Grid.grid-item-spans
+//
+@mixin grid-item-spans($col-start: null, $col-end: null, $row-start: null, $row-end: null) {
+
+  @if ($col-start != null) {
+    -ms-grid-column: $col-start;
+  }
+
+  @if ($col-end != null and $col-start != null) {
+    grid-column: #{$col-start} / #{$col-end};
+
+     @if (str-index(#{$col-end}, 'span ')) {
+       -ms-grid-column-span: str-replace(#{$col-end}, "span ", '');
+     } @else {
+       -ms-grid-column-span: $col-end - $col-start;
+     }
+
+  }
+
+  @if ($row-start != null) {
+    -ms-grid-row: $row-start;
+  }
+
+  @if ($row-end != null and $row-start != null) {
+    grid-row: #{$row-start} / #{$row-end};
+
+    @if (str-index(#{$row-end}, "span ")) {
+      -ms-grid-row-span: str-replace(#{$row-end}, "span ", '');
+    } @else {
+      -ms-grid-row-span: $row-end - $row-start;
+    }
+
+  }
+
+}

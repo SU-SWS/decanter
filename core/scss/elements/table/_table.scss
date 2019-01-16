@@ -14,9 +14,37 @@
 // Style guide: Elements.Table
 //
 table {
-  @include tables;
-}
+  @include margin(2em 0);
+  border-spacing: 0;
+  min-width: 100%;
 
-.su-table--borderless {
-  @include table-borderless;
+  th,
+  td {
+    @include padding(1.5rem);
+    border: 1px solid $color-driftwood;
+  }
+
+  th {
+    background-color: $color-cloud;
+    color: $color-black;
+    font-weight: $font-normal;
+    text-align: left;
+  }
+
+  td {
+    background-color: $color-white;
+  }
+
+  thead {
+    th,
+    td {
+      background-color: $color-cloud;
+    }
+  }
+
+  tbody {
+    th {
+      font-weight: $font-normal;
+    }
+  }
 }

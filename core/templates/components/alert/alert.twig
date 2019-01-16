@@ -21,7 +21,11 @@
 #}
 <div {{ attributes }} class="su-alert {{ modifier_class }}">
   <div class="su-alert__body">
+    {% if alert_header is not empty %}
     <h3 class="su-alert__heading">{{ alert_header }}</h3>
+    {% endif %}
+    {% if alert_text is not empty %}
     <p class="su-alert__text">{{ alert_text }}</p>
+    {% endif %}
   </div>
 </div>

@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+//
+// ie-autorow($children: 4)
+//
+// Mixin to generate ms-ie compatible 'auto flow' settings. In IE 11 you have to
+// specifically tell the browser what row and column each cell is in. This
+// allows you to do that with some asumptions.
+//
+// $children - number of children in order for row;
+//
+// Style guide: Mixins.Grid.ie-autorow
+//
+@mixin ie-autorow($children: 2) {
+  @for $i from 1 through $children {
+    > *:nth-child(#{$i}) {
+      -ms-grid-row: $i;
+    }
+  }
+}

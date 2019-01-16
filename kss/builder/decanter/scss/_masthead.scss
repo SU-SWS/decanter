@@ -1,0 +1,37 @@
+@charset 'UTF-8';
+
+// The logo and the nav wrapper.
+.masthead {
+  @include box-shadow("shallow", "0");
+  @include padding(0);
+  background: $color-black;
+  position: relative;
+  z-index: 20;
+
+  div {
+    @include centered-column;
+    @include display-grid;
+    @include grid-media('md') {
+      @include grid-columns(1fr 11fr);
+    }
+  }
+
+  .brand-logo {
+    @include modular-typography(3);
+    color: $color-white;
+    font-weight: $font-x-bold;
+    display: block;
+    vertical-align: middle;
+    height: 100%;
+    line-height: 69px;
+    text-align: center;
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+
+  .main-nav {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+  }
+
+}

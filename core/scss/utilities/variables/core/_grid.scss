@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+// $grid-columns
+//
+// The number of columns used by default for the flex grid.
+//
+// Style guide: Variables.Core.grid-columns
+//
+$grid-columns: 12 !default;
+
+// $grid-screens
+//
+// A sass map of screen sized keyed with the breakpoint shortcode.
+//
+// Style guide: Variables.Core.grid-screens
+//
+$grid-screens: (
+  'xs': $screen-xs,
+  'sm': $screen-sm,
+  'md': $screen-md,
+  'lg': $screen-lg,
+  'xl': $screen-xl,
+  '2xl': $screen-2xl
+) !default;
+
+// $grid-media
+//
+// A sass map of breakpoints sized keyed with the breakpoint shortcode.
+//
+// Style guide: Variables.Core.grid-media
+//
+$grid-media: (
+  'xs': $breakpoint-xs,
+  'sm': $breakpoint-sm,
+  'md': $breakpoint-md,
+  'lg': $breakpoint-lg,
+  'xl': $breakpoint-xl,
+  '2xl': $breakpoint-2xl
+) !default;
+
+// $grid-media-only
+//
+// A sass map of single breakpoint spans keyed with the breakpoint shortcode.
+//
+// Style guide: Variables.Core.grid-screens-only
+//
+$grid-media-only: (
+  'xs': $breakpoint-xs-only,
+  'sm': $breakpoint-sm-only,
+  'md': $breakpoint-md-only,
+  'lg': $breakpoint-lg-only,
+  'xl': $breakpoint-xl-only,
+  '2xl': $breakpoint-2xl
+) !default;
+
+// $responsive-columns-default
+//
+// A sass map of css grid columns keyed with breakpoint media queries. 2 column.
+//
+// Style guide: Variables.Core.responsive-columns-default
+//
+$responsive-columns-default: (
+  $breakpoint-xs: 1fr,
+  $breakpoint-sm: 1fr 1fr,
+  $breakpoint-md: 1fr 1fr,
+  $breakpoint-lg: 1fr 1fr,
+  $breakpoint-xl: 1fr 1fr,
+  $breakpoint-2xl: 1fr 1fr
+) !default;
+
+// $responsive-columns-two
+//
+// A sass map of css grid columns keyed with breakpoint media queries. 2 column.
+//
+// Style guide: Variables.Core.responsive-columns-two
+//
+$responsive-columns-two: $responsive-columns-default !default;
+
+// $responsive-columns-three
+//
+// A sass map of css grid columns keyed with breakpoint media queries. 3 column.
+//
+// Style guide: Variables.Core.responsive-columns-three
+//
+$responsive-columns-three: (
+  $breakpoint-xs: 1fr,
+  $breakpoint-sm: 1fr 1fr,
+  $breakpoint-md: 1fr 1fr,
+  $breakpoint-lg: 1fr 1fr 1fr,
+  $breakpoint-xl: 1fr 1fr 1fr,
+  $breakpoint-2xl: 1fr 1fr 1fr
+) !default;
+
+// $responsive-columns-four
+//
+// A sass map of css grid columns keyed with breakpoint media queries. 4 column.
+//
+// Style guide: Variables.Core.responsive-columns-four
+//
+$responsive-columns-four: (
+  $breakpoint-xs: 1fr,
+  $breakpoint-sm: 1fr 1fr,
+  $breakpoint-md: 1fr 1fr,
+  $breakpoint-lg: 1fr 1fr 1fr 1fr,
+  $breakpoint-xl: 1fr 1fr 1fr 1fr,
+  $breakpoint-2xl: 1fr 1fr 1fr 1fr
+) !default;
+
+// $responsive-columns-six
+//
+// A sass map of css grid columns keyed with breakpoint media queries. 6 column.
+//
+// Style guide: Variables.Core.responsive-columns-six
+//
+$responsive-columns-six: (
+  $breakpoint-xs: 1fr,
+  $breakpoint-sm: 1fr 1fr 1fr,
+  $breakpoint-md: 1fr 1fr 1fr,
+  $breakpoint-lg: 1fr 1fr 1fr 1fr 1fr,
+  $breakpoint-xl: 1fr 1fr 1fr 1fr 1fr 1fr,
+  $breakpoint-2xl: 1fr 1fr 1fr 1fr 1fr 1fr
+) !default;

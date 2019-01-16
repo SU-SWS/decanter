@@ -5,9 +5,18 @@
 //
 // Screen reader only content hiding helper.
 //
+// See https://a11yproject.com/posts/how-to-hide-content/
+//
 // Style guide: Mixins.Accessibility.sr-only
 //
 @mixin sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  overflow: hidden;
   position: absolute;
-  left: -999em;
+  white-space: nowrap;
+  width: 1px;
+
+  @include padding(0);
 }

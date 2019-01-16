@@ -8,33 +8,60 @@
   @include display-grid;
 
   // One column on smallest screen sizes.
-  @include grid-media("xs", 100%);
+  @include grid-media("xs") {
+    @include grid-columns(100%);
+    @include grid-gap('xs');
+  }
 
   // 33/66 for small.
-  @include grid-media("sm", 1fr 2fr, _modular-spacing-get-value('sm'));
+  @include grid-media("sm") {
+    @include grid-columns(1fr 2fr);
+    @include grid-gap('sm');
+  }
 
   // 50/50 side by side on all screen sizes above small.
-  @include grid-media("md", 1fr 1fr, _modular-spacing-get-value('md'));
+  @include grid-media("md") {
+    @include grid-columns(1fr 1fr);
+    @include grid-gap('md');
+  }
 
-  // Modular padding on images too.
-  > img {
-    @media #{$breakpoint-sm} {
-      margin: _modular-spacing-get-value('sm') 0;
+  @include grid-media("lg") {
+    @include grid-gap('lg');
+  }
+
+  @include grid-media("xl") {
+    @include grid-gap('xl');
+  }
+
+  @include grid-media("2xl") {
+    @include grid-gap('2xl');
+  }
+
+  // Modular padding.
+  > img,
+  .su-card__contents {
+    @include modular-margin();
+  }
+
+  img {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+
+  .su-card__contents {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+
+    @include grid-media('sm') {
+      -ms-grid-row: 1;
+      -ms-grid-column: 2;
     }
 
-    @media #{$breakpoint-md} {
-      margin: _modular-spacing-get-value('md') 0;
+    > h2 {
+      @include grid-media-max('sm') {
+        margin-top: 0;
+      }
     }
-
-    @media #{$breakpoint-lg} {
-      margin: _modular-spacing-get-value('lg') 0;
-    }
-
-    @media #{$breakpoint-xl} {
-      margin: _modular-spacing-get-value('xl') 0;
-    }
-
-    margin: _modular-spacing-get-value('xs') 0;
   }
 
 }

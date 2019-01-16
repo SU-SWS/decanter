@@ -1,8 +1,24 @@
+/**
+ * Gruntfile.
+ * @type {[type]}
+ */
 module.exports = function(grunt) {
+
+  /**
+   * [sass description]
+   * @type {[type]}
+   */
+  const sass = require('node-sass');
+
+  /**
+   * [pkg description]
+   * @type {[type]}
+   */
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     sass: {
       options: {
+        implementation: sass,
         includePaths: [
           "node_modules/bourbon/core",
           "node_modules/bourbon-neat/app/assets/stylesheets",
@@ -20,7 +36,7 @@ module.exports = function(grunt) {
           'core/css/decanter.css':                        'core/scss/decanter.scss',
           'core/css/decanter-no-markup.css':              'core/scss/decanter-no-markup.scss',
           'core/css/decanter-grid.css':                   'core/scss/decanter-grid.scss',
-          'kss/builder/decanter/kss-assets/css/kss.css':  'kss/builder/decanter/scss/kss.scss'
+          'kss/builder/decanter/kss-assets/css/kss.css':  'kss/builder/decanter/scss/kss.scss',
         }
       }
     },
@@ -39,13 +55,16 @@ module.exports = function(grunt) {
     },
     postcss: {
       options: {
-        map: true,
+        map: true, // inline sourcemaps
         processors: [
-          require('autoprefixer')
+          require('autoprefixer')({ grid: true, browsers: ['last 2 versions', 'ie 11']}) // add vendor prefixes
         ]
       },
       dist: {
-        src: 'core/css/*.css'
+        src: [
+          'core/css/*.css',
+          'kss/builder/decanter/kss-assets/css/*.css'
+        ]
       }
     },
     watch: {
