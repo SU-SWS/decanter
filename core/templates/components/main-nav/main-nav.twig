@@ -14,7 +14,7 @@
           <a href="#">Name &amp; Emblems</a>
         </li>
         <li class="su-main-nav__item-lv2 su-main-nav__item-lv2--current">
-          <a href="#">Department Branding</a>
+          <a href="#">Current Page</a>
         </li>
         <li class="su-main-nav__item-lv2">
           <a href="#">Color</a>
@@ -69,7 +69,7 @@
       if( parents[j].getAttribute('aria-expanded') === 'false' ) {
 
         // Close all opened drop down menus
-        parents.forEach( (function(x) {x.setAttribute('aria-expanded', 'false');}));
+        parents.forEach( ariaSetFalse );
 
         // Toggle 2nd level menu
         ariaSetTrue(parents[j]);
@@ -110,10 +110,14 @@
 
     // Close all opened drop down menus when esc key is pressed
     if (press == 27) {
-      for(let j=0; j<parents.length; j++) {
-        ariaSetFalse(parents[j]);
+
+      if( mainNavToggle.getAttribute('aria-expanded') === 'true' ) {
+          ariaSetFalse(mainNavToggle);
+      } else if ( mainNavToggle.getAttribute('aria-expanded') === 'false' ) {
+        for(let j=0; j<parents.length; j++) {
+          ariaSetFalse(parents[j]);
+        }
       }
-      ariaSetFalse(mainNavToggle);
     }
   }
 
