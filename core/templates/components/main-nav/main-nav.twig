@@ -1,4 +1,4 @@
-<nav {{ attributes }} class="su-main-nav {{ modifier_class }}" aria-label="Main Menu">
+<nav {{ attributes }} id="su-main-nav" class="su-main-nav {{ modifier_class }}" aria-label="Main Menu">
   <button id="su-main-nav__toggle" class="su-main-nav__toggle" aria-expanded="false" aria-haspopup="menu">Menu</button>
   <ul class="su-main-nav__menu-lv1">
     <li class="su-main-nav__item-lv1">
@@ -51,10 +51,11 @@
 </nav>
 <script>
   NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEach; //Make nodelists behave like arrays
-  var mainMenu = document.querySelector(".su-main-nav__menu-lv1");
-  var mainNavToggle = document.getElementById("su-main-nav__toggle");
-  var parents = mainMenu.querySelectorAll(".su-main-nav__item-lv1--parent");
-  var parentLinks = mainMenu.querySelectorAll(".su-main-nav__item-lv1--parent > a");
+  var mainNav = document.getElementById('su-main-nav');
+  var mainMenu = document.querySelector('.su-main-nav__menu-lv1');
+  var mainNavToggle = document.getElementById('su-main-nav__toggle');
+  var parents = mainMenu.querySelectorAll('.su-main-nav__item-lv1--parent');
+  var parentLinks = mainMenu.querySelectorAll('.su-main-nav__item-lv1--parent > a');
   var firstLink = mainMenu.firstElementChild.querySelector('a');
   var lastLink = mainMenu.lastElementChild.querySelector('a');
 
@@ -71,13 +72,13 @@
 
       if( parents[j].getAttribute('aria-expanded') === 'false' ) {
 
-        // Close all opened drop down menus
+        // First close all opened drop down menus
         parents.forEach( ariaSetFalse );
 
         // Toggle 2nd level menu
-        ariaSetTrue(parents[j]);
+        ariaSetTrue( parents[j] );
       } else if( parents[j].getAttribute('aria-expanded') === 'true' ) {
-        ariaSetFalse(parents[j]);
+        ariaSetFalse( parents[j] );
       }
     }, false);
 
@@ -93,42 +94,40 @@
     var event_element = e.target ? e.target : e.srcElement;
     if( !event_element.closest('.su-main-nav__item-lv1--parent') ) {
       for(let i=0; i<parents.length; i++) {
-        ariaSetFalse(parents[i]);
+        ariaSetFalse( parents[i] );
       }
     }
   }, false);
 
   mainNavToggle.addEventListener('click', function(e) {
     if( mainNavToggle.getAttribute('aria-expanded') === 'false' ) {
-      ariaSetTrue(mainNavToggle);
-      ariaSetTrue(mainMenu);
+      ariaSetTrue( mainNavToggle );
+      ariaSetTrue( mainMenu );
       mainNavToggle.innerHTML = 'Close';
     } else if( mainNavToggle.getAttribute('aria-expanded') === 'true' ) {
-      ariaSetFalse(mainNavToggle);
-      ariaSetFalse(mainMenu);
+      ariaSetFalse( mainNavToggle );
+      ariaSetFalse( mainMenu );
       mainNavToggle.focus(); // Return focus to the toggle button
       mainNavToggle.innerHTML = 'Menu';
     }
   }, false);
 
   // Keyboard bindings
-  document.onkeyup = function(e) {
+  mainNav.onkeydown = function(e) {
     var press = e.keyCode;
+    var currentFocus = document.activeElement;
 
-      // Close all opened drop down menus when ESC key is pressed
-      if (press == 27) {
+    // Close all opened drop down menus when ESC key is pressed
+    if (press == 27) {
 
-        if (mainNavToggle.getAttribute('aria-expanded') === 'true') {
-          ariaSetFalse(mainNavToggle);
-        } else if (mainNavToggle.getAttribute('aria-expanded') === 'false') {
-          for (let j = 0; j < parents.length; j++) {
-            ariaSetFalse(parents[j]);
-          }
+      if (mainNavToggle.getAttribute('aria-expanded') === 'true') {
+        ariaSetFalse( mainNavToggle );
+      } else if (mainNavToggle.getAttribute('aria-expanded') === 'false') {
+        for (let j = 0; j < parents.length; j++) {
+          ariaSetFalse( parents[j] );
         }
       }
-
-
-      var currentFocus = document.activeElement;
+    }
 
     // if focus is on first or second level menu links, allows using HOME/END keys to jump to first/last first level link
     if ( currentFocus.parentNode.classList.contains('su-main-nav__item-lv1') || currentFocus.parentNode.classList.contains('su-main-nav__item-lv2') ) {
@@ -147,11 +146,41 @@
     if ( currentFocus.parentNode.classList.contains('su-main-nav__item-lv1') && getComputedStyle(mainNavToggle,null).display === 'none' ) {
 
       if (press == 37) {
-        currentFocus.parentNode.previousElementSibling.querySelector('a').focus();
+        if (currentFocus !== firstLink) {
+          currentFocus.parentNode.previousElementSibling.querySelector('a').focus();
+        } else if (currentFocus === firstLink) {
+          lastLink.focus();
+        }
       }
 
       if (press == 39) {
+        if (currentFocus !== lastLink) {
+          currentFocus.parentNode.nextElementSibling.querySelector('a').focus();
+        } else if (currentFocus === lastLink) {
+          firstLink.focus();
+        }
+      }
+    }
+
+    // if focus is on first level parent links on desktop, allows using down arrow to go to 1st child link
+    if ( currentFocus.parentNode.classList.contains('su-main-nav__item-lv1--parent') && getComputedStyle(mainNavToggle,null).display === 'none' ) {
+
+      if (press == 40) {
+        ariaSetTrue( currentFocus.parentNode );
+        e.preventDefault(); // prevent down scrolling
+        currentFocus.parentNode.querySelector('.su-main-nav__menu-lv2 > li:first-child > a').focus();
+      }
+    }
+
+    if ( currentFocus.parentNode.classList.contains('su-main-nav__item-lv2') ) {
+      if (press == 40) {
+        e.preventDefault();
         currentFocus.parentNode.nextElementSibling.querySelector('a').focus();
+      }
+
+      if (press == 38) {
+        e.preventDefault(); // prevent up scrolling
+        currentFocus.parentNode.previousElementSibling.querySelector('a').focus();
       }
     }
 
