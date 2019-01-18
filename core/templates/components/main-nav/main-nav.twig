@@ -51,9 +51,12 @@
 </nav>
 <script>
   NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEach; //Make nodelists behave like arrays
-  var parents = document.querySelectorAll(".su-main-nav__item-lv1--parent");
-  var parentLinks = document.querySelectorAll(".su-main-nav__item-lv1--parent > a");
-  var mainNavToggle = document.querySelector("#su-main-nav__toggle");
+  var mainMenu = document.querySelector(".su-main-nav__menu-lv1");
+  var mainNavToggle = document.getElementById("su-main-nav__toggle");
+  var parents = mainMenu.querySelectorAll(".su-main-nav__item-lv1--parent");
+  var parentLinks = mainMenu.querySelectorAll(".su-main-nav__item-lv1--parent > a");
+  var firstLink = mainMenu.firstElementChild.querySelector('a');
+  var lastLink = mainMenu.lastElementChild.querySelector('a');
 
   function ariaSetTrue (x) {
     x.setAttribute('aria-expanded', 'true');
@@ -88,7 +91,7 @@
   document.addEventListener('click', function(e) {
     var e = e ? e : window.event;
     var event_element = e.target ? e.target : e.srcElement;
-    if ( !event_element.closest('.su-main-nav__item-lv1--parent') ) {
+    if( !event_element.closest('.su-main-nav__item-lv1--parent') ) {
       for(let i=0; i<parents.length; i++) {
         ariaSetFalse(parents[i]);
       }
@@ -98,27 +101,60 @@
   mainNavToggle.addEventListener('click', function(e) {
     if( mainNavToggle.getAttribute('aria-expanded') === 'false' ) {
       ariaSetTrue(mainNavToggle);
+      ariaSetTrue(mainMenu);
       mainNavToggle.innerHTML = 'Close';
     } else if( mainNavToggle.getAttribute('aria-expanded') === 'true' ) {
       ariaSetFalse(mainNavToggle);
+      ariaSetFalse(mainMenu);
+      mainNavToggle.focus(); // Return focus to the toggle button
       mainNavToggle.innerHTML = 'Menu';
     }
   }, false);
 
-  window.onkeyup = function(e) {
+  // Keyboard bindings
+  document.onkeyup = function(e) {
     var press = e.keyCode;
 
-    // Close all opened drop down menus when esc key is pressed
-    if (press == 27) {
+      // Close all opened drop down menus when ESC key is pressed
+      if (press == 27) {
 
-      if( mainNavToggle.getAttribute('aria-expanded') === 'true' ) {
+        if (mainNavToggle.getAttribute('aria-expanded') === 'true') {
           ariaSetFalse(mainNavToggle);
-      } else if ( mainNavToggle.getAttribute('aria-expanded') === 'false' ) {
-        for(let j=0; j<parents.length; j++) {
-          ariaSetFalse(parents[j]);
+        } else if (mainNavToggle.getAttribute('aria-expanded') === 'false') {
+          for (let j = 0; j < parents.length; j++) {
+            ariaSetFalse(parents[j]);
+          }
         }
       }
+
+
+      var currentFocus = document.activeElement;
+
+    // if focus is on first or second level menu links, allows using HOME/END keys to jump to first/last first level link
+    if ( currentFocus.parentNode.classList.contains('su-main-nav__item-lv1') || currentFocus.parentNode.classList.contains('su-main-nav__item-lv2') ) {
+      // Focus on the first first level menu item link when END button is pressed
+      if (press == 67) {
+        firstLink.focus();
+      }
+
+      // Focus on the last first level menu item link when HOME button is pressed
+      if (press == 68) {
+        lastLink.focus();
+      }
     }
+
+    // if the focus is on first level menu links on desktop, allows using left/right arrow keys to navigate
+    if ( currentFocus.parentNode.classList.contains('su-main-nav__item-lv1') && getComputedStyle(mainNavToggle,null).display === 'none' ) {
+
+      if (press == 37) {
+        currentFocus.parentNode.previousElementSibling.querySelector('a').focus();
+      }
+
+      if (press == 39) {
+        currentFocus.parentNode.nextElementSibling.querySelector('a').focus();
+      }
+    }
+
   }
 
 </script>
