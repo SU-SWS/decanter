@@ -99,6 +99,7 @@
     }
   }, false);
 
+  // Toggle hamburger button and changes button text
   mainNavToggle.addEventListener('click', function(e) {
     if( mainNavToggle.getAttribute('aria-expanded') === 'false' ) {
       ariaSetTrue( mainNavToggle );
@@ -112,7 +113,7 @@
     }
   }, false);
 
-  // Keyboard bindings
+  // Keyboard bindings listens to keydown events within the mainNav element
   mainNav.onkeydown = function(e) {
     var press = e.keyCode;
     var currentFocus = document.activeElement;
@@ -144,28 +145,27 @@
 
     // if the focus is on first level menu links on desktop, allows using left/right arrow keys to navigate
     if ( currentFocus.parentNode.classList.contains('su-main-nav__item-lv1') && getComputedStyle(mainNavToggle,null).display === 'none' ) {
-
-      if (press == 37) {
-        if (currentFocus !== firstLink) {
-          currentFocus.parentNode.previousElementSibling.querySelector('a').focus();
-        } else if (currentFocus === firstLink) {
-          lastLink.focus();
-        }
-      }
-
-      if (press == 39) {
+      if (press == 39) { // right arrow
         if (currentFocus !== lastLink) {
           currentFocus.parentNode.nextElementSibling.querySelector('a').focus();
         } else if (currentFocus === lastLink) {
           firstLink.focus();
         }
       }
+
+      if (press == 37) { // left arrow
+        if (currentFocus !== firstLink) {
+          currentFocus.parentNode.previousElementSibling.querySelector('a').focus();
+        } else if (currentFocus === firstLink) {
+          lastLink.focus();
+        }
+      }
     }
 
-    // if focus is on first level parent links on desktop, allows using down arrow to go to 1st child link
+    // if focus is on first level parent links on desktop, press down arrow or spacebar to open submenu and focus on first child link
     if ( currentFocus.parentNode.classList.contains('su-main-nav__item-lv1--parent') && getComputedStyle(mainNavToggle,null).display === 'none' ) {
 
-      if (press == 40) {
+      if (press == 40 || press == 32) { // down arrow or spacebar
         ariaSetTrue( currentFocus.parentNode );
         e.preventDefault(); // prevent down scrolling
         currentFocus.parentNode.querySelector('.su-main-nav__menu-lv2 > li:first-child > a').focus();
@@ -173,17 +173,32 @@
     }
 
     if ( currentFocus.parentNode.classList.contains('su-main-nav__item-lv2') ) {
-      if (press == 40) {
+      var firstSubnavLink = currentFocus.parentNode.parentNode.firstElementChild.querySelector('a');
+      var lastSubnavLink = currentFocus.parentNode.parentNode.lastElementChild.querySelector('a');
+
+      if ( press == 40 ) { // down arrow
+        e.preventDefault(); // prevent page scrolling
+        if (currentFocus !== lastSubnavLink ) {
+          currentFocus.parentNode.nextElementSibling.querySelector('a').focus();
+        } else if (currentFocus === lastSubnavLink ) {
+          currentFocus.parentNode.parentNode.firstElementChild.querySelector('a').focus();
+        }
+      } else if ( press == 38 ) { // up arrow
         e.preventDefault();
-        currentFocus.parentNode.nextElementSibling.querySelector('a').focus();
+        if (currentFocus !== firstSubnavLink ) {
+          currentFocus.parentNode.previousElementSibling.querySelector('a').focus();
+        } else if (currentFocus === firstSubnavLink ) {
+          currentFocus.parentNode.parentNode.lastElementChild.querySelector('a').focus();
+        }
       }
 
-      if (press == 38) {
-        e.preventDefault(); // prevent up scrolling
-        currentFocus.parentNode.previousElementSibling.querySelector('a').focus();
+      if ( press == 39 ) { // right arrow
+        ariaSetFalse(currentFocus.parentNode.parentNode.parentNode);
+        currentFocus.parentNode.parentNode.parentNode.nextElementSibling.querySelector('a').focus();
+      } else if ( press == 37 ) { // left arrow
+        ariaSetFalse(currentFocus.parentNode.parentNode.parentNode);
+        currentFocus.parentNode.parentNode.parentNode.previousElementSibling.querySelector('a').focus();
       }
     }
-
   }
-
 </script>
