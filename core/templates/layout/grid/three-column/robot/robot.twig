@@ -21,25 +21,25 @@
   <div>
 
     {% if header is not empty %}
-    <header>
+    <header {{ region_attributes.header }}>
       {{ header }}
     </header>
     {% endif %}
 
     {% if first is not empty %}
-    <div>
+    <div {{ region_attributes.first }}>
       {{ first }}
     </div>
     {% endif %}
 
     {% if second is not empty %}
-    <div>
+    <div {{ region_attributes.second }}>
       {{ second }}
     </div>
     {% endif %}
 
     {% if third is not empty %}
-    <div>
+    <div {{ region_attributes.third }}>
       {{ third }}
     </div>
     {% endif %}

@@ -24,7 +24,7 @@
 <div{{ attributes }} class="layout layout-blastila {{ modifier_class }}">
 
   {% if header is not empty %}
-  <header>
+  <header {{ region_attributes.header }}>
     {{ header }}
   </header>
   {% endif %}
@@ -34,28 +34,28 @@
 
     {# Sidebar #}
     {% if sidebar is not empty %}
-    <aside>
+    <aside {{ region_attributes.sidebar }}>
       {{ sidebar }}
     </aside>
     {% endif %}
 
     {# Mini header area #}
     {% if first is not empty %}
-    <section>
+    <section {{ region_attributes.first }}>
       {{ first }}
     </section>
     {% endif %}
 
     {# Left content column #}
     {% if second is not empty %}
-    <div>
+    <div {{ region_attributes.second }}>
       {{ second }}
     </div>
     {% endif %}
 
     {# Right content column #}
     {% if third is not empty %}
-    <div>
+    <div {{ region_attributes.third }}>
       {{ third }}
     </div>
     {% endif %}

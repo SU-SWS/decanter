@@ -17,25 +17,25 @@
 <div{{ attributes }} class="layout layout-donies {{ modifier_class }}">
   {# Optional header region #}
   {% if header is not empty %}
-  <header>
+  <header {{ region_attributes.header }}>
     {{ header }}
   </header>
   {% endif %}
 
   {# Mandatory content region #}
   <section>
-    <div>
+    <div {{ region_attributes.first }}>
       {{ first }}
     </div>
 
-    <div>
+    <div {{ region_attributes.second }}>
       {{ second }}
     </div>
   </section>
 
   {# Optional footer region #}
   {% if footer is not empty %}
-  <footer>
+  <footer {{ region_attributes.footer }}>
     {{ footer }}
   </footer>
   {% endif %}

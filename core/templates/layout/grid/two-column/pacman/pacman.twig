@@ -17,25 +17,25 @@
 <div{{ attributes }} class="layout layout-pacman {{ modifier_class }}">
   {# Optional Header #}
   {% if header is not empty %}
-  <header>
+  <header {{ region_attributes.header }}>
     {{ header }}
   </header>
   {% endif %}
 
   {# Required content section #}
   <div>
-    <aside>
+    <aside {{ region_attributes.sidebar }}>
       {{ sidebar }}
     </aside>
 
-    <section>
+    <section {{ region_attributes.content }}>
       {{ content }}
     </section>
   </div>
 
   {# Optional footer #}
   {% if footer is not empty %}
-  <footer>
+  <footer {{ region_attributes.footer }}>
     {{ footer }}
   </footer>
   {% endif %}
