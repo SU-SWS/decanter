@@ -1,0 +1,13 @@
+@charset 'UTF-8';
+
+// is-number($value)
+//
+// Validates wether something is a number
+//
+// $value - the value to type check
+//
+// Style guide: Functions.Type Checks.is-number
+//
+@function is-number($value) {
+  @return type-of($value) == 'number';
+}

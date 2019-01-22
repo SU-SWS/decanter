@@ -70,9 +70,8 @@
 
 @media (min-width: $screen-xs) {
   :root {
-    --columns: #{$columns-xs};
+    --columns: #{$grid-columns};
     --gutter: #{$gutter-xs};
-    --offset: #{$gutter-xs};
     --color: hsla(204, 80%, 72%, 0.2);
     --color-text: hsla(204, 80%, 72%, 1);
     --media-query: 'xs';
@@ -81,9 +80,8 @@
 
 @media (min-width: $screen-sm) {
   :root {
-    --columns: #{$columns-sm};
+    --columns: #{$grid-columns};
     --gutter: #{$gutter-sm};
-    --offset: #{$gutter-sm};
     --color: hsla(286, 51%, 44%, 0.125);
     --color-text: hsla(286, 51%, 44%, 1);
     --media-query: 'sm';
@@ -92,9 +90,8 @@
 
 @media (min-width: $screen-md) {
   :root {
-    --columns: #{$columns-md};
+    --columns: #{$grid-columns};
     --gutter: #{$gutter-md};
-    --offset: #{$gutter-md};
     --color: hsla(204, 80%, 72%, 0.2);
     --color-text: hsla(204, 80%, 72%, 1);
     --media-query: 'md';
@@ -103,9 +100,8 @@
 
 @media (min-width: $screen-lg) {
   :root {
-    --columns: #{$columns-lg};
+    --columns: #{$grid-columns};
     --gutter: #{$gutter-lg};
-    --offset: #{$gutter-lg};
     --color: hsla(286, 51%, 44%, 0.125);
     --color-text: hsla(286, 51%, 44%, 1);
     --media-query: 'lg';
@@ -114,11 +110,20 @@
 
 @media (min-width: $screen-xl) {
   :root {
-    --columns: #{$columns-xl};
+    --columns: #{$grid-columns};
     --gutter: #{$gutter-xl};
-    --offset: #{$gutter-xl};
     --color: hsla(204, 80%, 72%, 0.2);
     --color-text: hsla(204, 80%, 72%, 1);
     --media-query: 'xl';
+  }
+}
+
+@media (min-width: $screen-2xl) {
+  :root {
+    --columns: #{$grid-columns};
+    --gutter: #{$gutter-2xl};
+    --color: hsla(104, 40%, 32%, 0.2);
+    --color-text: hsla(104, 40%, 32%, 1);
+    --media-query: '2xl';
   }
 }

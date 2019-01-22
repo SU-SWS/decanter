@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+//
+// Trunks Right - Variant
+//
+.layout-trunks--right {
+  > section {
+    div {
+      &:first-child {
+        @include grid-media('sm') {
+          @include grid-item-spans(3, span 1);
+        }
+      }
+
+      &:nth-child(2) {
+        @include grid-media('sm') {
+          @include grid-item-spans(1, span 2);
+        }
+      }
+    }
+  }
+}

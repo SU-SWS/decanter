@@ -17,7 +17,7 @@
 
   > img {
     // Hide the image on the smallest screen sizes.
-    @media #{$breakpoint-xs-only} {
+    @include grid-media-only('xs') {
       display: none;
     }
   }
@@ -40,11 +40,11 @@
     line-height: 17px;
     text-transform: uppercase;
 
-    @media #{$breakpoint-md} {
+    @include grid-media('md') {
       @include margin(null null 12px);
     }
 
-    @media #{$breakpoint-xl} {
+    @include grid-media('xl') {
       @include margin(null null 13px);
     }
 
@@ -57,7 +57,7 @@
     font-weight: bold;
     line-height: 31px;
 
-    @media #{$breakpoint-xl} {
+    @include grid-media('xl') {
       @include margin(null null 19px);
     }
 

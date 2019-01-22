@@ -19,6 +19,7 @@
 //
 // Style guide: Mixins.Layout.Sticky Footer
 //
+
 @mixin sticky-footer($selector: '> .global-footer') {
   @include padding(0);
   @include margin(0);
@@ -33,7 +34,7 @@
   #{$selector} {
     margin-top: auto;
   }
-  
+
   // IE 11 needs html to be flex in order to work.
   @at-root html {
     display: flex;

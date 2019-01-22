@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+//
+// @grid-rows($rows)
+//
+// Mixin to render cssGrid in IE11 browsers.
+//
+// $rows - list: A value for grid-template-rows.
+//
+// Style guide: Mixins.Grid.grid-rows
+//
+@mixin grid-rows($rows) {
+  -ms-grid-rows: $rows;
+  grid-template-rows: $rows;
+}
