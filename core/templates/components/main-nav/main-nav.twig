@@ -2,39 +2,39 @@
   <button id="su-main-nav__toggle" class="su-main-nav__toggle" aria-expanded="false" aria-haspopup="menu">Menu</button>
   <ul class="su-main-nav__menu-lv1">
     <li class="su-main-nav__item-lv1">
-      <a href="#">Home</a>
+      <a href="https://stanford.edu">Home</a>
     </li>
     <li aria-haspopup="true" aria-expanded="false" class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent su-main-nav__item-lv1--current">
-      <a href="#">Admissions &amp; Aid</a>
+      <a href="https://stanford.edu">Admissions &amp; Aid</a>
       <ul class="su-main-nav__menu-lv2" role="menu" aria-label="submenu">
         <li class="su-main-nav__item-lv2">
-          <a href="#">Overview</a>
+          <a href="https://stanford.edu">Overview</a>
         </li>
         <li class="su-main-nav__item-lv2">
-          <a href="#">Name &amp; Emblems</a>
+          <a href="https://stanford.edu">Name &amp; Emblems</a>
         </li>
         <li class="su-main-nav__item-lv2 su-main-nav__item-lv2--current">
-          <a href="#">Current Page</a>
+          <a href="https://stanford.edu">Current Page</a>
         </li>
         <li class="su-main-nav__item-lv2">
-          <a href="#">Color</a>
+          <a href="https://stanford.edu">Color</a>
         </li>
       </ul>
     </li>
     <li class="su-main-nav__item-lv1">
-      <a href="#">Students &amp; Academics</a>
+      <a href="https://stanford.edu">Students &amp; Academics</a>
     </li>
     <li aria-haspopup="true" aria-expanded="false" class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent">
-      <a href="#">Research</a>
+      <a href="https://stanford.edu">Research</a>
       <ul class="su-main-nav__menu-lv2" role="menu" aria-label="submenu">
         <li class="su-main-nav__item-lv2">
-          <a href="#">Overview</a>
+          <a href="https://stanford.edu">Overview</a>
         </li>
         <li class="su-main-nav__item-lv2">
-          <a href="#">Arts</a>
+          <a href="https://stanford.edu">Arts</a>
         </li>
         <li class="su-main-nav__item-lv2">
-          <a href="#">Humanities</a>
+          <a href="https://stanford.edu">Humanities</a>
         </li>
         <li class="su-main-nav__item-lv2">
           <a href="https://stanford.edu">Science</a>
@@ -42,10 +42,10 @@
       </ul>
     </li>
     <li class="su-main-nav__item-lv1">
-      <a href="#">Get Involved</a>
+      <a href="https://stanford.edu">Get Involved</a>
     </li>
     <li class="su-main-nav__item-lv1">
-      <a href="#">About</a>
+      <a href="https://stanford.edu">About</a>
     </li>
   </ul>
 </nav>
@@ -141,7 +141,8 @@
     // fallback to keyCode if key isn't supported by older browsers
     const press = e.key || e.keyCode;
 
-    if ( press === 'Escape' || press === 'Esc' || press === 27 ) {// On mobile with no open subnavs, close the whole menu when ESC is pressed
+    // On mobile with no open subnavs, close the whole menu when ESC is pressed
+    if ( press === 'Escape' || press === 'Esc' || press === 27 ) {
       if (isExpanded(mainNavToggle)) {
         ariaSetFalse(mainNavToggle);
         mainNavToggle.focus(); // return focus to menu button
@@ -277,5 +278,37 @@
 
     }, false);
   }
+
+  // ---------------------------------
+  // Debounce function: Returns a function, that, as long as it continues to be invoked, will not
+  // be triggered. The function will be called after it stops being called for
+  // N milliseconds. If `immediate` is passed, trigger the function on the
+  // leading edge, instead of the trailing.
+  // ---------------------------------
+  function debounce( func, wait, immediate ) {
+    let timeout;
+    return function() {
+      var context = this, args = arguments;
+      var later = function() {
+        timeout = null;
+        if ( !immediate ) func.apply( context, args );
+      };
+      var callNow = immediate && !timeout;
+      clearTimeout( timeout );
+      timeout = setTimeout( later, wait );
+      if ( callNow ) func.apply( context, args );
+    };
+  }
+
+  // ---------------------------------
+  // Listens to when window finishes resizing (after 250 ms), if menu is desktop version and menu toggle aria is expanded, set it to false
+  // ---------------------------------
+  const closeButtonWhenDesktop = debounce(function() {
+    if ( isDesktop() && isExpanded( mainNavToggle ) ) {
+      ariaSetFalse( mainNavToggle );
+    }
+  }, 250);
+
+  window.addEventListener('resize', closeButtonWhenDesktop);
 
 </script>
