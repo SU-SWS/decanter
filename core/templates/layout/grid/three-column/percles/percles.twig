@@ -25,31 +25,31 @@
 <div{{ attributes }} class="layout layout-percles {{ modifier_class }}">
   <div>
     {% if first is not empty %}
-    <div>
+    <div {{ region_attributes.first }}>
       {{ first }}
     </div>
     {% endif %}
 
     {% if second is not empty %}
-    <header>
+    <header {{ region_attributes.second }}>
       {{ second }}
     </header>
     {% endif %}
 
     {% if third is not empty %}
-    <div>
+    <div {{ region_attributes.third }}>
       {{ third }}
     </div>
     {% endif %}
 
     {% if fourth is not empty %}
-    <div>
+    <div {{ region_attributes.fourth }}>
       {{ fourth }}
     </div>
     {% endif %}
 
     {% if fifth is not empty %}
-    <div>
+    <div {{ region_attributes.fifth }}>
       {{ fifth }}
     </div>
     {% endif %}

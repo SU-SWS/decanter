@@ -16,25 +16,25 @@
 <div{{ attributes }} class="layout layout-ibeam {{ modifier_class }}">
 
   {% if full_width is not empty %}
-  <div>
+  <div {{ region_attributes.full_width }}>
     {{ full_width }}
   </div>
   {% endif %}
 
   {% if content is not empty %}
-  <section>
+  <section {{ region_attributes.content }}>
     {{ content }}
   </section>
   {% endif %}
 
   {% if full_width2 is not empty %}
-  <div>
+  <div {{ region_attributes.full_width2 }}>
     {{ full_width2 }}
   </div>
   {% endif %}
 
   {% if content2 is not empty %}
-  <section>
+  <section {{ region_attributes.content2 }}>
     {{ content2 }}
   </section>
   {% endif %}

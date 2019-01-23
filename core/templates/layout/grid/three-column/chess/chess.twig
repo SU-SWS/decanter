@@ -21,7 +21,7 @@
 <div{{ attributes }} class="layout layout-chess {{ modifier_class }}">
 
   {% if header is not empty %}
-  <header>
+  <header {{ region_attributes.header }}>
     {{ header }}
   </header>
   {% endif %}
@@ -29,37 +29,37 @@
   <section>
     {% block body %}
     {% if first is not empty %}
-    <div>
+    <div {{ region_attributes.first }}>
       {{ first }}
     </div>
     {% endif %}
 
     {% if second is not empty %}
-    <div>
+    <div {{ region_attributes.second }}>
       {{ second }}
     </div>
     {% endif %}
 
     {% if third is not empty %}
-    <div>
+    <div {{ region_attributes.third }}>
       {{ third }}
     </div>
     {% endif %}
 
     {% if fourth is not empty %}
-    <div>
+    <div {{ region_attributes.fourth }}>
       {{ fourth }}
     </div>
     {% endif %}
 
     {% if fifth is not empty %}
-    <div>
+    <div {{ region_attributes.fifth }}>
       {{ fifth }}
     </div>
     {% endif %}
 
     {% if sixth is not empty %}
-    <div>
+    <div {{ region_attributes.sixth }}>
       {{ sixth }}
     </div>
     {% endif %}
@@ -67,7 +67,7 @@
   </section>
 
   {% if footer is not empty %}
-  <footer>
+  <footer {{ region_attributes.footer }}>
     {{ footer }}
   </footer>
   {% endif %}
