@@ -19,26 +19,26 @@
 <div{{ attributes }} class="layout layout-sunset-delorean {{ modifier_class}}">
   <div>
     {% if header is not empty %}
-    <header>
+    <header {{ region_attributes.header }}>
       {{ header }}
     </header>
     {% endif %}
 
     {% if first is not empty %}
-    <section>
+    <section {{ region_attributes.first }}>
       {{ first }}
     </section>
     {% endif %}
 
     {% if second is not empty %}
-    <section>
+    <section {{ region_attributes.second }}>
       {{ second }}
     </section>
     {% endif %}
 
     {# Sidebar #}
     {% if sidebar is not empty %}
-    <aside>
+    <aside {{ region_attributes.sidebar }}>
       {{ sidebar }}
     </aside>
     {% endif %}

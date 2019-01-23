@@ -15,15 +15,15 @@
 <div{{ attributes }} class="layout layout-bars {{ modifier_class }}">
   <div>
     {% block body %}
-    <section>
+    <section {{ region_attributes.first }}>
       {{ first }}
     </section>
 
-    <section>
+    <section {{ region_attributes.second }}>
       {{ second }}
     </section>
 
-    <section>
+    <section {{ region_attributes.third }}>
       {{ third }}
     </section>
     {% endblock %}

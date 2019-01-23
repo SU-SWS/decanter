@@ -23,32 +23,32 @@
   <div>
 
     {% if sidebar is not empty %}
-    <aside>
+    <aside {{ region_attributes.sidebar }}>
       {{ sidebar }}
     </aside>
     {% endif %}
 
     <section>
       {% if header is not empty %}
-      <header>
+      <header {{ region_attributes.header }}>
         {{ header }}
       </header>
       {% endif %}
 
       {% if first is not empty %}
-      <div>
+      <div {{ region_attributes.first }}>
         {{ first }}
       </div>
       {% endif %}
 
       {% if second is not empty %}
-      <div >
+      <div {{ region_attributes.second }}>
         {{ second }}
       </div>
       {% endif %}
 
       {% if footer is not empty %}
-      <footer>
+      <footer {{ region_attributes.footer }}>
         {{ footer }}
       </footer>
       {% endif %}

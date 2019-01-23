@@ -14,19 +14,19 @@
 <div{{ attributes }} class="layout layout-basic {{ modifier_class }}">
 
   {% if header is not empty %}
-  <header>
+  <header {{ region_attributes.header }}>
     {{ header }}
   </header>
   {% endif %}
 
   {% if content is not empty %}
-  <section>
+  <section {{ region_attributes.content }}>
   {{ content}}
   </section>
   {% endif %}
 
   {% if footer is not empty %}
-  <footer>
+  <footer {{ region_attributes.footer }}>
     {{ footer }}
   </footer>
   {% endif %}
