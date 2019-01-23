@@ -34,7 +34,8 @@ h1 {
  * 2. Show the overflow in Edge and IE.
  */
 hr {
-  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
   /* 1 */
   height: 0;
   /* 1 */
@@ -68,7 +69,8 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */ }
 
 /**
@@ -200,7 +202,8 @@ fieldset {
  *    `fieldset` elements in all browsers.
  */
 legend {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   /* 1 */
   color: inherit;
   /* 2 */
@@ -231,7 +234,8 @@ textarea {
  */
 [type="checkbox"],
 [type="radio"] {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   /* 1 */
   padding: 0;
   /* 2 */ }
@@ -628,7 +632,8 @@ sub {
 .kss-color {
   position: relative;
   display: block;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   height: 147px;
   margin: 0 auto;
@@ -646,7 +651,8 @@ sub {
   bottom: 0;
   left: 0;
   display: block;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   width: 100%;
   padding: 5px;
   background: #ffffff; }
@@ -843,13 +849,23 @@ body {
   margin: 0;
   height: 100%;
   min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-basis: 100%;
-  justify-content: flex-start;
-  flex-direction: column; }
+  -ms-flex-preferred-size: 100%;
+      flex-basis: 100%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
   body > .global-footer {
     margin-top: auto; }
   html {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex; }
 
 .is-fullscreen .kss-toolbar a[data-kss-fullscreen],
@@ -874,7 +890,8 @@ body {
 .kss-guides-mode .kss-modifier__example-footer:before,
 .kss-guides-mode .kss-modifier__example-footer:after {
   z-index: -1;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   content: '';
   position: absolute;
   width: 5px;
@@ -1016,7 +1033,8 @@ body {
     background: #ffffff; }
     #kss-node.kss-home .section--ui-components .su-card {
       margin: 0 auto;
-      box-shadow: none;
+      -webkit-box-shadow: none;
+              box-shadow: none;
       border: 0; }
       @media only screen and (min-width: 0) {
         #kss-node.kss-home .section--ui-components .su-card {
@@ -1243,7 +1261,8 @@ body {
           display: block; } }
     #kss-node.kss-home .section--dev-resources .su-card {
       border: 0;
-      box-shadow: none; }
+      -webkit-box-shadow: none;
+              box-shadow: none; }
       #kss-node.kss-home .section--dev-resources .su-card img {
         max-width: 100px;
         margin: 20px auto;
@@ -1461,7 +1480,8 @@ body {
       #kss-node.kss-home .section--more-info a:hover {
         color: #ffffff; }
       #kss-node.kss-home .section--more-info a::after {
-        text-decoration-color: #009b76; }
+        -webkit-text-decoration-color: #009b76;
+                text-decoration-color: #009b76; }
 
 .layout {
   position: relative;
@@ -1564,7 +1584,8 @@ body {
 
 .masthead {
   border: 0;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.13), 0px 3px 6px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.13), 0px 3px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.13), 0px 3px 6px rgba(0, 0, 0, 0.1);
   padding: 0;
   background: #2e2d29;
   position: relative;
@@ -1792,6 +1813,7 @@ ol.linenums {
   .kss-nav__menu-link.is-in-viewport:before {
     background-color: #000;
     width: 5px;
+    -webkit-transition: background-color .4s, width .6s;
     transition: background-color .4s, width .6s; }
 
 .kss-nav__menu-child {
@@ -1850,7 +1872,8 @@ ol.linenums {
   line-height: 1;
   padding: 3px; }
   .kss-toolbar a {
-    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+            box-sizing: content-box;
     display: inline-block;
     width: 16px;
     height: 16px;
@@ -1878,12 +1901,14 @@ ol.linenums {
   margin-bottom: 5px;
   border: solid 1px #666;
   padding: 8px 10px 6px;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+          box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
   white-space: nowrap;
   color: #000;
   background: #fff;
   cursor: help;
   opacity: 0;
+  -webkit-transition: opacity 0.25s;
   transition: opacity 0.25s;
   height: 1px;
   width: 1px;
@@ -1911,5 +1936,4 @@ a:hover > .kss-toolbar__tooltip {
   height: auto;
   width: auto;
   overflow: visible; }
-
 /*# sourceMappingURL=kss.css.map */
