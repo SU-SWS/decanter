@@ -63,7 +63,7 @@
   const isExpanded = x => x.getAttribute('aria-expanded') === 'true';
 
   // Function to check if we're using desktop version of main nav (non-hamburger)
-  // If menu toggle button is not shown, then we're on desktop
+  // If menu toggle button is not shown, then we're on desktop and return true
   const isDesktop = () => getComputedStyle(mainNavToggle, null).display === 'none';
 
   const ariaSetTrue = x => x.setAttribute('aria-expanded', 'true');
@@ -89,12 +89,12 @@
     });
   }
 
-  // Close opened drop down menus when click elsewhere
+  // Close opened subnavs when click elsewhere
   document.addEventListener('click', function(e) {
-    var e = e ? e : window.event;
-    const event_element = e.target ? e.target : e.srcElement;
-    if ( !event_element.closest('.su-main-nav__item-lv1--parent') ) {
-      for(let i=0; i < parents.length; i++) {
+    e = e || window.event; // Use e if it exists or e will be equal to window.event for IE
+    const eventElement = e.target || e.srcElement; // e.srcElement is IE equiv of e.target
+    if ( !eventElement.closest('.su-main-nav__item-lv1--parent') ) {
+      for (let i=0; i < parents.length; i++) {
         ariaSetFalse( parents[i] );
       }
     }
@@ -116,9 +116,15 @@
 
   // Keyboard bindings listens to keydown events within the mainNav element
   mainNav.onkeydown = function(e) {
+    e = e || window.event;
     // fallback to keyCode if key isn't supported by older browsers
     const press = e.key || e.keyCode;
     const currentFocus = document.activeElement;
+
+    const isLevel1Link = () => currentFocus.parentNode.classList.contains('su-main-nav__item-lv1');
+    const isLevel1Parent = () => currentFocus.parentNode.classList.contains('su-main-nav__item-lv1--parent');
+    const isLevel2Link = () => currentFocus.parentNode.classList.contains('su-main-nav__item-lv2');
+
 
     // Close all opened drop down menus when ESC key is pressed
     if (press === 'Escape' || press === 'Esc' || press === 27) {
@@ -131,30 +137,33 @@
       }
     }
 
-    // if focus is on first or second level menu links, allows using HOME/END keys to jump to first/last first level link
-    if ( currentFocus.parentNode.classList.contains('su-main-nav__item-lv1') || currentFocus.parentNode.classList.contains('su-main-nav__item-lv2') ) {
-      // Focus on the first 1st level menu link when END button is pressed
-      if (press === 'c' || press === 67) {
-        firstLink.focus();
-      }
 
-      // Focus on the last 1st level menu link when HOME button is pressed
-      if (press === 'd' || press === 68) {
-        lastLink.focus();
-      }
+
+    // if focus is on first or second level menu links, allows using HOME/END keys navigate
+    // Focus on the first 1st level menu link when HOME button is pressed
+    if ( (press === 'Home' || press === 122) && (isLevel1Link || isLevel2Link) ) {
+      firstLink.focus();
     }
 
+    // Focus on the last 1st level menu link when END button is pressed
+    if ( (press === 'End' || press === 123) && (isLevel1Link || isLevel2Link) ) {
+      lastLink.focus();
+    }
+
+
     // if the focus is on first level menu links on desktop, allows using left/right arrow keys to navigate
-    if ( currentFocus.parentNode.classList.contains('su-main-nav__item-lv1') && isDesktop ) {
-      if (press === 'ArrowRight' || press === 'Right' || press === 39) {
+    if (press === 'ArrowRight' || press === 'Right' || press === 39) {
+      if ( currentFocus.parentNode.classList.contains('su-main-nav__item-lv1') && isDesktop ) {
         if (currentFocus !== lastLink) {
           currentFocus.parentNode.nextElementSibling.querySelector('a').focus();
         } else if (currentFocus === lastLink) {
           firstLink.focus();
         }
       }
+    }
 
-      if (press === 'ArrowLeft' || press === 'Left' || press === 37) {
+    if (press === 'ArrowLeft' || press === 'Left' || press === 37) {
+      if ( currentFocus.parentNode.classList.contains('su-main-nav__item-lv1') && isDesktop ) {
         if (currentFocus !== firstLink) {
           currentFocus.parentNode.previousElementSibling.querySelector('a').focus();
         } else if (currentFocus === firstLink) {
@@ -164,8 +173,8 @@
     }
 
     // if focus is on first level parent links on desktop, press down arrow or spacebar to open submenu and focus on first child link
-    if ( currentFocus.parentNode.classList.contains('su-main-nav__item-lv1--parent') && isDesktop ) {
-      if (press === 'ArrowDown' || press === 'Down' || press === 40 || press === ' ' || press === 'Spacebar' || press === 32) {
+    if (press === 'ArrowDown' || press === 'Down' || press === 40 || press === ' ' || press === 'Spacebar' || press === 32) {
+      if ( currentFocus.parentNode.classList.contains('su-main-nav__item-lv1--parent') && isDesktop ) {
         ariaSetTrue( currentFocus.parentNode );
         e.preventDefault(); // prevent down scrolling
         currentFocus.parentNode.querySelector('.su-main-nav__menu-lv2 > li:first-child > a').focus();
@@ -204,5 +213,12 @@
         currentFocus.parentNode.parentNode.parentNode.previousElementSibling.querySelector('a').focus();
       }
     }
+
+
+
+
+
+
+
   }
 </script>
