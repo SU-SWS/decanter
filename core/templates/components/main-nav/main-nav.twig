@@ -107,7 +107,7 @@
         parents.forEach( ariaSetFalse ); // First close all opened drop down menus
         // Toggle 2nd level menu
         ariaSetTrue( parents[i] );
-      } else if ( isExpanded( parents[i] ) ) {
+      } else {
         ariaSetFalse( parents[i] );
       }
     }, false);
@@ -136,10 +136,10 @@
   // Toggle hamburger button and changes button text
   // ---------------------------------
   mainNavToggle.addEventListener('click', function(e) {
-    if ( !(isExpanded( mainNavToggle )) ) {
-        openMobileMenu();
-    } else if ( isExpanded( mainNavToggle ) ) {
+    if ( isExpanded( mainNavToggle ) ) {
         closeMobileMenu();
+    } else {
+        openMobileMenu();
     }
   }, false);
 
@@ -189,14 +189,14 @@
           e.preventDefault();
           if (currentFocus === lastLink) {
             firstLink.focus();
-          } else if (currentFocus !== lastLink) {
+          } else {
             currentFocus.parentNode.nextElementSibling.querySelector('a').focus();
           }
         } else if ( press === 'ArrowLeft' || press === 'Left' || press === 37 ) {
           e.preventDefault();
           if (currentFocus === firstLink) {
             lastLink.focus();
-          } else if (currentFocus !== firstLink) {
+          } else {
             currentFocus.parentNode.previousElementSibling.querySelector('a').focus();
           }
         } else if ( press === 'Escape' || press === 'Esc' || press === 27 ) {
@@ -211,23 +211,23 @@
           e.preventDefault();
           if (currentFocus === lastLink) {
             firstLink.focus();
-          } else if (currentFocus !== lastLink) {
+          } else {
             currentFocus.parentNode.nextElementSibling.querySelector('a').focus();
           }
         } else if ( press === 'ArrowUp' || press === 'Up' || press === 38 ) {
           e.preventDefault();
           if (currentFocus === firstLink) {
             lastLink.focus();
-          } else if (currentFocus !== firstLink) {
+          } else {
             currentFocus.parentNode.previousElementSibling.querySelector('a').focus();
           }
         } else if ( press === 'Escape' || press === 'Esc' || press === 27 ) {
-          if ( !hasOpenSubnav() ) {
+          if ( hasOpenSubnav() ) {
+            parents.forEach( ariaSetFalse );
+          } else {
             if ( isExpanded( mainNavToggle ) ) {
               closeMobileMenu();
             }
-          } else if ( hasOpenSubnav() ) {
-            parents.forEach( ariaSetFalse );
           }
         }
 
@@ -251,27 +251,25 @@
         e.preventDefault();
         if (currentFocus === lastSubnavLink) {
           firstSubnavLink.focus();
-        } else if (currentFocus !== lastSubnavLink) {
+        } else {
           currentFocus.parentNode.nextElementSibling.querySelector('a').focus();
         }
       } else if ( press === 'ArrowUp' || press === 'Up' || press === 38 ) {
         e.preventDefault();
         if (currentFocus === firstSubnavLink) {
           lastSubnavLink.focus();
-        } else if (currentFocus !== firstSubnavLink) {
+        } else {
           currentFocus.parentNode.previousElementSibling.querySelector('a').focus();
         }
-      } else if ( (press === 'Tab' || press === 9 ) && currentFocus === lastSubnavLink ) { // hitting TAB while on last submenu link closes submenu
+      } else if ( (press === 'Tab' || press === 9 ) && ( currentFocus === lastSubnavLink ) ) { // hitting TAB while on last submenu link closes submenu
         ariaSetFalse( currentFocus.parentNode.parentNode.parentNode );
       } else if ( press === 'Home' || press === 122 ) {
         firstSubnavLink.focus(); // Focus on the first subnav link when HOME button is pressed
       } else if ( press === 'End' || press === 123 ) {
         lastSubnavLink.focus(); // Focus on the last subnav link when END button is pressed
-      } else if ( press === 'Escape' || press === 'Esc' || press === 27 ) {
-        if ( hasOpenSubnav() ) {
-          parents.forEach( ariaSetFalse );
-          currentFocus.parentNode.parentNode.parentNode.querySelector('a').focus();
-        }
+      } else if ( ( press === 'Escape' || press === 'Esc' || press === 27 ) && hasOpenSubnav() ) {
+        parents.forEach( ariaSetFalse );
+        currentFocus.parentNode.parentNode.parentNode.querySelector('a').focus();
       }
 
       if ( isDesktop() ) {
