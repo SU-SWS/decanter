@@ -7449,10 +7449,11 @@ a {
       display: none; } }
   @media (max-width: 991px) {
     .su-main-nav__toggle[aria-expanded="false"] + .su-main-nav__menu-lv1 {
-      display: none; } }
+      display: none; }
+    .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 {
+      position: absolute; } }
   @media only screen and (min-width: 768px) {
     .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 {
-      position: absolute;
       max-width: 21em; } }
 
 .su-main-nav__menu-lv1 {
@@ -7663,10 +7664,10 @@ a {
       background: url("../img/caret-down-black.svg") no-repeat 0 0;
       background-size: 100%;
       position: relative;
-      right: unset;
-      top: unset;
-      height: .5em;
-      width: .5em;
+      right: 0;
+      top: 0;
+      height: 11px;
+      width: 11px;
       -webkit-transition: all .3s ease-out;
       transition: all .3s ease-out; } }
 
@@ -7684,8 +7685,8 @@ a {
       background: url("../img/caret-down-black.svg") no-repeat 0 0;
       background-size: 100%;
       position: relative;
-      right: unset;
-      top: unset;
+      right: 0;
+      top: 0;
       height: .5em;
       width: .5em;
       -webkit-transform: rotate(180deg);

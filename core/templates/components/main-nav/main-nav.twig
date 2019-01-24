@@ -88,7 +88,7 @@
   // ---------------------------------
   for (let i=0; i < parents.length; i++) {
     parents[i].addEventListener('click', function(e) {
-
+      e = e || window.event;
       if ( !(isExpanded( parents[i] )) ) {
         parents.forEach( ariaSetFalse ); // First close all opened drop down menus
         // Toggle 2nd level menu
@@ -100,6 +100,7 @@
 
     // Make parent links inactive and act as drop down toggles
     parentLinks[i].addEventListener('click', function(e) {
+      e = e || window.event;
       e.preventDefault();
     });
   }
