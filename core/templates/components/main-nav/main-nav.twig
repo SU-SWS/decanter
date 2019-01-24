@@ -148,10 +148,9 @@
   // ---------------------------------
   mainNavToggle.onkeydown = function(e) {
     e = e || window.event;
-    // fallback to keyCode if key isn't supported by older browsers
-    const press = e.key || e.keyCode;
+    const press = e.key || e.keyCode; // fallback to keyCode if key isn't supported by older browsers
 
-    // Close mobile menu if ESC is pressed, open if Spacebar or Enter key are pressed
+    // Close mobile menu if ESC is pressed, open if Spacebar or Enter key is pressed
     if ( ( press === 'Escape' || press === 'Esc' || press === 27 ) && isExpanded( mainNavToggle ) ) {
       closeMobileMenu();
     } else if ( ( press === ' ' || press === 'Spacebar' || press === 'Enter' || press === 32 || press === 13 ) && !isExpanded( mainNavToggle ) ) {
@@ -181,12 +180,13 @@
       }
 
       if ( isDesktop() ) {
+
         if ( ( press === 'ArrowDown' || press === 'Down' || press === 40 ) && isLevel1Parent() ) {
           ariaSetTrue( currentFocus.parentNode );
-          e.preventDefault();
+          e.preventDefault(); // prevent page scrolling
           currentFocus.parentNode.querySelector('.su-main-nav__menu-lv2 > li:first-child > a').focus();
         } else if ( press === 'ArrowRight' || press === 'Right' || press === 39 ) {
-          e.preventDefault(); // prevent down scrolling
+          e.preventDefault();
           if (currentFocus === lastLink) {
             firstLink.focus();
           } else if (currentFocus !== lastLink) {
@@ -317,6 +317,7 @@
     if ( isDesktop() && isExpanded( mainNavToggle ) ) {
       ariaSetFalse( mainNavToggle );
       mainNavToggle.innerHTML = 'Menu';
+      mainMenu.removeAttribute('aria-expanded'); // no need for aria-expanded attribute when on desktop
     }
   }, 250);
 
