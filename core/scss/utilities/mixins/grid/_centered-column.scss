@@ -7,19 +7,19 @@
 //
 // Style guide: Mixins.Grid.centered-column
 //
-@mixin centered-column($grid: $grid-media, $screens: $grid-screens, $gutters: $grid-gutters) {
+@mixin centered-column($grid: $grid-media, $screens: $grid-screens, $modular-spacing: $modular-spacing) {
   @include margin(0 auto);
   @each $code, $breakpoint in $grid {
-    $gutter: map-get($gutters, $code);
+    $spacing: map-get($modular-spacing, $code);
 
     @media #{$breakpoint} {
       @if breakpoint-max($code, $grid) == null {
         $max-width: map-get($screens, $code);
-        max-width: $max-width - $gutter;
-        width: $max-width - $gutter;
+        max-width: $max-width;
+        width: calc(100% - ($spacing * 2));
       } @else {
-        max-width: calc(100% - #{$gutter});
-        width: calc(100% - #{$gutter});
+        max-width: calc(100% - #{$spacing * 2});
+        width: calc(100% - #{$spacing * 2});
       }
     }
   }
