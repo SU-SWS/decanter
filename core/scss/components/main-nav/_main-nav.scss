@@ -227,6 +227,7 @@
 
   @include grid-media('lg') {
     @include box-shadow($depth: 'medium', $stroke: none);
+    @include margin(null null null -12px);
     position: absolute;
     width: 18.75em;
     z-index: 1000;
@@ -251,34 +252,6 @@
 }
 
 .su-main-nav__item-lv1--parent {
-  &:focus,
-  &[aria-expanded="true"] {
-
-    > .su-main-nav__menu-lv2 {
-      visibility: visible;
-      display: flex;
-    }
-
-    .su-main-nav__item-lv2--current {
-      a {
-        font-weight: 600;
-
-        &::before {
-          visibility: visible;
-          transform: scaleY(1);
-          background-color: $color-bright-red;
-        }
-
-        &:hover,
-        &:focus {
-          &::before {
-            left: 5px;
-          }
-        }
-      }
-    }
-  }
-
   > a {
     &::after {
       background: url("#{$image-path}/plus-white.svg") no-repeat 0 0;
@@ -304,19 +277,42 @@
       }
     }
   }
+}
 
-  &[aria-expanded="true"] {
-    > a {
-      &::after {
-        background: url("#{$image-path}/minus-white.svg") no-repeat 0 0;
+.su-main-nav__item-lv1--parent.su-main-nav__item-lv1--expanded {
+  > a {
+    &::after {
+      background: url("#{$image-path}/minus-white.svg") no-repeat 0 0;
+      background-size: 100%;
+
+      @include grid-media('lg') {
+        background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
         background-size: 100%;
-
-        @include grid-media('lg') {
-          background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
-          background-size: 100%;
-          transform: rotate(180deg);
-        }
+        transform: rotate(180deg);
       }
     }
   }
+
+  > .su-main-nav__menu-lv2 {
+    visibility: visible;
+    display: flex;
+  }
+
+  .su-main-nav__item-lv2--current a {
+    font-weight: 600;
+
+    &::before {
+      visibility: visible;
+      transform: scaleY(1);
+      background-color: $color-bright-red;
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        left: 5px;
+      }
+    }
+  }
+
 }

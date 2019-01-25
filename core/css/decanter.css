@@ -7624,6 +7624,7 @@ a {
       border: none;
       -webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15), 0px 6px 6px rgba(0, 0, 0, 0.2);
               box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15), 0px 6px 6px rgba(0, 0, 0, 0.2);
+      margin-left: -12px;
       position: absolute;
       width: 18.75em;
       z-index: 1000; } }
@@ -7636,22 +7637,6 @@ a {
     color: #ffffff; }
   .su-main-nav__item-lv2 a:active {
     font-weight: 600; }
-
-.su-main-nav__item-lv1--parent:focus > .su-main-nav__menu-lv2, .su-main-nav__item-lv1--parent[aria-expanded="true"] > .su-main-nav__menu-lv2 {
-  visibility: visible;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex; }
-
-.su-main-nav__item-lv1--parent:focus .su-main-nav__item-lv2--current a, .su-main-nav__item-lv1--parent[aria-expanded="true"] .su-main-nav__item-lv2--current a {
-  font-weight: 600; }
-  .su-main-nav__item-lv1--parent:focus .su-main-nav__item-lv2--current a::before, .su-main-nav__item-lv1--parent[aria-expanded="true"] .su-main-nav__item-lv2--current a::before {
-    visibility: visible;
-    -webkit-transform: scaleY(1);
-            transform: scaleY(1);
-    background-color: #b1040e; }
-  .su-main-nav__item-lv1--parent:focus .su-main-nav__item-lv2--current a:hover::before, .su-main-nav__item-lv1--parent:focus .su-main-nav__item-lv2--current a:focus::before, .su-main-nav__item-lv1--parent[aria-expanded="true"] .su-main-nav__item-lv2--current a:hover::before, .su-main-nav__item-lv1--parent[aria-expanded="true"] .su-main-nav__item-lv2--current a:focus::before {
-    left: 5px; }
 
 .su-main-nav__item-lv1--parent > a::after {
   background: url("../img/plus-white.svg") no-repeat 0 0;
@@ -7677,15 +7662,31 @@ a {
       -webkit-transition: all .3s ease-out;
       transition: all .3s ease-out; } }
 
-.su-main-nav__item-lv1--parent[aria-expanded="true"] > a::after {
+.su-main-nav__item-lv1--parent.su-main-nav__item-lv1--expanded > a::after {
   background: url("../img/minus-white.svg") no-repeat 0 0;
   background-size: 100%; }
   @media only screen and (min-width: 992px) {
-    .su-main-nav__item-lv1--parent[aria-expanded="true"] > a::after {
+    .su-main-nav__item-lv1--parent.su-main-nav__item-lv1--expanded > a::after {
       background: url("../img/caret-down-black.svg") no-repeat 0 0;
       background-size: 100%;
       -webkit-transform: rotate(180deg);
               transform: rotate(180deg); } }
+
+.su-main-nav__item-lv1--parent.su-main-nav__item-lv1--expanded > .su-main-nav__menu-lv2 {
+  visibility: visible;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+.su-main-nav__item-lv1--parent.su-main-nav__item-lv1--expanded .su-main-nav__item-lv2--current a {
+  font-weight: 600; }
+  .su-main-nav__item-lv1--parent.su-main-nav__item-lv1--expanded .su-main-nav__item-lv2--current a::before {
+    visibility: visible;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    background-color: #b1040e; }
+  .su-main-nav__item-lv1--parent.su-main-nav__item-lv1--expanded .su-main-nav__item-lv2--current a:hover::before, .su-main-nav__item-lv1--parent.su-main-nav__item-lv1--expanded .su-main-nav__item-lv2--current a:focus::before {
+    left: 5px; }
 
 .su-main-nav--center ul {
   -webkit-box-pack: center;
