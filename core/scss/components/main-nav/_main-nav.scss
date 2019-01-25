@@ -79,13 +79,13 @@
 
   @include grid-media-max('md') {
     &[aria-expanded="false"] {
-      + .su-main-nav__menu-lv1 {
+      + .su-main-nav .su-main-nav__menu-lv1 {
         display: none;
       }
     }
 
     &[aria-expanded="true"] {
-      + .su-main-nav__menu-lv1 {
+      + .su-main-nav .su-main-nav__menu-lv1 {
         position: absolute;
       }
     }
@@ -93,7 +93,7 @@
 
   @include grid-media('md') {
     &[aria-expanded="true"] {
-      + .su-main-nav__menu-lv1 {
+      + .su-main-nav .su-main-nav__menu-lv1 {
         max-width: 21em;
       }
     }
