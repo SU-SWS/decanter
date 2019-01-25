@@ -1520,40 +1520,40 @@ body {
                 text-decoration-color: #009b76; }
 
 .layout {
-  position: relative;
   overflow: hidden; }
-  .layout::before {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin-right: auto;
-    margin-left: auto;
-    width: calc(100% - (2 * var(--offset)));
-    max-width: var(--max_width);
-    content: '';
-    background-image: var(--background-columns), var(--background-baseline);
-    background-size: var(--background-width) 100%;
-    background-position: 0 var(--baseline-shift);
-    z-index: -100;
-    pointer-events: none; }
-  .layout::after {
-    content: var(--media-query);
-    position: absolute;
-    top: 4px;
-    right: 4px;
-    font-family: -apple-system, sans-serif;
-    color: var(--color-text);
-    display: block;
-    background-color: rgba(238, 238, 238, 0.75);
-    text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.75);
-    padding: 4px 6px;
-    border: 1px solid;
-    border-radius: 6px;
-    opacity: .8; }
   .layout > * {
+    position: relative;
     border: dashed 1px #2e2d29; }
+    .layout > *::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin-right: auto;
+      margin-left: auto;
+      width: calc(100% - (2 * var(--offset)));
+      max-width: var(--max_width);
+      content: '';
+      background-image: var(--background-columns), var(--background-baseline);
+      background-size: var(--background-width) 100%;
+      background-position: 0 var(--baseline-shift);
+      z-index: -100;
+      pointer-events: none; }
+    .layout > *::after {
+      content: var(--media-query);
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      font-family: -apple-system, sans-serif;
+      color: var(--color-text);
+      display: block;
+      background-color: rgba(238, 238, 238, 0.75);
+      text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.75);
+      padding: 4px 6px;
+      border: 1px solid;
+      border-radius: 6px;
+      opacity: .8; }
   .layout header {
     background-color: rgba(0, 0, 139, 0.15); }
   .layout footer {
