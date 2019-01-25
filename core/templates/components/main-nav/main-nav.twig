@@ -24,6 +24,12 @@
     <li class="su-main-nav__item-lv1">
       <a href="https://stanford.edu">Students &amp; Academics</a>
     </li>
+    <li class="su-main-nav__item-lv1">
+      <a href="https://stanford.edu">Get Involved</a>
+    </li>
+    <li class="su-main-nav__item-lv1">
+      <a href="https://stanford.edu">About</a>
+    </li>
     <li aria-haspopup="true" aria-expanded="false" class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent">
       <a href="https://stanford.edu">Research</a>
       <ul class="su-main-nav__menu-lv2" role="menu" aria-label="submenu">
@@ -40,12 +46,6 @@
           <a href="https://stanford.edu">Science</a>
         </li>
       </ul>
-    </li>
-    <li class="su-main-nav__item-lv1">
-      <a href="https://stanford.edu">Get Involved</a>
-    </li>
-    <li class="su-main-nav__item-lv1">
-      <a href="https://stanford.edu">About</a>
     </li>
   </ul>
 </nav>
@@ -97,6 +97,12 @@
     mainNavToggle.innerHTML = 'Menu';
   };
 
+  const closeAllOpenSubnavs = () => {
+    if ( hasOpenSubnav() ) {
+      parents.forEach( ariaSetFalse );
+    }
+  };
+
   // ---------------------------------
   // Add click listeners to top level menu items and links
   // ---------------------------------
@@ -104,9 +110,10 @@
     parents[i].addEventListener('click', function(e) {
       e = e || window.event;
       if ( !(isExpanded( parents[i] )) ) {
-        parents.forEach( ariaSetFalse ); // First close all opened drop down menus
+        closeAllOpenSubnavs(); // First close all opened drop down menus
         // Toggle 2nd level menu
         ariaSetTrue( parents[i] );
+        parents[i].querySelector('.su-main-nav__menu-lv2 > li:first-child > a').focus(); // focus on first subnav link
       } else {
         ariaSetFalse( parents[i] );
       }
@@ -126,9 +133,7 @@
     e = e || window.event; // Use e if it exists or e will be equal to window.event for IE
     const eventElement = e.target || e.srcElement; // e.srcElement is IE equiv of e.target
     if ( !eventElement.closest('.su-main-nav__item-lv1--parent') ) {
-      for (let i=0; i < parents.length; i++) {
-        ariaSetFalse( parents[i] );
-      }
+      closeAllOpenSubnavs();
     }
   }, false);
 
@@ -187,6 +192,7 @@
           currentFocus.parentNode.querySelector('.su-main-nav__menu-lv2 > li:first-child > a').focus();
         } else if ( press === 'ArrowRight' || press === 'Right' || press === 39 ) {
           e.preventDefault();
+          closeAllOpenSubnavs();
           if (currentFocus === lastLink) {
             firstLink.focus();
           } else {
@@ -194,15 +200,14 @@
           }
         } else if ( press === 'ArrowLeft' || press === 'Left' || press === 37 ) {
           e.preventDefault();
+          closeAllOpenSubnavs();
           if (currentFocus === firstLink) {
             lastLink.focus();
           } else {
             currentFocus.parentNode.previousElementSibling.querySelector('a').focus();
           }
         } else if ( press === 'Escape' || press === 'Esc' || press === 27 ) {
-          if ( hasOpenSubnav() ) {
-            parents.forEach( ariaSetFalse );
-          }
+          closeAllOpenSubnavs();
         }
 
       } else if ( !isDesktop() ) {
@@ -222,12 +227,9 @@
             currentFocus.parentNode.previousElementSibling.querySelector('a').focus();
           }
         } else if ( press === 'Escape' || press === 'Esc' || press === 27 ) {
-          if ( hasOpenSubnav() ) {
-            parents.forEach( ariaSetFalse );
-          } else {
-            if ( isExpanded( mainNavToggle ) ) {
-              closeMobileMenu();
-            }
+          closeAllOpenSubnavs();
+          if ( !hasOpenSubnav() && isExpanded( mainNavToggle ) ) {
+            closeMobileMenu();
           }
         }
 
@@ -246,6 +248,7 @@
       const currentFocus = document.activeElement;
       const firstSubnavLink = currentFocus.parentNode.parentNode.firstElementChild.querySelector('a');
       const lastSubnavLink = currentFocus.parentNode.parentNode.lastElementChild.querySelector('a');
+      const parentMenuItem = currentFocus.parentNode.parentNode.parentNode;
 
       if ( press === 'ArrowDown' || press === 'Down' || press === 40 ) {
         e.preventDefault();
@@ -262,25 +265,33 @@
           currentFocus.parentNode.previousElementSibling.querySelector('a').focus();
         }
       } else if ( (press === 'Tab' || press === 9 ) && ( currentFocus === lastSubnavLink ) ) { // hitting TAB while on last submenu link closes submenu
-        ariaSetFalse( currentFocus.parentNode.parentNode.parentNode );
+        ariaSetFalse( parentMenuItem );
       } else if ( press === 'Home' || press === 122 ) {
         firstSubnavLink.focus(); // Focus on the first subnav link when HOME button is pressed
       } else if ( press === 'End' || press === 123 ) {
         lastSubnavLink.focus(); // Focus on the last subnav link when END button is pressed
       } else if ( ( press === 'Escape' || press === 'Esc' || press === 27 ) && hasOpenSubnav() ) {
         parents.forEach( ariaSetFalse );
-        currentFocus.parentNode.parentNode.parentNode.querySelector('a').focus();
+        parentMenuItem.querySelector('a').focus();
       }
 
       if ( isDesktop() ) {
         if (press === 'ArrowRight' || press === 'Right' || press === 39) {
-          ariaSetFalse(currentFocus.parentNode.parentNode.parentNode);
+          ariaSetFalse( parentMenuItem );
           e.preventDefault();
-          currentFocus.parentNode.parentNode.parentNode.nextElementSibling.querySelector('a').focus();
+          if ( parentMenuItem.querySelector('a') !== lastLink ) {
+            parentMenuItem.nextElementSibling.querySelector('a').focus();
+          } else {
+            firstLink.focus();
+          }
         } else if (press === 'ArrowLeft' || press === 'Left' || press === 37) {
-          ariaSetFalse(currentFocus.parentNode.parentNode.parentNode);
+          ariaSetFalse( parentMenuItem );
           e.preventDefault();
-          currentFocus.parentNode.parentNode.parentNode.previousElementSibling.querySelector('a').focus();
+          if ( parentMenuItem.querySelector('a') !== firstLink ) {
+            parentMenuItem.previousElementSibling.querySelector('a').focus();
+          } else {
+            lastLink.focus();
+          }
         }
       }
 
