@@ -6,36 +6,41 @@
 // A lockup with the Stanford wordmark logo and department/unit name. It is used in the header of a website and links to the homepage of the department/unit. When building a department lockup, besides the Stanford wordmark, the most obvious element should be the most granular relevant department.
 //
 // **Available variants for the lockup:**
-// - .su-lockup--two-lines - Lockup with two lines to the right of the wordmark.
-//
-// **Available variants for the individual site name lines:**
-// - .su-lockup__sitename-line1--small - Small font size for line 1 - only when line 2 exists
-// - .su-lockup__sitename-line1--supersmall - Supersmall font size for line 1 - only when line 2 exists
-// - .su-lockup__sitename-line1--uppercase - Uppercase and bold font for line 1
-// - .su-lockup__sitename-line5--uppercase - Uppercase, bold and smaller font for line 5
 //
 // Markup: ../templates/components/lockup/lockup.twig
 //
 // Style guide: Components.Lockup
 //
 .su-lockup {
-  @include display-grid;
-  @include grid-columns(1fr, false);
-  @include grid-rows(auto auto auto auto);
-  align-items: end;
-  width: fit-content;
-  text-decoration: none;
+  @include display-grid();
+  justify-content: start;
+  grid-template-areas:
+  "cell1 cell2"
+  "line5 line5";
+}
 
-  @include grid-media('md') {
-    @include grid-columns(auto auto 1fr, false);
-    @include grid-rows(auto auto);
-  }
+.su-lockup__cell1 {
+  grid-area: cell1;
+  padding-right: 15px;
+  max-width: 167px
+}
+
+.su-lockup__cell2 {
+  grid-area: cell2;
+  border-left: solid 2px $color-black;
+  padding-left: 15px;
+}
+
+.su-lockup__line4 {
+  font
+}
+
+.su-lockup__line5 {
+  grid-area: line5;
 }
 
 .su-lockup__wordmark {
   @include logo;
-  @include grid-item-spans(1, span 1, 1, span 1);
-  display: block;
   color: $color-cardinal-red;
   font-size: 36px;
   line-height: 1;
@@ -45,80 +50,33 @@
     height: 33px;
     line-height: .96;
   }
-
-  // Hide pipe/horizontal line on smaller devices if there is no line 5
-  + .su-lockup__pipe {
-    display: none;
-
-    @include grid-media('md') {
-      display: block;
-    }
-  }
 }
 
-//Put the pipe in its own CSS grid cell so that its height auto adjusts to the tallest part of the lockup
-.su-lockup__pipe {
-  @include margin(7px null);
-  @include grid-item-spans(1, span 1, 3, span 1);
-  display: block;
-  content: "";
-  width: 118px;
-  height: 1px;
-  background-color: $color-black;
-
-  @include grid-media('md') {
-    @include margin(0 7px);
-    @include grid-item-spans(2, span 1, 1, span 1);
-    display: inline-block;
-    width: 1px;
-    height: 100%;
-  }
-
-}
-
-.su-lockup__sitename-line1,
-.su-lockup__sitename-line2,
-.su-lockup__sitename-line5 {
+.su-lockup__line1,
+.su-lockup__line2,
+.su-lockup__line3,
+.su-lockup__line4,
+.su-lockup__line5 {
   @include font-smoothing;
-  display: block;
-  @include grid-item-spans(1, span 1);
   color: $color-black;
+  display: block;
 }
 
 
-.su-lockup__sitename-line1 {
-  @include grid-item-spans(null, null, 4, span 1);
+.su-lockup__line1 {
   font-size: 22px;
   line-height: .8;
 
   @include grid-media('md') {
-    @include grid-item-spans(3, span 1, 1, span 1);
     font-size: 30px;
   }
 }
 
-.su-lockup__sitename-line2 {
-  display: none;
-}
-
-.su-lockup__sitename-line5 {
-  @include grid-item-spans(null, null, 2, span 1);
+.su-lockup__line5 {
   font-size: 20px;
   line-height: 1.1;
 
   @include grid-media('md') {
-    @include padding(8px null null);
-    @include grid-item-spans(1, span 3, 2, span 1);
     font-size: 27px;
   }
-}
-
-.su-lockup__sitename-line1--uppercase,
-.su-lockup__sitename-line5--uppercase {
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
-.su-lockup__sitename-line5--uppercase {
-  font-size: 18px;
 }

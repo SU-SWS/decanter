@@ -33,27 +33,48 @@
  * - line5_modifier_class: Classes for line 5 font variants
  */
 #}
-{% if line2 is not empty %}
-  <a{{ attributes }} href="{{ link }}" class="su-lockup su-lockup--two-lines {{ modifier_class }}">
-{% else %}
-  <a{{ attributes }} href="{{ link }}" class="su-lockup {{ modifier_class }}">
-{% endif %}
-    <span class="su-lockup__wordmark">Stanford</span>
+<div{{ attributes }} class="su-lockup {{ modifier_class }}">
 
-    {# Line 5 of Site Name - Optional #}
-    {% if line5 is not empty %}
-      <span class="su-lockup__sitename-line5 {{ line5_modifier_class }}">{{ line5 }}</span>
+  {# Cell container #1 #}
+  <div class="su-lockup__cell1">
+    {% if main_link is not empty %}
+    <a href="{{ main_link }}" class="su-lockup__wordmark-link">
+    {% endif %}
+    <span class="su-lockup__wordmark">Stanford</span>
+    {% if main_link is not empty %}
+    </a>
     {% endif %}
 
-    {# Divider line - Hide on mobile if no line 5 #}
-    <span class="su-lockup__pipe"></span>
+    {% if line4 is not empty %}
+    <span class="su-lockup__line4" {{ region_attributes.line4 }}>{{ line4 }}</span>
+    {% endif %}
+  </div>
 
-    {# Line 1 of Site Name - Required #}
-    <span class="su-lockup__sitename-line1 {{ line1_modifier_class }}">{{ line1 }}</span>
+  {# Cell container #2 #}
+  <div class="su-lockup__cell2">
+    {% if secondary_link is not empty %}
+    <a href="{{ secondary_link }}" class="su-lockup__lines-link">
+    {% endif %}
+
+    {% if line1 is not empty %}
+    <span class="su-lockup__line1" {{ region_attributes.line1 }}>{{ line1 }}</span>
+    {% endif %}
 
     {% if line2 is not empty %}
-    {# Line 2 of Site Name - Optional #}
-    <span class="su-lockup__sitename-line2">{{ line2 }}</span>
-
+    <span class="su-lockup__line2" {{ region_attributes.line2 }}>{{ line2 }}</span>
     {% endif %}
-  </a>
+
+    {% if line3 is not empty %}
+    <span class="su-lockup__line3" {{ region_attributes.line3 }}>{{ line3 }}</span>
+    {% endif %}
+
+    {% if secondary_link is not empty %}
+    </a>
+    {% endif %}
+  </div>
+
+  {# Line 5 of Site Name - Optional #}
+  {% if line5 is not empty %}
+    <div class="su-lockup__line5 {{ region_attributes.line5 }}">{{ line5 }}</div>
+  {% endif %}
+</div>

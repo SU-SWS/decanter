@@ -7165,23 +7165,30 @@ a {
 .su-lockup {
   display: grid;
   display: -ms-grid;
-  -ms-grid-columns: 1fr;
-  grid-template-columns: 1fr;
-  -ms-grid-rows: auto auto auto auto;
-  grid-template-rows: auto auto auto auto;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: end;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  text-decoration: none; }
-  @media only screen and (min-width: 768px) {
-    .su-lockup {
-      -ms-grid-columns: auto auto 1fr;
-      grid-template-columns: auto auto 1fr;
-      -ms-grid-rows: auto auto;
-      grid-template-rows: auto auto; } }
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+      grid-template-areas: "cell1 cell2" "line5 line5"; }
+
+.su-lockup__cell1 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: cell1;
+  padding-right: 15px;
+  max-width: 167px; }
+
+.su-lockup__cell2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: cell2;
+  border-left: solid 2px #2e2d29;
+  padding-left: 15px; }
+
+.su-lockup__line5 {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: line5; }
 
 .su-lockup__wordmark {
   display: inline-block;
@@ -7202,13 +7209,6 @@ a {
   font-variant-ligatures: discretionary-ligatures;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -ms-grid-column: 1;
-  grid-column: 1 / span 1;
-  -ms-grid-column-span: 1;
-  -ms-grid-row: 1;
-  grid-row: 1 / span 1;
-  -ms-grid-row-span: 1;
-  display: block;
   color: #8c1515;
   font-size: 36px;
   line-height: 1; }
@@ -7217,93 +7217,30 @@ a {
       font-size: 46px;
       height: 33px;
       line-height: .96; } }
-  .su-lockup__wordmark + .su-lockup__pipe {
-    display: none; }
-    @media only screen and (min-width: 768px) {
-      .su-lockup__wordmark + .su-lockup__pipe {
-        display: block; } }
 
-.su-lockup__pipe {
-  margin-top: 7px;
-  margin-bottom: 7px;
-  -ms-grid-column: 1;
-  grid-column: 1 / span 1;
-  -ms-grid-column-span: 1;
-  -ms-grid-row: 3;
-  grid-row: 3 / span 1;
-  -ms-grid-row-span: 1;
-  display: block;
-  content: "";
-  width: 118px;
-  height: 1px;
-  background-color: #2e2d29; }
-  @media only screen and (min-width: 768px) {
-    .su-lockup__pipe {
-      margin: 0 7px;
-      -ms-grid-column: 2;
-      grid-column: 2 / span 1;
-      -ms-grid-column-span: 1;
-      -ms-grid-row: 1;
-      grid-row: 1 / span 1;
-      -ms-grid-row-span: 1;
-      display: inline-block;
-      width: 1px;
-      height: 100%; } }
-
-.su-lockup__sitename-line1,
-.su-lockup__sitename-line2,
-.su-lockup__sitename-line5 {
+.su-lockup__line1,
+.su-lockup__line2,
+.su-lockup__line3,
+.su-lockup__line4,
+.su-lockup__line5 {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: block;
-  -ms-grid-column: 1;
-  grid-column: 1 / span 1;
-  -ms-grid-column-span: 1;
-  color: #2e2d29; }
+  color: #2e2d29;
+  display: block; }
 
-.su-lockup__sitename-line1 {
-  -ms-grid-row: 4;
-  grid-row: 4 / span 1;
-  -ms-grid-row-span: 1;
+.su-lockup__line1 {
   font-size: 22px;
   line-height: .8; }
   @media only screen and (min-width: 768px) {
-    .su-lockup__sitename-line1 {
-      -ms-grid-column: 3;
-      grid-column: 3 / span 1;
-      -ms-grid-column-span: 1;
-      -ms-grid-row: 1;
-      grid-row: 1 / span 1;
-      -ms-grid-row-span: 1;
+    .su-lockup__line1 {
       font-size: 30px; } }
 
-.su-lockup__sitename-line2 {
-  display: none; }
-
-.su-lockup__sitename-line5 {
-  -ms-grid-row: 2;
-  grid-row: 2 / span 1;
-  -ms-grid-row-span: 1;
+.su-lockup__line5 {
   font-size: 20px;
   line-height: 1.1; }
   @media only screen and (min-width: 768px) {
-    .su-lockup__sitename-line5 {
-      padding-top: 8px;
-      -ms-grid-column: 1;
-      grid-column: 1 / span 3;
-      -ms-grid-column-span: 3;
-      -ms-grid-row: 2;
-      grid-row: 2 / span 1;
-      -ms-grid-row-span: 1;
+    .su-lockup__line5 {
       font-size: 27px; } }
-
-.su-lockup__sitename-line1--uppercase,
-.su-lockup__sitename-line5--uppercase {
-  text-transform: uppercase;
-  font-weight: 700; }
-
-.su-lockup__sitename-line5--uppercase {
-  font-size: 18px; }
 
 .su-lockup--two-lines {
   -ms-grid-rows: auto auto auto auto auto;
