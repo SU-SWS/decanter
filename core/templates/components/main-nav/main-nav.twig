@@ -5,7 +5,7 @@
       <a href="https://stanford.edu">Home</a>
     </li>
     <li aria-haspopup="true" aria-expanded="false" class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent su-main-nav__item-lv1--current">
-      <a href="https://stanford.edu">Admissions &amp; Aid</a>
+      <a href="https://stanford.edu" aria-expanded="false">Admissions &amp; Aid</a>
       <ul class="su-main-nav__menu-lv2" role="menu" aria-label="submenu">
         <li class="su-main-nav__item-lv2">
           <a href="https://stanford.edu">Overview</a>
@@ -31,7 +31,7 @@
       <a href="https://stanford.edu">About</a>
     </li>
     <li aria-haspopup="true" aria-expanded="false" class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent">
-      <a href="https://stanford.edu">Research</a>
+      <a href="https://stanford.edu" aria-expanded="false">Research</a>
       <ul class="su-main-nav__menu-lv2" role="menu" aria-label="submenu">
         <li class="su-main-nav__item-lv2">
           <a href="https://stanford.edu">Overview</a>
@@ -75,6 +75,9 @@
     for (let i=0; i < parents.length; i++) {
       if ( isExpanded( parents[i] ) ) {
         numOpenSubnav ++;
+        if ( numOpenSubnav > 0 ) {
+          break;
+        }
       }
     }
     return numOpenSubnav > 0;
@@ -100,6 +103,7 @@
   const closeAllOpenSubnavs = () => {
     if ( hasOpenSubnav() ) {
       parents.forEach( ariaSetFalse );
+      parentLinks.forEach( ariaSetFalse );
     }
   };
 
@@ -113,9 +117,11 @@
         closeAllOpenSubnavs(); // First close all opened drop down menus
         // Toggle 2nd level menu
         ariaSetTrue( parents[i] );
+        ariaSetTrue( parentLinks[i] );
         parents[i].querySelector('.su-main-nav__menu-lv2 > li:first-child > a').focus(); // focus on first subnav link
       } else {
         ariaSetFalse( parents[i] );
+        ariaSetFalse( parentLinks[i] );
       }
     }, false);
 
@@ -180,6 +186,7 @@
         lastLink.focus(); // Focus on the last top level menu link when END button is pressed
       } else if ( ( press === ' ' || press === 'Spacebar' || press === 'Enter' || press === 32 || press === 13 ) && isLevel1Parent() ) {
         ariaSetTrue( currentFocus.parentNode );
+        ariaSetTrue( currentFocus.parentNode.querySelector('a') );
         e.preventDefault();
         currentFocus.parentNode.querySelector('.su-main-nav__menu-lv2 > li:first-child > a').focus();
       }
@@ -188,6 +195,7 @@
 
         if ( ( press === 'ArrowDown' || press === 'Down' || press === 40 ) && isLevel1Parent() ) {
           ariaSetTrue( currentFocus.parentNode );
+          ariaSetTrue( currentFocus.parentNode.querySelector('a') );
           e.preventDefault(); // prevent page scrolling
           currentFocus.parentNode.querySelector('.su-main-nav__menu-lv2 > li:first-child > a').focus();
         } else if ( press === 'ArrowRight' || press === 'Right' || press === 39 ) {
@@ -272,12 +280,14 @@
         lastSubnavLink.focus(); // Focus on the last subnav link when END button is pressed
       } else if ( ( press === 'Escape' || press === 'Esc' || press === 27 ) && hasOpenSubnav() ) {
         parents.forEach( ariaSetFalse );
+        parentLinks.forEach( ariaSetFalse );
         parentMenuItem.querySelector('a').focus();
       }
 
       if ( isDesktop() ) {
         if (press === 'ArrowRight' || press === 'Right' || press === 39) {
           ariaSetFalse( parentMenuItem );
+          ariaSetFalse( parentMenuItem.querySelector('a') );
           e.preventDefault();
           if ( parentMenuItem.querySelector('a') !== lastLink ) {
             parentMenuItem.nextElementSibling.querySelector('a').focus();
@@ -286,6 +296,7 @@
           }
         } else if (press === 'ArrowLeft' || press === 'Left' || press === 37) {
           ariaSetFalse( parentMenuItem );
+          ariaSetFalse( parentMenuItem.querySelector('a') );
           e.preventDefault();
           if ( parentMenuItem.querySelector('a') !== firstLink ) {
             parentMenuItem.previousElementSibling.querySelector('a').focus();
