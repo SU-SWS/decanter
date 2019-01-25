@@ -41,12 +41,13 @@
     <a href="{{ main_link }}" class="su-lockup__wordmark-link">
     {% endif %}
     <span class="su-lockup__wordmark">Stanford</span>
-    {% if main_link is not empty %}
-    </a>
-    {% endif %}
 
     {% if line4 is not empty %}
     <span class="su-lockup__line4" {{ region_attributes.line4 }}>{{ line4 }}</span>
+    {% endif %}
+
+    {% if main_link is not empty %}
+    </a>
     {% endif %}
   </div>
 
