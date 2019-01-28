@@ -17,7 +17,7 @@
 <div{{ attributes }} class="layout layout-plakes {{ modifier_class }}">
   {# Optional Header #}
   {% if header is not empty %}
-  <header>
+  <header {{ region_attributes.header }}>
     {{ header }}
   </header>
   {% endif %}
@@ -25,12 +25,12 @@
   {# Grid Container #}
   <div>
     {# Manditory sidebar #}
-    <aside>
+    <aside {{ region_attributes.sidebar }}>
       {{ sidebar }}
     </aside>
 
     {# Manditory content #}
-    <section>
+    <section {{ region_attributes.content }}>
       {{ content }}
     </section>
   </div>

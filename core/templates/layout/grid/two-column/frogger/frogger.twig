@@ -18,25 +18,25 @@
 
   {# Optional Header #}
   {% if header is not empty %}
-  <header>
+  <header {{ region_attributes.header }}>
     {{ header }}
   </header>
   {% endif %}
 
   {# Required content section #}
   <section>
-    <div>
+    <div {{ region_attributes.first }}>
       {{ first }}
     </div>
 
-    <div>
+    <div {{ region_attributes.second }}>
       {{ second }}
     </div>
   </section>
 
   {# Optional centered container #}
   {% if middle is not empty %}
-  <div>
+  <div {{ region_attributes.middle }}>
     {{ middle }}
   </div>
   {% endif %}
@@ -44,11 +44,11 @@
   {# Optional third row #}
   {% if third is not empty %}
   <section>
-    <div>
+    <div {{ region_attributes.third }}>
       {{ third }}
     </div>
 
-    <div>
+    <div {{ region_attributes.fourth }}>
       {{ fourth }}
     </div>
   </section>
@@ -56,7 +56,7 @@
 
   {# Optional footer #}
   {% if footer is not empty %}
-  <footer>
+  <footer {{ region_attributes.footer }}>
     {{ footer }}
   </footer>
   {% endif %}
