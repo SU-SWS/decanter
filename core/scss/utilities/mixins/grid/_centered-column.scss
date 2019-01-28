@@ -1,16 +1,16 @@
 @charset "UTF-8";
 
 //
-// @centered-column($grid: $grid-media, $modular-spacing: $modular-spacing)
+// @centered-column($grid: $grid-media, $margin: $screen-margins)
 //
 // Centers a single cellin a container based on max width in breakpoints.
 //
 // Style guide: Mixins.Grid.centered-column
 //
-@mixin centered-column($grid: $grid-media, $screens: $grid-screens, $modular-spacing: $modular-spacing) {
+@mixin centered-column($grid: $grid-media, $screens: $grid-screens, $margin: $screen-margins) {
   @include margin(0 auto);
   @each $code, $breakpoint in $grid {
-    $spacing: map-get($modular-spacing, $code);
+    $spacing: map-get($margin, $code);
 
     @media #{$breakpoint} {
       @if breakpoint-max($code, $grid) == null {
