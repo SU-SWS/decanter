@@ -22,7 +22,7 @@
     {# A centered max-width header region #}
     {% if header is not empty %}
     <header>
-      <div>
+      <div {{ region_attributes.header }}>
       {{ header }}
       </div>
     </header>
@@ -30,19 +30,19 @@
 
     {# Because of the responsive behaviour each column is required. #}
     <section>
-      <div>
+      <div {{ region_attributes.first }}>
         {{ first }}
       </div>
 
-      <div>
+      <div {{ region_attributes.second }}>
         {{ second }}
       </div>
 
-      <div>
+      <div {{ region_attributes.third }}>
         {{ third }}
       </div>
 
-      <div>
+      <div {{ region_attributes.fourth }}>
         {{ fourth }}
       </div>
     </section>
@@ -50,7 +50,7 @@
     {# Centered max-width footer region #}
     {% if footer is not empty %}
     <footer>
-      <div>
+      <div {{ region_attributes.footer }}>
       {{ footer }}
       </div>
     </footer>
