@@ -16,7 +16,7 @@
       @if breakpoint-max($code, $grid) == null {
         $max-width: map-get($screens, $code);
         max-width: $max-width;
-        width: calc(100% - ($spacing * 2));
+        width: calc(100% - #{$spacing * 2});
       } @else {
         max-width: calc(100% - #{$spacing * 2});
         width: calc(100% - #{$spacing * 2});
