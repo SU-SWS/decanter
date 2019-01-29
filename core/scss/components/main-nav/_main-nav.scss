@@ -79,13 +79,13 @@
 
   @include grid-media-max('md') {
     &[aria-expanded="false"] {
-      + .su-main-nav .su-main-nav__menu-lv1 {
+      + .su-main-nav__menu-lv1 {
         display: none;
       }
     }
 
     &[aria-expanded="true"] {
-      + .su-main-nav .su-main-nav__menu-lv1 {
+      + .su-main-nav__menu-lv1 {
         position: absolute;
       }
     }
@@ -93,7 +93,7 @@
 
   @include grid-media('md') {
     &[aria-expanded="true"] {
-      + .su-main-nav .su-main-nav__menu-lv1 {
+      + .su-main-nav__menu-lv1 {
         max-width: 21em;
       }
     }
@@ -106,6 +106,10 @@
   flex-wrap: wrap;
   background-color: $color-black;
   width: 100%;
+
+  @include grid-media-max('md') {
+    height: 100vh;
+  }
 
   @include grid-media('lg') {
     @include padding(null null null 0);
@@ -222,7 +226,6 @@
   @include padding(null null null .6em);
   background-color: $color-black;
   flex-direction: column;
-  visibility: hidden;
   display: none;
 
   @include grid-media('lg') {
@@ -294,7 +297,6 @@
   }
 
   > .su-main-nav__menu-lv2 {
-    visibility: visible;
     display: flex;
   }
 

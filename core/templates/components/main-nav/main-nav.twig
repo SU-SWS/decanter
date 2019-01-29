@@ -1,11 +1,16 @@
-<button id="su-main-nav__toggle" class="su-main-nav__toggle {{ button_modifier_class }}" aria-expanded="false" aria-haspopup="true">Menu</button>
-<nav {{ attributes }} id="su-main-nav" class="su-main-nav {{ modifier_class }}" aria-label="Main Menu">
+
+  {% if has-search is not empty %}
+<nav {{ attributes }} id="su-main-nav" class="su-main-nav su-main-nav--mobile-search {{ modifier_class }}" aria-label="Main">
+  {% else %}
+<nav {{ attributes }} id="su-main-nav" class="su-main-nav {{ modifier_class }}" aria-label="Main">
+  {% endif %}
+  <button id="su-main-nav__toggle" class="su-main-nav__toggle {{ button_modifier_class }}" aria-expanded="false">Menu</button>
   <ul class="su-main-nav__menu-lv1">
     <li class="su-main-nav__item-lv1">
       <a href="https://stanford.edu">Home</a>
     </li>
     <li class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent su-main-nav__item-lv1--current">
-      <a href="https://stanford.edu" aria-haspopup="true" aria-expanded="false">Admissions &amp; Aid</a>
+      <a href="https://stanford.edu" aria-expanded="false">Admissions &amp; Aid</a>
       <ul class="su-main-nav__menu-lv2">
         <li class="su-main-nav__item-lv2">
           <a href="https://stanford.edu">Overview</a>
@@ -31,7 +36,7 @@
       <a href="https://stanford.edu">About</a>
     </li>
     <li class="su-main-nav__item-lv1 su-main-nav__item-lv1--parent">
-      <a href="https://stanford.edu" aria-haspopup="true" aria-expanded="false">Research</a>
+      <a href="https://stanford.edu" aria-expanded="false">Research</a>
       <ul class="su-main-nav__menu-lv2">
         <li class="su-main-nav__item-lv2">
           <a href="https://stanford.edu">Overview</a>
@@ -48,6 +53,20 @@
       </ul>
     </li>
   </ul>
+  {% if has-search is not empty %}
+    {# We reuse the site search component here. #}
+    {% include "@decanter/components/site-search/site-search.twig" with
+      {
+        "action": "https://www.stanford.edu/search",
+        "method": "get",
+        "search_label": "Search this site",
+        "placeholder": "Search this site",
+        "search_input_name": "search-field",
+        "search_icon_src": "../../../img/icon-search.svg"
+      }
+      only
+    %}
+  {% endif %}
 </nav>
 
 <script>
@@ -55,6 +74,7 @@
   const mainNav = document.getElementById('su-main-nav');
   const mainMenu = mainNav.querySelector('.su-main-nav__menu-lv1');
   const mainNavToggle = document.getElementById('su-main-nav__toggle');
+  const mobileSearch = mainNav.getElementsByClassName('su-site-search');
 
   const parents = mainMenu.querySelectorAll('.su-main-nav__item-lv1--parent');
   const parentLinks = mainMenu.querySelectorAll('.su-main-nav__item-lv1--parent > a');
@@ -69,6 +89,7 @@
   // Function to check if we're using desktop version of main nav (horizontal)
   // If menu toggle button is not shown, then we're on desktop and return true
   const isDesktop = () => getComputedStyle(mainNavToggle, null).display === 'none';
+  const hasMobileSearch = () => getComputedStyle(mobileSearch, null).display !== 'none';
 
   // function to check if there are open subnavs
   const hasOpenSubnav = () => {
