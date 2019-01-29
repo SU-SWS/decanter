@@ -5,37 +5,52 @@
 //
 // A lockup with the Stanford wordmark logo and department/unit name. It is used in the header of a website and links to the homepage of the department/unit. When building a department lockup, besides the Stanford wordmark, the most obvious element should be the most granular relevant department.
 //
-// **Available variants for the lockup:**
+// .su-lockup--option-a - Option A
+// .su-lockup--option-b - Option B
+// .su-lockup--option-c - Option C
+// .su-lockup--option-d - Option D
+// .su-lockup--option-e - Option E
+// .su-lockup--option-f - Option F
+// .su-lockup--option-g - Option G
+// .su-lockup--option-h - Option H
+// .su-lockup--option-i - Option I
+// .su-lockup--option-j - Option J
+// .su-lockup--option-k - Option K
+// .su-lockup--option-l - Option L
+// .su-lockup--option-m - Option M
+// .su-lockup--option-n - Option N
+// .su-lockup--option-o - Option O
+// .su-lockup--option-p - Option P
+// .su-lockup--option-q - Option Q
+// .su-lockup--option-r - Option R
+//
 //
 // Markup: ../templates/components/lockup/lockup.twig
 //
 // Style guide: Components.Lockup
 //
 .su-lockup {
-  @include display-grid();
-  justify-content: start;
-  grid-template-areas:
-  "cell1 cell2"
-  "line5 line5";
+  @include flex-container;
+  justify-content: flex-start;
+  vertical-align: bottom;
+  align-items: stretch;
 }
 
 .su-lockup__cell1 {
-  grid-area: cell1;
-  padding-right: 15px;
-  max-width: 167px
+  flex-shrink: 1;
+  padding-right: 7px;
+  max-width: 167px;
+  align-self: flex-end;
+  border-right: solid 1px $color-black;
+  margin-right: -1px;
 }
 
 .su-lockup__cell2 {
-  grid-area: cell2;
-  border-left: solid 2px $color-black;
-  padding-left: 15px;
-}
-
-.su-lockup__line4 {
-}
-
-.su-lockup__line5 {
-  grid-area: line5;
+  border-left: solid 1px $color-black;
+  padding-left: 7px;
+  flex-grow: 1;
+  vertical-align: bottom;
+  align-self: flex-end;
 }
 
 .su-lockup__wordmark {
@@ -43,6 +58,7 @@
   color: $color-cardinal-red;
   font-size: 36px;
   line-height: 1;
+  vertical-align: bottom;
 
   @include grid-media('md') {
     font-size: 46px;
@@ -61,7 +77,6 @@
   display: block;
 }
 
-
 .su-lockup__line1 {
   font-size: 22px;
   line-height: .8;
@@ -71,9 +86,20 @@
   }
 }
 
+.su-lockup__line2 {
+}
+
+.su-lockup__line3 {
+}
+
+.su-lockup__line4 {
+}
+
 .su-lockup__line5 {
+  width: 100%;
   font-size: 20px;
   line-height: 1.1;
+  margin-top: 7px;
 
   @include grid-media('md') {
     font-size: 27px;
