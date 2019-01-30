@@ -1,5 +1,5 @@
 
-  {% if has-search is not empty %}
+  {% if has_search == true %}
 <nav {{ attributes }} id="su-main-nav" class="su-main-nav su-main-nav--mobile-search {{ modifier_class }}" aria-label="Main">
   {% else %}
 <nav {{ attributes }} id="su-main-nav" class="su-main-nav {{ modifier_class }}" aria-label="Main">
@@ -53,7 +53,7 @@
       </ul>
     </li>
   </ul>
-  {% if has-search is not empty %}
+  {% if has_search == true %}
     {# We reuse the site search component here. #}
     {% include "@decanter/components/site-search/site-search.twig" with
       {
@@ -74,7 +74,7 @@
   const mainNav = document.getElementById('su-main-nav');
   const mainMenu = mainNav.querySelector('.su-main-nav__menu-lv1');
   const mainNavToggle = document.getElementById('su-main-nav__toggle');
-  const mobileSearch = mainNav.getElementsByClassName('su-site-search');
+  const mobileSearch = mainNav.querySelector('.su-site-search');
 
   const parents = mainMenu.querySelectorAll('.su-main-nav__item-lv1--parent');
   const parentLinks = mainMenu.querySelectorAll('.su-main-nav__item-lv1--parent > a');
@@ -89,6 +89,8 @@
   // Function to check if we're using desktop version of main nav (horizontal)
   // If menu toggle button is not shown, then we're on desktop and return true
   const isDesktop = () => getComputedStyle(mainNavToggle, null).display === 'none';
+
+  // Function to check if a search box is included for the mobile menu
   const hasMobileSearch = () => getComputedStyle(mobileSearch, null).display !== 'none';
 
   // function to check if there are open subnavs
@@ -200,6 +202,19 @@
       openMobileMenu();
     }
   };
+
+  // ---------------------------------
+  // Listens to keydown event while mobile site search is focused
+  // ---------------------------------
+    mobileSearch.onkeydown = function(e) {
+      e = e || window.event;
+      const press = e.key || e.keyCode; // fallback to keyCode if key isn't supported by older browsers
+
+      // Close mobile menu if ESC is pressed
+      if ( (press === 'Escape' || press === 'Esc' || press === 27) && isExpanded(mainNavToggle) ) {
+        closeMobileMenu();
+      }
+    };
 
   // ---------------------------------
   // listens to keydown on top level links

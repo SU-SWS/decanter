@@ -14,7 +14,7 @@
   text-decoration: none;
   position: relative;
 
-  &::before {
+  &:before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -30,7 +30,7 @@
   &[aria-expanded="true"] {
     text-decoration: none;
 
-    &::before {
+    &:before {
       visibility: visible;
       transition: transform .25s ease-out;
     }
@@ -41,7 +41,7 @@
   @include fancy-hover-setup;
   padding-bottom: .65em;
 
-  &::before {
+  &:before {
     width: 100%;
     height: 6px;
     transform: scaleX(0);
@@ -51,21 +51,21 @@
   &:focus,
   &:active,
   &[aria-expanded="true"] {
-    &::before {
+    &:before {
       transform: scaleX(1);
     }
   }
 
   &:hover,
   &:focus {
-    &::before {
+    &:before {
       background-color: $color;
     }
   }
 
   &:active,
   &[aria-expanded="true"] {
-    &::before {
+    &:before {
       background-color: $active;
     }
   }

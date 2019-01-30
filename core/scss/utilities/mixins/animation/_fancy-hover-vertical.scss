@@ -13,7 +13,7 @@
 @mixin fancy-hover-vertical($color: $color-dark-red, $active: $color-black) {
   @include fancy-hover-setup;
 
-  &::before {
+  &:before {
     height: 100%;
     width: 6px;
     transform: scaleY(0);
@@ -21,14 +21,14 @@
 
   &:hover,
   &:focus {
-    &::before {
+    &:before {
       background-color: $color;
     }
   }
 
   &:active,
   &[aria-expanded="true"] {
-    &::before {
+    &:before {
       background-color: $active;
     }
   }
@@ -37,7 +37,7 @@
   &:focus,
   &:active,
   &[aria-expanded="true"] {
-    &::before {
+    &:before {
       transform: scaleY(1);
     }
   }
