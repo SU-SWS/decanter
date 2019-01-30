@@ -13,7 +13,7 @@
   @include font-smoothing(antialiased);
   font-family: $font-sans;
   position: relative;
-  z-index: 1000;
+  z-index: 9999;
 
   ul {
     @include margin(0 null);
@@ -104,10 +104,6 @@
   flex-wrap: wrap;
   background-color: $color-black;
   width: 100%;
-
-  @include grid-media-max('md') {
-    height: 100vh;
-  }
 
   @include grid-media('lg') {
     @include padding(null null null 0);

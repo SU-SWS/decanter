@@ -1,9 +1,4 @@
-
-  {% if has_search == true %}
-<nav {{ attributes }} id="su-main-nav" class="su-main-nav su-main-nav--mobile-search {{ modifier_class }}" aria-label="Main">
-  {% else %}
 <nav {{ attributes }} id="su-main-nav" class="su-main-nav {{ modifier_class }}" aria-label="Main">
-  {% endif %}
   <button id="su-main-nav__toggle" class="su-main-nav__toggle {{ button_modifier_class }}" aria-expanded="false">Menu</button>
   <ul class="su-main-nav__menu-lv1">
     <li class="su-main-nav__item-lv1">
@@ -53,7 +48,7 @@
       </ul>
     </li>
   </ul>
-  {% if has_search == true %}
+  {% if "su-main-nav--mobile-search" in modifier_class %}
     {# We reuse the site search component here. #}
     {% include "@decanter/components/site-search/site-search.twig" with
       {
@@ -64,7 +59,6 @@
         "search_input_name": "search-field",
         "search_icon_src": "../../../img/icon-search.svg"
       }
-      only
     %}
   {% endif %}
 </nav>
