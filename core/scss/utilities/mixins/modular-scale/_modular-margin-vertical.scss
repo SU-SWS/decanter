@@ -3,30 +3,44 @@
 //
 // @modular-margin-vertical
 //
-// A modular margin mixin for default spacing around an element.
+// A mixin for adding modular top/bottom margin to an element.
 //
 // Style guide: Mixins.Modular.modular-margin-vertical
 //
-@mixin modular-margin-vertical($scale: 0) {
+@mixin modular-margin-vertical($scale: 0, $grid: $grid-media) {
+  @each $key, $breakpoint in $grid {
+    @include grid-media($key) {
+      @if $scale == 0 {
+        @include margin( (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'md') ) null);
 
-  @include grid-media('2xl') {
+      } @else if $scale == 1 {
+        @include margin( (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'lg') ) null);
 
+      } @else if $scale == 2 {
+        @include margin( (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'xl') ) null);
+
+      } @else if $scale == 3 {
+        @include margin( (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '2xl') ) null);
+
+      } @else if $scale == 4 {
+        @include margin( (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '3xl') ) null);
+
+      } @else if $scale == 5 {
+        @include margin( (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '4xl') ) null);
+
+      } @else if $scale == -1 {
+        @include margin( (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'sm') ) null);
+
+      } @else if $scale == -2 {
+        @include margin( (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'xs') ) null);
+
+      } @else if $scale == -3 {
+        @include margin( (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '2xs') ) null);
+
+      } @else if $scale == -4 {
+        @include margin( (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '3xs') ) null);
+
+      }
+    }
   }
-
-  @include grid-media('xl') {
-
-  }
-
-  @include grid-media('lg') {
-
-  }
-
-  @include grid-media('md') {
-
-  }
-
-  @include grid-media('sm') {
-
-  }
-
 }
