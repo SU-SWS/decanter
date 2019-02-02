@@ -7,27 +7,26 @@
 //
 // Style guide: Mixins.Modular.modular-margin
 //
-@mixin modular-margin($scale: 1) {
+@mixin modular-margin($scale: 0) {
 
   @include grid-media('2xl') {
-    @include margin(map-get($modular-spacing, '2xl') * $scale);
+
   }
 
   @include grid-media('xl') {
-    @include margin(map-get($modular-spacing, 'xl') * $scale);
+
   }
 
   @include grid-media('lg') {
-    @include margin(map-get($modular-spacing, 'lg') * $scale);
+
   }
 
   @include grid-media('md') {
-    @include margin(map-get($modular-spacing, 'md') * $scale);
+
   }
 
   @include grid-media('sm') {
-    @include margin(map-get($modular-spacing, 'sm') * $scale);
+
   }
 
-  @include margin(map-get($modular-spacing, 'xs') * $scale);
 }
