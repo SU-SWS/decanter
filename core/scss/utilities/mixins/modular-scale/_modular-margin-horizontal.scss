@@ -11,34 +11,34 @@
   @each $key, $breakpoint in $grid {
     @include grid-media($key) {
       @if $scale == 0 {
-        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'md') ));
+        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'md')));
 
       } @else if $scale == 1 {
-        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'lg') ));
+        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'lg')));
 
       } @else if $scale == 2 {
-        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'xl') ));
+        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'xl')));
 
       } @else if $scale == 3 {
-        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '2xl') ));
+        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '2xl')));
 
       } @else if $scale == 4 {
-        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '3xl') ));
+        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '3xl')));
 
       } @else if $scale == 5 {
-        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '4xl') ));
+        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '4xl')));
 
       } @else if $scale == -1 {
-        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'sm') ));
+        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'sm')));
 
       } @else if $scale == -2 {
-        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'xs') ));
+        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'xs')));
 
       } @else if $scale == -3 {
-        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '2xs') ));
+        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '2xs')));
 
       } @else if $scale == -4 {
-        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '3xs') ));
+        @include margin(null (map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '3xs')));
 
       }
     }
