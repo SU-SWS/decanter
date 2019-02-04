@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+//
+// modular-spacing($step, $breakpoint)
+//
+// Returns the modular spacing value at a step(integer) on the scale at a certain breakpoint.
+// The default for $step is 0, which returns a multiplier value of 1.
+//
+// $step - Integers from -4 to 5 including 0
+// $breakpoint - One of `xs`, `sm`, `md`, `lg`, `xl`, `2xl`
+//
+// Style guide: Functions.ModularScale.get-modular-spacing-multiplier
+//
+@function modular-spacing($step: 0, $breakpoint: 'xl') {
+  @return get-modular-base($breakpoint) * get-modular-spacing-multiplier($step);
+}

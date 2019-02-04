@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+//
+// get-modular-spacing-multiplier($step)
+//
+// Get a value out of the modular-spacing-multiplier map.
+// Returns the value of the $modular-spacing-multiplier variable at a step(integer) on the scale.
+// The default for $step is 0, which returns a multiplier value of 1.
+//
+// $step - Integers from -4 to 5 including 0
+//
+// Style guide: Functions.ModularScale.get-modular-spacing-multiplier
+//
+@function get-modular-spacing-multiplier($step: 0) {
+  @return map_get($modular-spacing-multiplier, $step);
+}

@@ -5,42 +5,14 @@
 //
 // A mixin for adding modular margin around an element.
 //
+// $step - Integers from -4 to 5 including 0. Default for $step is 0 which returns the modular spacing base value.
+//
 // Style guide: Mixins.Modular.modular-margin
 //
-@mixin modular-margin($scale: 0, $grid: $grid-media) {
+@mixin modular-margin($step: 0, $grid: $grid-media) {
   @each $key, $breakpoint in $grid {
     @include grid-media($key) {
-      @if $scale == 0 {
-        @include margin(map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'md'));
-
-      } @else if $scale == 1 {
-        @include margin(map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'lg'));
-
-      } @else if $scale == 2 {
-        @include margin(map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'xl'));
-
-      } @else if $scale == 3 {
-        @include margin(map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '2xl'));
-
-      } @else if $scale == 4 {
-        @include margin(map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '3xl'));
-
-      } @else if $scale == 5 {
-        @include margin(map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '4xl'));
-
-      } @else if $scale == -1 {
-        @include margin(map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'sm'));
-
-      } @else if $scale == -2 {
-        @include margin(map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, 'xs'));
-
-      } @else if $scale == -3 {
-        @include margin(map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '2xs'));
-
-      } @else if $scale == -4 {
-        @include margin(map_get($modular-spacing-base, $key) * map_get($modular-spacing-multiplier, '3xs'));
-
-      }
+      @include margin(modular-spacing($step, $key));
     }
   }
 }
