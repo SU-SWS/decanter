@@ -38,9 +38,13 @@
   }
 
   // Modular padding.
-  > img,
+  > img {
+    @include modular-padding-vertical(2);
+    @include modular-padding-left(2);
+  }
+
   .su-card__contents {
-    @include modular-padding(2);
+    @include padding(null null null 0);
   }
 
   img {
