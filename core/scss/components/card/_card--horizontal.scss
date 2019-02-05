@@ -38,16 +38,9 @@
   }
 
   // Modular padding.
-  > img {
+  img {
     @include modular-padding-vertical(2);
     @include modular-padding-left(2);
-  }
-
-  .su-card__contents {
-    @include padding(null null null 0);
-  }
-
-  img {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
   }
@@ -57,6 +50,7 @@
     -ms-grid-column: 1;
 
     @include grid-media('sm') {
+      @include padding(null null null 0);
       -ms-grid-row: 1;
       -ms-grid-column: 2;
     }
