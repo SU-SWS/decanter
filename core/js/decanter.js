@@ -1,3 +1,2 @@
-/**
- * Empty until further notice.
- */
+import 'components/components';
+import '../scss/decanter.scss';
