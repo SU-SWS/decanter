@@ -13,7 +13,7 @@
 @function get-modular-spacing-base($breakpoint: 'xs') {
   $base: map-get($modular-spacing-base, $breakpoint);
   @if $base == null {
-    @warning 'Non-existent key in get-modular-spacing-base: $breakpoint';
+    @warn 'Non-existent key in get-modular-spacing-base: $breakpoint';
   }
   @return $base;
 }
