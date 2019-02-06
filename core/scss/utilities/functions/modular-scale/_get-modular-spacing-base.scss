@@ -11,5 +11,9 @@
 // Style guide: Functions.ModularScale.get-modular-spacing-base
 //
 @function get-modular-spacing-base($breakpoint: 'xs') {
-  @return map-get($modular-spacing-base, $breakpoint);
+  $base: map-get($modular-spacing-base, $breakpoint);
+  @if $base == null {
+    @warning 'Non-existent key in get-modular-spacing-base: $breakpoint';
+  }
+  @return $base;
 }
