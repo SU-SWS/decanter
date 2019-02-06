@@ -42,12 +42,12 @@
   max-width: 160px;
   align-self: flex-end;
   border-right: solid 1px $color-black;
-  margin-right: -1px;
+  @include margin(null -1px null null);
 }
 
 .su-lockup__cell2 {
   border-left: solid 1px $color-black;
-  padding-left: 7px;
+  @include padding(null null null 7px);
   flex-grow: 1;
   vertical-align: bottom;
   align-self: flex-end;
@@ -102,7 +102,7 @@
   width: 100%;
   font-size: 2.7rem;
   line-height: 1em;
-  margin-top: 10px;
+  @include margin(10px null null null);
 
   @include grid-media('md') {
     font-size: 3rem;
