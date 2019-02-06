@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+//
+// @modular-spacing
+//
+// A mixin for adding spacing (margin or padding) between elements or between an element and the edge of its container.
+// The amount of spacing is returned using a unitless scaling system with a curated scale.
+//
+// $step - Integers from -4 to 5 including 0. Default for $step is 0 which returns the modular spacing base value.
+//
+// $property - CSS margin or padding property including directional properties, e.g., margin-left, padding-top etc.
+//
+// **Examples:**
+// - `@include modular-spacing(0, 'margin')`
+// - `@include modular-spacing(-3, 'padding-top')`
+// - `@include modular-spacing(4, 'margin-left');`
+//
+// Style guide: Mixins.Modular.modular-spacing
+//
+@mixin modular-spacing($step: 0, $property: 'padding', $grid: $grid-media) {
+  @if ( $step >= -4 and $step <= 5 ) {
+    @each $key, $breakpoint in $grid {
+      @include grid-media($key) {
+        #{$property}: (calculate-modular-spacing($step, $key));
+      }
+    }
+  } @else {
+    @error '$step should be an integer between -4 and 5';
+  }
+}

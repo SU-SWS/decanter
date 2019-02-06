@@ -12,5 +12,9 @@
 // Style guide: Functions.ModularScale.get-modular-spacing-multiplier
 //
 @function get-modular-spacing-multiplier($step: 0) {
-  @return map_get($modular-spacing-multiplier, $step);
+  @if ( $step >= -4 and $step <= 5 ) {
+    @return map_get($modular-spacing-multiplier, $step);
+  } @else {
+    @error '$step should be an integer between -4 and 5';
+  }
 }

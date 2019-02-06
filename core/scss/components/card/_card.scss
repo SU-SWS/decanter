@@ -25,11 +25,11 @@
 
 // Card contents spacing.
 .su-card__contents {
-  @include modular-padding(2);
+  @include modular-spacing(2);
 
-  // Ensure no bottom margins on last item.
+  // Ensure no bottom padding on last item.
   *:last-child {
-    @include margin(null null 0);
+    @include padding(null null 0);
   }
 
   // TODO: Refactor this to a mixin when typo headings available.
