@@ -38,27 +38,28 @@
 
   &--row-gap {
     > * {
-      @include grid-media('2xl') {
-        @include margin(0 0 map-get($modular-spacing, '2xl') 0);
-      }
+      @include margin(0 0 map-get($grid-gutters, 'xs') 0);
 
-      @include grid-media('xl') {
-        @include margin(0 0 map-get($modular-spacing, 'xl') 0);
-      }
-
-      @include grid-media('lg') {
-        @include margin(0 0 map-get($modular-spacing, 'lg') 0);
+      @include grid-media('sm') {
+        @include margin(0 0 map-get($grid-gutters, 'sm') 0);
       }
 
       @include grid-media('md') {
-        @include margin(0 0 map-get($modular-spacing, 'md') 0);
+        @include margin(0 0 map-get($grid-gutters, 'md') 0);
       }
 
-      @include grid-media('sm') {
-        @include margin(0 0 map-get($modular-spacing, 'sm') 0);
+      @include grid-media('lg') {
+        @include margin(0 0 map-get($grid-gutters, 'lg') 0);
       }
 
-      @include margin(0 0 map-get($modular-spacing, 'xs') 0);
+      @include grid-media('xl') {
+        @include margin(0 0 map-get($grid-gutters, 'xl') 0);
+      }
+
+      @include grid-media('2xl') {
+        @include margin(0 0 map-get($grid-gutters, '2xl') 0);
+      }
+
     }
   }
 
