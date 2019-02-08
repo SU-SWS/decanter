@@ -2,11 +2,23 @@
 
 .su-main-nav--light {
 
-  .su-main-nav__menu-lv1 {
-    background-color: $color-white;
+  .su-main-nav__toggle {
+    &[aria-expanded="true"] {
+      &:before {
+        background-color: $color-driftwood;
+      }
+    }
   }
 
-  .su-main-nav__item-lv1 {
+  .su-main-nav__menu-lv1 {
+    background-color: $color-white;
+
+    @include grid-media('lg') {
+      background-color: transparent;
+    }
+  }
+
+  .su-main-nav__menu-lv1 > li {
     a {
       color: $color-black;
       border-bottom-color: #d9d9d9;
@@ -16,15 +28,18 @@
       &[aria-expanded="true"] {
         &:before {
           background-color: $color-black;
-          transition: all .15s ease-out;
+          transition: all .25s ease-out;
         }
       }
     }
 
     @include grid-media('lg') {
       > a {
+
         &:hover,
         &:focus {
+          color: $color-dark-red;
+
           &:before {
             background-color: $color-dark-red;
           }
@@ -33,34 +48,80 @@
         &[aria-expanded="true"] {
           color: $color-black;
 
-          &::before {
+          &:before {
             background-color: $color-driftwood!important;
           }
         }
       }
     }
-  }
 
-  .su-main-nav__item-lv1--current {
-    > a {
-      color: $color-black;
+    &.su-main-nav__item--current {
+      > a {
+        color: $color-black;
 
-      &:before {
-        background-color: $color-dark-red;
+        &:before {
+          background-color: $color-dark-red;
+        }
+
+        &:hover,
+        &:focus {
+          &:before {
+            background-color: $color-dark-red;
+          }
+        }
       }
 
-      &:hover,
-      &:focus {
-        &::before {
-          background-color: $color-dark-red;
+      @include grid-media('lg') {
+        > a {
+          &:hover,
+          &:focus {
+            color: $color-dark-red;
+          }
+
+          &:before {
+            background-color: $color-driftwood;
+          }
         }
       }
     }
 
-    @include grid-media('lg') {
+    &.su-main-nav__item--parent {
       > a {
-        &::before {
-          background-color: $color-driftwood;
+        &:after {
+          background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
+          background-size: 100%;
+          content: "";
+          display: inline-block;
+          position: absolute;
+          right: 1em;
+          top: 1.03em;
+          height: .9em;
+          width: .9em;
+
+          @include grid-media('lg') {
+            background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
+            background-size: 100%;
+            position: relative;
+            right: 0;
+            top: 0;
+            height: 11px; // small svg gets chopped off if use em instead of px
+            width: 11px;
+            transition: all .3s ease-out;
+          }
+        }
+      }
+
+      &.su-main-nav__item--expanded {
+        > a {
+          &:after {
+            background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
+            background-size: 100%;
+
+            @include grid-media('lg') {
+              background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
+              background-size: 100%;
+            }
+          }
         }
       }
     }
@@ -70,70 +131,18 @@
     background-color: $color-white;
   }
 
-  .su-main-nav__item-lv2 {
+  .su-main-nav__menu-lv2 > li {
     a {
       color: $color-black;
-
-      &:hover,
-      &:focus {
-        //color: $color-black;
-      }
     }
-  }
 
-  .su-main-nav__item-lv2--current a {
-    color: $color-dark-red;
+    &.su-main-nav__item--current {
+      a {
+        color: $color-dark-red;
 
-    &::before {
-      background-color: $color-dark-red;
-    }
-  }
-
-  .su-main-nav__item-lv1--parent {
-    > a {
-      &:after {
-        background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
-        background-size: 100%;
-        content: "";
-        display: inline-block;
-        position: absolute;
-        right: 1em;
-        top: 1.03em;
-        height: .9em;
-        width: .9em;
-
-        @include grid-media('lg') {
-          background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
-          background-size: 100%;
-          position: relative;
-          right: 0;
-          top: 0;
-          height: 11px; // small svg gets chopped off if use em instead of px
-          width: 11px;
-          transition: all .3s ease-out;
+        &:before {
+          background-color: $color-dark-red;
         }
-      }
-    }
-  }
-
-  .su-main-nav__item-lv1--parent.su-main-nav__item-lv1--expanded {
-    > a {
-      &::after {
-        background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
-        background-size: 100%;
-
-        @include grid-media('lg') {
-          background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
-          background-size: 100%;
-        }
-      }
-    }
-
-    .su-main-nav__item-lv2--current a {
-      color: $color-dark-red;
-
-      &:before {
-        background-color: $color-dark-red;
       }
     }
   }

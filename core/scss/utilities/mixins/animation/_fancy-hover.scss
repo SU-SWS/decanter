@@ -39,7 +39,7 @@
 
 @mixin fancy-hover($color: $color-dark-red, $active: $color-black) {
   @include fancy-hover-setup;
-  padding-bottom: .65em;
+  @include padding(null null .65em);
 
   &:before {
     width: 100%;
@@ -67,6 +67,15 @@
   &[aria-expanded="true"] {
     &:before {
       background-color: $active;
+    }
+  }
+
+  &[aria-expanded="true"] {
+    &:hover,
+    &:focus {
+      &:before {
+        background-color: $color;
+      }
     }
   }
 }

@@ -20,6 +20,15 @@
   }
 
   &:hover,
+  &:focus,
+  &:active,
+  &[aria-expanded="true"] {
+    &:before {
+      transform: scaleY(1);
+    }
+  }
+
+  &:hover,
   &:focus {
     &:before {
       background-color: $color;
@@ -33,12 +42,12 @@
     }
   }
 
-  &:hover,
-  &:focus,
-  &:active,
   &[aria-expanded="true"] {
-    &:before {
-      transform: scaleY(1);
+    &:hover,
+    &:focus {
+      &:before {
+        background-color: $color;
+      }
     }
   }
 }

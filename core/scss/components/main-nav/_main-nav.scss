@@ -20,34 +20,118 @@
 
   ul {
     @include margin(0 null);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     list-style: none;
+    background-color: $color-black;
+  }
+
+  // first level menu only
+  > ul {
+    @include grid-media('lg') {
+      @include padding(null null null 0);
+      flex-direction: row;
+      flex-wrap: wrap;
+      background-color: transparent;
+
+      > li {
+        > a {
+          @include fancy-hover;
+          font-size: 1.05em;
+          color: $color-black;
+        }
+      }
+    }
   }
 
   li {
     @include margin(null null 0);
-  }
 
-  a {
-    text-decoration: none;
+    a {
+      @include fancy-hover-vertical($color: $color-white, $active: $color-bright-red);
+      display: block;
+      font-weight: 400;
+      font-size: .9em;
+    }
+
+    > ul {
+      display: none;
+    }
+
+    &.su-main-nav__item--expanded {
+      > ul {
+        display: flex;
+      }
+    }
+
+    &.su-main-nav__item--current {
+      > a {
+        font-weight: 600;
+      }
+    }
+
+    &.su-main-nav__item--parent {
+      > a {
+        &:after {
+          background: url("#{$image-path}/plus-white.svg") no-repeat 0 0;
+          background-size: 100%;
+          content: "";
+          display: inline-block;
+          position: absolute;
+          right: 1em;
+          top: 1.03em;
+          height: .9em;
+          width: .9em;
+
+          @include grid-media('lg') {
+            @include margin(null null 1px 6px);
+            background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
+            background-size: 100%;
+            position: relative;
+            right: 0;
+            top: 0;
+            height: 11px; //small svg gets chopped off if use em instead of px
+            width: 11px;
+            transition: all .3s ease-out;
+          }
+        }
+      }
+
+      &.su-main-nav__item--expanded {
+        > a {
+          &:after {
+            background: url("#{$image-path}/minus-white.svg") no-repeat 0 0;
+            background-size: 100%; //have to repeat here for some reason
+
+            @include grid-media('lg') {
+              background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
+              background-size: 100%;
+              transform: rotate(180deg);
+            }
+          }
+        }
+      }
+    }
   }
 }
 
 .su-main-nav__toggle {
   @include fancy-hover;
   @include padding(0 0 1em);
+  @include margin(0);
+  display: flex;
+  flex-direction: column-reverse;
+  width: 40px;
   background-color: transparent;
   color: $color-black;
   font-size: .8em;
   font-weight: 400;
   line-height: .7;
-  width: 40px;
-  margin: 0;
-  display: flex;
-  flex-direction: column-reverse;
 
   &:after {
+    @include margin(0 auto);
     display: inline-block;
-    margin: 0 auto;
     width: 30px;
     height: 26px;
     background: url("#{$image-path}/hamburger-black.svg") no-repeat 3px 0;
@@ -92,7 +176,7 @@
     }
   }
 
-  @include grid-media('md') {
+  @include grid-media-only('md') {
     &[aria-expanded="true"] {
       + .su-main-nav__menu-lv1 {
         max-width: 21em;
@@ -101,56 +185,24 @@
   }
 }
 
-.su-main-nav__menu-lv1 {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  background-color: $color-black;
-  width: 100%;
-
-  @include grid-media('lg') {
-    @include padding(null null null 0);
-    flex-direction: row;
-    background-color: transparent;
-
-    > li {
-      > a {
-        @include fancy-hover;
-        @include padding(null 0 .8em);
-        @include margin(0 1.16em 0 0);
-        font-size: 1.05em;
-        color: $color-black;
-        font-weight: 600;
-        border-bottom: 0;
-
-        &:hover,
-        &:focus {
-          color: $color-dark-red;
-        }
-
-        &:active {
-          color: $color-black;
-        }
-
-      }
-    }
-  }
-}
-
-.su-main-nav__item-lv1 {
+.su-main-nav__menu-lv1 > li {
   @include margin(null null 0);
 
-  a {
-    @include fancy-hover-vertical($color: $color-white, $active: $color-bright-red);
-    @include padding(.8em .4em .8em 1em);
-    display: block;
-    color: $color-white;
-    font-size: .9em;
+  > a {
     font-weight: 600;
+  }
+
+  a {
+    @include padding(.8em 2.4em .8em 1.2em);
+    color: $color-white;
     border-bottom: $color-cool-grey solid 1px;
   }
 
   @include grid-media('lg') {
+    a {
+      @include padding(null 1.8em null null);
+    }
+
     &:first-child {
       a {
         @include margin(null null null 0);
@@ -166,9 +218,6 @@
     > a {
       @include padding(null 0 .8em);
       @include margin(0 1.16em 0 0);
-      font-size: 1.05em;
-      color: $color-black;
-      font-weight: 600;
       border-bottom: 0;
 
       &:hover,
@@ -176,17 +225,25 @@
         color: $color-dark-red;
       }
 
+      &:active {
+        color: $color-black;
+      }
+
+      &[aria-expanded="true"] {
+        color: $color-black;
+
+        &:before {
+          background-color: $color-black!important;
+        }
+      }
     }
   }
-
 }
 
-.su-main-nav__item-lv1--current {
+.su-main-nav__menu-lv1 > li.su-main-nav__item--current {
   > a {
-    font-weight: 600;
-
     &:before {
-      visibility: visible !important;
+      visibility: visible!important;
       transform: scaleY(1);
       background-color: $color-bright-red;
     }
@@ -194,7 +251,7 @@
     &:hover,
     &:focus {
       &:before {
-        left: 5px;
+        left: 6px;
         background-color: $color-bright-red;
       }
     }
@@ -202,9 +259,8 @@
 
   @include grid-media('lg') {
     > a {
-
       &:before {
-        transform: scaleX(1) !important;
+        transform: scaleX(1)!important;
         transform: scaleY(0);
         background-color: $color-black;
       }
@@ -213,6 +269,7 @@
       &:focus {
         &:before {
           left: 0;
+          background-color: $color-dark-red;
         }
       }
     }
@@ -221,104 +278,48 @@
 
 .su-main-nav__menu-lv2 {
   @include padding(null null null 1em);
-  background-color: $color-black;
-  flex-direction: column;
-  display: none;
 
   @include grid-media('lg') {
-    @include padding(null null null .6em);
+    @include padding(1px null null .6em);
     @include box-shadow($depth: 'medium', $stroke: none);
     @include margin(null null null -18px);
     position: absolute;
-    width: 18.75em;
-    z-index: 1000;
+    max-width: 18.75em;
   }
-}
 
-.su-main-nav__item-lv2 {
-  a {
-    color: $color-white;
-    font-size: .9em;
-    font-weight: 400;
-
-    &:hover,
-    &:focus {
+  li {
+    a {
       color: $color-white;
-    }
 
-    &:active {
-      font-weight: 600;
-    }
-  }
+      &:hover,
+      &:focus {
+        color: $color-white;
+      }
 
-  @include grid-media('lg') {
-    &:last-child a {
-      border-bottom: 0;
-    }
-  }
-}
-
-.su-main-nav__item-lv1--parent {
-  > a {
-    &:after {
-      background: url("#{$image-path}/plus-white.svg") no-repeat 0 0;
-      background-size: 100%;
-      content: "";
-      display: inline-block;
-      position: absolute;
-      right: 1em;
-      top: 1.03em;
-      height: .9em;
-      width: .9em;
-
-      @include grid-media('lg') {
-        @include margin (null null 1px 6px);
-        background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
-        background-size: 100%;
-        position: relative;
-        right: 0;
-        top: 0;
-        height: 11px; // small svg gets chopped off if use em instead of px
-        width: 11px;
-        transition: all .3s ease-out;
+      &:active {
+        font-weight: 600;
       }
     }
-  }
-}
 
-.su-main-nav__item-lv1--parent.su-main-nav__item-lv1--expanded {
-  > a {
-    &:after {
-      background: url("#{$image-path}/minus-white.svg") no-repeat 0 0;
-      background-size: 100%;
-
-      @include grid-media('lg') {
-        background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
-        background-size: 100%;
-        transform: rotate(180deg);
+    @include grid-media('lg') {
+      &:last-child a {
+        border-bottom: 0;
       }
     }
-  }
 
-  > .su-main-nav__menu-lv2 {
-    display: flex;
-  }
-
-  .su-main-nav__item-lv2--current a {
-    font-weight: 600;
-
-    &:before {
-      visibility: visible;
-      transform: scaleY(1);
-      background-color: $color-bright-red;
-    }
-
-    &:hover,
-    &:focus {
+    &.su-main-nav__item--current > a {
       &:before {
-        left: 5px;
+        visibility: visible;
+        transform: scaleY(1);
+        background-color: $color-bright-red;
+      }
+
+      &:hover,
+      &:focus {
+        &:before {
+          left: 6px;
+        }
       }
     }
   }
-
 }
