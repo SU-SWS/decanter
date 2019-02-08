@@ -9,13 +9,26 @@
   }
 
   .su-lockup__line1 {
-    font-size: 3.6rem;
-    line-height: 0.7em;
+    font-size: 2.1rem;
+    line-height: 1.8rem;
+
+    @include grid-media("sm") {
+      font-size: 3.6rem;
+      line-height: 0.7em;
+    }
   }
 
   .su-lockup__line5 {
-    text-transform: uppercase;
-    font-weight: $font-bold;
+    @include grid-media-only('xs') {
+      font-size: 2.1rem;
+      line-height: 1.8rem;
+    }
+
+    @include grid-media('sm') {
+      text-transform: uppercase;
+      font-weight: $font-bold;
+    }
+
   }
 
 }

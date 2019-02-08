@@ -30,27 +30,37 @@
 // Style guide: Components.Lockup
 //
 .su-lockup {
-  @include flex-container;
-  justify-content: flex-start;
-  vertical-align: bottom;
-  align-items: stretch;
+  @include grid-media('sm') {
+    @include flex-container;
+    justify-content: flex-start;
+    vertical-align: bottom;
+    align-items: stretch;
+  }
 }
 
 .su-lockup__cell1 {
-  @include margin(null -1px null null);
-  @include padding(null 7px null null);
-  flex-shrink: 1;
-  max-width: 160px;
-  align-self: flex-end;
-  border-right: solid 1px $color-black;
+  display: inline-block;
+  width: auto;
+
+  @include grid-media('sm') {
+    @include margin(null -1px null null);
+    @include padding(null 7px 0 null);
+    flex-shrink: 1;
+    align-self: flex-end;
+    max-width: 160px;
+    display: flex;
+    border-right: solid 1px $color-black;
+  }
 }
 
 .su-lockup__cell2 {
-  border-left: solid 1px $color-black;
-  @include padding(null null null 7px);
-  flex-grow: 1;
-  vertical-align: bottom;
-  align-self: flex-end;
+  @include grid-media('sm') {
+    flex-grow: 1;
+    vertical-align: bottom;
+    align-self: flex-end;
+    border-left: solid 1px $color-black;
+    @include padding(0 null null 7px);
+  }
 }
 
 .su-lockup__wordmark {
