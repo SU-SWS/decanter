@@ -52,6 +52,10 @@
     display: flex;
     border-right: solid 1px $color-black;
   }
+
+  @include grid-media('md') {
+    min-height: 32px;
+  }
 }
 
 .su-lockup__cell2 {
@@ -79,6 +83,9 @@
 
 .su-lockup__wordmark-link {
   line-height: 26px;
+  @include grid-media('md') {
+    line-height: 32px;
+  }
 }
 
 .su-lockup__line1,
