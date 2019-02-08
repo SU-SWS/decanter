@@ -29,6 +29,14 @@
 
   // first level menu only
   > ul {
+    > li {
+      @include margin(null null 0);
+
+      > a {
+        font-weight: 600;
+      }
+    }
+
     @include grid-media('lg') {
       @include padding(null null null 0);
       flex-direction: row;
@@ -38,8 +46,24 @@
       > li {
         > a {
           @include fancy-hover;
+          @include padding(null 0);
+          @include margin(0 1.16em 0 0);
           font-size: 1.05em;
           color: $color-black;
+          border-bottom: 0;
+
+          &:first-child {
+            > a {
+              @include margin(null null null 0);
+            }
+          }
+
+          &:last-child {
+            > a {
+              @include margin(null 0 null null);
+            }
+          }
+
         }
       }
     }
@@ -50,9 +74,16 @@
 
     a {
       @include fancy-hover-vertical($color: $color-white, $active: $color-bright-red);
+      @include padding(.8em 2.4em .8em 1.2em);
       display: block;
+      color: $color-white;
       font-weight: 400;
       font-size: .9em;
+      border-bottom: $color-cool-grey solid 1px;
+
+      &:active {
+        font-weight: 600;
+      }
     }
 
     > ul {
@@ -87,7 +118,7 @@
           @include grid-media('lg') {
             @include margin(null null 1px 6px);
             background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
-            background-size: 100%;
+            background-size: 100%; //have to repeat here for some reason
             position: relative;
             right: 0;
             top: 0;
@@ -102,7 +133,7 @@
         > a {
           &:after {
             background: url("#{$image-path}/minus-white.svg") no-repeat 0 0;
-            background-size: 100%; //have to repeat here for some reason
+            background-size: 100%;
 
             @include grid-media('lg') {
               background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
@@ -186,40 +217,9 @@
 }
 
 .su-main-nav__menu-lv1 > li {
-  @include margin(null null 0);
-
-  > a {
-    font-weight: 600;
-  }
-
-  a {
-    @include padding(.8em 2.4em .8em 1.2em);
-    color: $color-white;
-    border-bottom: $color-cool-grey solid 1px;
-  }
 
   @include grid-media('lg') {
-    a {
-      @include padding(null 1.8em null null);
-    }
-
-    &:first-child {
-      a {
-        @include margin(null null null 0);
-      }
-    }
-
-    &:last-child {
-      a {
-        @include margin(null 0 null null);
-      }
-    }
-
     > a {
-      @include padding(null 0 .8em);
-      @include margin(0 1.16em 0 0);
-      border-bottom: 0;
-
       &:hover,
       &:focus {
         color: $color-dark-red;
@@ -283,24 +283,12 @@
     @include padding(1px null null .6em);
     @include box-shadow($depth: 'medium', $stroke: none);
     @include margin(null null null -18px);
+    z-index: 11111; // When menu wrap to 2nd line make sure dropdown doesn't overlap with 1st level links
     position: absolute;
     max-width: 18.75em;
   }
 
   li {
-    a {
-      color: $color-white;
-
-      &:hover,
-      &:focus {
-        color: $color-white;
-      }
-
-      &:active {
-        font-weight: 600;
-      }
-    }
-
     @include grid-media('lg') {
       &:last-child a {
         border-bottom: 0;
