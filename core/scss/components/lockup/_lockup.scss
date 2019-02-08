@@ -39,8 +39,9 @@
 }
 
 .su-lockup__cell1 {
-  display: inline-block;
+  vertical-align: bottom;
   width: auto;
+  min-height: 26px;
 
   @include grid-media('sm') {
     @include margin(null -1px null null);
@@ -67,14 +68,17 @@
   @include logo;
   color: $color-cardinal-red;
   font-size: 36px;
-  line-height: 1;
+  line-height: 17px;
   vertical-align: bottom;
 
   @include grid-media('md') {
     font-size: 46px;
-    height: 33px;
-    line-height: .96;
+    line-height: 21px;
   }
+}
+
+.su-lockup__wordmark-link {
+  line-height: 26px;
 }
 
 .su-lockup__line1,
@@ -112,7 +116,10 @@
   width: 100%;
   font-size: 2.7rem;
   line-height: 1em;
-  @include margin(10px null null null);
+
+  @include grid-media('sm') {
+    @include margin(10px null null null);
+  }
 
   @include grid-media('md') {
     font-size: 3rem;
