@@ -99,6 +99,20 @@
     &.su-main-nav__item--current {
       > a {
         font-weight: 600;
+
+        &:before {
+          visibility: visible;
+          transform: scaleY(1);
+          background-color: $color-bright-red;
+        }
+
+        &:hover,
+        &:focus {
+          &:before {
+            left: 6px;
+          }
+        }
+
       }
     }
 
@@ -238,66 +252,11 @@
       }
     }
   }
-}
 
-.su-main-nav__menu-lv1 > li.su-main-nav__item--current {
-  > a {
-    &:before {
-      visibility: visible!important;
-      transform: scaleY(1);
-      background-color: $color-bright-red;
-    }
-
-    &:hover,
-    &:focus {
-      &:before {
-        left: 6px;
-        background-color: $color-bright-red;
-      }
-    }
-  }
-
-  @include grid-media('lg') {
+  &.su-main-nav__item--current {
     > a {
       &:before {
-        transform: scaleX(1)!important;
-        transform: scaleY(0);
-        background-color: $color-black;
-      }
-
-      &:hover,
-      &:focus {
-        &:before {
-          left: 0;
-          background-color: $color-dark-red;
-        }
-      }
-    }
-  }
-}
-
-.su-main-nav__menu-lv2 {
-  @include padding(null null null 1em);
-
-  @include grid-media('lg') {
-    @include padding(1px null null .6em);
-    @include box-shadow($depth: 'medium', $stroke: none);
-    @include margin(null null null -18px);
-    z-index: 11111; // When menu wrap to 2nd line make sure dropdown doesn't overlap with 1st level links
-    position: absolute;
-    max-width: 18.75em;
-  }
-
-  li {
-    @include grid-media('lg') {
-      &:last-child a {
-        border-bottom: 0;
-      }
-    }
-
-    &.su-main-nav__item--current > a {
-      &:before {
-        visibility: visible;
+        visibility: visible!important;
         transform: scaleY(1);
         background-color: $color-bright-red;
       }
@@ -306,7 +265,46 @@
       &:focus {
         &:before {
           left: 6px;
+          background-color: $color-bright-red;
         }
+      }
+    }
+
+    @include grid-media('lg') {
+      > a {
+        &:before {
+          transform: scaleX(1)!important;
+          transform: scaleY(0);
+          background-color: $color-black;
+        }
+
+        &:hover,
+        &:focus {
+          &:before {
+            left: 0;
+            background-color: $color-dark-red;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.su-main-nav__menu-lv2 {
+  @include padding(null null null 1em);
+
+  @include grid-media('lg') {
+    @include padding(1px null null .6em);
+    @include margin(null null null -18px);
+    @include box-shadow($depth: 'medium', $stroke: none);
+    z-index: 11111; //When menu wrap to 2nd line make sure dropdown covers up top level links
+    position: absolute;
+    max-width: 18em;
+
+    li {
+      &:last-child a {
+        border-bottom: 0;
       }
     }
   }
