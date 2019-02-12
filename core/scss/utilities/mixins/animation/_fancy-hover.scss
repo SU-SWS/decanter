@@ -1,24 +1,24 @@
 @charset "UTF-8";
 
 //
-// @fancy-hover($color, $active)
+// @fancy-hover($color, $active, $orientation)
 //
-// Display a thick bottom border that expands out from the middle when an element is hovered over.
+// Display a border next to an element that expands out from the middle when it is hovered over.
 //
 // $color - Hover/focus border color. Defaults to $color-dark-red.
 // $active - Active border color. Defaults to $color-black.
+// $position - The position of the border. The default is 'bottom' and the other choices are 'top', 'left' and 'right'.
+// $thickness - The thickness of the border, e.g., '3px', '1em'. The default is '6px'.
 //
-// Style guide: Mixins.Animation.Fancy Hover
+// Style guide: Mixins.Animation.Fancyhover
 //
-@mixin fancy-hover-setup {
+@mixin fancy-hover($color: $color-dark-red, $active: $color-black, $position: 'bottom', $thickness: '6px') {
   text-decoration: none;
   position: relative;
 
   &:before {
     content: "";
     position: absolute;
-    bottom: 0;
-    left: 0;
     visibility: hidden;
     transition: transform .25s ease-in;
     z-index: 1;
@@ -33,26 +33,6 @@
     &:before {
       visibility: visible;
       transition: transform .25s ease-out;
-    }
-  }
-}
-
-@mixin fancy-hover($color: $color-dark-red, $active: $color-black) {
-  @include fancy-hover-setup;
-  @include padding(null null .8em);
-
-  &:before {
-    width: 100%;
-    height: 6px;
-    transform: scaleX(0);
-  }
-
-  &:hover,
-  &:focus,
-  &:active,
-  &[aria-expanded="true"] {
-    &:before {
-      transform: scaleX(1);
     }
   }
 
@@ -78,4 +58,70 @@
       }
     }
   }
+
+  @if ($position == 'bottom' or $position == 'top') {
+    &:before {
+      width: 100%;
+      height: #{$thickness};
+      left: 0;
+      transform: scaleX(0);
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &[aria-expanded="true"] {
+      &:before {
+        transform: scaleX(1);
+      }
+    }
+
+    @if ($position == 'bottom') {
+      @include padding(null null .8em);
+
+      &:before {
+        bottom: 0;
+      }
+
+    } @elseif ($position == 'top') {
+      @include padding(.8em null null);
+
+      &:before {
+        top: 0;
+      }
+    }
+
+  }
+
+  @if ($position == 'left' or $position == 'right') {
+
+    &:before {
+      height: 100%;
+      width: #{$thickness};
+      bottom: 0;
+      transform: scaleY(0);
+    }
+
+    &:hover,
+    &:focus,
+    &:active,
+    &[aria-expanded="true"] {
+      &:before {
+        transform: scaleY(1);
+      }
+    }
+
+    @if ($position == 'left') {
+      &:before {
+        left: 0;
+      }
+
+    } @elseif ($position == 'right') {
+      &:before {
+        right: 0;
+      }
+    }
+
+  }
 }
+
