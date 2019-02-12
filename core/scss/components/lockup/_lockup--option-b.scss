@@ -8,12 +8,27 @@
     display: none;
   }
 
+  .su-lockup__cell1 {
+    > a {
+      @include grid-media-only('xs') {
+        @include padding(null null 7px null);
+        border-bottom: solid 1px $color-black;
+      }
+    }
+  }
+
   .su-lockup__line1 {
     font-size: 1.9rem;
+    @include grid-media-only('xs') {
+      @include margin(9px null null -2px);
+    }
   }
 
   .su-lockup__line2 {
     line-height: 0.7em;
+    @include grid-media-only('xs') {
+      @include margin(null null null -2px);
+    }
   }
 
 }

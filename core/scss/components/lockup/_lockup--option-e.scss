@@ -7,14 +7,30 @@
     display: none;
   }
 
+  .su-lockup__line1 {
+    @include grid-media-only('xs') {
+      @include margin(null null 7px -2px);
+      @include padding(5px null 5px null);
+      border-bottom: solid 1px $color-black;
+      display: inline-block;
+      min-width: 120px;
+    }
+  }
+
   .su-lockup__line2 {
     @include padding(null null 6px null);
+    @include grid-media-only('xs') {
+      font-size: 1.9rem;
+    }
   }
 
   .su-lockup__line3 {
     font-size: 1.8rem;
     line-height: .7em;
     font-style: italic;
+    @include grid-media-only('xs') {
+      font-size: 1.9rem;
+    }
   }
 
 }

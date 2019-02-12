@@ -7,6 +7,18 @@
     display: none;
   }
 
+  .su-lockup__cell1 {
+    > a {
+      @include grid-media-only('xs') {
+        @include margin(null null 7px -2px);
+        @include padding(5px null 5px null);
+        border-bottom: solid 1px $color-black;
+        display: inline-block;
+        min-width: 120px;
+      }
+    }
+  }
+
   .su-lockup__line1 {
     font-size: 1.3rem;
     @include padding(null null 2px null);
@@ -14,6 +26,9 @@
 
   .su-lockup__line2 {
     line-height: 0.7em;
+    @include grid-media-only('xs') {
+      font-size: 1.9rem;
+    }
   }
 
 }

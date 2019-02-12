@@ -10,15 +10,42 @@
   .su-lockup__line1 {
     font-size: 1.9rem;
     @include padding(null null 0.2em null);
+
+    @include grid-media-only('xs') {
+      @include padding(5px null null null);
+      @include margin(null null 7px null);
+      border-bottom: solid 1px $color-black;
+      display: inline-block;
+      min-width: 120px;
+    }
+
   }
 
   .su-lockup__line2 {
     line-height: 0.7em;
+    @include grid-media-only('xs') {
+      font-size: 1.9rem;
+    }
   }
 
   .su-lockup__line5 {
-    text-transform: uppercase;
-    font-weight: $font-bold;
-    font-size: 2.1rem;
+    font-size: 1.9rem;
+
+    @include grid-media-only('xs') {
+      @include margin(7px null null -2px);
+    }
+
+    @include grid-media('sm') {
+      font-weight: $font-bold;
+      text-transform: uppercase;
+      font-size: 2.1rem;
+    }
+
+  }
+
+  .su-lockup__cell2 {
+    @include grid-media-only('xs') {
+      @include margin(null null null -2px);
+    }
   }
 }
