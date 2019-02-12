@@ -8,14 +8,34 @@
     display: none;
   }
 
+  .su-lockup__wordmark {
+    @include grid-media-only('xs') {
+      display: block;
+    }
+  }
+
   .su-lockup__line1 {
-    line-height: 1em;
     @include margin(null null -3px null);
+    line-height: 1em;
   }
 
   .su-lockup__line4 {
-    line-height: 1em;
+    @include grid-media-only('xs') {
+      @include margin(null null 5px -2px);
+      @include padding(null null 5px null)
+      border-bottom: solid 1px $color-black;
+      display: inline-block;
+      min-width: 120px;
+      font-size: 2.6rem;
+    }
     @include margin(null null -3px null);
+    line-height: 1em;
+  }
+
+  .su-lockup__cell2 {
+    @include grid-media-only('xs') {
+      @include margin(null null null -2px);
+    }
   }
 
 }

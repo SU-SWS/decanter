@@ -6,6 +6,12 @@
     display: none;
   }
 
+  .su-lockup__line1 {
+    @include grid-media-only('xs') {
+      @include margin(4px null null null);
+    }
+  }
+
   .su-lockup__line3 {
     font-style: italic;
     line-height: 0.7em;
@@ -15,5 +21,20 @@
     text-transform: uppercase;
     font-weight: $font-bold;
     font-size: 2.1rem;
+    @include grid-media-only('xs') {
+      @include margin(7px null null null);
+    }
   }
+
+  .su-lockup__line1,
+  .su-lockup__line3,
+  .su-lockup__line5 {
+    @include grid-media-only('xs') {
+      font-size: 1.9rem;
+      text-transform: none;
+      font-style: normal;
+      font-weight: normal;
+    }
+  }
+
 }

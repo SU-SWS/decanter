@@ -13,6 +13,22 @@
     text-transform: uppercase;
     font-size: 3.6rem;
     line-height: 0.7em;
+
+    @include grid-media-only('xs') {
+      @include padding(null null 7px null);
+      @include margin(5px null 5px -2px);
+      border-bottom: solid 1px $color-black;
+      display: inline-block;
+      font-size: 2.6rem;
+      min-width: 120px;
+    }
+  }
+
+  .su-lockup__line5 {
+    @include grid-media-only('xs') {
+      @include margin(null null null -2px);
+      font-size: 1.9rem;
+    }
   }
 
 }

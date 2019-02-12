@@ -7,6 +7,12 @@
     display: none;
   }
 
+  .su-lockup__line1 {
+    @include grid-media-only('xs') {
+      @include margin(4px null null null);
+    }
+  }
+
   .su-lockup__line2 {
     line-height: 0.7em;
   }
@@ -15,6 +21,20 @@
     font-size: 2.1rem;
     text-transform: uppercase;
     font-weight: $font-bold;
+    @include grid-media-only('xs') {
+      @include margin(4px null null null);
+    }
+  }
+
+  .su-lockup__line1,
+  .su-lockup__line2,
+  .su-lockup__line5 {
+    @include grid-media-only('xs') {
+      @include padding(2px null);
+      font-size: 1.9rem;
+      font-weight: normal;
+      text-transform: none;
+    }
   }
 
 }

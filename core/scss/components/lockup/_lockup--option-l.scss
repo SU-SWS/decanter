@@ -10,9 +10,17 @@
   }
 
   .su-lockup__line1 {
+    font-size: 3.1rem;
     font-weight: $font-bold;
     text-transform: uppercase;
-    font-size: 3.6rem;
-    line-height: 0.7em;
+
+    @include grid-media-only('xs') {
+      @include margin(null null null -2px);
+    }
+
+    @include grid-media('sm') {
+      font-size: 3.6rem;
+      line-height: 0.7em;
+    }
   }
 }

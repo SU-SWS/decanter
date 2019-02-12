@@ -7,9 +7,29 @@
     display: none;
   }
 
+  .su-lockup__cell2,
+  .su-lockup__line4 {
+    @include grid-media-only('xs') {
+      @include margin(null null null -2px);
+    }
+  }
+
+  .su-lockup__wordmark {
+    @include grid-media-only('xs') {
+      display: block;
+    }
+  }
+
   .su-lockup__line4 {
     line-height: 0.95em;
     @include margin(null null -3px null);
+    @include grid-media-only('xs') {
+      @include padding(null null 5px null);
+      @include margin(null null 4px null);
+      display: inline-block;
+      min-width: 120px;
+      border-bottom: solid 1px $color-black;
+    }
   }
 
   .su-lockup__line3 {
@@ -17,6 +37,13 @@
     font-size: 1.8rem;
     line-height: 1em;
     @include margin(null null -3px null);
+  }
+
+  .su-lockup__line1,
+  .su-lockup__line5 {
+    @include grid-media-only('xs') {
+      font-size: 1.9rem;
+    }
   }
 
 }
