@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 //
-// @fancy-hover($color, $active, $orientation)
+// @fancy-hover($color, $active, $position, $thickness)
 //
 // Display a border next to an element that expands out from the middle when it is hovered over.
 //
@@ -94,7 +94,6 @@
   }
 
   @if ($position == 'left' or $position == 'right') {
-
     &:before {
       height: 100%;
       width: #{$thickness};

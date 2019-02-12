@@ -13,7 +13,7 @@
         <li class="{% if is_parent %}su-main-nav__item--parent{% endif %} {% if item.current %}su-main-nav__item--current{% endif %}">{% spaceless %}
           <a href="{{ item.href }}" {% if item.target is not empty %}target="{{ item.target }}"{% endif %}>{{ item.text }}</a>{% endspaceless %}
 
-          {% if is_parent %}
+          {% if is_parent -%}
             <ul class="su-main-nav__menu-lv2">
               {%- for item_lv2 in item.lv2 -%}
                 {% spaceless %}<li class="{% if item_lv2.current %}su-main-nav__item--current{% endif %}">
@@ -22,7 +22,7 @@
 
               {% endfor %}
             </ul>
-          {% endif %}
+          {% endif -%}
         </li>
       {% endfor %}
     </ul>

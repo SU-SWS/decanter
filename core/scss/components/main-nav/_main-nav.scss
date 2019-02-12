@@ -27,7 +27,7 @@
     background-color: $color-black;
   }
 
-  // first level menu only
+  //top level styles
   > ul {
     > li {
       @include margin(null null 0);
@@ -69,6 +69,7 @@
     }
   }
 
+  //general deeper levels
   li {
     @include margin(null null 0);
 
@@ -245,10 +246,6 @@
 
       &[aria-expanded="true"] {
         color: $color-black;
-
-        &:before {
-          background-color: $color-black!important;
-        }
       }
     }
   }
@@ -256,7 +253,6 @@
   &.su-main-nav__item--current {
     > a {
       &:before {
-        visibility: visible!important;
         transform: scaleY(1);
         background-color: $color-bright-red;
       }
@@ -273,8 +269,6 @@
     @include grid-media('lg') {
       > a {
         &:before {
-          transform: scaleX(1)!important;
-          transform: scaleY(0);
           background-color: $color-black;
         }
 
