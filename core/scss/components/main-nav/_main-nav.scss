@@ -3,7 +3,13 @@
 //
 // Main Navigation
 //
-// The primary site navigation that is usually in the header region of a website. It is horizontal on larger devices and collapses on small devices.
+// The primary site navigation that is usually in the header region of a website.
+// It is a horizontal menu bar on larger breakpoints, while on smaller breakpoints,
+// it changes into a vertical menu and the display is toggled by a button.
+//
+// This component is implemented to be accessible. For more information, please see:
+//
+// https://github.com/SU-SWS/decanter/wiki/About-the-Main-Nav-Component
 //
 // .su-main-nav--light          - light colored theme
 // .su-main-nav--mobile-search         - with site search inside mobile nav
@@ -13,7 +19,7 @@
 // Style guide: Components.Main Navigation
 //
 .su-main-nav {
-  @include font-smoothing(antialiased);
+  @include font-smoothing;
   font-family: $font-sans;
   position: relative;
   z-index: 9999;
@@ -49,8 +55,11 @@
           @include padding(null 0);
           @include margin(0 1.16em 0 0);
           font-size: 1.05em;
-          color: $color-black;
           border-bottom: 0;
+
+          &:active {
+            font-weight: 600;
+          }
 
           &:first-child {
             > a {
@@ -65,6 +74,12 @@
           }
 
         }
+
+        &.su-main-nav__item--current {
+          > a {
+            font-weight: 600;
+          }
+        }
       }
     }
   }
@@ -74,7 +89,7 @@
     @include margin(null null 0);
 
     a {
-      @include fancy-hover($color: $color-white, $active: $color-bright-red, $position: 'left');
+      @include fancy-hover($color: $color-white, $active: $color-white, $position: 'left');
       @include padding(.8em 2.4em .8em 1.2em);
       display: block;
       color: $color-white;
@@ -83,7 +98,7 @@
       border-bottom: $color-cool-grey solid 1px;
 
       &:active {
-        font-weight: 600;
+        font-weight: 700;
       }
     }
 
@@ -99,12 +114,12 @@
 
     &.su-main-nav__item--current {
       > a {
-        font-weight: 600;
+        font-weight: 700;
 
         &:before {
           visibility: visible;
           transform: scaleY(1);
-          background-color: $color-bright-red;
+          background-color: $color-white;
         }
 
         &:hover,
@@ -235,17 +250,22 @@
 
   @include grid-media('lg') {
     > a {
+      color: $color-black;
+
       &:hover,
       &:focus {
         color: $color-dark-red;
       }
 
-      &:active {
+      &:active,
+      &[aria-expanded="true"] {
         color: $color-black;
       }
 
       &[aria-expanded="true"] {
-        color: $color-black;
+        &:hover {
+          color: $color-dark-red;
+        }
       }
     }
   }
@@ -254,14 +274,14 @@
     > a {
       &:before {
         transform: scaleY(1);
-        background-color: $color-bright-red;
+        background-color: $color-white;
       }
 
       &:hover,
       &:focus {
         &:before {
           left: 6px;
-          background-color: $color-bright-red;
+          background-color: $color-white;
         }
       }
     }

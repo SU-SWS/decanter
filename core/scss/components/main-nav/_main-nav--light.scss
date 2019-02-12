@@ -7,6 +7,12 @@
       &:before {
         background-color: $color-driftwood;
       }
+
+      &:hover {
+        &:before {
+          background-color: $color-dark-red;
+        }
+      }
     }
   }
 
@@ -15,6 +21,7 @@
   }
 
   > ul {
+
     @include grid-media('lg') {
       background-color: transparent;
 
@@ -29,9 +36,27 @@
             }
           }
 
+          &:active {
+            color: $color-black;
+
+            &:before {
+              background-color: $color-black;
+            }
+          }
+
           &[aria-expanded="true"] {
+            color: $color-black;
+
             &:before {
               background-color: $color-driftwood;
+            }
+
+            &:hover {
+              color: $color-dark-red;
+
+              &:before {
+                background-color: $color-dark-red;
+              }
             }
           }
         }
@@ -68,6 +93,14 @@
       &:focus {
         &:before {
           background-color: $color-black;
+        }
+      }
+
+      &:active {
+        color: $color-dark-red;
+
+        &:before {
+          background-color: $color-dark-red;
         }
       }
 

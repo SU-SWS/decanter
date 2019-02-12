@@ -3,11 +3,11 @@
 //
 // @fancy-hover($color, $active, $position, $thickness)
 //
-// Display a border next to an element that expands out from the middle when it is hovered over.
+// When an element (e.g., a link) is hovered over, display an animation of a border that expands out from the middle next to the element.
 //
 // $color - Hover/focus border color. Defaults to $color-dark-red.
 // $active - Active border color. Defaults to $color-black.
-// $position - The position of the border. The default is 'bottom' and the other choices are 'top', 'left' and 'right'.
+// $position - The position of the border relative to the link. The default is 'bottom' and the other choices are 'top', 'left' and 'right'.
 // $thickness - The thickness of the border, e.g., '3px', '1em'. The default is '6px'.
 //
 // Style guide: Mixins.Animation.Fancyhover
@@ -82,7 +82,6 @@
       &:before {
         bottom: 0;
       }
-
     } @elseif ($position == 'top') {
       @include padding(.8em null null);
 
@@ -91,9 +90,7 @@
       }
     }
 
-  }
-
-  @if ($position == 'left' or $position == 'right') {
+  } @elseif ($position == 'left' or $position == 'right') {
     &:before {
       height: 100%;
       width: #{$thickness};
@@ -114,7 +111,6 @@
       &:before {
         left: 0;
       }
-
     } @elseif ($position == 'right') {
       &:before {
         right: 0;
@@ -123,4 +119,3 @@
 
   }
 }
-
