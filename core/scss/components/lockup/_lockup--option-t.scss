@@ -5,6 +5,10 @@
 //
 .su-lockup--option-t {
 
+  .su-lockup__wordmark {
+    display: block;
+  }
+
   .su-lockup__line1 {
     @include margin(0.5rem null null);
   }
@@ -18,14 +22,19 @@
       font-size: 1.5rem;
     }
 
+    .su-lockup__line4 {
+      display: inline-block;
+      border-bottom: solid 1px $color-black;
+      min-width: 120px;
+    }
+
   .su-lockup__line5 {
     display: none;
   }
 
   .su-lockup__cell1 {
     @include padding(0);
-    border-bottom: solid 1px $color-black;
-    border-right: 0;
+    border: 0;
   }
 
   .su-lockup__cell2 {
