@@ -7059,6 +7059,8 @@ button,
 
 .global-footer {
   padding: 2.5rem 10px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background-color: #8c1515;
   color: #ffffff; }
   .global-footer a {
@@ -7099,7 +7101,6 @@ button,
         display: -ms-flexbox;
         display: flex; } }
   .global-footer .global-footer__brand {
-    margin: 0;
     padding-top: 5px;
     text-align: center; }
     @media only screen and (min-width: 768px) {
@@ -7124,6 +7125,7 @@ button,
       font-variant-ligatures: discretionary-ligatures;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      color: #ffffff;
       font-size: 3.4rem; }
       @media only screen and (min-width: 0) and (max-width: 575px) {
         .global-footer .global-footer__brand a {
@@ -7168,26 +7170,18 @@ button,
     margin: 0 0 1.5rem;
     padding: 0;
     list-style-type: none; }
-    @media (max-width: 767px) {
+    @media only screen and (min-width: 0) and (max-width: 575px) {
       .global-footer .global-footer__menu {
         padding-right: 20px;
         padding-left: 20px; } }
-    @media only screen and (min-width: 576px) {
-      .global-footer .global-footer__menu {
-        margin: 0 0 0.5rem; } }
-    @media only screen and (min-width: 768px) {
-      .global-footer .global-footer__menu {
-        margin-bottom: 0; } }
     .global-footer .global-footer__menu li {
       margin: 0;
-      padding: 0;
       padding: 0.25em 0;
       display: block; }
       @media only screen and (min-width: 576px) and (max-width: 767px) {
         .global-footer .global-footer__menu li {
           margin-right: 1rem;
-          display: inline-block;
-          font-size: 0.9em; } }
+          display: inline-block; } }
       @media only screen and (min-width: 768px) {
         .global-footer .global-footer__menu li {
           margin-right: 1rem;
@@ -7203,18 +7197,22 @@ button,
         margin-left: 0; }
   .global-footer .global-footer__menu--global {
     font-size: 1.5rem;
-    font-weight: normal; }
+    font-weight: 600; }
     @media only screen and (min-width: 576px) {
       .global-footer .global-footer__menu--global {
-        font-size: 1.7rem; } }
+        font-size: 1.6rem;
+        margin-bottom: 0.4rem; } }
   .global-footer .global-footer__menu--policy {
-    font-size: 1.5rem; }
+    font-size: 1.4rem; }
+    @media only screen and (min-width: 0) and (max-width: 575px) {
+      .global-footer .global-footer__menu--policy {
+        font-size: 1.5rem;
+        font-weight: 600; } }
     @media only screen and (min-width: 576px) {
       .global-footer .global-footer__menu--policy {
-        font-weight: 300; } }
+        margin-bottom: 0.5rem; } }
   .global-footer .global-footer__copyright {
     font-size: 1.4rem;
-    font-weight: 300;
     line-height: 1.5;
     text-align: center;
     -ms-grid-row: 2;

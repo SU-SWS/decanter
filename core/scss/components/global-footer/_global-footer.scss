@@ -13,6 +13,7 @@
 // Global styles for the global footer.
 .global-footer {
   @include padding(2.5rem 10px);
+  @include font-smoothing;
   background-color: $color-cardinal-red;
   color: $color-white;
 
@@ -34,26 +35,23 @@
     }
   }
 
+  // The Logo.
   .global-footer__brand {
-    @include margin(0);
     @include padding(5px null null);
     text-align: center;
 
-    // Logo should have no margin at higher breakpoints.
     @include grid-media('md') {
       text-align: left;
     }
 
-    // The Logo.
     a {
       @include logo;
+      color: $color-white;
+      font-size: 3.4rem;
       @include grid-media-only('xs') {
         font-size: 3.2rem;
       }
-
-      font-size: 3.4rem;
     }
-
   }
 
   .global-footer__content {
@@ -98,28 +96,18 @@
     @include padding(0);
     list-style-type: none;
 
-    @include grid-media-max('sm') {
+    @include grid-media-only('xs') {
       @include padding(null 20px);
-    }
-
-    @include grid-media('sm') {
-      @include margin(0 0 0.5rem);
-    }
-
-    @include grid-media('md') {
-      @include margin(null null 0);
     }
 
     li {
       @include margin(0);
-      @include padding(0);
       @include padding(.25em 0);
       display: block;
 
       @include grid-media-only('sm') {
         @include margin(null 1rem null null);
         display: inline-block;
-        font-size: 0.9em;
       }
 
       @include grid-media('md') {
@@ -142,25 +130,28 @@
 
   .global-footer__menu--global {
     font-size: 1.5rem;
-    font-weight: normal;
+    font-weight: 600;
 
     @include grid-media('sm') {
-      font-size: 1.7rem;
+      font-size: 1.6rem;
+      @include margin(null null 0.4rem);
     }
   }
 
   .global-footer__menu--policy {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 
-    @include grid-media('sm') {
-      font-weight: 300;
+    @include grid-media-only('xs') {
+      font-size: 1.5rem;
+      font-weight: 600;
     }
-
+    @include grid-media('sm') {
+      @include margin(null null 0.5rem);
+    }
   }
 
   .global-footer__copyright {
     font-size: 1.4rem;
-    font-weight: 300;
     line-height: 1.5;
     text-align: center;
     -ms-grid-row: 2;
