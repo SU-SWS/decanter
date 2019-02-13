@@ -35,13 +35,12 @@
   }
 
   .global-footer__brand {
-    @include margin(0 0 1.25rem);
+    @include margin(0);
     @include padding(5px null null);
     text-align: center;
 
     // Logo should have no margin at higher breakpoints.
     @include grid-media('md') {
-      @include margin(null null 0);
       text-align: left;
     }
 
@@ -58,16 +57,20 @@
   }
 
   .global-footer__content {
-    @include grid-media('xl') {
-      padding-left: 52px;
+    @include grid-media-only('sm') {
+      text-align: center;
     }
 
     @include grid-media('md') {
+      padding-left: 30px;
+    }
+
+    @include grid-media('lg') {
       padding-left: 45px;
     }
 
-    @include grid-media-only('sm') {
-      text-align: center;
+    @include grid-media('xl') {
+      padding-left: 52px;
     }
 
     flex-grow: 1;
@@ -138,17 +141,16 @@
   }
 
   .global-footer__menu--global {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: normal;
 
-    @include grid-media('md') {
-      font-size: 1.85rem;
+    @include grid-media('sm') {
+      font-size: 1.7rem;
     }
-
   }
 
   .global-footer__menu--policy {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
 
     @include grid-media('sm') {
       font-weight: 300;
@@ -157,7 +159,7 @@
   }
 
   .global-footer__copyright {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 300;
     line-height: 1.5;
     text-align: center;
