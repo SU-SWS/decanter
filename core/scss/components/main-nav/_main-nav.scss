@@ -89,13 +89,14 @@
     @include margin(null null 0);
 
     a {
-      @include fancy-hover($color: $color-white, $active: $color-white, $position: 'left');
+      @include fancy-hover($color: $color-white, $active: #EC0513, $position: 'left');
       @include padding(.8em 2.4em .8em 1.2em);
       display: block;
       color: $color-white;
       font-weight: 400;
       font-size: .9em;
       border-bottom: $color-cool-grey solid 1px;
+      outline: 0;
 
       &:active {
         font-weight: 700;
@@ -119,7 +120,7 @@
         &:before {
           visibility: visible;
           transform: scaleY(1);
-          background-color: $color-white;
+          background-color: #EC0513;
         }
 
         &:hover,
@@ -128,7 +129,6 @@
             left: 6px;
           }
         }
-
       }
     }
 
@@ -169,6 +169,14 @@
               background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
               background-size: 100%;
               transform: rotate(180deg);
+            }
+          }
+
+          @include grid-media-max('md') {
+            &[aria-expanded="true"] {
+              &:before {
+                background-color: transparent;
+              }
             }
           }
         }
@@ -247,7 +255,6 @@
 }
 
 .su-main-nav__menu-lv1 > li {
-
   @include grid-media('lg') {
     > a {
       color: $color-black;
@@ -274,14 +281,14 @@
     > a {
       &:before {
         transform: scaleY(1);
-        background-color: $color-white;
+        background-color: #EC0513;
       }
 
       &:hover,
       &:focus {
         &:before {
           left: 6px;
-          background-color: $color-white;
+          background-color: #EC0513;
         }
       }
     }

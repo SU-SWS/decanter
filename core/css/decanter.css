@@ -7317,9 +7317,6 @@ a {
   a:hover,
   a:active {
     color: #2e2d29; }
-  .su-link:focus,
-  a:focus {
-    outline: 0; }
 
 .su-link--action {
   text-decoration: none;
@@ -7681,7 +7678,8 @@ a {
       color: #ffffff;
       font-weight: 400;
       font-size: .9em;
-      border-bottom: #4d4f53 solid 1px; }
+      border-bottom: #4d4f53 solid 1px;
+      outline: 0; }
       .su-main-nav li a:before {
         content: "";
         position: absolute;
@@ -7702,7 +7700,7 @@ a {
       .su-main-nav li a:hover:before, .su-main-nav li a:focus:before {
         background-color: #ffffff; }
       .su-main-nav li a:active:before, .su-main-nav li a[aria-expanded="true"]:before {
-        background-color: #ffffff; }
+        background-color: #EC0513; }
       .su-main-nav li a[aria-expanded="true"]:hover:before, .su-main-nav li a[aria-expanded="true"]:focus:before {
         background-color: #ffffff; }
       .su-main-nav li a:before {
@@ -7730,7 +7728,7 @@ a {
         visibility: visible;
         -webkit-transform: scaleY(1);
                 transform: scaleY(1);
-        background-color: #ffffff; }
+        background-color: #EC0513; }
       .su-main-nav li.su-main-nav__item--current > a:hover:before, .su-main-nav li.su-main-nav__item--current > a:focus:before {
         left: 6px; }
     .su-main-nav li.su-main-nav__item--parent > a:after {
@@ -7765,6 +7763,9 @@ a {
           background-size: 100%;
           -webkit-transform: rotate(180deg);
                   transform: rotate(180deg); } }
+    @media (max-width: 991px) {
+      .su-main-nav li.su-main-nav__item--parent.su-main-nav__item--expanded > a[aria-expanded="true"]:before {
+        background-color: transparent; } }
 
 .su-main-nav__toggle {
   text-decoration: none;
@@ -7862,11 +7863,11 @@ a {
 .su-main-nav__menu-lv1 > li.su-main-nav__item--current > a:before {
   -webkit-transform: scaleY(1);
           transform: scaleY(1);
-  background-color: #ffffff; }
+  background-color: #EC0513; }
 
 .su-main-nav__menu-lv1 > li.su-main-nav__item--current > a:hover:before, .su-main-nav__menu-lv1 > li.su-main-nav__item--current > a:focus:before {
   left: 6px;
-  background-color: #ffffff; }
+  background-color: #EC0513; }
 
 @media only screen and (min-width: 992px) {
   .su-main-nav__menu-lv1 > li.su-main-nav__item--current > a:before {
@@ -7942,10 +7943,8 @@ a {
     color: #820000; }
     .su-main-nav.su-main-nav--light li a:active:before {
       background-color: #820000; }
-  .su-main-nav.su-main-nav--light li a[aria-expanded="true"] {
-    color: #820000; }
-    .su-main-nav.su-main-nav--light li a[aria-expanded="true"]:before {
-      background-color: #820000; }
+  .su-main-nav.su-main-nav--light li a[aria-expanded="true"]:before {
+    background-color: #820000; }
 
 .su-main-nav.su-main-nav--light li.su-main-nav__item--current > a {
   color: #820000; }
