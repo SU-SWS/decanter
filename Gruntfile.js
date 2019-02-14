@@ -152,7 +152,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('deploy', ['styleguide', 'deploy_site:styleguide', 'clean:postdeploy']);
-  grunt.registerTask('styleguide', ['compile', 'uglify', 'clean:styleguide', 'run:styleguide', 'copy:styleguide']);
+  grunt.registerTask('styleguide', ['compile', 'clean:styleguide', 'run:styleguide', 'copy:styleguide']);
   grunt.registerTask('compile', ['sass:dist', 'postcss:dist']);
   grunt.registerTask('dev', ['styleguide', 'browserSync', 'watch']);
   grunt.registerTask('default', ['watch']);
