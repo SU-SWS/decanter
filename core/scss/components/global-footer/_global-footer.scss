@@ -12,7 +12,8 @@
 
 // Global styles for the global footer.
 .global-footer {
-  @include padding(2.5rem 10px);
+  @include modular-spacing(1, 'padding-top');
+  @include modular-spacing(1, 'padding-bottom');
   background-color: $color-cardinal-red;
   color: $color-white;
 
@@ -34,40 +35,38 @@
     }
   }
 
+  // The Logo.
   .global-footer__brand {
-    @include margin(0 0 1.25rem);
-    @include padding(5px null null);
+    @include padding(0.5rem null null);
+    @include modular-spacing(-2, 'margin-bottom');
     text-align: center;
 
-    // Logo should have no margin at higher breakpoints.
-    @include grid-media('md') {
-      @include margin(null null 0);
-      text-align: left;
-    }
-
-    // The Logo.
     a {
       @include logo;
+      color: $color-white;
+      font-size: 3.4rem;
+
       @include grid-media-only('xs') {
         font-size: 3.2rem;
       }
-
-      font-size: 3.4rem;
     }
-
   }
 
   .global-footer__content {
-    @include grid-media('xl') {
-      padding-left: 52px;
+    @include grid-media-only('sm') {
+      text-align: center;
     }
 
     @include grid-media('md') {
-      padding-left: 45px;
+      padding-left: 3rem;
     }
 
-    @include grid-media-only('sm') {
-      text-align: center;
+    @include grid-media('lg') {
+      padding-left: 4.5rem;
+    }
+
+    @include grid-media('xl') {
+      padding-left: 5.2rem;
     }
 
     flex-grow: 1;
@@ -75,56 +74,37 @@
 
   // Grid settings for footer nav region; passing 0 for no outer gutters.
   nav {
+    @include margin(null null 1rem);
     display: flex;
     flex: 0 0 auto;
     justify-content: center;
 
     @include grid-media('sm') {
       display: block;
-      justify-content: left;
-      @include margin(null null .75rem);
-    }
 
-    @include grid-media('md') {
-      @include margin(0);
+      @include margin(null null 1.3rem);
     }
   }
 
   .global-footer__menu {
-    @include margin(0 0 1.5rem);
+    @include margin(0 0 1rem);
     @include padding(0);
     list-style-type: none;
 
-    @include grid-media-max('sm') {
-      @include padding(null 20px);
-    }
-
-    @include grid-media('sm') {
-      @include margin(0 0 0.5rem);
-    }
-
-    @include grid-media('md') {
-      @include margin(null null 0);
-    }
-
     li {
       @include margin(0);
-      @include padding(0);
       @include padding(.25em 0);
       display: block;
 
-      @include grid-media-only('sm') {
-        @include margin(null 1rem null null);
+      @include grid-media('sm') {
+        @include margin(null 1.3rem null null);
         display: inline-block;
-        font-size: 0.9em;
+        line-height: 1.1;
       }
 
       @include grid-media('md') {
-        @include margin(null 1rem null null);
-        @include padding(0 0 1em);
+        @include padding(0);
         text-align: left;
-        display: inline-block;
-        line-height: 0;
       }
 
       @include grid-media('lg') {
@@ -132,37 +112,53 @@
       }
 
       &:last-child {
-        @include margin(null 0);
+        @include margin(null 0 null null);
       }
     }
   }
 
   .global-footer__menu--global {
-    font-size: 1.75rem;
-    font-weight: normal;
+    font-size: 1.5rem;
 
-    @include grid-media('md') {
-      font-size: 1.85rem;
+    @include grid-media-only('xs') {
+      @include padding(null 2rem null null);
     }
 
+    @include grid-media-between('md', 'xl') {
+      font-size: 1.7rem;
+    }
+
+    @include grid-media('2xl') {
+      font-size: 1.8rem;
+    }
   }
 
   .global-footer__menu--policy {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
+    font-weight: 300;
 
-    @include grid-media('sm') {
-      font-weight: 300;
+    @include grid-media-only('xs') {
+      @include padding(null null null 2rem);
+      font-weight: 400;
     }
 
+    @include grid-media('sm') {
+      font-size: 1.4rem;
+    }
+
+    @include grid-media-between('md', 'lg') {
+      font-size: 1.5rem;
+    }
+
+    @include grid-media('xl') {
+      font-size: 1.6rem;
+    }
   }
 
   .global-footer__copyright {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 300;
-    line-height: 1.5;
     text-align: center;
-    -ms-grid-row: 2;
-    -ms-grid-column: 1;
 
     span {
       white-space: nowrap;
