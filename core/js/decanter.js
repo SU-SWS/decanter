@@ -212,6 +212,7 @@ document.addEventListener( "DOMContentLoaded", event => {
     constructor( elem, depth ) {
       this.elem = elem;
       this.depth = depth;
+      this.topLevelNav = ( depth === 0 ) ? this : this.getTopLevelNav();
       if ( elem instanceof NavItem ) elem = elem.item; // if this is a subnav, we need the correpsonding HTMLElement for .querySelector()
       this.toggle = elem.querySelector( elem.tagName + " > button" );
       this.toggleText = this.toggle ? this.toggle.innerText : '';
@@ -224,31 +225,31 @@ document.addEventListener( "DOMContentLoaded", event => {
       }
     }
 
+    /**
+     * Get the instance of Nav that represent the top level nav of this instance of Nav.
+     * @returns {Nav}
+     */
     getTopLevelNav() {
       let nav = this;
       while ( nav.elem instanceof NavItem ) {
-        // this is a subNav, so get the parent's nav
+        // if nav were the main nav, nav.elem would be an HTMLElement (the <nav> element)
+        // if it's a NavItem, then this is a subNav, so get the Nav that contains the NavItem
         nav = nav.elem.nav;
       }
       return nav;
     }
 
-    desktopNav() { return getComputedStyle( this.getTopLevelNav().toggle ).display === 'none'; }
-
     isExpanded() { return this.elem instanceof NavItem ? this.elem.isExpanded() : this.elem.getAttribute('aria-expanded') === 'true'; }
-
     setExpanded( value ) {
       this.elem instanceof NavItem ? this.elem.setExpanded( value ) : this.elem.setAttribute( 'aria-expanded', value );
       if ( this.toggle ) this.toggle.setAttribute( 'aria-expanded', value );
     }
 
-    firstItem() { return this.items.length ? this.items[ 0 ] : null; }
-
-    lastItem() { return this.items.length ? this.items[ this.items.length - 1 ] : null; }
-
-    firstLink() { return this.items.length ? this.firstItem().link : null; }
-
-    lastLink() { return this.items.length ? this.lastItem().link : null; }
+    desktopNav() { return getComputedStyle( this.topLevelNav.toggle ).display === 'none'; }
+    firstItem()  { return this.items.length ? this.items[ 0 ] : null; }
+    lastItem()   { return this.items.length ? this.items[ this.items.length - 1 ] : null; }
+    firstLink()  { return this.items.length ? this.firstItem().link : null; }
+    lastLink()   { return this.items.length ? this.lastItem().link : null; }
 
     focusOn( link, currentItem = null ) {
       var currentIndex, lastIndex = null;
