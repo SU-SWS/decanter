@@ -49,9 +49,9 @@ document.addEventListener( "DOMContentLoaded", event => {
 
     isSubNavItem() { return this.isSubNavTrigger() || ( this.nav.depth > 0 ); }
 
-    isExpanded() { return this.item.getAttribute('aria-expanded') === 'true'; }
+    isExpanded() { return this.link.getAttribute('aria-expanded') === 'true'; }
 
-    setExpanded( value ) { this.item.setAttribute( 'aria-expanded', value ); }
+    setExpanded( value ) { this.link.setAttribute( 'aria-expanded', value ); }
 
     isFirstItem() { return this.nav.items.indexOf( this ) === 0; }
 
@@ -126,6 +126,8 @@ document.addEventListener( "DOMContentLoaded", event => {
         if ( this.nav.desktopNav() ) {
           if ( this.isSubNavTrigger() ) {
             this.openSubNav();
+          } else {
+            this.nav.focusOn( 'next', this );
           }
         }
         else {
@@ -135,20 +137,18 @@ document.addEventListener( "DOMContentLoaded", event => {
       else if ( isUpArrow( theKey ) ) {
         event.preventDefault();
         event.stopPropagation();
-        if ( this.nav.desktopNav() ) {
-          if ( this.isSubNavItem() ) {
-            this.closeSubNav( true ); // close the subnav and put the focus on the trigger
-          }
-        }
-        else {
-          this.nav.focusOn( 'prev', this );
-        }
+        this.nav.focusOn( 'prev', this );
       }
       else if ( isLeftArrow( theKey ) ) {
         event.preventDefault();
         event.stopPropagation();
         if ( this.nav.desktopNav() ) {
-          this.nav.focusOn( 'prev', this );
+          if ( this.nav.depth > 0 ) {
+            this.closeSubNav( true );
+          }
+          else {
+            this.nav.focusOn('prev', this);
+          }
         }
         else {
           if ( this.isSubNavItem() ) {
@@ -160,7 +160,12 @@ document.addEventListener( "DOMContentLoaded", event => {
         event.preventDefault();
         event.stopPropagation();
         if ( this.nav.desktopNav() ) {
-          this.nav.focusOn( 'next', this );
+          if ( this.nav.depth > 0 ) {
+            this.closeSubNav();
+          }
+          else {
+            this.nav.focusOn( 'next', this );
+          }
         }
         else {
           if ( this.isSubNavTrigger() ) {
@@ -360,7 +365,7 @@ document.addEventListener( "DOMContentLoaded", event => {
   // Code (at last!)
 
   // process each nav
-  let firstZindex; //// TODO If we can make the light theme subnavs have white background, we can remove the zIndex logic
+  let firstZindex;
   navs.forEach( ( nav, index ) => {
     const theNav = new Nav( nav, 0 );
     theNavs.push( theNav );
