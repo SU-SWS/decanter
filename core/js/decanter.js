@@ -39,7 +39,7 @@ document.addEventListener( "DOMContentLoaded", event => {
       this.item.addEventListener( 'keydown', this );
 
       if ( this.isSubNavTrigger() ) {
-        this.subNav = new Nav( this, this.nav.depth + 1 );
+        this.subNav = new Nav( this );
         theSubNavs.push( this ); // maintain globsl list of subnavs for closeAllSubNavs()
         this.item.addEventListener( 'click', this );
       }
@@ -48,7 +48,7 @@ document.addEventListener( "DOMContentLoaded", event => {
     isFirstItem() { return this.nav.items.indexOf( this ) === 0; }
     isLastItem() { return this.nav.items.indexOf( this ) === this.nav.items.length - 1; }
     isSubNavTrigger() { return this.item.lastElementChild.tagName.toUpperCase() === 'UL'; };
-    isSubNavItem() { return this.isSubNavTrigger() || ( this.nav.depth > 0 ); }
+    isSubNavItem() { return this.isSubNavTrigger() || this.nav.isSubNav(); }
     isExpanded() { return this.link.getAttribute('aria-expanded') === 'true'; }
     setExpanded( value ) { this.link.setAttribute( 'aria-expanded', value ); }
 
@@ -134,7 +134,7 @@ document.addEventListener( "DOMContentLoaded", event => {
         event.preventDefault();
         event.stopPropagation();
         if ( this.nav.isDesktopNav() ) {
-          if ( this.nav.depth > 0 ) {
+          if ( this.nav.isSubNav() ) {
             this.closeSubNav( true );
           }
           else {
@@ -151,7 +151,7 @@ document.addEventListener( "DOMContentLoaded", event => {
         event.preventDefault();
         event.stopPropagation();
         if ( this.nav.isDesktopNav() ) {
-          if ( this.nav.depth > 0 ) {
+          if ( this.nav.isSubNav() ) {
             this.closeSubNav();
           }
           else {
@@ -203,12 +203,10 @@ document.addEventListener( "DOMContentLoaded", event => {
      * Create a Nav
      *
      * @param {HTMLElement|NavItem} elem - the element that is the nav menu. May be a main nav (<nav>) or a subnav (NavItem).
-     * @param {number} depth - nesting level of the nav. 0 is main nav.
      */
-    constructor( elem, depth ) {
+    constructor( elem ) {
       this.elem = elem;
-      this.depth = depth;
-      this.topLevelNav = ( depth === 0 ) ? this : this.getTopLevelNav();
+      this.topNav = this.getTopNav();
       if ( elem instanceof NavItem ) elem = elem.item; // if this is a subnav, we need the correpsonding HTMLElement for .querySelector()
       this.toggle = elem.querySelector( elem.tagName + " > button" );
       this.toggleText = this.toggle ? this.toggle.innerText : '';
@@ -224,18 +222,27 @@ document.addEventListener( "DOMContentLoaded", event => {
     }
 
     /**
-     * Get the instance of Nav that represent the top level nav of this instance of Nav.
+     * Get the instance of Nav that represents the top level nav of this instance.
+     *
      * @returns {Nav}
      */
-    getTopLevelNav() {
+    getTopNav() {
       let nav = this;
       while ( nav.elem instanceof NavItem ) {
-        // if nav were the main nav, nav.elem would be an HTMLElement (the <nav> element)
-        // if it's a NavItem, then this is a subNav, so get the Nav that contains the NavItem
+        // if nav is the main nav, nav.elem will be an HTMLElement (the <nav> element)
+        // if nav.elem is a NavItem, then this is a subNav, so get the Nav that contains the NavItem
         nav = nav.elem.nav;
       }
       return nav;
     }
+
+    /**
+     * Get the instance of Nav that represents the parent of this instance.
+     * If this is the top nav, return this so you can safely call methods on it.
+     *
+     * @returns {Nav}
+     */
+    getParentNav() { return this.isSubNav() ? this.elem.nav : this; }
 
     isExpanded() { return this.elem instanceof NavItem ? this.elem.isExpanded() : this.elem.getAttribute('aria-expanded') === 'true'; }
     setExpanded( value ) {
@@ -243,12 +250,13 @@ document.addEventListener( "DOMContentLoaded", event => {
       if ( this.toggle ) this.toggle.setAttribute( 'aria-expanded', value );
     }
 
-    isDesktopNav()  { return getComputedStyle( this.topLevelNav.toggle ).display === 'none'; }
-    isTopLevelNav() { return this.topLevelNav === this; }
-    firstItem()   { return this.items.length ? this.items[ 0 ] : null; }
-    lastItem()    { return this.items.length ? this.items[ this.items.length - 1 ] : null; }
-    firstLink()   { return this.items.length ? this.firstItem().link : null; }
-    lastLink()    { return this.items.length ? this.lastItem().link : null; }
+    isDesktopNav() { return getComputedStyle( this.topNav.toggle ).display === 'none'; }
+    isTopNav()     { return this.topNav === this; }
+    isSubNav()     { return this.topNav !== this; }
+    firstItem()    { return this.items.length ? this.items[ 0 ] : null; }
+    lastItem()     { return this.items.length ? this.items[ this.items.length - 1 ] : null; }
+    firstLink()    { return this.items.length ? this.firstItem().link : null; }
+    lastLink()     { return this.items.length ? this.lastItem().link : null; }
 
     focusOn( link, currentItem = null ) {
       var currentIndex, lastIndex = null;
@@ -354,7 +362,7 @@ document.addEventListener( "DOMContentLoaded", event => {
       const shifted = event.shiftKey;
 
       if ( isEsc( theKey ) ) {
-        if ( this.isTopLevelNav() ) {
+        if ( this.isTopNav() ) {
           if ( !this.isDesktopNav() ) {
             event.preventDefault();
             event.stopPropagation();
@@ -391,7 +399,7 @@ document.addEventListener( "DOMContentLoaded", event => {
   // process each nav
   let firstZindex;
   navs.forEach( ( nav, index ) => {
-    const theNav = new Nav( nav, 0 );
+    const theNav = new Nav( nav );
     theNavs.push( theNav );
 
     if ( index === 0 ) {
