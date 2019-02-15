@@ -371,6 +371,7 @@ document.addEventListener( "DOMContentLoaded", event => {
             event.preventDefault();
             event.stopPropagation();
             this.closeMobileNav();
+            this.toggle.focus();
           }
         }
         else {

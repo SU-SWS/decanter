@@ -1,5 +1,4 @@
 @charset "UTF-8";
-
 //
 // Main Navigation
 //
@@ -41,7 +40,7 @@
       @include margin(null null 0);
 
       > a {
-        font-weight: 600;
+        font-weight: $font-bold;
       }
     }
 
@@ -60,7 +59,7 @@
           border-bottom: 0;
 
           &:active {
-            font-weight: 600;
+            font-weight: $font-bold;
           }
 
           &:first-child {
@@ -79,7 +78,7 @@
 
         &.su-main-nav__item--current {
           > a {
-            font-weight: 600;
+            font-weight: $font-bold;
           }
         }
       }
@@ -95,13 +94,13 @@
       @include padding(.8em 2.4em .8em 1.2em);
       display: block;
       color: $color-white;
-      font-weight: 400;
+      font-weight: $font-normal;
       font-size: .9em;
       border-bottom: $color-cool-grey solid 1px;
       outline: 0;
 
       &:active {
-        font-weight: 700;
+        font-weight: $font-x-bold;
       }
     }
 
@@ -117,7 +116,7 @@
 
     &.su-main-nav__item--current {
       > a {
-        font-weight: 700;
+        font-weight: $font-x-bold;
 
         &::before {
           visibility: visible;
@@ -197,7 +196,7 @@
   background-color: transparent;
   color: $color-black;
   font-size: .8em;
-  font-weight: 400;
+  font-weight: $font-normal;
   line-height: .7;
 
   &::after {

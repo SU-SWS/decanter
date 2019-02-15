@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
 .su-main-nav.su-main-nav--light {
-
   .su-main-nav__toggle {
     &[aria-expanded="true"] {
       &::before {
@@ -16,12 +15,76 @@
     }
   }
 
+  // general menu styles
   ul {
     background-color: $color-white;
   }
 
-  > ul {
+  li {
+    a {
+      color: $color-black;
+      border-bottom-color: #d9d9d9;
 
+      &:hover,
+      &:focus {
+        &::before {
+          background-color: $color-black;
+        }
+      }
+
+      &:active {
+        color: $color-dark-red;
+
+        &::before {
+          background-color: $color-dark-red;
+        }
+      }
+
+      &[aria-expanded="true"] {
+        &::before {
+          background-color: $color-dark-red;
+        }
+      }
+    }
+
+    &.su-main-nav__item--current {
+      > a {
+        color: $color-dark-red;
+
+        &::before {
+          background-color: $color-dark-red;
+        }
+      }
+    }
+
+    &.su-main-nav__item--parent {
+      > a::after {
+        @include grid-media-max('md') {
+          background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
+          background-size: 100%;
+          content: "";
+          display: inline-block;
+          position: absolute;
+          right: 1em;
+          top: 1.03em;
+          height: .9em;
+          width: .9em;
+        }
+      }
+
+      &.su-main-nav__item--expanded {
+        > a::after {
+          @include grid-media-max('md') {
+            background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
+            background-size: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  // desktop first level menu style override
+  > ul {
     @include grid-media('lg') {
       background-color: transparent;
 
@@ -78,85 +141,6 @@
               }
             }
 
-          }
-        }
-      }
-    }
-  }
-
-  li {
-    a {
-      color: $color-black;
-      border-bottom-color: #d9d9d9;
-
-      &:hover,
-      &:focus {
-        &::before {
-          background-color: $color-black;
-        }
-      }
-
-      &:active {
-        color: $color-dark-red;
-
-        &::before {
-          background-color: $color-dark-red;
-        }
-      }
-
-      &[aria-expanded="true"] {
-        &::before {
-          background-color: $color-dark-red;
-        }
-      }
-    }
-
-    &.su-main-nav__item--current {
-      > a {
-        color: $color-dark-red;
-
-        &::before {
-          background-color: $color-dark-red;
-        }
-      }
-    }
-
-    &.su-main-nav__item--parent {
-      > a {
-        &::after {
-          background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
-          background-size: 100%;
-          content: "";
-          display: inline-block;
-          position: absolute;
-          right: 1em;
-          top: 1.03em;
-          height: .9em;
-          width: .9em;
-
-          @include grid-media('lg') {
-            background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
-            background-size: 100%;
-            position: relative;
-            right: 0;
-            top: 0;
-            height: 11px; //small svg gets chopped off if use em instead of px
-            width: 11px;
-            transition: all .3s ease-out;
-          }
-        }
-      }
-
-      &.su-main-nav__item--expanded {
-        > a {
-          &::after {
-            background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
-            background-size: 100%;
-
-            @include grid-media('lg') {
-              background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
-              background-size: 100%;
-            }
           }
         }
       }
