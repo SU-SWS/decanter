@@ -25,6 +25,7 @@
   position: relative;
   z-index: 9999;
 
+  // general menu styles
   ul {
     @include margin(0 null);
     display: flex;
@@ -34,58 +35,6 @@
     background-color: $color-black;
   }
 
-  //top level styles
-  > ul {
-    > li {
-      @include margin(null null 0);
-
-      > a {
-        font-weight: $font-bold;
-      }
-    }
-
-    @include grid-media('lg') {
-      @include padding(null null null 0);
-      flex-direction: row;
-      flex-wrap: wrap;
-      background-color: transparent;
-
-      > li {
-        > a {
-          @include fancy-hover;
-          @include padding(null 0);
-          @include margin(0 1.16em 0 0);
-          font-size: 1.05em;
-          border-bottom: 0;
-
-          &:active {
-            font-weight: $font-bold;
-          }
-
-          &:first-child {
-            > a {
-              @include margin(null null null 0);
-            }
-          }
-
-          &:last-child {
-            > a {
-              @include margin(null 0 null null);
-            }
-          }
-
-        }
-
-        &.su-main-nav__item--current {
-          > a {
-            font-weight: $font-bold;
-          }
-        }
-      }
-    }
-  }
-
-  //general deeper levels
   li {
     @include margin(null null 0);
 
@@ -114,21 +63,19 @@
       }
     }
 
-    &.su-main-nav__item--current {
-      > a {
-        font-weight: $font-x-bold;
+    &.su-main-nav__item--current > a {
+      font-weight: $font-x-bold;
 
+      &::before {
+        visibility: visible;
+        transform: scaleY(1);
+        background-color: #ec0513;
+      }
+
+      &:hover,
+      &:focus {
         &::before {
-          visibility: visible;
-          transform: scaleY(1);
-          background-color: #ec0513;
-        }
-
-        &:hover,
-        &:focus {
-          &::before {
-            left: 6px;
-          }
+          left: 6px;
         }
       }
     }
@@ -149,7 +96,7 @@
           @include grid-media('lg') {
             @include margin(null null 1px 6px);
             background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
-            background-size: 100%; //have to repeat here for some reason
+            background-size: 100%;
             position: relative;
             right: 0;
             top: 0;
@@ -174,16 +121,61 @@
           }
 
           @include grid-media-max('md') {
-            &[aria-expanded="true"] {
-              &::before {
-                background-color: transparent;
-              }
+            &[aria-expanded="true"]::before {
+              background-color: transparent;
             }
           }
         }
       }
     }
   }
+
+  //top level menu styles
+  > ul {
+    > li {
+      @include margin(null null 0);
+
+      > a {
+        font-weight: $font-bold;
+      }
+    }
+
+    // top level menu desktop styles
+    @include grid-media('lg') {
+      @include padding(null null null 0);
+      flex-direction: row;
+      flex-wrap: wrap;
+      background-color: transparent;
+
+      > li {
+        > a {
+          @include fancy-hover;
+          @include padding(null 0);
+          @include margin(0 1.16em 0 0);
+          font-size: 1.05em;
+          border-bottom: 0;
+
+          &:active {
+            font-weight: $font-bold;
+          }
+
+          &:first-child > a {
+            @include margin(null null null 0);
+          }
+
+          &:last-child > a {
+            @include margin(null 0 null null);
+          }
+        }
+
+        &.su-main-nav__item--current > a {
+          font-weight: $font-bold;
+        }
+      }
+    }
+  }
+
+
 }
 
 .su-main-nav__toggle {
@@ -233,24 +225,18 @@
   }
 
   @include grid-media-max('md') {
-    &[aria-expanded="false"] {
-      + .su-main-nav__menu-lv1 {
-        display: none;
-      }
+    &[aria-expanded="false"] + .su-main-nav__menu-lv1 {
+      display: none;
     }
 
-    &[aria-expanded="true"] {
-      + .su-main-nav__menu-lv1 {
-        position: absolute;
-      }
+    &[aria-expanded="true"] + .su-main-nav__menu-lv1 {
+      position: absolute;
     }
   }
 
   @include grid-media-only('md') {
-    &[aria-expanded="true"] {
-      + .su-main-nav__menu-lv1 {
-        max-width: 21em;
-      }
+    &[aria-expanded="true"]  + .su-main-nav__menu-lv1 {
+      max-width: 21em;
     }
   }
 }
@@ -270,10 +256,8 @@
         color: $color-black;
       }
 
-      &[aria-expanded="true"] {
-        &:hover {
-          color: $color-dark-red;
-        }
+      &[aria-expanded="true"]:hover {
+        color: $color-dark-red;
       }
     }
   }
@@ -310,7 +294,6 @@
       }
     }
   }
-
 }
 
 .su-main-nav__menu-lv2 {
@@ -324,10 +307,8 @@
     position: absolute;
     max-width: 18em;
 
-    li {
-      &:last-child a {
-        border-bottom: 0;
-      }
+    li:last-child a {
+      border-bottom: 0;
     }
   }
 }

@@ -7,10 +7,8 @@
         background-color: $color-driftwood;
       }
 
-      &:hover {
-        &::before {
-          background-color: $color-dark-red;
-        }
+      &:hover::before {
+        background-color: $color-dark-red;
       }
     }
   }
@@ -40,10 +38,8 @@
         }
       }
 
-      &[aria-expanded="true"] {
-        &::before {
-          background-color: $color-dark-red;
-        }
+      &[aria-expanded="true"]::before {
+        background-color: $color-dark-red;
       }
     }
 
@@ -57,27 +53,16 @@
       }
     }
 
-    &.su-main-nav__item--parent {
-      > a::after {
-        @include grid-media-max('md') {
+    @include grid-media-max('md') {
+      &.su-main-nav__item--parent {
+        > a::after {
           background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
           background-size: 100%;
-          content: "";
-          display: inline-block;
-          position: absolute;
-          right: 1em;
-          top: 1.03em;
-          height: .9em;
-          width: .9em;
         }
-      }
 
-      &.su-main-nav__item--expanded {
-        > a::after {
-          @include grid-media-max('md') {
-            background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
-            background-size: 100%;
-          }
+        &.su-main-nav__item--expanded > a::after {
+          background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
+          background-size: 100%;
         }
       }
     }
