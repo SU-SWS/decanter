@@ -45,17 +45,12 @@ document.addEventListener( "DOMContentLoaded", event => {
       }
     }
 
-    isSubNavTrigger() { return this.item.lastElementChild.tagName.toUpperCase() === 'UL'; };
-
-    isSubNavItem() { return this.isSubNavTrigger() || ( this.nav.depth > 0 ); }
-
-    isExpanded() { return this.link.getAttribute('aria-expanded') === 'true'; }
-
-    setExpanded( value ) { this.link.setAttribute( 'aria-expanded', value ); }
-
     isFirstItem() { return this.nav.items.indexOf( this ) === 0; }
-
     isLastItem() { return this.nav.items.indexOf( this ) === this.nav.items.length - 1; }
+    isSubNavTrigger() { return this.item.lastElementChild.tagName.toUpperCase() === 'UL'; };
+    isSubNavItem() { return this.isSubNavTrigger() || ( this.nav.depth > 0 ); }
+    isExpanded() { return this.link.getAttribute('aria-expanded') === 'true'; }
+    setExpanded( value ) { this.link.setAttribute( 'aria-expanded', value ); }
 
     openSubNav() {
       closeAllSubNavs();
@@ -109,11 +104,7 @@ document.addEventListener( "DOMContentLoaded", event => {
       const theKey  = event.key || event.keyCode;
       const shifted = event.shiftKey;
 
-      if ( isEsc( theKey ) ) {
-        closeAllSubNavs();
-        if ( !this.nav.desktopNav() ) closeAllMobileNavs();
-      }
-      else if ( isSpace( theKey ) ) {
+      if ( isSpace( theKey ) ) {
         event.preventDefault();
         event.stopPropagation();
         if ( this.isSubNavTrigger() ) {
@@ -123,7 +114,7 @@ document.addEventListener( "DOMContentLoaded", event => {
       else if ( isDownArrow( theKey ) ) {
         event.preventDefault();
         event.stopPropagation();
-        if ( this.nav.desktopNav() ) {
+        if ( this.nav.isDesktopNav() ) {
           if ( this.isSubNavTrigger() ) {
             this.openSubNav();
           } else {
@@ -142,7 +133,7 @@ document.addEventListener( "DOMContentLoaded", event => {
       else if ( isLeftArrow( theKey ) ) {
         event.preventDefault();
         event.stopPropagation();
-        if ( this.nav.desktopNav() ) {
+        if ( this.nav.isDesktopNav() ) {
           if ( this.nav.depth > 0 ) {
             this.closeSubNav( true );
           }
@@ -159,7 +150,7 @@ document.addEventListener( "DOMContentLoaded", event => {
       else if ( isRightArrow( theKey ) ) {
         event.preventDefault();
         event.stopPropagation();
-        if ( this.nav.desktopNav() ) {
+        if ( this.nav.isDesktopNav() ) {
           if ( this.nav.depth > 0 ) {
             this.closeSubNav();
           }
@@ -225,6 +216,8 @@ document.addEventListener( "DOMContentLoaded", event => {
       let items = elem.querySelectorAll( elem.tagName + " > ul > li" );
       items.forEach( item => { this.items.push( new NavItem( item, this ) ); } );
 
+      elem.addEventListener( 'keydown', this );
+
       if ( this.toggle ) {
         this.toggle.addEventListener( 'click', this );
       }
@@ -250,11 +243,12 @@ document.addEventListener( "DOMContentLoaded", event => {
       if ( this.toggle ) this.toggle.setAttribute( 'aria-expanded', value );
     }
 
-    desktopNav() { return getComputedStyle( this.topLevelNav.toggle ).display === 'none'; }
-    firstItem()  { return this.items.length ? this.items[ 0 ] : null; }
-    lastItem()   { return this.items.length ? this.items[ this.items.length - 1 ] : null; }
-    firstLink()  { return this.items.length ? this.firstItem().link : null; }
-    lastLink()   { return this.items.length ? this.lastItem().link : null; }
+    isDesktopNav()  { return getComputedStyle( this.topLevelNav.toggle ).display === 'none'; }
+    isTopLevelNav() { return this.topLevelNav === this; }
+    firstItem()   { return this.items.length ? this.items[ 0 ] : null; }
+    lastItem()    { return this.items.length ? this.items[ this.items.length - 1 ] : null; }
+    firstLink()   { return this.items.length ? this.firstItem().link : null; }
+    lastLink()    { return this.items.length ? this.lastItem().link : null; }
 
     focusOn( link, currentItem = null ) {
       var currentIndex, lastIndex = null;
@@ -333,6 +327,7 @@ document.addEventListener( "DOMContentLoaded", event => {
      * Dispatched from this.handleEvent().
      *
      * @param {KeyboardEvent} event
+     * @param {HTMLElement} target
      */
     onClick( event, target ) {
       if ( target == this.toggle ) {
@@ -343,6 +338,35 @@ document.addEventListener( "DOMContentLoaded", event => {
         }
         else {
           this.openMobileNav();
+        }
+      }
+    }
+
+    /**
+     * Handler for keydown events. keydown is bound to all Nav's.
+     * Dispatched from this.handleEvent().
+     *
+     * @param {KeyboardEvent} event
+     * @param {HTMLElement} target
+     */
+    onKeydown( event, target ) {
+      const theKey  = event.key || event.keyCode;
+      const shifted = event.shiftKey;
+
+      if ( isEsc( theKey ) ) {
+        if ( this.isTopLevelNav() ) {
+          if ( !this.isDesktopNav() ) {
+            event.preventDefault();
+            event.stopPropagation();
+            this.closeMobileNav();
+          }
+        }
+        else {
+          if ( this.isExpanded() ) {
+            event.preventDefault();
+            event.stopPropagation();
+            this.elem.closeSubNav( true );
+          }
         }
       }
     }
