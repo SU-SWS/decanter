@@ -7664,19 +7664,19 @@ a {
         content: "";
         position: absolute;
         visibility: hidden;
-        -webkit-transition: -webkit-transform .25s ease-in;
-        transition: -webkit-transform .25s ease-in;
-        transition: transform .25s ease-in;
-        transition: transform .25s ease-in, -webkit-transform .25s ease-in;
+        -webkit-transition: background-color .25s ease-in, -webkit-transform .25s ease-in;
+        transition: background-color .25s ease-in, -webkit-transform .25s ease-in;
+        transition: transform .25s ease-in, background-color .25s ease-in;
+        transition: transform .25s ease-in, background-color .25s ease-in, -webkit-transform .25s ease-in;
         z-index: 1; }
       .su-main-nav li a:hover, .su-main-nav li a:focus, .su-main-nav li a:active, .su-main-nav li a[aria-expanded="true"] {
         text-decoration: none; }
         .su-main-nav li a:hover::before, .su-main-nav li a:focus::before, .su-main-nav li a:active::before, .su-main-nav li a[aria-expanded="true"]::before {
           visibility: visible;
-          -webkit-transition: -webkit-transform .25s ease-out;
-          transition: -webkit-transform .25s ease-out;
-          transition: transform .25s ease-out;
-          transition: transform .25s ease-out, -webkit-transform .25s ease-out; }
+          -webkit-transition: background-color .25s ease-out, -webkit-transform .25s ease-out;
+          transition: background-color .25s ease-out, -webkit-transform .25s ease-out;
+          transition: transform .25s ease-out, background-color .25s ease-out;
+          transition: transform .25s ease-out, background-color .25s ease-out, -webkit-transform .25s ease-out; }
       .su-main-nav li a:hover::before, .su-main-nav li a:focus::before {
         background-color: #ffffff; }
       .su-main-nav li a:active::before, .su-main-nav li a[aria-expanded="true"]::before {
@@ -7708,7 +7708,9 @@ a {
         visibility: visible;
         -webkit-transform: scaleY(1);
                 transform: scaleY(1);
-        background-color: #ec0513; }
+        background-color: #ec0513;
+        -webkit-transition: left .1s ease-out;
+        transition: left .1s ease-out; }
       .su-main-nav li.su-main-nav__item--current > a:hover::before, .su-main-nav li.su-main-nav__item--current > a:focus::before {
         left: 6px; }
     .su-main-nav li.su-main-nav__item--parent > a::after {
@@ -7732,8 +7734,10 @@ a {
           top: 0;
           height: 11px;
           width: 11px;
-          -webkit-transition: all .3s ease-out;
-          transition: all .3s ease-out; } }
+          -webkit-transition: -webkit-transform .3s ease-out;
+          transition: -webkit-transform .3s ease-out;
+          transition: transform .3s ease-out;
+          transition: transform .3s ease-out, -webkit-transform .3s ease-out; } }
     .su-main-nav li.su-main-nav__item--parent.su-main-nav__item--expanded > a::after {
       background: url("../img/minus-white.svg") no-repeat 0 0;
       background-size: 100%; }
@@ -7773,19 +7777,19 @@ a {
           content: "";
           position: absolute;
           visibility: hidden;
-          -webkit-transition: -webkit-transform .25s ease-in;
-          transition: -webkit-transform .25s ease-in;
-          transition: transform .25s ease-in;
-          transition: transform .25s ease-in, -webkit-transform .25s ease-in;
+          -webkit-transition: background-color .25s ease-in, -webkit-transform .25s ease-in;
+          transition: background-color .25s ease-in, -webkit-transform .25s ease-in;
+          transition: transform .25s ease-in, background-color .25s ease-in;
+          transition: transform .25s ease-in, background-color .25s ease-in, -webkit-transform .25s ease-in;
           z-index: 1; }
         .su-main-nav > ul > li > a:hover, .su-main-nav > ul > li > a:focus, .su-main-nav > ul > li > a:active, .su-main-nav > ul > li > a[aria-expanded="true"] {
           text-decoration: none; }
           .su-main-nav > ul > li > a:hover::before, .su-main-nav > ul > li > a:focus::before, .su-main-nav > ul > li > a:active::before, .su-main-nav > ul > li > a[aria-expanded="true"]::before {
             visibility: visible;
-            -webkit-transition: -webkit-transform .25s ease-out;
-            transition: -webkit-transform .25s ease-out;
-            transition: transform .25s ease-out;
-            transition: transform .25s ease-out, -webkit-transform .25s ease-out; }
+            -webkit-transition: background-color .25s ease-out, -webkit-transform .25s ease-out;
+            transition: background-color .25s ease-out, -webkit-transform .25s ease-out;
+            transition: transform .25s ease-out, background-color .25s ease-out;
+            transition: transform .25s ease-out, background-color .25s ease-out, -webkit-transform .25s ease-out; }
         .su-main-nav > ul > li > a:hover::before, .su-main-nav > ul > li > a:focus::before {
           background-color: #820000; }
         .su-main-nav > ul > li > a:active::before, .su-main-nav > ul > li > a[aria-expanded="true"]::before {
@@ -7835,19 +7839,19 @@ a {
     content: "";
     position: absolute;
     visibility: hidden;
-    -webkit-transition: -webkit-transform .25s ease-in;
-    transition: -webkit-transform .25s ease-in;
-    transition: transform .25s ease-in;
-    transition: transform .25s ease-in, -webkit-transform .25s ease-in;
+    -webkit-transition: background-color .25s ease-in, -webkit-transform .25s ease-in;
+    transition: background-color .25s ease-in, -webkit-transform .25s ease-in;
+    transition: transform .25s ease-in, background-color .25s ease-in;
+    transition: transform .25s ease-in, background-color .25s ease-in, -webkit-transform .25s ease-in;
     z-index: 1; }
   .su-main-nav__toggle:hover, .su-main-nav__toggle:focus, .su-main-nav__toggle:active, .su-main-nav__toggle[aria-expanded="true"] {
     text-decoration: none; }
     .su-main-nav__toggle:hover::before, .su-main-nav__toggle:focus::before, .su-main-nav__toggle:active::before, .su-main-nav__toggle[aria-expanded="true"]::before {
       visibility: visible;
-      -webkit-transition: -webkit-transform .25s ease-out;
-      transition: -webkit-transform .25s ease-out;
-      transition: transform .25s ease-out;
-      transition: transform .25s ease-out, -webkit-transform .25s ease-out; }
+      -webkit-transition: background-color .25s ease-out, -webkit-transform .25s ease-out;
+      transition: background-color .25s ease-out, -webkit-transform .25s ease-out;
+      transition: transform .25s ease-out, background-color .25s ease-out;
+      transition: transform .25s ease-out, background-color .25s ease-out, -webkit-transform .25s ease-out; }
   .su-main-nav__toggle:hover::before, .su-main-nav__toggle:focus::before {
     background-color: #820000; }
   .su-main-nav__toggle:active::before, .su-main-nav__toggle[aria-expanded="true"]::before {
@@ -7897,7 +7901,9 @@ a {
 
 @media only screen and (min-width: 992px) {
   .su-main-nav__menu-lv1 > li > a {
-    color: #2e2d29; }
+    color: #2e2d29;
+    -webkit-transition: color .3s ease-out;
+    transition: color .3s ease-out; }
     .su-main-nav__menu-lv1 > li > a:hover, .su-main-nav__menu-lv1 > li > a:focus {
       color: #820000; }
     .su-main-nav__menu-lv1 > li > a:active, .su-main-nav__menu-lv1 > li > a[aria-expanded="true"] {

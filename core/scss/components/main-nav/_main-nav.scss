@@ -70,6 +70,7 @@
         visibility: visible;
         transform: scaleY(1);
         background-color: #ec0513;
+        transition: left .1s ease-out;
       }
 
       &:hover,
@@ -81,49 +82,45 @@
     }
 
     &.su-main-nav__item--parent {
-      > a {
-        &::after {
-          background: url("#{$image-path}/plus-white.svg") no-repeat 0 0;
-          background-size: 100%;
-          content: "";
-          display: inline-block;
-          position: absolute;
-          right: 1em;
-          top: 1.03em;
-          height: .9em;
-          width: .9em;
+      > a::after {
+        background: url("#{$image-path}/plus-white.svg") no-repeat 0 0;
+        background-size: 100%;
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: 1em;
+        top: 1.03em;
+        height: .9em;
+        width: .9em;
 
-          @include grid-media('lg') {
-            @include margin(null null 1px 6px);
-            background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
-            background-size: 100%;
-            position: relative;
-            right: 0;
-            top: 0;
-            height: 11px; //small svg gets chopped off if use em instead of px
-            width: 11px;
-            transition: all .3s ease-out;
-          }
+        @include grid-media('lg') {
+          @include margin(null null 1px 6px);
+          background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
+          background-size: 100%;
+          position: relative;
+          right: 0;
+          top: 0;
+          height: 11px; //small svg gets chopped off if use em instead of px
+          width: 11px;
+          transition: transform .3s ease-out;
         }
       }
 
-      &.su-main-nav__item--expanded {
-        > a {
-          &::after {
-            background: url("#{$image-path}/minus-white.svg") no-repeat 0 0;
+      &.su-main-nav__item--expanded > a {
+        &::after {
+          background: url("#{$image-path}/minus-white.svg") no-repeat 0 0;
+          background-size: 100%;
+
+          @include grid-media('lg') {
+            background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
             background-size: 100%;
-
-            @include grid-media('lg') {
-              background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
-              background-size: 100%;
-              transform: rotate(180deg);
-            }
+            transform: rotate(180deg);
           }
+        }
 
-          @include grid-media-max('md') {
-            &[aria-expanded="true"]::before {
-              background-color: transparent;
-            }
+        @include grid-media-max('md') {
+          &[aria-expanded="true"]::before {
+            background-color: transparent;
           }
         }
       }
@@ -174,8 +171,6 @@
       }
     }
   }
-
-
 }
 
 .su-main-nav__toggle {
@@ -245,6 +240,7 @@
   @include grid-media('lg') {
     > a {
       color: $color-black;
+      transition: color .3s ease-out;
 
       &:hover,
       &:focus {
