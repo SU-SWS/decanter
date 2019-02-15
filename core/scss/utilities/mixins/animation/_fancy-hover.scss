@@ -5,9 +5,9 @@
 //
 // When an element (e.g., a link) is hovered over, display an animation of a border that expands out from the middle next to the element.
 //
-// $color - Hover/focus border color. Defaults to $color-dark-red.
+// $color - Hover/focus border color, e.g., #eeeeee. Defaults to $color-dark-red.
 // $active - Active border color. Defaults to $color-black.
-// $position - The position of the border relative to the link. The default is 'bottom' and the other choices are 'top', 'left' and 'right'.
+// $position - The position of the border relative to the element the mixin is applied to. The default is 'bottom' and the other choices are 'top', 'left' and 'right'.
 // $thickness - The thickness of the border, e.g., '3px', '1em'. The default is '6px'.
 //
 // Style guide: Mixins.Animation.Fancyhover
@@ -16,7 +16,7 @@
   text-decoration: none;
   position: relative;
 
-  &:before {
+  &::before {
     content: "";
     position: absolute;
     visibility: hidden;
@@ -30,7 +30,7 @@
   &[aria-expanded="true"] {
     text-decoration: none;
 
-    &:before {
+    &::before {
       visibility: visible;
       transition: transform .25s ease-out;
     }
@@ -38,14 +38,14 @@
 
   &:hover,
   &:focus {
-    &:before {
+    &::before {
       background-color: $color;
     }
   }
 
   &:active,
   &[aria-expanded="true"] {
-    &:before {
+    &::before {
       background-color: $active;
     }
   }
@@ -53,14 +53,14 @@
   &[aria-expanded="true"] {
     &:hover,
     &:focus {
-      &:before {
+      &::before {
         background-color: $color;
       }
     }
   }
 
   @if ($position == 'bottom' or $position == 'top') {
-    &:before {
+    &::before {
       width: 100%;
       height: #{$thickness};
       left: 0;
@@ -71,7 +71,7 @@
     &:focus,
     &:active,
     &[aria-expanded="true"] {
-      &:before {
+      &::before {
         transform: scaleX(1);
       }
     }
@@ -79,19 +79,19 @@
     @if ($position == 'bottom') {
       @include padding(null null .8em);
 
-      &:before {
+      &::before {
         bottom: 0;
       }
     } @elseif ($position == 'top') {
       @include padding(.8em null null);
 
-      &:before {
+      &::before {
         top: 0;
       }
     }
 
   } @elseif ($position == 'left' or $position == 'right') {
-    &:before {
+    &::before {
       height: 100%;
       width: #{$thickness};
       bottom: 0;
@@ -102,17 +102,17 @@
     &:focus,
     &:active,
     &[aria-expanded="true"] {
-      &:before {
+      &::before {
         transform: scaleY(1);
       }
     }
 
     @if ($position == 'left') {
-      &:before {
+      &::before {
         left: 0;
       }
     } @elseif ($position == 'right') {
-      &:before {
+      &::before {
         right: 0;
       }
     }
