@@ -135,7 +135,9 @@ document.addEventListener( "DOMContentLoaded", event => {
         event.stopPropagation();
         if ( this.nav.isDesktopNav() ) {
           if ( this.nav.isSubNav() ) {
-            this.closeSubNav( true );
+            this.closeSubNav();
+            let parent = this.nav.getParentNav();
+            parent.focusOn( 'prev', this.nav.elem ); // focus on the previous item in the parent nav
           }
           else {
             this.nav.focusOn('prev', this);
@@ -153,6 +155,8 @@ document.addEventListener( "DOMContentLoaded", event => {
         if ( this.nav.isDesktopNav() ) {
           if ( this.nav.isSubNav() ) {
             this.closeSubNav();
+            let parent = this.nav.getParentNav();
+            parent.focusOn( 'next', this.nav.elem ); // focus on the next item in the parent nav
           }
           else {
             this.nav.focusOn( 'next', this );
