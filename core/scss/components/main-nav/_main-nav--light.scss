@@ -4,12 +4,12 @@
 
   .su-main-nav__toggle {
     &[aria-expanded="true"] {
-      &:before {
+      &::before {
         background-color: $color-driftwood;
       }
 
       &:hover {
-        &:before {
+        &::before {
           background-color: $color-dark-red;
         }
       }
@@ -31,7 +31,7 @@
           &:focus {
             color: $color-dark-red;
 
-            &:before {
+            &::before {
               background-color: $color-dark-red;
             }
           }
@@ -39,7 +39,7 @@
           &:active {
             color: $color-black;
 
-            &:before {
+            &::before {
               background-color: $color-black;
             }
           }
@@ -47,14 +47,14 @@
           &[aria-expanded="true"] {
             color: $color-black;
 
-            &:before {
+            &::before {
               background-color: $color-driftwood;
             }
 
             &:hover {
               color: $color-dark-red;
 
-              &:before {
+              &::before {
                 background-color: $color-dark-red;
               }
             }
@@ -65,7 +65,7 @@
           > a {
             color: $color-black;
 
-            &:before {
+            &::before {
               background-color: $color-driftwood;
             }
 
@@ -73,7 +73,7 @@
             &:focus {
               color: $color-dark-red;
 
-              &:before {
+              &::before {
                 background-color: $color-dark-red;
               }
             }
@@ -91,7 +91,7 @@
 
       &:hover,
       &:focus {
-        &:before {
+        &::before {
           background-color: $color-black;
         }
       }
@@ -99,13 +99,13 @@
       &:active {
         color: $color-dark-red;
 
-        &:before {
+        &::before {
           background-color: $color-dark-red;
         }
       }
 
       &[aria-expanded="true"] {
-        &:before {
+        &::before {
           background-color: $color-dark-red;
         }
       }
@@ -115,7 +115,7 @@
       > a {
         color: $color-dark-red;
 
-        &:before {
+        &::before {
           background-color: $color-dark-red;
         }
       }
@@ -123,7 +123,7 @@
 
     &.su-main-nav__item--parent {
       > a {
-        &:after {
+        &::after {
           background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
           background-size: 100%;
           content: "";
@@ -149,7 +149,7 @@
 
       &.su-main-nav__item--expanded {
         > a {
-          &:after {
+          &::after {
             background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
             background-size: 100%;
 

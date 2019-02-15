@@ -91,7 +91,7 @@
     @include margin(null null 0);
 
     a {
-      @include fancy-hover($color: $color-white, $active: #EC0513, $position: 'left');
+      @include fancy-hover($color: $color-white, $active: #ec0513, $position: 'left');
       @include padding(.8em 2.4em .8em 1.2em);
       display: block;
       color: $color-white;
@@ -119,15 +119,15 @@
       > a {
         font-weight: 700;
 
-        &:before {
+        &::before {
           visibility: visible;
           transform: scaleY(1);
-          background-color: #EC0513;
+          background-color: #ec0513;
         }
 
         &:hover,
         &:focus {
-          &:before {
+          &::before {
             left: 6px;
           }
         }
@@ -136,7 +136,7 @@
 
     &.su-main-nav__item--parent {
       > a {
-        &:after {
+        &::after {
           background: url("#{$image-path}/plus-white.svg") no-repeat 0 0;
           background-size: 100%;
           content: "";
@@ -163,7 +163,7 @@
 
       &.su-main-nav__item--expanded {
         > a {
-          &:after {
+          &::after {
             background: url("#{$image-path}/minus-white.svg") no-repeat 0 0;
             background-size: 100%;
 
@@ -176,7 +176,7 @@
 
           @include grid-media-max('md') {
             &[aria-expanded="true"] {
-              &:before {
+              &::before {
                 background-color: transparent;
               }
             }
@@ -200,7 +200,7 @@
   font-weight: 400;
   line-height: .7;
 
-  &:after {
+  &::after {
     @include margin(0 auto);
     display: inline-block;
     width: 30px;
@@ -210,11 +210,11 @@
   }
 
   &[aria-expanded="true"] {
-    &:before {
+    &::before {
       background-color: $color-black;
     }
 
-    &:after {
+    &::after {
       width: 26px;
       background: url("#{$image-path}/close-black.svg") no-repeat 3px 0;
       background-size: 20px 20px;
@@ -281,29 +281,29 @@
 
   &.su-main-nav__item--current {
     > a {
-      &:before {
+      &::before {
         transform: scaleY(1);
-        background-color: #EC0513;
+        background-color: #ec0513;
       }
 
       &:hover,
       &:focus {
-        &:before {
+        &::before {
           left: 6px;
-          background-color: #EC0513;
+          background-color: #ec0513;
         }
       }
     }
 
     @include grid-media('lg') {
       > a {
-        &:before {
+        &::before {
           background-color: $color-black;
         }
 
         &:hover,
         &:focus {
-          &:before {
+          &::before {
             left: 0;
             background-color: $color-dark-red;
           }
