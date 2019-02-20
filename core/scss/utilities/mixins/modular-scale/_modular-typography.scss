@@ -7,7 +7,6 @@
 //
 // **Examples:**
 // - `@include modular-typography(2)`
-// - `@include modular-typography(1.5)`
 // - `@include modular-typography(-1)`
 //
 // $scale - number (unitless) indicating how many steps to adjust font-size up or down the scale.
@@ -15,27 +14,6 @@
 //
 // Style guide: Mixins.Modular.modular-typography
 //
-@mixin modular-typography($scale: 1) {
-
-  font-size: modular-scale($scale, map-get($modular-typography, 'xs'));
-
-  @include grid-media('sm') {
-    font-size: modular-scale($scale, map-get($modular-typography, 'sm'));
-  }
-
-  @include grid-media('md') {
-    font-size: modular-scale($scale, map-get($modular-typography, 'md'));
-  }
-
-  @include grid-media('lg') {
-    font-size: modular-scale($scale, map-get($modular-typography, 'lg'));
-  }
-
-  @include grid-media('xl') {
-    font-size: modular-scale($scale, map-get($modular-typography, 'xl'));
-  }
-
-  @include grid-media('2xl') {
-    font-size: modular-scale($scale, map-get($modular-typography, '2xl'));
-  }
+@mixin modular-typography($scale: 0) {
+  font-size: modular-scale($scale);
 }
