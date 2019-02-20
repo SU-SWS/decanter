@@ -176,6 +176,7 @@ document.addEventListener( "DOMContentLoaded", event => {
       }
       else if ( isTab( theKey ) ) {
         if ( this.isSubNavItem() && this.isLastItem() ) {
+        event.stopPropagation();
           this.closeSubNav();
         }
       }
