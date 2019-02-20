@@ -102,7 +102,6 @@ document.addEventListener( "DOMContentLoaded", event => {
      */
     onKeydown( event ) {
       const theKey  = event.key || event.keyCode;
-      const shifted = event.shiftKey;
 
       if ( isSpace( theKey ) ) {
         event.preventDefault();
@@ -175,8 +174,9 @@ document.addEventListener( "DOMContentLoaded", event => {
         this.nav.focusOn( 'last' );
       }
       else if ( isTab( theKey ) ) {
-        if ( this.isSubNavItem() && this.isLastItem() ) {
         event.stopPropagation();
+        const shifted = event.shiftKey;
+        if ( this.isSubNavItem() && ( ( !shifted && this.isLastItem() ) || ( shifted && this.isFirstItem() ) ) ) {
           this.closeSubNav();
         }
       }
