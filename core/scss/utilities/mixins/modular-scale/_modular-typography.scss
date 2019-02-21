@@ -5,8 +5,11 @@
 //
 // Specify font size using modular-scale, relative to the base font size (which varies by breakpoint).
 //
+// `@include modular-typography(0)` returns the base font size for that breakpoint.
+//
 // **Examples:**
 // - `@include modular-typography(2)`
+// - `@include modular-typography(0)`
 // - `@include modular-typography(-1)`
 //
 // $scale - number (unitless) indicating how many steps to adjust font-size up or down the scale.
@@ -14,6 +17,6 @@
 //
 // Style guide: Mixins.Modular.modular-typography
 //
-@mixin modular-typography($scale: 0) {
+@mixin modular-typography($scale: 1) {
   font-size: modular-scale($scale);
 }
