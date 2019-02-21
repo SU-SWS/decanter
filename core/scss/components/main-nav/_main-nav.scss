@@ -119,8 +119,20 @@
         }
 
         @include grid-media-max('md') {
-          &[aria-expanded="true"]::before {
+          &::before {
             background-color: transparent;
+          }
+        }
+      }
+    }
+
+    @include grid-media-max('md') {
+      &.su-main-nav__item--current.su-main-nav__item--expanded {
+        > a {
+          font-weight: $font-bold;
+
+          &::before {
+            background-color: $color-white;
           }
         }
       }

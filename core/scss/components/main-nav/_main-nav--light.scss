@@ -37,10 +37,6 @@
           background-color: $color-dark-red;
         }
       }
-
-      &[aria-expanded="true"]::before {
-        background-color: $color-dark-red;
-      }
     }
 
     &.su-main-nav__item--current {
@@ -60,9 +56,21 @@
           background-size: 100%;
         }
 
-        &.su-main-nav__item--expanded > a::after {
-          background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
-          background-size: 100%;
+        &.su-main-nav__item--expanded > a {
+          ::after {
+            background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
+            background-size: 100%;
+          }
+        }
+      }
+
+      &.su-main-nav__item--current.su-main-nav__item--expanded {
+        > a {
+          color: $color-black;
+
+          &::before {
+            background-color: $color-black;
+          }
         }
       }
     }
