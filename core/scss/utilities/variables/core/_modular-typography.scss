@@ -1,9 +1,18 @@
 @charset "UTF-8";
+//
+// Modular Typography
+//
+// A unitless system for setting font sizes. The modular typography scale follows the Bourbon modular-scale mixin formula with a fixed scale ratio between each step.
+// The scale is bi-directional, as font sizes can scale up or down.
+//
+// Note: modular-typography(0) will return the base font size at that breakpoint.
+//
+// Style guide: Variables.Core.ModularTypography
+//
 
+// $modular-typography-base
 //
-// $modular-typography
-//
-// A unitless system for assigning font sizes. These variables are the base font sizes for each break point.
+// The base font sizes for each break point for use with the modular typography system which is based on the Bourbon modular scale.
 //
 // Markup: $modular-typography-base: (
 //   'xs': 1.6rem,
@@ -14,7 +23,7 @@
 //   '2xl': 1.9rem
 // ) !default;
 //
-// Styleguide: Variables.Core.modular-typography
+// Styleguide: Variables.Core.ModularTypography.modular-typography-base
 //
 $modular-typography-base: (
   'xs': 1.6rem,
