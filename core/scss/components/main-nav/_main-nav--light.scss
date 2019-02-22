@@ -133,7 +133,24 @@
                 background-color: $color-dark-red;
               }
             }
+          }
 
+          &.su-main-nav__item--expanded {
+            > a:focus {
+              color: $color-black;
+
+              &::before {
+                background-color: $color-driftwood;
+              }
+            }
+
+            > a[aria-expanded="true"]:hover {
+              color: $color-dark-red;
+
+              &::before {
+                background-color: $color-dark-red;
+              }
+            }
           }
         }
       }

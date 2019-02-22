@@ -21,6 +21,7 @@
 //
 .su-main-nav {
   @include font-smoothing;
+  display: block;
   font-family: $font-sans;
   position: relative;
   z-index: 9999;
@@ -167,6 +168,12 @@
           &:active {
             font-weight: $font-bold;
           }
+
+          &[aria-expanded="true"]::before {
+            visibility: visible;
+            transform: scaleX(1);
+            background-color: $color-black;
+          }
         }
 
         &:last-child > a {
@@ -175,6 +182,16 @@
 
         &.su-main-nav__item--current > a {
           font-weight: $font-bold;
+        }
+
+        &.su-main-nav__item--expanded > a {
+          &:focus::before {
+            background-color: $color-black;
+          }
+
+          &[aria-expanded="true"]:hover::before {
+            background-color: $color-dark-red;
+          }
         }
       }
     }
@@ -301,10 +318,10 @@
 }
 
 .su-main-nav__menu-lv2 {
-  @include padding(null null null 1em);
+  @include padding(null null null 2rem);
 
   @include grid-media('lg') {
-    @include padding(1px null null .6em);
+    @include padding(1px null null 1.2rem);
     @include margin(null null null -18px);
     @include box-shadow($depth: 'medium', $stroke: none);
     z-index: 11111; //When menu wrap to 2nd line make sure dropdown covers up top level links
