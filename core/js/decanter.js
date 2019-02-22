@@ -52,13 +52,15 @@ document.addEventListener( "DOMContentLoaded", event => {
     isExpanded() { return this.link.getAttribute( 'aria-expanded' ) === 'true'; }
     setExpanded( value ) { this.link.setAttribute( 'aria-expanded', value ); }
 
-    openSubNav(focusOnTrigger = true) {
+    openSubNav( focusOnTrigger = true ) {
       closeAllSubNavs();
 
       if ( this.isSubNavTrigger() ) {
         this.item.classList.add( 'su-main-nav__item--expanded' );
         this.setExpanded( 'true' );
-        if (focusOnTrigger) this.subNav.focusOn( 'first' );
+        if ( focusOnTrigger ) {
+          this.subNav.focusOn('first');
+        }
       }
     };
 
@@ -107,11 +109,14 @@ document.addEventListener( "DOMContentLoaded", event => {
     onKeydown( event, target ) {
       const theKey  = event.key || event.keyCode;
 
-      if ( isSpace( theKey ) ) {
+      if ( isSpace( theKey ) || isEnter( theKey ) ) {
         event.preventDefault();
         event.stopPropagation();
         if ( this.isSubNavTrigger() ) {
           this.openSubNav();
+        }
+        else {
+          window.location = this.link;
         }
       }
       else if ( isDownArrow( theKey ) ) {
@@ -325,7 +330,6 @@ document.addEventListener( "DOMContentLoaded", event => {
 
     // Event handlers
 
-
     /**
      * Handler for all events attached to an instance of this class. This method must exist when events are bound
      * to an instance of a class (vs a function or method). This method is called for all events bound to an instance.
@@ -390,6 +394,15 @@ document.addEventListener( "DOMContentLoaded", event => {
             event.preventDefault();
             event.stopPropagation();
             this.elem.closeSubNav( true );
+          }
+        }
+      }
+      else if ( isEnter( theKey ) || isSpace( theKey ) ) {
+        if ( target == this.toggle ) {
+          event.preventDefault();
+          event.stopPropagation();
+          if ( !this.isExpanded() ) {
+            this.openMobileNav();
           }
         }
       }

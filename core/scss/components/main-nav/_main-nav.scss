@@ -40,7 +40,7 @@
 
     a {
       @include fancy-hover($color: $color-white, $active: #ec0513, $position: 'left');
-      @include padding(.8em 2.4em .8em 1.2em);
+      @include padding(1.6rem 4.8rem 1.6rem 2.4rem);
       display: block;
       color: $color-white;
       font-weight: $font-normal;
@@ -88,10 +88,10 @@
         content: "";
         display: inline-block;
         position: absolute;
-        right: 1em;
-        top: 1.03em;
-        height: .9em;
-        width: .9em;
+        right: 2rem;
+        top: 2.06rem;
+        height: 1.8rem;
+        width: 1.8rem;
 
         @include grid-media('lg') {
           @include margin(null null 1px 6px);
@@ -309,7 +309,7 @@
     @include box-shadow($depth: 'medium', $stroke: none);
     z-index: 11111; //When menu wrap to 2nd line make sure dropdown covers up top level links
     position: absolute;
-    max-width: 18em;
+    max-width: 36rem;
 
     li:last-child a {
       border-bottom: 0;
