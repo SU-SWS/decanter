@@ -90,7 +90,8 @@ document.addEventListener( "DOMContentLoaded", event => {
       // if this class has an onEvent method, e.g. onClick, onKeydown, invoke it
       const handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);
       if ( typeof  this[ handler ] === 'function' ) {
-        return this[ handler ]( event );
+        const target = event.target || event.srcElement; // the element that was clicked
+        return this[ handler ]( event, target );
       }
     }
 
@@ -99,8 +100,9 @@ document.addEventListener( "DOMContentLoaded", event => {
      * Dispatched from this.handleEvent().
      *
      * @param {KeyboardEvent} event
+     * @param {HTMLElement} target
      */
-    onKeydown( event ) {
+    onKeydown( event, target ) {
       const theKey  = event.key || event.keyCode;
 
       if ( isSpace( theKey ) ) {
@@ -183,20 +185,24 @@ document.addEventListener( "DOMContentLoaded", event => {
     }
 
     /**
-     * Handler for click events. click is only bound to subnav triggers.
+     * Handler for click events.
      * Dispatched from this.handleEvent().
      *
+     * click is only bound to subnav triggers. However, click bubbles up from subnav items to the trigger.
+     *
      * @param {KeyboardEvent} event
+     * @param {HTMLElement} target
      */
-    onClick( event ) {
-      event.preventDefault();
-      event.stopPropagation();
-
+    onClick( event, target ) {
       if ( this.isExpanded() ) {
         this.closeSubNav();
       }
       else {
         this.openSubNav();
+      }
+      if ( target == this.link ) { // if the click is directly on the trigger, then we're done
+        event.preventDefault();
+        event.stopPropagation();
       }
     }
 
