@@ -19,7 +19,6 @@ document.addEventListener( "DOMContentLoaded", event => {
   const isUpArrow = theKey => ( theKey === 'ArrowUp' || theKey === 'Up' || theKey === 38 );
   const isDownArrow = theKey => ( theKey === 'ArrowDown' || theKey === 'Down' || theKey === 40 );
 
-
   //////
   // Helper classes
 
@@ -49,16 +48,16 @@ document.addEventListener( "DOMContentLoaded", event => {
     isLastItem() { return this.nav.items.indexOf( this ) === this.nav.items.length - 1; }
     isSubNavTrigger() { return this.item.lastElementChild.tagName.toUpperCase() === 'UL'; };
     isSubNavItem() { return this.isSubNavTrigger() || this.nav.isSubNav(); }
-    isExpanded() { return this.link.getAttribute('aria-expanded') === 'true'; }
+    isExpanded() { return this.link.getAttribute( 'aria-expanded' ) === 'true'; }
     setExpanded( value ) { this.link.setAttribute( 'aria-expanded', value ); }
 
-    openSubNav() {
+    openSubNav(focusOnTrigger = true) {
       closeAllSubNavs();
 
       if ( this.isSubNavTrigger() ) {
         this.item.classList.add( 'su-main-nav__item--expanded' );
         this.setExpanded( 'true' );
-        this.subNav.focusOn( 'first' );
+        if (focusOnTrigger) this.subNav.focusOn( 'first' );
       }
     };
 
@@ -66,7 +65,9 @@ document.addEventListener( "DOMContentLoaded", event => {
       if ( this.isSubNavTrigger() ) {
         this.item.classList.remove( 'su-main-nav__item--expanded' );
         this.setExpanded( 'false' );
-        if ( focusOnTrigger ) this.link.focus();
+        if ( focusOnTrigger ) {
+          this.link.focus();
+        }
       }
       else if ( this.isSubNavItem() ) {
         this.nav.elem.closeSubNav( focusOnTrigger ); // this.nav.elem should be a subNavTrigger
@@ -89,7 +90,7 @@ document.addEventListener( "DOMContentLoaded", event => {
       event = event || window.event;
       // if this class has an onEvent method, e.g. onClick, onKeydown, invoke it
       const handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);
-      if ( typeof  this[ handler ] === 'function' ) {
+      if ( typeof this[ handler ] === 'function' ) {
         const target = event.target || event.srcElement; // the element that was clicked
         return this[ handler ]( event, target );
       }
@@ -198,7 +199,7 @@ document.addEventListener( "DOMContentLoaded", event => {
         this.closeSubNav();
       }
       else {
-        this.openSubNav();
+        this.openSubNav( false );
       }
       if ( target == this.link ) { // if the click is directly on the trigger, then we're done
         event.preventDefault();
@@ -306,12 +307,14 @@ document.addEventListener( "DOMContentLoaded", event => {
       }
     }
 
-    openMobileNav() {
+    openMobileNav( focusOnTrigger = true ) {
       closeAllMobileNavs();
 
       this.setExpanded( 'true' );
-      this.focusOn( 'first' ); // Focus on the first top level link
       this.toggle.innerText = 'Close';
+      if ( focusOnTrigger ) {
+        this.focusOn( 'first' ); // Focus on the first top level link
+      }
     };
 
     closeMobileNav() {
@@ -356,7 +359,7 @@ document.addEventListener( "DOMContentLoaded", event => {
           this.closeMobileNav();
         }
         else {
-          this.openMobileNav();
+          this.openMobileNav( false );
         }
       }
     }
