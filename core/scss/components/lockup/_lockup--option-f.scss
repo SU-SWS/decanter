@@ -1,5 +1,8 @@
 @charset 'UTF-8';
 
+//
+// Lockup option F: Unit (2 lines, big/super small)
+//
 .su-lockup--option-f {
   .su-lockup__line3,
   .su-lockup__line4,
@@ -20,12 +23,14 @@
   }
 
   .su-lockup__line1 {
-    font-size: 1.3rem;
+    @include margin(-.4rem null null);
     @include padding(null null 2px null);
+    font-size: 1.3rem;
   }
 
   .su-lockup__line2 {
     line-height: 0.7em;
+
     @include grid-media-only('xs') {
       font-size: 1.9rem;
     }

@@ -1,5 +1,8 @@
 @charset 'UTF-8';
 
+//
+// Lockup option E: Unit (2 lines) + Level
+//
 .su-lockup--option-e {
 
   .su-lockup__line4,
@@ -8,6 +11,7 @@
   }
 
   .su-lockup__line1 {
+    @include margin(-.8rem null null);
     @include grid-media-only('xs') {
       @include margin(null null 7px -2px);
       @include padding(5px null 5px null);
@@ -19,6 +23,8 @@
 
   .su-lockup__line2 {
     @include padding(null null 6px null);
+    line-height: 2rem;
+
     @include grid-media-only('xs') {
       font-size: 1.9rem;
     }
@@ -28,6 +34,7 @@
     font-size: 1.8rem;
     line-height: .7em;
     font-style: italic;
+
     @include grid-media-only('xs') {
       font-size: 1.9rem;
     }

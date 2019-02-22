@@ -1,5 +1,8 @@
 @charset 'UTF-8';
 
+//
+// Lockup option Q: Multidisciplinary + Unit + Level
+//
 .su-lockup--option-q {
   .su-lockup__line2,
   .su-lockup__line4 {
@@ -7,12 +10,15 @@
   }
 
   .su-lockup__line1 {
+    @include margin(-.8rem null null);
+
     @include grid-media-only('xs') {
       @include margin(4px null null null);
     }
   }
 
   .su-lockup__line3 {
+    font-size: 2.3rem;
     font-style: italic;
     line-height: 0.7em;
   }
@@ -21,6 +27,7 @@
     text-transform: uppercase;
     font-weight: $font-bold;
     font-size: 2.1rem;
+
     @include grid-media-only('xs') {
       @include margin(7px null null null);
     }

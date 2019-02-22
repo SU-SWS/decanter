@@ -1,0 +1,45 @@
+@charset 'UTF-8';
+
+//
+// Lockup option T: School + Unit + Level (vertical)
+//
+.su-lockup--option-t {
+
+  .su-lockup__wordmark {
+    display: block;
+  }
+
+  .su-lockup__line1 {
+    @include margin(0.5rem null null);
+  }
+
+  .su-lockup__line1,
+  .su-lockup__line2 {
+    font-size: 2rem;
+  }
+
+  .su-lockup__line3 {
+    font-size: 1.5rem;
+  }
+
+  .su-lockup__line4 {
+    display: inline-block;
+    border-bottom: solid 1px $color-black;
+    min-width: 120px;
+  }
+
+  .su-lockup__line5 {
+    display: none;
+  }
+
+  .su-lockup__cell1 {
+    @include padding(0);
+    border: 0;
+  }
+
+  .su-lockup__cell2 {
+    @include padding(0);
+    border: 0;
+    width: 100%;
+  }
+}

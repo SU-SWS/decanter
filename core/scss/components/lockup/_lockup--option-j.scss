@@ -1,5 +1,8 @@
 @charset 'UTF-8';
 
+//
+// Lockup option J: Multidisciplinary + Unit (2 lines)
+//
 .su-lockup--option-j {
 
   .su-lockup__line3,
@@ -8,6 +11,7 @@
   }
 
   .su-lockup__line1 {
+    @include margin(-.8rem null null null);
     @include grid-media-only('xs') {
       @include margin(4px null null null);
     }
@@ -21,6 +25,7 @@
     font-size: 2.1rem;
     text-transform: uppercase;
     font-weight: $font-bold;
+
     @include grid-media-only('xs') {
       @include margin(4px null null null);
     }
