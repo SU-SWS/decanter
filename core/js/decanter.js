@@ -4,6 +4,7 @@ NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEa
 //// TODO: move to components/main-nav.js file
 document.addEventListener( "DOMContentLoaded", event => {
 
+  // The css class that this following behaviour is applied to.
   const navClass = 'su-main-nav';
 
   //////
