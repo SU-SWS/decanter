@@ -42,45 +42,55 @@
  * - region_attributes: Attributes for each region variable
  */
 #}
-<div{{ attributes }} class="su-lockup {{ modifier_class -}}">
+<div{{ attributes }} class="su-lockup {{ modifier_class }}">
   {#- Cell container #1 -#}
   <div class="su-lockup__cell1">
-    {% if main_link is not empty %}
-    <a href="{{ main_link }}" class="su-lockup__wordmark-link">
+    {% block cell1 %}
+
+    {% if link is not empty %}
+    <a href="{{ link }}" class="su-lockup__wordmark-link">
     {% endif %}
       <span class="su-lockup__wordmark">Stanford</span>
     {% if line4 is not empty %}
       <span class="su-lockup__line4" {{ region_attributes.line4 }}>{{ line4 }}</span>
     {% endif %}
-    {%- if main_link is not empty %}
+    {%- if link is not empty %}
     </a>
     {% endif %}
+    {% endblock %}
   </div>
+
   {#- Cell container #2 -#}
   <div class="su-lockup__cell2">
-    {% if secondary_link is not empty %}
-    <a href="{{ secondary_link }}" class="su-lockup__lines-link">
+    {% block cell2 %}
+    {% if link is not empty %}
+    <a href="{{ link }}" class="su-lockup__lines-link">
     {% endif %}
 
     {% if line1 is not empty %}
-    <span class="su-lockup__line1" {{ region_attributes.line1 }}>{{- line1 }}</span>
+    <span class="su-lockup__line1" {{ region_attributes.line1 }}>{{ line1 }}</span>
     {% endif %}
 
     {% if line2 is not empty %}
-    <span class="su-lockup__line2" {{ region_attributes.line2 }}>{{- line2 }}</span>
+    <span class="su-lockup__line2" {{ region_attributes.line2 }}>{{ line2 }}</span>
     {% endif %}
 
     {% if line3 is not empty %}
-    <span class="su-lockup__line3" {{ region_attributes.line3 }}>{{- line3 }}</span>
+    <span class="su-lockup__line3" {{ region_attributes.line3 }}>{{ line3 }}</span>
     {% endif %}
 
-    {%- if secondary_link is not empty %}
+    {% if link is not empty %}
     </a>
     {% endif %}
+    {% endblock %}
   </div>
 
   {#- Line 5 of Site Name - Optional -#}
-  {%- if line5 is not empty %}
-    <div class="su-lockup__line5 {{ region_attributes.line5 }}">{{ line5 }}</div>
+  {% if line5 is not empty %}
+    <div class="su-lockup__line5 {{ region_attributes.line5 }}">
+      {%- block cell3 -%}
+      {{- line5 -}}
+      {%- endblock -%}
+    </div>
   {% endif %}
 </div>
