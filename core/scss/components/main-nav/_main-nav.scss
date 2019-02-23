@@ -19,6 +19,8 @@
 //
 // Style guide: Components.Main Navigation
 //
+
+$custom-active: #ec0513; //custom high contrast active/current link border for accessibility
 .su-main-nav {
   @include font-smoothing;
   display: block;
@@ -40,7 +42,7 @@
     @include margin(null null 0);
 
     a {
-      @include fancy-hover($color: $color-white, $active: #ec0513, $position: 'left');
+      @include fancy-hover($color: $color-white, $active: $custom-active, $position: 'left');
       @include padding(1.6rem 4.8rem 1.6rem 2.4rem);
       display: block;
       color: $color-white;
@@ -70,7 +72,7 @@
       &::before {
         visibility: visible;
         transform: scaleY(1);
-        background-color: #ec0513;
+        background-color: $custom-active;
         transition: left .1s ease-out;
       }
 
@@ -122,6 +124,14 @@
         @include grid-media-max('md') {
           &::before {
             background-color: transparent;
+          }
+
+          &:hover::before {
+            background-color: $color-white;
+          }
+
+          &:active::before {
+            background-color: $custom-active;
           }
         }
       }
@@ -199,52 +209,48 @@
 }
 
 .su-main-nav__toggle {
-  @include fancy-hover;
-  @include padding(0 0 1em);
-  @include margin(0);
-  display: flex;
-  flex-direction: column-reverse;
-  width: 40px;
-  background-color: transparent;
-  color: $color-black;
-  font-size: 1.6rem;
-  font-weight: $font-normal;
-  line-height: .7;
-
-  &::after {
-    @include margin(0 auto);
-    display: inline-block;
-    width: 30px;
-    height: 26px;
-    background: url("#{$image-path}/hamburger-black.svg") no-repeat 3px 0;
-    content: "";
-  }
-
-  &[aria-expanded="true"] {
-    &::before {
-      background-color: $color-black;
-    }
-
-    &::after {
-      width: 26px;
-      background: url("#{$image-path}/close-black.svg") no-repeat 3px 0;
-      background-size: 20px 20px;
-    }
-  }
-
-  &:hover,
-  &:active,
-  &:focus {
+  @include grid-media-max('md') {
+    @include fancy-hover;
+    @include padding(0 0 2rem);
+    @include margin(0);
+    display: flex;
+    flex-direction: column-reverse;
+    width: 40px;
     background-color: transparent;
     color: $color-black;
-    box-shadow: none;
-  }
+    font-size: 1.6rem;
+    font-weight: $font-normal;
+    line-height: .7;
 
-  @include grid-media('lg') {
-    display: none;
-  }
+    &::after {
+      @include margin(0 auto);
+      display: inline-block;
+      width: 30px;
+      height: 26px;
+      background: url("#{$image-path}/hamburger-black.svg") no-repeat 3px 0;
+      content: "";
+    }
 
-  @include grid-media-max('md') {
+    &[aria-expanded="true"] {
+      &::before {
+        background-color: $color-black;
+      }
+
+      &::after {
+        width: 26px;
+        background: url("#{$image-path}/close-black.svg") no-repeat 3px 0;
+        background-size: 20px 20px;
+      }
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: transparent;
+      color: $color-black;
+      box-shadow: none;
+    }
+
     &[aria-expanded="false"] + .su-main-nav__menu-lv1 {
       display: none;
     }
@@ -258,6 +264,10 @@
     &[aria-expanded="true"]  + .su-main-nav__menu-lv1 {
       max-width: 24em;
     }
+  }
+
+  @include grid-media('lg') {
+    display: none;
   }
 }
 
@@ -287,14 +297,36 @@
     > a {
       &::before {
         transform: scaleY(1);
-        background-color: #ec0513;
+        background-color: $custom-active;
       }
 
       &:hover,
       &:focus {
         &::before {
-          left: 6px;
-          background-color: #ec0513;
+          background-color: $custom-active;
+        }
+      }
+    }
+
+    @include grid-media-max('md') {
+      &.su-main-nav__item--expanded {
+        > a:focus::before {
+          left: 0;
+          background-color: $color-white;
+        }
+
+        > a[aria-expanded="true"] {
+          &:hover::before {
+            left: 6px;
+          }
+
+          &:active {
+            font-weight: $font-x-bold;
+
+            &::before {
+              background-color: $custom-active;
+            }
+          }
         }
       }
     }

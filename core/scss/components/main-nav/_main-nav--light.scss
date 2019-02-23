@@ -61,6 +61,20 @@
             background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
             background-size: 100%;
           }
+
+          &:focus::before {
+            background-color: transparent;
+          }
+
+          &[aria-expanded="true"] {
+            &:hover::before {
+              background-color: $color-black;
+            }
+
+            &:active::before {
+              background-color: $color-dark-red;
+            }
+          }
         }
       }
 
@@ -70,6 +84,14 @@
 
           &::before {
             background-color: $color-black;
+          }
+
+          &:focus::before {
+            background-color: $color-black;
+          }
+
+          &[aria-expanded="true"]:active {
+            color: $color-dark-red;
           }
         }
       }
