@@ -7906,11 +7906,18 @@ a {
       background: url("../img/hamburger-black.svg") no-repeat 3px 0;
       content: ""; }
     .su-main-nav__toggle[aria-expanded="true"]::before {
+      visibility: visible;
+      -webkit-transform: scaleX(1);
+              transform: scaleX(1);
       background-color: #2e2d29; }
     .su-main-nav__toggle[aria-expanded="true"]::after {
       width: 26px;
       background: url("../img/close-black.svg") no-repeat 3px 0;
       background-size: 20px 20px; }
+    .su-main-nav__toggle[aria-expanded="true"]:hover::before {
+      background-color: #820000; }
+    .su-main-nav__toggle[aria-expanded="true"]:active::before {
+      background-color: #2e2d29; }
     .su-main-nav__toggle:hover, .su-main-nav__toggle:active, .su-main-nav__toggle:focus {
       background-color: transparent;
       color: #2e2d29;
@@ -7973,7 +7980,7 @@ a {
     .su-main-nav__menu-lv2 {
       padding-top: 1px;
       padding-left: 1.2rem;
-      margin-left: -18px;
+      margin-left: -1.8rem;
       border: none;
       -webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15), 0px 6px 6px rgba(0, 0, 0, 0.2);
               box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15), 0px 6px 6px rgba(0, 0, 0, 0.2);
@@ -7993,6 +8000,9 @@ a {
 
 .su-main-nav.su-main-nav--light .su-main-nav__toggle[aria-expanded="true"]:hover::before {
   background-color: #820000; }
+
+.su-main-nav.su-main-nav--light .su-main-nav__toggle[aria-expanded="true"]:active::before {
+  background-color: #2e2d29; }
 
 .su-main-nav.su-main-nav--light ul {
   background-color: #ffffff; }

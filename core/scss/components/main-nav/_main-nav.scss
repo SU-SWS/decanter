@@ -233,6 +233,8 @@ $custom-active: #ec0513; //custom high contrast active/current link border for a
 
     &[aria-expanded="true"] {
       &::before {
+        visibility: visible;
+        transform: scaleX(1);
         background-color: $color-black;
       }
 
@@ -240,6 +242,14 @@ $custom-active: #ec0513; //custom high contrast active/current link border for a
         width: 26px;
         background: url("#{$image-path}/close-black.svg") no-repeat 3px 0;
         background-size: 20px 20px;
+      }
+
+      &:hover::before {
+          background-color: $color-dark-red;
+      }
+
+      &:active::before {
+        background-color: $color-black;
       }
     }
 
@@ -354,7 +364,7 @@ $custom-active: #ec0513; //custom high contrast active/current link border for a
 
   @include grid-media('lg') {
     @include padding(1px null null 1.2rem);
-    @include margin(null null null -18px);
+    @include margin(null null null -1.8rem);
     @include box-shadow($depth: 'medium', $stroke: none);
     z-index: 11111; //When menu wrap to 2nd line make sure dropdown covers up top level links
     position: absolute;
