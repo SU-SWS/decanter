@@ -43,30 +43,24 @@
  */
 #}
 <div{{ attributes }} class="su-lockup {{ modifier_class }}">
+  {% if link is not empty %}
+  <a href="{{ link }}" {{ link_attributes }}>
+  {% endif %}
   {#- Cell container #1 -#}
   <div class="su-lockup__cell1">
     {% block cell1 %}
-
-    {% if link is not empty %}
-    <a href="{{ link }}" class="su-lockup__wordmark-link">
-    {% endif %}
-      <span class="su-lockup__wordmark">Stanford</span>
-    {% if line4 is not empty %}
-      <span class="su-lockup__line4" {{ region_attributes.line4 }}>{{ line4 }}</span>
-    {% endif %}
-    {%- if link is not empty %}
-    </a>
-    {% endif %}
+      <div class="su-lockup__wordmark-wrapper">
+        <span class="su-lockup__wordmark">Stanford</span>
+        {% if line4 is not empty %}
+          <span class="su-lockup__line4" {{ region_attributes.line4 }}>{{ line4 }}</span>
+        {% endif %}
+      </div>
     {% endblock %}
   </div>
 
   {#- Cell container #2 -#}
   <div class="su-lockup__cell2">
     {% block cell2 %}
-    {% if link is not empty %}
-    <a href="{{ link }}" class="su-lockup__lines-link">
-    {% endif %}
-
     {% if line1 is not empty %}
     <span class="su-lockup__line1" {{ region_attributes.line1 }}>{{ line1 }}</span>
     {% endif %}
@@ -78,10 +72,6 @@
     {% if line3 is not empty %}
     <span class="su-lockup__line3" {{ region_attributes.line3 }}>{{ line3 }}</span>
     {% endif %}
-
-    {% if link is not empty %}
-    </a>
-    {% endif %}
     {% endblock %}
   </div>
 
@@ -92,5 +82,8 @@
       {{- line5 -}}
       {%- endblock -%}
     </div>
+  {% endif %}
+  {% if link is not empty %}
+    </a>
   {% endif %}
 </div>

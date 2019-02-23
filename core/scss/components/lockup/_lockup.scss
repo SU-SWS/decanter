@@ -31,7 +31,8 @@
 //
 // Style guide: Components.Lockup
 //
-.su-lockup {
+.su-lockup,
+.su-lockup > a {
   @include grid-media('sm') {
     @include flex-container;
     justify-content: flex-start;
@@ -83,7 +84,7 @@
   }
 }
 
-.su-lockup__wordmark-link {
+.su-lockup__wordmark-wrapper {
   line-height: 26px;
 
   @include grid-media('md') {
