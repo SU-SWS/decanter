@@ -23,12 +23,19 @@ document.addEventListener( "DOMContentLoaded", event => {
   //////
   // Helper classes
 
-  /** Represent an item in a navigation menu */
+  /**
+   * Represent an item in a navigation menu. May be a direct link or a subnav trigger.
+   *
+   * @property {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
+   * @property {HTMLElement|Nav} nav    - the Nav that contains the element. May be a main nav (<nav>) or a subnav (Nav).
+   * @property {HTMLLIElement}   link   - the <a> in the DOM that is contained in item (the <li>)
+   * @property {Nav}             subNav - if item is the trigger for a subnav, this is an instonce Nav that models the subnav
+   */
   class NavItem {
     /**
      * Create a NavItem
      * @param {HTMLLIElement} item - the <li> that is the NavItem in the DOM
-     * @param {HTMLElement|Nav} nav - the Nav that contains the element. May be a main nav (<nav>) or a subnav (Nav)
+     * @param {HTMLElement|Nav} nav - the Nav that contains the element. May be a main nav (<nav>) or a subnav (Nav).
      */
     constructor( item, nav ) {
       this.item = item;
@@ -45,25 +52,74 @@ document.addEventListener( "DOMContentLoaded", event => {
       }
     }
 
-    isFirstItem() { return this.nav.items.indexOf( this ) === 0; }
-    isLastItem() { return this.nav.items.indexOf( this ) === this.nav.items.length - 1; }
-    isSubNavTrigger() { return this.item.lastElementChild.tagName.toUpperCase() === 'UL'; };
-    isSubNavItem() { return this.isSubNavTrigger() || this.nav.isSubNav(); }
-    isExpanded() { return this.link.getAttribute( 'aria-expanded' ) === 'true'; }
-    setExpanded( value ) { this.link.setAttribute( 'aria-expanded', value ); }
+    /********************
+     * Helper methods
+     ********************/
 
-    openSubNav( focusOnTrigger = true ) {
+    /**
+     * is this the first item in the containing Nav?
+     * @returns {Boolean}
+     */
+    isFirstItem = () => this.nav.items.indexOf( this ) === 0;
+
+    /**
+     * is this the last item in the containing Nav?
+     * @returns {Boolean}
+     */
+    isLastItem = () => this.nav.items.indexOf( this ) === ( this.nav.items.length - 1 );
+
+    /**
+     * is this a trigger that opens / closes a subnav?
+     * @returns {Boolean}
+     */
+    isSubNavTrigger = () => this.item.lastElementChild.tagName.toUpperCase() === 'UL';
+
+    /**
+     * is this a component of a subnav - either the trigger or a nav item?
+     * @returns {Boolean}
+     */
+    isSubNavItem = () => ( this.isSubNavTrigger() || this.nav.isSubNav() );
+
+    /**
+     * is this expanded? Can only return TRUE if this is a subnav trigger.
+     * @returns {Boolean}
+     */
+    isExpanded = () => this.link.getAttribute( 'aria-expanded' ) === 'true';
+
+    /**
+     * Set whether or not this is expanded. Only meaningful if this is a subnav trigger.
+     * @param {String} value - what to set the aria-expanded attribute of this's link to
+     */
+    setExpanded = ( value ) => { this.link.setAttribute( 'aria-expanded', value ); }
+
+    /********************
+     * Functional methods
+     ********************/
+
+    /**
+     * If this is a subnav trigger, open the corresponding subnav.
+     * Optionally force focus on the first element in the subnav (for keyboard nav).
+     *
+     * @param {Boolean} focusOnFirst - whether or not to also focus on the first element in the subnav
+     */
+    openSubNav( focusOnFirst = true ) {
       closeAllSubNavs();
 
       if ( this.isSubNavTrigger() ) {
         this.item.classList.add( 'su-main-nav__item--expanded' );
         this.setExpanded( 'true' );
-        if ( focusOnTrigger ) {
-          this.subNav.focusOn('first');
+        if ( focusOnFirst ) {
+          this.subNav.focusOn( 'first' );
         }
       }
     };
 
+    /**
+     * If this is a subnav trigger or an item in a subnav, close the corresponding subnav.
+     * Optionally force focus on the trigger.
+     *
+     * @param {Boolean} focusOnFirst - whether or not to also focus on the subnav's trigger
+     */
     closeSubNav( focusOnTrigger = false ) {
       if ( this.isSubNavTrigger() ) {
         this.item.classList.remove( 'su-main-nav__item--expanded' );
@@ -77,17 +133,18 @@ document.addEventListener( "DOMContentLoaded", event => {
       }
     };
 
-    //////
-    // Event handlers
+    /********************
+     * Event handlers
+     ********************/
 
     /**
      * Handler for all events attached to an instance of this class. This method must exist when events are bound
-     * to an instance of a class (vs a function or method). This method is called for all events bound to an instance.
-     * It inspects the instance (this) for an appropriate handler based on the event type. If found, it dispatches
+     * to an instance of a class (vs a function). This method is called for all events bound to an instance. It
+     * inspects the instance (this) for an appropriate handler based on the event type. If found, it dispatches
      * the event to the appropriate handler.
      *
      * @param {KeyboardEvent} event
-     * @returns {*}
+     * @returns {*} whatever the dispatched handler returns (in our case nothing)
      */
     handleEvent( event ) {
       event = event || window.event;
@@ -216,6 +273,15 @@ document.addEventListener( "DOMContentLoaded", event => {
   }
 
   /** Represent a navigation menu, either top level or nested. */
+  /**
+   * Represent a navigation menu. May be the top nav or a subnav.
+   *
+   * @property {HTMLElement|NavItem} elem       - the element that is the nav. May be a main nav (<nav>) or a subnav (NavItem).
+   * @property {Nav}                 topNav     - the instance of Nav that models the top nav. If this is the top nav, topNav === this.
+   * @property {HTMLButtonElement}   toggle     - the <button> in the DOM that toggles the menu on mobile. NULL if this is a subnav.
+   * @property {String}              toggleText - the initial text of the mobile toggle (so we can reset it when the mobile nav is closed)
+   * @property {Array}               items      - instances of NavItem that model each element in the nav
+   */
   class Nav {
     /**
      * Create a Nav
@@ -239,6 +305,10 @@ document.addEventListener( "DOMContentLoaded", event => {
       }
     }
 
+    /********************
+     * Helper methods
+     ********************/
+
     /**
      * Get the instance of Nav that represents the top level nav of this instance.
      *
@@ -260,22 +330,87 @@ document.addEventListener( "DOMContentLoaded", event => {
      *
      * @returns {Nav}
      */
-    getParentNav() { return this.isSubNav() ? this.elem.nav : this; }
+    getParentNav = () => this.isSubNav() ? this.elem.nav : this;
 
-    isExpanded() { return this.elem instanceof NavItem ? this.elem.isExpanded() : this.elem.getAttribute('aria-expanded') === 'true'; }
-    setExpanded( value ) {
-      this.elem instanceof NavItem ? this.elem.setExpanded( value ) : this.elem.setAttribute( 'aria-expanded', value );
-      if ( this.toggle ) this.toggle.setAttribute( 'aria-expanded', value );
+
+    /**
+     * Is this expanded?
+     * If this is a subnav, ask the subnav (NavItem) if it's expanded.
+     * Otherwise (this is the top nav), check aria-expanded.
+     *
+     * @returns {Boolean}
+     */
+    isExpanded = () => this.elem instanceof NavItem ? this.elem.isExpanded() : this.elem.getAttribute( 'aria-expanded' ) === 'true';
+
+    /**
+     * Set whether or not this is expanded.
+     * If this is a subnav, let the subnav (NavItem) handled it.
+     * Otherwise (this is the top nav), set aria-expanded.
+     *
+     * @param {String} value - what to set the aria-expanded attribute of this's link to
+     */
+    setExpanded = ( value ) => {
+      if ( this.elem instanceof NavItem ) {
+        this.elem.setExpanded( value );
+      }
+      else {
+        this.elem.setAttribute( 'aria-expanded', value );
+        if ( this.toggle ) this.toggle.setAttribute( 'aria-expanded', value );
+      }
     }
 
-    isDesktopNav() { return getComputedStyle( this.topNav.toggle ).display === 'none'; }
-    isTopNav()     { return this.topNav === this; }
-    isSubNav()     { return this.topNav !== this; }
-    firstItem()    { return this.items.length ? this.items[ 0 ] : null; }
-    lastItem()     { return this.items.length ? this.items[ this.items.length - 1 ] : null; }
-    firstLink()    { return this.items.length ? this.firstItem().link : null; }
-    lastLink()     { return this.items.length ? this.lastItem().link : null; }
+    /**
+     * Is this rendering the desktop style for the nav?
+     * @return {Boolean}
+     */
+    isDesktopNav = () => getComputedStyle( this.topNav.toggle ).display === 'none';
 
+    /**
+     * Is this the top nav?
+     * @return {Boolean}
+     */
+    isTopNav = () => this.topNav === this;
+
+    /**
+     * Is this a subnav?
+     * @return {Boolean}
+     */
+    isSubNav = () => this.topNav !== this;
+
+    /**
+     * Get the first item in this nav.
+     * @return {NavItem}
+     */
+    getFirstItem = () => this.items.length ? this.items[ 0 ] : null;
+
+    /**
+     * Get the last item in this nav.
+     * @return {NavItem}
+     */
+    getLastItem = () => this.items.length ? this.items[ this.items.length - 1 ] : null;
+
+    /**
+     * Get the link associated with the first item in this nav.
+     * @return {HTMLAnchorElement}
+     */
+    getFirstLink = () => this.items.length ? this.getFirstItem().link : null;
+
+    /**
+     * Get the link associated with the last item in this nav.
+     * @return {HTMLAnchorElement}
+     */
+    getLastLink = () => this.items.length ? this.getLastItem().link : null;
+
+    /********************
+     * Functional methods
+     ********************/
+
+    /**
+     * Set the focus on the specified link in this nav.
+     *
+     * @param {String|Number} link - 'first' | 'last' | 'next' | 'prev' | numerical index
+     * @param {NavItem} currentItem - if link is 'next' or 'prev', currentItem is the NavItem that next / prev is relative to
+     */
     focusOn( link, currentItem = null ) {
       var currentIndex, lastIndex = null;
       if ( currentItem ) {
@@ -284,14 +419,14 @@ document.addEventListener( "DOMContentLoaded", event => {
       }
       switch ( link ) {
         case 'first':
-          this.firstLink().focus();
+          this.getFirstLink().focus();
           break;
         case 'last':
-          this.lastLink().focus();
+          this.getLastLink().focus();
           break;
         case 'next':
           if ( currentIndex === lastIndex ) {
-            this.firstLink().focus();
+            this.getFirstLink().focus();
           }
           else {
             this.items[ currentIndex + 1 ].link.focus();
@@ -299,7 +434,7 @@ document.addEventListener( "DOMContentLoaded", event => {
           break;
         case 'prev':
           if ( currentIndex === 0 ) {
-            this.lastLink().focus();
+            this.getLastLink().focus();
           }
           else {
             this.items[ currentIndex - 1 ].link.focus();
@@ -313,16 +448,25 @@ document.addEventListener( "DOMContentLoaded", event => {
       }
     }
 
-    openMobileNav( focusOnTrigger = true ) {
+    /**
+     * Close any mobile navs that might be open, then mark this mobile nav open.
+     * Optionally force focus on the first element in the nav (for keyboard nav).
+     *
+     * @param {Boolean} focusOnFirst - whether or not to also focus on the first element in the subnav
+     */
+    openMobileNav( focusOnFirst = true ) {
       closeAllMobileNavs();
 
       this.setExpanded( 'true' );
       this.toggle.innerText = 'Close';
-      if ( focusOnTrigger ) {
+      if ( focusOnFirst ) {
         this.focusOn( 'first' ); // Focus on the first top level link
       }
     };
 
+    /**
+     * Mark this mobile closed, and restore the button text to what it was initially
+     */
     closeMobileNav() {
       this.setExpanded( 'false' );
       this.toggle.innerText = this.toggleText;
@@ -332,18 +476,18 @@ document.addEventListener( "DOMContentLoaded", event => {
 
     /**
      * Handler for all events attached to an instance of this class. This method must exist when events are bound
-     * to an instance of a class (vs a function or method). This method is called for all events bound to an instance.
-     * It inspects the instance (this) for an appropriate handler based on the event type. If found, it dispatches
+     * to an instance of a class (vs a function). This method is called for all events bound to an instance. It
+     * inspects the instance (this) for an appropriate handler based on the event type. If found, it dispatches
      * the event to the appropriate handler.
      *
      * @param {KeyboardEvent} event
-     * @returns {*}
+     * @returns {*} whatever the dispatched handler returns (in our case nothing)
      */
     handleEvent( event ) {
       event = event || window.event;
       // if this class has an onEvent method, e.g. onClick, onKeydown, invoke it
       const handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);
-      if ( typeof  this[ handler ] === 'function' ) {
+      if ( typeof this[ handler ] === 'function' ) {
         const target = event.target || event.srcElement; // the element that was clicked
         return this[ handler ]( event, target );
       }
@@ -421,6 +565,7 @@ document.addEventListener( "DOMContentLoaded", event => {
   // functions
   const closeAllSubNavs = () => { theSubNavs.forEach( subNav => { subNav.closeSubNav(); } ); };
   const closeAllMobileNavs = () => { theNavs.forEach( theNav => { theNav.closeMobileNav(); } ); };
+
 
   //////
   // Code (at last!)
