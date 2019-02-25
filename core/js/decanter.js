@@ -1,7 +1,6 @@
 // if NodeList doesn't support forEach, use Array's forEach()
 NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEach;
 
-//// TODO: move to components/main-nav.js file
 document.addEventListener( "DOMContentLoaded", event => {
 
   // The css class that this following behaviour is applied to.
