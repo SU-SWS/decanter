@@ -1,8 +1,5 @@
 @charset 'UTF-8';
 
-// This file is here until https://github.com/SU-SWS/decanter/pull/261 gets
-// merged and pulled in to this project.
-
 //
 // @sticky-footer
 //
@@ -15,12 +12,12 @@
 // at the bottom of the page when the content is shorter than the window, but allow
 // the content to push the footer below the viewport when the page is long.
 //
-// $selector - the CSS selector used to target the footer; default '> footer'
+// $selector - the CSS selector used to target the footer; default '> .site-footer'
 //
 // Style guide: Mixins.Layout.Sticky Footer
 //
 
-@mixin sticky-footer($selector: '> .page-footer') {
+@mixin sticky-footer($selector: '> .site-footer') {
   @include padding(0);
   @include margin(0);
 
