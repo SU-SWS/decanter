@@ -3,6 +3,8 @@
 
 Changelog: [CHANGELOG.md](CHANGELOG.md)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/5ad9555da4ffa2086204/maintainability)](https://codeclimate.com/github/SU-SWS/decanter/maintainability)
+
 Demo
 ---
 
