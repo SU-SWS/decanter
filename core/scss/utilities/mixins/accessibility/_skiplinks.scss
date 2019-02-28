@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+//
+// @skiplinks
+//
+// For providing a link at the top of the page which jumps
+// the user down to an anchor or target at the beginning of the main content.
+//
+// Gives screen readers and keyboard users the same capability of going directly
+// to the main content as sighted, mouse users.
+// of the main content. Learn more at https://webaim.org/techniques/skipnav.
+//
+// Style guide: Mixins.Accessibility.skiplinks
+//
+@mixin skiplinks {
+  @media print {
+    display: none;
+  }
+
+  @include padding(0);
+  background-color: $color-black;
+  color: $color-white;
+  font-family: $font-sans;
+  font-size: .75em;
+  font-weight: 400;
+  left: .8em;
+  min-height: 1px;
+  position: absolute;
+  text-decoration: none;
+  top: -500px;
+  transition-duration: .25s;
+  transition-property: top;
+  transition-timing-function: ease-in-out;
+
+  &,
+  &:hover,
+  &:visited {
+    color: $color-white;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 1px;
+  }
+
+  &:active,
+  &:focus {
+    @include padding(.4em .8em);
+    border: 1px solid $color-cool-grey;
+    border-radius: $border-radius;
+    height: auto;
+    left: .8em;
+    position: fixed;
+    top: .8em;
+    width: auto;
+  }
+}
