@@ -1,16 +1,21 @@
 @charset 'UTF-8';
 
 //
-// @linear-gradient
+// @linear-gradient($direction, $color-stops...)
 //
 // @author Hugo Giraudel
 //
-// Mixin to create a linear gradient with a plain color fallback.
+// Mixin to create a linear gradient with a plain color fallback and -webkit support.
 //
-// $direction - Linear gradient direction
-// $color-stops - List of color-stops composing the gradient
+// **Examples:**
+// - `@include linear-gradient(#31b7d7, #edac7d);`
+// - `@include linear-gradient(to right, #eee 0%, $color-cardinal-red 50%, $color-palo-alto 100%);`
+// - `@include linear-gradient(42deg, #b58234 0%, #d2b545 50%, #d7c04d 50.01%, $color-white 100%);`
 //
-// Style guide: Mixins.Gradient.LinearGradient
+// $direction - string: Linear gradient direction. One of: to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left
+// $color-stops - list: Color-stops composing the gradient. Each includes a color value and a location in percentage (see above examples)
+//
+// Style guide: Mixins.Gradient.linear-gradient
 //
 
 /// Convert angle
