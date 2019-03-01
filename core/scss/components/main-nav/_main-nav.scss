@@ -58,6 +58,10 @@ $custom-active: #ec0513; //custom high contrast active/current link border for a
 
     > ul {
       display: none;
+
+      @at-root .no-js#{&} {
+        display: flex;
+      }
     }
 
     &.su-main-nav__item--expanded {

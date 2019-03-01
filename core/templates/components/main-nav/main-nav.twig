@@ -12,7 +12,7 @@
 + *
 + */
 +#}
-<nav {{- attributes }} class="su-main-nav {{ modifier_class }}" aria-label="{{ aria_label|default('main menu') }}">
+<nav {{- attributes }} class="su-main-nav no-js {{ modifier_class }}" aria-label="{{ aria_label|default('main menu') }}">
   <button class="su-main-nav__toggle" aria-expanded="false">{{ toggle_text }}</button>
   <ul class="su-main-nav__menu-lv1">
     {% spaceless %}
@@ -66,3 +66,8 @@
     %}
   {% endif %}
 </nav>
+<script>
+  // do this immediately to minimize FOUC
+  NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEach;
+  document.querySelectorAll( 'nav.su-main-nav' ).forEach( nav => { classList.remove( 'no-js' ); } );
+</script>
