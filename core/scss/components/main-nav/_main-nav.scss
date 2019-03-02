@@ -58,10 +58,6 @@ $custom-active: #ec0513; //custom high contrast active/current link border for a
 
     > ul {
       display: none;
-
-      @at-root .no-js#{&} {
-        display: flex;
-      }
     }
 
     &.su-main-nav__item--expanded {
@@ -207,6 +203,27 @@ $custom-active: #ec0513; //custom high contrast active/current link border for a
             background-color: $color-dark-red;
           }
         }
+      }
+    }
+  }
+
+  // When js is disabled, submenus is visible when parent trigger is hovered
+  &.no-js {
+    //Expand everything on mobile
+    @include grid-media-max('md') {
+      .su-main-nav__toggle[aria-expanded="false"] + .su-main-nav__menu-lv1 {
+        display: flex;
+      }
+
+      li > ul {
+        display: flex;
+      }
+    }
+
+    //On desktop, if mouse user hovers over a parent menu item, submenu is expanded
+    @include grid-media('lg') {
+      li:hover > ul {
+        display: flex;
       }
     }
   }
