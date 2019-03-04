@@ -22,7 +22,12 @@
   }
 
   .su-lockup__line1 {
-    @include margin(-.4rem null null);
+    @include margin(.5rem null null);
+
+    @include grid-media('sm') {
+      @include margin(-.4rem null null);
+    }
+
     @include padding(null null 2px null);
     font-size: 1.3rem;
   }

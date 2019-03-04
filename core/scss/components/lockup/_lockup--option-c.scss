@@ -11,8 +11,12 @@
   }
 
   .su-lockup__line1 {
-    @include margin(-.4rem null null);
     font-size: 1.9rem;
+
+    @include grid-media('sm') {
+      @include margin(-.4rem null null);
+    }
+
     @include padding(null null 0.2em null);
 
     @include grid-media-only('xs') {
@@ -22,7 +26,6 @@
       display: inline-block;
       min-width: 120px;
     }
-
   }
 
   .su-lockup__line2 {
@@ -45,7 +48,6 @@
       text-transform: uppercase;
       font-size: 2.1rem;
     }
-
   }
 
   .su-lockup__cell2 {

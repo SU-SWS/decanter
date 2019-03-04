@@ -11,7 +11,10 @@
   }
 
   .su-lockup__line1 {
-    @include margin(-.7rem null null null);
+    @include grid-media('sm') {
+      @include margin(-.7rem null null null);
+  }
+
     @include grid-media-only('xs') {
       @include margin(4px null null null);
     }
@@ -42,5 +45,4 @@
       text-transform: none;
     }
   }
-
 }
