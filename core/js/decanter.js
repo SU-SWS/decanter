@@ -59,37 +59,37 @@ document.addEventListener( "DOMContentLoaded", event => {
      * is this the first item in the containing Nav?
      * @returns {Boolean}
      */
-    isFirstItem = () => this.nav.items.indexOf( this ) === 0;
+    isFirstItem() { return this.nav.items.indexOf( this ) === 0; }
 
     /**
      * is this the last item in the containing Nav?
      * @returns {Boolean}
      */
-    isLastItem = () => this.nav.items.indexOf( this ) === ( this.nav.items.length - 1 );
+    isLastItem() { return this.nav.items.indexOf( this ) === ( this.nav.items.length - 1 ); }
 
     /**
      * is this a trigger that opens / closes a subnav?
      * @returns {Boolean}
      */
-    isSubNavTrigger = () => this.item.lastElementChild.tagName.toUpperCase() === 'UL';
+    isSubNavTrigger() { return this.item.lastElementChild.tagName.toUpperCase() === 'UL'; }
 
     /**
      * is this a component of a subnav - either the trigger or a nav item?
      * @returns {Boolean}
      */
-    isSubNavItem = () => ( this.isSubNavTrigger() || this.nav.isSubNav() );
+    isSubNavItem() { return ( this.isSubNavTrigger() || this.nav.isSubNav() ); }
 
     /**
      * is this expanded? Can only return TRUE if this is a subnav trigger.
      * @returns {Boolean}
      */
-    isExpanded = () => this.link.getAttribute( 'aria-expanded' ) === 'true';
+    isExpanded() { return this.link.getAttribute( 'aria-expanded' ) === 'true'; }
 
     /**
      * Set whether or not this is expanded. Only meaningful if this is a subnav trigger.
      * @param {String} value - what to set the aria-expanded attribute of this's link to
      */
-    setExpanded = ( value ) => { this.link.setAttribute( 'aria-expanded', value ); }
+    setExpanded( value ) { this.link.setAttribute( 'aria-expanded', value ); }
 
     /********************
      * Functional methods
@@ -329,7 +329,7 @@ document.addEventListener( "DOMContentLoaded", event => {
      *
      * @returns {Nav}
      */
-    getParentNav = () => this.isSubNav() ? this.elem.nav : this;
+    getParentNav() { return this.isSubNav() ? this.elem.nav : this; }
 
 
     /**
@@ -339,7 +339,7 @@ document.addEventListener( "DOMContentLoaded", event => {
      *
      * @returns {Boolean}
      */
-    isExpanded = () => this.elem instanceof NavItem ? this.elem.isExpanded() : this.elem.getAttribute( 'aria-expanded' ) === 'true';
+    isExpanded() { return this.elem instanceof NavItem ? this.elem.isExpanded() : this.elem.getAttribute( 'aria-expanded' ) === 'true'; }
 
     /**
      * Set whether or not this is expanded.
@@ -348,7 +348,7 @@ document.addEventListener( "DOMContentLoaded", event => {
      *
      * @param {String} value - what to set the aria-expanded attribute of this's link to
      */
-    setExpanded = ( value ) => {
+    setExpanded( value ) {
       if ( this.elem instanceof NavItem ) {
         this.elem.setExpanded( value );
       }
@@ -362,43 +362,43 @@ document.addEventListener( "DOMContentLoaded", event => {
      * Is this rendering the desktop style for the nav?
      * @return {Boolean}
      */
-    isDesktopNav = () => getComputedStyle( this.topNav.toggle ).display === 'none';
+    isDesktopNav() { return getComputedStyle( this.topNav.toggle ).display === 'none'; }
 
     /**
      * Is this the top nav?
      * @return {Boolean}
      */
-    isTopNav = () => this.topNav === this;
+    isTopNav() { return this.topNav === this; }
 
     /**
      * Is this a subnav?
      * @return {Boolean}
      */
-    isSubNav = () => this.topNav !== this;
+    isSubNav() { return this.topNav !== this; }
 
     /**
      * Get the first item in this nav.
      * @return {NavItem}
      */
-    getFirstItem = () => this.items.length ? this.items[ 0 ] : null;
+    getFirstItem() { return this.items.length ? this.items[ 0 ] : null; }
 
     /**
      * Get the last item in this nav.
      * @return {NavItem}
      */
-    getLastItem = () => this.items.length ? this.items[ this.items.length - 1 ] : null;
+    getLastItem() { return this.items.length ? this.items[ this.items.length - 1 ] : null; }
 
     /**
      * Get the link associated with the first item in this nav.
      * @return {HTMLAnchorElement}
      */
-    getFirstLink = () => this.items.length ? this.getFirstItem().link : null;
+    getFirstLink() { return this.items.length ? this.getFirstItem().link : null; }
 
     /**
      * Get the link associated with the last item in this nav.
      * @return {HTMLAnchorElement}
      */
-    getLastLink = () => this.items.length ? this.getLastItem().link : null;
+    getLastLink() { return this.items.length ? this.getLastItem().link : null; }
 
     /********************
      * Functional methods
