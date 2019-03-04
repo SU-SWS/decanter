@@ -23,8 +23,8 @@
 $custom-active: #ec0513; //custom high contrast active/current link border for accessibility
 .su-main-nav {
   @include font-smoothing;
+  @include sans;
   display: block;
-  font-family: $font-sans;
   position: relative;
   z-index: 9999;
 
@@ -260,9 +260,9 @@ $custom-active: #ec0513; //custom high contrast active/current link border for a
       }
 
       &::after {
-        width: 26px;
+        width: 22px;
         background: url("#{$image-path}/close-black.svg") no-repeat 3px 0;
-        background-size: 20px 20px;
+        background-size: 16px 16px;
       }
 
       &:hover::before {
