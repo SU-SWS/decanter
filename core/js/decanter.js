@@ -242,7 +242,7 @@ document.addEventListener( "DOMContentLoaded", event => {
         event.stopPropagation();
         const shifted = event.shiftKey;
         if ( this.isSubNavItem() && ( ( !shifted && this.isLastItem() ) || ( shifted && this.isFirstItem() ) ) ) {
-          this.closeSubNav();
+          this.closeSubNav( true );
         }
       }
     }
