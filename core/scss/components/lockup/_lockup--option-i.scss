@@ -36,10 +36,13 @@
   }
 
   .su-lockup__line3 {
-    text-transform: capitalize;
+    line-height: .7em;
     font-size: 1.8rem;
-    line-height: 1em;
-    @include margin(null null -3px null);
+    text-transform: capitalize;
+
+    @include grid-media-only('xs') {
+      font-size: 1.9rem;
+    }
   }
 
   .su-lockup__line1,
