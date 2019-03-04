@@ -10,6 +10,16 @@
 //
 // https://github.com/SU-SWS/decanter/wiki/About-the-Main-Nav-Component
 //
+//**Modifier classes for the Main Nav:**
+// - .su-main-nav--light          - light colored theme
+// - .su-main-nav--mobile-search  - include search form inside the mobile nav
+// - .su-main-nav--center         - center the nav
+// - .su-main-nav--right          - right justify the nav
+//
+//**Modifier classes for the hamburger toggle button:**
+// - .su-main-nav__toggle--center - center the toggle
+// - .su-main-nav__toggle--right - right justify the toggle
+//
 // .su-main-nav--light          - light colored theme
 // .su-main-nav--mobile-search  - include search form inside the mobile nav
 // .su-main-nav--center         - center the nav
@@ -236,6 +246,7 @@ $custom-active: #ec0513; //custom high contrast active/current link border for a
     @include margin(0);
     display: flex;
     flex-direction: column-reverse;
+    align-items: center;
     width: 40px;
     background-color: transparent;
     color: $color-black;
@@ -260,7 +271,7 @@ $custom-active: #ec0513; //custom high contrast active/current link border for a
       }
 
       &::after {
-        width: 22px;
+        width: 20px;
         background: url("#{$image-path}/close-black.svg") no-repeat 3px 0;
         background-size: 16px 16px;
       }
@@ -288,6 +299,14 @@ $custom-active: #ec0513; //custom high contrast active/current link border for a
 
     &[aria-expanded="true"] + .su-main-nav__menu-lv1 {
       position: absolute;
+    }
+
+    &--center {
+      @include margin(null auto);
+    }
+
+    &--right {
+      @include margin(null 0 null auto);
     }
   }
 
