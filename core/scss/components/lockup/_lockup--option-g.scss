@@ -41,12 +41,16 @@
   }
 
   .su-lockup__line5 {
-    font-size: 2.1rem;
-    text-transform: uppercase;
+    font-size: 1.9rem;
     font-weight: $font-bold;
+    text-transform: uppercase;
 
     @include grid-media-only('xs') {
       @include margin(4px null null null);
+    }
+
+    @include grid-media('sm') {
+      font-size: 2.1rem;
     }
   }
 }

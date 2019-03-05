@@ -30,18 +30,21 @@
   }
 
   .su-lockup__line5 {
-    text-transform: uppercase;
+    font-size: 1.9rem;
     font-weight: $font-bold;
-    font-size: 2.1rem;
+    text-transform: uppercase;
 
     @include grid-media-only('xs') {
       @include margin(7px null null null);
     }
+
+    @include grid-media('sm') {
+      font-size: 2.1rem;
+    }
   }
 
   .su-lockup__line1,
-  .su-lockup__line3,
-  .su-lockup__line5 {
+  .su-lockup__line3 {
     @include grid-media-only('xs') {
       font-size: 1.9rem;
       text-transform: none;
