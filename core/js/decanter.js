@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Is this the first item in the containing Nav?
-     * @returns {Boolean}
+     * @return {Boolean}
      */
     isFirstItem() {
       return this.nav.items.indexOf(this) === 0;
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Is this the last item in the containing Nav?
-     * @returns {Boolean}
+     * @return {Boolean}
      */
     isLastItem() {
       return this.nav.items.indexOf(this) === (this.nav.items.length - 1);
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Is this a trigger that opens / closes a subnav?
-     * @returns {Boolean}
+     * @return {Boolean}
      */
     isSubNavTrigger() {
       return this.item.lastElementChild.tagName.toUpperCase() === 'UL';
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Is this a component of a subnav - either the trigger or a nav item?
-     * @returns {Boolean}
+     * @return {Boolean}
      */
     isSubNavItem() {
       return (this.isSubNavTrigger() || this.nav.isSubNav());
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Is this expanded? Can only return TRUE if this is a subnav trigger.
-     * @returns {Boolean}
+     * @return {Boolean}
      */
     isExpanded() {
       return this.link.getAttribute('aria-expanded') === 'true';
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', event => {
      *
      * @param {KeyboardEvent} event - The keyboard event.
      *
-     * @returns {*}
+     * @return {*}
      *   Whatever the dispatched handler returns (in our case nothing)
      */
     handleEvent(event) {
@@ -396,7 +396,7 @@ document.addEventListener('DOMContentLoaded', event => {
      * Get the instance of Nav that represents the top level nav of this
      * instance.
      *
-     * @returns {Nav}
+     * @return {Nav}
      */
     getTopNav() {
       let nav = this;
@@ -414,7 +414,7 @@ document.addEventListener('DOMContentLoaded', event => {
      * Get the instance of Nav that represents the parent of this instance.
      * If this is the top nav, return this so you can safely call methods on it.
      *
-     * @returns {Nav}
+     * @return {Nav}
      */
     getParentNav() {
       return this.isSubNav() ? this.elem.nav : this;
@@ -426,7 +426,7 @@ document.addEventListener('DOMContentLoaded', event => {
      * If this is a subnav, ask the subnav (NavItem) if it's expanded.
      * Otherwise (this is the top nav), check aria-expanded.
      *
-     * @returns {Boolean}
+     * @return {Boolean}
      */
     isExpanded() {
 
@@ -607,7 +607,7 @@ document.addEventListener('DOMContentLoaded', event => {
      *
      * @param {KeyboardEvent} event - The keyboard event object.
      *
-     * @returns {*}
+     * @return {*}
      *  Whatever the dispatched handler returns (in our case nothing)
      */
     handleEvent(event) {
