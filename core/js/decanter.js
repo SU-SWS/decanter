@@ -556,7 +556,8 @@ document.addEventListener('DOMContentLoaded', event => {
      *                                relative to.
      */
     focusOn(link, currentItem = null) {
-      var currentIndex, lastIndex = null;
+      var currentIndex = null;
+      var lastIndex = null;
       if (currentItem) {
         currentIndex = this.items.indexOf(currentItem);
         lastIndex = this.items.length - 1;
@@ -611,7 +612,7 @@ document.addEventListener('DOMContentLoaded', event => {
       if (focusOnFirst) {
         this.focusOn('first'); // Focus on the first top level link
       }
-    };
+    }
 
     /**
      * Mark this mobile closed, and restore the button text to what it was
@@ -620,7 +621,7 @@ document.addEventListener('DOMContentLoaded', event => {
     closeMobileNav() {
       this.setExpanded('false');
       this.toggle.innerText = this.toggleText;
-    };
+    }
 
     // -------------------------------------------------------------------------
     // Event handlers
@@ -682,7 +683,7 @@ document.addEventListener('DOMContentLoaded', event => {
      * @param {HTMLElement}   target  - The HTML Element target object.
      */
     onKeydown(event, target) {
-      const theKey  = event.key || event.keyCode;
+      const theKey = event.key || event.keyCode;
 
       if (isEsc(theKey)) {
         if (this.isTopNav()) {
