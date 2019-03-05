@@ -1,7 +1,7 @@
 // if NodeList doesn't support forEach, use Array's forEach()
 NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEach;
 
-document.addEventListener("DOMContentLoaded", event => {
+document.addEventListener('DOMContentLoaded', event => {
 
   // The css class that this following behaviour is applied to.
   const navClass = 'su-main-nav';
@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", event => {
    *                                  is an instonce Nav that models the subnav.
    */
   class NavItem {
+
     /**
      * Create a NavItem
      * @param {HTMLLIElement}   item  - The <li> that is the NavItem in the DOM.
@@ -62,106 +63,133 @@ document.addEventListener("DOMContentLoaded", event => {
       this.item.addEventListener('keydown', this);
 
       if (this.isSubNavTrigger()) {
-        this.subNav = new Nav( this );
+        this.subNav = new Nav(this);
         // Maintain global list of subnavs for closeAllSubNavs().
         theSubNavs.push(this);
         this.item.addEventListener('click', this);
       }
     }
 
-    /********************
-     * Helper methods
-     ********************/
+    // -------------------------------------------------------------------------
+    // Helper Methods.
+    // -------------------------------------------------------------------------
 
     /**
-     * is this the first item in the containing Nav?
+     * Is this the first item in the containing Nav?
      * @returns {Boolean}
      */
-    isFirstItem() { return this.nav.items.indexOf( this ) === 0; }
+    isFirstItem() {
+      return this.nav.items.indexOf(this) === 0;
+    }
 
     /**
-     * is this the last item in the containing Nav?
+     * Is this the last item in the containing Nav?
      * @returns {Boolean}
      */
-    isLastItem() { return this.nav.items.indexOf( this ) === ( this.nav.items.length - 1 ); }
+    isLastItem() {
+      return this.nav.items.indexOf(this) === (this.nav.items.length - 1);
+    }
 
     /**
-     * is this a trigger that opens / closes a subnav?
+     * Is this a trigger that opens / closes a subnav?
      * @returns {Boolean}
      */
-    isSubNavTrigger() { return this.item.lastElementChild.tagName.toUpperCase() === 'UL'; }
+    isSubNavTrigger() {
+      return this.item.lastElementChild.tagName.toUpperCase() === 'UL';
+    }
 
     /**
-     * is this a component of a subnav - either the trigger or a nav item?
+     * Is this a component of a subnav - either the trigger or a nav item?
      * @returns {Boolean}
      */
-    isSubNavItem() { return ( this.isSubNavTrigger() || this.nav.isSubNav() ); }
+    isSubNavItem() {
+      return (this.isSubNavTrigger() || this.nav.isSubNav());
+    }
 
     /**
-     * is this expanded? Can only return TRUE if this is a subnav trigger.
+     * Is this expanded? Can only return TRUE if this is a subnav trigger.
      * @returns {Boolean}
      */
-    isExpanded() { return this.link.getAttribute( 'aria-expanded' ) === 'true'; }
+    isExpanded() {
+      return this.link.getAttribute('aria-expanded') === 'true';
+    }
 
     /**
-     * Set whether or not this is expanded. Only meaningful if this is a subnav trigger.
-     * @param {String} value - what to set the aria-expanded attribute of this's link to
-     */
-    setExpanded( value ) { this.link.setAttribute( 'aria-expanded', value ); }
-
-    /********************
-     * Functional methods
-     ********************/
-
-    /**
-     * If this is a subnav trigger, open the corresponding subnav.
-     * Optionally force focus on the first element in the subnav (for keyboard nav).
+     * Set whether or not this is expanded.
+     * Only meaningful if this is a subnav trigger.
      *
-     * @param {Boolean} focusOnFirst - whether or not to also focus on the first element in the subnav
+     * @param {String} value - What to set the aria-expanded attribute of this's
+     *                         link to.
      */
-    openSubNav( focusOnFirst = true ) {
+    setExpanded(value) {
+      this.link.setAttribute('aria-expanded', value);
+    }
+
+    // -------------------------------------------------------------------------
+    // Functional Methods.
+    // -------------------------------------------------------------------------
+
+    /**
+     * Handles the opening of a sub-nav.
+     *
+     * If this is a subnav trigger, open the corresponding subnav.
+     * Optionally force focus on the first element in the subnav
+     * (for keyboard nav).
+     *
+     * @param {Boolean} focusOnFirst - whether or not to also focus on the first
+     *                                 element in the subnav
+     */
+    openSubNav(focusOnFirst = true) {
       closeAllSubNavs();
 
       if ( this.isSubNavTrigger() ) {
-        this.item.classList.add( 'su-main-nav__item--expanded' );
-        this.setExpanded( 'true' );
+        this.item.classList.add('su-main-nav__item--expanded');
+        this.setExpanded('true');
         if ( focusOnFirst ) {
-          this.subNav.focusOn( 'first' );
+          this.subNav.focusOn('first');
         }
       }
     };
 
     /**
-     * If this is a subnav trigger or an item in a subnav, close the corresponding subnav.
-     * Optionally force focus on the trigger.
+     * Handles the closing of a subnav.
      *
-     * @param {Boolean} focusOnFirst - whether or not to also focus on the subnav's trigger
+     * If this is a subnav trigger or an item in a subnav, close the
+     * corresponding subnav. Optionally force focus on the trigger.
+     *
+     * @param {Boolean} focusOnFirst - Whether or not to also focus on the
+     *                                 subnav's trigger.
      */
-    closeSubNav( focusOnTrigger = false ) {
-      if ( this.isSubNavTrigger() ) {
-        this.item.classList.remove( 'su-main-nav__item--expanded' );
-        this.setExpanded( 'false' );
-        if ( focusOnTrigger ) {
+    closeSubNav(focusOnTrigger = false) {
+      if (this.isSubNavTrigger()) {
+        this.item.classList.remove('su-main-nav__item--expanded');
+        this.setExpanded('false');
+        if (focusOnTrigger) {
           this.link.focus();
         }
       }
-      else if ( this.isSubNavItem() ) {
-        this.nav.elem.closeSubNav( focusOnTrigger ); // this.nav.elem should be a subNavTrigger
+      else if (this.isSubNavItem()) {
+        // This.nav.elem should be a subNavTrigger.
+        this.nav.elem.closeSubNav(focusOnTrigger);
       }
     };
 
-    /********************
-     * Event handlers
-     ********************/
+    // -------------------------------------------------------------------------
+    // Event Handlers.
+    // -------------------------------------------------------------------------
 
     /**
-     * Handler for all events attached to an instance of this class. This method must exist when events are bound
-     * to an instance of a class (vs a function). This method is called for all events bound to an instance. It
-     * inspects the instance (this) for an appropriate handler based on the event type. If found, it dispatches
-     * the event to the appropriate handler.
+     * Handler for all events attached to an instance of this class. This method
+     * must exist when events are bound to an instance of a class
+     * (vs a function). This method is called for all events bound to an
+     * instance. It inspects the instance (this) for an appropriate handler
+     * based on the event type. If found, it dispatches the event to the
+     * appropriate handler.
      *
-     * @param {KeyboardEvent} event
-     * @returns {*} whatever the dispatched handler returns (in our case nothing)
+     * @param {KeyboardEvent} event - The keyboard event.
+     *
+     * @returns {*}
+     *   Whatever the dispatched handler returns (in our case nothing)
      */
     handleEvent( event ) {
       event = event || window.event;
