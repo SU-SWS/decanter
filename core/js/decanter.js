@@ -142,14 +142,14 @@ document.addEventListener('DOMContentLoaded', event => {
     openSubNav(focusOnFirst = true) {
       closeAllSubNavs();
 
-      if ( this.isSubNavTrigger() ) {
+      if (this.isSubNavTrigger()) {
         this.item.classList.add('su-main-nav__item--expanded');
         this.setExpanded('true');
-        if ( focusOnFirst ) {
+        if (focusOnFirst) {
           this.subNav.focusOn('first');
         }
       }
-    };
+    }
 
     /**
      * Handles the closing of a subnav.
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', event => {
         // This.nav.elem should be a subNavTrigger.
         this.nav.elem.closeSubNav(focusOnTrigger);
       }
-    };
+    }
 
     // -------------------------------------------------------------------------
     // Event Handlers.
@@ -234,7 +234,8 @@ document.addEventListener('DOMContentLoaded', event => {
         if (this.nav.isDesktopNav()) {
           if (this.isSubNavTrigger()) {
             this.openSubNav();
-          } else {
+          }
+          else {
             this.nav.focusOn('next', this);
           }
         }
