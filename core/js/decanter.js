@@ -6,16 +6,22 @@ document.addEventListener("DOMContentLoaded", event => {
   // The css class that this following behaviour is applied to.
   const navClass = 'su-main-nav';
 
-  //////
+  // ---------------------------------------------------------------------------
   // Keyboard helper functions
-  const isHome = theKey => (theKey === 'Home' || theKey === 122);
-  const isEnd = theKey => (theKey === 'End' || theKey === 123);
-  const isTab = theKey => (theKey === 'Tab' || theKey === 9);
+  // ---------------------------------------------------------------------------
+
+  const isHome = theKey =>
+    (theKey === 'Home' || theKey === 122);
+  const isEnd = theKey =>
+    (theKey === 'End' || theKey === 123);
+  const isTab = theKey =>
+    (theKey === 'Tab' || theKey === 9);
   const isEsc = theKey =>
     (theKey === 'Escape' || theKey === 'Esc' || theKey === 27);
   const isSpace = theKey =>
     (theKey === ' ' || theKey === 'Spacebar' || theKey === 32);
-  const isEnter = theKey => (theKey === 'Enter' || theKey === 13);
+  const isEnter = theKey =>
+    (theKey === 'Enter' || theKey === 13);
   const isLeftArrow = theKey =>
     (theKey === 'ArrowLeft' || theKey === 'Left' || theKey === 37);
   const isRightArrow = theKey =>
@@ -25,35 +31,41 @@ document.addEventListener("DOMContentLoaded", event => {
   const isDownArrow = theKey =>
     (theKey === 'ArrowDown' || theKey === 'Down' || theKey === 40);
 
-  //////
+  // ---------------------------------------------------------------------------
   // Helper classes
+  // ---------------------------------------------------------------------------
 
   /**
-   * Represent an item in a navigation menu. May be a direct link or a subnav trigger.
+   * Represent an item in a navigation menu. May be a direct link or a subnav
+   * trigger.
    *
-   * @property {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
-   * @property {HTMLElement|Nav} nav    - the Nav that contains the element. May be a main nav (<nav>) or a subnav (Nav).
-   * @property {HTMLLIElement}   link   - the <a> in the DOM that is contained in item (the <li>)
-   * @property {Nav}             subNav - if item is the trigger for a subnav, this is an instonce Nav that models the subnav
+   * @prop {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
+   * @prop {HTMLElement|Nav} nav    - the Nav that contains the element.
+   *                                  May be a main nav (<nav>) or subnav (Nav).
+   * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
+   *                                  item (the <li>).
+   * @prop {Nav}             subNav - if item is the trigger for a subnav, this
+   *                                  is an instonce Nav that models the subnav.
    */
   class NavItem {
     /**
      * Create a NavItem
-     * @param {HTMLLIElement} item - the <li> that is the NavItem in the DOM
-     * @param {HTMLElement|Nav} nav - the Nav that contains the element. May be a main nav (<nav>) or a subnav (Nav).
+     * @param {HTMLLIElement}   item  - The <li> that is the NavItem in the DOM.
+     * @param {HTMLElement|Nav} nav   - The Nav that contains the element. May
+     *                                  be a main nav (<nav>) or a subnav (Nav).
      */
-    constructor( item, nav ) {
+    constructor(item, nav) {
       this.item = item;
       this.nav = nav;
-      this.link = this.item.querySelector( 'a' );
+      this.link = this.item.querySelector('a');
       this.subNav = null;
+      this.item.addEventListener('keydown', this);
 
-      this.item.addEventListener( 'keydown', this );
-
-      if ( this.isSubNavTrigger() ) {
+      if (this.isSubNavTrigger()) {
         this.subNav = new Nav( this );
-        theSubNavs.push( this ); // maintain globsl list of subnavs for closeAllSubNavs()
-        this.item.addEventListener( 'click', this );
+        // Maintain global list of subnavs for closeAllSubNavs().
+        theSubNavs.push(this);
+        this.item.addEventListener('click', this);
       }
     }
 
