@@ -2,15 +2,41 @@
 /**
  * Skip Links Component
  *
- * Accessibility feature to allow passing over the nav and going directly to
- * the content.
+ * Accessibility feature to allow passing over the nav and going directly to the content.
+ *
+ * Note that this component has 2 pieces:
+ * - the link
+ * - the target the link jumps to
+ * These are provided in separate twig files for your convenience. To implement the Skip Links
+ * component in your project, you should not include this .twig file; instead, you should
+ * include the _link.twig and _target.twig files separately at the appropriate respecetive
+ * places in your markup.
  *
  * Available variables:
- * - attributes: For additional HTML attributes not already provided.
- * - modifier_class: Additional CSS classes to change look and behaviour.
- * - target_id: The anchor to skip to in the page
- * - link_text: The text for the link when in focus.
+ * - attributes: Additional HTML attributes for the link.
+ * - modifier_class: Additional CSS class(es) to change look or behavior of the link.
+ * - link_text: The text for the link when in focus - defaults to 'Skip to main content'
+ * - target_id: The id of the element in the page to skip to - defaults to 'su-main-content-1891'
+ * - target_text: The text to be read by the screenreader when the user clicks the skiplink - defaults to 'Main Content'
  */
 #}
-{% set skipID = "skip-to-content-" ~ random() %}
-<a{{ attributes }} href="#{{ target_id|default(skipID) }}" class="su-skiplinks {{ modifier_class }}">{{ link_text|default('Skip to main content') }}</a>
+<header>
+  {% include "@decanter/components/skiplinks/_link.twig" with
+    {
+      "target_id": target_id,
+      "link_text": link_text,
+      "attributes": attributes,
+      "modifier_class": modifier_class
+    }
+    only
+  %}
+</header>
+<main>
+  {% include "@decanter/components/skiplinks/_target.twig" with
+    {
+      "target_id": target_id,
+      "target_text": target_text
+    }
+    only
+  %}
+</main>
