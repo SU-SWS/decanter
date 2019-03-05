@@ -1,8 +1,6 @@
 {% set skipID = "skip-to-content-" ~ random() %}
 
-<header>
-  <a href="#{{ target_id|default(skipID) }}" class="su-skiplinks">{{ link_text|default('Skip to main content') }}</a>
-</header>
+<a{{ attributes }} href="#{{ target_id|default(skipID) }}" class="su-skiplinks {{ modifier_class }}">{{ link_text|default('Skip to main content') }}</a>
 
 <main>
   <h2 id="{{ target_id|default(skipID) }}" class="su-sr-only-text" tabindex="-1">{{ target_text|default('Main Content') }}</h2>
