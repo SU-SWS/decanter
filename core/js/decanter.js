@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', event => {
      * If this is a subnav trigger or an item in a subnav, close the
      * corresponding subnav. Optionally force focus on the trigger.
      *
-     * @param {Boolean} focusOnFirst - Whether or not to also focus on the
+     * @param {Boolean} focusOnTrigger - Whether or not to also focus on the
      *                                 subnav's trigger.
      */
     closeSubNav(focusOnTrigger = false) {
@@ -260,7 +260,7 @@ document.addEventListener('DOMContentLoaded', event => {
         this.nav.focusOn('prev', this);
       }
       // Handler for the left arrow key.
-      else if (isLeftArrow(theKey )) {
+      else if (isLeftArrow(theKey)) {
         event.preventDefault();
         event.stopPropagation();
         if (this.nav.isDesktopNav()) {
@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', event => {
             this.closeSubNav();
             let parent = this.nav.getParentNav();
             // Focus on the previous item in the parent nav.
-            parent.focusOn( 'prev', this.nav.elem );
+            parent.focusOn('prev', this.nav.elem);
           }
           else {
             this.nav.focusOn('prev', this);
@@ -277,7 +277,7 @@ document.addEventListener('DOMContentLoaded', event => {
         else {
           if (this.isSubNavItem()) {
             // Close the subnav and put the focus on the trigger.
-            this.closeSubNav( true );
+            this.closeSubNav(true);
           }
         }
       }
