@@ -69,8 +69,7 @@ module.exports = function(grunt) {
         }
       },
       jsmin: {
-        files: ['core/**/*.js'],
-        tasks: ['uglify']
+        files: ['core/**/*.js']
       },
       twig: {
         files: ['**/*.twig', '**/*.json'],

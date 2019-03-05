@@ -8,16 +8,22 @@ document.addEventListener("DOMContentLoaded", event => {
 
   //////
   // Keyboard helper functions
-  const isHome = theKey => ( theKey === 'Home' || theKey === 122 );
-  const isEnd = theKey => ( theKey === 'End' || theKey === 123 );
-  const isTab = theKey => ( theKey === 'Tab' || theKey === 9 );
-  const isEsc = theKey => ( theKey === 'Escape' || theKey === 'Esc' || theKey === 27 );
-  const isSpace = theKey => ( theKey === ' ' || theKey === 'Spacebar' || theKey === 32 );
-  const isEnter = theKey => ( theKey === 'Enter' || theKey === 13 );
-  const isLeftArrow = theKey => ( theKey === 'ArrowLeft' || theKey === 'Left' || theKey === 37 );
-  const isRightArrow = theKey => ( theKey === 'ArrowRight' || theKey === 'Right' || theKey === 39 );
-  const isUpArrow = theKey => ( theKey === 'ArrowUp' || theKey === 'Up' || theKey === 38 );
-  const isDownArrow = theKey => ( theKey === 'ArrowDown' || theKey === 'Down' || theKey === 40 );
+  const isHome = theKey => (theKey === 'Home' || theKey === 122);
+  const isEnd = theKey => (theKey === 'End' || theKey === 123);
+  const isTab = theKey => (theKey === 'Tab' || theKey === 9);
+  const isEsc = theKey =>
+    (theKey === 'Escape' || theKey === 'Esc' || theKey === 27);
+  const isSpace = theKey =>
+    (theKey === ' ' || theKey === 'Spacebar' || theKey === 32);
+  const isEnter = theKey => (theKey === 'Enter' || theKey === 13);
+  const isLeftArrow = theKey =>
+    (theKey === 'ArrowLeft' || theKey === 'Left' || theKey === 37);
+  const isRightArrow = theKey =>
+    (theKey === 'ArrowRight' || theKey === 'Right' || theKey === 39);
+  const isUpArrow = theKey =>
+    (theKey === 'ArrowUp' || theKey === 'Up' || theKey === 38);
+  const isDownArrow = theKey =>
+    (theKey === 'ArrowDown' || theKey === 'Down' || theKey === 40);
 
   //////
   // Helper classes
