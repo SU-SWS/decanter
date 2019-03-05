@@ -461,86 +461,107 @@ document.addEventListener('DOMContentLoaded', event => {
      * Is this rendering the desktop style for the nav?
      * @return {Boolean}
      */
-    isDesktopNav() { return getComputedStyle( this.topNav.toggle ).display === 'none'; }
+    isDesktopNav() {
+      return getComputedStyle(this.topNav.toggle).display === 'none';
+    }
 
     /**
      * Is this the top nav?
      * @return {Boolean}
      */
-    isTopNav() { return this.topNav === this; }
+    isTopNav() {
+      return this.topNav === this;
+    }
 
     /**
      * Is this a subnav?
      * @return {Boolean}
      */
-    isSubNav() { return this.topNav !== this; }
+    isSubNav() {
+      return this.topNav !== this;
+    }
 
     /**
      * Get the first item in this nav.
      * @return {NavItem}
      */
-    getFirstItem() { return this.items.length ? this.items[ 0 ] : null; }
+    getFirstItem() {
+      return this.items.length ? this.items[0] : null;
+    }
 
     /**
      * Get the last item in this nav.
      * @return {NavItem}
      */
-    getLastItem() { return this.items.length ? this.items[ this.items.length - 1 ] : null; }
+    getLastItem() {
+      return this.items.length ? this.items[this.items.length - 1] : null;
+    }
 
     /**
      * Get the link associated with the first item in this nav.
      * @return {HTMLAnchorElement}
      */
-    getFirstLink() { return this.items.length ? this.getFirstItem().link : null; }
+    getFirstLink() {
+      return this.items.length ? this.getFirstItem().link : null;
+    }
 
     /**
      * Get the link associated with the last item in this nav.
      * @return {HTMLAnchorElement}
      */
-    getLastLink() { return this.items.length ? this.getLastItem().link : null; }
+    getLastLink() {
+      return this.items.length ? this.getLastItem().link : null;
+    }
 
-    /********************
-     * Functional methods
-     ********************/
+    // -------------------------------------------------------------------------
+    // Functional methods
+    // -------------------------------------------------------------------------
 
     /**
      * Set the focus on the specified link in this nav.
      *
-     * @param {String|Number} link - 'first' | 'last' | 'next' | 'prev' | numerical index
-     * @param {NavItem} currentItem - if link is 'next' or 'prev', currentItem is the NavItem that next / prev is relative to
+     * @param {String|Number} link - 'first' | 'last' | 'next'
+     *                                | 'prev' | numerical index
+     * @param {NavItem} currentItem - If link is 'next' or 'prev', currentItem
+     *                                is the NavItem that next / prev is
+     *                                relative to.
      */
-    focusOn( link, currentItem = null ) {
+    focusOn(link, currentItem = null) {
       var currentIndex, lastIndex = null;
-      if ( currentItem ) {
-        currentIndex = this.items.indexOf( currentItem );
+      if (currentItem) {
+        currentIndex = this.items.indexOf(currentItem);
         lastIndex = this.items.length - 1;
       }
-      switch ( link ) {
+      switch (link) {
         case 'first':
           this.getFirstLink().focus();
           break;
+
         case 'last':
           this.getLastLink().focus();
           break;
+
         case 'next':
-          if ( currentIndex === lastIndex ) {
+          if (currentIndex === lastIndex) {
             this.getFirstLink().focus();
           }
           else {
-            this.items[ currentIndex + 1 ].link.focus();
+            this.items[currentIndex + 1].link.focus();
           }
           break;
+
         case 'prev':
-          if ( currentIndex === 0 ) {
+          if (currentIndex === 0) {
             this.getLastLink().focus();
           }
           else {
-            this.items[ currentIndex - 1 ].link.focus();
+            this.items[currentIndex - 1].link.focus();
           }
           break;
+
         default:
-          if ( Number.isInteger( link ) && link >= 0 && link < this.items.length ) {
-            this.items[ link ].link.focus();
+          if (Number.isInteger(link) && link >= 0 && link < this.items.length) {
+            this.items[link].link.focus();
           }
           break;
       }
@@ -550,44 +571,57 @@ document.addEventListener('DOMContentLoaded', event => {
      * Close any mobile navs that might be open, then mark this mobile nav open.
      * Optionally force focus on the first element in the nav (for keyboard nav).
      *
-     * @param {Boolean} focusOnFirst - whether or not to also focus on the first element in the subnav
+     * @param {Boolean} focusOnFirst - whether or not to also focus on the
+     * first element in the subnav
      */
-    openMobileNav( focusOnFirst = true ) {
+    openMobileNav(focusOnFirst = true) {
       closeAllMobileNavs();
 
-      this.setExpanded( 'true' );
+      this.setExpanded('true');
       this.toggle.innerText = 'Close';
-      if ( focusOnFirst ) {
-        this.focusOn( 'first' ); // Focus on the first top level link
+      if (focusOnFirst) {
+        this.focusOn('first'); // Focus on the first top level link
       }
     };
 
     /**
-     * Mark this mobile closed, and restore the button text to what it was initially
+     * Mark this mobile closed, and restore the button text to what it was
+     * initially.
      */
     closeMobileNav() {
-      this.setExpanded( 'false' );
+      this.setExpanded('false');
       this.toggle.innerText = this.toggleText;
     };
 
+    // -------------------------------------------------------------------------
     // Event handlers
+    // -------------------------------------------------------------------------
 
     /**
-     * Handler for all events attached to an instance of this class. This method must exist when events are bound
-     * to an instance of a class (vs a function). This method is called for all events bound to an instance. It
-     * inspects the instance (this) for an appropriate handler based on the event type. If found, it dispatches
-     * the event to the appropriate handler.
+     * Handler for all events attached to an instance of this class. This method
+     * must exist when events are bound to an instance of a class
+     * (vs a function). This method is called for all events bound to an
+     * instance. It inspects the instance (this) for an appropriate handler
+     * based on the event type. If found, it dispatches the event to the
+     * appropriate handler.
      *
-     * @param {KeyboardEvent} event
-     * @returns {*} whatever the dispatched handler returns (in our case nothing)
+     * @param {KeyboardEvent} event - The keyboard event object.
+     *
+     * @returns {*}
+     *  Whatever the dispatched handler returns (in our case nothing)
      */
-    handleEvent( event ) {
+    handleEvent(event) {
       event = event || window.event;
-      // if this class has an onEvent method, e.g. onClick, onKeydown, invoke it
-      const handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);
-      if ( typeof this[ handler ] === 'function' ) {
-        const target = event.target || event.srcElement; // the element that was clicked
-        return this[ handler ]( event, target );
+      // If this class has an onEvent method, e.g. onClick, onKeydown,
+      // invoke it.
+      const handler = 'on'
+        + event.type.charAt(0).toUpperCase()
+        + event.type.slice(1);
+
+      if (typeof this[handler] === 'function') {
+        // The element that was clicked.
+        const target = event.target || event.srcElement;
+        return this[handler](event, target);
       }
     }
 
@@ -595,18 +629,18 @@ document.addEventListener('DOMContentLoaded', event => {
      * Handler for click events. click is only bound to the mobile toggle.
      * Dispatched from this.handleEvent().
      *
-     * @param {KeyboardEvent} event
-     * @param {HTMLElement} target
+     * @param {KeyboardEvent} event - The keyboard event object.
+     * @param {HTMLElement} target - The HTML Element target object.
      */
-    onClick( event, target ) {
-      if ( target == this.toggle ) {
+    onClick(event, target) {
+      if (target == this.toggle ) {
         event.preventDefault();
         event.stopPropagation();
-        if ( this.isExpanded() ) {
+        if (this.isExpanded()) {
           this.closeMobileNav();
         }
         else {
-          this.openMobileNav( false );
+          this.openMobileNav(false);
         }
       }
     }
@@ -618,13 +652,13 @@ document.addEventListener('DOMContentLoaded', event => {
      * @param {KeyboardEvent} event
      * @param {HTMLElement} target
      */
-    onKeydown( event, target ) {
+    onKeydown(event, target) {
       const theKey  = event.key || event.keyCode;
       const shifted = event.shiftKey;
 
-      if ( isEsc( theKey ) ) {
-        if ( this.isTopNav() ) {
-          if ( !this.isDesktopNav() ) {
+      if (isEsc(theKey)) {
+        if (this.isTopNav()) {
+          if (!this.isDesktopNav()) {
             event.preventDefault();
             event.stopPropagation();
             this.closeMobileNav();
@@ -632,18 +666,18 @@ document.addEventListener('DOMContentLoaded', event => {
           }
         }
         else {
-          if ( this.isExpanded() ) {
+          if (this.isExpanded()) {
             event.preventDefault();
             event.stopPropagation();
             this.elem.closeSubNav( true );
           }
         }
       }
-      else if ( isEnter( theKey ) || isSpace( theKey ) ) {
-        if ( target == this.toggle ) {
+      else if (isEnter(theKey) || isSpace(theKey)) {
+        if (target == this.toggle) {
           event.preventDefault();
           event.stopPropagation();
-          if ( !this.isExpanded() ) {
+          if (!this.isExpanded()) {
             this.openMobileNav();
           }
         }
@@ -652,43 +686,59 @@ document.addEventListener('DOMContentLoaded', event => {
 
   }
 
-  //////
-  // Globals
+  // ---------------------------------------------------------------------------
+  // Globals.
+  // ---------------------------------------------------------------------------
 
-  // variables
-  const navs = document.querySelectorAll( '.' + navClass ); // all main navs
-  let theNavs = []; // global record of all main navs - used by closeAllMobileNavs
-  let theSubNavs = []; // global record of all sub navs - used by closeAllSubNavs
+  // Variables.
 
-  // functions
-  const closeAllSubNavs = () => { theSubNavs.forEach( subNav => { subNav.closeSubNav(); } ); };
-  const closeAllMobileNavs = () => { theNavs.forEach( theNav => { theNav.closeMobileNav(); } ); };
+  // All main navs.
+  const navs = document.querySelectorAll( '.' + navClass );
+  // Global record of all main navs - used by closeAllMobileNavs.
+  let theNavs = [];
+  // Global record of all sub navs - used by closeAllSubNavs.
+  let theSubNavs = [];
+
+  // Functions
+  const closeAllSubNavs = () => {
+    theSubNavs.forEach(
+      subNav => { subNav.closeSubNav(); }
+    );
+  };
+  const closeAllMobileNavs = () => {
+    theNavs.forEach(
+      theNav => { theNav.closeMobileNav(); }
+    );
+  };
 
 
-  //////
-  // Code (at last!)
+  // ---------------------------------------------------------------------------
+  // Execution Code.
+  // ---------------------------------------------------------------------------
 
-  // process each nav
+  // Process each nav.
   let firstZindex;
-  navs.forEach( ( nav, index ) => {
-    const theNav = new Nav( nav );
-    theNavs.push( theNav );
+  navs.forEach((nav, index) => {
+    const theNav = new Nav(nav);
+    theNavs.push(theNav);
 
-    if ( index === 0 ) {
-      firstZindex = getComputedStyle( nav, null ).zIndex;
+    if (index === 0) {
+      firstZindex = getComputedStyle(nav, null).zIndex;
     }
     else {
-      nav.style.zIndex = firstZindex - 300 * index; //
+      nav.style.zIndex = firstZindex - 300 * index;
     }
-  } ); // navs.forEach
+  }); // navs.forEach
 
-  // clicking anywhere outside a nav closes all navs
+  // Clicking anywhere outside a nav closes all navs.
   document.addEventListener('click', event => {
-    const target = event.target || event.srcElement; // the element that was clicked
-    if ( !target.matches( '.' + navClass + ' ' + target.tagName ) ) { // if target is not under a main nav
+    // The element that was clicked.
+    const target = event.target || event.srcElement;
+    // If target is not under a main nav close all navs.
+    if (!target.matches('.' + navClass + ' ' + target.tagName)) {
       closeAllSubNavs();
       closeAllMobileNavs();
     }
   }, false );
 
-} ); // on DOMContentLoaded
+}); // on DOMContentLoaded.
