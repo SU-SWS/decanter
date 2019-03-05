@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', event => {
           }
         }
         else {
-          if ( this.isSubNavItem() ) {
+          if (this.isSubNavItem()) {
             // Close the subnav and put the focus on the trigger.
             this.closeSubNav( true );
           }
@@ -308,7 +308,7 @@ document.addEventListener('DOMContentLoaded', event => {
           && ((!shifted && this.isLastItem())
           || (shifted && this.isFirstItem()))
         ) {
-          this.closeSubNav( true );
+          this.closeSubNav(true);
         }
       }
     }
@@ -331,7 +331,7 @@ document.addEventListener('DOMContentLoaded', event => {
         this.openSubNav(false);
       }
       // If the click is directly on the trigger, then we're done.
-      if (target == this.link) {
+      if (target === this.link) {
         event.preventDefault();
         event.stopPropagation();
       }
@@ -371,11 +371,13 @@ document.addEventListener('DOMContentLoaded', event => {
       this.topNav = this.getTopNav();
       // If this is a subnav, we need the correpsonding HTMLElement for
       // .querySelector()
-      if (elem instanceof NavItem) elem = elem.item;
-      this.toggle = elem.querySelector(elem.tagName + " > button");
+      if (elem instanceof NavItem) {
+        elem = elem.item;
+      }
+      this.toggle = elem.querySelector(elem.tagName + ' > button');
       this.toggleText = this.toggle ? this.toggle.innerText : '';
       this.items = [];
-      let items = elem.querySelectorAll(elem.tagName + " > ul > li");
+      let items = elem.querySelectorAll(elem.tagName + ' > ul > li');
       items.forEach(
         item => {
           this.items.push(new NavItem(item, this));
@@ -570,10 +572,10 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Close any mobile navs that might be open, then mark this mobile nav open.
-     * Optionally force focus on the first element in the nav (for keyboard nav).
+     * Optionally force focus on the first element in the nav (for keyboard nav)
      *
-     * @param {Boolean} focusOnFirst - whether or not to also focus on the
-     * first element in the subnav
+     * @param {Boolean} focusOnFirst - Whether or not to also focus on the
+     *                                 first element in the subnav.
      */
     openMobileNav(focusOnFirst = true) {
       closeAllMobileNavs();
@@ -630,11 +632,11 @@ document.addEventListener('DOMContentLoaded', event => {
      * Handler for click events. click is only bound to the mobile toggle.
      * Dispatched from this.handleEvent().
      *
-     * @param {KeyboardEvent} event - The keyboard event object.
-     * @param {HTMLElement} target - The HTML Element target object.
+     * @param {KeyboardEvent} event   - The keyboard event object.
+     * @param {HTMLElement}   target  - The HTML Element target object.
      */
     onClick(event, target) {
-      if (target == this.toggle ) {
+      if (target === this.toggle) {
         event.preventDefault();
         event.stopPropagation();
         if (this.isExpanded()) {
@@ -650,12 +652,11 @@ document.addEventListener('DOMContentLoaded', event => {
      * Handler for keydown events. keydown is bound to all Nav's.
      * Dispatched from this.handleEvent().
      *
-     * @param {KeyboardEvent} event
-     * @param {HTMLElement} target
+     * @param {KeyboardEvent} event   - The keyboard event object.
+     * @param {HTMLElement}   target  - The HTML Element target object.
      */
     onKeydown(event, target) {
       const theKey  = event.key || event.keyCode;
-      const shifted = event.shiftKey;
 
       if (isEsc(theKey)) {
         if (this.isTopNav()) {
@@ -670,12 +671,12 @@ document.addEventListener('DOMContentLoaded', event => {
           if (this.isExpanded()) {
             event.preventDefault();
             event.stopPropagation();
-            this.elem.closeSubNav( true );
+            this.elem.closeSubNav(true);
           }
         }
       }
       else if (isEnter(theKey) || isSpace(theKey)) {
-        if (target == this.toggle) {
+        if (target === this.toggle) {
           event.preventDefault();
           event.stopPropagation();
           if (!this.isExpanded()) {
@@ -694,7 +695,7 @@ document.addEventListener('DOMContentLoaded', event => {
   // Variables.
 
   // All main navs.
-  const navs = document.querySelectorAll( '.' + navClass );
+  const navs = document.querySelectorAll('.' + navClass);
   // Global record of all main navs - used by closeAllMobileNavs.
   let theNavs = [];
   // Global record of all sub navs - used by closeAllSubNavs.
@@ -740,6 +741,6 @@ document.addEventListener('DOMContentLoaded', event => {
       closeAllSubNavs();
       closeAllMobileNavs();
     }
-  }, false );
+  }, false);
 
 }); // on DOMContentLoaded.
