@@ -191,13 +191,18 @@ document.addEventListener('DOMContentLoaded', event => {
      * @returns {*}
      *   Whatever the dispatched handler returns (in our case nothing)
      */
-    handleEvent( event ) {
+    handleEvent(event) {
       event = event || window.event;
-      // if this class has an onEvent method, e.g. onClick, onKeydown, invoke it
-      const handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);
-      if ( typeof this[ handler ] === 'function' ) {
-        const target = event.target || event.srcElement; // the element that was clicked
-        return this[ handler ]( event, target );
+
+      // If this class has an onEvent method (onClick, onKeydown) invoke it.
+      const handler = 'on'
+        + event.type.charAt(0).toUpperCase()
+        + event.type.slice(1);
+
+      if (typeof this[handler] === 'function') {
+        // The element that was clicked.
+        const target = event.target || event.srcElement;
+        return this[handler](event, target);
       }
     }
 
@@ -205,49 +210,54 @@ document.addEventListener('DOMContentLoaded', event => {
      * Handler for keydown events. keydown is bound to all NavItem's.
      * Dispatched from this.handleEvent().
      *
-     * @param {KeyboardEvent} event
-     * @param {HTMLElement} target
+     * @param {KeyboardEvent} event - The keyboard event object.
+     * @param {HTMLElement} target  - The HTML element target.
      */
-    onKeydown( event, target ) {
-      const theKey  = event.key || event.keyCode;
+    onKeydown(event, target) {
+      const theKey = event.key || event.keyCode;
 
-      if ( isSpace( theKey ) || isEnter( theKey ) ) {
+      // Handler for the space and enter key.
+      if (isSpace(theKey) || isEnter(theKey)) {
         event.preventDefault();
         event.stopPropagation();
-        if ( this.isSubNavTrigger() ) {
+        if (this.isSubNavTrigger()) {
           this.openSubNav();
         }
         else {
           window.location = this.link;
         }
       }
-      else if ( isDownArrow( theKey ) ) {
+      // Handler for the down arrow key.
+      else if (isDownArrow(theKey)) {
         event.preventDefault();
         event.stopPropagation();
-        if ( this.nav.isDesktopNav() ) {
-          if ( this.isSubNavTrigger() ) {
+        if (this.nav.isDesktopNav()) {
+          if (this.isSubNavTrigger()) {
             this.openSubNav();
           } else {
-            this.nav.focusOn( 'next', this );
+            this.nav.focusOn('next', this);
           }
         }
         else {
-          this.nav.focusOn( 'next', this );
+          this.nav.focusOn('next', this);
         }
       }
-      else if ( isUpArrow( theKey ) ) {
+      // Handler for the up arrow key.
+      else if (isUpArrow(theKey)) {
         event.preventDefault();
         event.stopPropagation();
-        this.nav.focusOn( 'prev', this );
+        this.nav.focusOn('prev', this);
       }
-      else if ( isLeftArrow( theKey ) ) {
+      // Handler for the left arrow key.
+      else if (isLeftArrow(theKey )) {
         event.preventDefault();
         event.stopPropagation();
-        if ( this.nav.isDesktopNav() ) {
-          if ( this.nav.isSubNav() ) {
+        if (this.nav.isDesktopNav()) {
+          if (this.nav.isSubNav()) {
             this.closeSubNav();
             let parent = this.nav.getParentNav();
-            parent.focusOn( 'prev', this.nav.elem ); // focus on the previous item in the parent nav
+            // Focus on the previous item in the parent nav.
+            parent.focusOn( 'prev', this.nav.elem );
           }
           else {
             this.nav.focusOn('prev', this);
@@ -255,39 +265,48 @@ document.addEventListener('DOMContentLoaded', event => {
         }
         else {
           if ( this.isSubNavItem() ) {
-            this.closeSubNav( true ); // close the subnav and put the focus on the trigger
+            // Close the subnav and put the focus on the trigger.
+            this.closeSubNav( true );
           }
         }
       }
-      else if ( isRightArrow( theKey ) ) {
+      // Handler for the right arrow key.
+      else if (isRightArrow(theKey)) {
         event.preventDefault();
         event.stopPropagation();
-        if ( this.nav.isDesktopNav() ) {
-          if ( this.nav.isSubNav() ) {
+        if (this.nav.isDesktopNav()) {
+          if (this.nav.isSubNav()) {
             this.closeSubNav();
             let parent = this.nav.getParentNav();
-            parent.focusOn( 'next', this.nav.elem ); // focus on the next item in the parent nav
+            // Focus on the next item in the parent nav.
+            parent.focusOn('next', this.nav.elem);
           }
           else {
-            this.nav.focusOn( 'next', this );
+            this.nav.focusOn('next', this);
           }
         }
         else {
-          if ( this.isSubNavTrigger() ) {
+          if (this.isSubNavTrigger()) {
             this.openSubNav();
           }
         }
       }
-      else if ( isHome( theKey ) ) {
-        this.nav.focusOn( 'first' );
+      // Handler for the home key.
+      else if (isHome(theKey)) {
+        this.nav.focusOn('first');
       }
-      else if ( isEnd( theKey ) ) {
-        this.nav.focusOn( 'last' );
+      // Handler for the end key.
+      else if (isEnd(theKey)) {
+        this.nav.focusOn('last');
       }
-      else if ( isTab( theKey ) ) {
+      // Handler for the tab key.
+      else if (isTab(theKey)) {
         event.stopPropagation();
         const shifted = event.shiftKey;
-        if ( this.isSubNavItem() && ( ( !shifted && this.isLastItem() ) || ( shifted && this.isFirstItem() ) ) ) {
+        if (this.isSubNavItem()
+          && ((!shifted && this.isLastItem())
+          || (shifted && this.isFirstItem()))
+        ) {
           this.closeSubNav( true );
         }
       }
@@ -295,21 +314,23 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Handler for click events.
+     *
      * Dispatched from this.handleEvent().
+     * Click is only bound to subnav triggers. However, click bubbles up from
+     * subnav items to the trigger.
      *
-     * click is only bound to subnav triggers. However, click bubbles up from subnav items to the trigger.
-     *
-     * @param {KeyboardEvent} event
-     * @param {HTMLElement} target
+     * @param {KeyboardEvent} event - The keyboard event object.
+     * @param {HTMLElement} target  - The HTML element target.
      */
-    onClick( event, target ) {
-      if ( this.isExpanded() ) {
+    onClick(event, target) {
+      if (this.isExpanded()) {
         this.closeSubNav();
       }
       else {
-        this.openSubNav( false );
+        this.openSubNav(false);
       }
-      if ( target == this.link ) { // if the click is directly on the trigger, then we're done
+      // If the click is directly on the trigger, then we're done.
+      if (target == this.link) {
         event.preventDefault();
         event.stopPropagation();
       }
@@ -317,53 +338,73 @@ document.addEventListener('DOMContentLoaded', event => {
 
   }
 
-  /** Represent a navigation menu, either top level or nested. */
   /**
    * Represent a navigation menu. May be the top nav or a subnav.
    *
-   * @property {HTMLElement|NavItem} elem       - the element that is the nav. May be a main nav (<nav>) or a subnav (NavItem).
-   * @property {Nav}                 topNav     - the instance of Nav that models the top nav. If this is the top nav, topNav === this.
-   * @property {HTMLButtonElement}   toggle     - the <button> in the DOM that toggles the menu on mobile. NULL if this is a subnav.
-   * @property {String}              toggleText - the initial text of the mobile toggle (so we can reset it when the mobile nav is closed)
-   * @property {Array}               items      - instances of NavItem that model each element in the nav
+   * @prop {HTMLElement|NavItem} elem       - The element that is the nav. May
+   *                                          be a main nav (<nav>) or a subnav
+   *                                          (NavItem).
+   * @prop {Nav}                 topNav     - The instance of Nav that models
+   *                                          the top nav. If this is the top
+   *                                          nav, topNav === this.
+   * @prop {HTMLButtonElement}   toggle     - The <button> in the DOM that
+   *                                          toggles the menu on mobile. NULL
+   *                                          if this is a subnav.
+   * @prop {String}              toggleText - The initial text of the mobile
+   *                                          toggle (so we can reset it when
+   *                                          the mobile nav is closed).
+   * @prop {Array}               items      - Instances of NavItem that model
+   *                                          each element in the nav
    */
   class Nav {
+
     /**
      * Create a Nav
      *
-     * @param {HTMLElement|NavItem} elem - the element that is the nav menu. May be a main nav (<nav>) or a subnav (NavItem).
+     * @param {HTMLElement|NavItem} elem - The element that is the nav menu.
+     *                                     May be a main nav (<nav>) or a subnav
+     *                                     (NavItem).
      */
-    constructor( elem ) {
+    constructor(elem) {
       this.elem = elem;
       this.topNav = this.getTopNav();
-      if ( elem instanceof NavItem ) elem = elem.item; // if this is a subnav, we need the correpsonding HTMLElement for .querySelector()
-      this.toggle = elem.querySelector( elem.tagName + " > button" );
+      // If this is a subnav, we need the correpsonding HTMLElement for
+      // .querySelector()
+      if (elem instanceof NavItem) elem = elem.item;
+      this.toggle = elem.querySelector(elem.tagName + " > button");
       this.toggleText = this.toggle ? this.toggle.innerText : '';
       this.items = [];
-      let items = elem.querySelectorAll( elem.tagName + " > ul > li" );
-      items.forEach( item => { this.items.push( new NavItem( item, this ) ); } );
+      let items = elem.querySelectorAll(elem.tagName + " > ul > li");
+      items.forEach(
+        item => {
+          this.items.push(new NavItem(item, this));
+        }
+      );
 
-      elem.addEventListener( 'keydown', this );
+      elem.addEventListener('keydown', this);
 
-      if ( this.toggle ) {
-        this.toggle.addEventListener( 'click', this );
+      if (this.toggle) {
+        this.toggle.addEventListener('click', this);
       }
     }
 
-    /********************
-     * Helper methods
-     ********************/
+    // -------------------------------------------------------------------------
+    // Helper Methods.
+    // -------------------------------------------------------------------------
 
     /**
-     * Get the instance of Nav that represents the top level nav of this instance.
+     * Get the instance of Nav that represents the top level nav of this
+     * instance.
      *
      * @returns {Nav}
      */
     getTopNav() {
       let nav = this;
-      while ( nav.elem instanceof NavItem ) {
-        // if nav is the main nav, nav.elem will be an HTMLElement (the <nav> element)
-        // if nav.elem is a NavItem, then this is a subNav, so get the Nav that contains the NavItem
+      while (nav.elem instanceof NavItem) {
+        // If nav is the main nav, nav.elem will be an HTMLElement
+        // (the <nav> element).
+        // If nav.elem is a NavItem, then this is a subNav, so get the Nav that
+        // contains the NavItem.
         nav = nav.elem.nav;
       }
       return nav;
@@ -375,7 +416,9 @@ document.addEventListener('DOMContentLoaded', event => {
      *
      * @returns {Nav}
      */
-    getParentNav() { return this.isSubNav() ? this.elem.nav : this; }
+    getParentNav() {
+      return this.isSubNav() ? this.elem.nav : this;
+    }
 
 
     /**
@@ -385,22 +428,32 @@ document.addEventListener('DOMContentLoaded', event => {
      *
      * @returns {Boolean}
      */
-    isExpanded() { return this.elem instanceof NavItem ? this.elem.isExpanded() : this.elem.getAttribute( 'aria-expanded' ) === 'true'; }
+    isExpanded() {
+
+      if (this.elem instanceof NavItem) {
+        return this.elem.isExpanded();
+      }
+
+      return this.elem.getAttribute('aria-expanded') === 'true';
+    }
 
     /**
      * Set whether or not this is expanded.
      * If this is a subnav, let the subnav (NavItem) handled it.
      * Otherwise (this is the top nav), set aria-expanded.
      *
-     * @param {String} value - what to set the aria-expanded attribute of this's link to
+     * @param {String} value - What to set the aria-expanded attribute of
+     *                         this's link to.
      */
-    setExpanded( value ) {
-      if ( this.elem instanceof NavItem ) {
-        this.elem.setExpanded( value );
+    setExpanded(value) {
+      if (this.elem instanceof NavItem) {
+        this.elem.setExpanded(value);
       }
       else {
-        this.elem.setAttribute( 'aria-expanded', value );
-        if ( this.toggle ) this.toggle.setAttribute( 'aria-expanded', value );
+        this.elem.setAttribute('aria-expanded', value);
+        if (this.toggle) {
+          this.toggle.setAttribute('aria-expanded', value);
+        }
       }
     }
 
