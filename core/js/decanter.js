@@ -76,7 +76,9 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Is this the first item in the containing Nav?
+     *
      * @return {Boolean}
+     *  Wether or not the item is the first item.
      */
     isFirstItem() {
       return this.nav.items.indexOf(this) === 0;
@@ -84,7 +86,9 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Is this the last item in the containing Nav?
+     *
      * @return {Boolean}
+     *  Wether or not the item is the last item.
      */
     isLastItem() {
       return this.nav.items.indexOf(this) === (this.nav.items.length - 1);
@@ -92,7 +96,9 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Is this a trigger that opens / closes a subnav?
+     *
      * @return {Boolean}
+     *  Wether or not the item is the sub nav trigger item.
      */
     isSubNavTrigger() {
       return this.item.lastElementChild.tagName.toUpperCase() === 'UL';
@@ -100,7 +106,9 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Is this a component of a subnav - either the trigger or a nav item?
+     *
      * @return {Boolean}
+     *  Wether or not the item is a subnav item.
      */
     isSubNavItem() {
       return (this.isSubNavTrigger() || this.nav.isSubNav());
@@ -108,7 +116,9 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Is this expanded? Can only return TRUE if this is a subnav trigger.
+     *
      * @return {Boolean}
+     *  Wether or not the item is expanded.
      */
     isExpanded() {
       return this.link.getAttribute('aria-expanded') === 'true';
