@@ -410,6 +410,7 @@ document.addEventListener('DOMContentLoaded', event => {
      * instance.
      *
      * @return {Nav}
+     *  Returns the navigation instance.
      */
     getTopNav() {
       let nav = this;
@@ -428,6 +429,7 @@ document.addEventListener('DOMContentLoaded', event => {
      * If this is the top nav, return this so you can safely call methods on it.
      *
      * @return {Nav}
+     *   Returns the navigation instance.
      */
     getParentNav() {
       return this.isSubNav() ? this.elem.nav : this;
@@ -440,9 +442,9 @@ document.addEventListener('DOMContentLoaded', event => {
      * Otherwise (this is the top nav), check aria-expanded.
      *
      * @return {Boolean}
+     *   Returns wether or not the item is expanded.
      */
     isExpanded() {
-
       if (this.elem instanceof NavItem) {
         return this.elem.isExpanded();
       }
@@ -472,7 +474,9 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Is this rendering the desktop style for the nav?
+     *
      * @return {Boolean}
+     *  Returns wether or not it is desktop navigation.
      */
     isDesktopNav() {
       return getComputedStyle(this.topNav.toggle).display === 'none';
@@ -480,7 +484,9 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Is this the top nav?
+     *
      * @return {Boolean}
+     *  Returns wether or not it is the top nav item.
      */
     isTopNav() {
       return this.topNav === this;
@@ -488,7 +494,9 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Is this a subnav?
+     *
      * @return {Boolean}
+     *  Returns wether or not this is a subnav item.
      */
     isSubNav() {
       return this.topNav !== this;
@@ -496,7 +504,9 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Get the first item in this nav.
+     *
      * @return {NavItem}
+     *  Returns wether or not this is the first item.
      */
     getFirstItem() {
       return this.items.length ? this.items[0] : null;
@@ -504,7 +514,9 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Get the last item in this nav.
+     *
      * @return {NavItem}
+     *  Returns wether or not this is the last item.
      */
     getLastItem() {
       return this.items.length ? this.items[this.items.length - 1] : null;
@@ -512,7 +524,9 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Get the link associated with the first item in this nav.
+     *
      * @return {HTMLAnchorElement}
+     *  Returns the very first link.
      */
     getFirstLink() {
       return this.items.length ? this.getFirstItem().link : null;
@@ -520,7 +534,9 @@ document.addEventListener('DOMContentLoaded', event => {
 
     /**
      * Get the link associated with the last item in this nav.
+     *
      * @return {HTMLAnchorElement}
+     *  Returns the very last link.
      */
     getLastLink() {
       return this.items.length ? this.getLastItem().link : null;
