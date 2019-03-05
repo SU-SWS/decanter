@@ -53,7 +53,6 @@
     {% endspaceless %}
   </ul>
   {% if "su-main-nav--mobile-search" in modifier_class %}
-    {# no blessed idea why {% include ... with mobile_search %} doesn't work, but it doesn't, so reference each variable individually :( #}
     {% include "@decanter/components/site-search/site-search.twig" with
       {
         "action": mobile_search.action,
