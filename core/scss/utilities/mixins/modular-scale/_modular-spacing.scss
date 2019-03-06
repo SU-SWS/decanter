@@ -14,7 +14,7 @@
 // - `@include modular-spacing('margin', 0 -4 1 2)`
 //
 // $type - String: Spacing type, either 'padding' or 'margin'.
-// $steps - List (1 to 4 values): Either integer (from -4 to 5 including 0) or null. Uses the shorthand notation of padding/margin. Use null to skip a side.
+// $steps - List (1 to 4 values): Either integer (from -4 to 5 including 0) or null. Follows the shorthand notation of padding/margin. Use null to skip a side.
 // A value of 0 returns the modular spacing base value for that breakpoint.
 //
 // Style guide: Mixins.Modular.modular-spacing
@@ -67,6 +67,9 @@
         @if nth($steps, 4) != null {
           #{$type}-left: (calculate-modular-spacing(nth($steps, 4), $key));
         }
+      }
+      @else if length($steps) > 4 or length($step) == 0 {
+        @error '$steps should have 1 to 4 values';
       }
 
     }
