@@ -24,8 +24,14 @@
   }
 
   .su-lockup__line4 {
-    @include padding(null null .75rem);
-    border-bottom: solid 1px $color-black;
+
+    &::after {
+      @include margin(.75rem null null);
+      border-bottom: 1px solid $color-black;
+      content: '';
+      display: block;
+      width: 120px;
+    }
   }
 
   .su-lockup__cell1 {

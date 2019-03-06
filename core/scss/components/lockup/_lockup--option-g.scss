@@ -48,10 +48,17 @@
     text-transform: uppercase;
 
     @include grid-media-only('xs') {
-      @include padding(5px null);
+      @include padding(5px null null);
       @include margin(4px null null null);
-      border-bottom: solid 1px $color-black;
       order: 2;
+
+      &::after {
+        @include margin(.75rem null null);
+        border-bottom: 1px solid $color-black;
+        content: '';
+        display: block;
+        width: 120px;
+      }
     }
 
     @include grid-media('sm') {

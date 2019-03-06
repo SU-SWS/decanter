@@ -46,9 +46,16 @@
 
     @include grid-media-only('xs') {
       @include margin(7px null null -2px);
-      @include padding(5px null);
-      border-bottom: solid 1px $color-black;
+      @include padding(5px null null);
       order: 2;
+
+      &::after {
+        @include margin(.75rem null null);
+        border-bottom: 1px solid $color-black;
+        content: '';
+        display: block;
+        width: 120px;
+      }
     }
 
     @include grid-media('sm') {

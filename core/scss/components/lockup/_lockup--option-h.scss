@@ -28,9 +28,15 @@
     line-height: 0.95em;
 
     @include grid-media-only('xs') {
-      @include padding(null null .75rem null);
       @include margin(null null 4px null);
-      border-bottom: solid 1px $color-black;
+
+      &::after {
+        @include margin(.75rem null null);
+        border-bottom: 1px solid $color-black;
+        content: '';
+        display: block;
+        width: 120px;
+      }
     }
   }
 
