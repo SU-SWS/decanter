@@ -1,0 +1,418 @@
+@charset "UTF-8";
+//
+// Main Navigation
+//
+// The primary site navigation that is usually in the header region of a website.
+// It is a horizontal menu bar on larger breakpoints, while on smaller breakpoints,
+// it changes into a vertical menu and the display is toggled by a button.
+//
+// This component is implemented to be accessible. For more information, please see:
+//
+// https://github.com/SU-SWS/decanter/wiki/About-the-Main-Nav-Component
+//
+//**Modifier classes for the Main Nav:**
+// - .su-main-nav--light          - light colored theme
+// - .su-main-nav--mobile-search  - include search form inside the mobile nav
+// - .su-main-nav--center         - center the nav
+// - .su-main-nav--right          - right justify the nav
+//
+//**Modifier classes for the hamburger toggle button:**
+// - .su-main-nav__toggle--center - center the toggle
+// - .su-main-nav__toggle--right - right justify the toggle
+//
+// .su-main-nav--light          - light colored theme
+// .su-main-nav--mobile-search  - include search form inside the mobile nav
+// .su-main-nav--center         - center the nav
+// .su-main-nav--right          - right justify the nav
+//
+// Markup: ../templates/components/main-nav/main-nav.twig
+//
+// Style guide: Components.Main Navigation
+//
+
+$custom-active: #ec0513; //custom high contrast active/current link border for accessibility
+.su-main-nav {
+  @include font-smoothing;
+  @include sans;
+  display: block;
+  position: relative;
+  z-index: 9999;
+
+  // general menu styles
+  ul {
+    @include margin(0 null);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    list-style: none;
+    background-color: $color-black;
+  }
+
+  li {
+    @include margin(null null 0);
+
+    a {
+      @include fancy-hover($color: $color-white, $active: $custom-active, $position: 'left');
+      @include padding(1.6rem 4.8rem 1.6rem 2.4rem);
+      display: block;
+      color: $color-white;
+      font-weight: $font-normal;
+      font-size: 1.8rem;
+      border-bottom: $color-cool-grey solid 1px;
+      outline: 0;
+
+      &:active {
+        font-weight: $font-x-bold;
+      }
+    }
+
+    > ul {
+      display: none;
+    }
+
+    &.su-main-nav__item--expanded {
+      > ul {
+        display: flex;
+      }
+    }
+
+    &.su-main-nav__item--current > a {
+      font-weight: $font-x-bold;
+
+      &::before {
+        visibility: visible;
+        transform: scaleY(1);
+        background-color: $custom-active;
+        transition: left .1s ease-out;
+      }
+
+      &:hover,
+      &:focus {
+        &::before {
+          left: 6px;
+        }
+      }
+    }
+
+    &.su-main-nav__item--parent {
+      > a::after {
+        background: url("#{$image-path}/plus-white.svg") no-repeat 0 0;
+        background-size: 100%;
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: 2rem;
+        top: 2.06rem;
+        height: 1.8rem;
+        width: 1.8rem;
+
+        @include grid-media('lg') {
+          @include margin(null null 1px 6px);
+          background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
+          background-size: 100%;
+          position: relative;
+          right: 0;
+          top: 0;
+          height: 11px; //small svg gets chopped off if use em instead of px
+          width: 11px;
+          transition: transform .3s ease-out;
+        }
+      }
+
+      &.su-main-nav__item--expanded > a {
+        &::after {
+          background: url("#{$image-path}/minus-white.svg") no-repeat 0 0;
+          background-size: 100%;
+
+          @include grid-media('lg') {
+            background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
+            background-size: 100%;
+            transform: rotate(180deg);
+          }
+        }
+
+        @include grid-media-max('md') {
+          &::before {
+            background-color: transparent;
+          }
+
+          &:hover::before {
+            background-color: $color-white;
+          }
+
+          &:active::before {
+            background-color: $custom-active;
+          }
+        }
+      }
+    }
+
+    @include grid-media-max('md') {
+      &.su-main-nav__item--current.su-main-nav__item--expanded {
+        > a {
+          font-weight: $font-bold;
+
+          &::before {
+            background-color: $color-white;
+          }
+        }
+      }
+    }
+  }
+
+  //top level menu styles
+  > ul {
+    > li {
+      @include margin(null null 0);
+
+      > a {
+        font-weight: $font-bold;
+      }
+    }
+
+    // top level menu desktop styles
+    @include grid-media('lg') {
+      @include padding(null null null 0);
+      flex-direction: row;
+      flex-wrap: wrap;
+      background-color: transparent;
+
+      > li {
+        > a {
+          @include fancy-hover;
+          @include padding(null 0);
+          @include margin(0 1.2em 0 0);
+          font-size: 2.1rem;
+          border-bottom: 0;
+
+          &:active {
+            font-weight: $font-bold;
+          }
+
+          &[aria-expanded="true"]::before {
+            visibility: visible;
+            transform: scaleX(1);
+            background-color: $color-black;
+          }
+        }
+
+        &:last-child > a {
+          @include margin(null 0 null null);
+        }
+
+        &.su-main-nav__item--current > a {
+          font-weight: $font-bold;
+        }
+
+        &.su-main-nav__item--expanded > a {
+          &:focus::before {
+            background-color: $color-black;
+          }
+
+          &[aria-expanded="true"]:hover::before {
+            background-color: $color-dark-red;
+          }
+        }
+      }
+    }
+  }
+
+  // When js is disabled, submenus is visible when parent trigger is hovered
+  &.no-js {
+    //Expand everything on mobile
+    @include grid-media-max('md') {
+      .su-main-nav__toggle[aria-expanded="false"] + .su-main-nav__menu-lv1 {
+        display: flex;
+      }
+
+      li > ul {
+        display: flex;
+      }
+    }
+
+    //On desktop, if mouse user hovers over a parent menu item, submenu is expanded
+    @include grid-media('lg') {
+      li:hover > ul {
+        display: flex;
+      }
+    }
+  }
+}
+
+.su-main-nav__toggle {
+  @include grid-media-max('md') {
+    @include fancy-hover;
+    @include padding(0 0 2rem);
+    @include margin(0);
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    width: 40px;
+    background-color: transparent;
+    color: $color-black;
+    font-size: 1.6rem;
+    font-weight: $font-normal;
+    line-height: .7;
+
+    &::after {
+      @include margin(0 auto);
+      display: inline-block;
+      width: 30px;
+      height: 26px;
+      background: url("#{$image-path}/hamburger-black.svg") no-repeat 3px 0;
+      content: "";
+    }
+
+    &[aria-expanded="true"] {
+      &::before {
+        visibility: visible;
+        transform: scaleX(1);
+        background-color: $color-black;
+      }
+
+      &::after {
+        width: 20px;
+        background: url("#{$image-path}/close-black.svg") no-repeat 3px 0;
+        background-size: 16px 16px;
+      }
+
+      &:hover::before {
+        background-color: $color-dark-red;
+      }
+
+      &:active::before {
+        background-color: $color-black;
+      }
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: transparent;
+      color: $color-black;
+      box-shadow: none;
+    }
+
+    &[aria-expanded="false"] + .su-main-nav__menu-lv1 {
+      display: none;
+    }
+
+    &[aria-expanded="true"] + .su-main-nav__menu-lv1 {
+      position: absolute;
+    }
+
+    //toggle button variants
+    &--center {
+      @include margin(null auto);
+    }
+
+    &--right {
+      @include margin(null 0 null auto);
+    }
+  }
+
+  @include grid-media-only('md') {
+    &[aria-expanded="true"]  + .su-main-nav__menu-lv1 {
+      max-width: 24em;
+    }
+  }
+
+  @include grid-media('lg') {
+    display: none;
+  }
+}
+
+.su-main-nav__menu-lv1 > li {
+  @include grid-media('lg') {
+    > a {
+      color: $color-black;
+      transition: color .3s ease-out;
+
+      &:hover,
+      &:focus {
+        color: $color-dark-red;
+      }
+
+      &:active,
+      &[aria-expanded="true"] {
+        color: $color-black;
+      }
+
+      &[aria-expanded="true"]:hover {
+        color: $color-dark-red;
+      }
+    }
+  }
+
+  &.su-main-nav__item--current {
+    > a {
+      &::before {
+        transform: scaleY(1);
+        background-color: $custom-active;
+      }
+
+      &:hover,
+      &:focus {
+        &::before {
+          background-color: $custom-active;
+        }
+      }
+    }
+
+    @include grid-media-max('md') {
+      &.su-main-nav__item--expanded {
+        > a:focus::before {
+          left: 0;
+          background-color: $color-white;
+        }
+
+        > a[aria-expanded="true"] {
+          &:hover::before {
+            left: 6px;
+          }
+
+          &:active {
+            font-weight: $font-x-bold;
+
+            &::before {
+              background-color: $custom-active;
+            }
+          }
+        }
+      }
+    }
+
+    @include grid-media('lg') {
+      > a {
+        &::before {
+          background-color: $color-black;
+        }
+
+        &:hover,
+        &:focus {
+          &::before {
+            left: 0;
+            background-color: $color-dark-red;
+          }
+        }
+      }
+    }
+  }
+}
+
+.su-main-nav__menu-lv2 {
+  @include padding(null null null 2rem);
+
+  @include grid-media('lg') {
+    @include padding(1px null null 1.2rem);
+    @include margin(null null null -1.8rem);
+    @include box-shadow($depth: 'medium', $stroke: none);
+    z-index: 11111; //When menu wrap to 2nd line make sure dropdown covers up top level links
+    position: absolute;
+    max-width: 30rem;
+
+    li:last-child a {
+      border-bottom: 0;
+    }
+  }
+}

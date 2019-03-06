@@ -40,3 +40,16 @@
     }
   }
 }
+
+//Main Nav Component - fix z-index in styleguide when multiple navs are right on top of each other
+#kssref-components-main-navigation {
+  .kss-modifier__example {
+    @for $i from 2 through 6 {
+      &:nth-child(#{3 * $i}) {
+        nav {
+          z-index: 9999 - 100 * ($i - 1);
+        }
+      }
+    }
+  }
+}
