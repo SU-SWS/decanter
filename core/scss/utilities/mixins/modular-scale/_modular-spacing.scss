@@ -64,7 +64,7 @@
         @if nth($steps, 4) != null {
           #{$type}-left: (calculate-modular-spacing(nth($steps, 4), $key));
         }
-      } @else if length($steps) > 4 or length($step) == 0 {
+      } @else if length($steps) > 4 or length($steps) == 0 {
         @error '$steps should have 1 to 4 values';
       }
     }
