@@ -1525,15 +1525,31 @@ template {
   src: url("https://www-media.stanford.edu/assets/fonts/stanford.woff") format("woff"), url("https://www-media.stanford.edu/assets/fonts/stanford.ttf") format("truetype");
   font-weight: 300; }
 
-.su-sr-only {
+.su-sr-only-element {
   border: 0;
-  clip: rect(0, 0, 0, 0);
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
   height: 1px;
   overflow: hidden;
+  padding: 0;
   position: absolute;
   white-space: nowrap;
-  width: 1px;
-  padding: 0; }
+  width: 1px; }
+  .su-sr-only-element:active, .su-sr-only-element:focus {
+    clip: auto;
+    -webkit-clip-path: none;
+            clip-path: none;
+    height: auto;
+    overflow: visible;
+    position: static;
+    white-space: inherit;
+    width: auto; }
+
+.su-sr-only-text {
+  overflow: hidden;
+  text-indent: 101%;
+  white-space: nowrap; }
 
 html {
   -webkit-box-sizing: border-box;
@@ -1636,13 +1652,15 @@ fieldset {
 [type="checkbox"],
 [type="radio"] {
   border: 0;
-  clip: rect(0, 0, 0, 0);
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
   height: 1px;
   overflow: hidden;
+  padding: 0;
   position: absolute;
   white-space: nowrap;
-  width: 1px;
-  padding: 0; }
+  width: 1px; }
   .lt-ie9 [type=checkbox], .lt-ie9
   [type=radio] {
     border: 0;
@@ -8168,13 +8186,15 @@ a {
 
 .su-site-search__sr-label {
   border: 0;
-  clip: rect(0, 0, 0, 0);
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
   height: 1px;
   overflow: hidden;
+  padding: 0;
   position: absolute;
   white-space: nowrap;
-  width: 1px;
-  padding: 0; }
+  width: 1px; }
 
 .su-site-search__submit {
   padding: 0;
@@ -8201,22 +8221,41 @@ a {
     outline: #aaa solid 3px;
     outline: -webkit-focus-ring-color auto 5px; }
 
-.su-skipnav {
-  background: transparent;
-  color: #2e2d29;
-  left: 0;
+.su-skiplinks {
+  padding: 0;
+  background-color: #2e2d29;
+  color: #ffffff;
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  font-size: .75em;
+  font-weight: 400;
+  left: .8em;
+  min-height: 1px;
   position: absolute;
-  top: -4.2rem;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  z-index: 100;
-  padding: 1rem 1.5rem; }
-  .su-skipnav:focus {
-    background: #ffffff;
-    left: 0;
-    outline: 0;
-    position: absolute;
-    top: 0;
-    -webkit-transition: all 0.2s ease-in-out;
-    transition: all 0.2s ease-in-out; }
+  text-decoration: none;
+  top: -500px;
+  -webkit-transition-duration: .25s;
+          transition-duration: .25s;
+  -webkit-transition-property: top;
+  transition-property: top;
+  -webkit-transition-timing-function: ease-in-out;
+          transition-timing-function: ease-in-out; }
+  @media print {
+    .su-skiplinks {
+      display: none; } }
+  .su-skiplinks, .su-skiplinks:hover, .su-skiplinks:visited {
+    color: #ffffff;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 1px; }
+  .su-skiplinks:active, .su-skiplinks:focus {
+    padding: 0.4em 0.8em;
+    border: 1px solid #4d4f53;
+    border-radius: 3px;
+    height: auto;
+    left: .8em;
+    position: fixed;
+    top: .8em;
+    width: auto;
+    z-index: 11222; }
 /*# sourceMappingURL=decanter.css.map */
