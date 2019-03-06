@@ -410,7 +410,7 @@ sub {
   #kss-node > .su-brand-bar {
     position: fixed;
     top: 0;
-    z-index: 9999; }
+    z-index: 22222; }
 
 .main-page-layout {
   display: grid;
@@ -764,7 +764,6 @@ sub {
   clear: left;
   border: 2px dashed transparent;
   position: relative;
-  z-index: 0;
   margin: -2px -2px 28px; }
   .kss-modifier__example:last-child {
     margin-bottom: 0; }
@@ -784,6 +783,13 @@ sub {
 
 #kss-node.kss-fullscreen-mode .main-page-layout {
   display: block; }
+
+@media (min-width: 992px) {
+  #kss-node.kss-fullscreen-mode .su-main-nav {
+    margin-left: 1.6em; }
+    #kss-node.kss-fullscreen-mode .su-main-nav.su-main-nav--right {
+      margin-right: 3em;
+      margin-left: 0; } }
 
 .kss-guides-mode.kss-fullscreen-mode .kss-modifier__example:before {
   left: auto;
@@ -1558,6 +1564,21 @@ body {
       border-bottom: solid 3px #ffffff; }
     .main-nav li:last-child > a {
       margin: 0; }
+
+#kssref-components-main-navigation .kss-modifier__example:nth-child(6) nav {
+  z-index: 9899; }
+
+#kssref-components-main-navigation .kss-modifier__example:nth-child(9) nav {
+  z-index: 9799; }
+
+#kssref-components-main-navigation .kss-modifier__example:nth-child(12) nav {
+  z-index: 9699; }
+
+#kssref-components-main-navigation .kss-modifier__example:nth-child(15) nav {
+  z-index: 9599; }
+
+#kssref-components-main-navigation .kss-modifier__example:nth-child(18) nav {
+  z-index: 9499; }
 
 .kss-markup {
   overflow: scroll;

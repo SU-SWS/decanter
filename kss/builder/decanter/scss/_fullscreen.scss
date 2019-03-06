@@ -13,6 +13,16 @@
     .main-page-layout {
       display: block;
     }
+
+    @include grid-media-min('lg') {
+      .su-main-nav {
+        @include margin(null null null 1.6em);
+
+        &.su-main-nav--right {
+          @include margin(null 3em null 0);
+        }
+      }
+    }
   }
 }
 
