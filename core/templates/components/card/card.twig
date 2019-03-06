@@ -27,18 +27,18 @@
 <div{{ attributes }} class="su-card {{ modifier_class }}">
 
   {# Card Image #}
-  {% if card_image is not empty %}
+  {%- if card_image is not empty %}
     {{ card_image }}
-  {% endif %}
+  {% endif -%}
 
   <div class="su-card__contents">
 
   {# Card Super Headline #}
-  {% block block_card_super_headline %}
+  {%- block block_card_super_headline %}
     {% if card_super_headline is not empty %}
       <h5>{{ card_super_headline }}</h5>
     {% endif %}
-  {% endblock %}
+  {% endblock -%}
 
   {# Card Headline #}
   {% block block_card_headline  %}
@@ -51,31 +51,31 @@
   {{ card_body }}
 
   {# Card CTA Link #}
-  {% if card_cta_link is not empty %}
+  {%- if card_cta_link is not empty %}
     {% include "@decanter/components/link/link.twig" with
       {
       "link_href": card_cta_link,
       "link_content": card_cta_label,
       "attributes": card_cta_attributes,
-      "modifier_class": "su-link--action",
+      "modifier_class": "su-link--action su-card__link",
       }
       only
     %}
-  {% endif %}
+  {% endif -%}
 
   {# Big ol button. Adds a BEM class for targeting. #}
-  {% if card_button_link is not empty %}
+  {%- if card_button_link is not empty %}
     <div class="su-card__button">
     {% include "@decanter/components/link/link.twig" with
       {
       "link_href": card_button_link,
       "link_content": card_button_label,
-      "modifier_class": "su-link--button",
+      "modifier_class": "su-button",
       }
       only
     %}
     </div>
-  {% endif %}
+  {% endif -%}
 
   </div> {# /su-card__contents #}
 </div> {# /su-card #}

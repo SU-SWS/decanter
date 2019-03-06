@@ -9,8 +9,8 @@
 //
 @mixin button-secondary {
   @include font-smoothing;
-  @include margin(0.5em 0.5em 0.5em null);
   @include padding(1rem 2rem 1.15rem);
+  @include modular-typography(0);
 
   appearance: none;
   background-color: $color-white;
@@ -19,7 +19,6 @@
   color: $color-bright-red;
   cursor: pointer;
   display: inline-block;
-  font-size: $base-font-size;
   font-weight: $font-bold;
   line-height: 1;
   outline: none;
@@ -30,7 +29,6 @@
   @include grid-media('sm') {
     width: auto;
   }
-
 
   &:hover {
     background-color: $color-white;

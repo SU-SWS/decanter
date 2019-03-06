@@ -3,7 +3,7 @@
 //
 // Card
 //
-// One of the primary building block compontents. This card component comes with
+// One of the primary building block components. This card component comes with
 // several fields to ensure flexibility.
 //
 // .su-card--horizontal - Postcard
@@ -27,45 +27,48 @@
 .su-card__contents {
   @include modular-spacing('padding', 2);
 
-  // Ensure no bottom padding on last item.
-  *:last-child {
+  // Ensure no top padding or margin on first item.
+  > *:first-child {
+    @include padding(0 null null);
+    @include margin(0 null null);
+  }
+
+  // Ensure no bottom padding or margin on last item.
+  > *:last-child {
     @include padding(null null 0);
+    @include margin(null null 0);
+  }
+
+  > h3,
+  > h5 {
+    @include margin(0 null null);
+    @include sans;
+    font-weight: $font-x-bold;
+    line-height: 1.1;
   }
 
   // TODO: Refactor this to a mixin when typo headings available.
   > h5 {
-    @include margin(0 null 11px);
-    font-size: 13px;
-    font-weight: bold;
-    line-height: 17px;
+    @include modular-spacing('margin', null null -1);
+    @include modular-typography(-1);
     text-transform: uppercase;
-
-    @include grid-media('md') {
-      @include margin(null null 12px);
-    }
-
-    @include grid-media('xl') {
-      @include margin(null null 13px);
-    }
-
   }
 
   // TODO: Refactor this to a mixin when typo headings available.
   > h3 {
-    @include margin(0 null 18px);
-    font-size: 25px;
-    font-weight: bold;
-    line-height: 31px;
+    @include modular-spacing('margin', null null -1);
+    @include modular-typography(2);
+  }
 
-    @include grid-media('xl') {
-      @include margin(null null 19px);
-    }
-
+  .su-link--action {
+    @include modular-spacing('padding', null null 0);
+    display: inline-block;
   }
 
 }
 
 // Button to click on.
 .su-card__button {
+  @include modular-spacing('margin', -2 null null);
   text-align: center;
 }
