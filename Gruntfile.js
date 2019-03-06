@@ -46,13 +46,6 @@ module.exports = function(grunt) {
       },
       target: ['core/scss/\*\*/\*.scss']
     },
-    uglify: {
-      my_target: {
-        files: {
-          'core/js/decanter.min.js': 'core/js/decanter.js',
-        }
-      }
-    },
     postcss: {
       options: {
         map: true, // inline sourcemaps
@@ -76,8 +69,7 @@ module.exports = function(grunt) {
         }
       },
       jsmin: {
-        files: ['core/**/*.js'],
-        tasks: ['uglify']
+        files: ['core/**/*.js']
       },
       twig: {
         files: ['**/*.twig', '**/*.json'],
@@ -143,7 +135,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-run');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -152,9 +143,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
 
   grunt.registerTask('deploy', ['styleguide', 'deploy_site:styleguide', 'clean:postdeploy']);
-  grunt.registerTask('styleguide', ['compile', 'uglify', 'clean:styleguide', 'run:styleguide', 'copy:styleguide']);
+  grunt.registerTask('styleguide', ['compile', 'clean:styleguide', 'run:styleguide', 'copy:styleguide']);
   grunt.registerTask('compile', ['sass:dist', 'postcss:dist']);
   grunt.registerTask('dev', ['styleguide', 'browserSync', 'watch']);
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['dev']);
 
 }

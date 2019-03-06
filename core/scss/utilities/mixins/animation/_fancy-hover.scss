@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+//
+// @fancy-hover($color, $active, $position, $thickness)
+//
+// When an element (e.g., a link) is hovered over, display an animation of a border that expands out from the middle next to the element.
+//
+// $color - Hover/focus border color, e.g., #eeeeee. Defaults to $color-dark-red.
+// $active - Active border color. Defaults to $color-black.
+// $position - The position of the border relative to the element the mixin is applied to. The default is 'bottom' and the other choices are 'top', 'left' and 'right'.
+// $thickness - The thickness of the border, e.g., '3px', '1em'. The default is '6px'.
+//
+// Style guide: Mixins.Animation.Fancyhover
+//
+@mixin fancy-hover($color: $color-dark-red, $active: $color-black, $position: 'bottom', $thickness: '6px') {
+  text-decoration: none;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    visibility: hidden;
+    transition: transform .3s ease-in, background-color .3s ease-in;
+    z-index: 1;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+
+    &::before {
+      visibility: visible;
+      transition: transform .3s ease-out, background-color .3s ease-out;
+    }
+  }
+
+  &:hover,
+  &:focus {
+    &::before {
+      background-color: $color;
+    }
+  }
+
+  &:active {
+    &::before {
+      background-color: $active;
+    }
+  }
+
+  @if ($position == 'bottom' or $position == 'top') {
+    &::before {
+      width: 100%;
+      height: #{$thickness};
+      left: 0;
+      transform: scaleX(0);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      &::before {
+        transform: scaleX(1);
+      }
+    }
+
+    @if ($position == 'bottom') {
+      @include padding(null null .8em);
+
+      &::before {
+        bottom: 0;
+      }
+    } @elseif ($position == 'top') {
+      @include padding(.8em null null);
+
+      &::before {
+        top: 0;
+      }
+    }
+
+  } @elseif ($position == 'left' or $position == 'right') {
+    &::before {
+      height: 100%;
+      width: #{$thickness};
+      bottom: 0;
+      transform: scaleY(0);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      &::before {
+        transform: scaleY(1);
+      }
+    }
+
+    @if ($position == 'left') {
+      &::before {
+        left: 0;
+      }
+    } @elseif ($position == 'right') {
+      &::before {
+        right: 0;
+      }
+    }
+  }
+}

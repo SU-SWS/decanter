@@ -8,21 +8,65 @@
 //
 // Please see core/scss/utilities/variables/core/_modular-spacing.scss for variable maps.
 //
-// $step - Integers from -4 to 5 including 0. Default for $step is 0 which returns the modular spacing base value.
-//
-// $property - CSS margin or padding property including directional properties, e.g., margin-left, padding-top etc.
-//
 // **Examples:**
-// - `@include modular-spacing(0, 'margin')`
-// - `@include modular-spacing(-3, 'padding-top')`
-// - `@include modular-spacing(4, 'margin-left');`
+// - `@include modular-spacing(3);`
+// - `@include modular-spacing('padding', 2 null)`
+// - `@include modular-spacing('margin', 0 -4 1 2)`
+//
+// $type - String: Spacing type, either 'padding' or 'margin'.
+// $steps - List (1 to 4 values): Either integer (from -4 to 5 including 0) or null. Follows the shorthand notation of padding/margin. Use null to skip a side.
+// A value of 0 returns the modular spacing base value for that breakpoint.
 //
 // Style guide: Mixins.Modular.modular-spacing
 //
-@mixin modular-spacing($step: 0, $property: 'padding', $grid: $grid-media) {
+
+@mixin modular-spacing($type: 'padding', $steps: 0, $grid: $grid-media) {
   @each $key, $breakpoint in $grid {
     @include grid-media($key) {
-      #{$property}: (calculate-modular-spacing($step, $key));
+      @if length($steps) == 1 {
+        #{$type}: (calculate-modular-spacing($steps, $key));
+      } @else if length($steps) == 2 {
+        @if nth($steps, 1) != null {
+          #{$type}-top: (calculate-modular-spacing(nth($steps, 1), $key));
+          #{$type}-bottom: (calculate-modular-spacing(nth($steps, 1), $key));
+        }
+
+        @if nth($steps, 2) != null {
+          #{$type}-left: (calculate-modular-spacing(nth($steps, 2), $key));
+          #{$type}-right: (calculate-modular-spacing(nth($steps, 2), $key));
+        }
+      } @else if length($steps) == 3 {
+        @if nth($steps, 1) != null {
+          #{$type}-top: (calculate-modular-spacing(nth($steps, 1), $key));
+        }
+
+        @if nth($steps, 2) != null {
+          #{$type}-right: (calculate-modular-spacing(nth($steps, 2), $key));
+          #{$type}-left: (calculate-modular-spacing(nth($steps, 2), $key));
+        }
+
+        @if nth($steps, 3) != null {
+          #{$type}-bottom: (calculate-modular-spacing(nth($steps, 3), $key));
+        }
+      } @else if length($steps) == 4 {
+        @if nth($steps, 1) != null {
+          #{$type}-top: (calculate-modular-spacing(nth($steps, 1), $key));
+        }
+
+        @if nth($steps, 2) != null {
+          #{$type}-right: (calculate-modular-spacing(nth($steps, 2), $key));
+        }
+
+        @if nth($steps, 3) != null {
+          #{$type}-bottom: (calculate-modular-spacing(nth($steps, 3), $key));
+        }
+
+        @if nth($steps, 4) != null {
+          #{$type}-left: (calculate-modular-spacing(nth($steps, 4), $key));
+        }
+      } @else if length($steps) > 4 or length($step) == 0 {
+        @error '$steps should have 1 to 4 values';
+      }
     }
   }
 }

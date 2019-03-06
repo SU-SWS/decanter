@@ -15,13 +15,13 @@
 
 .su-site-search__input {
   @include font-smoothing;
-  @include padding(.3em 1em);
+  @include padding(.6rem 2rem);
 
   display: inline-block;
   height: 40px;
   max-width: 100%;
   border-radius: 30px;
-  font-size: .8em;
+  font-size: 1.6rem;
 
   &::placeholder {
     color: $color-black;
@@ -30,7 +30,7 @@
 }
 
 .su-site-search__sr-label {
-  @include sr-only;
+  @include hide-visually;
 }
 
 .su-site-search__submit {
