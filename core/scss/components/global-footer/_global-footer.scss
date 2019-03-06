@@ -12,8 +12,7 @@
 
 // Global styles for the global footer.
 .su-global-footer {
-  @include modular-spacing(1, 'padding-top');
-  @include modular-spacing(1, 'padding-bottom');
+  @include modular-spacing('padding', 1 null);
   background-color: $color-cardinal-red;
   color: $color-white;
 
@@ -38,7 +37,7 @@
   // The Logo.
   .su-global-footer__brand {
     @include padding(0.5rem null null);
-    @include modular-spacing(-2, 'margin-bottom');
+    @include modular-spacing('margin', null null -2);
     text-align: center;
 
     a {
