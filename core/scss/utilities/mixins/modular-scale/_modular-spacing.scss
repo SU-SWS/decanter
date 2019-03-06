@@ -25,8 +25,7 @@
     @include grid-media($key) {
       @if length($steps) == 1 {
         #{$type}: (calculate-modular-spacing($steps, $key));
-      }
-      @else if length($steps) == 2 {
+      } @else if length($steps) == 2 {
         @if nth($steps, 1) != null {
           #{$type}-top: (calculate-modular-spacing(nth($steps, 1), $key));
           #{$type}-bottom: (calculate-modular-spacing(nth($steps, 1), $key));
@@ -36,8 +35,7 @@
           #{$type}-left: (calculate-modular-spacing(nth($steps, 2), $key));
           #{$type}-right: (calculate-modular-spacing(nth($steps, 2), $key));
         }
-      }
-      @else if length($steps) == 3 {
+      } @else if length($steps) == 3 {
         @if nth($steps, 1) != null {
           #{$type}-top: (calculate-modular-spacing(nth($steps, 1), $key));
         }
@@ -50,8 +48,7 @@
         @if nth($steps, 3) != null {
           #{$type}-bottom: (calculate-modular-spacing(nth($steps, 3), $key));
         }
-      }
-      @else if length($steps) == 4 {
+      } @else if length($steps) == 4 {
         @if nth($steps, 1) != null {
           #{$type}-top: (calculate-modular-spacing(nth($steps, 1), $key));
         }
@@ -67,11 +64,9 @@
         @if nth($steps, 4) != null {
           #{$type}-left: (calculate-modular-spacing(nth($steps, 4), $key));
         }
-      }
-      @else if length($steps) > 4 or length($step) == 0 {
+      } @else if length($steps) > 4 or length($step) == 0 {
         @error '$steps should have 1 to 4 values';
       }
-
     }
   }
 }
