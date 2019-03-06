@@ -18,11 +18,11 @@
     text-transform: uppercase;
 
     @include grid-media-only('xs') {
-      @include margin(5px null 5px -2px);
+      @include margin(5px null null -2px);
       font-size: 2.6rem;
 
       &::after {
-        @include margin(.75rem null null);
+        @include margin(.75rem null .5rem);
         border-bottom: 1px solid $color-black;
         content: '';
         display: block;
