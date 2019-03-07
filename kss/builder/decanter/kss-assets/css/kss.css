@@ -410,7 +410,7 @@ sub {
   #kss-node > .su-brand-bar {
     position: fixed;
     top: 0;
-    z-index: 9999; }
+    z-index: 11200; }
 
 .main-page-layout {
   display: grid;
@@ -764,7 +764,6 @@ sub {
   clear: left;
   border: 2px dashed transparent;
   position: relative;
-  z-index: 0;
   margin: -2px -2px 28px; }
   .kss-modifier__example:last-child {
     margin-bottom: 0; }
@@ -784,6 +783,13 @@ sub {
 
 #kss-node.kss-fullscreen-mode .main-page-layout {
   display: block; }
+
+@media (min-width: 992px) {
+  #kss-node.kss-fullscreen-mode .su-main-nav {
+    margin-left: 1.6em; }
+    #kss-node.kss-fullscreen-mode .su-main-nav.su-main-nav--right {
+      margin-right: 3em;
+      margin-left: 0; } }
 
 .kss-guides-mode.kss-fullscreen-mode .kss-modifier__example:before {
   left: auto;
@@ -867,7 +873,7 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column; }
-  body > .global-footer {
+  body > .site-footer {
     margin-top: auto; }
   html {
     display: -webkit-box;
@@ -939,42 +945,12 @@ body {
   #kss-node.kss-home .kss-section {
     margin-bottom: 0; }
   #kss-node.kss-home p {
-    font-size: 1.6rem; }
-    @media only screen and (min-width: 576px) {
-      #kss-node.kss-home p {
-        font-size: 1.6rem; } }
-    @media only screen and (min-width: 768px) {
-      #kss-node.kss-home p {
-        font-size: 1.8rem; } }
-    @media only screen and (min-width: 992px) {
-      #kss-node.kss-home p {
-        font-size: 1.8rem; } }
-    @media only screen and (min-width: 1200px) {
-      #kss-node.kss-home p {
-        font-size: 1.8rem; } }
-    @media only screen and (min-width: 1500px) {
-      #kss-node.kss-home p {
-        font-size: 1.9rem; } }
+    font-size: 1em; }
   #kss-node.kss-home h2, #kss-node.kss-home h3, #kss-node.kss-home h4, #kss-node.kss-home h5, #kss-node.kss-home p, #kss-node.kss-home li {
     color: #2e2d29; }
   #kss-node.kss-home h2 {
-    font-size: 3.125rem;
+    font-size: 1.953125em;
     font-weight: 700; }
-    @media only screen and (min-width: 576px) {
-      #kss-node.kss-home h2 {
-        font-size: 3.125rem; } }
-    @media only screen and (min-width: 768px) {
-      #kss-node.kss-home h2 {
-        font-size: 3.515625rem; } }
-    @media only screen and (min-width: 992px) {
-      #kss-node.kss-home h2 {
-        font-size: 3.515625rem; } }
-    @media only screen and (min-width: 1200px) {
-      #kss-node.kss-home h2 {
-        font-size: 3.515625rem; } }
-    @media only screen and (min-width: 1500px) {
-      #kss-node.kss-home h2 {
-        font-size: 3.7109375rem; } }
   #kss-node.kss-home .section {
     padding: 20px; }
     @media only screen and (min-width: 768px) {
@@ -1022,23 +998,8 @@ body {
       #kss-node.kss-home .section--welcome p {
         max-width: 65%; } }
   #kss-node.kss-home .section--welcome p {
-    font-size: 2rem;
+    font-size: 1.25em;
     font-weight: 200; }
-    @media only screen and (min-width: 576px) {
-      #kss-node.kss-home .section--welcome p {
-        font-size: 2rem; } }
-    @media only screen and (min-width: 768px) {
-      #kss-node.kss-home .section--welcome p {
-        font-size: 2.25rem; } }
-    @media only screen and (min-width: 992px) {
-      #kss-node.kss-home .section--welcome p {
-        font-size: 2.25rem; } }
-    @media only screen and (min-width: 1200px) {
-      #kss-node.kss-home .section--welcome p {
-        font-size: 2.25rem; } }
-    @media only screen and (min-width: 1500px) {
-      #kss-node.kss-home .section--welcome p {
-        font-size: 2.375rem; } }
   #kss-node.kss-home .section--welcome h2 {
     margin: 0; }
   #kss-node.kss-home .section--ui-components {
@@ -1604,7 +1565,23 @@ body {
     .main-nav li:last-child > a {
       margin: 0; }
 
+#kssref-components-main-navigation .kss-modifier__example:nth-child(6) nav {
+  z-index: 9899; }
+
+#kssref-components-main-navigation .kss-modifier__example:nth-child(9) nav {
+  z-index: 9799; }
+
+#kssref-components-main-navigation .kss-modifier__example:nth-child(12) nav {
+  z-index: 9699; }
+
+#kssref-components-main-navigation .kss-modifier__example:nth-child(15) nav {
+  z-index: 9599; }
+
+#kssref-components-main-navigation .kss-modifier__example:nth-child(18) nav {
+  z-index: 9499; }
+
 .kss-markup {
+  overflow: scroll;
   margin: 30px 0;
   border: 1px solid #ccc; }
   .kss-markup[open] summary {
@@ -1663,7 +1640,7 @@ body {
         .masthead div > *:nth-child(2) {
           -ms-grid-column: 2; } }
   .masthead .brand-logo {
-    font-size: 3.125rem;
+    font-size: 1.953125em;
     color: #ffffff;
     font-weight: 700;
     display: block;
@@ -1673,21 +1650,6 @@ body {
     text-align: center;
     -ms-grid-row: 1;
     -ms-grid-column: 1; }
-    @media only screen and (min-width: 576px) {
-      .masthead .brand-logo {
-        font-size: 3.125rem; } }
-    @media only screen and (min-width: 768px) {
-      .masthead .brand-logo {
-        font-size: 3.515625rem; } }
-    @media only screen and (min-width: 992px) {
-      .masthead .brand-logo {
-        font-size: 3.515625rem; } }
-    @media only screen and (min-width: 1200px) {
-      .masthead .brand-logo {
-        font-size: 3.515625rem; } }
-    @media only screen and (min-width: 1500px) {
-      .masthead .brand-logo {
-        font-size: 3.7109375rem; } }
   .masthead .main-nav {
     -ms-grid-row: 1;
     -ms-grid-column: 2; }
@@ -1903,6 +1865,9 @@ ol.linenums {
 .kss-nav__menu-child .kss-nav__ref {
   font-weight: normal;
   color: #56554d; }
+
+#kssref-components-skiplinks .kss-modifier__example {
+  z-index: 11222; }
 
 .kss-toolbar {
   margin: 6px 0 24px;

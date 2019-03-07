@@ -1,0 +1,16 @@
+@charset 'UTF-8';
+
+//
+// @modular-typography-base
+//
+// Set base font-size for <body> at each breakpoint to use with modular typography.
+//
+// Style guide: Mixins.Modular.modular-typography-base
+//
+@mixin modular-typography-base($grid: $grid-media) {
+  @each $key, $breakpoint in $grid {
+    @include grid-media($key) {
+      font-size: map-get($modular-typography-base, $key);
+    }
+  }
+}
