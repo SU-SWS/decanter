@@ -41,23 +41,28 @@
 
   > h3,
   > h5 {
-    @include margin(0 null null);
     @include sans;
+    @include margin(null null 0);
     font-weight: $font-x-bold;
     line-height: 1.1;
   }
 
   // TODO: Refactor this to a mixin when typo headings available.
   > h5 {
-    @include modular-spacing('margin', null null -1);
+    @include modular-spacing('padding', null null -2);
     @include modular-typography(-1);
     text-transform: uppercase;
   }
 
   // TODO: Refactor this to a mixin when typo headings available.
   > h3 {
-    @include modular-spacing('margin', null null -1);
+    @include modular-spacing('padding', null null -1);
     @include modular-typography(2);
+  }
+
+  > p {
+    @include modular-spacing('padding', null null -1);
+    @include margin(null null 0);
   }
 
   .su-link--action {
@@ -71,4 +76,10 @@
 .su-card__button {
   @include modular-spacing('margin', -2 null null);
   text-align: center;
+
+  @include grid-media-only('xs') {
+    .su-button {
+      width: auto; //overriding default button component width in xs
+    }
+  }
 }
