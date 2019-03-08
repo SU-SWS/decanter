@@ -4,53 +4,5 @@
 // Horizontal Card
 //
 .su-card--horizontal {
-  // Set up the grid for this component.
-  @include display-grid;
-  @include modular-spacing('padding', 2);
-
-  @each $key, $breakpoint in $grid-media {
-    @include grid-media($key) {
-      @include grid-column-gap(calculate-modular-spacing(1, $key));
-    }
-  }
-
-  // One column on smallest screen sizes.
-  @include grid-media("xs") {
-    @include grid-columns(100%);
-  }
-
-  // 33/66 for small.
-  @include grid-media("sm") {
-    @include grid-columns(1fr 2fr);
-  }
-
-  // 50/50 side by side on all screen sizes above small.
-  @include grid-media("md") {
-    @include grid-columns(1fr 1fr);
-  }
-
-  // Modular padding.
-  img {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-  }
-
-  .su-card__contents {
-    @include padding(0);
-    -ms-grid-row: 2;
-    -ms-grid-column: 1;
-
-    @include grid-media('sm') {
-      @include padding(null null null 0);
-      -ms-grid-row: 1;
-      -ms-grid-column: 2;
-    }
-
-    > h2 {
-      @include grid-media-max('sm') {
-        margin-top: 0;
-      }
-    }
-  }
-
+  @include card($orientation: 'horizontal', $stroke: '1px solid #c6c6c6', $shadow: 'shallow', $headline: $font-sans, $content-valign: 'top');
 }

@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+//
+// @card($orientation, $stroke, $shadow, $headline, $content-valign)
+//
+// Card component styling
+//
+// Style guide: Mixins.Card
+//
+
+// Placeholder class for common card styles across all variants
+%card-common {
+  > img {
+    // Hide the image on the smallest screen sizes.
+    @include grid-media-only('xs') {
+      display: none;
+    }
+  }
+
+  .su-card__contents {
+    // Ensure no top padding or margin on first item.
+    > *:first-child {
+      @include padding(0 null null);
+      @include margin(-.2em null null);
+    }
+
+    // Ensure no bottom padding or margin on last item.
+    > *:last-child {
+      @include padding(null null 0);
+      @include margin(null null 0);
+    }
+
+    > h3,
+    > h5 {
+      @include margin(null null 0);
+      font-weight: $font-x-bold;
+      line-height: 1.1;
+    }
+
+    // TODO: Refactor this to a mixin when typo headings available.
+    > h3 {
+      @include modular-spacing('padding', null null -1);
+      @include modular-typography(2);
+    }
+
+    // TODO: Refactor this to a mixin when typo headings available.
+    > h5 {
+      @include modular-spacing('padding', null null -2);
+      @include modular-typography(-1);
+      @include sans;
+      text-transform: uppercase;
+    }
+
+    > p {
+      @include modular-spacing('padding', null null -1);
+      @include margin(null null 0);
+    }
+
+    .su-link--action {
+      @include modular-spacing('padding', null null 0);
+      display: inline-block;
+    }
+  }
+
+  // Button to click on.
+  .su-card__button {
+    @include modular-spacing('margin', -2 null null);
+    text-align: center;
+
+    @include grid-media-only('xs') {
+      .su-button {
+        width: auto; // Overriding default button component width in xs
+      }
+    }
+  }
+}
+
+@mixin card($orientation: 'vertical', $stroke: '1px solid #c6c6c6', $shadow: 'shallow', $headline: $font-sans, $content-valign: 'top') {
+  @include box-shadow($shadow, $stroke);
+  @extend %card-common;
+
+  > h3 {
+    font-family: $headline;
+  }
+
+  // styles unique to the two orientations
+  @if $orientation == 'vertical' {
+    .su-card__contents {
+      @include modular-spacing('padding', 2);
+    }
+  } @else if $orientation == 'horizontal' {
+    // Set up the grid for this variant.
+    @include display-grid;
+    @include modular-spacing('padding', 2);
+
+    @each $key, $breakpoint in $grid-media {
+      @include grid-media($key) {
+        @include grid-column-gap(calculate-modular-spacing(1, $key));
+      }
+    }
+
+    // Options for content vertical alignment in horizontal cards
+    > * {
+      @if $content-valign == 'center' {
+        align-self: center;
+      } @else if $content-valign == 'bottom' {
+        align-self: end;
+      } @else {
+        align-self: start;
+      }
+    }
+
+    // One column on smallest screen sizes.
+    @include grid-media("xs") {
+      @include grid-columns(100%);
+    }
+
+    // 33/66 for small.
+    @include grid-media("sm") {
+      @include grid-columns(1fr 2fr);
+    }
+
+    // 50/50 side by side on all screen sizes above small.
+    @include grid-media("md") {
+      @include grid-columns(1fr 1fr);
+    }
+
+    img {
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+    }
+
+    .su-card__contents {
+      @include padding(0);
+      -ms-grid-row: 2;
+      -ms-grid-column: 1;
+
+      @include grid-media('sm') {
+        @include padding(null null null 0);
+        -ms-grid-row: 1;
+        -ms-grid-column: 2;
+      }
+    }
+  }
+
+}

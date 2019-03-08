@@ -9,7 +9,6 @@
 //
 @mixin button-big {
   @include font-smoothing;
-  @include margin(0.5em 0.5em 0.5em null);
   @include padding(1.5rem 3rem 1.8rem);
 
   appearance: none;
@@ -19,17 +18,15 @@
   cursor: pointer;
   display: inline-block;
   font-size: $lead-font-size;
-  font-weight: $font-bold;
   line-height: 1;
   outline: none;
   text-align: center;
   text-decoration: none;
   width: 100%;
 
-  @media #{$breakpoint-sm} {
+  @include grid-media('sm') {
     width: auto;
   }
-
 
   &:hover {
     background-color: $color-black;
