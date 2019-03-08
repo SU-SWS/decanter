@@ -13,23 +13,19 @@
 
   .su-lockup__line1 {
     @include margin(.5rem null 2px);
-    font-size: 1.3rem;
 
     @include grid-media('sm') {
       @include margin(-.4rem null null);
+      font-size: 1.3rem;
     }
 
     @include grid-media-only('xs') {
-      @include margin(.75rem null .5rem);
+      @include margin(null null .5rem);
     }
   }
 
   .su-lockup__line2 {
     @include margin(null null null -2px);
     line-height: 0.7em;
-
-    @include grid-media-only('xs') {
-      font-size: 1.9rem;
-    }
   }
 }

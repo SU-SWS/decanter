@@ -26,10 +26,10 @@
 
   .su-lockup__line1 {
     @include margin(null null 0.2em null);
-    font-size: 1.9rem;
 
     @include grid-media('sm') {
       @include margin(-.4rem null null);
+      font-size: 1.9rem;
     }
 
     @include grid-media-only('xs') {
@@ -39,10 +39,6 @@
 
   .su-lockup__line2 {
     line-height: 0.7em;
-
-    @include grid-media-only('xs') {
-      font-size: 1.9rem;
-    }
   }
 
   .su-lockup__line5 {
@@ -51,8 +47,7 @@
     text-transform: uppercase;
 
     @include grid-media-only('xs') {
-      @include margin(7px null null -2px);
-      @include padding(5px null null);
+      @include margin(.75rem null null -2px);
       order: 2;
 
       &::after {

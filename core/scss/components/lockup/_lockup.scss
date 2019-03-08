@@ -104,6 +104,10 @@
 
 .su-lockup__line1 {
   font-size: 2.8rem;
+
+  @include grid-media-only('xs') {
+    font-size: 2.6rem;
+  }
 }
 
 .su-lockup__line2 {
@@ -114,6 +118,11 @@
   @include margin(0.5rem null null);
   font-size: 2.6rem;
   font-style: italic;
+
+  @include grid-media-only('xs') {
+    @include margin(0);
+    font-size: 2rem;
+  }
 }
 
 .su-lockup__line4 {

@@ -11,10 +11,10 @@
   }
 
   .su-lockup__line1 {
-    font-size: 2.6rem;
 
     @include grid-media("sm") {
       @include margin(-.7rem null null);
+      font-size: 2.6rem;
   }
 
     @include grid-media-only('xs') {
@@ -24,19 +24,14 @@
 
   .su-lockup__line2 {
     line-height: 2.6rem;
-
-    @include grid-media-only('xs') {
-      font-size: 1.9rem;
-    }
   }
 
   .su-lockup__line3 {
     @include margin(.8rem null null);
-    font-size: 1.8rem;
     font-style: italic;
     line-height: .7em;
 
-    @include grid-media-only('xs') {
+    @include grid-media('sm') {
       font-size: 1.9rem;
     }
   }

@@ -27,19 +27,17 @@
     @include grid-media('sm') {
       @include margin(-.7rem null null);
     }
-
-    @include grid-media-only('xs') {
-      @include margin(4px null null null);
-    }
   }
 
   .su-lockup__line3 {
-    font-size: 1.8rem;
-    font-style: italic;
     line-height: .7em;
 
+    @include grid-media('sm') {
+      font-size: 1.8rem;
+    }
+
     @include grid-media-only('xs') {
-      font-size: 1.9rem;
+      line-height: 1.15em;
     }
   }
 
@@ -49,8 +47,7 @@
     text-transform: uppercase;
 
     @include grid-media-only('xs') {
-      @include padding(5px null null);
-      @include margin(7px null null null);
+      @include margin(.75rem null null null);
       order: 2;
 
       &::after {
@@ -64,16 +61,6 @@
 
     @include grid-media('sm') {
       font-size: 2.1rem;
-    }
-  }
-
-  .su-lockup__line1,
-  .su-lockup__line3 {
-    @include grid-media-only('xs') {
-      font-size: 1.9rem;
-      font-style: normal;
-      font-weight: normal;
-      text-transform: none;
     }
   }
 }
