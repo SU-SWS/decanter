@@ -24,14 +24,31 @@
 <header class="masthead">
   <div>
     <span class="brand-logo">Decanter</span>
-    <ul class="main-nav">
-      <li><a href="/" class="nav-home">Home</a></li>
-      <!-- <li><a href="https://decanter.stanford.edu/" class="nav-visual">Visual Guidelines</a></li> -->
-      <li><a href="/section-components.html" class="nav-components">Components</a></li>
-      <li><a href="/section-layout.html" class="nav-layouts">Page Layouts</a></li>
-      <!-- <li><a href="https://decanter.stanford.edu/" class="nav-examples">Examples in Action</a></li> -->
-      <li><a href="https://github.com/SU-SWS/decanter/wiki" class="nav-variables">Developer Resources</a></li>
-    </ul>
+    <nav class="su-main-nav su-main-nav--right" role="main menu">
+      <button class="su-main-nav__toggle su-main-nav__toggle--right" aria-expanded="false">Menu</button>
+      <ul class="su-main-nav__menu-lv1">
+        <li><a href="/" class="nav-home">Home</a></li>
+        <!-- <li><a href="https://decanter.stanford.edu/" class="nav-visual">Visual Guidelines</a></li> -->
+        <li><a href="/section-core.html" class="nav-components">Core</a></li>
+        <li><a href="/section-elements.html" class="nav-components">Elements</a></li>
+        <li><a href="/section-components.html" class="nav-components">Components</a></li>
+        <li class="su-main-nav__item--parent"><a href="/section-layout.html" class="nav-layouts">Page Layouts</a>
+          <ul class="su-main-nav__menu-lv2">
+            <li><a href="/" class="nav-home">Flexbox Layouts</a></li>
+            <li><a href="/section-components.html" class="nav-components">CSS Grid Layouts</a></li>
+          </ul>
+        </li>
+        <li class="su-main-nav__item--parent"><a href="/section-variables.html" class="nav-variables">Utilities</a>
+          <ul class="su-main-nav__menu-lv2">
+            <li><a href="/section-variables.html" class="nav-home">Variables</a></li>
+            <li><a href="/section-mixins.html" class="nav-components">Mixins</a></li>
+            <li><a href="/section-functions.html" class="nav-components">Functions</a></li>
+          </ul>
+        </li>
+        <!-- <li><a href="https://decanter.stanford.edu/" class="nav-examples">Examples in Action</a></li> -->
+        <li><a href="https://github.com/SU-SWS/decanter/wiki" class="nav-resources">Developer Resources</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
