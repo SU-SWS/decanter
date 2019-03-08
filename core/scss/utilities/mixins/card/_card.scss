@@ -5,7 +5,17 @@
 //
 // Card component styling
 //
-// Style guide: Mixins.Card
+// **Examples:**
+// - `@include card('horizontal', '1px solid #bbb', 'medium', $font-slab, 'center');`
+// - `@include card('vertical', 0, 'flat', $font-serif, 'top');`
+//
+// $orientation - String: Either 'vertical' (default) or 'horizontal'. Default is 'vertical'.
+// $stroke - String: Add value for CSS border around the whole card. Default is '1px solid #c6c6c6'. Use 0 for no border.
+// $shadow - String: Creates box-shadow for the card. One of 'flat', 'shallow', 'medium', 'medium-deep', 'deep'. Default is 'shallow'. Use 'flat' for no shadow.
+// $headline - String: Sets the font-family of the card headline. Default is $font-sans (sans-serif).
+// $content-valign - String: Sets vertical alignment of content for the horizontal card. One of 'top', 'center' and 'bottom'. Default is 'top'.
+//
+// Style guide: Mixins.Card.Card
 //
 
 // Placeholder class for common card styles across all variants
