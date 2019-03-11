@@ -7,6 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WebpackAssetsManifest = require("webpack-assets-manifest");
 
 const npmPackage = './node_modules/';
+const devMode = process.env.NODE_ENV !== 'production';
 
 // for MiniCssExtractPlugin
 function recursiveIssuer(m) {
@@ -22,13 +23,12 @@ function recursiveIssuer(m) {
 module.exports = ( argv ) => {
   console.log( 'Mode is ' + argv.mode );
   let assetDir  = './core/',
-      outputDir = 'core/dist',
-      devMode   = argv.mode !== 'production';
+      outputDir = 'core/dist';
 
   return {
     entry: {
-      "full":  assetDir + "js/decanter.js",
-      "noMarkup": assetDir + "js/decanter-no-markup.js"
+      "decanter":  assetDir + "js/decanter.js",
+      "decanter-no-markup": assetDir + "js/decanter-no-markup.js"
     },
     output: {
       filename: devMode ? "[name].js" : "[name].[hash].js",
@@ -37,14 +37,14 @@ module.exports = ( argv ) => {
     optimization: {
       splitChunks: {
         cacheGroups: {
-          full: {
-            name: 'full',
+          'decanter': {
+            name: 'decanter',
             test: (m,c,entry = 'decanter') => m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
             chunks: 'all',
             enforce: true
           },
-          noMarkup: {
-            name: 'noMarkup',
+          'decanter-no-markup': {
+            name: 'decanter-no-markup',
             test: (m,c,entry = 'decanter-no-markup') => m.constructor.name === 'CssModule' && recursiveIssuer(m) === entry,
             chunks: 'all',
             enforce: true
@@ -110,7 +110,7 @@ module.exports = ( argv ) => {
       ]
     },
     plugins: [
-      new CleanWebpackPlugin( [ outputDir ], {
+      new CleanWebpackPlugin({
         verbose: true
       }),
       new MiniCssExtractPlugin( {

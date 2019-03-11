@@ -1,1 +1,1 @@
-import 'main-nav/main-nav';
+import './main-nav/main-nav.js';
