@@ -7,10 +7,10 @@
   // Set the active nav item in the main menu.
   var pathname = window.location.pathname;
   if (pathname.length && pathname !== "/") {
-    $(".main-nav").find("a[href*='" + pathname + "']").addClass('active');
+    $(".su-main-nav").find("a[href*='" + pathname + "']").parent('li').addClass('su-main-nav__item--current');
   }
   else {
-    $(".main-nav a").eq(0).addClass('active');
+    $(".su-main-nav a").eq(0).parent('li').addClass('su-main-nav__item--current');
   }
 
   // Scroll the sidebar to stay in the window.
