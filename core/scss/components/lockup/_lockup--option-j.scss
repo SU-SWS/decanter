@@ -27,24 +27,32 @@
     @include grid-media('sm') {
       @include margin(-.7rem null null null);
     }
+
+    @include grid-media-only('xs') {
+      @include margin(null null null -2px);
+    }
   }
 
   .su-lockup__line2 {
     @include margin(.3rem null null);
     line-height: 0.7em;
+
+    @include grid-media-only('xs') {
+      @include margin(null null null -2px);
+    }
   }
 
   .su-lockup__line5 {
-    font-size: 1.9rem;
+    font-size: 2.3rem;
     font-weight: $font-bold;
     text-transform: uppercase;
 
     @include grid-media-only('xs') {
-      @include margin(.75rem null null);
+      @include margin(.75rem null null -2px);
       order: 2;
 
       &::after {
-        @include margin(.75rem null .5rem);
+        @include margin(.9rem null .5rem);
         border-bottom: 1px solid $color-black;
         content: '';
         display: block;

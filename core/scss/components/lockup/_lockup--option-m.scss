@@ -14,6 +14,10 @@
   .su-lockup__line2 {
     @include margin(.3rem null null);
     line-height: 0.7em;
+
+    @include grid-media-only('xs') {
+      @include margin(null null null -2px);
+    }
   }
 
   .su-lockup__line1 {
@@ -22,7 +26,7 @@
     }
 
     @include grid-media-only('xs') {
-      @include margin(4px null null);
+      @include margin(4px null null -2px);
     }
   }
 }
