@@ -14,12 +14,12 @@
   .su-lockup__line1 {
     @include padding(null null 0.2em);
 
-    @include grid-media('sm') {
+    @include grid-media('md') {
       @include margin(-.4rem null null);
       font-size: 1.9rem;
     }
 
-    @include grid-media-only('xs') {
+    @include grid-media-max('sm') {
       @include margin(.5rem null null -2px);
     }
   }
@@ -27,7 +27,7 @@
   .su-lockup__line2 {
     line-height: 0.7em;
 
-    @include grid-media-only('xs') {
+    @include grid-media-max('sm') {
       @include margin(null null null -2px);
     }
   }

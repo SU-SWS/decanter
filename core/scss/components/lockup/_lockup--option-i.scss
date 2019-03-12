@@ -12,13 +12,13 @@
 
   .su-lockup__cell2,
   .su-lockup__line4 {
-    @include grid-media-only('xs') {
+    @include grid-media-max('sm') {
       @include margin(null null null -2px);
     }
   }
 
   .su-lockup__wordmark {
-    @include grid-media-only('xs') {
+    @include grid-media-max('sm') {
       display: block;
     }
   }
@@ -27,7 +27,7 @@
     @include margin(null null -3px null);
     line-height: 0.95em;
 
-    @include grid-media-only('xs') {
+    @include grid-media-max('sm') {
 
       &::after {
         @include margin(.75rem null .5rem);
@@ -43,11 +43,11 @@
     line-height: .7em;
     text-transform: capitalize;
 
-    @include grid-media('sm') {
+    @include grid-media('md') {
       font-size: 1.8rem;
     }
 
-    @include grid-media-only('xs') {
+    @include grid-media-max('sm') {
       line-height: 1.15em;
     }
   }

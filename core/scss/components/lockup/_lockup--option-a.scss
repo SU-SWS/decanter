@@ -6,7 +6,7 @@
 .su-lockup--option-a {
 
   > a {
-    @include grid-media-only("xs") {
+    @include grid-media-max('sm') {
       display: flex;
       flex-direction: column;
     }
@@ -19,7 +19,7 @@
   }
 
   .su-lockup__cell2 {
-    @include grid-media-only('xs') {
+    @include grid-media-max('sm') {
       order: 3;
     }
   }
@@ -27,7 +27,7 @@
   .su-lockup__line1 {
     line-height: 2.6rem;
 
-    @include grid-media-only('xs') {
+    @include grid-media-max('sm') {
       @include margin(null null null -2px);
     }
 
@@ -38,11 +38,11 @@
   }
 
   .su-lockup__line5 {
-    font-size: 2.3rem;
+    font-size: 2rem;
     font-weight: $font-bold;
     text-transform: uppercase;
 
-    @include grid-media-only('xs') {
+    @include grid-media-max('sm') {
       @include margin(.75rem null null -2px);
       order: 2;
 
@@ -55,7 +55,7 @@
       }
     }
 
-    @include grid-media('sm') {
+    @include grid-media('md') {
       font-size: 2.1rem;
     }
   }

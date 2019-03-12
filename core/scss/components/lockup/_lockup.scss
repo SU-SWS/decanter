@@ -33,7 +33,7 @@
 //
 .su-lockup,
 .su-lockup > a {
-  @include grid-media('sm') {
+  @include grid-media('md') {
     @include flex-container;
     align-items: stretch;
     justify-content: flex-start;
@@ -46,7 +46,7 @@
   vertical-align: bottom;
   width: auto;
 
-  @include grid-media('sm') {
+  @include grid-media('md') {
     @include margin(null -1px null null);
     @include padding(null 7px 0 null);
     align-self: flex-end;
@@ -54,15 +54,12 @@
     display: flex;
     flex-shrink: 1;
     max-width: 160px;
-  }
-
-  @include grid-media('md') {
     min-height: 32px;
   }
 }
 
 .su-lockup__cell2 {
-  @include grid-media('sm') {
+  @include grid-media('md') {
     @include padding(0 null null 7px);
     align-self: flex-end;
     border-left: solid 1px $color-black;
@@ -105,7 +102,7 @@
 .su-lockup__line1 {
   font-size: 2.8rem;
 
-  @include grid-media-only('xs') {
+  @include grid-media-max('sm') {
     font-size: 2.6rem;
   }
 }
@@ -119,7 +116,7 @@
   font-size: 2.6rem;
   font-style: italic;
 
-  @include grid-media-only('xs') {
+  @include grid-media-max('sm') {
     @include margin(0);
     font-size: 1.9rem;
   }
@@ -140,11 +137,8 @@
   line-height: 1em;
   width: 100%;
 
-  @include grid-media('sm') {
-    @include margin(8px null null null);
-  }
-
   @include grid-media('md') {
+    @include margin(8px null null null);
     font-size: 3rem;
   }
 }
