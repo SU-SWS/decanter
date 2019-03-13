@@ -20,12 +20,16 @@
     }
 
     @include grid-media-max('sm') {
-      @include margin(null null .5rem -2px);
+      @include margin(null null .2rem -2px);
     }
   }
 
   .su-lockup__line2 {
     @include margin(null null null -2px);
     line-height: 0.7em;
+
+    @include grid-media-max('sm') {
+      line-height: 2.6rem;
+    }
   }
 }
