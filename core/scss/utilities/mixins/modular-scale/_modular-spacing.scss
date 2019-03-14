@@ -20,7 +20,7 @@
 // Style guide: Mixins.Modular.modular-spacing
 //
 
-@mixin modular-spacing($type: 'padding', $steps: 0, $grid: $grid-media) {
+@mixin modular-spacing($type: 'padding', $steps: 0, $grid: $grid-media-modular) {
   @each $key, $breakpoint in $grid {
     @include grid-media($key) {
       @if length($steps) == 1 {
