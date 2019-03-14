@@ -6,14 +6,13 @@
 // Card component styling
 //
 // **Examples:**
-// - `@include card('horizontal', '1px solid #bbb', 'medium', $font-slab, 'center');`
-// - `@include card('vertical', 0, 'flat', $font-serif, 'top');`
+// - `@include card('1px solid #bbb', 'medium', $font-slab, 'center');`
+// - `@include card(0, 'flat', $font-serif, 'top');`
 //
-// $orientation - String: Either 'vertical' (default) or 'horizontal'. Default is 'vertical'.
 // $stroke - String: Add value for CSS border around the whole card. Default is '1px solid #c6c6c6'. Use 0 for no border.
 // $shadow - String: Creates box-shadow for the card. One of 'flat', 'shallow', 'medium', 'medium-deep', 'deep'. Default is 'shallow'. Use 'flat' for no shadow.
 // $headline - String: Sets the font-family of the card headline. Default is $font-sans (sans-serif).
-// $content-valign - String: Sets vertical alignment of content for the horizontal card. One of 'top', 'center' and 'bottom'. Default is 'top'.
+// $content-valign - String: For horizontal variant only. Sets vertical alignment of card content relative to the image. One of 'top', 'center' and 'bottom'. Default is 'top'.
 //
 // Style guide: Mixins.Card.Card
 //
@@ -28,6 +27,8 @@
   }
 
   .su-card__contents {
+    @include modular-spacing('padding', 2);
+
     // Ensure no top padding or margin on first item.
     > *:first-child {
       @include padding(0 null null);
@@ -64,7 +65,8 @@
       @include margin(null null 0);
     }
 
-    .su-link--action {
+    .su-link--action,
+    > a {
       @include modular-spacing('padding', null null 0);
       display: inline-block;
     }
@@ -83,7 +85,7 @@
   }
 }
 
-@mixin card($orientation: 'vertical', $stroke: '1px solid #c6c6c6', $shadow: 'shallow', $headline: $font-sans, $content-valign: 'top') {
+@mixin card($stroke: '1px solid #c6c6c6', $shadow: 'shallow', $headline: $font-sans, $content-valign: 'top') {
   @include box-shadow($shadow, $stroke);
   @extend %card-common;
 
@@ -93,63 +95,14 @@
     }
   }
 
-  // styles unique to the two orientations
-  @if $orientation == 'vertical' {
-    .su-card__contents {
-      @include modular-spacing('padding', 2);
-    }
-  } @else if $orientation == 'horizontal' {
-    // Set up the grid for this variant.
-    @include display-grid;
-    @include modular-spacing('padding', 2);
-
-    @each $key, $breakpoint in $grid-media {
-      @include grid-media($key) {
-        @include grid-column-gap(calculate-modular-spacing(1, $key));
-      }
-    }
-
-    // Options for content vertical alignment in horizontal cards
-    > * {
-      @if $content-valign == 'center' {
-        align-self: center;
-      } @else if $content-valign == 'bottom' {
-        align-self: end;
-      } @else {
-        align-self: start;
-      }
-    }
-
-    // One column on smallest screen sizes.
-    @include grid-media("xs") {
-      @include grid-columns(100%);
-    }
-
-    // 33/66 for small.
-    @include grid-media("sm") {
-      @include grid-columns(1fr 2fr);
-    }
-
-    // 50/50 side by side on all screen sizes above small.
-    @include grid-media("md") {
-      @include grid-columns(1fr 1fr);
-    }
-
-    img {
-      -ms-grid-row: 1;
-      -ms-grid-column: 1;
-    }
-
-    .su-card__contents {
-      @include padding(0);
-      -ms-grid-row: 2;
-      -ms-grid-column: 1;
-
-      @include grid-media('sm') {
-        @include padding(null null null 0);
-        -ms-grid-row: 1;
-        -ms-grid-column: 2;
-      }
+  // Options for content vertical alignment in horizontal cards
+  &.su-card--horizontal > * {
+    @if $content-valign == 'center' {
+      align-self: center;
+    } @else if $content-valign == 'bottom' {
+      align-self: end;
+    } @else {
+      align-self: start;
     }
   }
 
