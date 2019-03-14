@@ -14,7 +14,7 @@
 //
 // Style guide: Functions.ModularScale.calculate-modular-spacing
 //
-@function calculate-modular-spacing($step: 0, $breakpoint: 'md') {
+@function calculate-modular-spacing($step: 0, $breakpoint: 'xl') {
   @if ($step >= -4 and $step <= 5) {
     @return get-modular-spacing-base($breakpoint) * get-modular-spacing-multiplier($step);
   } @else {

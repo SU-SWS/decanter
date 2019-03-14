@@ -20,52 +20,68 @@
 // Style guide: Mixins.Modular.modular-spacing
 //
 
-@mixin modular-spacing($type: 'padding', $steps: 0, $grid: $grid-media-modular) {
-  @each $key, $breakpoint in $grid {
-    @include grid-media($key) {
-      @if length($steps) == 1 {
-        #{$type}: (calculate-modular-spacing($steps, $key));
-      } @else if length($steps) == 2 {
-        @if nth($steps, 1) != null {
-          #{$type}-top: (calculate-modular-spacing(nth($steps, 1), $key));
-          #{$type}-bottom: (calculate-modular-spacing(nth($steps, 1), $key));
-        }
+@mixin modular-spacing($type: 'padding', $steps: 0, $grid: $grid-media) {
+  $bp_list: map-keys($grid); // get a list of all breakpoint keys in $grid
+  $number_bp: length($bp_list); // find total number of breakpoints in our grid
 
-        @if nth($steps, 2) != null {
-          #{$type}-left: (calculate-modular-spacing(nth($steps, 2), $key));
-          #{$type}-right: (calculate-modular-spacing(nth($steps, 2), $key));
-        }
-      } @else if length($steps) == 3 {
-        @if nth($steps, 1) != null {
-          #{$type}-top: (calculate-modular-spacing(nth($steps, 1), $key));
-        }
+  @for $i from 1 through $number_bp {
+    $current_base: get-modular-spacing-base(nth($bp_list, $i)); // get modular-spacing base value for current breakpoint
+    $previous_base: 1000; // initialize $previous_base
 
-        @if nth($steps, 2) != null {
-          #{$type}-right: (calculate-modular-spacing(nth($steps, 2), $key));
-          #{$type}-left: (calculate-modular-spacing(nth($steps, 2), $key));
-        }
+    // if $i is not 1, replace $previous_base with modular-spacing base value for previous breakpoint
+    @if $i != 1 {
+      $previous_base: get-modular-spacing-base(nth($bp_list, $i - 1));
+    }
 
-        @if nth($steps, 3) != null {
-          #{$type}-bottom: (calculate-modular-spacing(nth($steps, 3), $key));
-        }
-      } @else if length($steps) == 4 {
-        @if nth($steps, 1) != null {
-          #{$type}-top: (calculate-modular-spacing(nth($steps, 1), $key));
-        }
+    // Only write media query if $i = 1 or if $current_base is different from $previous_base
+    @if $current_base != $previous_base {
+      $key: nth($bp_list, $i);
 
-        @if nth($steps, 2) != null {
-          #{$type}-right: (calculate-modular-spacing(nth($steps, 2), $key));
-        }
+      @include grid-media($key) {
+        @if length($steps) == 1 {
+          #{$type}: (calculate-modular-spacing($steps, $key));
+        } @else if length($steps) == 2 {
+          @if nth($steps, 1) != null {
+            #{$type}-top: (calculate-modular-spacing(nth($steps, 1), $key));
+            #{$type}-bottom: (calculate-modular-spacing(nth($steps, 1), $key));
+          }
 
-        @if nth($steps, 3) != null {
-          #{$type}-bottom: (calculate-modular-spacing(nth($steps, 3), $key));
-        }
+          @if nth($steps, 2) != null {
+            #{$type}-left: (calculate-modular-spacing(nth($steps, 2), $key));
+            #{$type}-right: (calculate-modular-spacing(nth($steps, 2), $key));
+          }
+        } @else if length($steps) == 3 {
+          @if nth($steps, 1) != null {
+            #{$type}-top: (calculate-modular-spacing(nth($steps, 1), $key));
+          }
 
-        @if nth($steps, 4) != null {
-          #{$type}-left: (calculate-modular-spacing(nth($steps, 4), $key));
+          @if nth($steps, 2) != null {
+            #{$type}-right: (calculate-modular-spacing(nth($steps, 2), $key));
+            #{$type}-left: (calculate-modular-spacing(nth($steps, 2), $key));
+          }
+
+          @if nth($steps, 3) != null {
+            #{$type}-bottom: (calculate-modular-spacing(nth($steps, 3), $key));
+          }
+        } @else if length($steps) == 4 {
+          @if nth($steps, 1) != null {
+            #{$type}-top: (calculate-modular-spacing(nth($steps, 1), $key));
+          }
+
+          @if nth($steps, 2) != null {
+            #{$type}-right: (calculate-modular-spacing(nth($steps, 2), $key));
+          }
+
+          @if nth($steps, 3) != null {
+            #{$type}-bottom: (calculate-modular-spacing(nth($steps, 3), $key));
+          }
+
+          @if nth($steps, 4) != null {
+            #{$type}-left: (calculate-modular-spacing(nth($steps, 4), $key));
+          }
+        } @else if length($steps) > 4 or length($steps) == 0 {
+          @error '$steps should have 1 to 4 values';
         }
-      } @else if length($steps) > 4 or length($steps) == 0 {
-        @error '$steps should have 1 to 4 values';
       }
     }
   }
