@@ -1,0 +1,30 @@
+@charset 'UTF-8';
+
+//
+// @centering($horizontal, $vertical)
+//
+// Mixin to center an element within a parent container using absolute positioning and translate.
+// There might be other ways to center elements, e.g., by using Flexbox and CSS grid.
+// Please use the most appropriate method for your project.
+//
+// $horizontal - Boolean: Center horizontally if true. Default is true.
+// $vertical - Boolean: Center vertically if true. Default is true.
+//
+// Style guide: Mixins.Centering.centering
+//
+
+@mixin centering($horizontal: true, $vertical: true) {
+  position: absolute;
+
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if ($horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
