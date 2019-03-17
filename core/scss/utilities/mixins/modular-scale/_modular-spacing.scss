@@ -3,10 +3,12 @@
 //
 // @modular-spacing
 //
-// A mixin for adding spacing (margin or padding) between elements or between an element and the edge of its container.
-// The amount of spacing is returned using a unitless scaling system with a curated scale.
+// A mixin for adding spacing (margin or padding) between elements or between an
+// element and the edge of its container. The amount of spacing is returned
+// using a unitless scaling system with a curated scale.
 //
-// Please see core/scss/utilities/variables/core/_modular-spacing.scss for variable maps.
+// Please see core/scss/utilities/variables/core/_modular-spacing.scss for
+// variable maps.
 //
 // **Examples:**
 // - `@include modular-spacing(3);`
@@ -21,19 +23,25 @@
 //
 
 @mixin modular-spacing($type: 'padding', $steps: 0, $grid: $grid-media) {
-  $bp_list: map-keys($grid); // get a list of all breakpoint keys in $grid
-  $number_bp: length($bp_list); // find total number of breakpoints in our grid
+  // Get a list of all breakpoint keys in $grid.
+  $bp_list: map-keys($grid);
+  // Find total number of breakpoints in our grid.
+  $number_bp: length($bp_list);
 
   @for $i from 1 through $number_bp {
-    $current_base: get-modular-spacing-base(nth($bp_list, $i)); // get modular-spacing base value for current breakpoint
-    $previous_base: 1000; // initialize $previous_base
+    // Get modular-spacing base value for current breakpoint.
+    $current_base: get-modular-spacing-base(nth($bp_list, $i));
+    // Initialize $previous_base.
+    $previous_base: null;
 
-    // if $i is not 1, replace $previous_base with modular-spacing base value for previous breakpoint
+    // If $i is not 1, replace $previous_base with modular-spacing base value
+    // for previous breakpoint.
     @if $i != 1 {
       $previous_base: get-modular-spacing-base(nth($bp_list, $i - 1));
     }
 
-    // Only write media query if $i = 1 or if $current_base is different from $previous_base
+    // Only write media query if $i = 1 or if $current_base is different from
+    // $previous_base.
     @if $current_base != $previous_base {
       $key: nth($bp_list, $i);
 
