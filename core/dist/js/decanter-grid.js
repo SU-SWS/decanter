@@ -81,31 +81,31 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./core/js/decanter-no-markup.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./core/js/decanter-grid.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./core/js/decanter-no-markup.js":
-/*!***************************************!*\
-  !*** ./core/js/decanter-no-markup.js ***!
-  \***************************************/
+/***/ "./core/js/decanter-grid.js":
+/*!**********************************!*\
+  !*** ./core/js/decanter-grid.js ***!
+  \**********************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_decanter_no_markup_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/decanter-no-markup.scss */ \"./core/scss/decanter-no-markup.scss\");\n/* harmony import */ var _scss_decanter_no_markup_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_decanter_no_markup_scss__WEBPACK_IMPORTED_MODULE_0__);\n\n\n//# sourceURL=webpack:///./core/js/decanter-no-markup.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_decanter_grid_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/decanter-grid.scss */ \"./core/scss/decanter-grid.scss\");\n/* harmony import */ var _scss_decanter_grid_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_decanter_grid_scss__WEBPACK_IMPORTED_MODULE_0__);\n\n\n//# sourceURL=webpack:///./core/js/decanter-grid.js?");
 
 /***/ }),
 
-/***/ "./core/scss/decanter-no-markup.scss":
-/*!*******************************************!*\
-  !*** ./core/scss/decanter-no-markup.scss ***!
-  \*******************************************/
+/***/ "./core/scss/decanter-grid.scss":
+/*!**************************************!*\
+  !*** ./core/scss/decanter-grid.scss ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./core/scss/decanter-no-markup.scss?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./core/scss/decanter-grid.scss?");
 
 /***/ })
 

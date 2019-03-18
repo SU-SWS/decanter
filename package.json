@@ -6,10 +6,8 @@
   "homepage": "https://github.com/SU-SWS/decanter",
   "license": "MIT",
   "scripts": {
-    "hello": "echo \"Hello, world!\"",
-    "version": "webpack --version",
     "watch": "webpack --mode=development --watch",
-    "build": "webpack --mode=development",
+    "build": "webpack --mode=development --log-level=trace",
     "dist": "webpack --mode=production",
     "styleguide": "kss --config=kss/kss-config.json",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -35,6 +33,7 @@
     "autoprefixer": "^9.4.10",
     "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^2.0.0",
+    "copy-webpack-plugin": "^5.0.1",
     "css-loader": "^2.1.1",
     "kss": "^3.0.0-beta.25",
     "mini-css-extract-plugin": "^0.5.0",

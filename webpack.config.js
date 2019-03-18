@@ -1,10 +1,12 @@
+const path = require('path');
+
 const assetDir  = './core/';
 const outputDir = 'core/dist';
+const styleGuide = path.resolve( __dirname, './styleguide/');
 
 const npmPackage = './node_modules/';
 const devMode = process.env.NODE_ENV !== 'production';
 
-const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -12,6 +14,7 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const WebpackAssetsManifest = require("webpack-assets-manifest");
+const CopyPlugin = require('copy-webpack-plugin');
 
 // for MiniCssExtractPlugin
 function recursiveIssuer(m) {
@@ -111,6 +114,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin( {
+      cleanOnceBeforeBuildPatterns: [ '**/*' ],
       verbose: true
     } ),
     new MiniCssExtractPlugin( {
@@ -122,5 +126,25 @@ module.exports = {
     new WebpackAssetsManifest( {
       output: 'assets.json'
     } ),
+    new CopyPlugin( [
+      {
+        from: outputDir + "/css/decanter.css",
+        to: styleGuide + '/css/',
+        toType: 'dir',
+        transformPath: ( targetPath, sourcePath ) => { console.log( 'Assets:', { outputDir, targetPath, sourcePath } ); return targetPath; }
+      },
+      {
+        from: outputDir + "/js/decanter.js",
+        to: styleGuide + "/js/",
+        toType: 'dir',
+        //transformPath: ( targetPath, sourcePath ) => { console.log( 'Assets:', { outputDir, targetPath, sourcePath } ); return targetPath.replace( 'core/dist/', '' ); }
+      },
+      {
+        from: assetDir + 'img/**',
+        to: styleGuide,
+        toType: 'dir',
+        transformPath: ( targetPath, sourcePath ) => targetPath.replace( 'core/', '' )
+      },
+    ] ),
   ]
 }
