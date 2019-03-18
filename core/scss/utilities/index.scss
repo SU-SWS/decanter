@@ -19,7 +19,7 @@
 // Functions
 //
 // Programmatic procedure or routine to help making writing code or declaring
-// something easier and more seamlesss.
+// something easier and more seamless.
 //
 // Weight: -40
 //
@@ -37,13 +37,25 @@
 //
 // Style guide: Mixins
 
+//
+// Placeholders
+//
+// Placeholders are reusable blocks of base CSS styles that can be used to reduce repetitiveness
+// by using `@extend %placeholder;`.
+// Placeholder styles do not show up in the compiled CSS file until a selector extends them.
+//
+// Weight: -30
+//
+// Style guide: Placeholders
+
 // Load order convention exception
 //
 // The convention for importing files in index.scss files is to import in
-// alphabetical order. This file intentionally breaks that convetion, as
+// alphabetical order. This file intentionally breaks that convention, as
 // variables need to be imported before functions and mixins.
 
 @import
   'variables/index',
   'functions/index',
-  'mixins/index';
+  'mixins/index',
+  'placeholders/index';
