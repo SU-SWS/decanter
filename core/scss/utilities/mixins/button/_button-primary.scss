@@ -7,17 +7,14 @@
 //
 // Style guide: Mixins.Button.button-primary
 //
-@mixin button-primary {
-  @include font-smoothing;
-  @include margin(0.5em 0.5em 0.5em null);
-  @include padding(1rem 2rem 1.15rem);
 
+%button-base {
+  @include font-smoothing;
+  @include sans;
   appearance: none;
-  background-color: $color-bright-red;
-  border: 0;
-  color: $color-white;
   cursor: pointer;
   display: inline-block;
+  border: 0;
   font-size: $base-font-size;
   font-weight: $font-bold;
   line-height: 1;
@@ -31,16 +28,26 @@
     width: auto;
   }
 
+  &:hover {
+    border-bottom: 0;
+    text-decoration: none;
+  }
+}
+
+@mixin button-primary {
+  @extend %button-base;
+  @include padding(1rem 2rem 1.15rem);
+
+  background-color: $color-bright-red;
+  color: $color-white;
 
   &:hover {
     background-color: $color-black;
-    border-bottom: 0;
     color: $color-white;
-    text-decoration: none;
   }
 
   &:focus {
-    background-color: $color-black;
     box-shadow: $focus-shadow;
+    background-color: $color-black;
   }
 }

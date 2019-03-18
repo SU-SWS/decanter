@@ -8,38 +8,20 @@
 // Style guide: Mixins.Button.button-big
 //
 @mixin button-big {
-  @include font-smoothing;
-  @include margin(0.5em 0.5em 0.5em null);
+  @extend %button-base;
   @include padding(1.5rem 3rem 1.8rem);
 
-  appearance: none;
-  background-color: $color-bright-red;
-  border: 0;
-  color: $color-white;
-  cursor: pointer;
-  display: inline-block;
   font-size: $lead-font-size;
-  font-weight: $font-bold;
-  line-height: 1;
-  outline: none;
-  text-align: center;
-  text-decoration: none;
-  width: 100%;
-
-  @media #{$breakpoint-sm} {
-    width: auto;
-  }
-
+  background-color: $color-bright-red;
+  color: $color-white;
 
   &:hover {
     background-color: $color-black;
-    border-bottom: 0;
     color: $color-white;
-    text-decoration: none;
   }
 
   &:focus {
-    background-color: $color-black;
     box-shadow: $focus-shadow;
+    background-color: $color-black;
   }
 }
