@@ -17,11 +17,11 @@ const WebpackAssetsManifest = require("webpack-assets-manifest");
 const CopyPlugin = require('webpack-copy-on-build-plugin');
 
 // for MiniCssExtractPlugin
-function recursiveIssuer(m) {
-  if (m.issuer) {
-    return recursiveIssuer(m.issuer);
-  } else if (m.name) {
-    return m.name;
+function recursiveIssuer(module) {
+  if (module.issuer) {
+    return recursiveIssuer(module.issuer);
+  } else if (module.name) {
+    return module.name;
   } else {
     return false;
   }
@@ -38,17 +38,25 @@ module.exports = {
     path: path.resolve( __dirname, outputDir + '/js' )
   },
   optimization: {
+    minimizer: [
+      new UglifyJsPlugin( {
+        cache: true,
+        parallel: true,
+        sourceMap: true
+      } ),
+      new OptimizeCSSAssetsPlugin( {} )
+    ],
     splitChunks: {
       cacheGroups: {
         'decanter': {
           name: 'decanter',
-          test: ( m, c, entry = 'decanter' ) => m.constructor.name === 'CssModule' && recursiveIssuer( m ) === entry,
+          test: ( module, chunks, entry = 'decanter' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
           chunks: 'all',
           enforce: true
         },
         'decanter-no-markup': {
           name: 'decanter-no-markup',
-          test: ( m, c, entry = 'decanter-no-markup' ) => m.constructor.name === 'CssModule' && recursiveIssuer( m ) === entry,
+          test: ( module, chunks, entry = 'decanter-no-markup' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
           chunks: 'all',
           enforce: true
         }
@@ -121,7 +129,8 @@ module.exports = {
       // Options similar to the same options in webpackOptions.output
       // both options are optional
       filename: "../css/[name].css",
-      chunkFilename: "../css/[id].css"
+      chunkFilename: "../css/[id].css",
+      sourceMap: true
     } ),
     new WebpackAssetsManifest( {
       output: 'assets.json'
