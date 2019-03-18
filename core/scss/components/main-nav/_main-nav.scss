@@ -33,7 +33,6 @@
 // Style guide: Components.Main Navigation
 //
 
-$high-contrast-red: #ec0513; //custom high contrast active/current link border for accessibility
 .su-main-nav {
   @include font-smoothing;
   @include sans;
@@ -55,7 +54,7 @@ $high-contrast-red: #ec0513; //custom high contrast active/current link border f
     @include margin(null null 0);
 
     a {
-      @include fancy-hover($color: $color-white, $active: $high-contrast-red, $position: 'left');
+      @include fancy-hover($color: $color-white, $active: $color-vivid-red, $position: 'left');
       @include padding(1.6rem 4.8rem 1.6rem 2.4rem);
       display: block;
       color: $color-white;
@@ -85,7 +84,7 @@ $high-contrast-red: #ec0513; //custom high contrast active/current link border f
       &::before {
         visibility: visible;
         transform: scaleY(1);
-        background-color: $high-contrast-red;
+        background-color: $color-vivid-red;
         transition: left .1s ease-out;
       }
 
@@ -144,7 +143,7 @@ $high-contrast-red: #ec0513; //custom high contrast active/current link border f
           }
 
           &:active::before {
-            background-color: $high-contrast-red;
+            background-color: $color-vivid-red;
           }
         }
       }
@@ -351,13 +350,13 @@ $high-contrast-red: #ec0513; //custom high contrast active/current link border f
     > a {
       &::before {
         transform: scaleY(1);
-        background-color: $high-contrast-red;
+        background-color: $color-vivid-red;
       }
 
       &:hover,
       &:focus {
         &::before {
-          background-color: $high-contrast-red;
+          background-color: $color-vivid-red;
         }
       }
     }
@@ -378,7 +377,7 @@ $high-contrast-red: #ec0513; //custom high contrast active/current link border f
             font-weight: $font-x-bold;
 
             &::before {
-              background-color: $high-contrast-red;
+              background-color: $color-vivid-red;
             }
           }
         }
