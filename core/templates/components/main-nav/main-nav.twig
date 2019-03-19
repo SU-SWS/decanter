@@ -14,7 +14,7 @@
 + */
 +#}
 <nav {{- attributes }} class="su-main-nav no-js {{ modifier_class }}" aria-label="{{ aria_label|default('main menu') }}">
-  <button class="su-main-nav__toggle {{- toggle_modifier_class }}" aria-expanded="false">{{ toggle_text }}</button>
+  <button class="su-main-nav__toggle {{- toggle_modifier_class }}" aria-expanded="false">{{ toggle_text|default('Menu') }}</button>
   <ul class="su-main-nav__menu-lv1">
     {% spaceless %}
     {% if list_items is iterable %}

@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+.su-main-nav.su-main-nav--dark {
+  @include grid-media-max('md') {
+    .su-main-nav__toggle {
+      color: $color-white;
+
+      &:hover,
+      &:focus {
+        &::before {
+          background-color: $color-white;
+        }
+      }
+
+      &:active {
+        &::before {
+          background-color: $color-vivid-red;
+        }
+      }
+
+      &::after {
+        background: url("#{$image-path}/hamburger-white.svg") no-repeat 3px 0;
+      }
+
+      &[aria-expanded="true"] {
+        &::before {
+          background-color: $color-white;
+        }
+
+        &::after {
+          background: url("#{$image-path}/close-white.svg") no-repeat 3px 0;
+          background-size: 16px 16px;
+        }
+
+        &:hover::before {
+          background-color: $color-vivid-red;
+        }
+      }
+    }
+  }
+
+  // desktop first level menu style override
+  > ul {
+    @include grid-media('lg') {
+      > li {
+        > a {
+          color: $color-white;
+
+          &:hover,
+          &:focus {
+            color: $color-white;
+
+            &::before {
+              background-color: $color-white;
+            }
+          }
+
+          &:active {
+            color: $color-white;
+
+            &::before {
+              background-color: $color-white;
+            }
+          }
+
+          &[aria-expanded="true"] {
+            color: $color-white;
+
+            &::before {
+              background-color: $color-white;
+            }
+
+            &:hover {
+              color: $color-white;
+
+              &::before {
+                background-color: $color-vivid-red;
+              }
+            }
+          }
+        }
+
+        &.su-main-nav__item--parent {
+          > a::after {
+            background: url("#{$image-path}/caret-down-white.svg") no-repeat 0 0;
+            background-size: 100%;
+          }
+        }
+
+        &.su-main-nav__item--current {
+          > a {
+            color: $color-white;
+
+            &::before {
+              background-color: $color-vivid-red;
+            }
+
+            &:hover,
+            &:focus {
+              color: $color-white;
+
+              &::before {
+                background-color: $color-white;
+              }
+            }
+          }
+
+          &.su-main-nav__item--expanded {
+            > a:focus {
+              color: $color-white;
+
+              &::before {
+                background-color: $color-white;
+              }
+            }
+
+            > a[aria-expanded="true"]:hover {
+              color: $color-white;
+
+              &::before {
+                background-color: $color-vivid-red;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
