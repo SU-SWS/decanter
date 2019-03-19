@@ -6,8 +6,9 @@
   "homepage": "https://github.com/SU-SWS/decanter",
   "license": "MIT",
   "scripts": {
+    "build": "webpack --mode=development",
+    "postbuild": "npm run styleguide",
     "watch": "webpack --mode=development --watch",
-    "build": "webpack --mode=development --log-level=trace",
     "dist": "webpack --mode=production",
     "prestyleguide": "rm -rf styleguide/img && mkdir styleguide/img && cp img-placeholders/* styleguide/img",
     "styleguide": "kss --config=kss/kss-config.json",
