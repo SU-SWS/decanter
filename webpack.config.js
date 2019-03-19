@@ -86,7 +86,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               sourceMap: true,
-              url: false
+              url: true
             }
           },
           {
@@ -101,19 +101,23 @@ module.exports = {
             }
           },
           {
-            loader: 'resolve-url-loader',
-            options: {
-              sourceMap: true,
-              attempts: 10
-            }
-          },
-          {
             loader: 'sass-loader',
             options: {
               includePaths: [
                 path.resolve( __dirname, npmPackage, 'bourbon/core' )
               ],
               sourceMap: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
             }
           }
         ]
