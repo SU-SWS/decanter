@@ -126,7 +126,6 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin( {
-      cleanOnceBeforeBuildPatterns: [ outputDir + '/css/*', outputDir + '/js/*' ],
       verbose: true
     } ),
     new MiniCssExtractPlugin( {
