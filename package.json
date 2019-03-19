@@ -6,6 +6,7 @@
   "homepage": "https://github.com/SU-SWS/decanter",
   "license": "MIT",
   "scripts": {
+    "prebuild": "mkdir styleguide; mkdir styleguide/css styleguide/js; touch styleguide/css/decanter.css styleguide/js/decanter.js",
     "build": "webpack --mode=development",
     "postbuild": "npm run styleguide",
     "watch": "webpack --mode=development --watch",
