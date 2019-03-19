@@ -10,7 +10,9 @@
     "build": "webpack --mode=development",
     "postbuild": "npm run styleguide",
     "watch": "webpack --mode=development --watch",
+    "predist": "mkdir styleguide; mkdir styleguide/css styleguide/js; touch styleguide/css/decanter.css styleguide/js/decanter.js",
     "dist": "webpack --mode=production",
+    "postdist": "npm run styleguide",
     "styleguide": "kss --config=kss/kss-config.json",
     "poststyleguide": "rm -rf styleguide/img && mkdir styleguide/img && cp img-placeholders/* styleguide/img",
     "test": "echo \"Error: no test specified\" && exit 1"
