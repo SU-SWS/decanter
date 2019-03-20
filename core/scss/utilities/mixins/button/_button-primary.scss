@@ -7,37 +7,21 @@
 //
 // Style guide: Mixins.Button.button-primary
 //
+
 @mixin button-primary {
-  @include font-smoothing;
+  @extend %button-base;
   @include padding(1rem 2rem 1.15rem);
-  @include modular-typography(0);
 
-  appearance: none;
   background-color: $color-bright-red;
-  border: 0;
   color: $color-white;
-  cursor: pointer;
-  display: inline-block;
-  line-height: 1;
-  outline: none;
-  text-align: center;
-  text-decoration: none;
-  width: 100%;
-  transition: background-color .25s ease-in-out, color .25s ease-in-out;
-
-  @include grid-media('sm') {
-    width: auto;
-  }
 
   &:hover {
     background-color: $color-black;
-    border-bottom: 0;
     color: $color-white;
-    text-decoration: none;
   }
 
   &:focus {
-    background-color: $color-black;
     box-shadow: $focus-shadow;
+    background-color: $color-black;
   }
 }

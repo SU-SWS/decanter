@@ -1,17 +1,35 @@
-@charset "UTF-8";
-
 //
-// @cta-button
+// %cta-base
 //
-// CTA with an image and a button
+// CTA base styling.
 //
-// Style guide: Mixins.CTA.cta-button
+// Style guide: Placeholders.Components.CTA
 //
-@mixin cta-button {
+%cta-base {
+  position: relative;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   line-height: 0;
+
+  .su-cta__img {
+    width: 100%;
+    min-height: 1px; //IE fix
+    z-index: 0;
+    transition: all .3s ease-out;
+  }
+
+  .su-cta__button {
+    @include button-big;
+    @include grid-media('xs') {
+      width: 100%;
+      z-index: 100;
+    }
+  }
+
+  .su-cta__icon {
+    display: none;
+  }
 
   &:hover {
     .su-cta__img {
@@ -22,26 +40,5 @@
       background-color: $color-black;
       text-decoration: none;
     }
-  }
-
-  .su-cta__img {
-    width: 100%;
-    z-index: 0;
-    transition: all .3s ease-out;
-  }
-
-  .su-cta__button {
-    @include button-big;
-    font-family: $font-sans;
-    margin: 0;
-
-    @include grid-media('xs') {
-      width: 100%;
-      z-index: 100;
-    }
-  }
-
-  .su-cta__icon {
-    display: none;
   }
 }
