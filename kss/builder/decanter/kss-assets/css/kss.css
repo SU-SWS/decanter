@@ -1537,46 +1537,29 @@ body {
     border: dashed 1px #2e2d29; }
 
 .masthead .su-main-nav {
-  margin-top: 4px; }
+  margin-top: 12px; }
+  @media only screen and (min-width: 992px) {
+    .masthead .su-main-nav {
+      margin-top: 4px; } }
+  @media (max-width: 767px) {
+    .masthead .su-main-nav > ul {
+      width: 100vw; } }
+  @media only screen and (min-width: 0) and (max-width: 575px) {
+    .masthead .su-main-nav > ul {
+      -webkit-transform: translateX(20px);
+              transform: translateX(20px); } }
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    .masthead .su-main-nav > ul {
+      -webkit-transform: translateX(30px);
+              transform: translateX(30px); } }
   @media only screen and (min-width: 992px) {
     .masthead .su-main-nav > ul > li > a {
-      text-decoration: none;
-      position: relative;
-      padding-bottom: 0.8em;
-      padding-bottom: 2rem;
-      color: #fff; }
-      .masthead .su-main-nav > ul > li > a::before {
-        content: "";
-        position: absolute;
-        visibility: hidden;
-        -webkit-transition: background-color .3s ease-in, -webkit-transform .3s ease-in;
-        transition: background-color .3s ease-in, -webkit-transform .3s ease-in;
-        transition: transform .3s ease-in, background-color .3s ease-in;
-        transition: transform .3s ease-in, background-color .3s ease-in, -webkit-transform .3s ease-in;
-        z-index: 1; }
-      .masthead .su-main-nav > ul > li > a:hover, .masthead .su-main-nav > ul > li > a:focus, .masthead .su-main-nav > ul > li > a:active {
-        text-decoration: none; }
-        .masthead .su-main-nav > ul > li > a:hover::before, .masthead .su-main-nav > ul > li > a:focus::before, .masthead .su-main-nav > ul > li > a:active::before {
-          visibility: visible;
-          -webkit-transition: background-color .3s ease-out, -webkit-transform .3s ease-out;
-          transition: background-color .3s ease-out, -webkit-transform .3s ease-out;
-          transition: transform .3s ease-out, background-color .3s ease-out;
-          transition: transform .3s ease-out, background-color .3s ease-out, -webkit-transform .3s ease-out; }
-      .masthead .su-main-nav > ul > li > a:hover::before, .masthead .su-main-nav > ul > li > a:focus::before {
-        background-color: #ffffff; }
-      .masthead .su-main-nav > ul > li > a:active::before {
-        background-color: "#ec0513"; }
-      .masthead .su-main-nav > ul > li > a::before {
-        width: 100%;
-        height: 6px;
-        left: 0;
-        -webkit-transform: scaleX(0);
-                transform: scaleX(0); }
-      .masthead .su-main-nav > ul > li > a:hover::before, .masthead .su-main-nav > ul > li > a:focus::before, .masthead .su-main-nav > ul > li > a:active::before {
-        -webkit-transform: scaleX(1);
-                transform: scaleX(1); }
-      .masthead .su-main-nav > ul > li > a::before {
-        bottom: 0; } }
+      padding-bottom: 2rem; } }
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .masthead .su-main-nav__toggle {
+    margin-right: 0;
+    margin-left: auto; } }
 
 #kssref-components-main-navigation .kss-modifier__example:nth-child(6) nav {
   z-index: 9899; }
@@ -1663,13 +1646,15 @@ body {
           -ms-grid-column: 2; } }
   .masthead .brand-logo {
     font-size: 1.953125em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-left: -2px;
     color: #ffffff;
     font-weight: 700;
     display: block;
     vertical-align: middle;
     height: 100%;
     line-height: 69px;
-    text-align: center;
     -ms-grid-row: 1;
     -ms-grid-column: 1; }
   .masthead .main-nav {

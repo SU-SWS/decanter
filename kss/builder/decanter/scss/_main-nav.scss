@@ -3,18 +3,38 @@
 // Main navigation.
 .masthead {
   .su-main-nav {
-    margin-top: 4px;
+    margin-top: 12px;
+
+    @include grid-media('lg') {
+      margin-top: 4px;
+    }
 
     > ul {
+      @include grid-media-max('sm') {
+        width: 100vw;
+      }
+
+      @include grid-media-only('xs') {
+        transform: translateX(map-get($screen-margins, 'xs'));
+      }
+
+      @include grid-media-only('sm') {
+        transform: translateX(map-get($screen-margins, 'sm'));
+      }
+
       @include grid-media('lg') {
         > li {
           > a {
-            @include fancy-hover($color: $color-white, $active: '#ec0513');
             @include padding(null null 2rem);
-            color: #fff;
           }
         }
       }
+    }
+  }
+
+  .su-main-nav__toggle {
+    @include grid-media-only('md') {
+      @include margin(null 0 null auto);
     }
   }
 }

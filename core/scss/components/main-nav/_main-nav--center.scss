@@ -1,7 +1,18 @@
 @charset "UTF-8";
 
 .su-main-nav--center {
-  ul {
+  > ul {
     justify-content: center;
+  }
+
+  @include grid-media-max('md') {
+    > ul,
+    > .su-site-search {
+      @include centering($horizontal: true, $vertical: false);
+    }
+  }
+
+  .su-main-nav__toggle {
+    @include margin(null auto);
   }
 }
