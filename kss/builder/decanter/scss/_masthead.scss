@@ -11,6 +11,11 @@
   div {
     @include centered-column;
     @include display-grid;
+
+    @include grid-media-max('sm') {
+      @include grid-columns(auto 1fr);
+    }
+
     @include grid-media('md') {
       @include grid-columns(1fr 11fr);
     }

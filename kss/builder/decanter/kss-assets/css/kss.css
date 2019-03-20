@@ -1636,6 +1636,14 @@ body {
       .masthead div {
         max-width: 1500px;
         width: calc(100% - 200px); } }
+    @media (max-width: 767px) {
+      .masthead div {
+        -ms-grid-columns: auto 1fr;
+        grid-template-columns: auto 1fr; }
+        .masthead div > *:nth-child(1) {
+          -ms-grid-column: 1; }
+        .masthead div > *:nth-child(2) {
+          -ms-grid-column: 2; } }
     @media only screen and (min-width: 768px) {
       .masthead div {
         -ms-grid-columns: 1fr 11fr;
