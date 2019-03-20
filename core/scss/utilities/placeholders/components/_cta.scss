@@ -1,14 +1,11 @@
-@charset "UTF-8";
-
 //
-// @cta-button
+// %cta-base
 //
-// CTA with an image and a button
+// CTA base styling.
 //
-// Style guide: Mixins.CTA.cta-button
+// Style guide: Placeholders.Components.CTA
 //
-
-@mixin cta {
+%cta-base {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -24,9 +21,6 @@
 
   .su-cta__button {
     @include button-big;
-    @include sans;
-    @include margin(0);
-
     @include grid-media('xs') {
       width: 100%;
       z-index: 100;
@@ -47,5 +41,4 @@
       text-decoration: none;
     }
   }
-
 }
