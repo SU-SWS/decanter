@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+//
+// Plakes Right - Variant
+//
+.layout-plakes--right {
+
+  > div {
+
+    aside {
+      @include grid-media('sm') {
+        @include grid-item-spans(3, span 1);
+      }
+
+      @include grid-media('lg') {
+        @include grid-item-spans(4, span 1);
+      }
+    }
+
+    section {
+      @include grid-media('sm') {
+        @include grid-item-spans(1, span 2, 1, span 1);
+      }
+
+      @include grid-media('lg') {
+        @include grid-item-spans(1, span 3, 1, span 1);
+      }
+    }
+
+  }
+
+}

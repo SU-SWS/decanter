@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+//
+// @h1
+//
+// Default heading 1 styling.
+//
+// Style guide: Mixins.Typography.h1
+//
+@mixin h1 {
+  font-size: $h1-font-size;
+  font-weight: $font-bold;
+
+  &:first-child {
+    @include margin(0 null null);
+  }
+}

@@ -8,14 +8,8 @@
   "scripts": {
     "prebuild": "mkdir styleguide; mkdir styleguide/css styleguide/js; touch styleguide/css/decanter.css styleguide/js/decanter.js",
     "build": "webpack --mode=development",
-    "postbuild": "npm run styleguide",
-    "watch": "webpack --mode=development --watch",
     "predist": "mkdir styleguide; mkdir styleguide/css styleguide/js; touch styleguide/css/decanter.css styleguide/js/decanter.js",
-    "dist": "webpack --mode=production",
-    "postdist": "npm run styleguide",
-    "styleguide": "kss --config=kss/kss-config.json",
-    "poststyleguide": "rm -rf styleguide/img && mkdir styleguide/img && cp img-placeholders/* styleguide/img",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dist": "webpack --mode=production"
   },
   "keywords": [
     "css",
@@ -43,7 +37,12 @@
     "css-loader": "^2.1.1",
     "grunt": "^1.0.3",
     "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-watch": "^1.1.0",
     "grunt-deploy-site": "^0.1.3",
+    "grunt-run": "^0.8.0",
+    "jquery": "^3.3.1",
     "kss": "^3.0.0-beta.25",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",

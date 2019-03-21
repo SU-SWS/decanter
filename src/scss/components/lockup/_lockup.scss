@@ -1,0 +1,144 @@
+@charset "UTF-8";
+
+//
+// Lockup
+//
+// A lockup with the Stanford wordmark logo and department/unit name. It is used in the header of a website and links to the homepage of the department/unit. When building a department lockup, besides the Stanford wordmark, the most obvious element should be the most granular relevant department.
+//
+// .su-lockup--option-a - Option A
+// .su-lockup--option-b - Option B
+// .su-lockup--option-c - Option C
+// .su-lockup--option-d - Option D
+// .su-lockup--option-e - Option E
+// .su-lockup--option-f - Option F
+// .su-lockup--option-g - Option G
+// .su-lockup--option-h - Option H
+// .su-lockup--option-i - Option I
+// .su-lockup--option-j - Option J
+// .su-lockup--option-k - Option K
+// .su-lockup--option-l - Option L
+// .su-lockup--option-m - Option M
+// .su-lockup--option-n - Option N
+// .su-lockup--option-o - Option O
+// .su-lockup--option-p - Option P
+// .su-lockup--option-q - Option Q
+// .su-lockup--option-r - Option R
+// .su-lockup--option-s - Option S
+// .su-lockup--option-t - Option T
+//
+//
+// Markup: ../templates/components/lockup/lockup.twig
+//
+// Style guide: Components.Lockup
+//
+.su-lockup,
+.su-lockup > a {
+  @include grid-media('md') {
+    @include flex-container;
+    align-items: stretch;
+    justify-content: flex-start;
+    vertical-align: bottom;
+  }
+}
+
+.su-lockup__cell1 {
+  min-height: 26px;
+  vertical-align: bottom;
+  width: auto;
+
+  @include grid-media('md') {
+    @include margin(null -1px null null);
+    @include padding(null 7px 0 null);
+    align-self: flex-end;
+    border-right: solid 1px $color-black;
+    display: flex;
+    flex-shrink: 1;
+    max-width: 160px;
+    min-height: 32px;
+  }
+}
+
+.su-lockup__cell2 {
+  @include grid-media('md') {
+    @include padding(0 null null 7px);
+    align-self: flex-end;
+    border-left: solid 1px $color-black;
+    flex-grow: 1;
+    vertical-align: bottom;
+  }
+}
+
+.su-lockup__wordmark {
+  @include logo;
+  color: $color-cardinal-red;
+  font-size: 36px;
+  line-height: 17px;
+  vertical-align: bottom;
+
+  @include grid-media('md') {
+    font-size: 46px;
+    line-height: 21px;
+  }
+}
+
+.su-lockup__wordmark-wrapper {
+  line-height: 26px;
+
+  @include grid-media('md') {
+    line-height: 32px;
+  }
+}
+
+.su-lockup__line1,
+.su-lockup__line2,
+.su-lockup__line3,
+.su-lockup__line4,
+.su-lockup__line5 {
+  @include font-smoothing;
+  color: $color-black;
+  display: block;
+}
+
+.su-lockup__line1 {
+  font-size: 2.8rem;
+
+  @include grid-media-max('sm') {
+    font-size: 2.6rem;
+  }
+}
+
+.su-lockup__line2 {
+  font-size: 2.6rem;
+}
+
+.su-lockup__line3 {
+  @include margin(0.5rem null null);
+  font-size: 2.6rem;
+  font-style: italic;
+
+  @include grid-media-max('sm') {
+    @include margin(0);
+    font-size: 1.9rem;
+  }
+}
+
+.su-lockup__line4 {
+  @include margin(0.5rem null null);
+  font-size: 2.5rem;
+  font-weight: $font-bold;
+  letter-spacing: .05rem;
+  line-height: 1em;
+  margin-left: -.2rem;
+  text-transform: uppercase;
+}
+
+.su-lockup__line5 {
+  font-size: 2.7rem;
+  line-height: 1em;
+  width: 100%;
+
+  @include grid-media('md') {
+    @include margin(8px null null null);
+    font-size: 3rem;
+  }
+}

@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+//
+// Table
+//
+// Default styling for tables. For displaying tabular data that best lends
+// itself to being layed out in columns and rows.
+// Modifier class available to remove tables borders.
+//
+// .su-table--borderless  - Borderless Table
+//
+// Markup: ../../templates/elements/table/table.twig
+//
+// Style guide: Elements.Table
+//
+table {
+  @include margin(2em 0);
+  border-spacing: 0;
+  min-width: 100%;
+
+  th,
+  td {
+    @include padding(1.5rem);
+    border: 1px solid $color-driftwood;
+  }
+
+  th {
+    background-color: $color-cloud;
+    color: $color-black;
+    font-weight: $font-normal;
+    text-align: left;
+  }
+
+  td {
+    background-color: $color-white;
+  }
+
+  thead {
+    th,
+    td {
+      background-color: $color-cloud;
+    }
+  }
+
+  tbody {
+    th {
+      font-weight: $font-normal;
+    }
+  }
+}

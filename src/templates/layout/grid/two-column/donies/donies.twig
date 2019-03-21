@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Template for a complex column panel layout.
+ *
+ * This template provides a complex column panel display layout, with
+ * each column roughly equal in width.
+ *
+ * Variables:
+ * -
+ * -
+ *
+ *
+ *
+ */
+#}
+<div{{ attributes }} class="layout layout-donies {{ modifier_class }}">
+  {# Optional header region #}
+  {% if header is not empty %}
+  <header {{ region_attributes.header }}>
+    {{ header }}
+  </header>
+  {% endif %}
+
+  {# Mandatory content region #}
+  <section>
+    <div {{ region_attributes.first }}>
+      {{ first }}
+    </div>
+
+    <div {{ region_attributes.second }}>
+      {{ second }}
+    </div>
+  </section>
+
+  {# Optional footer region #}
+  {% if footer is not empty %}
+  <footer {{ region_attributes.footer }}>
+    {{ footer }}
+  </footer>
+  {% endif %}
+</div>

@@ -1,0 +1,42 @@
+{#
+/**
+ * @file
+ * Template for a complex column panel layout.
+ *
+ * This template provides a complex column panel display layout, with
+ * each column roughly equal in width.
+ *
+ * Variables:
+ * -
+ * -
+ *
+ *
+ *
+ */
+#}
+<div{{ attributes }} class="layout layout-pacman {{ modifier_class }}">
+  {# Optional Header #}
+  {% if header is not empty %}
+  <header {{ region_attributes.header }}>
+    {{ header }}
+  </header>
+  {% endif %}
+
+  {# Required content section #}
+  <div>
+    <aside {{ region_attributes.sidebar }}>
+      {{ sidebar }}
+    </aside>
+
+    <section {{ region_attributes.content }}>
+      {{ content }}
+    </section>
+  </div>
+
+  {# Optional footer #}
+  {% if footer is not empty %}
+  <footer {{ region_attributes.footer }}>
+    {{ footer }}
+  </footer>
+  {% endif %}
+</div>

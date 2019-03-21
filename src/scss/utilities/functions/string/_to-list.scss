@@ -1,0 +1,10 @@
+//
+// to-list($value)
+//
+// Converts a value to a list.
+//
+// Style guide: Functions.String.to-list
+//
+@function to-list($value) {
+  @return if(type-of($value) != list, ($value, ), $value);
+}

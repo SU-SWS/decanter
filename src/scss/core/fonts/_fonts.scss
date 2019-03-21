@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+// Fonts
+//
+// Primary and secondary fonts from Stanford branding guidelines.
+//
+// Markup: ../../templates/core/fonts/fonts.twig
+//
+// Style guide: Core.Fonts
+
+// Sans font: Source Sans Pro.
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
+
+// Serif font: Source Serif Pro.
+@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700');
+
+// Slab font: Roboto Slab.
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700');
+
+// Script font: Kalam.
+@import url('https://fonts.googleapis.com/css?family=Kalam:300,400,700');
+
+// Sanskrit font: Noto Sans
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=devanagari');
+
+// Some of the Source Serif Pro fonts are not yet available on Google, so we
+// are hosting and loading from our AWS bucket.
+@include font-face(
+  "Source Serif Pro",
+  "https://www-media.stanford.edu/assets/fonts/sourceserifpro-extralight-webfont",
+  ("woff")
+) {
+  font-style: normal;
+  font-weight: 200;
+}
+
+@include font-face(
+  "Source Serif Pro",
+  "https://www-media.stanford.edu/assets/fonts/sourceserifpro-extralightitalic-webfont",
+  ("woff")
+) {
+  font-style: italic;
+  font-weight: 200;
+}
+
+@include font-face(
+  "Source Serif Pro",
+  "https://www-media.stanford.edu/assets/fonts/sourceserifpro-light-webfont",
+  ("woff")
+) {
+  font-style: normal;
+  font-weight: 300;
+}
+
+@include font-face(
+  "Source Serif Pro",
+  "https://www-media.stanford.edu/assets/fonts/sourceserifpro-lightitalic-webfont",
+  ("woff")
+) {
+  font-style: italic;
+  font-weight: 300;
+}
+
+@include font-face(
+  "Source Serif Pro",
+  "https://www-media.stanford.edu/assets/fonts/sourceserifpro-regularitalic-webfont",
+  ("woff")
+) {
+  font-style: italic;
+  font-weight: 400;
+}
+
+@include font-face(
+  "Source Serif Pro",
+  "https://www-media.stanford.edu/assets/fonts/sourceserifpro-semibolditalic-webfont",
+  ("woff")
+) {
+  font-style: italic;
+  font-weight: 600;
+}
+
+@include font-face(
+  "Source Serif Pro",
+  "https://www-media.stanford.edu/assets/fonts/sourceserifpro-bolditalic-webfont",
+  ("woff")
+) {
+  font-style: italic;
+  font-weight: 700;
+}
+
+@include font-face(
+  "Source Serif Pro",
+  "https://www-media.stanford.edu/assets/fonts/sourceserifpro-black-webfont",
+  ("woff")
+) {
+  font-style: normal;
+  font-weight: 900;
+}
+
+@include font-face(
+  "Source Serif Pro",
+  "https://www-media.stanford.edu/assets/fonts/sourceserifpro-blackitalic-webfont",
+  ("woff")
+) {
+  font-style: italic;
+  font-weight: 900;
+}
+
+// Ligature font: Stanford.
+// The Stanford font is being hosted and loaded from our AWS bucket.
+@include font-face(
+  "Stanford",
+  "https://www-media.stanford.edu/assets/fonts/stanford",
+  ("woff", "ttf")
+) {
+  font-weight: 300;
+}

@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+//
+// Global Footer
+//
+// Global footer element as specified by the Identity Guidelines.
+//
+// Markup: ../../templates/components/global-footer/global-footer.twig
+//
+// Style guide: Components.Global Footer
+//
+
+// Global styles for the global footer.
+.su-global-footer {
+  @include modular-spacing('padding', 1 null);
+  background-color: $color-cardinal-red;
+  color: $color-white;
+
+  a {
+    color: rgba($color-white, .9);
+    text-decoration: none;
+
+    &:hover {
+      color: $color-white;
+      text-decoration: underline;
+    }
+  }
+
+  // Grid settings for footer container.
+  .su-global-footer__container {
+    @include centered-column;
+    @include grid-media('md') {
+      display: flex;
+    }
+  }
+
+  // The Logo.
+  .su-global-footer__brand {
+    @include padding(0.5rem null null);
+    @include modular-spacing('margin', null null -2);
+    text-align: center;
+
+    a {
+      @include logo;
+      color: $color-white;
+      font-size: 3.4rem;
+
+      @include grid-media-only('xs') {
+        font-size: 3.2rem;
+      }
+    }
+  }
+
+  .su-global-footer__content {
+    @include grid-media-only('sm') {
+      text-align: center;
+    }
+
+    @include grid-media('md') {
+      padding-left: 3rem;
+    }
+
+    @include grid-media('lg') {
+      padding-left: 4.5rem;
+    }
+
+    @include grid-media('xl') {
+      padding-left: 5.2rem;
+    }
+
+    flex-grow: 1;
+  }
+
+  // Grid settings for footer nav region; passing 0 for no outer gutters.
+  nav {
+    @include margin(null null 1rem);
+    display: flex;
+    flex: 0 0 auto;
+    justify-content: center;
+
+    @include grid-media('sm') {
+      display: block;
+
+      @include margin(null null 1.3rem);
+    }
+  }
+
+  .su-global-footer__menu {
+    @include margin(0 0 1rem);
+    @include padding(0);
+    list-style-type: none;
+
+    li {
+      @include margin(0);
+      @include padding(.25em 0);
+      display: block;
+
+      @include grid-media('sm') {
+        @include margin(null 1.3rem null null);
+        display: inline-block;
+        line-height: 1.1;
+      }
+
+      @include grid-media('md') {
+        @include padding(0);
+        text-align: left;
+      }
+
+      @include grid-media('lg') {
+        @include margin(null 2rem null null);
+      }
+
+      &:last-child {
+        @include margin(null 0 null null);
+      }
+    }
+  }
+
+  .su-global-footer__menu--global {
+    font-size: 1.5rem;
+
+    @include grid-media-only('xs') {
+      @include padding(null 2rem null null);
+    }
+
+    @include grid-media-between('md', 'xl') {
+      font-size: 1.7rem;
+    }
+
+    @include grid-media('2xl') {
+      font-size: 1.8rem;
+    }
+  }
+
+  .su-global-footer__menu--policy {
+    font-size: 1.5rem;
+    font-weight: 300;
+
+    @include grid-media-only('xs') {
+      @include padding(null null null 2rem);
+      font-weight: 400;
+    }
+
+    @include grid-media('sm') {
+      font-size: 1.4rem;
+    }
+
+    @include grid-media-between('md', 'lg') {
+      font-size: 1.5rem;
+    }
+
+    @include grid-media('xl') {
+      font-size: 1.6rem;
+    }
+  }
+
+  .su-global-footer__copyright {
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-align: center;
+
+    span {
+      white-space: nowrap;
+    }
+
+    @include grid-media('md') {
+      text-align: left;
+    }
+
+  }
+}

@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+//
+// Valmer
+//
+// A complext three column layout.
+//
+// .layout-valmer--right - A right heavy variant
+//
+// Markup: ../../../../../templates/layout/grid/three-column/valmer/valmer.twig
+//
+// Style guide: Layout.Grid.3Column.Valmer
+//
+.layout-valmer {
+  > header,
+  > footer,
+  > section {
+    @include centered-column;
+    @include responsive-grid-gap;
+  }
+
+  > section {
+    // Enable grid after sm sizes.
+    @include grid-media('sm') {
+      @include display-grid;
+      @include grid-columns(1fr 1fr 1fr 1fr, false);
+    }
+
+    > div:nth-of-type(1) {
+      @include grid-item-spans(1, span 2);
+    }
+
+    > div:nth-of-type(2) {
+      -ms-grid-column: 3;
+    }
+
+    > div:nth-of-type(3) {
+      -ms-grid-column: 4;
+    }
+
+  }
+}

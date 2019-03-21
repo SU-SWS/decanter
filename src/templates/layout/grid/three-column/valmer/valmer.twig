@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Template for a complex column panel layout.
+ *
+ * This template provides a complex column panel display layout, with
+ * each column roughly equal in width.
+ *
+ * Variables:
+ * -
+ * -
+ *
+ *
+ *
+ */
+#}
+<div{{ attributes }} class="layout layout-valmer {{ modifier_class }}">
+
+  {% if header is not empty %}
+  <header {{ region_attributes.header }}>
+    {{ header }}
+  </header>
+  {% endif %}
+
+  <section>
+    <div {{ region_attributes.first }}>
+      {{ first }}
+    </div>
+
+    <div {{ region_attributes.second }}>
+      {{ second }}
+    </div>
+
+    <div {{ region_attributes.third }}>
+      {{ third }}
+    </div>
+  </section>
+
+  {% if footer is not empty %}
+  <footer {{ region_attributes.footer }}>
+    {{ footer }}
+  </footer>
+  {% endif %}
+</div>
