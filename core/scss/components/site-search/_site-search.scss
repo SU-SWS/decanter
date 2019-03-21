@@ -37,17 +37,19 @@
   @include padding(0);
   @include margin(0 0 0 null);
 
-  background-color: transparent;
+  background: url("#{$image-path}/icon-search.svg") no-repeat 0 0;
   opacity: .6;
   position: absolute;
+  overflow: hidden;
+  width: auto;
+  height: 2.8rem;
   top: 11px;
   right: 12px;
-  width: auto;
 
-  img {
-    display: inline-block;
-    max-width: 24px;
-    max-height: 24px;
+  p {
+    opacity: 0;
+    width: 3rem;
+    height: 2.8rem;
   }
 
   &:hover,
