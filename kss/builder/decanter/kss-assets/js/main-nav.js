@@ -6,10 +6,25 @@
 
   // Set the active nav item in the main menu.
   var pathname = window.location.pathname;
+  var anchor = window.location.hash;
   if (pathname.length && pathname !== "/") {
-    $(".su-main-nav").find("a[href*='" + pathname + "']").parent('li').addClass('su-main-nav__item--current');
-  }
-  else {
+    var currentLink;
+    var currentParentItem;
+
+    if (!anchor) {
+      currentLink = $(".su-main-nav").find("a[href*='" + pathname + "']").eq(0);
+    } else {
+      currentLink = $(".su-main-nav").find("a[href*='" + anchor + "']");
+    }
+
+    currentLink.parent('li').addClass('su-main-nav__item--current');
+    currentParentItem = currentLink.parent('li').parent('ul').parent('li');
+
+    if (currentParentItem) {
+      currentParentItem.addClass('su-main-nav__item--current');
+    }
+
+  } else {
     $(".su-main-nav a").eq(0).parent('li').addClass('su-main-nav__item--current');
   }
 
