@@ -39,58 +39,11 @@ function recursiveIssuer(module) {
   }
 }
 
-// Module Exports.
-module.exports = {
-  // Define the entry points for which webpack builds a dependency graph.
-  entry: {
-    "decanter": assetDir + "js/decanter.js",
-    "decanter-grid": assetDir + "js/decanter-grid.js",
-    "decanter-no-markup": assetDir + "js/decanter-no-markup.js",
-    'kss': kssDir + "scss/kss.js"
-  },
-  // Where should I output the assets.
-  output: {
-    filename: devMode ? "[name].js" : "[name].[hash].js",
-    path: path.resolve( __dirname, outputDir + '/js' )
-  },
+// Common config between Decanter and KSS builds.
+var config = {
   // Allows for map files.
   devtool: 'source-map',
-  // Optimizations that are triggered by production mode.
-  optimization: {
-    // Uglify the Javascript & and CSS.
-    minimizer: [
-      new UglifyJsPlugin( {
-        cache: true,
-        parallel: true,
-        sourceMap: true
-      } ),
-      new OptimizeCSSAssetsPlugin( {} )
-    ],
-    // Splitchunks plugin configuration.
-    // https://webpack.js.org/plugins/split-chunks-plugin/.
-    splitChunks: {
-      cacheGroups: {
-        'decanter': {
-          name: 'decanter',
-          test: ( module, chunks, entry = 'decanter' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
-          chunks: 'all',
-          enforce: true
-        },
-        'decanter-no-markup': {
-          name: 'decanter-no-markup',
-          test: ( module, chunks, entry = 'decanter-no-markup' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
-          chunks: 'all',
-          enforce: true
-        },
-        'kss': {
-          name: 'kss',
-          test: ( module, chunks, entry = 'kss' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
-          chunks: 'all',
-          enforce: true
-        }
-      }
-    }
-  },
+  // Define modules.
   module: {
     rules: [
       // Apply babel ES6 compilation to JavaScript files.
@@ -195,4 +148,98 @@ module.exports = {
       ]
     } ),
   ]
-}
+};
+
+// Decanter core configuration.
+let coreConfig = Object.assign({}, config, {
+  name: "decanter",
+  // Define the entry points for which webpack builds a dependency graph.
+  entry: {
+    "decanter": assetDir + "js/decanter.js",
+    "decanter-grid": assetDir + "js/decanter-grid.js",
+    "decanter-no-markup": assetDir + "js/decanter-no-markup.js",
+    'kss': kssDir + "scss/kss.js"
+  },
+  // Where should I output the assets.
+  output: {
+    filename: devMode ? "[name].js" : "[name].[hash].js",
+    path: path.resolve( __dirname, outputDir + '/js' )
+  },
+  // Optimizations that are triggered by production mode.
+  optimization: {
+    // Uglify the Javascript & and CSS.
+    minimizer: [
+      new UglifyJsPlugin( {
+        cache: true,
+        parallel: true,
+        sourceMap: true
+      } ),
+      new OptimizeCSSAssetsPlugin( {} )
+    ],
+    // Splitchunks plugin configuration.
+    // https://webpack.js.org/plugins/split-chunks-plugin/.
+    splitChunks: {
+      cacheGroups: {
+        'decanter': {
+          name: 'decanter',
+          test: ( module, chunks, entry = 'decanter' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
+          chunks: 'all',
+          enforce: true
+        },
+        'decanter-no-markup': {
+          name: 'decanter-no-markup',
+          test: ( module, chunks, entry = 'decanter-no-markup' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
+          chunks: 'all',
+          enforce: true
+        },
+        'kss': {
+          name: 'kss',
+          test: ( module, chunks, entry = 'kss' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
+          chunks: 'all',
+          enforce: true
+        }
+      }
+    }
+  },
+});
+
+// Decanter core configuration.
+let kssConfig = Object.assign({}, config, {
+  name: "kss",
+  // Define the entry points for which webpack builds a dependency graph.
+  entry: {
+    'kss': kssDir + "scss/kss.js"
+  },
+  // Where should I output the assets.
+  output: {
+    filename: devMode ? "[name].js" : "[name].[hash].js",
+    path: path.resolve( __dirname, kssDir + 'kss-assets/dist' )
+  },
+  // Optimizations that are triggered by production mode.
+  optimization: {
+    // Uglify the Javascript & and CSS.
+    minimizer: [
+      new UglifyJsPlugin( {
+        cache: true,
+        parallel: true,
+        sourceMap: true
+      } ),
+      new OptimizeCSSAssetsPlugin( {} )
+    ],
+    // Splitchunks plugin configuration.
+    // https://webpack.js.org/plugins/split-chunks-plugin/.
+    splitChunks: {
+      cacheGroups: {
+        'kss': {
+          name: 'kss',
+          test: ( module, chunks, entry = 'kss' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
+          chunks: 'all',
+          enforce: true
+        }
+      }
+    }
+  },
+});
+
+// Module Exports.
+module.exports = [ coreConfig, kssConfig ];
