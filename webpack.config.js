@@ -17,9 +17,10 @@ const FilewatcherPlugin = require("filewatcher-webpack-plugin");
 
 // Paths.
 const assetDir  = './src/';
+const kssDir  = './kss/builder/decanter/';
 const outputDir = 'dist';
 const styleGuide = path.resolve( __dirname, './styleguide/');
-const npmPackage = './node_modules/';
+const npmPackage = 'node_modules/';
 
 // Other variables.
 const devMode = process.env.NODE_ENV !== 'production';
@@ -44,7 +45,8 @@ module.exports = {
   entry: {
     "decanter": assetDir + "js/decanter.js",
     "decanter-grid": assetDir + "js/decanter-grid.js",
-    "decanter-no-markup": assetDir + "js/decanter-no-markup.js"
+    "decanter-no-markup": assetDir + "js/decanter-no-markup.js",
+    'kss': kssDir + "scss/kss.js"
   },
   // Where should I output the assets.
   output: {
@@ -79,6 +81,12 @@ module.exports = {
           test: ( module, chunks, entry = 'decanter-no-markup' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
           chunks: 'all',
           enforce: true
+        },
+        'kss': {
+          name: 'kss',
+          test: ( module, chunks, entry = 'kss' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
+          chunks: 'all',
+          enforce: true
         }
       }
     }
@@ -100,7 +108,7 @@ module.exports = {
       {
         test: /\.s[ac]ss$/,
         use: [
-          // Mini extract pluign.
+          // Extract loader.
           MiniCssExtractPlugin.loader,
           // CSS Loader. Generate sourceMaps.
           {
@@ -127,7 +135,8 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               includePaths: [
-                path.resolve( __dirname, npmPackage, 'bourbon/core' )
+                path.resolve( __dirname, npmPackage + "bourbon/core" ),
+                path.resolve( __dirname, "src/scss" )
               ],
               sourceMap: true,
               lineNumbers: true,
