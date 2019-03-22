@@ -8,36 +8,17 @@
 // Style guide: Mixins.Button.button-secondary
 //
 @mixin button-secondary {
-  @include font-smoothing;
-  @include margin(0.5em 0.5em 0.5em null);
+  @extend %button-base;
   @include padding(1rem 2rem 1.15rem);
 
-  appearance: none;
   background-color: $color-white;
-  border: 0;
   box-shadow: $button-stroke $color-bright-red;
   color: $color-bright-red;
-  cursor: pointer;
-  display: inline-block;
-  font-size: $base-font-size;
-  font-weight: $font-bold;
-  line-height: 1;
-  outline: none;
-  text-align: center;
-  text-decoration: none;
-  width: 100%;
-
-  @include grid-media('sm') {
-    width: auto;
-  }
-
 
   &:hover {
     background-color: $color-white;
-    border-bottom: 0;
     box-shadow: $button-stroke $color-black;
     color: $color-black;
-    text-decoration: none;
   }
 
   &:focus {

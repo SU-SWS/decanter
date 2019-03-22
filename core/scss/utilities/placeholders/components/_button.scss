@@ -1,0 +1,33 @@
+//
+// %button-base
+//
+// Base button styling.
+//
+// Style guide: Placeholders.Components.Button
+//
+
+%button-base {
+  @include font-smoothing;
+  @include sans;
+  appearance: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  font-size: $base-font-size;
+  font-weight: $font-bold;
+  line-height: 1;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  transition: background-color .25s ease-in-out, color .25s ease-in-out;
+
+  @include grid-media('sm') {
+    width: auto;
+  }
+
+  &:hover {
+    border-bottom: 0;
+    text-decoration: none;
+  }
+}
