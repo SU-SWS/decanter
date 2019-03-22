@@ -8,8 +8,7 @@
   var pathname = window.location.pathname;
   var anchor = window.location.hash;
   if (pathname.length && pathname !== "/") {
-    var currentLink;
-    var currentParentItem;
+    var currentLink, currentParentItem;
 
     if (!anchor) {
       currentLink = $(".su-main-nav").find("a[href*='" + pathname + "']").eq(0);
