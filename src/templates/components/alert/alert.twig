@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Alert Component.
+ *
+ * Component for displaying a notification that keeps people informed of a
+ * status, or for displaying a validation message that alerts someone of an
+ * important piece of information. It has five variants:
+ *   - Default: Black text with gray background with no icon
+ *   - Success: Black text with green background with check icon
+ *   - Warning: Black text with yellow background with traiangular exclamation mark icon
+ *   - Error: Black text with red background with circlular exclamation mark icon
+ *   - Info: Black text with blue background with information icon
+ *
+ * Available variables:
+ * - attributes: For additional HTML attributes not already provided.
+ * - modifier_class: Additional css classes to change look and behaviour.
+ * - alert_header: Text heading.
+ * - alert_body: Text details of the alert message.
+ */
+#}
+<div {{ attributes }} class="su-alert {{ modifier_class }}" >
+  <div class="su-alert__body">
+    {% if alert_header is not empty %}
+    <h3 class="su-alert__heading">{{ alert_header }}</h3>
+    {% endif %}
+    {% if alert_text is not empty %}
+    <p class="su-alert__text">{{ alert_text }}</p>
+    {% endif %}
+  </div>
+</div>
