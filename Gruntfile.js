@@ -10,22 +10,6 @@ module.exports = function(grunt) {
    */
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    watch: {
-      css: {
-        files: ['**/*.scss'],
-        tasks: ['styleguide'],
-        options: {
-          livereload: true
-        }
-      },
-      jsmin: {
-        files: ['src/**/*.js']
-      },
-      twig: {
-        files: ['**/*.twig', '**/*.json'],
-        tasks: ['styleguide']
-      }
-    },
     browserSync: {
       dev: {
         bsFiles: {
@@ -41,11 +25,6 @@ module.exports = function(grunt) {
       }
     },
     clean: {
-      styleguide: {
-        src: [
-          'styleguide'
-        ]
-      },
       postdeploy: {
         src: [
           '.styleguide_site'
@@ -53,13 +32,20 @@ module.exports = function(grunt) {
       }
     },
     run: {
+      options: {
+        wait: 0
+      },
       webpack: {
         "cmd": "npm",
         'args': ['run-script', 'build']
       },
       styleguide: {
-        "cmd": "./node_modules/.bin/kss",
-        "args": ['--config=kss/kss-config.json']
+        "cmd": "npm",
+        "args": ['run-script', 'styleguide']
+      },
+      watch: {
+        "cmd": "npm",
+        "args": ['run-script', 'watch']
       },
     },
     deploy_site: {
@@ -73,30 +59,28 @@ module.exports = function(grunt) {
         remote_url: 'git@github.com:SU-SWS/decanter.github.io'
       }
     },
-    copy: {
-      styleguide: {
-        files: [
-          // includes files within path
-          {expand: true, cwd: 'src/css', src: ['**'], dest: 'styleguide/css/'},
-          {expand: true, cwd: 'src/fonts', src: ['**'], dest: 'styleguide/fonts/'},
-          {expand: true, cwd: 'src/js', src: ['**'], dest: 'styleguide/js/'},
-          {expand: true, cwd: 'src/img', src: ['**'], dest: 'styleguide/img/'},
-        ],
-      },
-    },
+    deprecated_notice: {
+      styleguide: "This function has been deprecated in favor of `npm run-script styleguide` and will be removed in future versions. Executing now."
+    }
   });
 
+  // Create a Deprecated notice task.
+  grunt.task.registerTask('deprecated_notice', 'Logs a deprecated message.', function(arg1) {
+    grunt.log.write(grunt.config.data.deprecated_notice[arg1]);
+  });
+
+  // Load up tasks.
   grunt.loadNpmTasks('grunt-run');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-deploy-site');
-  grunt.loadNpmTasks('grunt-contrib-copy');
 
+  // Register some new ones.
   grunt.registerTask('deploy', ['styleguide', 'deploy_site:styleguide', 'clean:postdeploy']);
-  grunt.registerTask('styleguide', ['run:webpack', 'clean:styleguide', 'run:styleguide', 'copy:styleguide']);
+  grunt.registerTask('styleguide', ['run:webpack', 'run:styleguide', 'deprecated_notice:styleguide']);
   grunt.registerTask('webpack', ['run:webpack']);
-  grunt.registerTask('dev', ['styleguide', 'browserSync', 'watch']);
+  grunt.registerTask('dev', ['styleguide', 'browserSync', 'run:watch']);
   grunt.registerTask('default', ['dev']);
 
 }

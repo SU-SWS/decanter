@@ -22,6 +22,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const WebpackAssetsManifest = require("webpack-assets-manifest");
 const CopyPlugin = require('webpack-copy-on-build-plugin');
+const FilewatcherPlugin = require("filewatcher-webpack-plugin");
 
 // For MiniCssExtractPlugin.
 // Loops through the module variable that is nested looking for a name.
@@ -175,6 +176,14 @@ module.exports = {
     // https://github.com/webdeveric/webpack-assets-manifest
     new WebpackAssetsManifest( {
       output: 'assets.json'
+    } ),
+    // Add a plugin to watch other files other than that required by webpack.
+    // https://www.npmjs.com/package/filewatcher-webpack-plugin
+    new FilewatcherPlugin( {
+      watchFileRegex: [
+        'src/**/*.twig',
+        'src/**/*.json'
+      ]
     } ),
   ]
 }
