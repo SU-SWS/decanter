@@ -60,7 +60,11 @@ module.exports = function(grunt) {
       }
     },
     deprecated_notice: {
-      styleguide: "This function has been deprecated in favor of `npm run-script styleguide` and will be removed in future versions. Executing now."
+      styleguide: "This function has been deprecated in favor of `npm run-script styleguide` and will be removed in future versions. Executing now.",
+      compile: "This function has been deprecated in favor of `npm run-script build` and will be removed in future versions. Executing now.",
+      sasslint: "This function has been deprecated in favor of `npm run-script lint` and will be removed in future versions.",
+      sass: "This function has been deprecated in favor of `npm run-script build` and will be removed in future versions.",
+      watch: "This function has been deprecated in favor of `npm run-script watch` and will be removed in future versions."
     }
   });
 
@@ -78,9 +82,15 @@ module.exports = function(grunt) {
 
   // Register some new ones.
   grunt.registerTask('deploy', ['styleguide', 'deploy_site:styleguide', 'clean:postdeploy']);
-  grunt.registerTask('styleguide', ['run:webpack', 'run:styleguide', 'deprecated_notice:styleguide']);
   grunt.registerTask('webpack', ['run:webpack']);
   grunt.registerTask('dev', ['styleguide', 'browserSync', 'run:watch']);
   grunt.registerTask('default', ['dev']);
+
+  // Deprecated tasks.
+  grunt.registerTask('styleguide', ['run:webpack', 'run:styleguide', 'deprecated_notice:styleguide']);
+  grunt.registerTask('compile', ['deprecated_notice:compile', 'run:webpack']);
+  grunt.registerTask('sass', ['deprecated_notice:sass']);
+  grunt.registerTask('sasslint', ['deprecated_notice:sasslint']);
+  grunt.registerTask('watch', ['deprecated_notice:watch']);
 
 }
