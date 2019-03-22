@@ -3,17 +3,8 @@
  * @type {[type]}
  */
 
-// Paths.
+ // Requires / Dependencies.
 const path = require('path');
-const assetDir  = './src/';
-const outputDir = 'dist';
-const styleGuide = path.resolve( __dirname, './styleguide/');
-const npmPackage = './node_modules/';
-
-// Compile mode.
-const devMode = process.env.NODE_ENV !== 'production';
-
-// Requires / Dependencies.
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
@@ -23,6 +14,15 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const WebpackAssetsManifest = require("webpack-assets-manifest");
 const CopyPlugin = require('webpack-copy-on-build-plugin');
 const FilewatcherPlugin = require("filewatcher-webpack-plugin");
+
+// Paths.
+const assetDir  = './src/';
+const outputDir = 'dist';
+const styleGuide = path.resolve( __dirname, './styleguide/');
+const npmPackage = './node_modules/';
+
+// Other variables.
+const devMode = process.env.NODE_ENV !== 'production';
 
 // For MiniCssExtractPlugin.
 // Loops through the module variable that is nested looking for a name.
