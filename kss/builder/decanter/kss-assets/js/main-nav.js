@@ -8,7 +8,7 @@
   var pathname = window.location.pathname;
   var anchor = window.location.hash;
   if (pathname.length && pathname !== "/") {
-    var currentLink, currentParentItem;
+    var currentLink, currentParentItems;
 
     if (!anchor) {
       currentLink = $(".su-main-nav").find("a[href*='" + pathname + "']").eq(0);
@@ -16,12 +16,8 @@
       currentLink = $(".su-main-nav").find("a[href*='" + anchor + "']");
     }
 
-    currentLink.parent('li').addClass('su-main-nav__item--current');
-    currentParentItem = currentLink.parent('li').parent('ul').parent('li');
-
-    if (currentParentItem) {
-      currentParentItem.addClass('su-main-nav__item--current');
-    }
+    currentParentItems = currentLink.parents('li');
+    currentParentItems.addClass('su-main-nav__item--current');
 
   } else {
     $(".su-main-nav a").eq(0).parent('li').addClass('su-main-nav__item--current');
