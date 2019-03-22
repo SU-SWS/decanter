@@ -24,7 +24,7 @@ const WebpackAssetsManifest = require("webpack-assets-manifest");
 const CopyPlugin = require('webpack-copy-on-build-plugin');
 
 // For MiniCssExtractPlugin.
-// But why? What is this doing? Explain yourself!
+// Loops through the module variable that is nested looking for a name.
 function recursiveIssuer(module) {
   if (module.issuer) {
     return recursiveIssuer(module.issuer);
@@ -50,6 +50,8 @@ module.exports = {
     filename: devMode ? "[name].js" : "[name].[hash].js",
     path: path.resolve( __dirname, outputDir + '/js' )
   },
+  // Allows for map files.
+  devtool: 'source-map',
   // Optimizations that are triggered by production mode.
   optimization: {
     // Uglify the Javascript & and CSS.
@@ -97,11 +99,8 @@ module.exports = {
       {
         test: /\.s[ac]ss$/,
         use: [
-          // Minification.
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {}
-          },
+          // Mini extract pluign.
+          MiniCssExtractPlugin.loader,
           // CSS Loader. Generate sourceMaps.
           {
             loader: 'css-loader',
@@ -117,7 +116,7 @@ module.exports = {
               sourceMap: true,
               plugins: () => [
                 autoprefixer( {
-                  browsers: [ 'last 2 versions', '> 1%' ]
+                  browsers: [ 'last 2 versions', 'ie 11' ]
                 } )
               ]
             }
@@ -169,8 +168,7 @@ module.exports = {
       // Options similar to the same options in webpackOptions.output
       // both options are optional
       filename: "../css/[name].css",
-      chunkFilename: "../css/[id].css",
-      sourceMap: true
+      chunkFilename: "../css/[id].css"
     } ),
     // This Webpack plugin will generate a JSON file that matches the original
     // filename with the hashed version.
@@ -178,17 +176,5 @@ module.exports = {
     new WebpackAssetsManifest( {
       output: 'assets.json'
     } ),
-    // Copies individual files or entire directories to the build directory.
-    // https://github.com/webpack-contrib/copy-webpack-plugin
-    new CopyPlugin( [
-      {
-        from: outputDir + "/css/decanter.css",
-        to: styleGuide + '/css/decanter.css',
-      },
-      {
-        from: outputDir + "/js/decanter.js",
-        to: styleGuide + "/js/decanter.js",
-      },
-    ] ),
   ]
 }

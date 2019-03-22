@@ -5,12 +5,6 @@
 module.exports = function(grunt) {
 
   /**
-   * [sass description]
-   * @type {[type]}
-   */
-  const sass = require('node-sass');
-
-  /**
    * [pkg description]
    * @type {[type]}
    */

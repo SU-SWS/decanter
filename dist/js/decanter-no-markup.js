@@ -94,7 +94,10 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scss_decanter_no_markup_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/decanter-no-markup.scss */ \"./src/scss/decanter-no-markup.scss\");\n/* harmony import */ var _scss_decanter_no_markup_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_decanter_no_markup_scss__WEBPACK_IMPORTED_MODULE_0__);\n\n\n//# sourceURL=webpack:///./src/js/decanter-no-markup.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _scss_decanter_no_markup_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/decanter-no-markup.scss */ "./src/scss/decanter-no-markup.scss");
+/* harmony import */ var _scss_decanter_no_markup_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_decanter_no_markup_scss__WEBPACK_IMPORTED_MODULE_0__);
+
 
 /***/ }),
 
@@ -105,8 +108,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _scs
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/scss/decanter-no-markup.scss?");
+// extracted by mini-css-extract-plugin
 
 /***/ })
 
 /******/ });
+//# sourceMappingURL=decanter-no-markup.js.map

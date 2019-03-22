@@ -94,7 +94,9 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _main_nav_main_nav_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./main-nav/main-nav.js */ \"./src/js/components/main-nav/main-nav.js\");\n\n\n//# sourceURL=webpack:///./src/js/components/components.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _main_nav_main_nav_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./main-nav/main-nav.js */ "./src/js/components/main-nav/main-nav.js");
+
 
 /***/ }),
 
@@ -106,7 +108,428 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mai
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Nav; });\n/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ \"./src/js/components/main-nav/globals.js\");\n/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ \"./src/js/utilities/keyboard.js\");\n/* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavItem */ \"./src/js/components/main-nav/NavItem.js\");\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\n\n\n\n/**\n * Represent a navigation menu. May be the top nav or a subnav.\n *\n * @prop {HTMLElement|NavItem} elem       - The element that is the nav. May\n *                                          be a main nav (<nav>) or a subnav\n *                                          (NavItem).\n * @prop {Nav}                 topNav     - The instance of Nav that models\n *                                          the top nav. If this is the top\n *                                          nav, topNav === this.\n * @prop {HTMLButtonElement}   toggle     - The <button> in the DOM that\n *                                          toggles the menu on mobile. NULL\n *                                          if this is a subnav.\n * @prop {String}              toggleText - The initial text of the mobile\n *                                          toggle (so we can reset it when\n *                                          the mobile nav is closed).\n * @prop {Array}               items      - Instances of NavItem that model\n *                                          each element in the nav\n */\n\nvar Nav =\n/*#__PURE__*/\nfunction () {\n  /**\n   * Create a Nav\n   *\n   * @param {HTMLElement|NavItem} elem - The element that is the nav menu.\n   *                                     May be a main nav (<nav>) or a subnav\n   *                                     (NavItem).\n   */\n  function Nav(elem) {\n    var _this = this;\n\n    _classCallCheck(this, Nav);\n\n    this.elem = elem;\n    this.topNav = this.getTopNav(); // If this is a subnav, we need the correpsonding HTMLElement for\n    // .querySelector()\n\n    if (elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_2__[\"default\"]) {\n      elem = elem.item;\n    }\n\n    this.toggle = elem.querySelector(elem.tagName + ' > button');\n    this.toggleText = this.toggle ? this.toggle.innerText : '';\n    this.items = [];\n    var items = elem.querySelectorAll(elem.tagName + ' > ul > li');\n    items.forEach(function (item) {\n      _this.items.push(new _NavItem__WEBPACK_IMPORTED_MODULE_2__[\"default\"](item, _this));\n    });\n    elem.addEventListener('keydown', this);\n\n    if (this.toggle) {\n      this.toggle.addEventListener('click', this);\n    }\n  } // -------------------------------------------------------------------------\n  // Helper Methods.\n  // -------------------------------------------------------------------------\n\n  /**\n   * Get the instance of Nav that represents the top level nav of this\n   * instance.\n   *\n   * @return {Nav}\n   *  Returns the navigation instance.\n   */\n\n\n  _createClass(Nav, [{\n    key: \"getTopNav\",\n    value: function getTopNav() {\n      var nav = this;\n\n      while (nav.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_2__[\"default\"]) {\n        // If nav is the main nav, nav.elem will be an HTMLElement\n        // (the <nav> element).\n        // If nav.elem is a NavItem, then this is a subNav, so get the Nav that\n        // contains the NavItem.\n        nav = nav.elem.nav;\n      }\n\n      return nav;\n    }\n    /**\n     * Get the instance of Nav that represents the parent of this instance.\n     * If this is the top nav, return this so you can safely call methods on it.\n     *\n     * @return {Nav}\n     *   Returns the navigation instance.\n     */\n\n  }, {\n    key: \"getParentNav\",\n    value: function getParentNav() {\n      return this.isSubNav() ? this.elem.nav : this;\n    }\n    /**\n     * Is this expanded?\n     * If this is a subnav, ask the subnav (NavItem) if it's expanded.\n     * Otherwise (this is the top nav), check aria-expanded.\n     *\n     * @return {Boolean}\n     *   Returns wether or not the item is expanded.\n     */\n\n  }, {\n    key: \"isExpanded\",\n    value: function isExpanded() {\n      if (this.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_2__[\"default\"]) {\n        return this.elem.isExpanded();\n      }\n\n      return this.elem.getAttribute('aria-expanded') === 'true';\n    }\n    /**\n     * Set whether or not this is expanded.\n     * If this is a subnav, let the subnav (NavItem) handled it.\n     * Otherwise (this is the top nav), set aria-expanded.\n     *\n     * @param {String} value - What to set the aria-expanded attribute of\n     *                         this's link to.\n     */\n\n  }, {\n    key: \"setExpanded\",\n    value: function setExpanded(value) {\n      if (this.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_2__[\"default\"]) {\n        this.elem.setExpanded(value);\n      } else {\n        this.elem.setAttribute('aria-expanded', value);\n\n        if (this.toggle) {\n          this.toggle.setAttribute('aria-expanded', value);\n        }\n      }\n    }\n    /**\n     * Is this rendering the desktop style for the nav?\n     *\n     * @return {Boolean}\n     *  Returns wether or not it is desktop navigation.\n     */\n\n  }, {\n    key: \"isDesktopNav\",\n    value: function isDesktopNav() {\n      return getComputedStyle(this.topNav.toggle).display === 'none';\n    }\n    /**\n     * Is this the top nav?\n     *\n     * @return {Boolean}\n     *  Returns wether or not it is the top nav item.\n     */\n\n  }, {\n    key: \"isTopNav\",\n    value: function isTopNav() {\n      return this.topNav === this;\n    }\n    /**\n     * Is this a subnav?\n     *\n     * @return {Boolean}\n     *  Returns wether or not this is a subnav item.\n     */\n\n  }, {\n    key: \"isSubNav\",\n    value: function isSubNav() {\n      return this.topNav !== this;\n    }\n    /**\n     * Get the first item in this nav.\n     *\n     * @return {NavItem}\n     *  Returns wether or not this is the first item.\n     */\n\n  }, {\n    key: \"getFirstItem\",\n    value: function getFirstItem() {\n      return this.items.length ? this.items[0] : null;\n    }\n    /**\n     * Get the last item in this nav.\n     *\n     * @return {NavItem}\n     *  Returns wether or not this is the last item.\n     */\n\n  }, {\n    key: \"getLastItem\",\n    value: function getLastItem() {\n      return this.items.length ? this.items[this.items.length - 1] : null;\n    }\n    /**\n     * Get the link associated with the first item in this nav.\n     *\n     * @return {HTMLAnchorElement}\n     *  Returns the very first link.\n     */\n\n  }, {\n    key: \"getFirstLink\",\n    value: function getFirstLink() {\n      return this.items.length ? this.getFirstItem().link : null;\n    }\n    /**\n     * Get the link associated with the last item in this nav.\n     *\n     * @return {HTMLAnchorElement}\n     *  Returns the very last link.\n     */\n\n  }, {\n    key: \"getLastLink\",\n    value: function getLastLink() {\n      return this.items.length ? this.getLastItem().link : null;\n    } // -------------------------------------------------------------------------\n    // Functional methods\n    // -------------------------------------------------------------------------\n\n    /**\n     * Set the focus on the specified link in this nav.\n     *\n     * @param {String|Number} link - 'first' | 'last' | 'next'\n     *                                | 'prev' | numerical index\n     * @param {NavItem} currentItem - If link is 'next' or 'prev', currentItem\n     *                                is the NavItem that next / prev is\n     *                                relative to.\n     */\n\n  }, {\n    key: \"focusOn\",\n    value: function focusOn(link) {\n      var currentItem = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;\n      var currentIndex = null;\n      var lastIndex = null;\n\n      if (currentItem) {\n        currentIndex = this.items.indexOf(currentItem);\n        lastIndex = this.items.length - 1;\n      }\n\n      switch (link) {\n        case 'first':\n          this.getFirstLink().focus();\n          break;\n\n        case 'last':\n          this.getLastLink().focus();\n          break;\n\n        case 'next':\n          if (currentIndex === lastIndex) {\n            this.getFirstLink().focus();\n          } else {\n            this.items[currentIndex + 1].link.focus();\n          }\n\n          break;\n\n        case 'prev':\n          if (currentIndex === 0) {\n            this.getLastLink().focus();\n          } else {\n            this.items[currentIndex - 1].link.focus();\n          }\n\n          break;\n\n        default:\n          if (Number.isInteger(link) && link >= 0 && link < this.items.length) {\n            this.items[link].link.focus();\n          }\n\n          break;\n      }\n    }\n    /**\n     * Close any mobile navs that might be open, then mark this mobile nav open.\n     * Optionally force focus on the first element in the nav (for keyboard nav)\n     *\n     * @param {Boolean} focusOnFirst - Whether or not to also focus on the\n     *                                 first element in the subnav.\n     */\n\n  }, {\n    key: \"openMobileNav\",\n    value: function openMobileNav() {\n      var focusOnFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;\n      Object(_globals__WEBPACK_IMPORTED_MODULE_0__[\"closeAllMobileNavs\"])();\n      this.setExpanded('true');\n      this.toggle.innerText = 'Close';\n\n      if (focusOnFirst) {\n        this.focusOn('first'); // Focus on the first top level link\n      }\n    }\n    /**\n     * Mark this mobile closed, and restore the button text to what it was\n     * initially.\n     */\n\n  }, {\n    key: \"closeMobileNav\",\n    value: function closeMobileNav() {\n      this.setExpanded('false');\n      this.toggle.innerText = this.toggleText;\n    } // -------------------------------------------------------------------------\n    // Event handlers\n    // -------------------------------------------------------------------------\n\n    /**\n     * Handler for all events attached to an instance of this class. This method\n     * must exist when events are bound to an instance of a class\n     * (vs a function). This method is called for all events bound to an\n     * instance. It inspects the instance (this) for an appropriate handler\n     * based on the event type. If found, it dispatches the event to the\n     * appropriate handler.\n     *\n     * @param {KeyboardEvent} event - The keyboard event object.\n     *\n     * @return {*}\n     *  Whatever the dispatched handler returns (in our case nothing)\n     */\n\n  }, {\n    key: \"handleEvent\",\n    value: function handleEvent(event) {\n      event = event || window.event; // If this class has an onEvent method, e.g. onClick, onKeydown,\n      // invoke it.\n\n      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);\n\n      if (typeof this[handler] === 'function') {\n        // The element that was clicked.\n        var target = event.target || event.srcElement;\n        return this[handler](event, target);\n      }\n    }\n    /**\n     * Handler for click events. click is only bound to the mobile toggle.\n     * Dispatched from this.handleEvent().\n     *\n     * @param {KeyboardEvent} event   - The keyboard event object.\n     * @param {HTMLElement}   target  - The HTML Element target object.\n     */\n\n  }, {\n    key: \"onClick\",\n    value: function onClick(event, target) {\n      if (target === this.toggle) {\n        event.preventDefault();\n        event.stopPropagation();\n\n        if (this.isExpanded()) {\n          this.closeMobileNav();\n        } else {\n          this.openMobileNav(false);\n        }\n      }\n    }\n    /**\n     * Handler for keydown events. keydown is bound to all Nav's.\n     * Dispatched from this.handleEvent().\n     *\n     * @param {KeyboardEvent} event   - The keyboard event object.\n     * @param {HTMLElement}   target  - The HTML Element target object.\n     */\n\n  }, {\n    key: \"onKeydown\",\n    value: function onKeydown(event, target) {\n      var theKey = event.key || event.keyCode;\n\n      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__[\"isEsc\"])(theKey)) {\n        if (this.isTopNav()) {\n          if (!this.isDesktopNav()) {\n            event.preventDefault();\n            event.stopPropagation();\n            this.closeMobileNav();\n            this.toggle.focus();\n          }\n        } else {\n          if (this.isExpanded()) {\n            event.preventDefault();\n            event.stopPropagation();\n            this.elem.closeSubNav(true);\n          }\n        }\n      } else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__[\"isEnter\"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__[\"isSpace\"])(theKey)) {\n        if (target === this.toggle) {\n          event.preventDefault();\n          event.stopPropagation();\n\n          if (!this.isExpanded()) {\n            this.openMobileNav();\n          }\n        }\n      }\n    }\n  }]);\n\n  return Nav;\n}();\n\n\n\n//# sourceURL=webpack:///./src/js/components/main-nav/Nav.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Nav; });
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./src/js/components/main-nav/globals.js");
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ "./src/js/utilities/keyboard.js");
+/* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavItem */ "./src/js/components/main-nav/NavItem.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+/**
+ * Represent a navigation menu. May be the top nav or a subnav.
+ *
+ * @prop {HTMLElement|NavItem} elem       - The element that is the nav. May
+ *                                          be a main nav (<nav>) or a subnav
+ *                                          (NavItem).
+ * @prop {Nav}                 topNav     - The instance of Nav that models
+ *                                          the top nav. If this is the top
+ *                                          nav, topNav === this.
+ * @prop {HTMLButtonElement}   toggle     - The <button> in the DOM that
+ *                                          toggles the menu on mobile. NULL
+ *                                          if this is a subnav.
+ * @prop {String}              toggleText - The initial text of the mobile
+ *                                          toggle (so we can reset it when
+ *                                          the mobile nav is closed).
+ * @prop {Array}               items      - Instances of NavItem that model
+ *                                          each element in the nav
+ */
+
+var Nav =
+/*#__PURE__*/
+function () {
+  /**
+   * Create a Nav
+   *
+   * @param {HTMLElement|NavItem} elem - The element that is the nav menu.
+   *                                     May be a main nav (<nav>) or a subnav
+   *                                     (NavItem).
+   */
+  function Nav(elem) {
+    var _this = this;
+
+    _classCallCheck(this, Nav);
+
+    this.elem = elem;
+    this.topNav = this.getTopNav(); // If this is a subnav, we need the correpsonding HTMLElement for
+    // .querySelector()
+
+    if (elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_2__["default"]) {
+      elem = elem.item;
+    }
+
+    this.toggle = elem.querySelector(elem.tagName + ' > button');
+    this.toggleText = this.toggle ? this.toggle.innerText : '';
+    this.items = [];
+    var items = elem.querySelectorAll(elem.tagName + ' > ul > li');
+    items.forEach(function (item) {
+      _this.items.push(new _NavItem__WEBPACK_IMPORTED_MODULE_2__["default"](item, _this));
+    });
+    elem.addEventListener('keydown', this);
+
+    if (this.toggle) {
+      this.toggle.addEventListener('click', this);
+    }
+  } // -------------------------------------------------------------------------
+  // Helper Methods.
+  // -------------------------------------------------------------------------
+
+  /**
+   * Get the instance of Nav that represents the top level nav of this
+   * instance.
+   *
+   * @return {Nav}
+   *  Returns the navigation instance.
+   */
+
+
+  _createClass(Nav, [{
+    key: "getTopNav",
+    value: function getTopNav() {
+      var nav = this;
+
+      while (nav.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_2__["default"]) {
+        // If nav is the main nav, nav.elem will be an HTMLElement
+        // (the <nav> element).
+        // If nav.elem is a NavItem, then this is a subNav, so get the Nav that
+        // contains the NavItem.
+        nav = nav.elem.nav;
+      }
+
+      return nav;
+    }
+    /**
+     * Get the instance of Nav that represents the parent of this instance.
+     * If this is the top nav, return this so you can safely call methods on it.
+     *
+     * @return {Nav}
+     *   Returns the navigation instance.
+     */
+
+  }, {
+    key: "getParentNav",
+    value: function getParentNav() {
+      return this.isSubNav() ? this.elem.nav : this;
+    }
+    /**
+     * Is this expanded?
+     * If this is a subnav, ask the subnav (NavItem) if it's expanded.
+     * Otherwise (this is the top nav), check aria-expanded.
+     *
+     * @return {Boolean}
+     *   Returns wether or not the item is expanded.
+     */
+
+  }, {
+    key: "isExpanded",
+    value: function isExpanded() {
+      if (this.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_2__["default"]) {
+        return this.elem.isExpanded();
+      }
+
+      return this.elem.getAttribute('aria-expanded') === 'true';
+    }
+    /**
+     * Set whether or not this is expanded.
+     * If this is a subnav, let the subnav (NavItem) handled it.
+     * Otherwise (this is the top nav), set aria-expanded.
+     *
+     * @param {String} value - What to set the aria-expanded attribute of
+     *                         this's link to.
+     */
+
+  }, {
+    key: "setExpanded",
+    value: function setExpanded(value) {
+      if (this.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_2__["default"]) {
+        this.elem.setExpanded(value);
+      } else {
+        this.elem.setAttribute('aria-expanded', value);
+
+        if (this.toggle) {
+          this.toggle.setAttribute('aria-expanded', value);
+        }
+      }
+    }
+    /**
+     * Is this rendering the desktop style for the nav?
+     *
+     * @return {Boolean}
+     *  Returns wether or not it is desktop navigation.
+     */
+
+  }, {
+    key: "isDesktopNav",
+    value: function isDesktopNav() {
+      return getComputedStyle(this.topNav.toggle).display === 'none';
+    }
+    /**
+     * Is this the top nav?
+     *
+     * @return {Boolean}
+     *  Returns wether or not it is the top nav item.
+     */
+
+  }, {
+    key: "isTopNav",
+    value: function isTopNav() {
+      return this.topNav === this;
+    }
+    /**
+     * Is this a subnav?
+     *
+     * @return {Boolean}
+     *  Returns wether or not this is a subnav item.
+     */
+
+  }, {
+    key: "isSubNav",
+    value: function isSubNav() {
+      return this.topNav !== this;
+    }
+    /**
+     * Get the first item in this nav.
+     *
+     * @return {NavItem}
+     *  Returns wether or not this is the first item.
+     */
+
+  }, {
+    key: "getFirstItem",
+    value: function getFirstItem() {
+      return this.items.length ? this.items[0] : null;
+    }
+    /**
+     * Get the last item in this nav.
+     *
+     * @return {NavItem}
+     *  Returns wether or not this is the last item.
+     */
+
+  }, {
+    key: "getLastItem",
+    value: function getLastItem() {
+      return this.items.length ? this.items[this.items.length - 1] : null;
+    }
+    /**
+     * Get the link associated with the first item in this nav.
+     *
+     * @return {HTMLAnchorElement}
+     *  Returns the very first link.
+     */
+
+  }, {
+    key: "getFirstLink",
+    value: function getFirstLink() {
+      return this.items.length ? this.getFirstItem().link : null;
+    }
+    /**
+     * Get the link associated with the last item in this nav.
+     *
+     * @return {HTMLAnchorElement}
+     *  Returns the very last link.
+     */
+
+  }, {
+    key: "getLastLink",
+    value: function getLastLink() {
+      return this.items.length ? this.getLastItem().link : null;
+    } // -------------------------------------------------------------------------
+    // Functional methods
+    // -------------------------------------------------------------------------
+
+    /**
+     * Set the focus on the specified link in this nav.
+     *
+     * @param {String|Number} link - 'first' | 'last' | 'next'
+     *                                | 'prev' | numerical index
+     * @param {NavItem} currentItem - If link is 'next' or 'prev', currentItem
+     *                                is the NavItem that next / prev is
+     *                                relative to.
+     */
+
+  }, {
+    key: "focusOn",
+    value: function focusOn(link) {
+      var currentItem = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      var currentIndex = null;
+      var lastIndex = null;
+
+      if (currentItem) {
+        currentIndex = this.items.indexOf(currentItem);
+        lastIndex = this.items.length - 1;
+      }
+
+      switch (link) {
+        case 'first':
+          this.getFirstLink().focus();
+          break;
+
+        case 'last':
+          this.getLastLink().focus();
+          break;
+
+        case 'next':
+          if (currentIndex === lastIndex) {
+            this.getFirstLink().focus();
+          } else {
+            this.items[currentIndex + 1].link.focus();
+          }
+
+          break;
+
+        case 'prev':
+          if (currentIndex === 0) {
+            this.getLastLink().focus();
+          } else {
+            this.items[currentIndex - 1].link.focus();
+          }
+
+          break;
+
+        default:
+          if (Number.isInteger(link) && link >= 0 && link < this.items.length) {
+            this.items[link].link.focus();
+          }
+
+          break;
+      }
+    }
+    /**
+     * Close any mobile navs that might be open, then mark this mobile nav open.
+     * Optionally force focus on the first element in the nav (for keyboard nav)
+     *
+     * @param {Boolean} focusOnFirst - Whether or not to also focus on the
+     *                                 first element in the subnav.
+     */
+
+  }, {
+    key: "openMobileNav",
+    value: function openMobileNav() {
+      var focusOnFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      Object(_globals__WEBPACK_IMPORTED_MODULE_0__["closeAllMobileNavs"])();
+      this.setExpanded('true');
+      this.toggle.innerText = 'Close';
+
+      if (focusOnFirst) {
+        this.focusOn('first'); // Focus on the first top level link
+      }
+    }
+    /**
+     * Mark this mobile closed, and restore the button text to what it was
+     * initially.
+     */
+
+  }, {
+    key: "closeMobileNav",
+    value: function closeMobileNav() {
+      this.setExpanded('false');
+      this.toggle.innerText = this.toggleText;
+    } // -------------------------------------------------------------------------
+    // Event handlers
+    // -------------------------------------------------------------------------
+
+    /**
+     * Handler for all events attached to an instance of this class. This method
+     * must exist when events are bound to an instance of a class
+     * (vs a function). This method is called for all events bound to an
+     * instance. It inspects the instance (this) for an appropriate handler
+     * based on the event type. If found, it dispatches the event to the
+     * appropriate handler.
+     *
+     * @param {KeyboardEvent} event - The keyboard event object.
+     *
+     * @return {*}
+     *  Whatever the dispatched handler returns (in our case nothing)
+     */
+
+  }, {
+    key: "handleEvent",
+    value: function handleEvent(event) {
+      event = event || window.event; // If this class has an onEvent method, e.g. onClick, onKeydown,
+      // invoke it.
+
+      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);
+
+      if (typeof this[handler] === 'function') {
+        // The element that was clicked.
+        var target = event.target || event.srcElement;
+        return this[handler](event, target);
+      }
+    }
+    /**
+     * Handler for click events. click is only bound to the mobile toggle.
+     * Dispatched from this.handleEvent().
+     *
+     * @param {KeyboardEvent} event   - The keyboard event object.
+     * @param {HTMLElement}   target  - The HTML Element target object.
+     */
+
+  }, {
+    key: "onClick",
+    value: function onClick(event, target) {
+      if (target === this.toggle) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (this.isExpanded()) {
+          this.closeMobileNav();
+        } else {
+          this.openMobileNav(false);
+        }
+      }
+    }
+    /**
+     * Handler for keydown events. keydown is bound to all Nav's.
+     * Dispatched from this.handleEvent().
+     *
+     * @param {KeyboardEvent} event   - The keyboard event object.
+     * @param {HTMLElement}   target  - The HTML Element target object.
+     */
+
+  }, {
+    key: "onKeydown",
+    value: function onKeydown(event, target) {
+      var theKey = event.key || event.keyCode;
+
+      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isEsc"])(theKey)) {
+        if (this.isTopNav()) {
+          if (!this.isDesktopNav()) {
+            event.preventDefault();
+            event.stopPropagation();
+            this.closeMobileNav();
+            this.toggle.focus();
+          }
+        } else {
+          if (this.isExpanded()) {
+            event.preventDefault();
+            event.stopPropagation();
+            this.elem.closeSubNav(true);
+          }
+        }
+      } else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isEnter"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isSpace"])(theKey)) {
+        if (target === this.toggle) {
+          event.preventDefault();
+          event.stopPropagation();
+
+          if (!this.isExpanded()) {
+            this.openMobileNav();
+          }
+        }
+      }
+    }
+  }]);
+
+  return Nav;
+}();
+
+
 
 /***/ }),
 
@@ -118,7 +541,352 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return NavItem; });\n/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ \"./src/js/components/main-nav/globals.js\");\n/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ \"./src/js/utilities/keyboard.js\");\n/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ \"./src/js/components/main-nav/Nav.js\");\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\n\n\n\n'../../utilities/keyboard';\n/**\n * Represent an item in a navigation menu. May be a direct link or a subnav\n * trigger.\n *\n * @prop {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem\n * @prop {HTMLElement|Nav} nav    - the Nav that contains the element.\n *                                  May be a main nav (<nav>) or subnav (Nav).\n * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in\n *                                  item (the <li>).\n * @prop {Nav}             subNav - if item is the trigger for a subnav, this\n *                                  is an instonce Nav that models the subnav.\n */\n\nvar NavItem =\n/*#__PURE__*/\nfunction () {\n  /**\n   * Create a NavItem\n   * @param {HTMLLIElement}   item  - The <li> that is the NavItem in the DOM.\n   * @param {HTMLElement|Nav} nav   - The Nav that contains the element. May\n   *                                  be a main nav (<nav>) or a subnav (Nav).\n   */\n  function NavItem(item, nav) {\n    _classCallCheck(this, NavItem);\n\n    this.item = item;\n    this.nav = nav;\n    this.link = this.item.querySelector('a');\n    this.subNav = null;\n    this.item.addEventListener('keydown', this);\n\n    if (this.isSubNavTrigger()) {\n      this.subNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__[\"default\"](this); // Maintain global list of subnavs for closeAllSubNavs().\n\n      _globals__WEBPACK_IMPORTED_MODULE_0__[\"theSubNavs\"].push(this);\n      this.item.addEventListener('click', this);\n    }\n  } // -------------------------------------------------------------------------\n  // Helper Methods.\n  // -------------------------------------------------------------------------\n\n  /**\n   * Is this the first item in the containing Nav?\n   *\n   * @return {Boolean}\n   *  Wether or not the item is the first item.\n   */\n\n\n  _createClass(NavItem, [{\n    key: \"isFirstItem\",\n    value: function isFirstItem() {\n      return this.nav.items.indexOf(this) === 0;\n    }\n    /**\n     * Is this the last item in the containing Nav?\n     *\n     * @return {Boolean}\n     *  Wether or not the item is the last item.\n     */\n\n  }, {\n    key: \"isLastItem\",\n    value: function isLastItem() {\n      return this.nav.items.indexOf(this) === this.nav.items.length - 1;\n    }\n    /**\n     * Is this a trigger that opens / closes a subnav?\n     *\n     * @return {Boolean}\n     *  Wether or not the item is the sub nav trigger item.\n     */\n\n  }, {\n    key: \"isSubNavTrigger\",\n    value: function isSubNavTrigger() {\n      return this.item.lastElementChild.tagName.toUpperCase() === 'UL';\n    }\n    /**\n     * Is this a component of a subnav - either the trigger or a nav item?\n     *\n     * @return {Boolean}\n     *  Wether or not the item is a subnav item.\n     */\n\n  }, {\n    key: \"isSubNavItem\",\n    value: function isSubNavItem() {\n      return this.isSubNavTrigger() || this.nav.isSubNav();\n    }\n    /**\n     * Is this expanded? Can only return TRUE if this is a subnav trigger.\n     *\n     * @return {Boolean}\n     *  Wether or not the item is expanded.\n     */\n\n  }, {\n    key: \"isExpanded\",\n    value: function isExpanded() {\n      return this.link.getAttribute('aria-expanded') === 'true';\n    }\n    /**\n     * Set whether or not this is expanded.\n     * Only meaningful if this is a subnav trigger.\n     *\n     * @param {String} value - What to set the aria-expanded attribute of this's\n     *                         link to.\n     */\n\n  }, {\n    key: \"setExpanded\",\n    value: function setExpanded(value) {\n      this.link.setAttribute('aria-expanded', value);\n    } // -------------------------------------------------------------------------\n    // Functional Methods.\n    // -------------------------------------------------------------------------\n\n    /**\n     * Handles the opening of a sub-nav.\n     *\n     * If this is a subnav trigger, open the corresponding subnav.\n     * Optionally force focus on the first element in the subnav\n     * (for keyboard nav).\n     *\n     * @param {Boolean} focusOnFirst - whether or not to also focus on the first\n     *                                 element in the subnav\n     */\n\n  }, {\n    key: \"openSubNav\",\n    value: function openSubNav() {\n      var focusOnFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;\n      Object(_globals__WEBPACK_IMPORTED_MODULE_0__[\"closeAllSubNavs\"])();\n\n      if (this.isSubNavTrigger()) {\n        this.item.classList.add('su-main-nav__item--expanded');\n        this.setExpanded('true');\n\n        if (focusOnFirst) {\n          this.subNav.focusOn('first');\n        }\n      }\n    }\n    /**\n     * Handles the closing of a subnav.\n     *\n     * If this is a subnav trigger or an item in a subnav, close the\n     * corresponding subnav. Optionally force focus on the trigger.\n     *\n     * @param {Boolean} focusOnTrigger - Whether or not to also focus on the\n     *                                 subnav's trigger.\n     */\n\n  }, {\n    key: \"closeSubNav\",\n    value: function closeSubNav() {\n      var focusOnTrigger = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;\n\n      if (this.isSubNavTrigger()) {\n        this.item.classList.remove('su-main-nav__item--expanded');\n        this.setExpanded('false');\n\n        if (focusOnTrigger) {\n          this.link.focus();\n        }\n      } else if (this.isSubNavItem()) {\n        // This.nav.elem should be a subNavTrigger.\n        this.nav.elem.closeSubNav(focusOnTrigger);\n      }\n    } // -------------------------------------------------------------------------\n    // Event Handlers.\n    // -------------------------------------------------------------------------\n\n    /**\n     * Handler for all events attached to an instance of this class. This method\n     * must exist when events are bound to an instance of a class\n     * (vs a function). This method is called for all events bound to an\n     * instance. It inspects the instance (this) for an appropriate handler\n     * based on the event type. If found, it dispatches the event to the\n     * appropriate handler.\n     *\n     * @param {KeyboardEvent} event - The keyboard event.\n     *\n     * @return {*}\n     *   Whatever the dispatched handler returns (in our case nothing)\n     */\n\n  }, {\n    key: \"handleEvent\",\n    value: function handleEvent(event) {\n      event = event || window.event; // If this class has an onEvent method (onClick, onKeydown) invoke it.\n\n      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);\n\n      if (typeof this[handler] === 'function') {\n        // The element that was clicked.\n        var target = event.target || event.srcElement;\n        return this[handler](event, target);\n      }\n    }\n    /**\n     * Handler for keydown events. keydown is bound to all NavItem's.\n     * Dispatched from this.handleEvent().\n     *\n     * @param {KeyboardEvent} event - The keyboard event object.\n     * @param {HTMLElement} target  - The HTML element target.\n     */\n\n  }, {\n    key: \"onKeydown\",\n    value: function onKeydown(event, target) {\n      var theKey = event.key || event.keyCode; // Handler for the space and enter key.\n\n      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__[\"isSpace\"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__[\"isEnter\"])(theKey)) {\n        event.preventDefault();\n        event.stopPropagation();\n\n        if (this.isSubNavTrigger()) {\n          this.openSubNav();\n        } else {\n          window.location = this.link;\n        }\n      } // Handler for the down arrow key.\n      else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__[\"isDownArrow\"])(theKey)) {\n          event.preventDefault();\n          event.stopPropagation();\n\n          if (this.nav.isDesktopNav()) {\n            if (this.isSubNavTrigger()) {\n              this.openSubNav();\n            } else {\n              this.nav.focusOn('next', this);\n            }\n          } else {\n            this.nav.focusOn('next', this);\n          }\n        } // Handler for the up arrow key.\n        else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__[\"isUpArrow\"])(theKey)) {\n            event.preventDefault();\n            event.stopPropagation();\n            this.nav.focusOn('prev', this);\n          } // Handler for the left arrow key.\n          else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__[\"isLeftArrow\"])(theKey)) {\n              event.preventDefault();\n              event.stopPropagation();\n\n              if (this.nav.isDesktopNav()) {\n                if (this.nav.isSubNav()) {\n                  this.closeSubNav();\n                  var parent = this.nav.getParentNav(); // Focus on the previous item in the parent nav.\n\n                  parent.focusOn('prev', this.nav.elem);\n                } else {\n                  this.nav.focusOn('prev', this);\n                }\n              } else {\n                if (this.isSubNavItem()) {\n                  // Close the subnav and put the focus on the trigger.\n                  this.closeSubNav(true);\n                }\n              }\n            } // Handler for the right arrow key.\n            else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__[\"isRightArrow\"])(theKey)) {\n                event.preventDefault();\n                event.stopPropagation();\n\n                if (this.nav.isDesktopNav()) {\n                  if (this.nav.isSubNav()) {\n                    this.closeSubNav();\n\n                    var _parent = this.nav.getParentNav(); // Focus on the next item in the parent nav.\n\n\n                    _parent.focusOn('next', this.nav.elem);\n                  } else {\n                    this.nav.focusOn('next', this);\n                  }\n                } else {\n                  if (this.isSubNavTrigger()) {\n                    this.openSubNav();\n                  }\n                }\n              } // Handler for the home key.\n              else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__[\"isHome\"])(theKey)) {\n                  this.nav.focusOn('first');\n                } // Handler for the end key.\n                else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__[\"isEnd\"])(theKey)) {\n                    this.nav.focusOn('last');\n                  } // Handler for the tab key.\n                  else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__[\"isTab\"])(theKey)) {\n                      event.stopPropagation();\n                      var shifted = event.shiftKey;\n\n                      if (this.isSubNavItem() && (!shifted && this.isLastItem() || shifted && this.isFirstItem())) {\n                        this.closeSubNav(true);\n                      }\n                    }\n    }\n    /**\n     * Handler for click events.\n     *\n     * Dispatched from this.handleEvent().\n     * Click is only bound to subnav triggers. However, click bubbles up from\n     * subnav items to the trigger.\n     *\n     * @param {KeyboardEvent} event - The keyboard event object.\n     * @param {HTMLElement} target  - The HTML element target.\n     */\n\n  }, {\n    key: \"onClick\",\n    value: function onClick(event, target) {\n      if (this.isExpanded()) {\n        this.closeSubNav();\n      } else {\n        this.openSubNav(false);\n      } // If the click is directly on the trigger, then we're done.\n\n\n      if (target === this.link) {\n        event.preventDefault();\n        event.stopPropagation();\n      }\n    }\n  }]);\n\n  return NavItem;\n}();\n\n\n\n//# sourceURL=webpack:///./src/js/components/main-nav/NavItem.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NavItem; });
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./src/js/components/main-nav/globals.js");
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ "./src/js/utilities/keyboard.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ "./src/js/components/main-nav/Nav.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+'../../utilities/keyboard';
+/**
+ * Represent an item in a navigation menu. May be a direct link or a subnav
+ * trigger.
+ *
+ * @prop {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
+ * @prop {HTMLElement|Nav} nav    - the Nav that contains the element.
+ *                                  May be a main nav (<nav>) or subnav (Nav).
+ * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
+ *                                  item (the <li>).
+ * @prop {Nav}             subNav - if item is the trigger for a subnav, this
+ *                                  is an instonce Nav that models the subnav.
+ */
+
+var NavItem =
+/*#__PURE__*/
+function () {
+  /**
+   * Create a NavItem
+   * @param {HTMLLIElement}   item  - The <li> that is the NavItem in the DOM.
+   * @param {HTMLElement|Nav} nav   - The Nav that contains the element. May
+   *                                  be a main nav (<nav>) or a subnav (Nav).
+   */
+  function NavItem(item, nav) {
+    _classCallCheck(this, NavItem);
+
+    this.item = item;
+    this.nav = nav;
+    this.link = this.item.querySelector('a');
+    this.subNav = null;
+    this.item.addEventListener('keydown', this);
+
+    if (this.isSubNavTrigger()) {
+      this.subNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](this); // Maintain global list of subnavs for closeAllSubNavs().
+
+      _globals__WEBPACK_IMPORTED_MODULE_0__["theSubNavs"].push(this);
+      this.item.addEventListener('click', this);
+    }
+  } // -------------------------------------------------------------------------
+  // Helper Methods.
+  // -------------------------------------------------------------------------
+
+  /**
+   * Is this the first item in the containing Nav?
+   *
+   * @return {Boolean}
+   *  Wether or not the item is the first item.
+   */
+
+
+  _createClass(NavItem, [{
+    key: "isFirstItem",
+    value: function isFirstItem() {
+      return this.nav.items.indexOf(this) === 0;
+    }
+    /**
+     * Is this the last item in the containing Nav?
+     *
+     * @return {Boolean}
+     *  Wether or not the item is the last item.
+     */
+
+  }, {
+    key: "isLastItem",
+    value: function isLastItem() {
+      return this.nav.items.indexOf(this) === this.nav.items.length - 1;
+    }
+    /**
+     * Is this a trigger that opens / closes a subnav?
+     *
+     * @return {Boolean}
+     *  Wether or not the item is the sub nav trigger item.
+     */
+
+  }, {
+    key: "isSubNavTrigger",
+    value: function isSubNavTrigger() {
+      return this.item.lastElementChild.tagName.toUpperCase() === 'UL';
+    }
+    /**
+     * Is this a component of a subnav - either the trigger or a nav item?
+     *
+     * @return {Boolean}
+     *  Wether or not the item is a subnav item.
+     */
+
+  }, {
+    key: "isSubNavItem",
+    value: function isSubNavItem() {
+      return this.isSubNavTrigger() || this.nav.isSubNav();
+    }
+    /**
+     * Is this expanded? Can only return TRUE if this is a subnav trigger.
+     *
+     * @return {Boolean}
+     *  Wether or not the item is expanded.
+     */
+
+  }, {
+    key: "isExpanded",
+    value: function isExpanded() {
+      return this.link.getAttribute('aria-expanded') === 'true';
+    }
+    /**
+     * Set whether or not this is expanded.
+     * Only meaningful if this is a subnav trigger.
+     *
+     * @param {String} value - What to set the aria-expanded attribute of this's
+     *                         link to.
+     */
+
+  }, {
+    key: "setExpanded",
+    value: function setExpanded(value) {
+      this.link.setAttribute('aria-expanded', value);
+    } // -------------------------------------------------------------------------
+    // Functional Methods.
+    // -------------------------------------------------------------------------
+
+    /**
+     * Handles the opening of a sub-nav.
+     *
+     * If this is a subnav trigger, open the corresponding subnav.
+     * Optionally force focus on the first element in the subnav
+     * (for keyboard nav).
+     *
+     * @param {Boolean} focusOnFirst - whether or not to also focus on the first
+     *                                 element in the subnav
+     */
+
+  }, {
+    key: "openSubNav",
+    value: function openSubNav() {
+      var focusOnFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      Object(_globals__WEBPACK_IMPORTED_MODULE_0__["closeAllSubNavs"])();
+
+      if (this.isSubNavTrigger()) {
+        this.item.classList.add('su-main-nav__item--expanded');
+        this.setExpanded('true');
+
+        if (focusOnFirst) {
+          this.subNav.focusOn('first');
+        }
+      }
+    }
+    /**
+     * Handles the closing of a subnav.
+     *
+     * If this is a subnav trigger or an item in a subnav, close the
+     * corresponding subnav. Optionally force focus on the trigger.
+     *
+     * @param {Boolean} focusOnTrigger - Whether or not to also focus on the
+     *                                 subnav's trigger.
+     */
+
+  }, {
+    key: "closeSubNav",
+    value: function closeSubNav() {
+      var focusOnTrigger = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+      if (this.isSubNavTrigger()) {
+        this.item.classList.remove('su-main-nav__item--expanded');
+        this.setExpanded('false');
+
+        if (focusOnTrigger) {
+          this.link.focus();
+        }
+      } else if (this.isSubNavItem()) {
+        // This.nav.elem should be a subNavTrigger.
+        this.nav.elem.closeSubNav(focusOnTrigger);
+      }
+    } // -------------------------------------------------------------------------
+    // Event Handlers.
+    // -------------------------------------------------------------------------
+
+    /**
+     * Handler for all events attached to an instance of this class. This method
+     * must exist when events are bound to an instance of a class
+     * (vs a function). This method is called for all events bound to an
+     * instance. It inspects the instance (this) for an appropriate handler
+     * based on the event type. If found, it dispatches the event to the
+     * appropriate handler.
+     *
+     * @param {KeyboardEvent} event - The keyboard event.
+     *
+     * @return {*}
+     *   Whatever the dispatched handler returns (in our case nothing)
+     */
+
+  }, {
+    key: "handleEvent",
+    value: function handleEvent(event) {
+      event = event || window.event; // If this class has an onEvent method (onClick, onKeydown) invoke it.
+
+      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);
+
+      if (typeof this[handler] === 'function') {
+        // The element that was clicked.
+        var target = event.target || event.srcElement;
+        return this[handler](event, target);
+      }
+    }
+    /**
+     * Handler for keydown events. keydown is bound to all NavItem's.
+     * Dispatched from this.handleEvent().
+     *
+     * @param {KeyboardEvent} event - The keyboard event object.
+     * @param {HTMLElement} target  - The HTML element target.
+     */
+
+  }, {
+    key: "onKeydown",
+    value: function onKeydown(event, target) {
+      var theKey = event.key || event.keyCode; // Handler for the space and enter key.
+
+      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isSpace"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isEnter"])(theKey)) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        if (this.isSubNavTrigger()) {
+          this.openSubNav();
+        } else {
+          window.location = this.link;
+        }
+      } // Handler for the down arrow key.
+      else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isDownArrow"])(theKey)) {
+          event.preventDefault();
+          event.stopPropagation();
+
+          if (this.nav.isDesktopNav()) {
+            if (this.isSubNavTrigger()) {
+              this.openSubNav();
+            } else {
+              this.nav.focusOn('next', this);
+            }
+          } else {
+            this.nav.focusOn('next', this);
+          }
+        } // Handler for the up arrow key.
+        else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isUpArrow"])(theKey)) {
+            event.preventDefault();
+            event.stopPropagation();
+            this.nav.focusOn('prev', this);
+          } // Handler for the left arrow key.
+          else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isLeftArrow"])(theKey)) {
+              event.preventDefault();
+              event.stopPropagation();
+
+              if (this.nav.isDesktopNav()) {
+                if (this.nav.isSubNav()) {
+                  this.closeSubNav();
+                  var parent = this.nav.getParentNav(); // Focus on the previous item in the parent nav.
+
+                  parent.focusOn('prev', this.nav.elem);
+                } else {
+                  this.nav.focusOn('prev', this);
+                }
+              } else {
+                if (this.isSubNavItem()) {
+                  // Close the subnav and put the focus on the trigger.
+                  this.closeSubNav(true);
+                }
+              }
+            } // Handler for the right arrow key.
+            else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isRightArrow"])(theKey)) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                if (this.nav.isDesktopNav()) {
+                  if (this.nav.isSubNav()) {
+                    this.closeSubNav();
+
+                    var _parent = this.nav.getParentNav(); // Focus on the next item in the parent nav.
+
+
+                    _parent.focusOn('next', this.nav.elem);
+                  } else {
+                    this.nav.focusOn('next', this);
+                  }
+                } else {
+                  if (this.isSubNavTrigger()) {
+                    this.openSubNav();
+                  }
+                }
+              } // Handler for the home key.
+              else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isHome"])(theKey)) {
+                  this.nav.focusOn('first');
+                } // Handler for the end key.
+                else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isEnd"])(theKey)) {
+                    this.nav.focusOn('last');
+                  } // Handler for the tab key.
+                  else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isTab"])(theKey)) {
+                      event.stopPropagation();
+                      var shifted = event.shiftKey;
+
+                      if (this.isSubNavItem() && (!shifted && this.isLastItem() || shifted && this.isFirstItem())) {
+                        this.closeSubNav(true);
+                      }
+                    }
+    }
+    /**
+     * Handler for click events.
+     *
+     * Dispatched from this.handleEvent().
+     * Click is only bound to subnav triggers. However, click bubbles up from
+     * subnav items to the trigger.
+     *
+     * @param {KeyboardEvent} event - The keyboard event object.
+     * @param {HTMLElement} target  - The HTML element target.
+     */
+
+  }, {
+    key: "onClick",
+    value: function onClick(event, target) {
+      if (this.isExpanded()) {
+        this.closeSubNav();
+      } else {
+        this.openSubNav(false);
+      } // If the click is directly on the trigger, then we're done.
+
+
+      if (target === this.link) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    }
+  }]);
+
+  return NavItem;
+}();
+
+
 
 /***/ }),
 
@@ -130,7 +898,50 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"theNavs\", function() { return theNavs; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"theSubNavs\", function() { return theSubNavs; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"closeAllSubNavs\", function() { return closeAllSubNavs; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"closeAllMobileNavs\", function() { return closeAllMobileNavs; });\n// ---------------------------------------------------------------------------\n// Global variables and functions shared amongst the nav code\n// ---------------------------------------------------------------------------\n// Variables\n\n/**\n *  Global record of all main navs on the page\n *  - populated in the document.ready function in main-nav.js\n *  - used by closeAllMobileNavs\n * @type {Array}\n */\nvar theNavs = [];\n/**\n *  Global record of all sub navs on the page (may be in different main navs\n *  - populated by the NavItem constructor\n *  - used by closeAllSubNavs\n * @type {Array}\n */\n\nvar theSubNavs = []; // Functions\n\n/**\n * Close all subnavs on the page\n */\n\nvar closeAllSubNavs = function closeAllSubNavs() {\n  theSubNavs.forEach(function (subNav) {\n    subNav.closeSubNav();\n  });\n};\n/**\n * Close all mobile navs on the page\n */\n\nvar closeAllMobileNavs = function closeAllMobileNavs() {\n  theNavs.forEach(function (theNav) {\n    theNav.closeMobileNav();\n  });\n};\n\n//# sourceURL=webpack:///./src/js/components/main-nav/globals.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "theNavs", function() { return theNavs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "theSubNavs", function() { return theSubNavs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeAllSubNavs", function() { return closeAllSubNavs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeAllMobileNavs", function() { return closeAllMobileNavs; });
+// ---------------------------------------------------------------------------
+// Global variables and functions shared amongst the nav code
+// ---------------------------------------------------------------------------
+// Variables
+
+/**
+ *  Global record of all main navs on the page
+ *  - populated in the document.ready function in main-nav.js
+ *  - used by closeAllMobileNavs
+ * @type {Array}
+ */
+var theNavs = [];
+/**
+ *  Global record of all sub navs on the page (may be in different main navs
+ *  - populated by the NavItem constructor
+ *  - used by closeAllSubNavs
+ * @type {Array}
+ */
+
+var theSubNavs = []; // Functions
+
+/**
+ * Close all subnavs on the page
+ */
+
+var closeAllSubNavs = function closeAllSubNavs() {
+  theSubNavs.forEach(function (subNav) {
+    subNav.closeSubNav();
+  });
+};
+/**
+ * Close all mobile navs on the page
+ */
+
+var closeAllMobileNavs = function closeAllMobileNavs() {
+  theNavs.forEach(function (theNav) {
+    theNav.closeMobileNav();
+  });
+};
 
 /***/ }),
 
@@ -142,7 +953,47 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ \"./src/js/core/core.js\");\n/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globals */ \"./src/js/components/main-nav/globals.js\");\n/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ \"./src/js/components/main-nav/Nav.js\");\n\n\n\ndocument.addEventListener('DOMContentLoaded', function (event) {\n  // The css class that this following behaviour is applied to.\n  var navClass = 'su-main-nav'; // Variables.\n  // All main navs.\n\n  var navs = document.querySelectorAll('.' + navClass); // ---------------------------------------------------------------------------\n  // Execution Code.\n  // ---------------------------------------------------------------------------\n  // Process each nav.\n\n  var firstZindex;\n  navs.forEach(function (nav, index) {\n    var theNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__[\"default\"](nav);\n    _globals__WEBPACK_IMPORTED_MODULE_1__[\"theNavs\"].push(theNav);\n\n    if (index === 0) {\n      firstZindex = getComputedStyle(nav, null).zIndex;\n    } else {\n      nav.style.zIndex = firstZindex - 300 * index;\n    }\n  }); // navs.forEach\n  // Clicking anywhere outside a nav closes all navs.\n\n  document.addEventListener('click', function (event) {\n    // The element that was clicked.\n    var target = event.target || event.srcElement; // If target is not under a main nav close all navs.\n\n    if (!target.matches('.' + navClass + ' ' + target.tagName)) {\n      Object(_globals__WEBPACK_IMPORTED_MODULE_1__[\"closeAllSubNavs\"])();\n      Object(_globals__WEBPACK_IMPORTED_MODULE_1__[\"closeAllMobileNavs\"])();\n    }\n  }, false);\n}); // on DOMContentLoaded.\n\n//# sourceURL=webpack:///./src/js/components/main-nav/main-nav.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ "./src/js/core/core.js");
+/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globals */ "./src/js/components/main-nav/globals.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ "./src/js/components/main-nav/Nav.js");
+
+
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  // The css class that this following behaviour is applied to.
+  var navClass = 'su-main-nav'; // Variables.
+  // All main navs.
+
+  var navs = document.querySelectorAll('.' + navClass); // ---------------------------------------------------------------------------
+  // Execution Code.
+  // ---------------------------------------------------------------------------
+  // Process each nav.
+
+  var firstZindex;
+  navs.forEach(function (nav, index) {
+    var theNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](nav);
+    _globals__WEBPACK_IMPORTED_MODULE_1__["theNavs"].push(theNav);
+
+    if (index === 0) {
+      firstZindex = getComputedStyle(nav, null).zIndex;
+    } else {
+      nav.style.zIndex = firstZindex - 300 * index;
+    }
+  }); // navs.forEach
+  // Clicking anywhere outside a nav closes all navs.
+
+  document.addEventListener('click', function (event) {
+    // The element that was clicked.
+    var target = event.target || event.srcElement; // If target is not under a main nav close all navs.
+
+    if (!target.matches('.' + navClass + ' ' + target.tagName)) {
+      Object(_globals__WEBPACK_IMPORTED_MODULE_1__["closeAllSubNavs"])();
+      Object(_globals__WEBPACK_IMPORTED_MODULE_1__["closeAllMobileNavs"])();
+    }
+  }, false);
+}); // on DOMContentLoaded.
 
 /***/ }),
 
@@ -153,7 +1004,8 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _cor
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("// if NodeList doesn't support forEach, use Array's forEach()\nNodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEach;\n\n//# sourceURL=webpack:///./src/js/core/core.js?");
+// if NodeList doesn't support forEach, use Array's forEach()
+NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEach;
 
 /***/ }),
 
@@ -165,7 +1017,12 @@ eval("// if NodeList doesn't support forEach, use Array's forEach()\nNodeList.pr
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _components_components_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/components.js */ \"./src/js/components/components.js\");\n/* harmony import */ var _scss_decanter_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scss/decanter.scss */ \"./src/scss/decanter.scss\");\n/* harmony import */ var _scss_decanter_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_scss_decanter_scss__WEBPACK_IMPORTED_MODULE_1__);\n\n\n\n//# sourceURL=webpack:///./src/js/decanter.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_components_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/components.js */ "./src/js/components/components.js");
+/* harmony import */ var _scss_decanter_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scss/decanter.scss */ "./src/scss/decanter.scss");
+/* harmony import */ var _scss_decanter_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_scss_decanter_scss__WEBPACK_IMPORTED_MODULE_1__);
+
+
 
 /***/ }),
 
@@ -177,7 +1034,50 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _com
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isHome\", function() { return isHome; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isEnd\", function() { return isEnd; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isTab\", function() { return isTab; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isEsc\", function() { return isEsc; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isSpace\", function() { return isSpace; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isEnter\", function() { return isEnter; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isLeftArrow\", function() { return isLeftArrow; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isRightArrow\", function() { return isRightArrow; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isUpArrow\", function() { return isUpArrow; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"isDownArrow\", function() { return isDownArrow; });\n// ---------------------------------------------------------------------------\n// Keyboard helper functions\n// ---------------------------------------------------------------------------\nvar isHome = function isHome(theKey) {\n  return theKey === 'Home' || theKey === 122;\n};\nvar isEnd = function isEnd(theKey) {\n  return theKey === 'End' || theKey === 123;\n};\nvar isTab = function isTab(theKey) {\n  return theKey === 'Tab' || theKey === 9;\n};\nvar isEsc = function isEsc(theKey) {\n  return theKey === 'Escape' || theKey === 'Esc' || theKey === 27;\n};\nvar isSpace = function isSpace(theKey) {\n  return theKey === ' ' || theKey === 'Spacebar' || theKey === 32;\n};\nvar isEnter = function isEnter(theKey) {\n  return theKey === 'Enter' || theKey === 13;\n};\nvar isLeftArrow = function isLeftArrow(theKey) {\n  return theKey === 'ArrowLeft' || theKey === 'Left' || theKey === 37;\n};\nvar isRightArrow = function isRightArrow(theKey) {\n  return theKey === 'ArrowRight' || theKey === 'Right' || theKey === 39;\n};\nvar isUpArrow = function isUpArrow(theKey) {\n  return theKey === 'ArrowUp' || theKey === 'Up' || theKey === 38;\n};\nvar isDownArrow = function isDownArrow(theKey) {\n  return theKey === 'ArrowDown' || theKey === 'Down' || theKey === 40;\n};\n\n//# sourceURL=webpack:///./src/js/utilities/keyboard.js?");
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isHome", function() { return isHome; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isEnd", function() { return isEnd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isTab", function() { return isTab; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isEsc", function() { return isEsc; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isSpace", function() { return isSpace; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isEnter", function() { return isEnter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isLeftArrow", function() { return isLeftArrow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isRightArrow", function() { return isRightArrow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isUpArrow", function() { return isUpArrow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDownArrow", function() { return isDownArrow; });
+// ---------------------------------------------------------------------------
+// Keyboard helper functions
+// ---------------------------------------------------------------------------
+var isHome = function isHome(theKey) {
+  return theKey === 'Home' || theKey === 122;
+};
+var isEnd = function isEnd(theKey) {
+  return theKey === 'End' || theKey === 123;
+};
+var isTab = function isTab(theKey) {
+  return theKey === 'Tab' || theKey === 9;
+};
+var isEsc = function isEsc(theKey) {
+  return theKey === 'Escape' || theKey === 'Esc' || theKey === 27;
+};
+var isSpace = function isSpace(theKey) {
+  return theKey === ' ' || theKey === 'Spacebar' || theKey === 32;
+};
+var isEnter = function isEnter(theKey) {
+  return theKey === 'Enter' || theKey === 13;
+};
+var isLeftArrow = function isLeftArrow(theKey) {
+  return theKey === 'ArrowLeft' || theKey === 'Left' || theKey === 37;
+};
+var isRightArrow = function isRightArrow(theKey) {
+  return theKey === 'ArrowRight' || theKey === 'Right' || theKey === 39;
+};
+var isUpArrow = function isUpArrow(theKey) {
+  return theKey === 'ArrowUp' || theKey === 'Up' || theKey === 38;
+};
+var isDownArrow = function isDownArrow(theKey) {
+  return theKey === 'ArrowDown' || theKey === 'Down' || theKey === 40;
+};
 
 /***/ }),
 
@@ -188,8 +1088,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/scss/decanter.scss?");
+// extracted by mini-css-extract-plugin
 
 /***/ })
 
 /******/ });
+//# sourceMappingURL=decanter.js.map
