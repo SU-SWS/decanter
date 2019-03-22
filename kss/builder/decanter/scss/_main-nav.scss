@@ -5,6 +5,11 @@
   .su-main-nav {
     margin-top: 12px;
 
+    a {
+      // Fix FOUC caused by text color defined in visible-grid.scss.
+      color: #fff;
+    }
+
     @include grid-media('lg') {
       margin-top: 4px;
     }
@@ -39,7 +44,7 @@
   }
 }
 
-//Main Nav Component - fix z-index in styleguide when multiple navs are right on top of each other
+// Main Nav Component - fix z-index in styleguide demo when multiple nav variants are right on top of each other.
 #kssref-components-main-navigation {
   .kss-modifier__example {
     @for $i from 2 through 8 {

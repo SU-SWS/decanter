@@ -16,6 +16,10 @@ $grid-columns: (
 .main-page-layout {
   @include display-grid;
   @include responsive-grid-columns($grid-columns);
+
+  @include grid-media-max('sm') {
+    @include centered-column;
+  }
 }
 
 .kss-sidebar {
