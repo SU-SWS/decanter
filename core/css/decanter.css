@@ -387,6 +387,7 @@ button,
     
     .su-card .su-card__contents > h5 {
       font-size: 0.8em;
+      text-transform: uppercase;
       text-transform: uppercase; }
       @media only screen and (min-width: 0) {
         
@@ -2106,7 +2107,8 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  margin-bottom: 0.5em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   clear: both;
   font-weight: 600;
   line-height: 1.2; }
@@ -2134,7 +2136,8 @@ h5 {
   font-size: 1em; }
 
 h6 {
-  font-size: 0.8em; }
+  font-size: 0.8em;
+  text-transform: uppercase; }
 
 cite,
 var,
@@ -2190,9 +2193,15 @@ dfn {
 
 .su-big-paragraph {
   font-size: 2rem; }
+  @media (max-width: 767px) {
+    .su-big-paragraph {
+      font-size: 1.6rem; } }
 
 .su-small-paragraph {
   font-size: 1.8rem; }
+  @media (max-width: 767px) {
+    .su-small-paragraph {
+      font-size: 1.5rem; } }
 
 .layout-blastila-flex--right > div {
   -webkit-box-orient: horizontal;
