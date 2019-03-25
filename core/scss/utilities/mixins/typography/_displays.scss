@@ -8,8 +8,9 @@
 // Style guide: Mixins.Typography.displays
 //
 @mixin displays {
+  @include font-smoothing;
   @include margin(0 null null);
-@include font-smoothing;
+
   clear: both;
   font-weight: $font-bold;
   line-height: $displays-line-height;
