@@ -157,8 +157,7 @@ let coreConfig = Object.assign({}, config, {
   entry: {
     "decanter": assetDir + "js/decanter.js",
     "decanter-grid": assetDir + "js/decanter-grid.js",
-    "decanter-no-markup": assetDir + "js/decanter-no-markup.js",
-    'kss': kssDir + "scss/kss.js"
+    "decanter-no-markup": assetDir + "js/decanter-no-markup.js"
   },
   // Where should I output the assets.
   output: {
@@ -189,12 +188,6 @@ let coreConfig = Object.assign({}, config, {
         'decanter-no-markup': {
           name: 'decanter-no-markup',
           test: ( module, chunks, entry = 'decanter-no-markup' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
-          chunks: 'all',
-          enforce: true
-        },
-        'kss': {
-          name: 'kss',
-          test: ( module, chunks, entry = 'kss' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
           chunks: 'all',
           enforce: true
         }
