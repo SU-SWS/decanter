@@ -3,6 +3,7 @@
  * @type {[type]}
  */
 
+
  // Requires / Dependencies.
 const path = require('path');
 const webpack = require('webpack');
@@ -12,8 +13,7 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const WebpackAssetsManifest = require("webpack-assets-manifest");
-const CopyPlugin = require('webpack-copy-on-build-plugin');
-const FilewatcherPlugin = require("filewatcher-webpack-plugin");
+const ExtraWatchWebpackPlugin = require("extra-watch-webpack-plugin");
 
 // Paths.
 const assetDir  = './src/';
@@ -141,8 +141,8 @@ var config = {
     } ),
     // Add a plugin to watch other files other than that required by webpack.
     // https://www.npmjs.com/package/filewatcher-webpack-plugin
-    new FilewatcherPlugin( {
-      watchFileRegex: [
+    new ExtraWatchWebpackPlugin( {
+      files: [
         'src/**/*.twig',
         'src/**/*.json'
       ]
