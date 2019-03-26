@@ -3,6 +3,7 @@
  * @type {[type]}
  */
 
+
  // Requires / Dependencies.
 const path = require('path');
 const webpack = require('webpack');
@@ -12,8 +13,7 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const WebpackAssetsManifest = require("webpack-assets-manifest");
-const CopyPlugin = require('webpack-copy-on-build-plugin');
-const FilewatcherPlugin = require("filewatcher-webpack-plugin");
+const ExtraWatchWebpackPlugin = require("extra-watch-webpack-plugin");
 
 // Paths.
 const assetDir  = './core/src/';
@@ -24,6 +24,8 @@ const npmPackage = 'node_modules/';
 
 // Other variables.
 const devMode = process.env.NODE_ENV !== 'production';
+console.log( "mode is ", process.env.NODE_ENV );
+console.log( "devMode is ", devMode );
 
 // For MiniCssExtractPlugin.
 // Loops through the module variable that is nested looking for a name.
@@ -116,38 +118,6 @@ var config = {
       }
     ]
   },
-  // Define and configure webpack plugins.
-  plugins: [
-    // A webpack plugin to remove/clean your build folder(s).
-    // https://www.npmjs.com/package/clean-webpack-plugin
-    new CleanWebpackPlugin( {
-      verbose: true
-    } ),
-    // This plugin extracts CSS into separate files. It creates a CSS file per
-    // JS file which contains CSS. It supports On-Demand-Loading of CSS and
-    // SourceMaps.
-    // https://github.com/webpack-contrib/mini-css-extract-plugin
-    new MiniCssExtractPlugin( {
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: "../css/[name].css",
-      chunkFilename: "../css/[id].css"
-    } ),
-    // This Webpack plugin will generate a JSON file that matches the original
-    // filename with the hashed version.
-    // https://github.com/webdeveric/webpack-assets-manifest
-    new WebpackAssetsManifest( {
-      output: 'assets.json'
-    } ),
-    // Add a plugin to watch other files other than that required by webpack.
-    // https://www.npmjs.com/package/filewatcher-webpack-plugin
-    new FilewatcherPlugin( {
-      watchFileRegex: [
-        'src/**/*.twig',
-        'src/**/*.json'
-      ]
-    } ),
-  ]
 };
 
 // Decanter core configuration.
@@ -161,7 +131,7 @@ let coreConfig = Object.assign({}, config, {
   },
   // Where should I output the assets.
   output: {
-    filename: devMode ? "[name].js" : "[name].[hash].js",
+    filename: "[name].js",
     path: path.resolve( __dirname, outputDir + '/js' )
   },
   // Optimizations that are triggered by production mode.
@@ -200,6 +170,30 @@ let coreConfig = Object.assign({}, config, {
       }
     }
   },
+  // Define and configure webpack plugins.
+  plugins: [
+    // A webpack plugin to remove/clean your build folder(s).
+    // https://www.npmjs.com/package/clean-webpack-plugin
+    new CleanWebpackPlugin( {
+      verbose: true
+    } ),
+    // This plugin extracts CSS into separate files. It creates a CSS file per
+    // JS file which contains CSS. It supports On-Demand-Loading of CSS and
+    // SourceMaps.
+    // https://github.com/webpack-contrib/mini-css-extract-plugin
+    new MiniCssExtractPlugin( {
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: "../css/[name].css",
+      chunkFilename: "../css/[id].css"
+    } ),
+    // This Webpack plugin will generate a JSON file that matches the original
+    // filename with the hashed version.
+    // https://github.com/webdeveric/webpack-assets-manifest
+    new WebpackAssetsManifest( {
+      output: 'assets.json'
+    } ),
+  ]
 });
 
 // Decanter core configuration.
@@ -211,7 +205,7 @@ let kssConfig = Object.assign({}, config, {
   },
   // Where should I output the assets.
   output: {
-    filename: devMode ? "[name].js" : "[name].[hash].js",
+    filename: "[name].js",
     path: path.resolve( __dirname, kssDir + 'kss-assets/dist' )
   },
   // Optimizations that are triggered by production mode.
@@ -238,6 +232,38 @@ let kssConfig = Object.assign({}, config, {
       }
     }
   },
+  // Define and configure webpack plugins.
+  plugins: [
+    // A webpack plugin to remove/clean your build folder(s).
+    // https://www.npmjs.com/package/clean-webpack-plugin
+    new CleanWebpackPlugin( {
+      verbose: true
+    } ),
+    // This plugin extracts CSS into separate files. It creates a CSS file per
+    // JS file which contains CSS. It supports On-Demand-Loading of CSS and
+    // SourceMaps.
+    // https://github.com/webpack-contrib/mini-css-extract-plugin
+    new MiniCssExtractPlugin( {
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: "../css/[name].css",
+      chunkFilename: "../css/[id].css"
+    } ),
+    // This Webpack plugin will generate a JSON file that matches the original
+    // filename with the hashed version.
+    // https://github.com/webdeveric/webpack-assets-manifest
+    new WebpackAssetsManifest( {
+      output: 'assets.json'
+    } ),
+    // Add a plugin to watch other files other than that required by webpack.
+    // https://www.npmjs.com/package/filewatcher-webpack-plugin
+    new ExtraWatchWebpackPlugin( {
+      files: [
+        'src/**/*.twig',
+        'src/**/*.json'
+      ]
+    } ),
+  ]
 });
 
 // Module Exports.
