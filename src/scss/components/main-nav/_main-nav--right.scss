@@ -1,7 +1,18 @@
 @charset "UTF-8";
 
 .su-main-nav--right {
-  ul {
+  > ul {
     justify-content: flex-end;
+  }
+
+  @include grid-media-max('md') {
+    > ul,
+    > .su-site-search {
+      right: 0;
+    }
+  }
+
+  .su-main-nav__toggle {
+    @include margin(null 0 null auto);
   }
 }
