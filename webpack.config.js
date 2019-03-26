@@ -232,6 +232,24 @@ let kssConfig = Object.assign({}, config, {
       }
     }
   },
+  plugins: [
+    // This plugin extracts CSS into separate files. It creates a CSS file per
+    // JS file which contains CSS. It supports On-Demand-Loading of CSS and
+    // SourceMaps.
+    // https://github.com/webpack-contrib/mini-css-extract-plugin
+    new MiniCssExtractPlugin( {
+      // Options similar to the same options in webpackOptions.output
+      // both options are optional
+      filename: "../css/[name].css",
+      chunkFilename: "../css/[id].css"
+    } ),
+    // This Webpack plugin will generate a JSON file that matches the original
+    // filename with the hashed version.
+    // https://github.com/webdeveric/webpack-assets-manifest
+    new WebpackAssetsManifest( {
+      output: 'assets.json'
+    } ),
+  ]
 });
 
 // Module Exports.
