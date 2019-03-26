@@ -81,30 +81,30 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/decanter-no-markup.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./core/src/js/decanter-no-markup.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/js/decanter-no-markup.js":
-/*!**************************************!*\
-  !*** ./src/js/decanter-no-markup.js ***!
-  \**************************************/
+/***/ "./core/src/js/decanter-no-markup.js":
+/*!*******************************************!*\
+  !*** ./core/src/js/decanter-no-markup.js ***!
+  \*******************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _scss_decanter_no_markup_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/decanter-no-markup.scss */ "./src/scss/decanter-no-markup.scss");
+/* harmony import */ var _scss_decanter_no_markup_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/decanter-no-markup.scss */ "./core/src/scss/decanter-no-markup.scss");
 /* harmony import */ var _scss_decanter_no_markup_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_decanter_no_markup_scss__WEBPACK_IMPORTED_MODULE_0__);
 
 
 /***/ }),
 
-/***/ "./src/scss/decanter-no-markup.scss":
-/*!******************************************!*\
-  !*** ./src/scss/decanter-no-markup.scss ***!
-  \******************************************/
+/***/ "./core/src/scss/decanter-no-markup.scss":
+/*!***********************************************!*\
+  !*** ./core/src/scss/decanter-no-markup.scss ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

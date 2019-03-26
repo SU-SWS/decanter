@@ -16,9 +16,9 @@ const CopyPlugin = require('webpack-copy-on-build-plugin');
 const FilewatcherPlugin = require("filewatcher-webpack-plugin");
 
 // Paths.
-const assetDir  = './src/';
+const assetDir  = './core/src/';
 const kssDir  = './kss/builder/decanter/';
-const outputDir = 'dist';
+const outputDir = 'core/dist';
 const styleGuide = path.resolve( __dirname, './styleguide/');
 const npmPackage = 'node_modules/';
 
@@ -88,8 +88,8 @@ var config = {
             loader: 'sass-loader',
             options: {
               includePaths: [
-                path.resolve( __dirname, npmPackage + "bourbon/core" ),
-                path.resolve( __dirname, "src/scss" )
+                path.resolve( __dirname, npmPackage, "bourbon/core" ),
+                path.resolve( __dirname, assetDir, "scss" )
               ],
               sourceMap: true,
               lineNumbers: true,
@@ -157,8 +157,7 @@ let coreConfig = Object.assign({}, config, {
   entry: {
     "decanter": assetDir + "js/decanter.js",
     "decanter-grid": assetDir + "js/decanter-grid.js",
-    "decanter-no-markup": assetDir + "js/decanter-no-markup.js",
-    'kss': kssDir + "scss/kss.js"
+    "decanter-no-markup": assetDir + "js/decanter-no-markup.js"
   },
   // Where should I output the assets.
   output: {

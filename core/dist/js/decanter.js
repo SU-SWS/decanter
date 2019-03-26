@@ -81,38 +81,38 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/decanter.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./core/src/js/decanter.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/js/components/components.js":
-/*!*****************************************!*\
-  !*** ./src/js/components/components.js ***!
-  \*****************************************/
+/***/ "./core/src/js/components/components.js":
+/*!**********************************************!*\
+  !*** ./core/src/js/components/components.js ***!
+  \**********************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _main_nav_main_nav_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./main-nav/main-nav.js */ "./src/js/components/main-nav/main-nav.js");
+/* harmony import */ var _main_nav_main_nav_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./main-nav/main-nav.js */ "./core/src/js/components/main-nav/main-nav.js");
 
 
 /***/ }),
 
-/***/ "./src/js/components/main-nav/Nav.js":
-/*!*******************************************!*\
-  !*** ./src/js/components/main-nav/Nav.js ***!
-  \*******************************************/
+/***/ "./core/src/js/components/main-nav/Nav.js":
+/*!************************************************!*\
+  !*** ./core/src/js/components/main-nav/Nav.js ***!
+  \************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Nav; });
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./src/js/components/main-nav/globals.js");
-/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ "./src/js/utilities/keyboard.js");
-/* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavItem */ "./src/js/components/main-nav/NavItem.js");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./core/src/js/components/main-nav/globals.js");
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
+/* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavItem */ "./core/src/js/components/main-nav/NavItem.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -533,19 +533,19 @@ function () {
 
 /***/ }),
 
-/***/ "./src/js/components/main-nav/NavItem.js":
-/*!***********************************************!*\
-  !*** ./src/js/components/main-nav/NavItem.js ***!
-  \***********************************************/
+/***/ "./core/src/js/components/main-nav/NavItem.js":
+/*!****************************************************!*\
+  !*** ./core/src/js/components/main-nav/NavItem.js ***!
+  \****************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NavItem; });
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./src/js/components/main-nav/globals.js");
-/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ "./src/js/utilities/keyboard.js");
-/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ "./src/js/components/main-nav/Nav.js");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./core/src/js/components/main-nav/globals.js");
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -890,10 +890,10 @@ function () {
 
 /***/ }),
 
-/***/ "./src/js/components/main-nav/globals.js":
-/*!***********************************************!*\
-  !*** ./src/js/components/main-nav/globals.js ***!
-  \***********************************************/
+/***/ "./core/src/js/components/main-nav/globals.js":
+/*!****************************************************!*\
+  !*** ./core/src/js/components/main-nav/globals.js ***!
+  \****************************************************/
 /*! exports provided: theNavs, theSubNavs, closeAllSubNavs, closeAllMobileNavs */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -945,19 +945,19 @@ var closeAllMobileNavs = function closeAllMobileNavs() {
 
 /***/ }),
 
-/***/ "./src/js/components/main-nav/main-nav.js":
-/*!************************************************!*\
-  !*** ./src/js/components/main-nav/main-nav.js ***!
-  \************************************************/
+/***/ "./core/src/js/components/main-nav/main-nav.js":
+/*!*****************************************************!*\
+  !*** ./core/src/js/components/main-nav/main-nav.js ***!
+  \*****************************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ "./src/js/core/core.js");
+/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ "./core/src/js/core/core.js");
 /* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globals */ "./src/js/components/main-nav/globals.js");
-/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ "./src/js/components/main-nav/Nav.js");
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globals */ "./core/src/js/components/main-nav/globals.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
 
 
 
@@ -997,10 +997,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 /***/ }),
 
-/***/ "./src/js/core/core.js":
-/*!*****************************!*\
-  !*** ./src/js/core/core.js ***!
-  \*****************************/
+/***/ "./core/src/js/core/core.js":
+/*!**********************************!*\
+  !*** ./core/src/js/core/core.js ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -1009,27 +1009,27 @@ NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEa
 
 /***/ }),
 
-/***/ "./src/js/decanter.js":
-/*!****************************!*\
-  !*** ./src/js/decanter.js ***!
-  \****************************/
+/***/ "./core/src/js/decanter.js":
+/*!*********************************!*\
+  !*** ./core/src/js/decanter.js ***!
+  \*********************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_components_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/components.js */ "./src/js/components/components.js");
-/* harmony import */ var _scss_decanter_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scss/decanter.scss */ "./src/scss/decanter.scss");
+/* harmony import */ var _components_components_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/components.js */ "./core/src/js/components/components.js");
+/* harmony import */ var _scss_decanter_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../scss/decanter.scss */ "./core/src/scss/decanter.scss");
 /* harmony import */ var _scss_decanter_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_scss_decanter_scss__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
 /***/ }),
 
-/***/ "./src/js/utilities/keyboard.js":
-/*!**************************************!*\
-  !*** ./src/js/utilities/keyboard.js ***!
-  \**************************************/
+/***/ "./core/src/js/utilities/keyboard.js":
+/*!*******************************************!*\
+  !*** ./core/src/js/utilities/keyboard.js ***!
+  \*******************************************/
 /*! exports provided: isHome, isEnd, isTab, isEsc, isSpace, isEnter, isLeftArrow, isRightArrow, isUpArrow, isDownArrow */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1081,10 +1081,10 @@ var isDownArrow = function isDownArrow(theKey) {
 
 /***/ }),
 
-/***/ "./src/scss/decanter.scss":
-/*!********************************!*\
-  !*** ./src/scss/decanter.scss ***!
-  \********************************/
+/***/ "./core/src/scss/decanter.scss":
+/*!*************************************!*\
+  !*** ./core/src/scss/decanter.scss ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

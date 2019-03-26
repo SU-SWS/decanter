@@ -81,30 +81,30 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/decanter-grid.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./core/src/js/decanter-grid.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/js/decanter-grid.js":
-/*!*********************************!*\
-  !*** ./src/js/decanter-grid.js ***!
-  \*********************************/
+/***/ "./core/src/js/decanter-grid.js":
+/*!**************************************!*\
+  !*** ./core/src/js/decanter-grid.js ***!
+  \**************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _scss_decanter_grid_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/decanter-grid.scss */ "./src/scss/decanter-grid.scss");
+/* harmony import */ var _scss_decanter_grid_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../scss/decanter-grid.scss */ "./core/src/scss/decanter-grid.scss");
 /* harmony import */ var _scss_decanter_grid_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_scss_decanter_grid_scss__WEBPACK_IMPORTED_MODULE_0__);
 
 
 /***/ }),
 
-/***/ "./src/scss/decanter-grid.scss":
-/*!*************************************!*\
-  !*** ./src/scss/decanter-grid.scss ***!
-  \*************************************/
+/***/ "./core/src/scss/decanter-grid.scss":
+/*!******************************************!*\
+  !*** ./core/src/scss/decanter-grid.scss ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
