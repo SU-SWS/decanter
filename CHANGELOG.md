@@ -3,20 +3,20 @@
 Version 5.0.0                      2019-03-27
 ---------------------------------------------
 - New Webpack Build System
-- Code Climate and Linter file updates.
-- Two revamped and improved Grid Systems.
-- Flexbox based class generated grid system.
-- CSS grid based mixin supported grid system.
-- Removed the generated styleguide from Git
+- Two revamped and improved Grid Systems
+- Flexbox based, class generated grid system
+- CSS Grid based mixin supported grid system
+- LOTS of new components and variants - check them out!
+- LOTS of new SASS/Scss mixins and functions to help you in your project
+- LOTS of usable Twig templates for both components and layouts
+- Revamped and refreshed the KSS theme with a new look and feel; plus new navigation
+- Moved source code from core/ to src/ to better align with Webpack projects
+- Code Climate and Linter file updates
+- Removed the generated style guide from Git
 - Moved .lando.yml to .lando.default.yml
-- Deprecated and replaced a number of Grunt commands with Webpack and NPM scripts.
-- Moved source code from core/ to src/ to better align with webpack projects.
-- Revamped and refreshed the KSS theme with a new look and feel. New navigation!
-- LOTS of new components and variants. Check them out.
-- Lots of new SASS mixins and functions to help you in your project.
-- Lots of usable twig templates for both components and layout.
-- Removed the font files and put them on a CDN.
-- Dropped the Atomic design structure for components to allow for less strict component creation.
+- Deprecated and replaced a number of Grunt commands with Webpack and NPM scripts
+- Removed the font files and put them on a CDN
+- Dropped the Atomic design structure for components to allow for less strict component creation
 
 Version 4.1.0                      2018-08-16
 ---------------------------------------------
