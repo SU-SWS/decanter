@@ -1,50 +1,52 @@
 @charset 'UTF-8';
 
 // Main navigation.
-.main-nav {
-  @include margin(0);
-  @include padding(0);
-  text-align: center;
-  vertical-align: middle;
-
-  @include grid-media("md") {
-    text-align: right;
-  }
-
-  li {
-    @include padding(0);
-    @include margin(0);
-    line-height: 69px;
-    vertical-align: middle;
-    display: inline-block;
+.masthead {
+  .su-main-nav {
+    margin-top: 12px;
 
     a {
-      @include margin(0 20px 0 0);
-      @include padding(5px);
-      display: block;
-      color: darken($color-white, 30%);
-      font-family: $font-sans;
-      font-size: em(16px);
-      border-bottom: solid 3px $color-black;
-      height: 69px;
+      // Fix FOUC caused by text color defined in visible-grid.scss.
+      color: #fff;
     }
 
-    a.active,
-    a:hover {
-      color: $color-white;
-      border-bottom: solid 3px $color-white;
+    @include grid-media('lg') {
+      margin-top: 4px;
     }
 
-    &:last-child > a {
-      @include margin(0);
+    > ul {
+      @include grid-media-max('sm') {
+        width: 100vw;
+      }
+
+      @include grid-media-only('xs') {
+        transform: translateX(map-get($screen-margins, 'xs'));
+      }
+
+      @include grid-media-only('sm') {
+        transform: translateX(map-get($screen-margins, 'sm'));
+      }
+
+      @include grid-media('lg') {
+        > li > a {
+          @include padding(null null 2rem);
+        }
+      }
+    }
+  }
+
+  .su-main-nav__toggle {
+    @include grid-media-max('md') {
+      @include margin(.4rem null null null);
+      @include padding(null null 1.6rem);
     }
   }
 }
 
-//Main Nav Component - fix z-index in styleguide when multiple navs are right on top of each other
+// Main Nav Component - fix z-index in styleguide demo when multiple nav variants are right on top of each other.
 #kssref-components-main-navigation {
   .kss-modifier__example {
-    @for $i from 2 through 6 {
+    @for $i from 2 through 8 {
       &:nth-child(#{3 * $i}) {
         nav {
           z-index: 9999 - 100 * ($i - 1);
