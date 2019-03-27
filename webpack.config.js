@@ -187,10 +187,6 @@ let coreConfig = Object.assign({}, config, {
           {
             source: outputDir + '/**/*',
             destination: kssOutputDir
-          },
-          {
-            source: srcDir + '/templates/**/*',
-            destination: outputDir + "/templates"
           }
         ],
       },
