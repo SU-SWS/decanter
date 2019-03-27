@@ -5,17 +5,18 @@
   "version": "5.0.0",
   "homepage": "https://github.com/SU-SWS/decanter",
   "license": "MIT",
-  "srcDir": "./core/src/",
-  "distDir": "./core/dist/",
-  "kssSrcDir": "./kss/builder/decanter/",
-  "kssDistDir": "./styleguide/",
+  "srcDir": "core/src/",
+  "distDir": "core/dist/",
+  "kssSrcDir": "kss/builder/decanter/",
+  "kssDistDir": "styleguide/",
   "scripts": {
     "build": "webpack --mode=development",
     "dist": "webpack --mode=production",
     "styleguide": "kss --config=kss/kss-config.json",
     "watch": "webpack --mode=development --watch",
-    "dev": "npm run build && npm run styleguide && npm run watch",
-    "eslint": "eslint -c .eslintrc 'src/'",
+    "start": "webpack-dev-server --mode=development --open",
+    "dev": "npm run build && npm run styleguide && npm run watch && npm run start",
+    "eslint": "eslint -c .eslintrc 'core/src/'",
     "sasslint": "sass-lint -c .sass-lint.yml '**/*.scss' -v -q -i 'vendor/**/*.scss, node_modules/**/*.scss'"
   },
   "keywords": [
@@ -43,6 +44,7 @@
     "css-loader": "^2.1.1",
     "eslint": "^5.15.3",
     "extra-watch-webpack-plugin": "^1.0.3",
+    "file-loader": "^3.0.1",
     "filemanager-webpack-plugin": "^2.0.5",
     "grunt": "^1.0.4",
     "grunt-browser-sync": "^2.2.0",
@@ -65,7 +67,9 @@
     "url-loader": "^1.1.2",
     "webpack": "^4.29.6",
     "webpack-assets-manifest": "^3.1.1",
+    "webpack-cli": "^3.3.0",
     "webpack-command": "^0.4.2",
+    "webpack-dev-server": "^3.2.1",
     "webpack-manifest-plugin": "^2.0.4"
   }
 }
