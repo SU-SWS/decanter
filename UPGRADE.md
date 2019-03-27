@@ -4,7 +4,6 @@ Upgrade from version 4.1.0 to 5.0.0
 -----------------------------------
 
 - Webpack stuff
-  (JB + SM)
 
 ### Grid Systems
 
@@ -53,9 +52,9 @@ Example: `.flex-push-xs-5`
 
 ### File Paths
 
-You can now find all the files you need for your project inside `decanter/core`. `/core/src/` contains all the raw 
-source files that one can read/edit, including .scss, .js, .twig templates and image files in their respective folders. 
-`/core/dist/` contains the distribution version of the files including processed .css and .js files used in 
+You can now find all the files you need for your project inside `decanter/core`. `/core/src/` contains all the raw
+source files that one can read/edit, including .scss, .js, .twig templates and image files in their respective folders.
+`/core/dist/` contains the distribution version of the files including processed .css and .js files used in
 production sites.
 
 Font files have been removed from Decanter and are now being downloaded from the Google CDN with the except of a few
@@ -63,12 +62,12 @@ that are being downloaded from a Stanford server.
 
 ### Naming Conventions
 
-Decanter now uses the [BEM (Block Element Modifier) naming convention](http://getbem.com/naming/). All decanter 
+Decanter now uses the [BEM (Block Element Modifier) naming convention](http://getbem.com/naming/). All decanter
 components are now namespaced with the `su-` prefix in their class names.
 
 Example: `.su-button`, `.su-main-nav`
 
-Elements within a component have class names that start with the component name plus 2 underscores plus 
+Elements within a component have class names that start with the component name plus 2 underscores plus
 the element name.
 
 Example: `.su-main-nav__toggle`
@@ -79,26 +78,26 @@ Example: `.su-main-nav--light`, `.su-main-nav__toggle--center`
 
 ### Components (Restructured with New Items)
 
-Version 5.0.0 has dropped the Atomic Design structure to allow for more flexible component creation. All component 
-.scss files (including variants) can now be found under `/core/src/scss/components` within individual 
+Version 5.0.0 has dropped the Atomic Design structure to allow for more flexible component creation. All component
+.scss files (including variants) can now be found under `/core/src/scss/components` within individual
 component folders.
 
 ### Utilities
 
 #### Variables (Moved)
 
-The `/variables` directory has been moved inside the `/utilities` directory. 
+The `/variables` directory has been moved inside the `/utilities` directory.
 
 #### Layouts (Moved with New Items)
 
-Previously inside the `/mixins` directory, `/layouts` now has path `/core/src/scss/layout` with .scss files for 
+Previously inside the `/mixins` directory, `/layouts` now has path `/core/src/scss/layout` with .scss files for
 Flexbox Grid and CSS Grid layouts inside `/layout/flex` and `/layout/grid` respectively. Each grid system now has many
 different one to four column layouts.
 
 #### Mixins (Restructured with New Items)
 
 Many new mixins have been added. Media query mixins have been rewritten and can be found inside the `/breakpoint`
-directory. 
+directory.
 
 #### Functions (New Items)
 
@@ -112,6 +111,12 @@ developers can extend in their own projects. Currently, this directory holds mos
 Upgrade from version 3.1.0 to 4.0.0
 -----------------------------------
 
+- If you are on version 3.1.x skip over this version and head directly to 5.
+- Actually, if you are still reading this, skip this version completely. It didn't work out for us and it won't work out for you.
+- Mega Menu and Main Menu components have been dropped in favor of the navigation component
+- Neat was dropped in favor of CSS grid native and new variables/mixins. Sorry, but there is no upgrade path from neat's syntax to this new version.
+- Decanter grid css classes have been mostly been removed.
+- We changed the variable names for all of the breakpoints and their values. Good luck with that :D
 
 Upgrade from version 2.1.0 to 3.0.0
 -----------------------------------
