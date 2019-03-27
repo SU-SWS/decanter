@@ -205,6 +205,10 @@ let coreConfig = Object.assign({}, config, {
 // Decanter core configuration.
 let kssConfig = Object.assign({}, config, {
   name: "kss",
+  // Live dev!
+  devServer: {
+    contentBase: path.resolve( __dirname, 'styleguide' )
+  },
   // Define the entry points for which webpack builds a dependency graph.
   entry: {
     'kss': kssSrcDir + "/scss/kss.js"

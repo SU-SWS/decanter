@@ -14,7 +14,8 @@
     "dist": "webpack --mode=production",
     "styleguide": "kss --config=kss/kss-config.json",
     "watch": "webpack --mode=development --watch",
-    "dev": "npm run build && npm run styleguide && npm run watch"
+    "dev": "npm run build && npm run styleguide && npm run watch",
+    "start": "webpack-dev-server --open"
   },
   "keywords": [
     "css",
@@ -61,7 +62,9 @@
     "url-loader": "^1.1.2",
     "webpack": "^4.29.6",
     "webpack-assets-manifest": "^3.1.1",
+    "webpack-cli": "^3.3.0",
     "webpack-command": "^0.4.2",
+    "webpack-dev-server": "^3.2.1",
     "webpack-manifest-plugin": "^2.0.4"
   }
 }
