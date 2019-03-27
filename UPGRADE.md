@@ -3,8 +3,6 @@
 Upgrade from version 4.1.0 to 5.0.0
 -----------------------------------
 
-- Webpack stuff
-
 ### Grid Systems
 
 There are now two grid systems available in this project, one of which is built
@@ -107,6 +105,24 @@ Many helper functions have been added to the directory.
 
 The new `/placeholders` directory inside the `utilities` directory contains .scss files with placeholder classes that
 developers can extend in their own projects. Currently, this directory holds mostly base styles for our components.
+
+### Build Tools
+
+Grunt has been mostly deprecated and removed in this early version with webpack
+and a few npm scripts replacing most of the build work. You will want to change
+whatever integrations you are using with the grunt tool over to webpack.
+
+- Webpack is now responsible for aggregating and compiling the SCSS and JS
+- `npm run styleguide` is now responsible for building the styleguide
+- `npm run eslint|sasslint` is now responsible for linting the code
+
+### Assets
+
+Image and other file assets are now managed through webpack builds and in order
+to simplify your experience we have gone to great lengths to ensure that all
+references to files (images/fonts/etc) are now either encoded directly into the
+generated CSS or fetched from a remote CDN. If you had a build too that was
+moving the assets previously you can stop that.
 
 Upgrade from version 3.1.0 to 4.0.0
 -----------------------------------
