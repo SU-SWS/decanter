@@ -112,9 +112,9 @@ Grunt has been mostly deprecated and removed in this early version with webpack
 and a few npm scripts replacing most of the build work. You will want to change
 whatever integrations you are using with the grunt tool over to webpack.
 
-- Webpack is now responsible for aggregating and compiling the SCSS and JS
-- `npm run styleguide` is now responsible for building the styleguide
-- `npm run eslint|sasslint` is now responsible for linting the code
+- Webpack is now responsible for aggregating and compiling the SCSS and JS. Stop using grunt.
+- `npm run styleguide` is now responsible for building the styleguide. Stop using grunt.
+- `npm run eslint|sasslint` is now responsible for linting the code. Stop using grunt.
 
 ### Assets
 
