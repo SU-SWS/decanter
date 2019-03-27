@@ -5,77 +5,11 @@
 module.exports = function(grunt) {
 
   /**
-   * [sass description]
-   * @type {[type]}
-   */
-  const sass = require('node-sass');
-
-  /**
    * [pkg description]
    * @type {[type]}
    */
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    sass: {
-      options: {
-        implementation: sass,
-        includePaths: [
-          "node_modules/bourbon/core",
-          "node_modules/bourbon-neat/app/assets/stylesheets",
-          "node_modules/neat-omega/core",
-          "node_modules",
-          "core/scss"
-        ],
-        lineNumbers: true,
-        sourceMap: true,
-        outputStyle: 'nested',
-        precision: 10
-      },
-      dist: {
-        files: {
-          'core/css/decanter.css':                        'core/scss/decanter.scss',
-          'core/css/decanter-no-markup.css':              'core/scss/decanter-no-markup.scss',
-          'core/css/decanter-grid.css':                   'core/scss/decanter-grid.scss',
-          'kss/builder/decanter/kss-assets/css/kss.css':  'kss/builder/decanter/scss/kss.scss',
-        }
-      }
-    },
-    sasslint: {
-      options: {
-        configFile: '.sass-lint.yml'
-      },
-      target: ['core/scss/\*\*/\*.scss']
-    },
-    postcss: {
-      options: {
-        map: true, // inline sourcemaps
-        processors: [
-          require('autoprefixer')({ grid: true, browsers: ['last 2 versions', 'ie 11']}) // add vendor prefixes
-        ]
-      },
-      dist: {
-        src: [
-          'core/css/*.css',
-          'kss/builder/decanter/kss-assets/css/*.css'
-        ]
-      }
-    },
-    watch: {
-      css: {
-        files: ['**/*.scss'],
-        tasks: ['styleguide'],
-        options: {
-          livereload: true
-        }
-      },
-      jsmin: {
-        files: ['core/**/*.js']
-      },
-      twig: {
-        files: ['**/*.twig', '**/*.json'],
-        tasks: ['styleguide']
-      }
-    },
     browserSync: {
       dev: {
         bsFiles: {
@@ -91,11 +25,6 @@ module.exports = function(grunt) {
       }
     },
     clean: {
-      styleguide: {
-        src: [
-          'styleguide'
-        ]
-      },
       postdeploy: {
         src: [
           '.styleguide_site'
@@ -103,10 +32,21 @@ module.exports = function(grunt) {
       }
     },
     run: {
+      options: {
+        wait: 0
+      },
+      webpack: {
+        "cmd": "npm",
+        'args': ['run-script', 'build']
+      },
       styleguide: {
-        "cmd": "./node_modules/.bin/kss",
-        "args": ['--config=kss/kss-config.json']
-      }
+        "cmd": "npm",
+        "args": ['run-script', 'styleguide']
+      },
+      watch: {
+        "cmd": "npm",
+        "args": ['run-script', 'watch']
+      },
     },
     deploy_site: {
       styleguide: {
@@ -119,33 +59,38 @@ module.exports = function(grunt) {
         remote_url: 'git@github.com:SU-SWS/decanter.github.io'
       }
     },
-    copy: {
-      styleguide: {
-        files: [
-          // includes files within path
-          {expand: true, cwd: 'core/css', src: ['**'], dest: 'styleguide/css/'},
-          {expand: true, cwd: 'core/fonts', src: ['**'], dest: 'styleguide/fonts/'},
-          {expand: true, cwd: 'core/js', src: ['**'], dest: 'styleguide/js/'},
-          {expand: true, cwd: 'core/img', src: ['**'], dest: 'styleguide/img/'},
-        ],
-      },
-    },
+    deprecated_notice: {
+      styleguide: "This function has been deprecated in favor of `npm run-script styleguide` and will be removed in future versions. Executing now.",
+      compile: "This function has been deprecated in favor of `npm run-script build` and will be removed in future versions. Executing now.",
+      sasslint: "This function has been deprecated in favor of `npm run-script lint` and will be removed in future versions.",
+      sass: "This function has been deprecated in favor of `npm run-script build` and will be removed in future versions.",
+      watch: "This function has been deprecated in favor of `npm run-script watch` and will be removed in future versions."
+    }
   });
 
+  // Create a Deprecated notice task.
+  grunt.task.registerTask('deprecated_notice', 'Logs a deprecated message.', function(arg1) {
+    grunt.log.write(grunt.config.data.deprecated_notice[arg1]);
+  });
+
+  // Load up tasks.
   grunt.loadNpmTasks('grunt-run');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-sass');
-  grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-deploy-site');
-  grunt.loadNpmTasks('grunt-contrib-copy');
 
+  // Register some new ones.
   grunt.registerTask('deploy', ['styleguide', 'deploy_site:styleguide', 'clean:postdeploy']);
-  grunt.registerTask('styleguide', ['compile', 'clean:styleguide', 'run:styleguide', 'copy:styleguide']);
-  grunt.registerTask('compile', ['sass:dist', 'postcss:dist']);
-  grunt.registerTask('dev', ['styleguide', 'browserSync', 'watch']);
+  grunt.registerTask('webpack', ['run:webpack']);
+  grunt.registerTask('dev', ['styleguide', 'browserSync', 'run:watch']);
   grunt.registerTask('default', ['dev']);
+
+  // Deprecated tasks.
+  grunt.registerTask('styleguide', ['run:webpack', 'run:styleguide', 'deprecated_notice:styleguide']);
+  grunt.registerTask('compile', ['deprecated_notice:compile', 'run:webpack']);
+  grunt.registerTask('sass', ['deprecated_notice:sass']);
+  grunt.registerTask('sasslint', ['deprecated_notice:sasslint']);
+  grunt.registerTask('watch', ['deprecated_notice:watch']);
 
 }
