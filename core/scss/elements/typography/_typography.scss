@@ -7,10 +7,14 @@
 // paragraphs and headings. Also includes special type treatment classes such as
 // splash font and lead font.
 //
-// .su-font-lead          - Lead Font
+// .su-intro-text         - Intro Text
 // .su-font-splash        - Splash Font
 // .su-caption            - Caption Font
 // .su-credits            - Credits Font
+// .su-subheading         - Subheading Font
+// .su-quote-text         - Quote Text
+// .su-big-paragraph      - Big Paragraph Font
+// .su-small-paragraph    - Small Paragraph Font
 //
 // Markup: ../../templates/elements/typography/typography.twig
 //
@@ -38,31 +42,31 @@ h3,
 h4,
 h5,
 h6 {
-  @include headings;
+  @include types;
 }
 
 h1 {
-  @include h1;
+  @include type-a;
 }
 
 h2 {
-  @include h2;
+  @include type-b;
 }
 
 h3 {
-  @include h3;
+  @include type-c;
 }
 
 h4 {
-  @include h4;
+  @include type-d;
 }
 
 h5 {
-  @include h5;
+  @include type-e;
 }
 
 h6 {
-  @include h6;
+  @include type-f;
 }
 
 // Remove user agent styles.
@@ -94,8 +98,8 @@ dfn {
   @include sanskrit;
 }
 
-.su-font-lead {
-  @include font-lead;
+.su-intro-text {
+  @include intro-text;
 }
 
 .su-font-splash {
@@ -108,4 +112,20 @@ dfn {
 
 .su-credits {
   @include credits;
+}
+
+.su-subheading {
+  @include subheading;
+}
+
+.su-quote-text {
+  @include quote-text;
+}
+
+.su-big-paragraph {
+  @include big-paragraph;
+}
+
+.su-small-paragraph {
+  @include small-paragraph;
 }

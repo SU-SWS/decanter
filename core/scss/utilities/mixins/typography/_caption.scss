@@ -8,8 +8,9 @@
 // Style guide: Mixins.Typography.caption
 //
 @mixin caption {
-  color: $color-cool-grey;
-  font-size: $small-font-size;
-
   @include margin(0 null null);
+  @include modular-typography(0);
+
+  color: $color-cool-grey;
+  font-style: italic;
 }

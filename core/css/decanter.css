@@ -326,7 +326,6 @@ button,
   display: inline-block;
   border: 0;
   font-size: 2rem;
-  font-weight: 600;
   line-height: 1;
   outline: none;
   text-align: center;
@@ -379,26 +378,24 @@ button,
       padding-bottom: 0;
       margin-bottom: 0; }
     .su-card .su-card__contents > h3,
-    .su-card .su-card__contents > h5 {
+    .su-card .su-card__contents > h4 {
       margin-bottom: 0;
-      font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-      font-weight: 700;
-      line-height: 1.1; }
+      font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
     
-    .su-card .su-card__contents > h5 {
+    .su-card .su-card__contents > h4 {
       font-size: 0.8em;
       text-transform: uppercase; }
       @media only screen and (min-width: 0) {
         
-        .su-card .su-card__contents > h5 {
+        .su-card .su-card__contents > h4 {
           padding-bottom: 0.8rem; } }
       @media only screen and (min-width: 768px) {
         
-        .su-card .su-card__contents > h5 {
+        .su-card .su-card__contents > h4 {
           padding-bottom: 0.9rem; } }
       @media only screen and (min-width: 1500px) {
         
-        .su-card .su-card__contents > h5 {
+        .su-card .su-card__contents > h4 {
           padding-bottom: 0.95rem; } }
     .su-card .su-card__contents > h3 {
       font-size: 1.5625em; }
@@ -477,9 +474,10 @@ button,
     transition: all .3s ease-out; }
   .su-cta .su-cta__button {
     padding: 1.5rem 3rem 1.8rem;
-    font-size: 2.3rem;
+    font-size: 1.5625em;
     background-color: #b1040e;
-    color: #ffffff; }
+    color: #ffffff;
+    font-weight: 400; }
     .su-cta .su-cta__button:hover {
       background-color: #2e2d29;
       color: #ffffff; }
@@ -1833,8 +1831,8 @@ select {
   background-size: 1.3rem; }
 
 legend {
-  font-size: 3.3rem;
-  font-weight: 600; }
+  font-size: 1.953125em;
+  font-weight: 700; }
 
 fieldset {
   border: 0; }
@@ -2105,38 +2103,12 @@ h3,
 h4,
 h5,
 h6 {
-  clear: both;
-  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   margin-top: 0;
-  margin-bottom: 0.5em; }
-  .su-sans h1, .su-sans
-  h2, .su-sans
-  h3, .su-sans
-  h4, .su-sans
-  h5, .su-sans
-  h6 {
-    font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
-  .su-serif h1, .su-serif
-  h2, .su-serif
-  h3, .su-serif
-  h4, .su-serif
-  h5, .su-serif
-  h6 {
-    font-family: "Source Serif Pro", "Georgia", "Times", "Times New Roman", serif; }
-  .su-slab h1, .su-slab
-  h2, .su-slab
-  h3, .su-slab
-  h4, .su-slab
-  h5, .su-slab
-  h6 {
-    font-family: "Roboto Slab", "Georgia", "Times", "Times New Roman", serif; }
-  .su-handwriting h1, .su-handwriting
-  h2, .su-handwriting
-  h3, .su-handwriting
-  h4, .su-handwriting
-  h5, .su-handwriting
-  h6 {
-    font-family: "Kalam", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+  clear: both;
+  font-weight: 700;
+  line-height: 1.2; }
   h1 a,
   h2 a,
   h3 a,
@@ -2146,30 +2118,22 @@ h6 {
     text-decoration: none; }
 
 h1 {
-  font-size: 4.3rem;
-  font-weight: 600; }
-  h1:first-child {
-    margin-top: 0; }
+  font-size: 2.44140625em; }
 
 h2 {
-  font-size: 3.3rem;
-  font-weight: 600; }
+  font-size: 1.953125em; }
 
 h3 {
-  font-size: 2.3rem;
-  font-weight: 600; }
+  font-size: 1.5625em; }
 
 h4 {
-  font-size: 2rem;
-  font-weight: 600; }
+  font-size: 1.25em; }
 
 h5 {
-  font-size: 1.8rem;
-  font-weight: 600; }
+  font-size: 1em; }
 
 h6 {
-  font-size: 1.6rem;
-  font-weight: 400;
+  font-size: 0.8em;
   text-transform: uppercase; }
 
 cite,
@@ -2193,37 +2157,52 @@ dfn {
 .su-sanskrit {
   font-family: "Noto Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
 
-.su-font-lead {
+.su-intro-text {
   font-size: 1.5625em;
-  font-weight: 200;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
   line-height: 1.5;
   max-width: 85rem; }
 
 .su-font-splash {
-  font-size: 2.3rem;
-  font-weight: 600;
-  margin-bottom: 0; }
-  @media only screen and (min-width: 576px) {
-    .su-font-splash {
-      font-size: 4.3rem;
-      font-weight: 600; }
-      .su-font-splash:first-child {
-        margin-top: 0; } }
+  font-size: 2.44140625em;
+  margin-bottom: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
   @media only screen and (min-width: 768px) {
     .su-font-splash {
-      font-size: 5.5rem;
-      font-weight: 600; } }
+      font-weight: 700; } }
 
 .su-caption {
+  margin-top: 0;
+  font-size: 1em;
   color: #4d4f53;
-  font-size: 1.7rem;
-  margin-top: 0; }
+  font-style: italic; }
 
 .su-credits {
-  color: #4d4f53;
-  font-size: 1.7rem;
-  font-style: italic;
-  margin-top: 0; }
+  margin-top: 0;
+  font-size: 1em;
+  color: #4d4f53; }
+
+.su-subheading {
+  font-size: 1.25em; }
+
+.su-quote-text {
+  font-size: 1.25em;
+  font-style: italic; }
+
+.su-big-paragraph {
+  font-size: 2rem; }
+  @media (max-width: 767px) {
+    .su-big-paragraph {
+      font-size: 1.6rem; } }
+
+.su-small-paragraph {
+  font-size: 1.8rem; }
+  @media (max-width: 767px) {
+    .su-small-paragraph {
+      font-size: 1.5rem; } }
 
 .layout-blastila-flex--right > div {
   -webkit-box-orient: horizontal;
@@ -6827,7 +6806,7 @@ button,
 .su-button--big,
 .su-button--big.su-link {
   padding: 1.5rem 3rem 1.8rem;
-  font-size: 2.3rem;
+  font-size: 1.5625em;
   background-color: #b1040e;
   color: #ffffff; }
   .su-button--big:hover,
@@ -6977,8 +6956,8 @@ button,
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translateX(-50%) translateY(-50%) translateY(-2.65rem);
-          transform: translateX(-50%) translateY(-50%) translateY(-2.65rem); }
+  -webkit-transform: translateX(-50%) translateY(-50%) translateY(-3rem);
+          transform: translateX(-50%) translateY(-50%) translateY(-3rem); }
 
 .su-global-footer {
   background-color: #8c1515;
@@ -8272,7 +8251,7 @@ a {
         background-color: #ec0513; } }
     @media (max-width: 991px) {
       .su-main-nav li.su-main-nav__item--current.su-main-nav__item--expanded > a {
-        font-weight: 600; }
+        font-weight: 700; }
         .su-main-nav li.su-main-nav__item--current.su-main-nav__item--expanded > a::before {
           background-color: #ffffff; } }
   .su-main-nav > ul > li {
