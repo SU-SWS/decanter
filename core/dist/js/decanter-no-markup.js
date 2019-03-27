@@ -106,9 +106,9 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./core/src/scss/decanter-no-markup.scss ***!
   \***********************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/sass-loader/lib/loader.js):\n\n    font-weight: $font-regular;\n                ^\n      Undefined variable: \"$font-regular\".\n      in /httpdocs/decanter2/core/src/scss/utilities/placeholders/components/_cta.scss (line 29, column 18)\n    at runLoaders (/httpdocs/decanter2/node_modules/webpack/lib/NormalModule.js:301:20)\n    at /httpdocs/decanter2/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /httpdocs/decanter2/node_modules/loader-runner/lib/LoaderRunner.js:233:18\n    at context.callback (/httpdocs/decanter2/node_modules/loader-runner/lib/LoaderRunner.js:111:13)\n    at Object.render [as callback] (/httpdocs/decanter2/node_modules/sass-loader/lib/loader.js:52:13)\n    at Object.done [as callback] (/httpdocs/decanter2/node_modules/neo-async/async.js:8077:18)\n    at options.error (/httpdocs/decanter2/node_modules/node-sass/lib/index.js:294:32)");
+// extracted by mini-css-extract-plugin
 
 /***/ })
 
