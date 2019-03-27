@@ -183,10 +183,16 @@ let coreConfig = Object.assign({}, config, {
         delete: [ outputDir + '/**.*' ]
       },
       onEnd: {
-        copy: [ {
-          source: outputDir + '/**/*',
-          destination: kssOutputDir
-        } ],
+        copy: [
+          {
+            source: outputDir + '/**/*',
+            destination: kssOutputDir
+          },
+          {
+            source: srcDir + '/templates/**/*',
+            destination: outputDir + "/templates"
+          }
+        ],
       },
     } ),
     // This plugin extracts CSS into separate files. It creates a CSS file per

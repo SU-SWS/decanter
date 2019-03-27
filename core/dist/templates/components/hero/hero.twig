@@ -1,0 +1,54 @@
+{#
+/**
+ * @file
+ * Hero Component
+ *
+ * A big graphic for use as a focal point or a large video.
+ *
+ * Available variables:
+ * - attributes: For additional HTML attributes not already provided.
+ * - modifier_class: Additional css classes to change look and behaviour.
+ * - hero_media: iframe or HTML5 video players
+ * - hero_image: A full HTML entity for an image. Can be img or picture.
+ * - hero_super_headline: Text heading
+ * - hero_headline: Text heading
+ * - hero_body: An open variable for anything. Generally this would be for
+ *     WYSIWYG editor contents.
+ * - hero_cta_link: The href value for the cta field link
+ * - hero_cta_attributes: Any html attributes on the cta link that need to be
+ *     added. For example: _target.
+ * - hero_cta_label: The clickable text for the CTA link
+ * - hero_button_link: The href property of the button component.
+ * - hero_button_label: The text label of the button component.
+ */
+#}
+<div{{ attributes }} class="su-hero {{ modifier_class }}">
+
+  {# Hero Image or Video #}
+  <div class="su-hero__media">
+    {% if 'su-hero--youtube' in modifier_class %}
+    {# Support for: iframe #}
+    {{ hero_media }}
+    {% else %}
+    {# Support for: img or picture #}
+    {{ hero_image}}
+    {% endif %}
+  </div>
+
+  {# We reuse the card component here. #}
+  {% include "@decanter/components/card/card.twig" with
+    {
+      "modifier_class": "su-hero__card",
+      "card_super_headline": hero_super_headline,
+      "card_headline": hero_headline,
+      "card_body": hero_body,
+      "card_cta_link": hero_cta_link,
+      "card_cta_attributes": hero_cta_attributes,
+      "card_cta_label": hero_cta_label,
+      "card_button_link": hero_button_link,
+      "card_button_label": hero_button_label,
+    }
+    only
+  %}
+
+</div>
