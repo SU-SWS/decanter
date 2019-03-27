@@ -188,7 +188,7 @@ let coreConfig = Object.assign({}, config, {
     // https://www.npmjs.com/package/filemanager-webpack-plugin
     new FileManagerPlugin( {
       onStart: {
-        delete: [ outputDir + '/**.*' ]
+        delete: [ outputDir + '/**/*' ]
       },
       onEnd: {
         copy: [
