@@ -3,11 +3,12 @@
 Version 5.0.0                      2019-03-27
 ---------------------------------------------
 - New Webpack Build System
-- Two revamped and improved Grid Systems
+- Two revamped and improved Grid Systems with 6 breakpoints
 - Flexbox based, class generated grid system
 - CSS Grid based mixin supported grid system
-- LOTS of new components and variants - check them out!
-- LOTS of new SASS/SCSS mixins and functions to help you in your project
+- A modular scale system that includes both modular spacing and modular typography mixins
+- LOTS of new components and variants, including Stanford branded elements such as 20 versions of logo lockups, global footer, brand bars - check them out!
+- LOTS of new SASS/SCSS mixins, functions and placeholders to help you in your project
 - LOTS of usable Twig templates for both components and layouts
 - Revamped and refreshed the KSS theme with a new look and feel; plus new navigation
 - Moved source code from core/ to src/ to better align with Webpack projects
