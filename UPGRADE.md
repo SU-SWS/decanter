@@ -94,8 +94,12 @@ different one to four column layouts.
 
 #### Mixins (Restructured with New Items)
 
-Many new mixins have been added. Media query mixins have been rewritten and can be found inside the `/breakpoint`
-directory.
+Many new mixins have been added or changed. Below are a few notable ones.
+
+- Updated media query mixins that work with our new grid system can be found inside the `/breakpoint` directory.
+- Modular scale mixins for rendering modular spacing (uses the Bourbon modular scale with a factor of 1.25 between steps) and typography (uses a curated scale) have been introduced.
+- Many typography mixins have been added, including `@type-a` to `@type-f` which could be used to 
+generate styles for headers and other text elements.
 
 #### Functions (New Items)
 
@@ -103,8 +107,9 @@ Many helper functions have been added to the directory.
 
 #### Placeholders (New)
 
-The new `/placeholders` directory inside the `utilities` directory contains .scss files with placeholder classes that
-developers can extend in their own projects. Currently, this directory holds mostly base styles for our components.
+The new `/placeholders` directory inside the `/utilities` directory contains .scss files with placeholder classes that
+developers can extend in their own projects. Currently, this directory holds mostly base styles for our components,
+e.g., `%button-base`, `%card-base`.
 
 ### Build Tools
 
