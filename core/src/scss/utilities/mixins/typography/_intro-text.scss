@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+//
+// @intro-text
+//
+// For leading a page of text, summarizing a main point, and/or highlighting a
+// paragraph or quote.
+//
+// Style guide: Mixins.Typography.intro-text
+//
+@mixin intro-text {
+  @include modular-typography(2);
+  @include font-smoothing;
+
+  font-weight: $font-regular;
+  line-height: $intro-line-height;
+  max-width: $intro-max-width;
+}

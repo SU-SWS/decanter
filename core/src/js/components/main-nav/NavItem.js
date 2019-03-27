@@ -1,8 +1,7 @@
 import { theSubNavs, closeAllSubNavs } from './globals';
 import { isHome, isEnd, isTab, isSpace, isEnter, isLeftArrow, isRightArrow, isUpArrow, isDownArrow } from "../../utilities/keyboard";
 import Nav from './Nav';
-
-'../../utilities/keyboard';
+import '../../utilities/keyboard';
 
 /**
  * Represent an item in a navigation menu. May be a direct link or a subnav

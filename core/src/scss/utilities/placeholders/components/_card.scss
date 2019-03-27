@@ -35,29 +35,26 @@
     }
 
     > h3,
-    > h5 {
+    > h4 {
       @include margin(null null 0);
       @include sans;
-      font-weight: $font-x-bold;
-      line-height: 1.1;
     }
 
     // Super Headline.
-    > h5 {
+    > h4 {
       @include modular-spacing('padding', null null -2);
-      @include modular-typography(-1);
-      text-transform: uppercase;
+      @include type-f;
     }
 
     // Headline.
     > h3 {
       @include modular-spacing('padding', null null -1);
-      @include modular-typography(2);
+      @include type-c;
     }
 
     // Card body - open field, any p or div (that are not part of the button)
     > div:not(.su-card__button) {
-      line-height: 1.4;
+      line-height: $base-line-height;
     }
 
     > div:not(.su-card__button),
@@ -86,4 +83,3 @@
     }
   }
 }
-
