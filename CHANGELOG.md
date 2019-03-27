@@ -7,7 +7,7 @@ Version 5.0.0                      2019-03-27
 - Flexbox based, class generated grid system
 - CSS Grid based mixin supported grid system
 - LOTS of new components and variants - check them out!
-- LOTS of new SASS/Scss mixins and functions to help you in your project
+- LOTS of new SASS/SCSS mixins and functions to help you in your project
 - LOTS of usable Twig templates for both components and layouts
 - Revamped and refreshed the KSS theme with a new look and feel; plus new navigation
 - Moved source code from core/ to src/ to better align with Webpack projects
