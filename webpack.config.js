@@ -8,7 +8,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const FileManagerPlugin = require('filemanager-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
@@ -170,10 +170,24 @@ let coreConfig = Object.assign({}, config, {
   },
   // Define and configure webpack plugins.
   plugins: [
-    // A webpack plugin to remove/clean your build folder(s).
-    // https://www.npmjs.com/package/clean-webpack-plugin
-    new CleanWebpackPlugin( {
-      verbose: true
+    // A webpack plugin to manage files before or after the build.
+    // Used here to:
+    // - clean all generated files (js AND css) prior to building
+    // - copy generated files to the styleguide after building
+    // Copying to the styleguide must happen in this build because the 2 configs
+    // run asynchronously, and the kss build finishes before this build generates
+    // the assets that need to be copied.
+    // https://www.npmjs.com/package/filemanager-webpack-plugin
+    new FileManagerPlugin( {
+      onStart: {
+        delete: [ outputDir + '**.*' ]
+      },
+      onEnd: {
+        copy: [ {
+          source: outputDir + '**/*',
+          destination: kssOutputDir
+        } ],
+      },
     } ),
     // This plugin extracts CSS into separate files. It creates a CSS file per
     // JS file which contains CSS. It supports On-Demand-Loading of CSS and
@@ -232,11 +246,6 @@ let kssConfig = Object.assign({}, config, {
   },
   // Define and configure webpack plugins.
   plugins: [
-    // A webpack plugin to remove/clean your build folder(s).
-    // https://www.npmjs.com/package/clean-webpack-plugin
-    new CleanWebpackPlugin( {
-      verbose: true
-    } ),
     // This plugin extracts CSS into separate files. It creates a CSS file per
     // JS file which contains CSS. It supports On-Demand-Loading of CSS and
     // SourceMaps.
