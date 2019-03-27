@@ -3,6 +3,17 @@
 Upgrade from version 4.1.0 to 5.0.0
 -----------------------------------
 
+- Webpack stuff
+  (JB + SM)
+  
+- Grids
+  (Joe)
+
+- Other
+  (Yvonne)
+  File paths
+  removed items
+  added items (functions/mixins/components)
 
 Upgrade from version 3.1.0 to 4.0.0
 -----------------------------------
