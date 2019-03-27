@@ -3,7 +3,6 @@
  * @type {[type]}
  */
 
-
  // Requires / Dependencies
 const path = require('path');
 const webpack = require('webpack');
@@ -17,13 +16,14 @@ const ExtraWatchWebpackPlugin = require("extra-watch-webpack-plugin");
 
 // Paths
 const npmPackage = 'node_modules/';
-const srcDir = process.env.npm_package_srcDir;
-const outputDir = process.env.npm_package_distDir;
-const kssSrcDir = process.env.npm_package_kssSrcDir;
+const srcDir = path.resolve( __dirname, process.env.npm_package_srcDir );
+const outputDir = path.resolve( __dirname, process.env.npm_package_distDir );
+const kssSrcDir = path.resolve( __dirname, process.env.npm_package_kssSrcDir );
 const kssOutputDir = path.resolve( __dirname, process.env.npm_package_kssDistDir );
 
 // Other variables
-const devMode = process.env.npm_lifecycle_event !== 'dist'; // process.env.NODE_ENV is NOT set, so use the name of the npm script as the clue
+// process.env.NODE_ENV is NOT set, so use the name of the npm script as the clue.
+const devMode = process.env.npm_lifecycle_event !== 'dist';
 
 // For MiniCssExtractPlugin
 // Loops through the module variable that is nested looking for a name.
@@ -115,7 +115,7 @@ var config = {
         ]
       }
     ]
-  },
+  }
 };
 
 // Decanter core configuration.
@@ -123,9 +123,9 @@ let coreConfig = Object.assign({}, config, {
   name: "decanter",
   // Define the entry points for which webpack builds a dependency graph.
   entry: {
-    "decanter": srcDir + "js/decanter.js",
-    "decanter-grid": srcDir + "js/decanter-grid.js",
-    "decanter-no-markup": srcDir + "js/decanter-no-markup.js"
+    "decanter": srcDir + "/js/decanter.js",
+    "decanter-grid": srcDir + "/js/decanter-grid.js",
+    "decanter-no-markup": srcDir + "/js/decanter-no-markup.js"
   },
   // Where should I output the assets.
   output: {
@@ -158,12 +158,6 @@ let coreConfig = Object.assign({}, config, {
           test: ( module, chunks, entry = 'decanter-no-markup' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
           chunks: 'all',
           enforce: true
-        },
-        'kss': {
-          name: 'kss',
-          test: ( module, chunks, entry = 'kss' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
-          chunks: 'all',
-          enforce: true
         }
       }
     }
@@ -180,11 +174,11 @@ let coreConfig = Object.assign({}, config, {
     // https://www.npmjs.com/package/filemanager-webpack-plugin
     new FileManagerPlugin( {
       onStart: {
-        delete: [ outputDir + '**.*' ]
+        delete: [ outputDir + '/**.*' ]
       },
       onEnd: {
         copy: [ {
-          source: outputDir + '**/*',
+          source: outputDir + '/**/*',
           destination: kssOutputDir
         } ],
       },
@@ -213,12 +207,12 @@ let kssConfig = Object.assign({}, config, {
   name: "kss",
   // Define the entry points for which webpack builds a dependency graph.
   entry: {
-    'kss': kssSrcDir + "scss/kss.js"
+    'kss': kssSrcDir + "/scss/kss.js"
   },
   // Where should I output the assets.
   output: {
     filename: "[name].js",
-    path: path.resolve( __dirname, kssSrcDir + 'kss-assets/dist' )
+    path: path.resolve( __dirname, kssSrcDir + '/kss-assets/dist' )
   },
   // Optimizations that are triggered by production mode.
   optimization: {
@@ -260,8 +254,8 @@ let kssConfig = Object.assign({}, config, {
     // https://www.npmjs.com/package/filewatcher-webpack-plugin
     new ExtraWatchWebpackPlugin( {
       files: [
-        srcDir + '**/*.twig',
-        srcDir + '**/*.json'
+        srcDir + '/**/*.twig',
+        srcDir + '/**/*.json'
       ]
     } ),
   ]
