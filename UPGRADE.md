@@ -15,7 +15,7 @@ needs.
 
 While the CSS Grid system is entirely new (and comes with new functions and mixins),
 the Flexbox system is an updated version of the previously used system. Therefore,
-only the Flexbox system requires an upgrade from the pervious version. You are
+only the Flexbox system requires an upgrade from the previous version. You are
 encouraged to explore the CSS Grid system for enhancement and usability in your
 project.
 
@@ -51,11 +51,63 @@ match columns.
 
 Example: `.flex-push-xs-5`
 
-- Other
-  (Yvonne)
-  File paths
-  removed items
-  added items (functions/mixins/components)
+### File Paths
+
+You can now find all the files you need for your project inside `decanter/core`. `/core/src/` contains all the raw 
+source files that one can read/edit, including .scss, .js, .twig templates and image files in their respective folders. 
+`/core/dist/` contains the distribution version of the files including processed .css and .js files used in 
+production sites.
+
+Font files have been removed from Decanter and are now being downloaded from the Google CDN with the except of a few
+that are being downloaded from a Stanford server.
+
+### Naming Conventions
+
+Decanter now uses the [BEM (Block Element Modifier) naming convention](http://getbem.com/naming/). All decanter 
+components are now namespaced with the `su-` prefix in their class names.
+
+Example: `.su-button`, `.su-main-nav`
+
+Elements within a component have class names that start with the component name plus 2 underscores plus 
+the element name.
+
+Example: `.su-main-nav__toggle`
+
+Modifier classes start with the component or element name that they are modifying plus 2 hyphens plus the modifier name.
+
+Example: `.su-main-nav--light`, `.su-main-nav__toggle--center`
+
+### Components (Restructured with New Items)
+
+Version 5.0.0 has dropped the Atomic Design structure to allow for more flexible component creation. All component 
+.scss files (including variants) can now be found under `/core/src/scss/components` within individual 
+component folders.
+
+### Utilities
+
+#### Variables (Moved)
+
+The `/variables` directory has been moved inside the `/utilities` directory. 
+
+#### Layouts (Moved with New Items)
+
+Previously inside the `/mixins` directory, `/layouts` now has path `/core/src/scss/layout` with .scss files for 
+Flexbox Grid and CSS Grid layouts inside `/layout/flex` and `/layout/grid` respectively. Each grid system now has many
+different one to four column layouts.
+
+#### Mixins (Restructured with New Items)
+
+Many new mixins have been added. Media query mixins have been rewritten and can be found inside the `/breakpoint`
+directory. 
+
+#### Functions (New Items)
+
+Many helper functions have been added to the directory.
+
+#### Placeholders (New)
+
+The new `/placeholders` directory inside the `utilities` directory contains .scss files with placeholder classes that
+developers can extend in their own projects. Currently, this directory holds mostly base styles for our components.
 
 Upgrade from version 3.1.0 to 4.0.0
 -----------------------------------
