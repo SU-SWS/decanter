@@ -115,7 +115,15 @@ var config = {
             loader: 'url-loader',
             options: {
               // Maximum size of a file in bytes. 8.192 Kilobtyes.
-              limit: 8192
+              limit: 8192,
+              fallback: {
+                loader: "file-loader",
+                options: {
+                  name: devMode ? "[name].[ext]" : "[hash:7].[ext]",
+                  publicPath: "../assets",
+                  outputPath: "../assets"
+                }
+              }
             }
           }
         ]
@@ -184,10 +192,7 @@ let coreConfig = Object.assign({}, config, {
       },
       onEnd: {
         copy: [
-          {
-            source: outputDir + '/**/*',
-            destination: kssOutputDir
-          }
+          { source: outputDir + '/**/*', destination: kssOutputDir }
         ],
       },
     } ),
