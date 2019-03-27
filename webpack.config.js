@@ -4,7 +4,7 @@
  */
 
 
- // Requires / Dependencies.
+ // Requires / Dependencies
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
@@ -15,19 +15,17 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const WebpackAssetsManifest = require("webpack-assets-manifest");
 const ExtraWatchWebpackPlugin = require("extra-watch-webpack-plugin");
 
-// Paths.
-const assetDir  = './core/src/';
-const kssDir  = './kss/builder/decanter/';
-const outputDir = 'core/dist';
-const styleGuide = path.resolve( __dirname, './styleguide/');
+// Paths
 const npmPackage = 'node_modules/';
+const srcDir = process.env.npm_package_srcDir;
+const outputDir = process.env.npm_package_distDir;
+const kssSrcDir = process.env.npm_package_kssSrcDir;
+const kssOutputDir = path.resolve( __dirname, process.env.npm_package_kssDistDir );
 
-// Other variables.
-const devMode = process.env.NODE_ENV !== 'production';
-console.log( "mode is ", process.env.NODE_ENV );
-console.log( "devMode is ", devMode );
+// Other variables
+const devMode = process.env.npm_lifecycle_event !== 'dist'; // process.env.NODE_ENV is NOT set, so use the name of the npm script as the clue
 
-// For MiniCssExtractPlugin.
+// For MiniCssExtractPlugin
 // Loops through the module variable that is nested looking for a name.
 function recursiveIssuer(module) {
   if (module.issuer) {
@@ -91,7 +89,7 @@ var config = {
             options: {
               includePaths: [
                 path.resolve( __dirname, npmPackage, "bourbon/core" ),
-                path.resolve( __dirname, assetDir, "scss" )
+                path.resolve( __dirname, srcDir, "scss" )
               ],
               sourceMap: true,
               lineNumbers: true,
@@ -125,13 +123,13 @@ let coreConfig = Object.assign({}, config, {
   name: "decanter",
   // Define the entry points for which webpack builds a dependency graph.
   entry: {
-    "decanter": assetDir + "js/decanter.js",
-    "decanter-grid": assetDir + "js/decanter-grid.js",
-    "decanter-no-markup": assetDir + "js/decanter-no-markup.js"
+    "decanter": srcDir + "js/decanter.js",
+    "decanter-grid": srcDir + "js/decanter-grid.js",
+    "decanter-no-markup": srcDir + "js/decanter-no-markup.js"
   },
   // Where should I output the assets.
   output: {
-    filename: "[name].js",
+    filename: devMode ? "[name].js" : "[name].[hash].js",
     path: path.resolve( __dirname, outputDir + '/js' )
   },
   // Optimizations that are triggered by production mode.
@@ -184,7 +182,7 @@ let coreConfig = Object.assign({}, config, {
     new MiniCssExtractPlugin( {
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: "../css/[name].css",
+      filename: devMode ? "../css/[name].css" : "../css/[name].[hash].css",
       chunkFilename: "../css/[id].css"
     } ),
     // This Webpack plugin will generate a JSON file that matches the original
@@ -201,12 +199,12 @@ let kssConfig = Object.assign({}, config, {
   name: "kss",
   // Define the entry points for which webpack builds a dependency graph.
   entry: {
-    'kss': kssDir + "scss/kss.js"
+    'kss': kssSrcDir + "scss/kss.js"
   },
   // Where should I output the assets.
   output: {
     filename: "[name].js",
-    path: path.resolve( __dirname, kssDir + 'kss-assets/dist' )
+    path: path.resolve( __dirname, kssSrcDir + 'kss-assets/dist' )
   },
   // Optimizations that are triggered by production mode.
   optimization: {
@@ -249,18 +247,12 @@ let kssConfig = Object.assign({}, config, {
       filename: "../css/[name].css",
       chunkFilename: "../css/[id].css"
     } ),
-    // This Webpack plugin will generate a JSON file that matches the original
-    // filename with the hashed version.
-    // https://github.com/webdeveric/webpack-assets-manifest
-    new WebpackAssetsManifest( {
-      output: 'assets.json'
-    } ),
     // Add a plugin to watch other files other than that required by webpack.
     // https://www.npmjs.com/package/filewatcher-webpack-plugin
     new ExtraWatchWebpackPlugin( {
       files: [
-        'src/**/*.twig',
-        'src/**/*.json'
+        srcDir + '**/*.twig',
+        srcDir + '**/*.json'
       ]
     } ),
   ]
