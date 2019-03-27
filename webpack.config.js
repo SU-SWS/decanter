@@ -43,6 +43,12 @@ function recursiveIssuer(module) {
 var config = {
   // Allows for map files.
   devtool: 'source-map',
+  // Live dev server!
+  devServer: {
+    contentBase: path.join(__dirname, 'styleguide'),
+    compress: true,
+    port: 9000
+  },
   // Define modules.
   module: {
     rules: [
@@ -205,10 +211,6 @@ let coreConfig = Object.assign({}, config, {
 // Decanter core configuration.
 let kssConfig = Object.assign({}, config, {
   name: "kss",
-  // Live dev!
-  devServer: {
-    contentBase: path.resolve( __dirname, 'styleguide' )
-  },
   // Define the entry points for which webpack builds a dependency graph.
   entry: {
     'kss': kssSrcDir + "/scss/kss.js"
