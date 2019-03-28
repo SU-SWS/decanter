@@ -19,7 +19,7 @@
   <h2>Developer Resources</h2>
   <div class="cards-container">
     <div class="su-card">
-      <img src="/img/cubes.png" alt="Cubes" role="presentation" />
+      <img src="/kss-assets/cubes.png" alt="Cubes" role="presentation" />
       <div class="su-card__contents">
         <h3>Components</h3>
         <p>Browse our catalog of components and view the markup.</p>
@@ -27,7 +27,7 @@
       </div>
     </div>
     <div class="su-card card-2">
-      <img src="/img/file.png" alt="File" role="presentation" />
+      <img src="/kss-assets/file.png" alt="File" role="presentation" />
       <div class="su-card__contents">
         <h3>Documentation</h3>
         <p>From coding standards to best practices follow the link to find out more.</p>

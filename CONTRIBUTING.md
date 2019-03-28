@@ -136,7 +136,7 @@ Then run:
 
    ```bash
    npm install
-   grunt sasslint
+   npm run sasslint
    ```
 
 This should output any errors the linter can find. Please fix those before
