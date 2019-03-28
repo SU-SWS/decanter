@@ -58,6 +58,12 @@ production sites.
 Font files have been removed from Decanter and are now being downloaded from the Google CDN with the except of a few
 that are being downloaded from a Stanford server.
 
+### Fonts
+The font Crimson Text is no longer part of Decanter and has been removed. Two new fonts have been added.
+
+- Kalam (handwriting display font)
+- Noto Sans Devanagari Subset (for Sanskrit font support)
+
 ### Naming Conventions
 
 Decanter now uses the [BEM (Block Element Modifier) naming convention](http://getbem.com/naming/). All decanter
@@ -82,9 +88,9 @@ component folders.
 
 ### Utilities
 
-#### Variables (Moved)
+#### Variables (Moved with New Items)
 
-The `/variables` directory has been moved inside the `/utilities` directory.
+The `/variables` directory has been moved inside the `/utilities` directory. 
 
 #### Layouts (Moved with New Items)
 
