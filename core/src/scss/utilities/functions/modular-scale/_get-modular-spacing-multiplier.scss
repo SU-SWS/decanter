@@ -13,6 +13,6 @@
 //
 @function get-modular-spacing-multiplier($step: 0) {
   @if ($step >= -4 and $step <= 5) {
-    @return map_get($modular-spacing-multiplier, $step);
+    @return map-get($modular-spacing-multiplier, $step);
   }
 }
