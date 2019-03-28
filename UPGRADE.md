@@ -51,9 +51,8 @@ Example: `.flex-push-xs-5`
 ### File Paths
 
 You can now find all the files you need for your project inside `decanter/core`. `/core/src/` contains all the raw
-source files that one can read/edit, including .scss, .js, .twig templates and image files in their respective folders.
-`/core/dist/` contains the distribution version of the files including processed .css and .js files used in
-production sites.
+source files that one can read/edit, including `.scss`, `.js`, `.twig` templates and image files in their respective
+folders. `/core/dist/` contains the distribution version of the .css and .js files used in production sites.
 
 Font files have been removed from Decanter and are now being downloaded from the Google CDN with the except of a few
 that are being downloaded from a Stanford server.
@@ -119,20 +118,30 @@ e.g., `%button-base`, `%card-base`.
 
 ### Build Tools
 
-Grunt has been mostly deprecated and removed in this early version with webpack
-and a few npm scripts replacing most of the build work. You will want to change
-whatever integrations you are using with the grunt tool over to webpack.
+Grunt has been mostly deprecated in 5.0.0. Most of the build steps previously performed by grunt
+are now performed by npm scripts, several of which invoke webpack. You will want to migrate any
+integrations you have with grunt over to npm / webpack.
 
-- Webpack is now responsible for aggregating and compiling the SCSS and JS. Stop using grunt.
-- `npm run styleguide` is now responsible for building the styleguide. Stop using grunt.
-- `npm run eslint|sasslint` is now responsible for linting the code. Stop using grunt.
+[Webpack](https://webpack.js.org/concepts) is now the tool that processes the source SCSS and JS
+and generates the distribution CSS and JS files.
+[npm scripts](https://docs.npmjs.com/cli/run-script.html) are used to run webpack
+and other tools, e.g. `kss`, `eslint`. **Stop using grunt.**
+
+The following npm scripts are available:
+- `npm run build` generates the dev (non-minified) .css and .js for decanter and the styleguide.
+- `npm run dist` generates the production (minified) .css and .js for decanter and the styleguide.
+- `npm run watch` regenerates the dev (non-minified) .css and .js for decanter and the styleguide whenever the source files change.
+- `npm run styleguide` builds the styleguide.
+- `npm run eslint` and `npm run sasslint` lint the code.
+- `npm run start` opens a tab in your default browser and loads the styleguide on port `9000`.
+- `npm run dev` is a shortcut that runs the `build`, `styleguide`, `watch` and `start` scripts.
 
 ### Assets
 
 Image and other file assets are now managed through webpack builds and in order
 to simplify your experience we have gone to great lengths to ensure that all
 references to files (images/fonts/etc) are now either encoded directly into the
-generated CSS or fetched from a remote CDN. If you had a build too that was
+generated CSS or fetched from a remote CDN. If you had a build tool that was
 moving the assets previously you can stop that.
 
 Upgrade from version 3.1.0 to 4.0.0
