@@ -28,12 +28,12 @@
     @include margin(null null 0.2em null);
 
     @include grid-media('md') {
-      @include margin(-.4rem null null);
+      @include margin(-0.4rem null null);
       font-size: 1.9rem;
     }
 
     @include grid-media-max('sm') {
-      @include margin(null null .2rem null);
+      @include margin(null null 0.2rem null);
     }
   }
 
@@ -51,11 +51,11 @@
     text-transform: uppercase;
 
     @include grid-media-max('sm') {
-      @include margin(.75rem null null -2px);
+      @include margin(0.75rem null null -2px);
       order: 2;
 
       &::after {
-        @include margin(.75rem null .5rem);
+        @include margin(0.75rem null 0.5rem);
         border-bottom: 1px solid $color-black;
         content: '';
         display: block;

@@ -24,15 +24,15 @@
   }
 
   .su-lockup__line1 {
-    @include margin(.5rem null 2px);
+    @include margin(0.5rem null 2px);
 
     @include grid-media('md') {
-      @include margin(-.4rem null 2px);
+      @include margin(-0.4rem null 2px);
       font-size: 1.3rem;
     }
 
     @include grid-media-max('sm') {
-      @include margin(0 null .2rem -2px);
+      @include margin(0 null 0.2rem -2px);
     }
   }
 
@@ -51,11 +51,11 @@
     text-transform: uppercase;
 
     @include grid-media-max('sm') {
-      @include margin(.75rem null null);
+      @include margin(0.75rem null null);
       order: 2;
 
       &::after {
-        @include margin(1rem null .5rem);
+        @include margin(1rem null 0.5rem);
         border-bottom: 1px solid $color-black;
         content: '';
         display: block;
