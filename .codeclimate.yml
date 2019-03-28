@@ -18,34 +18,13 @@ engines:
   # We don't lint our coffee. Eew.
   coffeelint:
     enabled: false
+  sass-lint:
+    enabled: true
   # SCSS Lint requires a .scss-lint.yml file in the repo in order to tweak settings.
   # Withouth the .scss-lint.yml file it will run with the defaults.
   # Defaults file: https://github.com/brigade/scss-lint/blob/master/config/default.yml
   scss-lint:
-    enabled: true
-    checks:
-      DeclarationOrder:
-        enabled: false
-      PropertySortOrder:
-        enabled: false
-      StringQuotes:
-        enabled: false
-      ColorVariable:
-        enabled: false
-      ColorKeyword:
-        enabled: false
-      HexLength:
-        enabled: false
-      LeadingZero:
-        enabled: false
-      NameFormat:
-        enabled: false
-      SelectorFormat:
-        enabled: false
-      VendorPrefix:
-        enabled: false
-      UrlFormat:
-        enabled: false
+    enabled: false
   phpcodesniffer:
     enabled: false
   phpmd:
