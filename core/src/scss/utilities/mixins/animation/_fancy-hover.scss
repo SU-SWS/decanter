@@ -20,7 +20,7 @@
     content: "";
     position: absolute;
     visibility: hidden;
-    transition: transform .3s ease-in, background-color .3s ease-in;
+    transition: transform 0.3s ease-in, background-color 0.3s ease-in;
     z-index: 1;
   }
 
@@ -31,7 +31,7 @@
 
     &::before {
       visibility: visible;
-      transition: transform .3s ease-out, background-color .3s ease-out;
+      transition: transform 0.3s ease-out, background-color 0.3s ease-out;
     }
   }
 
@@ -65,13 +65,13 @@
     }
 
     @if ($position == 'bottom') {
-      @include padding(null null .8em);
+      @include padding(null null 0.8em);
 
       &::before {
         bottom: 0;
       }
     } @elseif ($position == 'top') {
-      @include padding(.8em null null);
+      @include padding(0.8em null null);
 
       &::before {
         top: 0;

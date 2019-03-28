@@ -86,7 +86,7 @@
         visibility: visible;
         transform: scaleY(1);
         background-color: $color-vivid-red;
-        transition: left .1s ease-out;
+        transition: left 0.1s ease-out;
       }
 
       &:hover,
@@ -118,7 +118,7 @@
           top: 0;
           height: 11px; //small svg gets chopped off if use em instead of px
           width: 11px;
-          transition: transform .3s ease-out;
+          transition: transform 0.3s ease-out;
         }
       }
 
@@ -255,7 +255,7 @@
     color: $color-black;
     font-size: 1.6rem;
     font-weight: $font-regular;
-    line-height: .7;
+    line-height: 0.7;
 
     &::after {
       @include margin(0 auto);
@@ -329,7 +329,7 @@
   @include grid-media('lg') {
     > a {
       color: $color-black;
-      transition: color .3s ease-out;
+      transition: color 0.3s ease-out;
 
       &:hover,
       &:focus {
@@ -414,8 +414,10 @@
     position: absolute;
     max-width: 30rem;
 
-    li:last-child a {
-      border-bottom: 0;
+    li:last-child {
+      a {
+        border-bottom: 0;
+      }
     }
   }
 }

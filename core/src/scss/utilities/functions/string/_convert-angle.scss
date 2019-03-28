@@ -1,4 +1,4 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 
 //
 // convert-angle($value, $unit)
@@ -17,8 +17,8 @@
   $conversion-factors: 1 (10grad / 9deg) (1turn / 360deg) (3.1415926rad / 180deg);
   @if index($convertable-units, unit($value)) and index($convertable-units, $unit) {
     @return $value
-             / nth($conversion-factors, index($convertable-units, unit($value)))
-             * nth($conversion-factors, index($convertable-units, $unit));
+    / nth($conversion-factors, index($convertable-units, unit($value)))
+    * nth($conversion-factors, index($convertable-units, $unit));
   }
 
   @warn "Cannot convert `#{unit($value)}` to `#{$unit}`.";
