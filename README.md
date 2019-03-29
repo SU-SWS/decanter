@@ -13,8 +13,9 @@ To see a live demo of Decanter please [view the styleguide.](https://decanter.st
 Description
 ---
 
-Decanter is an artifact (and tool) of the design and development system that while aligned with a single product line, has a chief goal of housing
-patterns that can be used in any project. It is also a browsable collection of design patterns that have been vetted and translated into code.
+Decanter is a web design and development system for Stanford University. 
+It includes a responsive layout system and a browsable collection of design patterns 
+that can be used in any Stanford project.
 
 Accessibility
 ---
