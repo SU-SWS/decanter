@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+//
+// Date Stacked
+//
+// Abbreviated month stacked on top of numerical day of the month.
+//
+// Markup: ../templates/components/date-stacked/date-stacked.twig
+//
+// Style guide: Components.Date Stacked
+//
+.su-date-stacked {
+  @include box-shadow('shallow')
+  @include margin(null 0 null null);
+  @include padding(20px 25px);
+  background: $color-black;
+  color: $color-white;
+  text-align: center;
+
+  .su-date-month {
+    @include modular-typography(1);
+    font-weight: $font-x-light;
+    line-height: $displays-line-height;
+    text-transform: uppercase;
+  }
+
+  .su-date-day {
+    font-weight: $font-regular;
+  }
+}
