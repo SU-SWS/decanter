@@ -22,8 +22,9 @@
 
   @if $gutter == 0 {
     @return unquote("#{percentage($_column-ratio)}");
-  } @else {
-    $_gutter-affordance: (#{(1 - nth($columns, 1) / $_total_columns) * $gutter});
+  }
+  @else {
+    $_gutter-affordance: (#{(1 - nth($columns, 1) / $_total-columns) * $gutter});
     @return unquote("#{percentage($_column-ratio)} - #{$_gutter-affordance}");
   }
 }
