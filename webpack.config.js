@@ -176,7 +176,7 @@ let DecanterSass = {
               fallback: {
                 loader: "file-loader",
                 options: {
-                  name: "[name].[ext]",
+                  name: devMode ? "[name].[ext]" : "[hash:7].[ext]",
                   publicPath: "../assets",
                   outputPath: "../assets"
                 }
