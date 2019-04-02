@@ -1,7 +1,6 @@
-import { theSubNavs, closeAllSubNavs } from './globals';
-import { isHome, isEnd, isTab, isSpace, isEnter, isLeftArrow, isRightArrow, isUpArrow, isDownArrow } from "../../utilities/keyboard";
+import './globals.js';
+import * as UtilKeyboard from "../../utilities/keyboard.js";
 import Nav from './Nav';
-import '../../utilities/keyboard';
 
 /**
  * Represent an item in a navigation menu. May be a direct link or a subnav

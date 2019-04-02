@@ -1,3 +1,7 @@
-import './components/components.js';
+/**
+ * Webpack Entry File.
+ */
 
-import '../scss/decanter.scss';
+import * as DecanterCore from './core/core.js';
+import * as DecanterUtilsKeyboard from './utilities/keyboard.js';
+import * as Decanter from './components/components.js';

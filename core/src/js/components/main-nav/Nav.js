@@ -1,5 +1,5 @@
 import { closeAllMobileNavs } from './globals';
-import { isEsc, isSpace, isEnter } from "../../utilities/keyboard";
+import * as UtilKeyboard from "../../utilities/keyboard";
 import NavItem from './NavItem';
 
 /**
