@@ -16,7 +16,8 @@
 @function flex-column-ratio($columns, $grid-columns: $grid-columns) {
   @if length($columns) > 1 {
     @return nth($columns, 1) / flex-parse-columns($columns);
-  } @else if $columns {
+  }
+  @else if $columns {
     @return $columns / $grid-columns;
   }
 }

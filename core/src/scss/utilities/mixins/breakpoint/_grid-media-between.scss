@@ -18,11 +18,13 @@
     @media (min-width: $min) and (max-width: $max) {
       @content;
     }
-  } @else if $max == null {
+  }
+  @else if $max == null {
     @include grid-media-min($lower, $breakpoints) {
       @content;
     }
-  } @else if $min == null {
+  }
+  @else if $min == null {
     @include grid-media-max($upper, $breakpoints) {
       @content;
     }

@@ -21,11 +21,12 @@
   @if ($col-end != null and $col-start != null) {
     grid-column: #{$col-start} / #{$col-end};
 
-     @if (str-index(#{$col-end}, 'span ')) {
-       -ms-grid-column-span: str-replace(#{$col-end}, "span ", '');
-     } @else {
-       -ms-grid-column-span: $col-end - $col-start;
-     }
+    @if (str-index(#{$col-end}, 'span ')) {
+      -ms-grid-column-span: str-replace(#{$col-end}, "span ", '');
+    }
+    @else {
+      -ms-grid-column-span: $col-end - $col-start;
+    }
 
   }
 
@@ -38,7 +39,8 @@
 
     @if (str-index(#{$row-end}, "span ")) {
       -ms-grid-row-span: str-replace(#{$row-end}, "span ", '');
-    } @else {
+    }
+    @else {
       -ms-grid-row-span: $row-end - $row-start;
     }
 
