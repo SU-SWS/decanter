@@ -589,7 +589,7 @@ function () {
     if (this.isSubNavTrigger()) {
       this.subNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](this); // Maintain global list of subnavs for closeAllSubNavs().
 
-      theSubNavs.push(this);
+      _globals_js__WEBPACK_IMPORTED_MODULE_0__["theSubNavs"].push(this);
       this.item.addEventListener('click', this);
     }
   } // -------------------------------------------------------------------------
@@ -688,7 +688,7 @@ function () {
     key: "openSubNav",
     value: function openSubNav() {
       var focusOnFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-      closeAllSubNavs();
+      Object(_globals_js__WEBPACK_IMPORTED_MODULE_0__["closeAllSubNavs"])();
 
       if (this.isSubNavTrigger()) {
         this.item.classList.add('su-main-nav__item--expanded');
@@ -769,7 +769,7 @@ function () {
     value: function onKeydown(event, target) {
       var theKey = event.key || event.keyCode; // Handler for the space and enter key.
 
-      if (isSpace(theKey) || isEnter(theKey)) {
+      if (Object(_utilities_keyboard_js__WEBPACK_IMPORTED_MODULE_1__["isSpace"])(theKey) || Object(_utilities_keyboard_js__WEBPACK_IMPORTED_MODULE_1__["isEnter"])(theKey)) {
         event.preventDefault();
         event.stopPropagation();
 
@@ -779,7 +779,7 @@ function () {
           window.location = this.link;
         }
       } // Handler for the down arrow key.
-      else if (isDownArrow(theKey)) {
+      else if (Object(_utilities_keyboard_js__WEBPACK_IMPORTED_MODULE_1__["isDownArrow"])(theKey)) {
           event.preventDefault();
           event.stopPropagation();
 
@@ -793,12 +793,12 @@ function () {
             this.nav.focusOn('next', this);
           }
         } // Handler for the up arrow key.
-        else if (isUpArrow(theKey)) {
+        else if (Object(_utilities_keyboard_js__WEBPACK_IMPORTED_MODULE_1__["isUpArrow"])(theKey)) {
             event.preventDefault();
             event.stopPropagation();
             this.nav.focusOn('prev', this);
           } // Handler for the left arrow key.
-          else if (isLeftArrow(theKey)) {
+          else if (Object(_utilities_keyboard_js__WEBPACK_IMPORTED_MODULE_1__["isLeftArrow"])(theKey)) {
               event.preventDefault();
               event.stopPropagation();
 
@@ -818,7 +818,7 @@ function () {
                 }
               }
             } // Handler for the right arrow key.
-            else if (isRightArrow(theKey)) {
+            else if (Object(_utilities_keyboard_js__WEBPACK_IMPORTED_MODULE_1__["isRightArrow"])(theKey)) {
                 event.preventDefault();
                 event.stopPropagation();
 
@@ -839,13 +839,13 @@ function () {
                   }
                 }
               } // Handler for the home key.
-              else if (isHome(theKey)) {
+              else if (Object(_utilities_keyboard_js__WEBPACK_IMPORTED_MODULE_1__["isHome"])(theKey)) {
                   this.nav.focusOn('first');
                 } // Handler for the end key.
-                else if (isEnd(theKey)) {
+                else if (Object(_utilities_keyboard_js__WEBPACK_IMPORTED_MODULE_1__["isEnd"])(theKey)) {
                     this.nav.focusOn('last');
                   } // Handler for the tab key.
-                  else if (isTab(theKey)) {
+                  else if (Object(_utilities_keyboard_js__WEBPACK_IMPORTED_MODULE_1__["isTab"])(theKey)) {
                       event.stopPropagation();
                       var shifted = event.shiftKey;
 

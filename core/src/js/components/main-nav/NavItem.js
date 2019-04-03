@@ -1,5 +1,5 @@
-import './globals.js';
-import * as UtilKeyboard from "../../utilities/keyboard.js";
+import { theNavs, theSubNavs, closeAllSubNavs, closeAllMobileNavs } from './globals.js';
+import { isHome, isEnd, isTab, isEsc, isSpace, isEnter, isLeftArrow, isRightArrow, isUpArrow, isDownArrow } from "../../utilities/keyboard.js";
 import Nav from './Nav';
 
 /**
