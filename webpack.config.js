@@ -215,6 +215,12 @@ let DecanterSass = {
       },
       onEnd: {
         delete: [ sassOutputDir + '/**/*.delete' ],
+        copy: [
+          {
+            source: sassOutputDir + '/**/*',
+            destination: kssSrcDir + '/kss-assets/css/'
+          }
+        ],
       },
     }),
     // This Webpack plugin will generate a JSON file that matches the original
