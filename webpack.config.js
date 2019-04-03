@@ -89,6 +89,18 @@ let DecanterJS = {
       }),
     ]
   },
+  plugins: [
+    new FileManagerPlugin({
+      onEnd: {
+        copy: [
+          {
+            source: outputDir + '/js/**/*',
+            destination: kssSrcDir + '/kss-assets/js/'
+          }
+        ],
+      },
+    }),
+  ],
   // Live dev server!
   devServer: {
     contentBase: path.join(__dirname, 'styleguide'),
