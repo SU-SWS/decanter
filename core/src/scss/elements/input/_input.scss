@@ -4,8 +4,6 @@
 // Input
 //
 
-// @TODO refactor code, creating mixins where possible.
-
 // Block form elements.
 input,
 textarea,
@@ -70,8 +68,8 @@ fieldset {
 }
 
 // Custom checkboxes and radio buttons.
-[type=checkbox],
-[type=radio] {
+[type='checkbox'],
+[type='radio'] {
   // The actual input element is only visible to screen readers, because
   // all visual styling is done via the label.
   @include hide-visually;
@@ -85,15 +83,15 @@ fieldset {
   }
 }
 
-[type=checkbox] + label,
-[type=radio] + label {
+[type='checkbox'] + label,
+[type='radio'] + label {
   cursor: pointer;
   font-weight: 400;
   margin-bottom: 0.5em;
 }
 
-[type=checkbox] + label::before,
-[type=radio] + label::before {
+[type='checkbox'] + label::before,
+[type='radio'] + label::before {
   background: $color-white;
   border-radius: $border-radius;
   box-shadow: 0 0 0 1px $color-driftwood;
@@ -109,7 +107,7 @@ fieldset {
   width: 1.8rem;
 }
 
-[type=radio] + label::before {
+[type='radio'] + label::before {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $color-driftwood;
   height: 1.6rem;
   line-height: 1.6rem;
@@ -117,56 +115,56 @@ fieldset {
   border-radius: 100%;
 }
 
-[type=checkbox]:checked + label::before,
-[type=radio]:checked + label::before {
+[type='checkbox']:checked + label::before,
+[type='radio']:checked + label::before {
   background-color: $color-bright-red;
   box-shadow: 0 0 0 1px $color-bright-red;
 }
 
-[type=radio]:checked + label::before {
+[type='radio']:checked + label::before {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-bright-red;
 }
 
-[type=radio]:focus + label::before {
+[type='radio']:focus + label::before {
   box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-bright-red, 0 0 3px 4px $color-black, 0 0 7px 4px $color-black;
 }
 
-[type=checkbox]:checked + label::before,
-[type=checkbox]:checked:disabled + label::before {
+[type='checkbox']:checked + label::before,
+[type='checkbox']:checked:disabled + label::before {
   background: url("#{$image-path}/check.png");
   background-image: url("#{$image-path}/check.svg");
   background-position: 50%;
   background-repeat: no-repeat;
 }
 
-[type=checkbox]:focus + label::before {
+[type='checkbox']:focus + label::before {
   box-shadow: 0 0 0 1px $color-white, 0 0 0 3px $color-bright-red;
 }
 
-[type=checkbox]:disabled + label {
+[type='checkbox']:disabled + label {
   color: $color-driftwood;
 }
 
-[type=checkbox]:disabled + label::before,
-[type=radio]:disabled + label::before {
+[type='checkbox']:disabled + label::before,
+[type='radio']:disabled + label::before {
   background: $color-driftwood;
   cursor: not-allowed;
 }
 
 // Range inputs
-[type=range] {
+[type='range'] {
   -webkit-appearance: none;
   border: 0;
   padding-left: 0;
   width: 100%;
 }
 
-[type=range]:focus {
+[type='range']:focus {
   box-shadow: none;
   outline: none;
 }
 
-[type=range]::-webkit-slider-runnable-track {
+[type='range']::-webkit-slider-runnable-track {
   background: $color-cool-grey;
   border: 1px solid $color-driftwood;
   cursor: pointer;
@@ -174,7 +172,7 @@ fieldset {
   width: 100%;
 }
 
-[type=range]::-moz-range-track {
+[type='range']::-moz-range-track {
   background: $color-bright-red;
   border: 1px solid $color-driftwood;
   cursor: pointer;
@@ -182,7 +180,7 @@ fieldset {
   width: 100%;
 }
 
-[type=range]::-ms-track {
+[type='range']::-ms-track {
   background: transparent;
   color: transparent;
   cursor: pointer;
@@ -190,18 +188,18 @@ fieldset {
   width: 100%;
 }
 
-[type=range]::-webkit-slider-thumb {
+[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   border: 1px solid $color-driftwood;
   height: 2.2rem;
   border-radius: 1.5rem;
   background: $color-cool-grey;
   cursor: pointer;
-  margin-top: -.65rem;
+  margin-top: -0.65rem;
   width: 2.2rem;
 }
 
-[type=range]::-moz-range-thumb {
+[type='range']::-moz-range-thumb {
   background: $color-cool-grey;
   border: 1px solid $color-driftwood;
   border-radius: 1.5rem;
@@ -210,7 +208,7 @@ fieldset {
   width: 2.2rem;
 }
 
-[type=range]::-ms-thumb {
+[type='range']::-ms-thumb {
   background: $color-cool-grey;
   border: 1px solid $color-driftwood;
   border-radius: 1.5rem;
@@ -219,26 +217,26 @@ fieldset {
   width: 2.2rem;
 }
 
-[type=range]::-ms-fill-lower {
+[type='range']::-ms-fill-lower {
   background: $color-cool-grey;
   border: 1px solid $color-driftwood;
   border-radius: 2rem;
 }
 
-[type=range]::-ms-fill-upper {
+[type='range']::-ms-fill-upper {
   background: $color-cool-grey;
   border: 1px solid $color-driftwood;
   border-radius: 2rem;
 }
 
-[type=range]:focus::-webkit-slider-thumb {
+[type='range']:focus::-webkit-slider-thumb {
   border: 2px solid $color-driftwood;
 }
 
-[type=range]:focus::-moz-range-thumb {
+[type='range']:focus::-moz-range-thumb {
   border: 2px solid $color-driftwood;
 }
 
-[type=range]:focus::-ms-thumb {
+[type='range']:focus::-ms-thumb {
   border: 2px solid $color-driftwood;
 }

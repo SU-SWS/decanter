@@ -17,7 +17,8 @@
 @function calculate-modular-spacing($step: 0, $breakpoint: 'xl') {
   @if ($step >= -4 and $step <= 5) {
     @return get-modular-spacing-base($breakpoint) * get-modular-spacing-multiplier($step);
-  } @else {
+  }
+  @else {
     @error '$step should be an integer between -4 and 5';
   }
 }

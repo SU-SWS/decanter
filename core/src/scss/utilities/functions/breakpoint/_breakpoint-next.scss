@@ -16,7 +16,8 @@
   $n: index($breakpoints, $name);
   @if is-integer($n) {
     @return if($n < length($breakpoints), nth($breakpoints, $n + 1), null);
-  } @else {
+  }
+  @else {
     @error "Could not find breakpoint shortcode in breakpoint-next mixin";
   }
 }
