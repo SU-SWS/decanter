@@ -988,18 +988,19 @@ __webpack_require__.r(__webpack_exports__);
 
 document.addEventListener('DOMContentLoaded', function (event) {
   // The css class that this following behaviour is applied to.
-  var navClass = 'su-main-nav'; // Variables.
-  // All main navs.
+  var navClass = 'su-main-nav'; // All main navs.
 
-  var navs = document.querySelectorAll('.' + navClass); // ---------------------------------------------------------------------------
-  // Execution Code.
-  // ---------------------------------------------------------------------------
-  // Process each nav.
+  var navs = document.querySelectorAll('.' + navClass); // Process each nav.
 
   var firstZindex;
   navs.forEach(function (nav, index) {
-    var theNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](nav);
-    _globals__WEBPACK_IMPORTED_MODULE_1__["theNavs"].push(theNav);
+    // remove the class that formats the nav for browsers with javascript disabled
+    nav.classList.remove('no-js'); // create an instance of Nav, which in turn creates appropriate instances of NavItem
+
+    var theNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](nav); // remember the nav for closeAllMobileNavs()
+
+    _globals__WEBPACK_IMPORTED_MODULE_1__["theNavs"].push(theNav); // manage zindexes in case there are multiple navs near enough for subnavs to overlap
+    // extremely unlikely, but it happens in the styleguide
 
     if (index === 0) {
       firstZindex = getComputedStyle(nav, null).zIndex;
