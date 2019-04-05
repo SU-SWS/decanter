@@ -49,8 +49,8 @@ export default class Nav {
     );
 
     // add custom events to alert others when the mobile nav opens or closes
-    this.openEvent = createEvent( 'openNav' ); // dispatched in this.openMobileNav()
-    this.closeEvent = createEvent( 'closeNav' ); // dispatched in this.closeMobileNav()
+    this.openEvent = createEvent('openNav'); // dispatched in this.openMobileNav()
+    this.closeEvent = createEvent('closeNav'); // dispatched in this.closeMobileNav()
 
     elem.addEventListener('keydown', this);
 
@@ -280,7 +280,7 @@ export default class Nav {
    */
   closeMobileNav() {
     if (this.isExpanded()) {
-      this.setExpanded( 'false' );
+      this.setExpanded('false');
       this.toggle.innerText = this.toggleText;
       // alert others the mobile nav has closed
       this.elem.dispatchEvent(this.closeEvent);
