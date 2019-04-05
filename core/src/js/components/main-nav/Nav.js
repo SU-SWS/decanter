@@ -1,5 +1,6 @@
 import { closeAllMobileNavs } from './globals';
 import { isEsc, isSpace, isEnter } from "../../utilities/keyboard";
+import { createEvent } from '../../utilities/events';
 import NavItem from './NavItem';
 
 /**
@@ -46,6 +47,10 @@ export default class Nav {
         this.items.push(new NavItem(item, this));
       }
     );
+
+    // add custom events to alert others when the mobile nav opens or closes
+    this.openEvent = createEvent( 'openNav' ); // dispatched in this.openMobileNav()
+    this.closeEvent = createEvent( 'closeNav' ); // dispatched in this.closeMobileNav()
 
     elem.addEventListener('keydown', this);
 
@@ -265,6 +270,8 @@ export default class Nav {
     if (focusOnFirst) {
       this.focusOn('first'); // Focus on the first top level link
     }
+    // alert others the mobile nav has opened
+    this.elem.dispatchEvent(this.openEvent);
   }
 
   /**
@@ -272,8 +279,12 @@ export default class Nav {
    * initially.
    */
   closeMobileNav() {
-    this.setExpanded('false');
-    this.toggle.innerText = this.toggleText;
+    if (this.isExpanded()) {
+      this.setExpanded( 'false' );
+      this.toggle.innerText = this.toggleText;
+      // alert others the mobile nav has closed
+      this.elem.dispatchEvent(this.closeEvent);
+    }
   }
 
   // -------------------------------------------------------------------------
