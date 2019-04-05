@@ -1063,14 +1063,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createEvent", function() { return createEvent; });
 /**
  * Create an event with the specified name in a browser-agnostic way.
- * @param {string} eventName
- * @return {Event}
+ * @param {string} eventName - the name of the event
+ * @return {Event} - instance of event which can be dispatched / listened for
  */
 var createEvent = function createEvent() {
   var eventName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
 
   if (typeof eventName !== 'string' || eventName.length <= 0) {
-    return;
+    return null;
   }
 
   if (typeof Event == 'function') {
