@@ -6926,19 +6926,33 @@ button,
           transform: translateX(-50%) translateY(-50%) translateY(-3rem); }
 
 .su-date-stacked {
-  border: 1px solid #C6C6C6;
-  -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.13), 0px 3px 6px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.13), 0px 3px 6px rgba(0, 0, 0, 0.1);
-  margin-right: 0;
-  padding: 20px 25px;
   background: #2e2d29;
   color: #ffffff;
   text-align: center; }
+  @media only screen and (min-width: 0) {
+    .su-date-stacked {
+      padding: 1.6rem; } }
+  @media only screen and (min-width: 768px) {
+    .su-date-stacked {
+      padding: 1.8rem; } }
+  @media only screen and (min-width: 1500px) {
+    .su-date-stacked {
+      padding: 1.9rem; } }
   .su-date-stacked .su-date-month {
-    font-size: 1.25em; }
+    font-size: 2rem; }
+    @media (max-width: 767px) {
+      .su-date-stacked .su-date-month {
+        font-size: 1.6rem; } }
   .su-date-stacked .su-date-day {
-    font-size: 1.5625em;
-    font-weight: 600; }
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-top: 0;
+    clear: both;
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: 1.953125em; }
+    .su-date-stacked .su-date-day a {
+      text-decoration: none; }
 
 .su-global-footer {
   background-color: #8c1515;
