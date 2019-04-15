@@ -6928,6 +6928,7 @@ button,
 .su-date-stacked {
   background: #2e2d29;
   color: #ffffff;
+  max-width: 87px;
   text-align: center; }
   @media only screen and (min-width: 0) {
     .su-date-stacked {
@@ -6938,12 +6939,18 @@ button,
   @media only screen and (min-width: 1500px) {
     .su-date-stacked {
       padding: 1.9rem; } }
-  .su-date-stacked .su-date-month {
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .su-date-stacked {
+      max-width: 101px; } }
+  @media only screen and (min-width: 1500px) {
+    .su-date-stacked {
+      max-width: 105px; } }
+  .su-date-stacked .su-date-stacked__month {
     font-size: 2rem; }
     @media (max-width: 767px) {
-      .su-date-stacked .su-date-month {
+      .su-date-stacked .su-date-stacked__month {
         font-size: 1.6rem; } }
-  .su-date-stacked .su-date-day {
+  .su-date-stacked .su-date-stacked__day {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     margin-top: 0;
@@ -6951,7 +6958,7 @@ button,
     font-weight: 700;
     line-height: 1.2;
     font-size: 1.953125em; }
-    .su-date-stacked .su-date-day a {
+    .su-date-stacked .su-date-stacked__day a {
       text-decoration: none; }
 
 .su-date-stacked--no-background {

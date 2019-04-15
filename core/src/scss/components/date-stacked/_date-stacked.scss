@@ -15,13 +15,22 @@
   @include modular-spacing('padding', 0);
   background: $color-black;
   color: $color-white;
+  max-width: 87px;
   text-align: center;
 
-  .su-date-month {
+  @include grid-media-only('md') {
+    max-width: 101px;
+  }
+
+  @include grid-media-only('2xl') {
+    max-width: 105px;
+  }
+
+  .su-date-stacked__month {
     @include big-paragraph;
   }
 
-  .su-date-day {
+  .su-date-stacked__day {
     @include types;
     @include type-b;
   }
