@@ -158,12 +158,14 @@
     }
 
     @include grid-media-max('md') {
-      &.su-main-nav__item--current.su-main-nav__item--expanded {
-        > a {
-          font-weight: $font-bold;
+      &.su-main-nav__item--current {
+        &.su-main-nav__item--expanded {
+          > a {
+            font-weight: $font-bold;
 
-          &::before {
-            background-color: $color-white;
+            &::before {
+              background-color: $color-white;
+            }
           }
         }
       }
@@ -172,6 +174,10 @@
 
   //top level menu styles
   > ul {
+    @include grid-media-only('md') {
+      @include box-shadow($depth: 'medium', $stroke: none);
+    }
+
     > li {
       @include margin(null null 0);
 
