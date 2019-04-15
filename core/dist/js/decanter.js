@@ -1067,9 +1067,7 @@ __webpack_require__.r(__webpack_exports__);
  * @param {string} eventName - the name of the event
  * @return {Event} - instance of event which can be dispatched / listened for
  */
-var createEvent = function createEvent() {
-  var eventName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
-
+var createEvent = function createEvent(eventName) {
   if (typeof eventName !== 'string' || eventName.length <= 0) {
     return null;
   }
