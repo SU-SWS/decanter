@@ -218,8 +218,8 @@ export default class Nav {
    *                                relative to.
    */
   focusOn(link, currentItem = null) {
-    let currentIndex = null,
-      lastIndex = null;
+    let currentIndex = null;
+    let lastIndex = null;
     if (currentItem) {
       currentIndex = this.items.indexOf(currentItem);
       lastIndex = this.items.length - 1;
