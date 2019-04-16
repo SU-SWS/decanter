@@ -1,0 +1,65 @@
+{#
+/**
+ * @file
+ * Css-Grid — CSS-Grid Documentation.
+ *
+ * This file documents the different CSS grid classes and provides
+ * examples of how the classes would appear.
+ *
+ * Variables
+ * firstFlex - First of three columns
+ * secondFlex - Second of three columns
+ * thirdFlex - Third of three columns
+ *
+ * firstCss - First of three columns
+ * secondCss - Second of three columns
+ * thirdCss - Third of three columns
+#}
+
+<h5>Flexbox Grid</h5>
+
+<div>
+    <section class="flex-container centered-container">
+      <div class="flex-item flex-lg-4-of-12 flex-xl-4-of-12 flex-2xl-4-of-12">
+        {{ firstFlex }}
+      </div>
+
+      <div class="flex-item flex-lg-4-of-12 flex-xl-4-of-12 flex-2xl-4-of-12">
+        {{ secondFlex }}
+      </div>
+
+      <div class="flex-item flex-lg-4-of-12 flex-xl-4-of-12 flex-2xl-4-of-12">
+        {{ thirdFlex }}
+      </div>
+    </section>
+</div>
+
+<figure class="highlight">
+  <pre>
+    <span><</span><span>section </span><span>class="flex-container centered-container"> </span>
+    <span><</span><span>div </span><span>class="flex-item flex-lg-4-of-12 flex-xl-4-of-12 flex-2xl-4-of-12"></span>
+  </pre>
+</figure>
+
+<h5>CSS Grid</h5>
+
+<div{{ attributes }} class="layout layout-bars {{ modifier_class }}">
+  <div>
+    <section {{ region_attributes.first }}>
+      {{ firstCss }}
+    </section>
+
+    <section {{ region_attributes.second }}>
+      {{ secondCss }}
+    </section>
+
+    <section {{ region_attributes.third }}>
+      {{ thirdCss }}
+    </section>
+  </div>
+</div>
+<figure class="kss-highlight">
+  <pre>
+    <span><</span><span>div </span><span>class="layout layout-bars "></span>
+  </pre>
+</figure>

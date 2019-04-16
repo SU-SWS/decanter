@@ -1,0 +1,73 @@
+{#
+/**
+ * @file
+ * Css-Grid — Donies Comparison
+ *
+ * This file documents compares the Flexbox and CSS grid donies example.
+ *
+ * Variables
+ * first - First of two columns
+ * second - Second of two columns
+ *
+#}
+
+<h5>Flexbox — Donies</h5>
+<div{{ attributes }} class="layout {{ modifier_class }}">
+  {# Optional header region #}
+  {% if header is not empty %}
+  <header class="flex-container centered-container">
+    <div class="flex-12-of-12">
+      {{ header }}
+    </div>
+  </header>
+  {% endif %}
+
+  {# Mandatory content region #}
+  <section class="flex-container centered-container">
+    <div class="flex-md-6-of-12 flex-lg-6-of-12 flex-xl-6-of-12 flex-2xl-6-of-12">
+      {{ first }}
+    </div>
+
+    <div class="flex-md-6-of-12 flex-lg-6-of-12 flex-xl-6-of-12 flex-2xl-6-of-12">
+      {{ second }}
+    </div>
+  </section>
+
+  {# Optional footer region #}
+  {% if footer is not empty %}
+  <footer class="flex-container centered-container">
+    <div class="flex-12-of-12">
+      {{ footer }}
+    </div>
+  </footer>
+  {% endif %}
+</div>
+
+
+<h5>CSS Grid — Donies</h5>
+<div{{ attributes }} class="layout layout-donies {{ modifier_class }}">
+  {# Optional header region #}
+  {% if header is not empty %}
+  <header {{ region_attributes.header }}>
+    {{ header }}
+  </header>
+  {% endif %}
+
+  {# Mandatory content region #}
+  <section>
+    <div {{ region_attributes.first }}>
+      {{ first }}
+    </div>
+
+    <div {{ region_attributes.second }}>
+      {{ second }}
+    </div>
+  </section>
+
+  {# Optional footer region #}
+  {% if footer is not empty %}
+  <footer {{ region_attributes.footer }}>
+    {{ footer }}
+  </footer>
+  {% endif %}
+</div>
