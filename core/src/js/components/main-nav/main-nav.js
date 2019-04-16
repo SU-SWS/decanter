@@ -12,17 +12,17 @@ document.addEventListener('DOMContentLoaded', event => {
   // Process each nav.
   let firstZindex;
   navs.forEach((nav, index) => {
-    // remove the class that formats the nav for browsers with javascript disabled
+    // Remove the class that formats the nav for browsers with javascript disabled.
     nav.classList.remove('no-js');
 
-    // create an instance of Nav, which in turn creates appropriate instances of NavItem
+    // Create an instance of Nav, which in turn creates appropriate instances of NavItem.
     const theNav = new Nav(nav);
 
-    // remember the nav for closeAllMobileNavs()
+    // Remember the nav for closeAllMobileNavs().
     theNavs.push(theNav);
 
-    // manage zindexes in case there are multiple navs near enough for subnavs to overlap
-    // extremely unlikely, but it happens in the styleguide
+    // Manage zindexes in case there are multiple navs near enough for subnavs to overlap.
+    // Rare, but it happens in the styleguide.
     if (index === 0) {
       firstZindex = getComputedStyle(nav, null).zIndex;
     }

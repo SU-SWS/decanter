@@ -32,13 +32,15 @@ export default class NavItem {
 
     if (this.isSubNavTrigger()) {
       this.subNav = new Nav(this);
+      // Add custom events to alert others when a subnav opens or closes.
+      // this.openEvent is dispatched in this.openSubNav().
+      this.openEvent = createEvent('openSubnav');
+      // this.closeEvent is dispatched in this.closeSubNav().
+      this.closeEvent = createEvent('closeSubnav');
+
       // Maintain global list of subnavs for closeAllSubNavs().
       theSubNavs.push(this);
       this.item.addEventListener('click', this);
-
-      // add custom events to alert others when a subnav opens or closes
-      this.openEvent = createEvent('openSubnav'); // dispatched in this.openSubNav()
-      this.closeEvent = createEvent('closeSubnav'); // dispatched in this.closeSubNav()
     }
   }
 

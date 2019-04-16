@@ -168,16 +168,18 @@ function () {
 
     this.toggle = elem.querySelector(elem.tagName + ' > button');
     this.toggleText = this.toggle ? this.toggle.innerText : '';
-    this.items = [];
+    this.items = []; // Add custom events to alert others when the mobile nav
+    // opens or closes.
+    // this.openEvent is dispatched in this.openMobileNav().
+
+    this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('openNav'); // this.closeEvent is dispatched in this.closeMobileNav().
+
+    this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('closeNav'); // Initialize items
+
     var items = elem.querySelectorAll(elem.tagName + ' > ul > li');
     items.forEach(function (item) {
       _this.items.push(new _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"](item, _this));
-    }); // add custom events to alert others when the mobile nav opens or closes
-
-    this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('openNav'); // dispatched in this.openMobileNav()
-
-    this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('closeNav'); // dispatched in this.closeMobileNav()
-
+    });
     elem.addEventListener('keydown', this);
 
     if (this.toggle) {
@@ -365,8 +367,8 @@ function () {
     key: "focusOn",
     value: function focusOn(link) {
       var currentItem = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-      var currentIndex = null;
-      var lastIndex = null;
+      var currentIndex = null,
+          lastIndex = null;
 
       if (currentItem) {
         currentIndex = this.items.indexOf(currentItem);
@@ -425,8 +427,9 @@ function () {
       this.toggle.innerText = 'Close';
 
       if (focusOnFirst) {
-        this.focusOn('first'); // Focus on the first top level link
-      } // alert others the mobile nav has opened
+        // Focus on the first top level link.
+        this.focusOn('first');
+      } // Alert others the mobile nav has opened.
 
 
       this.elem.dispatchEvent(this.openEvent);
@@ -441,7 +444,7 @@ function () {
     value: function closeMobileNav() {
       if (this.isExpanded()) {
         this.setExpanded('false');
-        this.toggle.innerText = this.toggleText; // alert others the mobile nav has closed
+        this.toggle.innerText = this.toggleText; // Alert others the mobile nav has closed.
 
         this.elem.dispatchEvent(this.closeEvent);
       }
@@ -603,14 +606,15 @@ function () {
     this.item.addEventListener('keydown', this);
 
     if (this.isSubNavTrigger()) {
-      this.subNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](this); // Maintain global list of subnavs for closeAllSubNavs().
+      this.subNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](this); // Add custom events to alert others when a subnav opens or closes.
+      // this.openEvent is dispatched in this.openSubNav().
+
+      this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_3__["createEvent"])('openSubnav'); // this.closeEvent is dispatched in this.closeSubNav().
+
+      this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_3__["createEvent"])('closeSubnav'); // Maintain global list of subnavs for closeAllSubNavs().
 
       _globals__WEBPACK_IMPORTED_MODULE_0__["theSubNavs"].push(this);
-      this.item.addEventListener('click', this); // add custom events to alert others when a subnav opens or closes
-
-      this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_3__["createEvent"])('openSubnav'); // dispatched in this.openSubNav()
-
-      this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_3__["createEvent"])('closeSubnav'); // dispatched in this.closeSubNav()
+      this.item.addEventListener('click', this);
     }
   } // -------------------------------------------------------------------------
   // Helper Methods.
@@ -994,13 +998,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
   var firstZindex;
   navs.forEach(function (nav, index) {
-    // remove the class that formats the nav for browsers with javascript disabled
-    nav.classList.remove('no-js'); // create an instance of Nav, which in turn creates appropriate instances of NavItem
+    // Remove the class that formats the nav for browsers with javascript disabled.
+    nav.classList.remove('no-js'); // Create an instance of Nav, which in turn creates appropriate instances of NavItem.
 
-    var theNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](nav); // remember the nav for closeAllMobileNavs()
+    var theNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](nav); // Remember the nav for closeAllMobileNavs().
 
-    _globals__WEBPACK_IMPORTED_MODULE_1__["theNavs"].push(theNav); // manage zindexes in case there are multiple navs near enough for subnavs to overlap
-    // extremely unlikely, but it happens in the styleguide
+    _globals__WEBPACK_IMPORTED_MODULE_1__["theNavs"].push(theNav); // Manage zindexes in case there are multiple navs near enough for subnavs to overlap.
+    // Rare, but it happens in the styleguide.
 
     if (index === 0) {
       firstZindex = getComputedStyle(nav, null).zIndex;
@@ -1070,17 +1074,17 @@ __webpack_require__.r(__webpack_exports__);
 var createEvent = function createEvent(eventName) {
   if (typeof eventName !== 'string' || eventName.length <= 0) {
     return null;
-  }
+  } // Modern browsers.
+
 
   if (typeof Event == 'function') {
-    // modern browsers
     return new Event(eventName);
-  } else {
-    // IE :(
-    var ev = document.createEvent('UIEvent');
-    ev.initEvent(eventName, true, true);
-    return ev;
-  }
+  } // IE.
+  else {
+      var ev = document.createEvent('UIEvent');
+      ev.initEvent(eventName, true, true);
+      return ev;
+    }
 };
 
 /***/ }),

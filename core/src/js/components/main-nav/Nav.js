@@ -41,16 +41,20 @@ export default class Nav {
     this.toggle = elem.querySelector(elem.tagName + ' > button');
     this.toggleText = this.toggle ? this.toggle.innerText : '';
     this.items = [];
+    // Add custom events to alert others when the mobile nav
+    // opens or closes.
+    // this.openEvent is dispatched in this.openMobileNav().
+    this.openEvent = createEvent('openNav');
+    // this.closeEvent is dispatched in this.closeMobileNav().
+    this.closeEvent = createEvent('closeNav');
+
+    // Initialize items
     let items = elem.querySelectorAll(elem.tagName + ' > ul > li');
     items.forEach(
       item => {
         this.items.push(new NavItem(item, this));
       }
     );
-
-    // add custom events to alert others when the mobile nav opens or closes
-    this.openEvent = createEvent('openNav'); // dispatched in this.openMobileNav()
-    this.closeEvent = createEvent('closeNav'); // dispatched in this.closeMobileNav()
 
     elem.addEventListener('keydown', this);
 
@@ -214,8 +218,8 @@ export default class Nav {
    *                                relative to.
    */
   focusOn(link, currentItem = null) {
-    var currentIndex = null;
-    var lastIndex = null;
+    let currentIndex = null,
+      lastIndex = null;
     if (currentItem) {
       currentIndex = this.items.indexOf(currentItem);
       lastIndex = this.items.length - 1;
@@ -268,9 +272,10 @@ export default class Nav {
     this.setExpanded('true');
     this.toggle.innerText = 'Close';
     if (focusOnFirst) {
-      this.focusOn('first'); // Focus on the first top level link
+      // Focus on the first top level link.
+      this.focusOn('first');
     }
-    // alert others the mobile nav has opened
+    // Alert others the mobile nav has opened.
     this.elem.dispatchEvent(this.openEvent);
   }
 
@@ -282,7 +287,7 @@ export default class Nav {
     if (this.isExpanded()) {
       this.setExpanded('false');
       this.toggle.innerText = this.toggleText;
-      // alert others the mobile nav has closed
+      // Alert others the mobile nav has closed.
       this.elem.dispatchEvent(this.closeEvent);
     }
   }

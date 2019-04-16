@@ -7,10 +7,12 @@ export const createEvent = (eventName) => {
   if (typeof eventName !== 'string' || eventName.length <= 0) {
     return null;
   }
-  if (typeof Event == 'function') { // modern browsers
+  // Modern browsers
+  if (typeof Event == 'function') {
     return new Event(eventName);
   }
-  else { // IE :(
+  // IE
+  else {
     let ev = document.createEvent('UIEvent');
     ev.initEvent(eventName, true, true);
     return ev;
