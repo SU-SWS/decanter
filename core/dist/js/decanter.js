@@ -112,12 +112,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Nav; });
 /* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./core/src/js/components/main-nav/globals.js");
 /* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
-/* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavItem */ "./core/src/js/components/main-nav/NavItem.js");
+/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
+/* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NavItem */ "./core/src/js/components/main-nav/NavItem.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 
 
@@ -160,16 +162,23 @@ function () {
     this.topNav = this.getTopNav(); // If this is a subnav, we need the correpsonding HTMLElement for
     // .querySelector()
 
-    if (elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_2__["default"]) {
+    if (elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"]) {
       elem = elem.item;
     }
 
     this.toggle = elem.querySelector(elem.tagName + ' > button');
     this.toggleText = this.toggle ? this.toggle.innerText : '';
-    this.items = [];
+    this.items = []; // Add custom events to alert others when the mobile nav
+    // opens or closes.
+    // this.openEvent is dispatched in this.openMobileNav().
+
+    this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('openNav'); // this.closeEvent is dispatched in this.closeMobileNav().
+
+    this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('closeNav'); // Initialize items
+
     var items = elem.querySelectorAll(elem.tagName + ' > ul > li');
     items.forEach(function (item) {
-      _this.items.push(new _NavItem__WEBPACK_IMPORTED_MODULE_2__["default"](item, _this));
+      _this.items.push(new _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"](item, _this));
     });
     elem.addEventListener('keydown', this);
 
@@ -194,7 +203,7 @@ function () {
     value: function getTopNav() {
       var nav = this;
 
-      while (nav.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_2__["default"]) {
+      while (nav.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"]) {
         // If nav is the main nav, nav.elem will be an HTMLElement
         // (the <nav> element).
         // If nav.elem is a NavItem, then this is a subNav, so get the Nav that
@@ -229,7 +238,7 @@ function () {
   }, {
     key: "isExpanded",
     value: function isExpanded() {
-      if (this.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_2__["default"]) {
+      if (this.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"]) {
         return this.elem.isExpanded();
       }
 
@@ -247,7 +256,7 @@ function () {
   }, {
     key: "setExpanded",
     value: function setExpanded(value) {
-      if (this.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_2__["default"]) {
+      if (this.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"]) {
         this.elem.setExpanded(value);
       } else {
         this.elem.setAttribute('aria-expanded', value);
@@ -358,8 +367,8 @@ function () {
     key: "focusOn",
     value: function focusOn(link) {
       var currentItem = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-      var currentIndex = null;
-      var lastIndex = null;
+      var currentIndex = null,
+          lastIndex = null;
 
       if (currentItem) {
         currentIndex = this.items.indexOf(currentItem);
@@ -418,8 +427,12 @@ function () {
       this.toggle.innerText = 'Close';
 
       if (focusOnFirst) {
-        this.focusOn('first'); // Focus on the first top level link
-      }
+        // Focus on the first top level link.
+        this.focusOn('first');
+      } // Alert others the mobile nav has opened.
+
+
+      this.elem.dispatchEvent(this.openEvent);
     }
     /**
      * Mark this mobile closed, and restore the button text to what it was
@@ -429,8 +442,12 @@ function () {
   }, {
     key: "closeMobileNav",
     value: function closeMobileNav() {
-      this.setExpanded('false');
-      this.toggle.innerText = this.toggleText;
+      if (this.isExpanded()) {
+        this.setExpanded('false');
+        this.toggle.innerText = this.toggleText; // Alert others the mobile nav has closed.
+
+        this.elem.dispatchEvent(this.closeEvent);
+      }
     } // -------------------------------------------------------------------------
     // Event handlers
     // -------------------------------------------------------------------------
@@ -546,6 +563,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./core/src/js/components/main-nav/globals.js");
 /* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
 /* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
+/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -588,7 +606,12 @@ function () {
     this.item.addEventListener('keydown', this);
 
     if (this.isSubNavTrigger()) {
-      this.subNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](this); // Maintain global list of subnavs for closeAllSubNavs().
+      this.subNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](this); // Add custom events to alert others when a subnav opens or closes.
+      // this.openEvent is dispatched in this.openSubNav().
+
+      this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_3__["createEvent"])('openSubnav'); // this.closeEvent is dispatched in this.closeSubNav().
+
+      this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_3__["createEvent"])('closeSubnav'); // Maintain global list of subnavs for closeAllSubNavs().
 
       _globals__WEBPACK_IMPORTED_MODULE_0__["theSubNavs"].push(this);
       this.item.addEventListener('click', this);
@@ -698,6 +721,8 @@ function () {
         if (focusOnFirst) {
           this.subNav.focusOn('first');
         }
+
+        this.item.dispatchEvent(this.openEvent);
       }
     }
     /**
@@ -716,11 +741,15 @@ function () {
       var focusOnTrigger = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
       if (this.isSubNavTrigger()) {
-        this.item.classList.remove('su-main-nav__item--expanded');
-        this.setExpanded('false');
+        if (this.isExpanded()) {
+          this.item.classList.remove('su-main-nav__item--expanded');
+          this.setExpanded('false');
 
-        if (focusOnTrigger) {
-          this.link.focus();
+          if (focusOnTrigger) {
+            this.link.focus();
+          }
+
+          this.item.dispatchEvent(this.closeEvent);
         }
       } else if (this.isSubNavItem()) {
         // This.nav.elem should be a subNavTrigger.
@@ -963,18 +992,19 @@ __webpack_require__.r(__webpack_exports__);
 
 document.addEventListener('DOMContentLoaded', function (event) {
   // The css class that this following behaviour is applied to.
-  var navClass = 'su-main-nav'; // Variables.
-  // All main navs.
+  var navClass = 'su-main-nav'; // All main navs.
 
-  var navs = document.querySelectorAll('.' + navClass); // ---------------------------------------------------------------------------
-  // Execution Code.
-  // ---------------------------------------------------------------------------
-  // Process each nav.
+  var navs = document.querySelectorAll('.' + navClass); // Process each nav.
 
   var firstZindex;
   navs.forEach(function (nav, index) {
-    var theNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](nav);
-    _globals__WEBPACK_IMPORTED_MODULE_1__["theNavs"].push(theNav);
+    // Remove the class that formats the nav for browsers with javascript disabled.
+    nav.classList.remove('no-js'); // Create an instance of Nav, which in turn creates appropriate instances of NavItem.
+
+    var theNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](nav); // Remember the nav for closeAllMobileNavs().
+
+    _globals__WEBPACK_IMPORTED_MODULE_1__["theNavs"].push(theNav); // Manage zindexes in case there are multiple navs near enough for subnavs to overlap.
+    // Rare, but it happens in the styleguide.
 
     if (index === 0) {
       firstZindex = getComputedStyle(nav, null).zIndex;
@@ -1023,6 +1053,39 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _scss_decanter_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_scss_decanter_scss__WEBPACK_IMPORTED_MODULE_1__);
 
 
+
+/***/ }),
+
+/***/ "./core/src/js/utilities/events.js":
+/*!*****************************************!*\
+  !*** ./core/src/js/utilities/events.js ***!
+  \*****************************************/
+/*! exports provided: createEvent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createEvent", function() { return createEvent; });
+/**
+ * Create an event with the specified name in a browser-agnostic way.
+ * @param {string} eventName - the name of the event
+ * @return {Event} - instance of event which can be dispatched / listened for
+ */
+var createEvent = function createEvent(eventName) {
+  if (typeof eventName !== 'string' || eventName.length <= 0) {
+    return null;
+  } // Modern browsers.
+
+
+  if (typeof Event == 'function') {
+    return new Event(eventName);
+  } // IE.
+  else {
+      var ev = document.createEvent('UIEvent');
+      ev.initEvent(eventName, true, true);
+      return ev;
+    }
+};
 
 /***/ }),
 
