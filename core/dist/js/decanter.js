@@ -367,8 +367,8 @@ function () {
     key: "focusOn",
     value: function focusOn(link) {
       var currentItem = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-      var currentIndex = null,
-          lastIndex = null;
+      var currentIndex = null;
+      var lastIndex = null;
 
       if (currentItem) {
         currentIndex = this.items.indexOf(currentItem);
@@ -1074,12 +1074,12 @@ __webpack_require__.r(__webpack_exports__);
 var createEvent = function createEvent(eventName) {
   if (typeof eventName !== 'string' || eventName.length <= 0) {
     return null;
-  } // Modern browsers.
+  } // Modern browsers
 
 
   if (typeof Event == 'function') {
     return new Event(eventName);
-  } // IE.
+  } // IE
   else {
       var ev = document.createEvent('UIEvent');
       ev.initEvent(eventName, true, true);
