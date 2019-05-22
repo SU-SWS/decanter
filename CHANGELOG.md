@@ -1,6 +1,6 @@
 # Changelog
 
-Version 5.1.0                      2019-03-27
+Version 5.0.1                      2019-05-22
 ---------------------------------------------
 - Fix CSS grid gaps not displaying on Edge issue and other minor grid related issue
 - Fix main nav color variants css selector specificity issues
