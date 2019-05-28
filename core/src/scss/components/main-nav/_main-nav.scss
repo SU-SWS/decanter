@@ -62,7 +62,7 @@
     @include margin(null null 0);
 
     a {
-      @include fancy-hover($color: $color-white, $active: $color-vivid-red, $position: 'left');
+      @include fancy-hover($color: color(link-border--mobile-hover, $main-nav-colors), $active: color(link-border--mobile-active, $main-nav-colors), $position: 'left');
       @include padding(1.6rem 4.8rem 1.6rem 2.4rem);
       display: block;
       color: color(link--mobile, $main-nav-colors);
@@ -92,7 +92,7 @@
       &::before {
         visibility: visible;
         transform: scaleY(1);
-        background-color: $color-vivid-red;
+        background-color: color(link-border--mobile-active, $main-nav-colors);
         transition: left 0.1s ease-out;
       }
 
@@ -257,7 +257,7 @@
 
 .su-main-nav__toggle {
   @include grid-media-max('md') {
-    @include fancy-hover;
+    @include fancy-hover($color: color(link-border--hover, $main-nav-colors), $active: color(link-border--active, $main-nav-colors));
     @include padding(0 0 2rem);
     @include margin(0);
     display: flex;
@@ -265,7 +265,7 @@
     align-items: center;
     width: 40px;
     background-color: transparent;
-    color: $color-black;
+    color: color(link, $main-nav-colors);
     font-size: 1.6rem;
     font-weight: $font-regular;
     line-height: 0.7;
@@ -341,21 +341,21 @@
 .su-main-nav__menu-lv1 > li {
   @include grid-media('lg') {
     > a {
-      color: $color-black;
+      color: color(link, $main-nav-colors);
       transition: color 0.3s ease-out;
 
       &:hover,
       &:focus {
-        color: $color-dark-red;
+        color: color(link--hover, $main-nav-colors);
       }
 
       &:active,
       &[aria-expanded="true"] {
-        color: $color-black;
+        color: color(link--active, $main-nav-colors);
       }
 
       &[aria-expanded="true"]:hover {
-        color: $color-dark-red;
+        color: color(link--active-hover, $main-nav-colors);
       }
     }
   }
