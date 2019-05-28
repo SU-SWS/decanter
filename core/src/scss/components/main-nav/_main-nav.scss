@@ -55,7 +55,7 @@
     flex-direction: column;
     width: 100%;
     list-style: none;
-    background-color: $color-black;
+    background-color: color(bg--mobile, $main-nav-colors);
   }
 
   li {
@@ -65,10 +65,10 @@
       @include fancy-hover($color: $color-white, $active: $color-vivid-red, $position: 'left');
       @include padding(1.6rem 4.8rem 1.6rem 2.4rem);
       display: block;
-      color: $color-white;
+      color: color(link--mobile, $main-nav-colors);
       font-weight: $font-regular;
       font-size: 1.8rem;
-      border-bottom: $color-cool-grey solid 1px;
+      border-bottom: color(divider, $main-nav-colors) solid 1px;
       outline: 0;
 
       &:active {

@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+//
+// color($color, $palette: $core-colors, $theme: default)
+//
+// Return a color from a color map
+//
+// Style guide: Functions.Color
+//
+
+@function color($color, $palette: $core-colors, $theme: default) {
+  @if $palette == $core-colors {
+    $color: map-get($core-colors, $color);
+    @return $color;
+  }
+  @else {
+
+    @if $theme == default {
+      $color: map-get($palette, $color);
+      @return $color;
+    }
+    @else {
+      $theme: map-get($palette, $theme);
+      $color: map-get($theme, $color);
+      @return $color;
+    }
+
+  }
+}
