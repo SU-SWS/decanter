@@ -14,27 +14,13 @@
 + */
 +#}
 {% import "@decanter/utilities/macros/menu-loop.twig" as menus %}
-<nav {{- attributes }} class="su-main-nav no-js {{ modifier_class }}" aria-label="{{ aria_label|default('main menu') }}">
-  <button class="su-main-nav__toggle {{- toggle_modifier_class }}" aria-expanded="false">{{ toggle_text }}</button>
+<nav {{- attributes }} class="su-secondary-nav no-js {{ modifier_class }}" aria-label="{{ aria_label|default('secondary menu') }}">
   {% spaceless %}
   {% if list_items is iterable %}
-    {{ menus.main_nav_menu(list_items, 1, 'su-main-nav') }}
+    {{ menus.main_nav_menu(list_items, 1, 'su-secondary-nav') }}
   {% else %}
     {# If custom markup is provided, emit it as is #}
     {{ list_items }}
   {% endif %}
   {% endspaceless %}
-  {% if "su-main-nav--mobile-search" in modifier_class %}
-    {% include "@decanter/components/site-search/site-search.twig" with
-      {
-        "action": mobile_search.action,
-        "method": mobile_search.method,
-        "search_label": mobile_search.search_label,
-        "placeholder": mobile_search.placeholder,
-        "search_input_name": mobile_search.search_input_name,
-        "search_icon_src": mobile_search.search_icon_src
-      }
-      only
-    %}
-  {% endif %}
 </nav>

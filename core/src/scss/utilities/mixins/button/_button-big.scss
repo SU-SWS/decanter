@@ -8,10 +8,21 @@
 //
 // Style guide: Mixins.Button.button-big
 //
-
 @mixin button-big {
-  @include button-primary;
-
-  @include type-c;
+  @extend %button-base;
   @include padding(1.5rem 3rem 1.8rem);
+  @include type-c;
+
+  background-color: color(brand--bright);
+  color: color(link--reverse);
+
+  &:hover {
+    background-color: color(bg--reverse);
+    color: color(link--reverse);
+  }
+
+  &:focus {
+    box-shadow: $focus-shadow;
+    background-color: color(bg--reverse);
+  }
 }

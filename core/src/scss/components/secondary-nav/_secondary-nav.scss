@@ -1,0 +1,122 @@
+@charset "UTF-8";
+//
+// Secondary Navigation
+//
+// The secondary site navigation that is...
+//
+// .su-secondary-nav--dark   - Light on dark theme (for use on dark background colors).
+//
+// Markup: ../templates/components/secondary-nav/secondary-nav.twig
+//
+// Style guide: Components.Secondary Navigation
+//
+
+// Default styles for secondary nav core elements.
+.su-secondary-nav {
+  background: color(bg, $secondary-nav-colors);
+  @include padding(0 18px);
+  @include margin(0);
+
+  // Un-do default list styles.
+  ul {
+    @include list-unstyled;
+  }
+
+  // Ensure everything is 100% width as we like large click areas.
+  li,
+  a,
+  a:link {
+    width: 100%;
+    display: block;
+    color: color(text);
+  }
+
+  a,
+  a:link {
+    @include padding(14px null 13px null);
+    @include margin(null null null null);
+    background-origin: content-box;
+    background-image: linear-gradient(
+      to top,
+      rgba(217, 217, 217, 1),
+      rgba(217, 217, 217, 0) 1px
+    );
+    background-repeat: no-repeat;
+    background-position: 0 13px;
+  }
+
+  a:hover,
+  a:focus {
+    box-shadow: inset 5px 0 0 color(link--hover, $secondary-nav-colors);
+    color: color(text);
+  }
+
+}
+
+// The number of (px) to indent at each level.
+$su-secondary-nav-item-indent: 16;
+// Support 10 levels. There may be a better way to do this but I think this
+// should be fine for now. Hints and suggestions are welcome.
+@for $i from 1 through 10 {
+  .su-secondary-nav__menu-lv#{$i} {
+    > li > a {
+      @include padding(null null null #{$su-secondary-nav-item-indent * $i}px);
+    }
+  }
+}
+
+// PARENT ITEMS ////////////////////////////////////////////////////////////////
+
+.su-secondary-nav__item--parent {
+  > a::after {
+    content: "+";
+    line-height: 100%;
+    vertical-align: middle;
+    position: relative;
+    float: right;
+    font-size: 1.6em;
+    font-weight: $font-regular;
+  }
+}
+
+// ACTIVE TRAIL ////////////////////////////////////////////////////////////////
+
+a:active,
+.su-secondary-nav__item--current:not(.su-secondary-nav__item--parent) > a {
+  box-shadow: inset 5px 0 0 color(link--active, $secondary-nav-colors);
+  color: color(link--active, $secondary-nav-colors);
+  font-weight: $font-bold;
+
+  &:hover {
+    color: color(link--active-hover, $secondary-nav-colors);
+    box-shadow: inset 5px 0 0 color(border--active-hover, $secondary-nav-colors);
+    margin-left: 5px;
+    text-indent: -5px;
+    background-position: 0 13px;
+  }
+}
+
+// EXPANDED ////////////////////////////////////////////////////////////////////
+
+.su-secondary-nav__item--expanded {
+  &::after {
+    content: "x";
+  }
+}
+
+// LEVEL 1 ITEMS ///////////////////////////////////////////////////////////////
+
+.su-secondary-nav__menu-lv1 {
+  > li {
+    >  a {
+      font-weight: $font-semi-bold;
+    }
+  }
+}
+
+
+// LEVEL 2 ITEMS ///////////////////////////////////////////////////////////////
+
+
+
+// LEVEL 3 AND BELOW ITEMS /////////////////////////////////////////////////////
