@@ -1,0 +1,35 @@
+{#
+/**
+ * Macro for creating nested menus.
+ */
+#}
+{% macro main_nav_menu(items, menu_level, class_prefix) %}
+  {% import _self as menus %}
+  <ul class="{{ class_prefix }}__menu-lv{{ menu_level }}">
+  {% for item in items %}
+    {% set is_parent = item.children is empty ? false : true %}
+    {% set list_classes = "" %}
+    {% if is_parent %}
+      {% set list_classes = list_classes ~ class_prefix ~ "__item--parent " %}
+    {% endif %}
+    {% if item.current %}
+      {% set list_classes = list_classes ~  class_prefix ~ "__item--current " %}
+    {% endif %}
+
+    <li class="{{ list_classes|trim }}">
+      {% if item.attributes is iterable %}
+        {% set the_attrs = "" %}
+        {% for key, val in item.attributes %}
+          {% set the_attrs = the_attrs ~ key|trim ~ '="' ~ val|slice("twig_markup")|join|trim ~ '" ' %}
+        {% endfor %}
+      {% endif %}
+
+      <a href="{{ item.href }}" {{ the_attrs }}>{{ item.text }}</a>
+      {% if item.children %}
+        {{ menus.main_nav_menu(item.children, menu_level + 1, class_prefix) }}
+      {% endif %}
+    </li>
+
+  {% endfor %}
+  </ul>
+{% endmacro %}
