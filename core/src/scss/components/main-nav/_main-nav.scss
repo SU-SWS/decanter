@@ -143,15 +143,15 @@
 
         @include grid-media-max('md') {
           &::before {
-            background-color: transparent;
+            background-color: color(link-border--mobile-expanded, $main-nav-colors);
           }
 
           &:hover::before {
-            background-color: $color-white;
+            background-color: color(link-border--mobile-hover, $main-nav-colors);
           }
 
           &:active::before {
-            background-color: $color-vivid-red;
+            background-color: color(link-border--mobile-active, $main-nav-colors);
           }
         }
       }
@@ -364,13 +364,13 @@
     > a {
       &::before {
         transform: scaleY(1);
-        background-color: $color-vivid-red;
+        background-color: color(link-border--mobile-active, $main-nav-colors);
       }
 
       &:hover,
       &:focus {
         &::before {
-          background-color: $color-vivid-red;
+          background-color: color(link-border--mobile-active, $main-nav-colors);
         }
       }
     }
@@ -379,7 +379,7 @@
       &.su-main-nav__item--expanded {
         > a:focus::before {
           left: 0;
-          background-color: $color-white;
+          background-color: color(link-border--mobile-active-expanded, $main-nav-colors);
         }
 
         > a[aria-expanded="true"] {
