@@ -283,7 +283,7 @@
       &::before {
         visibility: visible;
         transform: scaleX(1);
-        background-color: $color-black;
+        background-color: color(link-border--expanded, $main-nav-colors);
       }
 
       &::after {
@@ -391,7 +391,7 @@
             font-weight: $font-bold;
 
             &::before {
-              background-color: $color-vivid-red;
+              background-color: color(link-border--mobile-active, $main-nav-colors);
             }
           }
         }
@@ -401,14 +401,14 @@
     @include grid-media('lg') {
       > a {
         &::before {
-          background-color: $color-black;
+          background-color: color(link-border--active, $main-nav-colors);
         }
 
         &:hover,
         &:focus {
           &::before {
             left: 0;
-            background-color: $color-dark-red;
+            background-color: color(link-border--active-hover, $main-nav-colors);
           }
         }
       }

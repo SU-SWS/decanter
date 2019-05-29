@@ -10,20 +10,40 @@
 
 @function color($color, $palette: $core-colors, $theme: default) {
   @if $palette == $core-colors {
-    $color: map-get($core-colors, $color);
-    @return $color;
+    @if map-has-key($core-colors, $color) {
+      $color: map-get($core-colors, $color);
+    }
+    @else {
+      @warn "Check that `#{$color}` is in color map $core-colors."
+    }
   }
   @else {
 
     @if $theme == default {
-      $color: map-get($palette, $color);
-      @return $color;
+      @if map-has-key($palette, $color) {
+        $color: map-get($palette, $color);
+      }
+      @else {
+        @warn "Check that `#{$color}` is in color map."
+      }
     }
     @else {
-      $theme: map-get($palette, $theme);
-      $color: map-get($theme, $color);
-      @return $color;
-    }
 
+      @if map-has-key($palette, $theme) {
+        $theme: map-get($palette, $theme);
+
+        @if map-has-key($theme, $color) {
+          $color: map-get($theme, $color);
+        }
+        @else {
+          @warn "Check that `#{$color}` is in the theme."
+        }
+      }
+      @else {
+        @warn "Check that theme exists in the color map."
+      }
+    }
   }
+
+  @return $color;
 }
