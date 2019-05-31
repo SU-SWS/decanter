@@ -164,7 +164,7 @@
             font-weight: $font-bold;
 
             &::before {
-              background-color: $color-white;
+              background-color: color(link-border--mobile-active-expanded, $main-nav-colors);
             }
           }
         }
@@ -195,7 +195,7 @@
 
       > li {
         > a {
-          @include fancy-hover;
+          @include fancy-hover($color: color(link-border--hover, $main-nav-colors), $active: color(link-border--active, $main-nav-colors));
           @include padding(null 0);
           @include margin(0 1.2em 0 0);
           font-size: 2.1rem;
@@ -208,7 +208,7 @@
           &[aria-expanded="true"]::before {
             visibility: visible;
             transform: scaleX(1);
-            background-color: $color-black;
+            background-color: color(link-border--expanded, $main-nav-colors);
           }
         }
 
@@ -222,11 +222,11 @@
 
         &.su-main-nav__item--expanded > a {
           &:focus::before {
-            background-color: $color-black;
+            background-color: color(link-border--expanded, $main-nav-colors);
           }
 
           &[aria-expanded="true"]:hover::before {
-            background-color: $color-dark-red;
+            background-color: color(link-border--hover, $main-nav-colors);
           }
         }
       }
@@ -293,11 +293,11 @@
       }
 
       &:hover::before {
-        background-color: $color-dark-red;
+        background-color: color(link-border--hover, $main-nav-colors);
       }
 
       &:active::before {
-        background-color: $color-black;
+        background-color: color(link-border--active, $main-nav-colors);
       }
     }
 
@@ -305,7 +305,7 @@
     &:active,
     &:focus {
       background-color: transparent;
-      color: $color-black;
+      color: color(link, $main-nav-colors);
       box-shadow: none;
     }
 

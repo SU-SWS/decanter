@@ -25,7 +25,7 @@
 
         &[aria-expanded="true"] {
           &::before {
-            background-color: $color-white;
+            background-color: color(link-border--expanded, $main-nav-colors, dark);
           }
 
           &::after {
@@ -34,7 +34,7 @@
           }
 
           &:hover::before {
-            background-color: $color-vivid-red;
+            background-color: color(link-border--active, $main-nav-colors, dark);
           }
         }
       }
@@ -65,17 +65,17 @@
             }
 
             &[aria-expanded="true"] {
-              color: $color-white;
+              color: color(link--expanded, $main-nav-colors, dark);
 
               &::before {
-                background-color: $color-white;
+                background-color: color(link-border--expanded, $main-nav-colors, dark);
               }
 
               &:hover {
-                color: $color-white;
+                color: color(link--hover, $main-nav-colors, dark);
 
                 &::before {
-                  background-color: $color-vivid-red;
+                  background-color: color(link-border--expanded-hover, $main-nav-colors, dark);
                 }
               }
             }
@@ -90,18 +90,18 @@
 
           &.su-main-nav__item--current {
             > a {
-              color: $color-white;
+              color: color(link--active, $main-nav-colors, dark);
 
               &::before {
-                background-color: $color-vivid-red;
+                background-color: color(link-border--active, $main-nav-colors, dark);
               }
 
               &:hover,
               &:focus {
-                color: $color-white;
+                color: color(link--active-hover, $main-nav-colors, dark);
 
                 &::before {
-                  background-color: $color-white;
+                  background-color: color(link-border--active-hover, $main-nav-colors, dark);
                 }
               }
             }
@@ -116,10 +116,10 @@
               }
 
               > a[aria-expanded="true"]:hover {
-                color: $color-white;
+                color: color(link--expanded-hover, $main-nav-colors, dark);
 
                 &::before {
-                  background-color: $color-vivid-red;
+                  background-color: color(link-border--expanded-hover, $main-nav-colors, dark);
                 }
               }
             }
