@@ -5,15 +5,15 @@
     .su-main-nav__toggle {
       &[aria-expanded="true"] {
         &::before {
-          background-color: color(link-border--expanded, $main-nav-colors, light);
+          background-color: color(border--expanded, $main-nav-colors, light);
         }
 
         &:hover::before {
-          background-color: color(link-border--hover, $main-nav-colors, light);
+          background-color: color(border--hover, $main-nav-colors, light);
         }
 
         &:active::before {
-          background-color: color(link-border--active, $main-nav-colors, light);
+          background-color: color(border--active, $main-nav-colors, light);
         }
       }
     }
@@ -31,7 +31,7 @@
         &:hover,
         &:focus {
           &::before {
-            background-color: color(link-border--mobile-hover, $main-nav-colors, light);
+            background-color: color(border--mobile-hover, $main-nav-colors, light);
           }
         }
 
@@ -39,7 +39,7 @@
           color: color(link--mobile-active, $main-nav-colors, light);
 
           &::before {
-            background-color: color(link-border--mobile-active, $main-nav-colors, light);
+            background-color: color(border--mobile-active, $main-nav-colors, light);
           }
         }
       }
@@ -49,7 +49,7 @@
           color: color(link--mobile-active, $main-nav-colors, light);
 
           &::before {
-            background-color: color(link-border--mobile-active, $main-nav-colors, light);
+            background-color: color(border--mobile-active, $main-nav-colors, light);
           }
         }
       }
@@ -68,16 +68,16 @@
             }
 
             &:focus::before {
-              background-color: color(link-border--mobile-expanded, $main-nav-colors, light);
+              background-color: color(border--mobile-expanded, $main-nav-colors, light);
             }
 
             &[aria-expanded="true"] {
               &:hover::before {
-                background-color: color(link-border--mobile-hover, $main-nav-colors, light);
+                background-color: color(border--mobile-hover, $main-nav-colors, light);
               }
 
               &:active::before {
-                background-color: color(link-border--mobile-active, $main-nav-colors, light);
+                background-color: color(border--mobile-active, $main-nav-colors, light);
               }
             }
           }
@@ -89,11 +89,11 @@
               color: color(link--mobile-expanded, $main-nav-colors, light);
 
               &::before {
-                background-color: color(link-border--mobile-active-expanded, $main-nav-colors, light);
+                background-color: color(border--mobile-active-expanded, $main-nav-colors, light);
               }
 
               &:focus::before {
-                background-color: color(link-border--mobile-active-expanded, $main-nav-colors, light);
+                background-color: color(border--mobile-active-expanded, $main-nav-colors, light);
               }
 
               &[aria-expanded="true"]:active {
@@ -114,33 +114,33 @@
           > a {
             &:hover,
             &:focus {
-              color: $color-dark-red;
+              color: color(link--hover, $main-nav-colors, light);
 
               &::before {
-                background-color: $color-dark-red;
+                background-color: color(border--hover, $main-nav-colors, light);
               }
             }
 
             &:active {
-              color: $color-black;
+              color: color(link--active, $main-nav-colors, light);
 
               &::before {
-                background-color: $color-black;
+                background-color: color(border--active, $main-nav-colors, light);
               }
             }
 
             &[aria-expanded="true"] {
-              color: $color-black;
+              color: color(link--expanded, $main-nav-colors, light);
 
               &::before {
-                background-color: $color-driftwood;
+                background-color: color(border--expanded, $main-nav-colors, light);
               }
 
               &:hover {
-                color: $color-dark-red;
+                color: color(link--hover, $main-nav-colors, light);
 
                 &::before {
-                  background-color: $color-dark-red;
+                  background-color: color(border--hover, $main-nav-colors, light);
                 }
               }
             }

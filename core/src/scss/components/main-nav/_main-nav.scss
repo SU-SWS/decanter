@@ -62,7 +62,7 @@
     @include margin(null null 0);
 
     a {
-      @include fancy-hover($color: color(link-border--mobile-hover, $main-nav-colors), $active: color(link-border--mobile-active, $main-nav-colors), $position: 'left');
+      @include fancy-hover($color: color(border--mobile-hover, $main-nav-colors), $active: color(border--mobile-active, $main-nav-colors), $position: 'left');
       @include padding(1.6rem 4.8rem 1.6rem 2.4rem);
       display: block;
       color: color(link--mobile, $main-nav-colors);
@@ -92,7 +92,7 @@
       &::before {
         visibility: visible;
         transform: scaleY(1);
-        background-color: color(link-border--mobile-active, $main-nav-colors);
+        background-color: color(border--mobile-active, $main-nav-colors);
         transition: left 0.1s ease-out;
       }
 
@@ -143,15 +143,15 @@
 
         @include grid-media-max('md') {
           &::before {
-            background-color: color(link-border--mobile-expanded, $main-nav-colors);
+            background-color: color(border--mobile-expanded, $main-nav-colors);
           }
 
           &:hover::before {
-            background-color: color(link-border--mobile-hover, $main-nav-colors);
+            background-color: color(border--mobile-hover, $main-nav-colors);
           }
 
           &:active::before {
-            background-color: color(link-border--mobile-active, $main-nav-colors);
+            background-color: color(border--mobile-active, $main-nav-colors);
           }
         }
       }
@@ -164,7 +164,7 @@
             font-weight: $font-bold;
 
             &::before {
-              background-color: color(link-border--mobile-active-expanded, $main-nav-colors);
+              background-color: color(border--mobile-active-expanded, $main-nav-colors);
             }
           }
         }
@@ -195,7 +195,7 @@
 
       > li {
         > a {
-          @include fancy-hover($color: color(link-border--hover, $main-nav-colors), $active: color(link-border--active, $main-nav-colors));
+          @include fancy-hover($color: color(border--hover, $main-nav-colors), $active: color(border--active, $main-nav-colors));
           @include padding(null 0);
           @include margin(0 1.2em 0 0);
           font-size: 2.1rem;
@@ -208,7 +208,7 @@
           &[aria-expanded="true"]::before {
             visibility: visible;
             transform: scaleX(1);
-            background-color: color(link-border--expanded, $main-nav-colors);
+            background-color: color(border--expanded, $main-nav-colors);
           }
         }
 
@@ -222,11 +222,11 @@
 
         &.su-main-nav__item--expanded > a {
           &:focus::before {
-            background-color: color(link-border--expanded, $main-nav-colors);
+            background-color: color(border--expanded, $main-nav-colors);
           }
 
           &[aria-expanded="true"]:hover::before {
-            background-color: color(link-border--hover, $main-nav-colors);
+            background-color: color(border--hover, $main-nav-colors);
           }
         }
       }
@@ -257,7 +257,7 @@
 
 .su-main-nav__toggle {
   @include grid-media-max('md') {
-    @include fancy-hover($color: color(link-border--hover, $main-nav-colors), $active: color(link-border--active, $main-nav-colors));
+    @include fancy-hover($color: color(border--hover, $main-nav-colors), $active: color(border--active, $main-nav-colors));
     @include padding(0 0 2rem);
     @include margin(0);
     display: flex;
@@ -283,7 +283,7 @@
       &::before {
         visibility: visible;
         transform: scaleX(1);
-        background-color: color(link-border--expanded, $main-nav-colors);
+        background-color: color(border--expanded, $main-nav-colors);
       }
 
       &::after {
@@ -293,11 +293,11 @@
       }
 
       &:hover::before {
-        background-color: color(link-border--hover, $main-nav-colors);
+        background-color: color(border--hover, $main-nav-colors);
       }
 
       &:active::before {
-        background-color: color(link-border--active, $main-nav-colors);
+        background-color: color(border--active, $main-nav-colors);
       }
     }
 
@@ -364,13 +364,13 @@
     > a {
       &::before {
         transform: scaleY(1);
-        background-color: color(link-border--mobile-active, $main-nav-colors);
+        background-color: color(border--mobile-active, $main-nav-colors);
       }
 
       &:hover,
       &:focus {
         &::before {
-          background-color: color(link-border--mobile-active, $main-nav-colors);
+          background-color: color(border--mobile-active, $main-nav-colors);
         }
       }
     }
@@ -379,7 +379,7 @@
       &.su-main-nav__item--expanded {
         > a:focus::before {
           left: 0;
-          background-color: color(link-border--mobile-active-expanded, $main-nav-colors);
+          background-color: color(border--mobile-active-expanded, $main-nav-colors);
         }
 
         > a[aria-expanded="true"] {
@@ -391,7 +391,7 @@
             font-weight: $font-bold;
 
             &::before {
-              background-color: color(link-border--mobile-active, $main-nav-colors);
+              background-color: color(border--mobile-active, $main-nav-colors);
             }
           }
         }
@@ -401,14 +401,14 @@
     @include grid-media('lg') {
       > a {
         &::before {
-          background-color: color(link-border--active, $main-nav-colors);
+          background-color: color(border--active, $main-nav-colors);
         }
 
         &:hover,
         &:focus {
           &::before {
             left: 0;
-            background-color: color(link-border--active-hover, $main-nav-colors);
+            background-color: color(border--active-hover, $main-nav-colors);
           }
         }
       }
