@@ -5,22 +5,22 @@
     .su-main-nav__toggle {
       &[aria-expanded="true"] {
         &::before {
-          background-color: $color-driftwood;
+          background-color: color(link-border--expanded, $main-nav-colors, light);
         }
 
         &:hover::before {
-          background-color: $color-dark-red;
+          background-color: color(link-border--hover, $main-nav-colors, light);
         }
 
         &:active::before {
-          background-color: $color-black;
+          background-color: color(link-border--active, $main-nav-colors, light);
         }
       }
     }
 
     // general menu styles
     ul {
-      background-color: $color-white;
+      background-color: color(bg--mobile, $main-nav-colors, light);
     }
 
     li {
@@ -182,6 +182,20 @@
               }
             }
           }
+        }
+      }
+    }
+  }
+}
+
+.su-main-nav--light.su-main-nav--mobile-search {
+  .su-main-nav__toggle[aria-expanded="true"] {
+
+    @include grid-media-max('md') {
+      + .su-main-nav__menu-lv1 {
+
+        + .su-site-search {
+          background-color: color(bg--mobile, $main-nav-colors, light);
         }
       }
     }
