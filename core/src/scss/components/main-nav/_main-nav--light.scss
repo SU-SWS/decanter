@@ -25,31 +25,31 @@
 
     li {
       a {
-        color: $color-black;
-        border-bottom-color: #d9d9d9;
+        color: color(link--mobile, $main-nav-colors, light);
+        border-bottom-color: color(divider, $main-nav-colors, light);
 
         &:hover,
         &:focus {
           &::before {
-            background-color: $color-black;
+            background-color: color(link-border--mobile-hover, $main-nav-colors, light);
           }
         }
 
         &:active {
-          color: $color-dark-red;
+          color: color(link--mobile-active, $main-nav-colors, light);
 
           &::before {
-            background-color: $color-dark-red;
+            background-color: color(link-border--mobile-active, $main-nav-colors, light);
           }
         }
       }
 
       &.su-main-nav__item--current {
         > a {
-          color: $color-dark-red;
+          color: color(link--mobile-active, $main-nav-colors, light);
 
           &::before {
-            background-color: $color-dark-red;
+            background-color: color(link-border--mobile-active, $main-nav-colors, light);
           }
         }
       }
@@ -68,16 +68,16 @@
             }
 
             &:focus::before {
-              background-color: transparent;
+              background-color: color(link-border--mobile-expanded, $main-nav-colors, light);
             }
 
             &[aria-expanded="true"] {
               &:hover::before {
-                background-color: $color-black;
+                background-color: color(link-border--mobile-hover, $main-nav-colors, light);
               }
 
               &:active::before {
-                background-color: $color-dark-red;
+                background-color: color(link-border--mobile-active, $main-nav-colors, light);
               }
             }
           }
@@ -86,18 +86,18 @@
         &.su-main-nav__item--current {
           &.su-main-nav__item--expanded {
             > a {
-              color: $color-black;
+              color: color(link--mobile-expanded, $main-nav-colors, light);
 
               &::before {
-                background-color: $color-black;
+                background-color: color(link-border--mobile-active-expanded, $main-nav-colors, light);
               }
 
               &:focus::before {
-                background-color: $color-black;
+                background-color: color(link-border--mobile-active-expanded, $main-nav-colors, light);
               }
 
               &[aria-expanded="true"]:active {
-                color: $color-dark-red;
+                color: color(link--mobile-active, $main-nav-colors, light);
               }
             }
           }
