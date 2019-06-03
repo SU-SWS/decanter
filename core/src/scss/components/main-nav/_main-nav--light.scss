@@ -148,36 +148,36 @@
 
           &.su-main-nav__item--current {
             > a {
-              color: $color-black;
+              color: color(link--active, $main-nav-colors, light);
 
               &::before {
-                background-color: $color-driftwood;
+                background-color: color(border--current, $main-nav-colors, light);
               }
 
               &:hover,
               &:focus {
-                color: $color-dark-red;
+                color: color(link--hover, $main-nav-colors, light);
 
                 &::before {
-                  background-color: $color-dark-red;
+                  background-color: color(border--hover, $main-nav-colors, light);
                 }
               }
             }
 
             &.su-main-nav__item--expanded {
               > a:focus {
-                color: $color-black;
+                color: color(link--expanded, $main-nav-colors, light);
 
                 &::before {
-                  background-color: $color-driftwood;
+                  background-color: color(border--expanded, $main-nav-colors, light);
                 }
               }
 
               > a[aria-expanded="true"]:hover {
-                color: $color-dark-red;
+                color: color(link--hover, $main-nav-colors, light);
 
                 &::before {
-                  background-color: $color-dark-red;
+                  background-color: color(border--hover, $main-nav-colors, light);
                 }
               }
             }
