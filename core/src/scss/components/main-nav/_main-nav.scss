@@ -225,7 +225,7 @@
             background-color: color(border--expanded, $main-nav-colors);
           }
 
-          &[aria-expanded="true"]:hover::before {
+          &:hover::before {
             background-color: color(border--hover, $main-nav-colors);
           }
         }
@@ -338,7 +338,7 @@
   }
 }
 
-.su-main-nav__menu-lv1 > li {
+.su-main-nav > ul > li {
   @include grid-media('lg') {
     > a {
       color: color(link, $main-nav-colors);
