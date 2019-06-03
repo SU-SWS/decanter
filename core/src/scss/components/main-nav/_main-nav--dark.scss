@@ -71,11 +71,13 @@
         }
       }
 
-      &.su-main-nav__item--parent,
-      &.su-main-nav__item--parent.su-main-nav__item--expanded {
-        > a::after {
-          background: url("#{$image-path}/caret-down-white.svg") no-repeat 0 0;
-          background-size: 100%;
+      &.su-main-nav__item--parent {
+        &,
+        &.su-main-nav__item--expanded {
+          > a::after {
+            background: url("#{$image-path}/caret-down-white.svg") no-repeat 0 0;
+            background-size: 100%;
+          }
         }
       }
 
