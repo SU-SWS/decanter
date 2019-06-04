@@ -27,13 +27,13 @@
           background-color: color(border--expanded, $main-nav-colors, dark);
         }
 
+        &:hover::before {
+          background-color: color(border--active, $main-nav-colors, dark);
+        }
+
         &::after {
           background: url("#{$image-path}/close-white.svg") no-repeat 3px 0;
           background-size: 16px 16px;
-        }
-
-        &:hover::before {
-          background-color: color(border--active, $main-nav-colors, dark);
         }
       }
     }
@@ -41,37 +41,39 @@
 
   // desktop first level menu style override
   @include grid-media('lg') {
-    > ul > li {
-      > a {
-        color: color(link, $main-nav-colors, dark);
+    > ul {
+      > li {
+        > a {
+          color: color(link, $main-nav-colors, dark);
 
-        &:hover,
-        &:focus {
-          color: color(link--hover, $main-nav-colors, dark);
-
-          &::before {
-            background-color: color(border--hover, $main-nav-colors, dark);
-          }
-        }
-
-        &:active {
-          color: color(link--active, $main-nav-colors, dark);
-
-          &::before {
-            background-color: color(border--active, $main-nav-colors, dark);
-          }
-        }
-
-        &[aria-expanded="true"] {
-          color: color(link--expanded, $main-nav-colors, dark);
-
-          &:hover {
+          &:hover,
+          &:focus {
             color: color(link--hover, $main-nav-colors, dark);
+
+            &::before {
+              background-color: color(border--hover, $main-nav-colors, dark);
+            }
+          }
+
+          &:active {
+            color: color(link--active, $main-nav-colors, dark);
+
+            &::before {
+              background-color: color(border--active, $main-nav-colors, dark);
+            }
+          }
+
+          &[aria-expanded="true"] {
+            color: color(link--expanded, $main-nav-colors, dark);
+
+            &:hover {
+              color: color(link--hover, $main-nav-colors, dark);
+            }
           }
         }
       }
 
-      &.su-main-nav__item--parent {
+      > .su-main-nav__item--parent {
         &,
         &.su-main-nav__item--expanded {
           > a::after {
@@ -81,7 +83,7 @@
         }
       }
 
-      &.su-main-nav__item--current {
+      > .su-main-nav__item--current {
         > a {
           color: color(link--active, $main-nav-colors, dark);
 
@@ -100,7 +102,7 @@
         }
       }
 
-      &.su-main-nav__item--expanded {
+      > .su-main-nav__item--expanded {
         &,
         &.su-main-nav__item--current {
           > a,
@@ -121,7 +123,6 @@
           }
         }
       }
-
     }
   }
 }

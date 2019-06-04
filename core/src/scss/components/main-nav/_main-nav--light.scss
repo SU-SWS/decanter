@@ -44,67 +44,75 @@
         }
       }
     }
+  }
 
-    &.su-main-nav__item--current {
-      > a {
-        color: color(link--mobile-active, $main-nav-colors, light);
+  .su-main-nav__item--current {
+    > a {
+      color: color(link--mobile-active, $main-nav-colors, light);
 
+      &::before {
+        background-color: color(border--mobile-active, $main-nav-colors, light);
+      }
+
+      &:hover,
+      &:focus {
         &::before {
           background-color: color(border--mobile-active, $main-nav-colors, light);
         }
       }
     }
+  }
 
-    @include grid-media-max('md') {
-      &.su-main-nav__item--parent {
-        > a::after {
-          background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
+  @include grid-media-max('md') {
+    .su-main-nav__item--parent {
+      > a::after {
+        background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
+        background-size: 100%;
+      }
+
+      &.su-main-nav__item--expanded > a {
+        ::after {
+          background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
           background-size: 100%;
         }
 
-        &.su-main-nav__item--expanded > a {
-          ::after {
-            background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
-            background-size: 100%;
+        &:focus::before {
+          background-color: color(border--mobile-expanded, $main-nav-colors, light);
+        }
+
+        &[aria-expanded="true"] {
+          &:hover::before {
+            background-color: color(border--mobile-hover, $main-nav-colors, light);
           }
 
-          &:focus::before {
-            background-color: color(border--mobile-expanded, $main-nav-colors, light);
-          }
-
-          &[aria-expanded="true"] {
-            &:hover::before {
-              background-color: color(border--mobile-hover, $main-nav-colors, light);
-            }
-
-            &:active::before {
-              background-color: color(border--mobile-active, $main-nav-colors, light);
-            }
+          &:active::before {
+            background-color: color(border--mobile-active, $main-nav-colors, light);
           }
         }
       }
+    }
 
-      &.su-main-nav__item--current {
-        &.su-main-nav__item--expanded {
-          > a {
-            color: color(link--mobile-expanded, $main-nav-colors, light);
+    .su-main-nav__item--current {
+      &.su-main-nav__item--expanded {
+        > a {
+          color: color(link--mobile-expanded, $main-nav-colors, light);
 
-            &::before {
-              background-color: color(border--mobile-active-expanded, $main-nav-colors, light);
-            }
+          &::before {
+            background-color: color(border--mobile-active-expanded, $main-nav-colors, light);
+          }
 
-            &:focus::before {
-              background-color: color(border--mobile-active-expanded, $main-nav-colors, light);
-            }
+          &:focus::before {
+            background-color: color(border--mobile-active-expanded, $main-nav-colors, light);
+          }
 
-            &[aria-expanded="true"]:active {
-              color: color(link--mobile-active, $main-nav-colors, light);
-            }
+          &[aria-expanded="true"]:active {
+            color: color(link--mobile-active, $main-nav-colors, light);
           }
         }
       }
     }
   }
+
 
 
   // desktop first level menu style override
@@ -147,40 +155,40 @@
             }
           }
         }
+      }
 
-        &.su-main-nav__item--current {
-          > a {
-            color: color(link--active, $main-nav-colors, light);
+      > .su-main-nav__item--current {
+        > a {
+          color: color(link--active, $main-nav-colors, light);
+
+          &::before {
+            background-color: color(border--current, $main-nav-colors, light);
+          }
+
+          &:hover,
+          &:focus {
+            color: color(link--hover, $main-nav-colors, light);
 
             &::before {
-              background-color: color(border--current, $main-nav-colors, light);
+              background-color: color(border--hover, $main-nav-colors, light);
             }
+          }
+        }
 
-            &:hover,
-            &:focus {
-              color: color(link--hover, $main-nav-colors, light);
+        &.su-main-nav__item--expanded {
+          > a:focus {
+            color: color(link--expanded, $main-nav-colors, light);
 
-              &::before {
-                background-color: color(border--hover, $main-nav-colors, light);
-              }
+            &::before {
+              background-color: color(border--expanded, $main-nav-colors, light);
             }
           }
 
-          &.su-main-nav__item--expanded {
-            > a:focus {
-              color: color(link--expanded, $main-nav-colors, light);
+          > a[aria-expanded="true"]:hover {
+            color: color(link--hover, $main-nav-colors, light);
 
-              &::before {
-                background-color: color(border--expanded, $main-nav-colors, light);
-              }
-            }
-
-            > a[aria-expanded="true"]:hover {
-              color: color(link--hover, $main-nav-colors, light);
-
-              &::before {
-                background-color: color(border--hover, $main-nav-colors, light);
-              }
+            &::before {
+              background-color: color(border--hover, $main-nav-colors, light);
             }
           }
         }

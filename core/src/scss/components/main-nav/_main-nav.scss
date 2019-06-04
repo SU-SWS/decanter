@@ -79,117 +79,119 @@
     > ul {
       display: none;
     }
+  }
 
-    &.su-main-nav__item--expanded {
-      > ul {
-        display: flex;
-      }
+  .su-main-nav__item--expanded {
+    > ul {
+      display: flex;
+    }
+  }
+
+  .su-main-nav__item--current > a {
+    font-weight: $font-bold;
+
+    &::before {
+      visibility: visible;
+      transform: scaleY(1);
+      background-color: color(border--mobile-active, $main-nav-colors);
     }
 
-    &.su-main-nav__item--current > a {
-      font-weight: $font-bold;
-
+    &:hover,
+    &:focus {
       &::before {
-        visibility: visible;
-        transform: scaleY(1);
-        background-color: color(border--mobile-active, $main-nav-colors);
+        left: 6px;
         transition: left 0.1s ease-out;
+        background-color: color(border--mobile-active, $main-nav-colors);
       }
+    }
+  }
 
-      &:hover,
-      &:focus {
-        &::before {
-          left: 6px;
-        }
+  .su-main-nav__item--parent {
+    > a::after {
+      background: url("#{$image-path}/plus-white.svg") no-repeat 0 0;
+      background-size: 100%;
+      content: "";
+      display: inline-block;
+      position: absolute;
+      right: 2rem;
+      top: 2.06rem;
+      height: 1.8rem;
+      width: 1.8rem;
+
+      @include grid-media('lg') {
+        @include margin(null null 1px 6px);
+        background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
+        background-size: 100%;
+        position: relative;
+        right: 0;
+        top: 0;
+        height: 11px; // Small svg gets chopped off if use em instead of px
+        width: 11px;
+        transition: transform 0.3s ease-out;
       }
     }
 
-    &.su-main-nav__item--parent {
-      > a::after {
-        background: url("#{$image-path}/plus-white.svg") no-repeat 0 0;
+    &.su-main-nav__item--expanded > a {
+      &::after {
+        background: url("#{$image-path}/minus-white.svg") no-repeat 0 0;
         background-size: 100%;
-        content: "";
-        display: inline-block;
-        position: absolute;
-        right: 2rem;
-        top: 2.06rem;
-        height: 1.8rem;
-        width: 1.8rem;
 
         @include grid-media('lg') {
-          @include margin(null null 1px 6px);
           background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
           background-size: 100%;
-          position: relative;
-          right: 0;
-          top: 0;
-          height: 11px; // Small svg gets chopped off if use em instead of px
-          width: 11px;
-          transition: transform 0.3s ease-out;
+          transform: rotate(180deg);
         }
       }
 
-      &.su-main-nav__item--expanded > a {
-        &::after {
-          background: url("#{$image-path}/minus-white.svg") no-repeat 0 0;
-          background-size: 100%;
-
-          @include grid-media('lg') {
-            background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
-            background-size: 100%;
-            transform: rotate(180deg);
-          }
+      @include grid-media-max('md') {
+        &::before {
+          background-color: color(border--mobile-expanded, $main-nav-colors);
         }
 
-        @include grid-media-max('md') {
-          &::before {
-            background-color: color(border--mobile-expanded, $main-nav-colors);
-          }
+        &:hover::before {
+          background-color: color(border--mobile-hover, $main-nav-colors);
+        }
 
-          &:hover::before {
-            background-color: color(border--mobile-hover, $main-nav-colors);
-          }
-
-          &:active::before {
-            background-color: color(border--mobile-active, $main-nav-colors);
-          }
+        &:active::before {
+          background-color: color(border--mobile-active, $main-nav-colors);
         }
       }
     }
+  }
 
-    @include grid-media-max('md') {
-      &.su-main-nav__item--current {
-        &.su-main-nav__item--expanded {
-          > a {
+  @include grid-media-max('md') {
+    .su-main-nav__item--current {
+      &.su-main-nav__item--expanded {
+        > a {
+          font-weight: $font-bold;
+
+          &::before {
+            background-color: color(border--mobile-active-expanded, $main-nav-colors);
+          }
+        }
+
+        > a:focus::before {
+          left: 0;
+          background-color: color(border--mobile-active-expanded, $main-nav-colors);
+        }
+
+        > a[aria-expanded="true"] {
+          &:hover::before {
+            left: 6px;
+          }
+
+          &:active {
             font-weight: $font-bold;
 
             &::before {
-              background-color: color(border--mobile-active-expanded, $main-nav-colors);
-            }
-          }
-
-          > a:focus::before {
-            left: 0;
-            background-color: color(border--mobile-active-expanded, $main-nav-colors);
-          }
-
-          > a[aria-expanded="true"] {
-            &:hover::before {
-              left: 6px;
-            }
-
-            &:active {
-              font-weight: $font-bold;
-
-              &::before {
-                background-color: color(border--mobile-active, $main-nav-colors);
-              }
+              background-color: color(border--mobile-active, $main-nav-colors);
             }
           }
         }
       }
     }
   }
+
 
   // Top level only menu styles
   > ul {
@@ -254,46 +256,45 @@
         &:last-child > a {
           @include margin(null 0 null null);
         }
+      }
 
-        &.su-main-nav__item--current {
-          > a {
-            font-weight: $font-semi-bold;
+      > .su-main-nav__item--current {
+        > a {
+          font-weight: $font-semi-bold;
 
-            &::before {
-              background-color: color(border--active, $main-nav-colors);
-            }
-
-            &:hover,
-            &:focus {
-              &::before {
-                left: 0;
-                background-color: color(border--active-hover, $main-nav-colors);
-              }
-            }
+          &::before {
+            background-color: color(border--active, $main-nav-colors);
           }
 
-          &.su-main-nav__item--expanded > a {
-            &:focus::before {
-              background-color: color(border--active, $main-nav-colors);
+          &:hover,
+          &:focus {
+            &::before {
+              left: 0;
+              background-color: color(border--active-hover, $main-nav-colors);
             }
           }
         }
 
-        &.su-main-nav__item--expanded {
-          > a:focus::before {
+        &.su-main-nav__item--expanded > a {
+          &:focus::before {
+            background-color: color(border--active, $main-nav-colors);
+          }
+        }
+      }
+
+      > .su-main-nav__item--expanded {
+        > a:focus::before {
+          background-color: color(border--expanded, $main-nav-colors);
+        }
+
+        > a[aria-expanded="true"] {
+          &:hover::before {
+            background-color: color(border--hover, $main-nav-colors);
+          }
+
+          &:active::before {
             background-color: color(border--expanded, $main-nav-colors);
           }
-
-          > a[aria-expanded="true"] {
-            &:hover::before {
-              background-color: color(border--hover, $main-nav-colors);
-            }
-
-            &:active::before {
-              background-color: color(border--expanded, $main-nav-colors);
-            }
-          }
-
         }
       }
     }
