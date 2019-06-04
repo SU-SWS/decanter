@@ -48,7 +48,7 @@
   position: relative;
   z-index: 9999;
 
-  // general menu styles
+  // General menu styles
   ul {
     @include margin(0 null);
     display: flex;
@@ -123,7 +123,7 @@
           position: relative;
           right: 0;
           top: 0;
-          height: 11px; //small svg gets chopped off if use em instead of px
+          height: 11px; // Small svg gets chopped off if use em instead of px
           width: 11px;
           transition: transform 0.3s ease-out;
         }
@@ -167,66 +167,43 @@
               background-color: color(border--mobile-active-expanded, $main-nav-colors);
             }
           }
+
+          > a:focus::before {
+            left: 0;
+            background-color: color(border--mobile-active-expanded, $main-nav-colors);
+          }
+
+          > a[aria-expanded="true"] {
+            &:hover::before {
+              left: 6px;
+            }
+
+            &:active {
+              font-weight: $font-bold;
+
+              &::before {
+                background-color: color(border--mobile-active, $main-nav-colors);
+              }
+            }
+          }
         }
       }
     }
   }
 
-  //top level menu styles
+  // Top level only menu styles
   > ul {
     @include grid-media-max('md') {
       @include box-shadow($depth: 'medium', $stroke: none);
     }
 
     > li {
-      @include margin(null null 0);
-
       > a {
         font-weight: $font-semi-bold;
       }
-
-      &.su-main-nav__item--current {
-        > a {
-          &::before {
-            transform: scaleY(1);
-            background-color: color(border--mobile-active, $main-nav-colors);
-          }
-
-          &:hover,
-          &:focus {
-            &::before {
-              background-color: color(border--mobile-active, $main-nav-colors);
-            }
-          }
-        }
-
-        &.su-main-nav__item--expanded {
-          @include grid-media-max('md') {
-            > a:focus::before {
-              left: 0;
-              background-color: color(border--mobile-active-expanded, $main-nav-colors);
-            }
-
-            > a[aria-expanded="true"] {
-              &:hover::before {
-                left: 6px;
-              }
-
-              &:active {
-                font-weight: $font-bold;
-
-                &::before {
-                  background-color: color(border--mobile-active, $main-nav-colors);
-                }
-              }
-            }
-          }
-        }
-
-      }
     }
 
-    // top level menu desktop styles
+    // Top level menu desktop styles
     @include grid-media('lg') {
       @include padding(null null null 0);
       flex-direction: row;
@@ -406,7 +383,7 @@
       position: absolute;
     }
 
-    //toggle button variants
+    // Toggle button variants
     &--center {
       @include margin(null auto);
     }
@@ -431,7 +408,7 @@
 .su-main-nav > ul > li > ul {
   @include padding(null null null 2rem);
 
-  // desktop dropdown menu
+  // Desktop dropdown menu
   @include grid-media('lg') {
     @include padding(1px null null 1.2rem);
     @include margin(null null null -1.8rem);
