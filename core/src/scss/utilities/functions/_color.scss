@@ -1,15 +1,21 @@
 @charset "UTF-8";
 
 //
-// color($color, $palette: $core-colors, $theme: default)
+// color($color, $colormap: $core-colors, $theme: default)
 //
 // Return a color from a color map. If only a color is specified, then it returns a color from $core-colors.
+// If a color and a color map are specified, then it returns a color from the default theme of the color map.
+// If all 3 are specified, it returns a color from the specified theme of the color map.
+//
+// $color - String - Color variable name from a color map, e.g., brand, link--hover
+// $colormap - Color palette in the form of a SASS map, e.g., $main-nav-colors, $alert-colors. Default is $core-colors.
+// $theme - String - Name of the theme within a color map, e.g., dark, light. Default is default.
 //
 // Style guide: Functions.Color
 //
 
-@function color($color, $palette: $core-colors, $theme: default) {
-  @if $palette == $core-colors {
+@function color($color, $colormap: $core-colors, $theme: default) {
+  @if $colormap == $core-colors {
     @if map-has-key($core-colors, $color) {
       $color: map-get($core-colors, $color);
     }
@@ -19,16 +25,16 @@
   }
   @else {
     @if $theme == default {
-      @if map-has-key($palette, $color) {
-        $color: map-get($palette, $color);
+      @if map-has-key($colormap, $color) {
+        $color: map-get($colormap, $color);
       }
       @else {
         @warn "Check that `#{$color}` is in color map."
       }
     }
     @else {
-      @if map-has-key($palette, $theme) {
-        $theme: map-get($palette, $theme);
+      @if map-has-key($colormap, $theme) {
+        $theme: map-get($colormap, $theme);
 
         @if map-has-key($theme, $color) {
           $color: map-get($theme, $color);
