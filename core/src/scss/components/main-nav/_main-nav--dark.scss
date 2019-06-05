@@ -28,7 +28,11 @@
         }
 
         &:hover::before {
-          background-color: color(border--active, $main-nav-colors, dark);
+          background-color: color(border--expanded-hover, $main-nav-colors, dark);
+        }
+
+        &:active::before {
+          background-color: color(border--expanded-active, $main-nav-colors, dark);
         }
 
         &::after {
@@ -98,6 +102,10 @@
             &::before {
               background-color: color(border--active-hover, $main-nav-colors, dark);
             }
+          }
+
+          &:active::before {
+            background-color: color(border--active, $main-nav-colors, dark);
           }
         }
       }

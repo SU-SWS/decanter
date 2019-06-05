@@ -275,6 +275,10 @@
               transition: background-color 0.3s ease-out;
             }
           }
+
+          &:active::before {
+            background-color: color(border--active, $main-nav-colors);
+          }
         }
 
         &.su-main-nav__item--expanded > a {
