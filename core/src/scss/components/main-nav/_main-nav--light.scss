@@ -19,7 +19,7 @@
     }
   }
 
-  // general menu styles
+  // General menu styles - mobile, also desktop drop down part
   ul {
     background-color: color(bg--mobile, $main-nav-colors, light);
   }
@@ -97,10 +97,7 @@
         > a {
           color: color(link--mobile-expanded, $main-nav-colors, light);
 
-          &::before {
-            background-color: color(border--mobile-active-expanded, $main-nav-colors, light);
-          }
-
+          &::before,
           &:focus::before {
             background-color: color(border--mobile-active-expanded, $main-nav-colors, light);
           }
@@ -112,8 +109,6 @@
       }
     }
   }
-
-
 
   // desktop first level menu style override
   @include grid-media('lg') {
@@ -158,6 +153,10 @@
               &::before {
                 background-color: color(border--expanded, $main-nav-colors, light);
               }
+            }
+
+            &:active {
+              color: color(link--active, $main-nav-colors, light);
             }
           }
         }
@@ -221,5 +220,4 @@
       }
     }
   }
-
 }
