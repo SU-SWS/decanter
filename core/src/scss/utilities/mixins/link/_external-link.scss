@@ -13,17 +13,23 @@
 @mixin external-link($external-link: external-link, $external-link-hover: external-link-hover) {
   &::after {
     @include margin(null null -1px 4px);
-    background: url("#{$image-path}/#{$external-link}.png") no-repeat 0 0;
-    background: url("#{$image-path}/#{$external-link}.svg") no-repeat 0 0;
-    background-size: 100%;
+    mask: url("#{$image-path}/#{$external-link}.svg") no-repeat 0 0;
     content: '';
+    background-color: $color-bright-red;
     display: inline-block;
     height: 0.65em;
     width: 0.65em;
+    mask-size: cover;
   }
 
   &:hover::after {
-    background-image: url("#{$image-path}/#{$external-link-hover}.png");
-    background-image: url("#{$image-path}/#{$external-link-hover}.svg");
+    background-color: $color-black;
+  }
+
+  // IE only - hides icon.
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    &::after {
+      display: none;
+    }
   }
 }
