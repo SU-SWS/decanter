@@ -13,13 +13,12 @@
 @mixin external-link($external-link: external-link, $external-link-hover: external-link-hover) {
   &::after {
     @include margin(null null -1px 4px);
-    mask: url("#{$image-path}/#{$external-link}.svg") no-repeat 0 0;
-    content: '';
-    background-color: $color-bright-red;
+    @include size(0.65em);
     display: inline-block;
-    height: 0.65em;
-    width: 0.65em;
+    content: '';
+    mask: url("#{$image-path}/#{$external-link}.svg") no-repeat 0 0;
     mask-size: cover;
+    background-color: $color-bright-red;
   }
 
   &:hover::after {
