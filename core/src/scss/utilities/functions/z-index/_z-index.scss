@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+// Map and function for z-index
+
+// Could be made to take stacking contexts into account
+
+$z-levels: (
+  "topmost":         9999,
+  "above":             10,
+  "default":            1,
+  "below":            -10,
+  "bottommost":     -9999
+);
+
+// A function to help us avoid typing `map-get($z-layers, ...)`
+
+// @param [string] $component: the level to use
+
+// @return [number] | [null]
+
+// can be used like: z-index: z("above") + 1
+
+@function z($level) {
+  @return map-get($z-levels, $level);
+}
