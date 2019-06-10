@@ -19,7 +19,7 @@
       $color: map-get($core-colors, $color);
     }
     @else {
-      @warn "Check that `#{$color}` is in color map $core-colors."
+      @error "Color does not exist in color map $core-colors."
     }
   }
   @else {
@@ -27,7 +27,7 @@
       $color: map-get($colormap, $color);
     }
     @else {
-      @warn "Check that `#{$color}` is in color map."
+      @error "Color does not exist in color map."
     }
   }
   @return $color;
