@@ -10,9 +10,10 @@
 //
 // Style guide: Mixins.Link.link
 //
-@mixin link($color: color(link), $hover: color(link--hover)) {
+@mixin link($color: color(link-inline), $hover: color(link-inline--hover)) {
   color: $color;
   text-decoration: underline;
+  font-weight: $font-semi-bold;
 
   &:hover,
   &:active {
