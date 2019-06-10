@@ -132,10 +132,18 @@
 
     // The flex-breakpoint-column class.
     .flex#{$_insert}-#{$n}-of-#{$grid-columns} {
-      // Generate the media queries and column size.
-      @include grid-media-only($_code) {
-        @include flex-column($n of $grid-columns, $_gutter);
+      // We want to generate styles for all breakpoints that are larger
+      // than the defined option so we remove the smaller ones and pass
+      // the work to the responsive-flex-column mixin.
+      $_grid-up: map-remove($grid-media, 'xs');
+      $_prev: $_code;
+
+      @while $_prev != null {
+        $_prev: breakpoint-previous($_prev);
+        $_grid-up: map-remove($_grid-up, $_prev);
       }
+
+      @include responsive-flex-column($n of $grid-columns, $_grid-up);
     }
   }
 }
