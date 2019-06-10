@@ -1,19 +1,21 @@
 @charset "UTF-8";
 
 .su-main-nav--light {
+  $_color-map: $main-nav-light-colors;
+
   @include grid-media-max('md') {
     .su-main-nav__toggle {
       &[aria-expanded="true"] {
         &::before {
-          background-color: color(border--expanded, $main-nav-light-colors);
+          background-color: color(border--expanded, $_color-map);
         }
 
         &:hover::before {
-          background-color: color(border--hover, $main-nav-light-colors);
+          background-color: color(border--hover, $_color-map);
         }
 
         &:active::before {
-          background-color: color(border--active, $main-nav-light-colors);
+          background-color: color(border--active, $_color-map);
         }
       }
     }
@@ -21,26 +23,26 @@
 
   // General menu styles - mobile, also desktop drop down part
   ul {
-    background-color: color(bg--mobile, $main-nav-light-colors);
+    background-color: color(bg--mobile, $_color-map);
   }
 
   li {
     a {
-      color: color(link--mobile, $main-nav-light-colors);
-      border-bottom-color: color(divider, $main-nav-light-colors);
+      color: color(link--mobile, $_color-map);
+      border-bottom-color: color(divider, $_color-map);
 
       &:hover,
       &:focus {
         &::before {
-          background-color: color(border--mobile-hover, $main-nav-light-colors);
+          background-color: color(border--mobile-hover, $_color-map);
         }
       }
 
       &:active {
-        color: color(link--mobile-active, $main-nav-light-colors);
+        color: color(link--mobile-active, $_color-map);
 
         &::before {
-          background-color: color(border--mobile-active, $main-nav-light-colors);
+          background-color: color(border--mobile-active, $_color-map);
         }
       }
     }
@@ -48,16 +50,16 @@
 
   .su-main-nav__item--current {
     > a {
-      color: color(link--mobile-active, $main-nav-light-colors);
+      color: color(link--mobile-active, $_color-map);
 
       &::before {
-        background-color: color(border--mobile-active, $main-nav-light-colors);
+        background-color: color(border--mobile-active, $_color-map);
       }
 
       &:hover,
       &:focus {
         &::before {
-          background-color: color(border--mobile-active, $main-nav-light-colors);
+          background-color: color(border--mobile-active, $_color-map);
         }
       }
     }
@@ -77,16 +79,16 @@
         }
 
         &:focus::before {
-          background-color: color(border--mobile-expanded, $main-nav-light-colors);
+          background-color: color(border--mobile-expanded, $_color-map);
         }
 
         &[aria-expanded="true"] {
           &:hover::before {
-            background-color: color(border--mobile-hover, $main-nav-light-colors);
+            background-color: color(border--mobile-hover, $_color-map);
           }
 
           &:active::before {
-            background-color: color(border--mobile-active, $main-nav-light-colors);
+            background-color: color(border--mobile-active, $_color-map);
           }
         }
       }
@@ -95,15 +97,15 @@
     .su-main-nav__item--current {
       &.su-main-nav__item--expanded {
         > a {
-          color: color(link--mobile-expanded, $main-nav-light-colors);
+          color: color(link--mobile-expanded, $_color-map);
 
           &::before,
           &:focus::before {
-            background-color: color(border--mobile-active-expanded, $main-nav-light-colors);
+            background-color: color(border--mobile-active-expanded, $_color-map);
           }
 
           &[aria-expanded="true"]:active {
-            color: color(link--mobile-active, $main-nav-light-colors);
+            color: color(link--mobile-active, $_color-map);
           }
         }
       }
@@ -119,44 +121,44 @@
         > a {
           &:hover,
           &:focus {
-            color: color(link--hover, $main-nav-light-colors);
+            color: color(link--hover, $_color-map);
 
             &::before {
-              background-color: color(border--hover, $main-nav-light-colors);
+              background-color: color(border--hover, $_color-map);
             }
           }
 
           &:active {
-            color: color(link--active, $main-nav-light-colors);
+            color: color(link--active, $_color-map);
 
             &::before {
-              background-color: color(border--active, $main-nav-light-colors);
+              background-color: color(border--active, $_color-map);
             }
           }
 
           &[aria-expanded="true"] {
-            color: color(link--expanded, $main-nav-light-colors);
+            color: color(link--expanded, $_color-map);
 
             &::before {
-              background-color: color(border--expanded, $main-nav-light-colors);
+              background-color: color(border--expanded, $_color-map);
             }
 
             &:hover {
-              color: color(link--hover, $main-nav-light-colors);
+              color: color(link--hover, $_color-map);
 
               &::before {
-                background-color: color(border--hover, $main-nav-light-colors);
+                background-color: color(border--hover, $_color-map);
               }
             }
 
             &:focus {
               &::before {
-                background-color: color(border--expanded, $main-nav-light-colors);
+                background-color: color(border--expanded, $_color-map);
               }
             }
 
             &:active {
-              color: color(link--active, $main-nav-light-colors);
+              color: color(link--active, $_color-map);
             }
           }
         }
@@ -164,53 +166,53 @@
 
       > .su-main-nav__item--current {
         > a {
-          color: color(link--active, $main-nav-light-colors);
+          color: color(link--active, $_color-map);
 
           &::before {
-            background-color: color(border--current, $main-nav-light-colors);
+            background-color: color(border--current, $_color-map);
           }
 
           &:hover,
           &:focus {
-            color: color(link--hover, $main-nav-light-colors);
+            color: color(link--hover, $_color-map);
 
             &::before {
-              background-color: color(border--hover, $main-nav-light-colors);
+              background-color: color(border--hover, $_color-map);
             }
           }
 
           &:active {
-            color: color(link--active, $main-nav-light-colors);
+            color: color(link--active, $_color-map);
 
             &::before {
-              background-color: color(border--active, $main-nav-light-colors);
+              background-color: color(border--active, $_color-map);
             }
           }
         }
 
         &.su-main-nav__item--expanded {
           > a:focus {
-            color: color(link--expanded, $main-nav-light-colors);
+            color: color(link--expanded, $_color-map);
 
             &::before {
-              background-color: color(border--expanded, $main-nav-light-colors);
+              background-color: color(border--expanded, $_color-map);
             }
           }
 
           > a[aria-expanded="true"] {
             &:hover {
-              color: color(link--hover, $main-nav-light-colors);
+              color: color(link--hover, $_color-map);
 
               &::before {
-                background-color: color(border--hover, $main-nav-light-colors);
+                background-color: color(border--hover, $_color-map);
               }
             }
 
             &:active {
-              color: color(link--active, $main-nav-light-colors);
+              color: color(link--active, $_color-map);
 
               &::before {
-                background-color: color(border--active, $main-nav-light-colors);
+                background-color: color(border--active, $_color-map);
               }
             }
           }
@@ -223,7 +225,7 @@
     .su-main-nav__toggle[aria-expanded="true"] {
       @include grid-media-max('md') {
         + .su-main-nav__menu-lv1 + .su-site-search {
-          background-color: color(bg--mobile, $main-nav-light-colors);
+          background-color: color(bg--mobile, $_color-map);
         }
       }
     }
