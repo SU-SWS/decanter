@@ -122,28 +122,32 @@
 
 // Create breakpoint flex overrides.
 // Loop through each of the breakpoints and columns to create a grid class.
-@for $n from 1 through $grid-columns {
-  // Loop through each breakpoint.
-  @each $_code, $_screen in $grid-screens {
+$_codes: map-keys($grid-media);
+$_code: nth($_codes, 1);
+
+@while $_code != null {
+
+  // We want to generate styles for all breakpoints that are larger
+  // than the defined option so we remove the smaller ones and pass
+  // the work to the responsive-flex-column mixin.
+  $_grid-up: map-remove($grid-media, 'xs');
+  $_prev: $_code;
+
+  @while $_prev != null {
+    $_prev: breakpoint-previous($_prev);
+    $_grid-up: map-remove($_grid-up, $_prev);
+  }
+
+  @for $n from 1 through $grid-columns {
     // The breakpoint short code. eg: xs, sm, lg with a dash
     $_insert: breakpoint-insert($_code, $grid-screens);
-    // The gutter size at this breakpoint.
-    $_gutter: map-get($grid-gutters, $_code);
 
     // The flex-breakpoint-column class.
     .flex#{$_insert}-#{$n}-of-#{$grid-columns} {
-      // We want to generate styles for all breakpoints that are larger
-      // than the defined option so we remove the smaller ones and pass
-      // the work to the responsive-flex-column mixin.
-      $_grid-up: map-remove($grid-media, 'xs');
-      $_prev: $_code;
-
-      @while $_prev != null {
-        $_prev: breakpoint-previous($_prev);
-        $_grid-up: map-remove($_grid-up, $_prev);
-      }
-
       @include responsive-flex-column($n of $grid-columns, $_grid-up);
     }
   }
+
+  // Iterate to the next code.
+  $_code: breakpoint-next($_code);
 }
