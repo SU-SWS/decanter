@@ -37,20 +37,12 @@
     }
   %}
 
-  {% if main_nav %}
-    {% include "@decanter/components/main-nav/main-nav.twig" with
-      {
-        "modifier_class": masthead_nav_modifier_class,
-        "toggle_text": masthead_nav_toggle_text,
-        "list_items": masthead_nav_list_items,
-        "mobile_search": {
-          "action": masthead_search_action,
-          "method": masthead_search_method,
-          "search_label": masthead_search_label,
-          "placeholder": masthead_search_placeholder,
-          "search_input_name": masthead_search_input_name
-        }
-      }
-    %}
-  {% endif %}
+  {% include "@decanter/components/main-nav/main-nav.twig" with
+    {
+      "modifier_class": masthead_nav_modifier_class,
+      "toggle_text": masthead_nav_toggle_text,
+      "list_items": masthead_nav_list_items
+    }
+  %}
+
 </section>
