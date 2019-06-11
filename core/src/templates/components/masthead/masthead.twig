@@ -9,6 +9,48 @@
  * - .su-masthead--right - Right-aligned Main Nav
  *
  * Available variables:
+ * - attributes: For additional HTML attributes not already provided.
  * - modifier_class: Additional css classes to change look and behaviour.
  */
 #}
+<section class="su-masthead {{ modifier_class }}" {{ attributes }}>
+  {% include "@decanter/components/lockup/lockup.twig" with
+    {
+      "modifier_class": masthead_lockup_modifier_class,
+      "attributes": masthead_lockup_attributes,
+      "link": masthead_lockup_link,
+      "line1": masthead_lockup_line1,
+      "line2": masthead_lockup_line2,
+      "line3": masthead_lockup_line3,
+      "line4": masthead_lockup_line4,
+      "line5": masthead_lockup_line5
+    }
+  %}
+
+  {% include "@decanter/components/site-search/site-search.twig" with
+    {
+      "action": masthead_search_action,
+      "method": masthead_search_method,
+      "search_label": masthead_search_label,
+      "placeholder": masthead_search_placeholder,
+      "search_input_name": masthead_search_input_name
+    }
+  %}
+
+  {% if main_nav %}
+    {% include "@decanter/components/main-nav/main-nav.twig" with
+      {
+        "modifier_class": masthead_nav_modifier_class,
+        "toggle_text": masthead_nav_toggle_text,
+        "list_items": masthead_nav_list_items,
+        "mobile_search": {
+          "action": masthead_search_action,
+          "method": masthead_search_method,
+          "search_label": masthead_search_label,
+          "placeholder": masthead_search_placeholder,
+          "search_input_name": masthead_search_input_name
+        }
+      }
+    %}
+  {% endif %}
+</section>
