@@ -11,7 +11,7 @@
 // Style guide: Mixins.Link.external-link
 //
 @mixin external-link($external-link: external-link, $external-link-hover: external-link-hover) {
-  @supports (mask-size: cover) or (-webkit-mask-size: cover) {
+  @supports (mask-repeat: no-repeat) {
     &::after {
       @include margin(null null -1px 4px);
       @include size(0.65em);
