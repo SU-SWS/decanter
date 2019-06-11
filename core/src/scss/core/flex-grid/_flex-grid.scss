@@ -19,6 +19,7 @@ $_codes: map-keys($grid-media);
   &--collapse {
     @include margin(0 null);
 
+    // Loop through each fo the breakpoints starting from the second smallest.
     $_codes-collapse: map-keys(map-remove($grid-media, nth($_codes, 1)));
     @each $shortcode in $_codes-collapse {
       @include grid-media($shortcode) {
@@ -29,8 +30,10 @@ $_codes: map-keys($grid-media);
 
   &--row-gap {
     > * {
+      // No media query for the small breakpoint.
       @include margin(0 0 map-get($grid-gutters, nth($_codes, 1)) 0);
 
+      // Loop through each fo the breakpoints starting from the second smallest.
       $_codes-gap: map-keys(map-remove($grid-media, nth($_codes, 1)));
       @each $shortcode in $_codes-gap {
         @include grid-media($shortcode) {
