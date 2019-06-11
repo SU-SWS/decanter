@@ -19,7 +19,8 @@ $_codes: map-keys($grid-media);
   &--collapse {
     @include margin(0 null);
 
-    @each $shortcode in nth($_codes, 2) {
+    $_codes-collapse: map-keys(map-remove($grid-media, nth($_codes, 1)));
+    @each $shortcode in $_codes-collapse {
       @include grid-media($shortcode) {
         @include margin(0 null);
       }
@@ -30,7 +31,8 @@ $_codes: map-keys($grid-media);
     > * {
       @include margin(0 0 map-get($grid-gutters, nth($_codes, 1)) 0);
 
-      @each $shortcode in nth($_codes, 2) {
+      $_codes-gap: map-keys(map-remove($grid-media, nth($_codes, 1)));
+      @each $shortcode in $_codes-gap {
         @include grid-media($shortcode) {
           @include margin(0 0 map-get($grid-gutters, $shortcode) 0);
         }
