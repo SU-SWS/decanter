@@ -95,7 +95,9 @@ $_codes: map-keys($grid-media);
 @for $n from 1 through $grid-columns {
   .flex-#{$n}-of-#{$grid-columns} {
     $cols: $n of $grid-columns;
-    @include responsive-flex-column($cols, map-remove($grid-media, nth($_codes, 1)));
+    // Start from the second to smallest breakpoint and go up.
+    $_flex-grid: map-remove($grid-media, nth($_codes, 1));
+    @include responsive-flex-column($cols, $_flex-grid);
   }
 }
 
