@@ -11,24 +11,19 @@
 // Style guide: Mixins.Link.external-link
 //
 @mixin external-link($external-link: external-link, $external-link-hover: external-link-hover) {
-  &::after {
-    @include margin(null null -1px 4px);
-    @include size(0.65em);
-    display: inline-block;
-    content: '';
-    mask: url("#{$image-path}/#{$external-link}.svg") no-repeat 0 0;
-    mask-size: cover;
-    background-color: $color-bright-red;
-  }
-
-  &:hover::after {
-    background-color: $color-black;
-  }
-
-  // IE only - hides icon.
-  @include ie-only {
+  @supports (mask-size: cover) or (-webkit-mask-size: cover) {
     &::after {
-      display: none;
+      @include margin(null null -1px 4px);
+      @include size(0.65em);
+      display: inline-block;
+      content: '';
+      mask: url("#{$image-path}/#{$external-link}.svg") no-repeat 0 0;
+      mask-size: cover;
+      background-color: $color-bright-red;
+    }
+
+    &:hover::after {
+      background-color: $color-black;
     }
   }
 }
