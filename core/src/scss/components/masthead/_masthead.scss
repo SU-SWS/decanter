@@ -12,3 +12,52 @@
 //
 // Style guide: Components.Masthead
 //
+
+.su-masthead {
+  @include flex-container;
+  @include modular-spacing('padding', 1 null null);
+  @include box-shadow($depth: 'shallow', $stroke: 0);
+  max-width: 100%;
+
+  > .su-lockup {
+    @include modular-spacing('margin', null null 0);
+    max-width: fit-content;
+
+    @include grid-media-max('md') {
+      @include flex-column($columns: 10);
+    }
+
+    @include grid-media('lg') {
+      @include flex-column($columns: 8);
+    }
+  }
+
+  > .su-site-search {
+    @include grid-media-max('md') {
+      display: none;
+    }
+
+    @include grid-media('lg') {
+      @include flex-column($columns: 4);
+    }
+
+    > form {
+      @include margin(null null null auto);
+      width: 30rem;
+      max-width: 100%;
+    }
+  }
+
+  @include grid-media-max('sm') {
+    > .su-main-nav {
+      @include margin(-57px null null);
+    }
+  }
+
+  @include grid-media-only('md') {
+    > .su-main-nav {
+      @include flex-column($columns: 2);
+      @include margin(auto null null);
+    }
+  }
+}
