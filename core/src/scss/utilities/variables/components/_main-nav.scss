@@ -1,73 +1,44 @@
 @charset "UTF-8";
 
 //
-// $main-nav-colors
+// Main Nav Color Maps
 //
-// Color map for the Main Nav component. Active color is also used to indicate "current" page.
+// Color maps for the Main Nav component. Active color is also used to indicate "current" page.
 // The mobile colors apply also to desktop drop down menus.
-//
-// Markup: $main-nav-colors: (
-//    // Default Main Nav colors
-//    link:                                   $color-black,
-//    link--hover:                            $color-bright-red,
-//    border--hover:                          $color-bright-red,
-//    link--active:                           $color-black,
-//    border--active:                         $color-black,
-//    link--active-hover:                     $color-bright-red,
-//    border--active-hover:                   $color-bright-red,
-//    link--expanded:                         $color-black,
-//    border--expanded:                       $color-black,
-//    bg--mobile:                             $color-black,
-//    divider:                                $color-cool-grey,
-//    link--mobile:                           $color-white,
-//    link--mobile-hover:                     $color-white,
-//    border--mobile-hover:                   $color-white,
-//    link--mobile-active:                    $color-white,
-//    border--mobile-active:                  $color-vivid-red,
-//    link--mobile-expanded:                  $color-white,
-//    border--mobile-expanded:                transparent,
-//    border--mobile-active-expanded:         $color-white,
-//    light: (
-//        link:                               $color-black,
-//        link--hover:                        $color-bright-red,
-//        border--hover:                      $color-bright-red,
-//        link--active:                       $color-black,
-//        border--active:                     $color-black,
-//        // In this variant current and active state have different border colors
-//        border--current:                    $color-driftwood,
-//        link--active-hover:                 $color-bright-red,
-//        border--active-hover:               $color-bright-red,
-//        link--expanded:                     $color-black,
-//        border--expanded:                   $color-driftwood,
-//        bg--mobile:                         $color-white,
-//        divider:                            #d9d9d9,
-//        link--mobile:                       $color-black,
-//        link--mobile-hover:                 $color-black,
-//        border--mobile-hover:               $color-black,
-//        link--mobile-active:                $color-bright-red,
-//        border--mobile-active:              $color-bright-red,
-//        link--mobile-expanded:              $color-black,
-//        border--mobile-expanded:            transparent,
-//        border--mobile-active-expanded:     $color-black,
-//    ),
-//    dark: (
-//        link:                               $color-white,
-//        link--hover:                        $color-white,
-//        border--hover:                      $color-white,
-//        link--active:                       $color-white,
-//        border--active:                     $color-vivid-red,
-//        link--active-hover:                 $color-white,
-//        border--active-hover:               $color-white,
-//        link--expanded:                     $color-white,
-//        link--expanded-hover:               $color-white,
-//        border--expanded:                   $color-white,
-//        border--expanded-hover:             $color-vivid-red,
-//        border--expanded-active:            $color-white,
-//    )
-//) !default;
 //
 // Styleguide: Variables.Components.main-nav-colors
 //
+
+//
+// $main-nav-colors
+//
+// Color map for the default Main Nav component .su-main-nav.
+//
+// Markup: $main-nav-colors: (
+//  link:                                   $color-black,
+//  link--hover:                            $color-bright-red,
+//  border--hover:                          $color-bright-red,
+//  link--active:                           $color-black,
+//  border--active:                         $color-black,
+//  link--active-hover:                     $color-bright-red,
+//  border--active-hover:                   $color-bright-red,
+//  link--expanded:                         $color-black,
+//  border--expanded:                       $color-black,
+//  bg--mobile:                             $color-black,
+//  divider:                                $color-cool-grey,
+//  link--mobile:                           $color-white,
+//  link--mobile-hover:                     $color-white,
+//  border--mobile-hover:                   $color-white,
+//  link--mobile-active:                    $color-white,
+//  border--mobile-active:                  $color-vivid-red,
+//  link--mobile-expanded:                  $color-white,
+//  border--mobile-expanded:                transparent,
+//  border--mobile-active-expanded:         $color-white,
+//) !default;
+//
+// Styleguide: Variables.Components.main-nav-colors.default
+//
+
 $main-nav-colors: (
   link:                                   $color-black,
 
@@ -97,6 +68,80 @@ $main-nav-colors: (
   border--mobile-expanded:                transparent,
   border--mobile-active-expanded:         $color-white,
 ) !default;
+
+//
+// $main-nav-dark-colors
+//
+// Color map for the Main Nav component dark variant .su-main-nav--dark.
+//
+// Markup: $main-nav-dark-colors: (
+//   link:                               $color-white,
+//   link--hover:                        $color-white,
+//   border--hover:                      $color-white,
+//   link--active:                       $color-white,
+//   border--active:                     $color-vivid-red,
+//   link--active-hover:                 $color-white,
+//   border--active-hover:               $color-white,
+//   link--expanded:                     $color-white,
+//   link--expanded-hover:               $color-white,
+//   border--expanded:                   $color-white,
+//   border--expanded-hover:             $color-vivid-red,
+//   border--expanded-active:            $color-white,
+//) !default;
+//
+// Styleguide: Variables.Components.main-nav-colors.variant-dark
+//
+
+$main-nav-dark-colors: (
+    link:                               $color-white,
+
+    link--hover:                        $color-white,
+    border--hover:                      $color-white,
+
+    link--active:                       $color-white,
+    border--active:                     $color-vivid-red,
+
+    link--active-hover:                 $color-white,
+    border--active-hover:               $color-white,
+
+    link--expanded:                     $color-white,
+    link--expanded-hover:               $color-white,
+    border--expanded:                   $color-white,
+    border--expanded-hover:             $color-vivid-red,
+    border--expanded-active:            $color-white,
+) !default;
+
+//
+// $main-nav-light-colors
+//
+// Color map for the Main Nav component light variant .su-main-nav--light.
+//
+// Markup: $main-nav-light-colors: (
+//  link:                               $color-black,
+//  link--hover:                        $color-bright-red,
+//  border--hover:                      $color-bright-red,
+//  link--active:                       $color-black,
+//  border--active:                     $color-black,
+//// In this variant current and active state have different border colors
+//  border--current:                    $color-driftwood,
+//  link--active-hover:                 $color-bright-red,
+//  border--active-hover:               $color-bright-red,
+//  link--expanded:                     $color-black,
+//  border--expanded:                   $color-driftwood,
+//  bg--mobile:                         $color-white,
+//  divider:                            #d9d9d9,
+//  link--mobile:                       $color-black,
+//  link--mobile-hover:                 $color-black,
+//  border--mobile-hover:               $color-black,
+//  link--mobile-active:                $color-bright-red,
+//  border--mobile-active:              $color-bright-red,
+//  link--mobile-expanded:              $color-black,
+//  border--mobile-expanded:            transparent,
+//  border--mobile-active-expanded:     $color-black,
+//) !default;
+//
+// Styleguide: Variables.Components.main-nav-colors.variant-light
+//
 
 $main-nav-light-colors: (
   link:                               $color-black,
@@ -129,23 +174,4 @@ $main-nav-light-colors: (
   link--mobile-expanded:              $color-black,
   border--mobile-expanded:            transparent,
   border--mobile-active-expanded:     $color-black,
-) !default;
-
-$main-nav-dark-colors: (
-  link:                               $color-white,
-
-  link--hover:                        $color-white,
-  border--hover:                      $color-white,
-
-  link--active:                       $color-white,
-  border--active:                     $color-vivid-red,
-
-  link--active-hover:                 $color-white,
-  border--active-hover:               $color-white,
-
-  link--expanded:                     $color-white,
-  link--expanded-hover:               $color-white,
-  border--expanded:                   $color-white,
-  border--expanded-hover:             $color-vivid-red,
-  border--expanded-active:            $color-white,
 ) !default;
