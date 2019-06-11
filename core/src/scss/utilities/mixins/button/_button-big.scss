@@ -4,24 +4,14 @@
 // @button-big
 //
 // Big button styling.
+// Same as primary but with larger font-size, more padding.
 //
 // Style guide: Mixins.Button.button-big
 //
+
 @mixin button-big {
-  @extend %button-base;
-  @include padding(1.5rem 3rem 1.8rem);
+  @include button-primary;
+
   @include type-c;
-
-  background-color: color(brand--bright);
-  color: color(link--reverse);
-
-  &:hover {
-    background-color: color(bg--reverse);
-    color: color(link--reverse);
-  }
-
-  &:focus {
-    box-shadow: $focus-shadow;
-    background-color: color(bg--reverse);
-  }
+  @include padding(1.5rem 3rem 1.8rem);
 }
