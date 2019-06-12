@@ -24,21 +24,19 @@
 
   // Ensure everything is 100% width as we like large click areas.
   li,
-  a,
-  a:link {
+  a {
     width: 100%;
     display: block;
-    color: color(text);
     box-shadow: 0;
     transition: box-shadow 0.25s ease-out;
     text-decoration: none;
   }
 
-  a,
-  a:link {
+  a {
     @include padding(14px null 13px null);
     @include margin(null null null null);
     font-weight: $font-regular;
+    color: color(text);
 
     // The background properties here create the border on the bottom of each
     // link so that we don't have to add additional markup to the html.
@@ -55,7 +53,7 @@
   a:hover,
   a:focus {
     box-shadow: inset 5px 0 0 color(link--hover, $secondary-nav-colors);
-    color: color(text);
+    // color: color(text);
   }
 
 }
@@ -85,42 +83,46 @@ $su-secondary-nav-item-indent: 16;
     font-size: 1.6em;
     font-weight: $font-regular;
   }
+
+  .su-secondary-nav__item--expanded {
+    &::after {
+      content: "—";
+      transform: rotate(180deg);
+    }
+  }
+
 }
 
 // ACTIVE TRAIL ////////////////////////////////////////////////////////////////
 
-a:active,
-.su-secondary-nav__item--current:not(.su-secondary-nav__item--parent) > a {
-  box-shadow: inset 5px 0 0 color(link--active, $secondary-nav-colors);
-  color: color(link--active, $secondary-nav-colors);
-  font-weight: $font-bold;
-  transition-property: margin, margin-left, text-indent, background-position;
-  transition-duration: 0.25s;
-  transition-timing-function: ease-out;
+.su-secondary-nav__item--current {
+  > a {
+    box-shadow: inset 5px 0 0 color(link--active, $secondary-nav-colors);
+    color: color(link--active, $secondary-nav-colors);
+    font-weight: $font-bold;
+    transition-property: margin, margin-left, text-indent, background-position;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out;
 
-  &:hover {
-    color: color(link--active-hover, $secondary-nav-colors);
-    box-shadow: inset 5px 0 0 color(border--active-hover, $secondary-nav-colors);
-    margin-left: 5px;
-    text-indent: -5px;
-    background-position: -5px 13px;
+    &:hover {
+      color: color(link--active-hover, $secondary-nav-colors);
+      box-shadow: inset 5px 0 0 color(border--active-hover, $secondary-nav-colors);
+      margin-left: 5px;
+      text-indent: -5px;
+      background-position: -5px 13px;
+    }
   }
 }
 
 // EXPANDED ////////////////////////////////////////////////////////////////////
 
-.su-secondary-nav__item--expanded {
-  &::after {
-    transform: rotate(45deg);
-  }
-}
+
 
 // LEVEL 1 ITEMS ///////////////////////////////////////////////////////////////
 
 .su-secondary-nav__menu-lv1 {
   > li {
-    > a,
-    > a:link {
+    > a {
       font-weight: $font-semi-bold;
     }
   }

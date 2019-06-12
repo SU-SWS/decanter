@@ -1,4 +1,31 @@
-// Wrapper element (nav)
+@charset "UTF-8";
+//
+// Secondary Navigation Dark Theme
+//
 .su-secondary-nav--dark {
-  background: color(bg--reverse);
+  background: color(bg--alt, $secondary-nav-colors);
+
+  // Ensure everything is 100% width as we like large click areas.
+  li,
+  a {
+    color: color(link--alt, $secondary-nav-colors);
+  }
+
+  a:hover,
+  a:focus {
+    box-shadow: inset 5px 0 0 color(link--alt-hover, $secondary-nav-colors);
+    color: color(link--alt-hover, $secondary-nav-colors);
+  }
+
+  .su-secondary-nav__item--current > a {
+    box-shadow: inset 5px 0 0 color(link--active, $secondary-nav-colors);
+    color: color(link--alt-hover, $secondary-nav-colors);
+
+    &:hover {
+      color: color(link--alt-hover, $secondary-nav-colors);
+    }
+  }
+
 }
+
+// ACTIVE TRAIL ////////////////////////////////////////////////////////////////
