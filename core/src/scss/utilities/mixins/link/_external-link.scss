@@ -11,19 +11,22 @@
 // Style guide: Mixins.Link.external-link
 //
 @mixin external-link($external-link: external-link, $external-link-hover: external-link-hover) {
-  &::after {
-    @include margin(null null -1px 4px);
-    background: url("#{$image-path}/#{$external-link}.png") no-repeat 0 0;
-    background: url("#{$image-path}/#{$external-link}.svg") no-repeat 0 0;
-    background-size: 100%;
-    content: '';
-    display: inline-block;
-    height: 0.65em;
-    width: 0.65em;
-  }
+  @supports (mask-repeat: no-repeat) {
+    &::after {
+      @include margin(null null -1px 4px);
+      @include size(0.65em);
+      display: inline-block;
+      content: '';
+      mask: url("#{$image-path}/#{$external-link}.svg") no-repeat 0 0;
+      mask-size: cover;
+      background-color: color(link);
+    }
 
-  &:hover::after {
-    background-image: url("#{$image-path}/#{$external-link-hover}.png");
-    background-image: url("#{$image-path}/#{$external-link-hover}.svg");
+    &:hover,
+    &:focus {
+      &::after {
+        background-color: color(link--hover);
+      }
+    }
   }
 }
