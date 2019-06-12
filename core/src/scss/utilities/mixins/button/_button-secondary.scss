@@ -11,19 +11,19 @@
   @extend %button-base;
   @include padding(1rem 2rem 1.15rem);
 
-  background-color: $color-white;
-  box-shadow: $button-stroke $color-bright-red;
-  color: $color-bright-red;
+  background-color: color(bg);
+  box-shadow: $button-stroke color(brand--bright);
+  color: color(brand--bright);
 
   &:hover {
-    background-color: $color-white;
+    background-color: color(bg);
     box-shadow: $button-stroke $color-black;
-    color: $color-black;
+    color: color(link-inline--hover);
   }
 
   &:focus {
-    background-color: $color-white;
+    background-color: color(bg);
     box-shadow: $button-stroke $color-black, $focus-shadow;
-    color: $color-black;
+    color: color(link-inline--hover);
   }
 }

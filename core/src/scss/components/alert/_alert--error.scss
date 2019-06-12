@@ -2,16 +2,17 @@
 
 // Error alert.
 .su-alert--error {
-  background-color: map-get($alert-colors, 'error');
+  background-color: color(error, $alert-colors);
   background-image: url("#{$image-path}/alert-error.png");
   background-image: url("#{$image-path}/alert-error.svg");
-  color: $color-white;
+  color: color(light-text, $alert-colors);
 
   a {
-    color: $color-white;
+    color: color(light-text, $alert-colors);
 
-    &:hover {
-      color: $color-cloud;
+    &:hover,
+    &:focus {
+      color: color(light-hover, $alert-colors);
     }
   }
 }
