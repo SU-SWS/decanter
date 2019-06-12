@@ -5,13 +5,14 @@
   background-color: color(success, $alert-colors);
   background-image: url("#{$image-path}/alert-success.png");
   background-image: url("#{$image-path}/alert-success.svg");
-  color: $color-white;
+  color: color(light-text, $alert-colors);
 
   a {
-    color: $color-white;
+    color: color(light-text, $alert-colors);
 
-    &:hover {
-      color: $color-cloud;
+    &:hover,
+    &:focus {
+      color: color(light-hover, $alert-colors);
     }
   }
 }

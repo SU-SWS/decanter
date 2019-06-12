@@ -19,8 +19,10 @@
   a {
     color: rgba($color-white, 0.9);
     text-decoration: none;
+    font-weight: 400;
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: color(link--reverse);
       text-decoration: underline;
     }
@@ -135,6 +137,10 @@
   .su-global-footer__menu--policy {
     font-size: 1.5rem;
     font-weight: 300;
+
+    a {
+      font-weight: 300;
+    }
 
     @include grid-media-only('xs') {
       @include padding(null null null 2rem);
