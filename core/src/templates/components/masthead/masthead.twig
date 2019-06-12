@@ -14,6 +14,13 @@
  */
 #}
 <section class="su-masthead {{ modifier_class }}" {{ attributes }}>
+
+  {% if "su-masthead--right" in modifier_class %}
+    {% set masthead_nav_modifier_class = "su-main-nav--right" %}
+  {% elseif "su-masthead--center" in modifier_class %}
+    {% set masthead_nav_modifier_class = "su-main-nav--center" %}
+  {% endif %}
+
   {% include "@decanter/components/lockup/lockup.twig" with
     {
       "modifier_class": masthead_lockup_modifier_class,
