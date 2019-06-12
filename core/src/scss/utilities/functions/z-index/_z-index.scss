@@ -5,20 +5,12 @@
 // Could be made to take stacking contexts into account
 
 $z-levels: (
-  "global": (
-  "topmost":         9999,
-  "above":             10,
-  "default":            1,
-  "below":            -10,
-  "bottommost":     -9999
-  ),
-  "local": (
-  "topmost":         9999,
-  "above":             10,
-  "default":            1,
-  "below":            -10,
-  "bottommost":     -9999
-  )
+  "navigation":  100,
+  "button":      100,
+  "masthead":     20,
+  "overlay":     10,
+  "default":      1,
+  "background": -100
 );
 
 // A function to help us avoid typing `map-get($z-layers, ...)`
@@ -28,14 +20,6 @@ $z-levels: (
 // @return [number] | [null]
 
 // can be used like: z-index: z("above") + 1
-@function map-deep-get($map, $keys...) {
-  @each $key in $keys {
-    $map: map-get($map, $key);
-  }
-
-  @return $map;
-}
-
-@function z($level) {
-  @return map-deep-get($z-levels, $level);//needs to be fixed to use above
+@function zed($level) {
+  @return map-get($z-levels, $level);
 }
