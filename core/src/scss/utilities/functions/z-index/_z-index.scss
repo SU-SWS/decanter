@@ -1,25 +1,35 @@
 @charset "UTF-8";
 
-// Map and function for z-index
-
-// Could be made to take stacking contexts into account
+// Map of z-indices
 
 $z-levels: (
   "navigation":  100,
   "button":      100,
   "masthead":     20,
-  "overlay":     10,
-  "default":      1,
-  "background": -100
+  "overlay":      10,
+  "default":       1,
+  "background":  -100
 );
 
-// A function to help us avoid typing `map-get($z-layers, ...)`
+// A function to help us get the z-index from the level from the map
+// Usage
+// .su-hero__card {
+//   z-index: zed(overlay);
+// }
 
-// @param [string] $component: the level to use
+@function z($level) {
+  @if map-has-key($z-levels, $level) {
+    @return map-get($z-levels, $level);
+ }
+  @error "Invalid z-index level name: `#{$level}`.";
+}
 
-// @return [number] | [null]
+@function z-up() {
+  $z-index: $z-index + 1;
+  @return $z-index;
+}
 
-// can be used like: z-index: z("above") + 1
-@function zed($level) {
-  @return map-get($z-levels, $level);
+@function z-down() {
+  $z-index: $z-index - 1;
+  @return $z-index;
 }
