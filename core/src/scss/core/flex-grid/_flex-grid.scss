@@ -62,7 +62,6 @@ $_codes-collapse: map-keys(map-remove($grid-media, nth($_codes, 1)));
 // Loop through each breakpoint to generate column and push classes
 // For every column.
 @each $_breakpoint, $_media-query in $grid-screens {
-
   // The breakpoint short code. eg: xs, sm, lg
   $_insert: breakpoint-insert($_breakpoint, $grid-screens);
 
@@ -86,7 +85,6 @@ $_codes-collapse: map-keys(map-remove($grid-media, nth($_codes, 1)));
       }
     }
   }
-
 }
 
 // Loop through each column and breakpoint creating a responsive flex column.
@@ -97,7 +95,17 @@ $_codes-collapse: map-keys(map-remove($grid-media, nth($_codes, 1)));
     $cols: $n of $grid-columns;
     // Start from the second to smallest breakpoint and go up.
     $_flex-grid: map-remove($grid-media, nth($_codes, 1));
-    @include responsive-flex-column($cols, $_flex-grid);
+
+    // Responsive column for everything that is not 100% width.
+    @if $n != $grid-columns {
+      @include responsive-flex-column($cols, $_flex-grid);
+    }
+    // One breakpoint only needed for 100% width items.
+    @else {
+      @include grid-media(nth($_codes, 1)) {
+        @include flex-column(12 of 12);
+      }
+    }
   }
 }
 
