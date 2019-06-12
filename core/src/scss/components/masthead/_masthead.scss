@@ -3,11 +3,12 @@
 //
 // Masthead
 //
-// Masthead includes the Stanford logo lockup, site search and main navigation.
+// Masthead includes the Stanford brand bar (or a top stroke), logo lockup, site search and main navigation.
 //
-// .su-masthead--center - Center-aligned Main Nav
-// .su-masthead--right - Right-aligned Main Nav
-// .su-masthead--light - Masthead with Main Nav light variant
+// .su-masthead--center - Center-aligned main nav
+// .su-masthead--right - Right-aligned main nav
+// .su-masthead--light - Masthead with the light variant of main nav
+// .su-masthead--stroke - Masthead with a top red stroke and no brand bar
 //
 // Markup: ../templates/components/masthead/masthead.twig
 //
@@ -15,13 +16,16 @@
 //
 
 .su-masthead {
-  @include flex-container;
-  @include centered-column;
-  @include modular-spacing('padding', 1 null null);
   @include box-shadow($depth: 'shallow', $stroke: 0);
   max-width: 100%;
 
-  > .su-lockup {
+  > section:last-of-type {
+    @include flex-container;
+    @include centered-column;
+    @include modular-spacing('padding', 1 null null);
+  }
+
+  .su-lockup {
     @include modular-spacing('margin', null null 0);
     max-width: fit-content;
 
@@ -34,7 +38,7 @@
     }
   }
 
-  > .su-site-search {
+  .su-site-search {
     @include grid-media-max('md') {
       display: none;
     }
@@ -51,13 +55,13 @@
   }
 
   @include grid-media-max('sm') {
-    > .su-main-nav {
+    .su-main-nav {
       @include margin(-57px null null);
     }
   }
 
   @include grid-media-only('md') {
-    > .su-main-nav {
+    .su-main-nav {
       @include flex-column($columns: 2);
       @include margin(auto null null);
     }
