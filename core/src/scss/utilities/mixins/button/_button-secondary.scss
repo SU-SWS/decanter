@@ -13,17 +13,19 @@
 
   background-color: color(bg);
   box-shadow: $button-stroke color(brand--bright);
-  color: color(brand--bright);
+  color: color(link--alt);
+
+  &:hover,
+  &:focus {
+    background-color: color(bg);
+    color: color(link--alt-hover);
+  }
 
   &:hover {
-    background-color: color(bg);
     box-shadow: $button-stroke $color-black;
-    color: color(link-inline--hover);
   }
 
   &:focus {
-    background-color: color(bg);
     box-shadow: $button-stroke $color-black, $focus-shadow;
-    color: color(link-inline--hover);
   }
 }

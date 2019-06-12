@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+//
+// @ie-only
+//
+// A helper to write a query for IE-only styles
+//
+// Style guide: Mixins.IE-only
+//
+@mixin ie-only {
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @content;
+  }
+}
