@@ -8,8 +8,10 @@
   text-decoration: none;
   color: color(text);
 
-  &:hover {
+  &:hover,
+  &:focus {
     @include box-shadow($depth: medium);
+    border-color: $color-driftwood;
 
     h3 {
       text-decoration: underline;

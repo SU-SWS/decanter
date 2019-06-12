@@ -383,25 +383,34 @@ button,
       padding-bottom: 0;
       margin-bottom: 0; }
     .su-card .su-card__contents > h3,
-    .su-card .su-card__contents > h4 {
+    .su-card .su-card__contents > span {
       margin-bottom: 0;
       font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
     
-    .su-card .su-card__contents > h4 {
+    .su-card .su-card__contents > span {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin-top: 0;
+      clear: both;
+      font-weight: 700;
+      line-height: 1.2;
       font-size: 0.8em;
-      text-transform: uppercase; }
+      text-transform: uppercase;
+      display: block; }
       @media only screen and (min-width: 0) {
         
-        .su-card .su-card__contents > h4 {
+        .su-card .su-card__contents > span {
           padding-bottom: 0.8rem; } }
       @media only screen and (min-width: 768px) {
         
-        .su-card .su-card__contents > h4 {
+        .su-card .su-card__contents > span {
           padding-bottom: 0.9rem; } }
       @media only screen and (min-width: 1500px) {
         
-        .su-card .su-card__contents > h4 {
+        .su-card .su-card__contents > span {
           padding-bottom: 0.95rem; } }
+      .su-card .su-card__contents > span a {
+        text-decoration: none; }
     .su-card .su-card__contents > h3 {
       font-size: 1.5625em; }
       @media only screen and (min-width: 0) {
@@ -6955,11 +6964,12 @@ button,
 .su-card--link {
   text-decoration: none;
   color: #2e2d29; }
-  .su-card--link:hover {
+  .su-card--link:hover, .su-card--link:focus {
     border: 1px solid #C6C6C6;
     -webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15), 0px 6px 6px rgba(0, 0, 0, 0.2);
-            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15), 0px 6px 6px rgba(0, 0, 0, 0.2); }
-    .su-card--link:hover h3 {
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15), 0px 6px 6px rgba(0, 0, 0, 0.2);
+    border-color: #b6b1a9; }
+    .su-card--link:hover h3, .su-card--link:focus h3 {
       text-decoration: underline;
       color: #b1040e; }
   .su-card--link p {

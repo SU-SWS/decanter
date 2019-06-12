@@ -36,15 +36,17 @@
     }
 
     > h3,
-    > h4 {
+    > span {
       @include margin(null null 0);
       @include sans;
     }
 
     // Super Headline.
-    > h4 {
+    > span {
       @include modular-spacing('padding', null null -2);
+      @include types;
       @include type-f;
+      display: block;
     }
 
     // Headline.
