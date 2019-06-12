@@ -8,7 +8,7 @@
  * .su-masthead--center - Center-aligned main nav
  * .su-masthead--right - Right-aligned main nav
  * .su-masthead--light - Masthead with the light variant of main nav
- * .su-masthead--stroke - Masthead with a top red stroke and no brand bar
+ * .su-masthead--dark - Masthead with dark color theme
  *
  * Available variables:
  * - attributes: For additional HTML attributes not already provided.
@@ -18,6 +18,8 @@
 <section class="su-masthead {{ modifier_class }}" {{ attributes }}>
   {% if "su-masthead--light" in modifier_class %}
     {% set masthead_nav_modifier_class = "su-main-nav--light su-main-nav--mobile-search" %}
+  {% elseif "su-masthead--dark" in modifier_class %}
+    {% set masthead_nav_modifier_class = "su-main-nav--dark su-main-nav--mobile-search" %}
   {% endif %}
 
   {% include "@decanter/components/skiplinks/link.twig" with
