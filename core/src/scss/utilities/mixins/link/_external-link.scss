@@ -19,11 +19,14 @@
       content: '';
       mask: url("#{$image-path}/#{$external-link}.svg") no-repeat 0 0;
       mask-size: cover;
-      background-color: $color-bright-red;
+      background-color: color(link);
     }
 
-    &:hover::after {
-      background-color: $color-black;
+    &:hover,
+    &:focus {
+      &::after {
+        background-color: color(link--hover);
+      }
     }
   }
 }
