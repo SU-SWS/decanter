@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+//
+// Card variant where whole card is a link
+//
+
+.su-card--link {
+  text-decoration: none;
+  color: color(text);
+
+  &:hover {
+    @include box-shadow($depth: medium);
+
+    h3 {
+      text-decoration: underline;
+      color: color(link--alt);
+    }
+  }
+
+  p {
+    font-weight: $font-regular;
+  }
+}
