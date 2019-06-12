@@ -5,16 +5,18 @@
   .su-card__contents {
     // override modular spacing at all breakpoints
     @include grid-media-only(all) {
-      padding-left: 0;
-      padding-bottom: 0;
-      padding-right: 0;
+      @include padding(null 0 0);
     }
+  }
+
+  .su-card__button {
+    text-align: left;
   }
 
   &.su-card--horizontal {
     // override modular spacing at all breakpoints
     @include grid-media-only(all) {
-      padding: 0;
+      @include padding(0);
     }
   }
 }
