@@ -1,11 +1,14 @@
 @charset "UTF-8";
 
 //
-// @centered-column($grid: $grid-media, $margin: $screen-margins)
+// @mixin centered-column($grid: $grid-media, $screens: $grid-screens, $margin: $screen-margins)
 //
 // Centers a single cellin a container based on max width in breakpoints.
 //
-// Style guide: Mixins.Grid.centered-column
+// <a href="section-variables.html#kssref-variables-core-screen-margins">$screen-margins</a> - A sass map of screen margins for edge containment
+// <a href="section-variables.html#kssref-variables-core-grid-media">$grid-media</a> - A sass map of screen sized keyed with the breakpoint shortcode.
+//
+// Style guide: Mixins.Grid.CSS-Centered-Column
 //
 @mixin centered-column($grid: $grid-media, $screens: $grid-screens, $margin: $screen-margins) {
   @include margin(0 auto);
