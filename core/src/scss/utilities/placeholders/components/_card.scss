@@ -43,7 +43,7 @@
 
     // Super Headline.
     > span {
-      @include modular-spacing('padding', null null -2);
+      @include modular-spacing('margin', null null -2);
       @include types;
       @include type-f;
       display: block;
@@ -51,7 +51,7 @@
 
     // Headline.
     > h3 {
-      @include modular-spacing('padding', null null -1);
+      @include modular-spacing('margin', null null -1);
       @include type-c;
     }
 
@@ -62,20 +62,19 @@
 
     > div:not(.su-card__button),
     > p:last-of-type {
-      @include modular-spacing('padding', null null -1);
       @include margin(null null 0);
     }
 
     .su-link--action,
     > a {
-      @include modular-spacing('padding', null null 0);
+      @include modular-spacing('margin', -1 null null);
       display: inline-block;
     }
   }
 
   // Button to click on.
   .su-card__button {
-    @include modular-spacing('margin', -2 null null);
+    @include modular-spacing('margin', 1 null null);
     text-align: center;
 
     @include grid-media-only('xs') {

@@ -3,14 +3,14 @@
  * @file
  * Card Component.
  *
- * Basic building block component with two variants
- *   - Horizontal: An image beside text content
+ * Basic building block component with the following variants:
  *   - Vertical (default): An image above text content
+ *   - Horizontal: An image beside text content
+ *   - Link: Whole card is a link with no button or call to action link
  *
  * Available variables:
  * - attributes: For additional HTML attributes not already provided.
- * - modifier_class: Additional css classes to change look and behaviour.
- * -- su-card--horizontal
+ * - modifier_class: Additional CSS classes to change look and behaviour.
  * - card_link: The href value for the card. A single card is only allowed to link to one URL.
  * - card_image: A full HTML entity for an image.
  * - card_super_headline: Text heading
@@ -23,6 +23,8 @@
  * - card_button_label: The text label of the button component.
  */
 #}
+
+{# For variant where whole card is a link, change the outer wrapper from <div> to <a> #}
 {% if "su-card--link" in modifier_class %}
   <a href="{{ card_link }}"
 {% else %}
