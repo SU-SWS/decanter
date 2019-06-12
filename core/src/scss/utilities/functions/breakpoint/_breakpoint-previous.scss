@@ -15,7 +15,7 @@
 @function breakpoint-previous($name, $breakpoints: map-keys($grid-screens)) {
   $n: index($breakpoints, $name);
   @if is-integer($n) and $n > 1 {
-    @return if($n < length($breakpoints), nth($breakpoints, $n - 1), null);
+    @return if($n <= length($breakpoints), nth($breakpoints, $n - 1), null);
   }
   @else {
     @return null;

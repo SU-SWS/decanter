@@ -11,6 +11,7 @@
 // We get the keys and assume they are in order from smallest breakpoint to
 // the largest breakpoint.
 $_codes: map-keys($grid-media);
+$_codes-collapse: map-keys(map-remove($grid-media, nth($_codes, 1)));
 
 // The container helper.
 .flex-container {
@@ -20,7 +21,6 @@ $_codes: map-keys($grid-media);
     @include margin(0 null);
 
     // Loop through each fo the breakpoints starting from the second smallest.
-    $_codes-collapse: map-keys(map-remove($grid-media, nth($_codes, 1)));
     @each $shortcode in $_codes-collapse {
       @include grid-media($shortcode) {
         @include margin(0 null);
@@ -104,8 +104,7 @@ $_codes: map-keys($grid-media);
 // Create breakpoint flex overrides.
 // Loop through each of the breakpoints and columns to create a grid class.
 // Start at the second item as the first entry would be the same as flex-x-of-y
-$_code: nth($_codes, 2);
-@while $_code != null {
+@each $_code in $_codes-collapse {
 
   // We want to generate styles for all breakpoints that are larger
   // than the defined option so we remove the smaller ones and pass
@@ -127,7 +126,4 @@ $_code: nth($_codes, 2);
       @include responsive-flex-column($n of $grid-columns, $_grid-up);
     }
   }
-
-  // Iterate to the next code.
-  $_code: breakpoint-next($_code);
 }
