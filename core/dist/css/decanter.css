@@ -6956,10 +6956,16 @@ button,
     border: 1px solid #C6C6C6;
     -webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15), 0px 6px 6px rgba(0, 0, 0, 0.2);
             box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15), 0px 6px 6px rgba(0, 0, 0, 0.2);
-    border-color: #b6b1a9; }
+    border-color: #b6b1a9;
+    -webkit-transition: -webkit-box-shadow 0.3s ease-out;
+    transition: -webkit-box-shadow 0.3s ease-out;
+    transition: box-shadow 0.3s ease-out;
+    transition: box-shadow 0.3s ease-out, -webkit-box-shadow 0.3s ease-out; }
     .su-card--link:hover h3, .su-card--link:focus h3 {
       text-decoration: underline;
-      color: #b1040e; }
+      color: #b1040e;
+      -webkit-transition: color 0.3s ease-out;
+      transition: color 0.3s ease-out; }
   .su-card--link p {
     font-weight: 400; }
 
