@@ -1,0 +1,55 @@
+// Flex Grid
+//
+// Flex Column Mixin
+.flex-col {
+  @include flex-column($columns: null, $gutter: $gutter-xs, $grid-columns: 12);
+}
+//
+// Flex Container Mixin
+//
+.flex-con {
+  @include flex-container($gap: $gutter-xs);
+}
+//
+// Push Mixin
+//
+.flex-push{
+  @include flex-grid-push(8, 12);
+}
+//
+// Responsive Flex Column Mixin
+//
+.flex-responsive-col{
+  @include responsive-flex-column(2, $grid: $grid-media, $gutters: $grid-gutters);
+}
+
+// CSS Grid Mixins
+//
+// Centered Column Mixin
+.css-column {
+  @include centered-column($grid: $grid-media, $screens: $grid-screens, $margin: $screen-margins);
+}
+//
+// Display Grid Mixin
+//
+.css-display-grid {
+  @include display-grid;
+}
+//
+// Grid Align Self Mixin
+//
+.css-grid-align-self {
+  @include grid-align-self(center);
+}
+//
+//Responsive Grid Column Mixin
+//
+.css-responsive-grid-col {
+  @include responsive-grid-columns($grid-map, $gutters-map);
+}
+//
+// Responsive Grid Map Mixin
+//
+.css-responsive-grid-map {
+  @include responsive-grid-gap($grid-map);
+}
