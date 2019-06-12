@@ -3,10 +3,12 @@
  * @file
  * Masthead Component.
  *
- * Masthead includes the Stanford logo lockup, site search and main navigation.
+ * Masthead includes the Stanford brand bar (or a top stroke), skiplink, logo lockup, site search and main navigation.
  *
- * - .su-masthead--center - Center-aligned Main Nav
- * - .su-masthead--right - Right-aligned Main Nav
+ * .su-masthead--center - Center-aligned main nav
+ * .su-masthead--right - Right-aligned main nav
+ * .su-masthead--light - Masthead with the light variant of main nav
+ * .su-masthead--stroke - Masthead with a top red stroke and no brand bar
  *
  * Available variables:
  * - attributes: For additional HTML attributes not already provided.
@@ -18,10 +20,22 @@
     {% set masthead_nav_modifier_class = "su-main-nav--light su-main-nav--mobile-search" %}
   {% endif %}
 
-  {% include "@decanter/components/skiplinks/link.twig" with { "target_id": "main-content" } %}
+  {% include "@decanter/components/skiplinks/link.twig" with
+    {
+      "modifier_class": masthead_skiplinks_modifier_class,
+      "attributes": masthead_skiplinks_attributes,
+      "target_id": masthead_skiplinks_target_id,
+      "link_text": masthead_skiplinks_link_text
+    }
+  %}
 
   {% if "su-masthead--stroke" not in modifier_class %}
-    {% include "@decanter/components/brand-bar/brand-bar.twig" %}
+    {% include "@decanter/components/brand-bar/brand-bar.twig" with
+      {
+        "modifier_class": masthead_brandbar_modifier_class,
+        "attributes": masthead_brandbar_attributes
+      }
+    %}
   {% endif %}
 
   <section>
