@@ -8845,10 +8845,35 @@ a {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   max-width: 1500px;
+  margin: 0 auto;
   border: 0;
   -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.13), 0px 3px 6px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.13), 0px 3px 6px rgba(0, 0, 0, 0.1);
   max-width: 100%; }
+  @media only screen and (min-width: 0) {
+    .su-masthead {
+      max-width: calc(100% - 40px);
+      width: calc(100% - 40px); } }
+  @media only screen and (min-width: 576px) {
+    .su-masthead {
+      max-width: calc(100% - 60px);
+      width: calc(100% - 60px); } }
+  @media only screen and (min-width: 768px) {
+    .su-masthead {
+      max-width: calc(100% - 100px);
+      width: calc(100% - 100px); } }
+  @media only screen and (min-width: 992px) {
+    .su-masthead {
+      max-width: calc(100% - 160px);
+      width: calc(100% - 160px); } }
+  @media only screen and (min-width: 1200px) {
+    .su-masthead {
+      max-width: calc(100% - 200px);
+      width: calc(100% - 200px); } }
+  @media only screen and (min-width: 1500px) {
+    .su-masthead {
+      max-width: 1500px;
+      width: calc(100% - 200px); } }
   @media only screen and (min-width: 0) {
     .su-masthead {
       padding-top: 2.31111104rem; } }
@@ -8906,6 +8931,58 @@ a {
               flex: 0 0 calc(16.6666666667% - 16.6666666667px);
       max-width: calc(16.6666666667% - 16.6666666667px);
       margin-top: auto; } }
+  @media (max-width: 991px) {
+    .su-masthead .su-main-nav > ul {
+      border: none;
+      -webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15), 0px 6px 6px rgba(0, 0, 0, 0.2);
+              box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15), 0px 6px 6px rgba(0, 0, 0, 0.2); }
+    .su-masthead .su-main-nav > ul,
+    .su-masthead .su-main-nav > .su-site-search {
+      right: 0; } }
+  @media only screen and (min-width: 992px) {
+    .su-masthead .su-main-nav {
+      width: 100%; } }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .su-masthead .su-main-nav > ul,
+    .su-masthead .su-main-nav .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 + .su-site-search {
+      width: 40rem; } }
+  @media only screen and (min-width: 0) and (max-width: 575px) {
+    .su-masthead .su-main-nav > ul,
+    .su-masthead .su-main-nav .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 + .su-site-search {
+      -webkit-transform: translateX(20px);
+              transform: translateX(20px); } }
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    .su-masthead .su-main-nav > ul,
+    .su-masthead .su-main-nav .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 + .su-site-search {
+      -webkit-transform: translateX(30px);
+              transform: translateX(30px); } }
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    .su-masthead .su-main-nav > ul,
+    .su-masthead .su-main-nav .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 + .su-site-search {
+      -webkit-transform: translateX(50px);
+              transform: translateX(50px); } }
+  @media only screen and (min-width: 0) and (max-width: 575px) {
+    .su-masthead .su-main-nav,
+    .su-masthead .su-main-nav > ul,
+    .su-masthead .su-main-nav .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 + .su-site-search {
+      width: calc(100% + 40px); } }
+  @media only screen and (min-width: 576px) and (max-width: 767px) {
+    .su-masthead .su-main-nav,
+    .su-masthead .su-main-nav > ul,
+    .su-masthead .su-main-nav .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 + .su-site-search {
+      width: calc(100% + 60px); } }
+
+@media (min-width: 992px) {
+  .su-masthead--center .su-main-nav > ul {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; } }
+
+@media (min-width: 992px) {
+  .su-masthead--right .su-main-nav > ul {
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end; } }
 
 
 /*# sourceMappingURL=decanter.css.map*/

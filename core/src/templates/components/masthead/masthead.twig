@@ -14,11 +14,8 @@
  */
 #}
 <section class="su-masthead {{ modifier_class }}" {{ attributes }}>
-
-  {% if "su-masthead--right" in modifier_class %}
-    {% set masthead_nav_modifier_class = "su-main-nav--right" %}
-  {% elseif "su-masthead--center" in modifier_class %}
-    {% set masthead_nav_modifier_class = "su-main-nav--center" %}
+  {% if "su-masthead--light" in modifier_class %}
+    {% set masthead_nav_modifier_class = "su-main-nav--light su-main-nav--mobile-search" %}
   {% endif %}
 
   {% include "@decanter/components/lockup/lockup.twig" with
@@ -47,6 +44,7 @@
   {% include "@decanter/components/main-nav/main-nav.twig" with
     {
       "modifier_class": masthead_nav_modifier_class,
+      "toggle_modifier_class": "su-main-nav__toggle--right",
       "toggle_text": masthead_nav_toggle_text,
       "list_items": masthead_nav_list_items
     }

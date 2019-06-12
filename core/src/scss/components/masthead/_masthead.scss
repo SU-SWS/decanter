@@ -7,6 +7,7 @@
 //
 // .su-masthead--center - Center-aligned Main Nav
 // .su-masthead--right - Right-aligned Main Nav
+// .su-masthead--light - Masthead with Main Nav light variant
 //
 // Markup: ../templates/components/masthead/masthead.twig
 //
@@ -15,6 +16,7 @@
 
 .su-masthead {
   @include flex-container;
+  @include centered-column;
   @include modular-spacing('padding', 1 null null);
   @include box-shadow($depth: 'shallow', $stroke: 0);
   max-width: 100%;
@@ -58,6 +60,54 @@
     > .su-main-nav {
       @include flex-column($columns: 2);
       @include margin(auto null null);
+    }
+  }
+
+  .su-main-nav {
+    @include grid-media-max('md') {
+      > ul {
+        @include box-shadow($depth: 'medium', $stroke: none);
+      }
+
+      > ul,
+      > .su-site-search {
+        right: 0;
+      }
+    }
+
+    @include grid-media('lg') {
+      width: 100%;
+    }
+
+    > ul,
+    .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 + .su-site-search {
+      @include grid-media-only('md') {
+        width: 40rem;
+      }
+
+      @include grid-media-only('xs') {
+        transform: translateX(map-get($screen-margins, 'xs'));
+      }
+
+      @include grid-media-only('sm') {
+        transform: translateX(map-get($screen-margins, 'sm'));
+      }
+
+      @include grid-media-only('md') {
+        transform: translateX(map-get($screen-margins, 'md'));
+      }
+    }
+  }
+
+  .su-main-nav,
+  .su-main-nav > ul,
+  .su-main-nav .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 + .su-site-search {
+    @include grid-media-only('xs') {
+      width: calc(100% + #{map-get($screen-margins, 'xs') * 2});
+    }
+
+    @include grid-media-only('sm') {
+      width: calc(100% + #{map-get($screen-margins, 'sm') * 2});
     }
   }
 }
