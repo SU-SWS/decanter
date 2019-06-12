@@ -1,187 +1,231 @@
 @charset "UTF-8";
 
-.su-main-nav {
-  &.su-main-nav--light {
+.su-main-nav--light {
+  $_su-main-nav-color-map: $main-nav-light-colors;
+
+  @include grid-media-max('md') {
     .su-main-nav__toggle {
       &[aria-expanded="true"] {
         &::before {
-          background-color: $color-driftwood;
+          background-color: color(border--expanded, $_su-main-nav-color-map);
         }
 
         &:hover::before {
-          background-color: $color-dark-red;
+          background-color: color(border--hover, $_su-main-nav-color-map);
         }
 
         &:active::before {
-          background-color: $color-black;
+          background-color: color(border--active, $_su-main-nav-color-map);
+        }
+      }
+    }
+  }
+
+  // General menu styles - mobile, also desktop drop down part
+  ul {
+    background-color: color(bg--mobile, $_su-main-nav-color-map);
+  }
+
+  li {
+    a {
+      color: color(link--mobile, $_su-main-nav-color-map);
+      border-bottom-color: color(divider, $_su-main-nav-color-map);
+
+      &:hover,
+      &:focus {
+        &::before {
+          background-color: color(border--mobile-hover, $_su-main-nav-color-map);
+        }
+      }
+
+      &:active {
+        color: color(link--mobile-active, $_su-main-nav-color-map);
+
+        &::before {
+          background-color: color(border--mobile-active, $_su-main-nav-color-map);
+        }
+      }
+    }
+  }
+
+  .su-main-nav__item--current {
+    > a {
+      color: color(link--mobile-active, $_su-main-nav-color-map);
+
+      &::before {
+        background-color: color(border--mobile-active, $_su-main-nav-color-map);
+      }
+
+      &:hover,
+      &:focus {
+        &::before {
+          background-color: color(border--mobile-active, $_su-main-nav-color-map);
+        }
+      }
+    }
+  }
+
+  @include grid-media-max('md') {
+    .su-main-nav__item--parent {
+      > a::after {
+        background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
+        background-size: 100%;
+      }
+
+      &.su-main-nav__item--expanded > a {
+        &::after {
+          background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
+          background-size: 100%;
+        }
+
+        &:focus::before {
+          background-color: color(border--mobile-expanded, $_su-main-nav-color-map);
+        }
+
+        &[aria-expanded="true"] {
+          &:hover::before {
+            background-color: color(border--mobile-hover, $_su-main-nav-color-map);
+          }
+
+          &:active::before {
+            background-color: color(border--mobile-active, $_su-main-nav-color-map);
+          }
         }
       }
     }
 
-    // general menu styles
-    ul {
-      background-color: $color-white;
-    }
-
-    li {
-      a {
-        color: $color-black;
-        border-bottom-color: #d9d9d9;
-
-        &:hover,
-        &:focus {
-          &::before {
-            background-color: $color-black;
-          }
-        }
-
-        &:active {
-          color: $color-dark-red;
-
-          &::before {
-            background-color: $color-dark-red;
-          }
-        }
-      }
-
-      &.su-main-nav__item--current {
+    .su-main-nav__item--current {
+      &.su-main-nav__item--expanded {
         > a {
-          color: $color-dark-red;
+          color: color(link--mobile-expanded, $_su-main-nav-color-map);
 
-          &::before {
-            background-color: $color-dark-red;
-          }
-        }
-      }
-
-      @include grid-media-max('md') {
-        &.su-main-nav__item--parent {
-          > a::after {
-            background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
-            background-size: 100%;
+          &::before,
+          &:focus::before {
+            background-color: color(border--mobile-active-expanded, $_su-main-nav-color-map);
           }
 
-          &.su-main-nav__item--expanded > a {
-            ::after {
-              background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
-              background-size: 100%;
-            }
-
-            &:focus::before {
-              background-color: transparent;
-            }
-
-            &[aria-expanded="true"] {
-              &:hover::before {
-                background-color: $color-black;
-              }
-
-              &:active::before {
-                background-color: $color-dark-red;
-              }
-            }
-          }
-        }
-
-        &.su-main-nav__item--current {
-          &.su-main-nav__item--expanded {
-            > a {
-              color: $color-black;
-
-              &::before {
-                background-color: $color-black;
-              }
-
-              &:focus::before {
-                background-color: $color-black;
-              }
-
-              &[aria-expanded="true"]:active {
-                color: $color-dark-red;
-              }
-            }
+          &[aria-expanded="true"]:active {
+            color: color(link--mobile-active, $_su-main-nav-color-map);
           }
         }
       }
     }
+  }
 
-    // desktop first level menu style override
+  // desktop first level menu style override
+  @include grid-media('lg') {
     > ul {
-      @include grid-media('lg') {
-        background-color: transparent;
+      background-color: transparent;
 
-        > li {
-          > a {
-            &:hover,
-            &:focus {
-              color: $color-dark-red;
+      > li {
+        > a {
+          &:hover,
+          &:focus {
+            color: color(link--hover, $_su-main-nav-color-map);
+
+            &::before {
+              background-color: color(border--hover, $_su-main-nav-color-map);
+            }
+          }
+
+          &:active {
+            color: color(link--active, $_su-main-nav-color-map);
+
+            &::before {
+              background-color: color(border--active, $_su-main-nav-color-map);
+            }
+          }
+
+          &[aria-expanded="true"] {
+            color: color(link--expanded, $_su-main-nav-color-map);
+
+            &::before {
+              background-color: color(border--expanded, $_su-main-nav-color-map);
+            }
+
+            &:hover {
+              color: color(link--hover, $_su-main-nav-color-map);
 
               &::before {
-                background-color: $color-dark-red;
+                background-color: color(border--hover, $_su-main-nav-color-map);
+              }
+            }
+
+            &:focus {
+              &::before {
+                background-color: color(border--expanded, $_su-main-nav-color-map);
               }
             }
 
             &:active {
-              color: $color-black;
-
-              &::before {
-                background-color: $color-black;
-              }
+              color: color(link--active, $_su-main-nav-color-map);
             }
+          }
+        }
+      }
 
-            &[aria-expanded="true"] {
-              color: $color-black;
+      > .su-main-nav__item--current {
+        > a {
+          color: color(link--active, $_su-main-nav-color-map);
 
-              &::before {
-                background-color: $color-driftwood;
-              }
+          &::before {
+            background-color: color(border--current, $_su-main-nav-color-map);
+          }
 
-              &:hover {
-                color: $color-dark-red;
+          &:hover,
+          &:focus {
+            color: color(link--hover, $_su-main-nav-color-map);
 
-                &::before {
-                  background-color: $color-dark-red;
-                }
-              }
+            &::before {
+              background-color: color(border--hover, $_su-main-nav-color-map);
             }
           }
 
-          &.su-main-nav__item--current {
-            > a {
-              color: $color-black;
+          &:active {
+            color: color(link--active, $_su-main-nav-color-map);
+
+            &::before {
+              background-color: color(border--active, $_su-main-nav-color-map);
+            }
+          }
+        }
+
+        &.su-main-nav__item--expanded {
+          > a:focus {
+            color: color(link--expanded, $_su-main-nav-color-map);
+
+            &::before {
+              background-color: color(border--expanded, $_su-main-nav-color-map);
+            }
+          }
+
+          > a[aria-expanded="true"] {
+            &:hover {
+              color: color(link--hover, $_su-main-nav-color-map);
 
               &::before {
-                background-color: $color-driftwood;
-              }
-
-              &:hover,
-              &:focus {
-                color: $color-dark-red;
-
-                &::before {
-                  background-color: $color-dark-red;
-                }
+                background-color: color(border--hover, $_su-main-nav-color-map);
               }
             }
 
-            &.su-main-nav__item--expanded {
-              > a:focus {
-                color: $color-black;
+            &:active {
+              color: color(link--active, $_su-main-nav-color-map);
 
-                &::before {
-                  background-color: $color-driftwood;
-                }
-              }
-
-              > a[aria-expanded="true"]:hover {
-                color: $color-dark-red;
-
-                &::before {
-                  background-color: $color-dark-red;
-                }
+              &::before {
+                background-color: color(border--active, $_su-main-nav-color-map);
               }
             }
           }
+        }
+      }
+    }
+  }
+
+  &.su-main-nav--mobile-search {
+    .su-main-nav__toggle[aria-expanded="true"] {
+      @include grid-media-max('md') {
+        + .su-main-nav__menu-lv1 + .su-site-search {
+          background-color: color(bg--mobile, $_su-main-nav-color-map);
         }
       }
     }
