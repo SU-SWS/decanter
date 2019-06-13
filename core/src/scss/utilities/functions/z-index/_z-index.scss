@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-// Map of z-indices
+// Map of z-indices based on current use
 
 $z-levels: (
   "navigation":  100,
@@ -12,9 +12,9 @@ $z-levels: (
 );
 
 // A function to help us get the z-index from the level from the map
-// Usage
+// Usage example:
 // .su-hero__card {
-//   z-index: zed(overlay);
+//   z-index: z(overlay);
 // }
 
 @function z($level) {
@@ -22,14 +22,4 @@ $z-levels: (
     @return map-get($z-levels, $level);
  }
   @error "Invalid z-index level name: `#{$level}`.";
-}
-
-@function z-up() {
-  $z-index: $z-index + 1;
-  @return $z-index;
-}
-
-@function z-down() {
-  $z-index: $z-index - 1;
-  @return $z-index;
 }
