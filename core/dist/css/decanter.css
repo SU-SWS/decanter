@@ -7249,20 +7249,15 @@ a {
     color: #2e2d29; }
 
 .su-link--action {
-  font-weight: 600;
-  text-decoration: none;
-  color: #006cb8; }
+  text-decoration: none; }
   .su-link--action::after {
-    content: ' ›';
-    left: 1px;
-    position: relative;
-    -webkit-transition: left 0.2s ease-in-out;
-    transition: left 0.2s ease-in-out;
-    text-decoration: none; }
-  .su-link--action:hover {
-    color: #2e2d29; }
-    .su-link--action:hover::after {
-      left: 4px; }
+    content: "›";
+    margin-bottom: -1px;
+    margin-left: 0.4em;
+    -webkit-transition: margin-left 0.2s ease-in-out;
+    transition: margin-left 0.2s ease-in-out; }
+  .su-link--action:hover::after, .su-link--action:focus::after {
+    margin-left: 0.55em; }
 
 .su-link--download {
   text-decoration: none; }
@@ -7348,10 +7343,16 @@ a {
       background-color: #2e2d29;
       margin-left: 0.55em; } }
 
-.su-link--more::after {
-  content: '\00BB';
-  display: inline-block;
-  margin-left: 4px; }
+.su-link--more {
+  text-decoration: none; }
+  .su-link--more::after {
+    content: "»";
+    margin-bottom: -1px;
+    margin-left: 0.4em;
+    -webkit-transition: margin-left 0.2s ease-in-out;
+    transition: margin-left 0.2s ease-in-out; }
+  .su-link--more:hover::after, .su-link--more:focus::after {
+    margin-left: 0.55em; }
 
 .su-link--video {
   text-decoration: none; }
