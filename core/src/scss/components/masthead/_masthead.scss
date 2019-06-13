@@ -17,6 +17,7 @@
 
 .su-masthead {
   @include box-shadow($depth: 'shallow', $stroke: 0);
+  position: relative;
   background-color: color(bg);
   max-width: 100%;
 
@@ -52,6 +53,10 @@
       @include margin(null null null auto);
       width: 30rem;
       max-width: 100%;
+
+      @include grid-media-max("md") {
+        width: 100%;
+      }
     }
   }
 
