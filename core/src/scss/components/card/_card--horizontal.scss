@@ -4,7 +4,8 @@
 // Horizontal Card
 //
 
-.su-card--horizontal {
+.su-card--horizontal:not(.su-card--link),
+.su-card--horizontal.su-card--link > a {
   // Set up the grid for this variant.
   @include display-grid;
   @include modular-spacing('padding', 2);
@@ -30,7 +31,7 @@
     @include grid-columns(1fr 1fr);
   }
 
-  > img {
+  img {
     -ms-grid-row: 1;
     -ms-grid-column: 1;
   }

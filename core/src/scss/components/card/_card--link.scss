@@ -5,23 +5,30 @@
 //
 
 .su-card--link {
-  text-decoration: none;
-  color: color(text);
+  box-shadow: none;
+  border: 0;
 
-  &:hover,
-  &:focus {
-    @include box-shadow($depth: medium);
-    border-color: $color-driftwood;
-    transition: box-shadow 0.3s ease-out;
+  > a {
+    @include box-shadow($depth: shallow);
+    display: block;
+    text-decoration: none;
+    color: color(text);
 
-    h3 {
-      text-decoration: underline;
-      color: color(link--alt);
-      transition: color 0.3s ease-out;
+    &:hover,
+    &:focus {
+      @include box-shadow($depth: medium);
+      border-color: $color-driftwood;
+      transition: box-shadow 0.3s ease-out;
+
+      h3 {
+        text-decoration: underline;
+        color: color(link--alt);
+        transition: color 0.3s ease-out;
+      }
     }
-  }
 
-  p {
-    font-weight: $font-regular;
+    p {
+      font-weight: $font-regular;
+    }
   }
 }
