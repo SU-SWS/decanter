@@ -3,13 +3,13 @@
   background-color: inherit;
 
   .su-card__contents {
-    // reduce top padding to move the contents closer to the image
+    // Reduce top padding to move the contents closer to the image.
     @include modular-spacing('padding', 1 null null);
-    // remove left, bottom, right padding at all breakpoints
+    // Remove left, bottom, right padding at all breakpoints.
     @include grid-media-only(all) {
       @include padding(null 0 0);
     }
-    // when the image disappears, remove the top padding as well
+    // When the image disappears, remove the top padding as well.
     @include grid-media-only(xs) {
       @include padding(0 null null);
     }
@@ -20,13 +20,13 @@
   }
 
   &.su-card--horizontal {
-    // override modular spacing at all breakpoints
+    // Override modular spacing at all breakpoints.
     @include grid-media-only(all) {
       @include padding(0);
     }
 
     .su-card__contents {
-      // remove the top padding we applied above
+      // Remove the top padding we applied above.
       @include grid-media-only(all) {
         @include padding(0 null null);
       }
