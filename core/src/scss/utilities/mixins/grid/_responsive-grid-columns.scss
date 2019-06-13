@@ -14,6 +14,8 @@
 @mixin responsive-grid-columns($grid-map: $responsive-columns-default, $gutters-map: $responsive-gutters-default, $ie-fix-mobile: true) {
   @include display-grid;
 
+  @debug $grid-map;
+
   // Loop through each breakpoint generating the media query and grid.
   @each $breakpoint, $columns in $grid-map {
 
