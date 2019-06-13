@@ -371,7 +371,7 @@ template {
     --color-text: hsla(104, 40%, 32%, 1);
     --media-query: '2xl'; } }
 
-a, a:link, a:visited, a:hover {
+.kss-nav a, .kss-nav a:link, .kss-nav a:visited, .kss-nav a:hover {
   text-decoration: none; }
 
 pre, code, kbd, samp {
@@ -414,10 +414,8 @@ sub {
     z-index: 11200; }
 
 .main-page-layout {
-  display: grid;
   display: -ms-grid;
-  display: grid;
-  display: -ms-grid; }
+  display: grid; }
   @media only screen and (min-width: 0) {
     .main-page-layout {
       -ms-grid-columns: 1fr;
@@ -1113,10 +1111,6 @@ body {
         #kss-node.kss-home .section--ui-components .su-card {
           max-width: 1500px;
           width: calc(100% - 200px); } }
-      #kss-node.kss-home .section--ui-components .su-card > img {
-        display: block;
-        margin-left: 0;
-        margin-right: 0; }
     #kss-node.kss-home .section--ui-components p {
       max-width: 55%; }
   #kss-node.kss-home .section--dev-resources {
@@ -1150,8 +1144,8 @@ body {
           width: calc(100% - 200px); } }
     #kss-node.kss-home .section--dev-resources .cards-container {
       margin: 0 auto;
-      display: grid;
-      display: -ms-grid; }
+      display: -ms-grid;
+      display: grid; }
       @media only screen and (min-width: 0) {
         #kss-node.kss-home .section--dev-resources .cards-container {
           max-width: calc(100% - 40px);
@@ -1376,8 +1370,8 @@ body {
       text-align: center;
       margin-bottom: 60px; }
     #kss-node.kss-home .section--more-info ul {
-      display: grid;
       display: -ms-grid;
+      display: grid;
       margin: 0;
       padding: 0; }
       @media only screen and (min-width: 0) {
@@ -1691,8 +1685,8 @@ body {
   z-index: 20; }
   .masthead div {
     margin: 0 auto;
-    display: grid;
-    display: -ms-grid; }
+    display: -ms-grid;
+    display: grid; }
     @media only screen and (min-width: 0) {
       .masthead div {
         max-width: calc(100% - 40px);
@@ -1753,7 +1747,9 @@ body {
     -ms-grid-row: 1;
     -ms-grid-column: 1; }
     .masthead .brand-logo a {
-      color: #ffffff; }
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700; }
   .masthead .main-nav {
     -ms-grid-row: 1;
     -ms-grid-column: 2; }

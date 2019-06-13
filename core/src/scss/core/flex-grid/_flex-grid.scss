@@ -7,6 +7,12 @@
 //
 // Style guide: Core.FlexGrid
 
+// Set some variables to use later.
+// We get the keys and assume they are in order from smallest breakpoint to
+// the largest breakpoint.
+$_codes: map-keys($grid-media);
+$_codes-collapse: map-keys(map-remove($grid-media, nth($_codes, 1)));
+
 // The container helper.
 .flex-container {
   @include flex-container;
@@ -14,55 +20,28 @@
   &--collapse {
     @include margin(0 null);
 
-    @include grid-media('sm') {
-      @include margin(0 null);
+    // Loop through each fo the breakpoints starting from the second smallest.
+    @each $shortcode in $_codes-collapse {
+      @include grid-media($shortcode) {
+        @include margin(0 null);
+      }
     }
-
-    @include grid-media('md') {
-      @include margin(0 null);
-    }
-
-    @include grid-media('lg') {
-      @include margin(0 null);
-    }
-
-    @include grid-media('xl') {
-      @include margin(0 null);
-    }
-
-    @include grid-media('2xl') {
-      @include margin(0 null);
-    }
-
   }
 
   &--row-gap {
     > * {
-      @include margin(0 0 map-get($grid-gutters, 'xs') 0);
+      // No media query for the small breakpoint.
+      @include margin(0 0 map-get($grid-gutters, nth($_codes, 1)) 0);
 
-      @include grid-media('sm') {
-        @include margin(0 0 map-get($grid-gutters, 'sm') 0);
+      // Loop through each fo the breakpoints starting from the second smallest.
+      $_codes-gap: map-keys(map-remove($grid-media, nth($_codes, 1)));
+      @each $shortcode in $_codes-gap {
+        @include grid-media($shortcode) {
+          @include margin(0 0 map-get($grid-gutters, $shortcode) 0);
+        }
       }
-
-      @include grid-media('md') {
-        @include margin(0 0 map-get($grid-gutters, 'md') 0);
-      }
-
-      @include grid-media('lg') {
-        @include margin(0 0 map-get($grid-gutters, 'lg') 0);
-      }
-
-      @include grid-media('xl') {
-        @include margin(0 0 map-get($grid-gutters, 'xl') 0);
-      }
-
-      @include grid-media('2xl') {
-        @include margin(0 0 map-get($grid-gutters, '2xl') 0);
-      }
-
     }
   }
-
 }
 
 // Properties for all columns at all breakpoints.
@@ -83,7 +62,6 @@
 // Loop through each breakpoint to generate column and push classes
 // For every column.
 @each $_breakpoint, $_media-query in $grid-screens {
-
   // The breakpoint short code. eg: xs, sm, lg
   $_insert: breakpoint-insert($_breakpoint, $grid-screens);
 
@@ -107,7 +85,6 @@
       }
     }
   }
-
 }
 
 // Loop through each column and breakpoint creating a responsive flex column.
@@ -116,26 +93,45 @@
 @for $n from 1 through $grid-columns {
   .flex-#{$n}-of-#{$grid-columns} {
     $cols: $n of $grid-columns;
-    @include responsive-flex-column($cols, map-remove($grid-media, 'xs'));
+    // Start from the second to smallest breakpoint and go up.
+    $_flex-grid: map-remove($grid-media, nth($_codes, 1));
+
+    // Responsive column for everything that is not 100% width.
+    @if $n != $grid-columns {
+      @include responsive-flex-column($cols, $_flex-grid);
+    }
+    // One breakpoint only needed for 100% width items.
+    @else {
+      @include grid-media(nth($_codes, 1)) {
+        @include flex-column(12 of 12);
+      }
+    }
   }
 }
 
 // Create breakpoint flex overrides.
 // Loop through each of the breakpoints and columns to create a grid class.
-@for $n from 1 through $grid-columns {
-  // Loop through each breakpoint.
-  @each $_code, $_screen in $grid-screens {
+// Start at the second item as the first entry would be the same as flex-x-of-y
+@each $_code in $_codes-collapse {
+
+  // We want to generate styles for all breakpoints that are larger
+  // than the defined option so we remove the smaller ones and pass
+  // the work to the responsive-flex-column mixin.
+  $_grid-up: map-remove($grid-media, nth($_codes, 1));
+  $_prev: $_code;
+
+  @while $_prev != null {
+    $_prev: breakpoint-previous($_prev);
+    $_grid-up: map-remove($_grid-up, $_prev);
+  }
+
+  @for $n from 1 through $grid-columns {
     // The breakpoint short code. eg: xs, sm, lg with a dash
     $_insert: breakpoint-insert($_code, $grid-screens);
-    // The gutter size at this breakpoint.
-    $_gutter: map-get($grid-gutters, $_code);
 
     // The flex-breakpoint-column class.
     .flex#{$_insert}-#{$n}-of-#{$grid-columns} {
-      // Generate the media queries and column size.
-      @include grid-media-only($_code) {
-        @include flex-column($n of $grid-columns, $_gutter);
-      }
+      @include responsive-flex-column($n of $grid-columns, $_grid-up);
     }
   }
 }

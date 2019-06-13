@@ -1,5 +1,6 @@
 import { closeAllMobileNavs } from './globals';
 import { isEsc, isSpace, isEnter } from "../../utilities/keyboard";
+import { createEvent } from '../../utilities/events';
 import NavItem from './NavItem';
 
 /**
@@ -40,6 +41,14 @@ export default class Nav {
     this.toggle = elem.querySelector(elem.tagName + ' > button');
     this.toggleText = this.toggle ? this.toggle.innerText : '';
     this.items = [];
+    // Add custom events to alert others when the mobile nav
+    // opens or closes.
+    // this.openEvent is dispatched in this.openMobileNav().
+    this.openEvent = createEvent('openNav');
+    // this.closeEvent is dispatched in this.closeMobileNav().
+    this.closeEvent = createEvent('closeNav');
+
+    // Initialize items
     let items = elem.querySelectorAll(elem.tagName + ' > ul > li');
     items.forEach(
       item => {
@@ -209,8 +218,8 @@ export default class Nav {
    *                                relative to.
    */
   focusOn(link, currentItem = null) {
-    var currentIndex = null;
-    var lastIndex = null;
+    let currentIndex = null;
+    let lastIndex = null;
     if (currentItem) {
       currentIndex = this.items.indexOf(currentItem);
       lastIndex = this.items.length - 1;
@@ -263,8 +272,11 @@ export default class Nav {
     this.setExpanded('true');
     this.toggle.innerText = 'Close';
     if (focusOnFirst) {
-      this.focusOn('first'); // Focus on the first top level link
+      // Focus on the first top level link.
+      this.focusOn('first');
     }
+    // Alert others the mobile nav has opened.
+    this.elem.dispatchEvent(this.openEvent);
   }
 
   /**
@@ -272,8 +284,12 @@ export default class Nav {
    * initially.
    */
   closeMobileNav() {
-    this.setExpanded('false');
-    this.toggle.innerText = this.toggleText;
+    if (this.isExpanded()) {
+      this.setExpanded('false');
+      this.toggle.innerText = this.toggleText;
+      // Alert others the mobile nav has closed.
+      this.elem.dispatchEvent(this.closeEvent);
+    }
   }
 
   // -------------------------------------------------------------------------
