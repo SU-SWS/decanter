@@ -33,6 +33,8 @@
 
     @include grid-media-max('md') {
       @include flex-column($columns: 10);
+      // On mobile, lockup needs a higher z-index than nav because the nav takes up 100% width including margin
+      z-index: 10010;
     }
 
     @include grid-media('lg') {
