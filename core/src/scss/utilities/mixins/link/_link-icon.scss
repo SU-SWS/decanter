@@ -1,16 +1,16 @@
 @charset "UTF-8";
 
 //
-// @external-link($external-link, $external-link-hover)
+// @link-icon($link-icon, $link-icon-hover)
 //
 // Default external link styling, with external icon.
 //
 // $external-link - filename of external link png & svg
 // $external-link-hover - filename of external link png & svg on hover
 //
-// Style guide: Mixins.Link.external-link
+// Style guide: Mixins.Link.link-icon
 //
-@mixin external-link($external-link: external-link, $external-link-hover: external-link-hover) {
+@mixin link-icon($external-link: external-link, $external-link-hover: external-link-hover) {
   @supports (mask-repeat: no-repeat) {
     &::after {
       @include margin(null null -1px 4px);
