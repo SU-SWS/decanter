@@ -7,172 +7,360 @@
 //
 
 //
-// $screen-xs
+// $su-screen-xs
 //
-// Markup: $screen-xs: 0px !default;
+// Markup: $su-screen-xs: 0px !default;
+//
+// Styleguide: Variables.Core.Breakpoints.su-screen-xs
+//
+$su-screen-xs: 0 !default;
+
+//
+// <del>$screen-xs</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-screen-xs</code> instead.
 //
 // Styleguide: Variables.Core.Breakpoints.screen-xs
 //
-$screen-xs: 0 !default;
+$screen-xs: $su-screen-xs;
+
 
 //
-// $screen-sm
+// $su-screen-sm
 //
-// Markup: $screen-sm: 576px !default;
+// Markup: $su-screen-sm: 576px !default;
+//
+// Styleguide: Variables.Core.Breakpoints.su-screen-sm
+//
+$su-screen-sm: 576px !default;
+
+//
+// <del>$screen-sm</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-screen-sm</code> instead.
 //
 // Styleguide: Variables.Core.Breakpoints.screen-sm
 //
-$screen-sm: 576px !default;
+$screen-sm: $su-screen-sm;
+
 
 //
-// $screen-md
+// $su-screen-md
 //
-// Markup: $screen-md: 768px !default;
+// Markup: $su-screen-md: 768px !default;
+//
+// Styleguide: Variables.Core.Breakpoints.su-screen-md
+//
+$su-screen-md: 768px !default;
+
+//
+// <del>$screen-md</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-screen-md</code> instead.
 //
 // Styleguide: Variables.Core.Breakpoints.screen-md
 //
-$screen-md: 768px !default;
+$screen-md: $su-screen-md;
+
 
 //
-// $screen-lg
+// $su-screen-lg
 //
-// Markup: $screen-lg: 992px !default;
+// Markup: $su-screen-lg: 992px !default;
+//
+// Styleguide: Variables.Core.Breakpoints.su-screen-lg
+//
+$su-screen-lg: 992px !default;
+
+//
+// <del>$screen-lg</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-screen-lg</code> instead.
 //
 // Styleguide: Variables.Core.Breakpoints.screen-lg
 //
-$screen-lg: 992px !default;
+$screen-lg: $su-screen-lg;
+
 
 //
-// $screen-xl
+// $su-screen-xl
 //
-// Markup: $screen-xl: 1200px !default;
+// Markup: $su-screen-xl: 1200px !default;
+//
+// Styleguide: Variables.Core.Breakpoints.su-screen-xl
+//
+$su-screen-xl: 1200px !default;
+
+//
+// <del>$screen-xl</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-screen-xl</code> instead.
 //
 // Styleguide: Variables.Core.Breakpoints.screen-xl
 //
-$screen-xl: 1200px !default;
+$screen-xl: $su-screen-xl;
+
 
 //
-// $screen-2xl
+// $su-screen-2xl
 //
-// Markup: $screen-2xl: 1500px !default;
+// Markup: $su-screen-2xl: 1500px !default;
+//
+// Styleguide: Variables.Core.Breakpoints.su-screen-2xl
+//
+$su-screen-2xl: $site-max-width !default;
+
+//
+// <del>$screen-2xl</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-screen-2xl</code> instead.
 //
 // Styleguide: Variables.Core.Breakpoints.screen-2xl
 //
-$screen-2xl: $site-max-width !default;
+$screen-2xl: $su-screen-2xl;
+
 
 //
-// $breakpoint-xs
+// $su-breakpoint-xs
 //
 // Mixin for basic mobile-first media query for xs-and-up screen size.
 //
-// Markup: $breakpoint-xs: 'only screen and (min-width: #{$screen-xs})' !default;
+// Markup: $su-breakpoint-xs: 'only screen and (min-width: #{$su-screen-xs})' !default;
 //
-// Styleguide: Variables.Core.Breakpoints.breakpoint-xs
-$breakpoint-xs: 'only screen and (min-width: #{$screen-xs})' !default;
+// Styleguide: Variables.Core.Breakpoints.su-breakpoint-xs
+$su-breakpoint-xs: 'only screen and (min-width: #{$su-screen-xs})' !default;
 
 //
-// $breakpoint-xs-only
+// <del>$breakpoint-xs</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-breakpoint-xs</code> instead.
+//
+// Styleguide: Variables.Core.Breakpoints.breakpoint-xs
+//
+$breakpoint-xs: $su-breakpoint-xs;
+
+
+//
+// $su-breakpoint-xs-only
 //
 // Mixin for basic mobile-first media query for xs-only screen size.
 //
-// Markup: $breakpoint-xs-only: 'only screen and (min-width: #{$screen-xs}) and (max-width: #{$screen-sm - 1})' !default;
+// Markup: $su-breakpoint-xs-only: 'only screen and (min-width: #{$su-screen-xs}) and (max-width: #{$su-screen-sm - 1})' !default;
 //
-// Styleguide: Variables.Core.Breakpoints.breakpoint-xs-only
-$breakpoint-xs-only: 'only screen and (min-width: #{$screen-xs}) and (max-width: #{$screen-sm - 1})' !default;
+// Styleguide: Variables.Core.Breakpoints.su-breakpoint-xs-only
+$su-breakpoint-xs-only: 'only screen and (min-width: #{$su-screen-xs}) and (max-width: #{$su-screen-sm - 1})' !default;
 
 //
-// $breakpoint-sm
+// <del>$breakpoint-xs-only</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-breakpoint-xs-only</code> instead.
+//
+// Styleguide: Variables.Core.Breakpoints.breakpoint-xs-only
+//
+$breakpoint-xs-only: $su-breakpoint-xs-only;
+
+
+//
+// $su-breakpoint-sm
 //
 // Mixin for basic mobile-first media query for sm-and-up screen size.
 //
-// Markup: $breakpoint-sm: (media: 'only screen and (min-width: #{$screen-sm})') !default;
+// Markup: $su-breakpoint-sm: (media: 'only screen and (min-width: #{$su-screen-sm})') !default;
 //
-// Styleguide: Variables.Core.Breakpoints.breakpoint-sm
-$breakpoint-sm: 'only screen and (min-width: #{$screen-sm})' !default;
+// Styleguide: Variables.Core.Breakpoints.su-breakpoint-sm
+$su-breakpoint-sm: 'only screen and (min-width: #{$su-screen-sm})' !default;
 
 //
-// $breakpoint-sm-only
+// <del>$breakpoint-sm</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-breakpoint-sm</code> instead.
+//
+// Styleguide: Variables.Core.Breakpoints.breakpoint-sm
+//
+$breakpoint-sm: $su-breakpoint-sm;
+
+
+//
+// $su-breakpoint-sm-only
 //
 // Mixin for basic mobile-first media query for sm-only screen size.
 //
-// Markup: $breakpoint-sm-only: 'only screen and (min-width: #{$screen-sm}) and (max-width: #{$screen-md - 1})' !default;
+// Markup: $su-breakpoint-sm-only: 'only screen and (min-width: #{$su-screen-sm}) and (max-width: #{$su-screen-md - 1})' !default;
 //
-// Styleguide: Variables.Core.Breakpoints.breakpoint-sm-only
-$breakpoint-sm-only: 'only screen and (min-width: #{$screen-sm}) and (max-width: #{$screen-md - 1})' !default;
+// Styleguide: Variables.Core.Breakpoints.su-breakpoint-sm-only
+$su-breakpoint-sm-only: 'only screen and (min-width: #{$su-screen-sm}) and (max-width: #{$su-screen-md - 1})' !default;
 
 //
-// $breakpoint-md
+// <del>$breakpoint-sm-only</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-breakpoint-sm-only</code> instead.
+//
+// Styleguide: Variables.Core.Breakpoints.breakpoint-sm-only
+//
+$breakpoint-sm-only: $su-breakpoint-sm-only;
+
+
+//
+// $su-breakpoint-md
 //
 // Mixin for basic mobile-first media query for md-and-up screen size.
 //
-// Markup: $breakpoint-md: 'only screen and (min-width: #{$screen-md})' !default;
+// Markup: $su-breakpoint-md: 'only screen and (min-width: #{$su-screen-md})' !default;
 //
-// Styleguide: Variables.Core.Breakpoints.breakpoint-md
-$breakpoint-md: 'only screen and (min-width: #{$screen-md})' !default;
+// Styleguide: Variables.Core.Breakpoints.su-breakpoint-md
+$su-breakpoint-md: 'only screen and (min-width: #{$su-screen-md})' !default;
 
 //
-// $breakpoint-md-only
+// <del>$breakpoint-md</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-breakpoint-md</code> instead.
+//
+// Styleguide: Variables.Core.Breakpoints.breakpoint-md
+//
+$breakpoint-md: $su-breakpoint-md;
+
+
+//
+// $su-breakpoint-md-only
 //
 // Mixin for basic mobile-first media query for md-only screen size.
 //
-// Markup: $breakpoint-md-only: 'only screen and (min-width: #{$screen-md}) and (max-width: #{$screen-lg - 1})' !default;
+// Markup: $su-breakpoint-md-only: 'only screen and (min-width: #{$su-screen-md}) and (max-width: #{$su-screen-lg - 1})' !default;
 //
-// Styleguide: Variables.Core.Breakpoints.breakpoint-md-only
-$breakpoint-md-only: 'only screen and (min-width: #{$screen-md}) and (max-width: #{$screen-lg - 1})' !default;
+// Styleguide: Variables.Core.Breakpoints.su-breakpoint-md-only
+$su-breakpoint-md-only: 'only screen and (min-width: #{$su-screen-md}) and (max-width: #{$su-screen-lg - 1})' !default;
 
 //
-// $breakpoint-lg
+// <del>$breakpoint-md-only</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-breakpoint-md-only</code> instead.
+//
+// Styleguide: Variables.Core.Breakpoints.breakpoint-md-only
+//
+$breakpoint-md-only: $su-breakpoint-md-only;
+
+
+//
+// $su-breakpoint-lg
 //
 // Mixin for basic mobile-first media query for lg-and-up screen size.
 //
-// Markup: $breakpoint-lg: 'only screen and (min-width: #{$screen-lg})' !default;
+// Markup: $su-breakpoint-lg: 'only screen and (min-width: #{$su-screen-lg})' !default;
 //
-// Styleguide: Variables.Core.Breakpoints.breakpoint-lg
-$breakpoint-lg: 'only screen and (min-width: #{$screen-lg})' !default;
+// Styleguide: Variables.Core.Breakpoints.su-breakpoint-lg
+$su-breakpoint-lg: 'only screen and (min-width: #{$su-screen-lg})' !default;
 
 //
-// $breakpoint-lg-only
+// <del>$breakpoint-lg</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-breakpoint-lg</code> instead.
+//
+// Styleguide: Variables.Core.Breakpoints.breakpoint-lg
+//
+$breakpoint-lg: $su-breakpoint-lg;
+
+
+//
+// $su-breakpoint-lg-only
 //
 // Mixin for basic mobile-first media query for lg-only screen size.
 //
-// Markup: $breakpoint-lg-only: 'only screen and (min-width: #{$screen-lg}) and (max-width: #{$screen-xl - 1})' !default;
+// Markup: $su-breakpoint-lg-only: 'only screen and (min-width: #{$su-screen-lg}) and (max-width: #{$su-screen-xl - 1})' !default;
 //
-// Styleguide: Variables.Core.Breakpoints.breakpoint-lg-only
-$breakpoint-lg-only: 'only screen and (min-width: #{$screen-lg}) and (max-width: #{$screen-xl - 1})' !default;
+// Styleguide: Variables.Core.Breakpoints.su-breakpoint-lg-only
+$su-breakpoint-lg-only: 'only screen and (min-width: #{$su-screen-lg}) and (max-width: #{$su-screen-xl - 1})' !default;
 
 //
-// $breakpoint-xl
+// <del>$breakpoint-lg-only</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-breakpoint-lg-only</code> instead.
+//
+// Styleguide: Variables.Core.Breakpoints.breakpoint-lg-only
+//
+$breakpoint-lg-only: $su-breakpoint-lg-only;
+
+
+//
+// $su-breakpoint-xl
 //
 // Mixin for basic mobile-first media query for xl-and-up screen size.
 //
-// Markup: $breakpoint-xl: 'only screen and (min-width: #{$screen-xl})' !default;
+// Markup: $su-breakpoint-xl: 'only screen and (min-width: #{$su-screen-xl})' !default;
 //
 // Styleguide: Variables.Core.Breakpoints.xl
-$breakpoint-xl: 'only screen and (min-width: #{$screen-xl})' !default;
+$su-breakpoint-xl: 'only screen and (min-width: #{$su-screen-xl})' !default;
 
 //
-// $breakpoint-xl-only
+// <del>$breakpoint-xl</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-breakpoint-xl</code> instead.
+//
+// Styleguide: Variables.Core.Breakpoints.breakpoint-xl
+//
+$breakpoint-xl: $su-breakpoint-xl;
+
+
+//
+// $su-breakpoint-xl-only
 //
 // Mixin for basic mobile-first media query for xl-only screen size.
 //
-// Markup: $breakpoint-xl-only: 'only screen and (min-width: #{$screen-xl}) and (max-width: #{$screen-2xl - 1})' !default;
+// Markup: $su-breakpoint-xl-only: 'only screen and (min-width: #{$su-screen-xl}) and (max-width: #{$su-screen-2xl - 1})' !default;
 //
-// Styleguide: Variables.Core.Breakpoints.breakpoint-xl-only
-$breakpoint-xl-only: 'only screen and (min-width: #{$screen-xl}) and (max-width: #{$screen-2xl - 1})' !default;
+// Styleguide: Variables.Core.Breakpoints.su-breakpoint-xl-only
+$su-breakpoint-xl-only: 'only screen and (min-width: #{$su-screen-xl}) and (max-width: #{$su-screen-2xl - 1})' !default;
 
 //
-// $breakpoint-2xl
+// <del>$breakpoint-xl-only</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-breakpoint-xl-only</code> instead.
+//
+// Styleguide: Variables.Core.Breakpoints.breakpoint-xl-only
+//
+$breakpoint-xl-only: $su-breakpoint-xl-only;
+
+
+//
+// $su-breakpoint-2xl
 //
 // Mixin for basic mobile-first media query for 2xl-and-up screen size.
 //
-// Markup: $breakpoint-2xl: 'only screen and (min-width: #{$screen-2xl})' !default;
+// Markup: $su-breakpoint-2xl: 'only screen and (min-width: #{$su-screen-2xl})' !default;
 //
 // Styleguide: Variables.Core.Breakpoints.2xl
-$breakpoint-2xl: 'only screen and (min-width: #{$screen-2xl})' !default;
+$su-breakpoint-2xl: 'only screen and (min-width: #{$su-screen-2xl})' !default;
+
+//
+// <del>$breakpoint-2xl</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-breakpoint-2xl</code> instead.
+//
+// Styleguide: Variables.Core.Breakpoints.breakpoint-2xl
+//
+$breakpoint-2xl: $su-breakpoint-2xl;
+
 
 //
 // Just in case.
 //
-$breakpoint-2xl-only: $breakpoint-2xl;
+$su-breakpoint-2xl-only: $su-breakpoint-2xl;
+$breakpoint-2xl-only: $su-breakpoint-2xl-only;
 
 //////////////////////////////////////////////////////////////////////////////
