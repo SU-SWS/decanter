@@ -1180,8 +1180,10 @@ function () {
     value: function togglePanel(panel) {
       if (panel.getAttribute('aria-expanded')) {
         panel.setAttribute('aria-expanded', false);
+        panel.setAttribute('aria-hidden', true);
       } else {
         panel.setAttribute('aria-expanded', true);
+        panel.setAttribute('aria-hidden', false);
       }
     }
     /**
@@ -1194,6 +1196,7 @@ function () {
     key: "expandPanel",
     value: function expandPanel(panel) {
       panel.setAttribute('aria-expanded', true);
+      panel.setAttribute('aria-hidden', false);
     }
     /**
      * [collapsePanel description]
@@ -1205,6 +1208,7 @@ function () {
     key: "collapsePanel",
     value: function collapsePanel(panel) {
       panel.setAttribute('aria-expanded', false);
+      panel.setAttribute('aria-hidden', true);
     }
     /**
      * [triggerEventKeyPress description]
@@ -1217,8 +1221,7 @@ function () {
     value: function triggerEventKeyPress(evnt) {
       var theKey = evnt.key || evnt.keyCode;
       var trigger = evnt.target || evnt.srcElement;
-      var panel = document.getElementById(trigger.getAttribute('aria-controls'));
-      console.log(theKey); // Toggle on space or enter keys.
+      var panel = document.getElementById(trigger.getAttribute('aria-controls')); // Toggle on space or enter keys.
 
       if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isSpace"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isEnter"])(theKey)) {
         this.triggerEventClick(evnt);
@@ -1248,6 +1251,7 @@ function () {
     value: function AddPanelAttributes(panel, trigger_id, my_id) {
       panel.setAttribute('id', my_id);
       panel.setAttribute('aria-expanded', false);
+      panel.setAttribute('aria-hidden', true);
       panel.setAttribute('aria-labelledby', trigger_id);
       panel.setAttribute('data-la-initdispnone', true);
     }
@@ -1280,7 +1284,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     'trigger': 'su-secondary-nav__toggle',
     'container': ".su-secondary-nav__item--parent",
     'panel': "ul",
-    "trigger_expanded_text": "-",
+    "trigger_expanded_text": "–",
     "trigger_collapsed_text": "+"
   }; // Generate the Accordion toggle for each nav.
 

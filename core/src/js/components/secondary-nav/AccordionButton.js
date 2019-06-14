@@ -113,9 +113,11 @@ export default class AccordionButton {
   togglePanel(panel) {
     if (panel.getAttribute('aria-expanded')) {
       panel.setAttribute('aria-expanded', false);
+      panel.setAttribute('aria-hidden', true);
     }
     else {
       panel.setAttribute('aria-expanded', true);
+      panel.setAttribute('aria-hidden', false);
     }
   }
 
@@ -126,6 +128,7 @@ export default class AccordionButton {
    */
   expandPanel(panel) {
     panel.setAttribute('aria-expanded', true);
+    panel.setAttribute('aria-hidden', false);
   }
 
   /**
@@ -135,6 +138,7 @@ export default class AccordionButton {
    */
   collapsePanel(panel) {
     panel.setAttribute('aria-expanded', false);
+    panel.setAttribute('aria-hidden', true);
   }
 
   /**
@@ -184,6 +188,7 @@ export default class AccordionButton {
   AddPanelAttributes(panel, trigger_id, my_id) {
     panel.setAttribute('id', my_id);
     panel.setAttribute('aria-expanded', false);
+    panel.setAttribute('aria-hidden', true);
     panel.setAttribute('aria-labelledby', trigger_id);
     panel.setAttribute('data-la-initdispnone', true);
   }
