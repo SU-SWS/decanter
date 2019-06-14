@@ -1,0 +1,20 @@
+@charset 'UTF-8';
+
+.su-card--video {
+  .su-card__embed {
+    position: relative;
+    height: 0;
+    padding-bottom: 56.25%; // 16:9
+    overflow: hidden;
+
+    @include grid-media-only('xs') {
+      display: none;
+    }
+  }
+
+  iframe,
+  video {
+    @include size(100%);
+    position: absolute;
+  }
+}

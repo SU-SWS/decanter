@@ -363,8 +363,12 @@ button,
           box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.13), 0px 3px 6px rgba(0, 0, 0, 0.1);
   background-color: #ffffff; }
   @media only screen and (min-width: 0) and (max-width: 575px) {
-    .su-card > img {
+    .su-card > img,
+    .su-card > figure {
       display: none; } }
+  
+  .su-card > figure {
+    margin: 0; }
   .su-card .su-card__contents {
     font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
     @media only screen and (min-width: 0) {
@@ -7698,6 +7702,16 @@ button,
   @media only screen and (min-width: 1500px) {
     .su-card--icon .su-card__contents, .su-card--icon-font .su-card__contents {
       padding-top: 1.9rem; } }
+  .su-card--icon.su-card--minimal, .su-card--icon-font.su-card--minimal {
+    padding-top: 0; }
+  .su-card--icon.su-card--horizontal, .su-card--icon-font.su-card--horizontal {
+    text-align: left; }
+    @media (min-width: 576px) {
+      .su-card--icon.su-card--horizontal, .su-card--icon-font.su-card--horizontal {
+        -ms-grid-columns: 100px 1fr;
+        grid-template-columns: 100px 1fr; } }
+    .su-card--icon.su-card--horizontal .su-card__contents, .su-card--icon-font.su-card--horizontal .su-card__contents {
+      padding-top: 0; }
 
 .su-card--icon img {
   margin-right: auto;
@@ -7756,8 +7770,6 @@ button,
   @media only screen and (min-width: 0) and (max-width: 575px) {
     .su-card--minimal .su-card__contents {
       padding-top: 0; } }
-  .su-card--minimal .su-card__button {
-    text-align: left; }
   @media only screen and (min-width: 0) and (max-width: 575px) {
     .su-card--minimal.su-card--horizontal {
       padding: 0; } }
@@ -7795,8 +7807,20 @@ button,
     .su-card--minimal.su-card--horizontal .su-card__contents {
       padding-top: 0; } }
 
-.su-card--youtube iframe {
-  width: 100%; }
+.su-card--video .su-card__embed {
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden; }
+  @media only screen and (min-width: 0) and (max-width: 575px) {
+    .su-card--video .su-card__embed {
+      display: none; } }
+
+.su-card--video iframe,
+.su-card--video video {
+  height: 100%;
+  width: 100%;
+  position: absolute; }
 
 .su-cta--button-center .su-cta__button {
   position: absolute;

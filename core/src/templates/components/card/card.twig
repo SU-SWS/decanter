@@ -11,10 +11,11 @@
  * - attributes: For additional HTML attributes not already provided.
  * - modifier_class: Additional css classes to change look and behaviour.
  * - card_link: The href value for the card. A single card is only allowed to link to one URL.
- * - card_image: A full HTML entity for an image.
- * - card_icon: Boolean. If true, the card has an icon either as image or FontAwesome. It will not have non-icon image.
+ * - card_image: A full HTML <img> element for the image including attributes.
+ * - card_icon_image: A full HTML <img> element for the icon including attributes.
  * - card_icon_font_class: If using icon font, e.g., FontAwesome, the class(es) of the icon including modifier classes.
- * - card_super_headline: Text heading
+ * - card_video: A full HTML element for the video, e.g., <iframe> or <video>.
+ * - card_super_headline: Text super headline. Usually used for metadata such as category.
  * - card_headline: Text heading
  * - card_body: An open variable for anything. Generally this would be for
  *     WYSIWYG editor contents.
@@ -28,10 +29,10 @@
 
 <div {{ attributes }} class="su-card {{ modifier_class }}">
 
-  {# Card Media - Image, icon or video #}
-  {% if 'su-card--youtube' in modifier_class %}
+  {# Card Media - Image, image icon, icon font or video #}
+  {%- if 'su-card--video' in modifier_class %}
     {# Support for: iframe #}
-    {{ card_media }}
+    <div class="su-card__embed">{{ card_video }}</div>
   {% elseif 'su-card--icon-font' in modifier_class %}
     {# Support for: icon font #}
     <span class="{{ card_icon_font_class }}" aria-hidden="true"></span>
@@ -43,8 +44,8 @@
       {{ card_image }}
     {% endif %}
   {% else %}
-    {# Support for: image #}
-    {{ card_image }}
+    {# Support for: image; <figure> wrapper allows for fixed aspect ratio #}
+    <figure>{{ card_image }}</figure>
   {% endif %}
 
   <div class="su-card__contents">

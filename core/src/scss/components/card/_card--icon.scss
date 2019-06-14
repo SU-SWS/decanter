@@ -9,6 +9,22 @@
     .su-card__contents {
       @include modular-spacing('padding', 0 null null);
     }
+
+    &.su-card--minimal {
+      @include padding(0 null null);
+    }
+
+    &.su-card--horizontal {
+      text-align: left;
+
+      @include grid-media-min("sm") {
+        grid-template-columns: 100px 1fr;
+      }
+
+      .su-card__contents {
+        @include padding(0 null null);
+      }
+    }
   }
 
   img {
