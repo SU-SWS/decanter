@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', event => {
     'trigger': 'su-secondary-nav__toggle',
     'container': ".su-secondary-nav__item--parent",
     'panel': "ul",
-    "trigger_expanded_text": "-",
+    "trigger_expanded_text": "–",
     "trigger_collapsed_text": "+",
   };
 
