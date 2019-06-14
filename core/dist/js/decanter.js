@@ -96,6 +96,8 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_nav_main_nav_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./main-nav/main-nav.js */ "./core/src/js/components/main-nav/main-nav.js");
+/* harmony import */ var _secondary_nav_secondary_nav_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./secondary-nav/secondary-nav.js */ "./core/src/js/components/secondary-nav/secondary-nav.js");
+
 
 
 /***/ }),
@@ -1024,6 +1026,268 @@ document.addEventListener('DOMContentLoaded', function (event) {
     }
   }, false);
 }); // on DOMContentLoaded.
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/AccordionButton.js":
+/*!*****************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/AccordionButton.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return AccordionButton; });
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+/**
+ * [settings description]
+ * @type {[type]}
+ */
+
+var AccordionButton =
+/*#__PURE__*/
+function () {
+  // GO!
+  function AccordionButton(instance, settings) {
+    _classCallCheck(this, AccordionButton);
+
+    this.settings = settings;
+    this.containers = instance.querySelectorAll(settings.container); // Create a clickable button for the triggers.
+
+    this.createTriggers(); // Capture the newly created triggers.
+
+    this.triggers = instance.querySelectorAll("." + settings.trigger); // Add Event Handling to the triggers.
+
+    this.createTriggerEvents();
+  }
+  /**
+   * [createToggles description]
+   * @return {[type]} [description]
+   */
+
+
+  _createClass(AccordionButton, [{
+    key: "createTriggers",
+    value: function createTriggers() {
+      var _this = this;
+
+      this.containers.forEach(function (container) {
+        // Create unique ids for the trigger and panel of each accordion.
+        var id = Math.random().toString(36).substr(2, 9);
+        var panel_id = Math.random().toString(36).substr(2, 9);
+        var panel = container.querySelector(_this.settings.panel);
+        container.prepend(_this.createTrigger(id, panel_id));
+
+        _this.AddPanelAttributes(panel, id, panel_id);
+      });
+    }
+    /**
+     * Returns a toggle markup
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "createTrigger",
+    value: function createTrigger(id, panel_id) {
+      var element = document.createElement("button");
+      var label = document.createTextNode(this.settings.trigger_collapsed_text);
+      element.setAttribute('class', this.settings.trigger);
+      element.setAttribute('aria-expanded', false);
+      element.setAttribute('aria-controls', panel_id);
+      element.setAttribute('id', id);
+      element.appendChild(label);
+      return element;
+    }
+    /**
+     * [createTriggerEvents description]
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "createTriggerEvents",
+    value: function createTriggerEvents() {
+      var _this2 = this;
+
+      this.triggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function (event) {
+          return _this2.triggerEventClick(event);
+        });
+        trigger.addEventListener('keydown', function (event) {
+          return _this2.triggerEventKeyPress(event);
+        });
+      });
+    }
+    /**
+     * [triggerEventClick description]
+     * @param  {[type]} evnt [description]
+     * @return {[type]}      [description]
+     */
+
+  }, {
+    key: "triggerEventClick",
+    value: function triggerEventClick(evnt) {
+      var me = evnt.target || evnt.srcElement;
+      var panel = document.getElementById(me.getAttribute('aria-controls'));
+
+      if (me.getAttribute('aria-expanded') == "true") {
+        this.collapseTrigger(me);
+        this.collapsePanel(panel);
+      } else {
+        this.expandPanel(panel);
+        this.expandTrigger(me);
+      }
+    }
+    /**
+     * [collapseTrigger description]
+     * @param  {[type]} me [description]
+     * @return {[type]}    [description]
+     */
+
+  }, {
+    key: "collapseTrigger",
+    value: function collapseTrigger(trigger) {
+      trigger.setAttribute('aria-expanded', "false");
+      trigger.innerText = this.settings.trigger_collapsed_text;
+    }
+    /**
+     * [expandTrigger description]
+     * @param  {[type]} me [description]
+     * @return {[type]}    [description]
+     */
+
+  }, {
+    key: "expandTrigger",
+    value: function expandTrigger(trigger) {
+      trigger.setAttribute('aria-expanded', "true");
+      trigger.innerText = this.settings.trigger_expanded_text;
+    }
+    /**
+     * [togglePanel description]
+     * @param  {[type]} panel [description]
+     * @return {[type]}       [description]
+     */
+
+  }, {
+    key: "togglePanel",
+    value: function togglePanel(panel) {
+      if (panel.getAttribute('aria-expanded')) {
+        panel.setAttribute('aria-expanded', false);
+      } else {
+        panel.setAttribute('aria-expanded', true);
+      }
+    }
+    /**
+     * [expandPanel description]
+     * @param  {[type]} panel [description]
+     * @return {[type]}       [description]
+     */
+
+  }, {
+    key: "expandPanel",
+    value: function expandPanel(panel) {
+      panel.setAttribute('aria-expanded', true);
+    }
+    /**
+     * [collapsePanel description]
+     * @param  {[type]} panel [description]
+     * @return {[type]}       [description]
+     */
+
+  }, {
+    key: "collapsePanel",
+    value: function collapsePanel(panel) {
+      panel.setAttribute('aria-expanded', false);
+    }
+    /**
+     * [triggerEventKeyPress description]
+     * @param  {[type]} evnt [description]
+     * @return {[type]}      [description]
+     */
+
+  }, {
+    key: "triggerEventKeyPress",
+    value: function triggerEventKeyPress(evnt) {
+      var theKey = evnt.key || evnt.keyCode;
+      var trigger = evnt.target || evnt.srcElement;
+      var panel = document.getElementById(trigger.getAttribute('aria-controls'));
+      console.log(theKey); // Toggle on space or enter keys.
+
+      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isSpace"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isEnter"])(theKey)) {
+        this.triggerEventClick(evnt);
+      } // Collapse items on left or up arrows.
+
+
+      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isLeftArrow"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isUpArrow"])(theKey)) {
+        this.collapseTrigger(trigger);
+        this.collapsePanel(panel);
+      } // Expand items on down or right.
+
+
+      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isRightArrow"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isDownArrow"])(theKey)) {
+        this.expandTrigger(trigger);
+        this.expandPanel(panel);
+      }
+    }
+    /**
+     * [AddPanelAttributes description]
+     * @param {[type]} panel      [description]
+     * @param {[type]} trigger_id [description]
+     * @param {[type]} my_id      [description]
+     */
+
+  }, {
+    key: "AddPanelAttributes",
+    value: function AddPanelAttributes(panel, trigger_id, my_id) {
+      panel.setAttribute('id', my_id);
+      panel.setAttribute('aria-expanded', false);
+      panel.setAttribute('aria-labelledby', trigger_id);
+      panel.setAttribute('data-la-initdispnone', true);
+    }
+  }]);
+
+  return AccordionButton;
+}();
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/secondary-nav.js":
+/*!***************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/secondary-nav.js ***!
+  \***************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AccordionButton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AccordionButton */ "./core/src/js/components/secondary-nav/AccordionButton.js");
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  // The css class that this following behaviour is applied to.
+  var navClass = 'su-secondary-nav'; // All secondary navs.
+
+  var navs = document.querySelectorAll('.' + navClass);
+  var settings = {
+    'trigger': 'su-secondary-nav__toggle',
+    'container': ".su-secondary-nav__item--parent",
+    'panel': "ul",
+    "trigger_expanded_text": "-",
+    "trigger_collapsed_text": "+"
+  }; // Generate the Accordion toggle for each nav.
+
+  navs.forEach(function (nav) {
+    new _AccordionButton__WEBPACK_IMPORTED_MODULE_0__["default"](nav, settings);
+  });
+});
 
 /***/ }),
 
