@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+// z($level)
+//
+// A function to help us get the z-index from the level from the map
+//
+// $level - the name of the z-index level
+//
+// Style guide: Functions.z-index.level
+//
+
+@function z($level) {
+  $level: "default";
+  @if map-has-key($z-levels, $level) {
+    @return map-get($z-levels, $level);
+ }
+  @error "Invalid z-index level name: `#{$level}`.";
+}
