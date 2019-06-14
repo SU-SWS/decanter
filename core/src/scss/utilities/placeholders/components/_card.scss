@@ -52,6 +52,16 @@
     > h3 {
       @include modular-spacing('margin', null null -1);
       @include type-c;
+
+      > a {
+        font-weight: $font-bold;
+
+        &:hover,
+        &:focus {
+          color: color(brand--bright);
+          text-decoration: underline;
+        }
+      }
     }
 
     // Card body - open field, any p or div (that are not part of the button)

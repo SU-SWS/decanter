@@ -12,6 +12,7 @@
  * - attributes: For additional HTML attributes not already provided.
  * - modifier_class: Additional CSS classes to change look and behaviour.
  * - card_link: The href value for the card. A single card is only allowed to link to one URL.
+ * - card_headline_link: Boolean. Set to true if headline acts as a link.
  * - card_image: A full HTML entity for an image.
  * - card_super_headline: Text super headline. Often used for metadata such as category.
  * - card_headline: Text heading
@@ -53,7 +54,15 @@
     {# Card Headline #}
     {%- block block_card_headline  %}
       {%- if card_headline is not empty %}
-        <h3>{{ card_headline }}</h3>
+        <h3>
+          {%- if card_headline_link and allow_links -%}
+            <a href="{{ card_link }}" {{ card_cta_attributes }}>
+          {%- endif -%}
+            {{- card_headline -}}
+          {% if card_headline_link and allow_links -%}
+            </a>
+          {%- endif -%}
+        </h3>
       {% endif -%}
     {% endblock -%}
 
