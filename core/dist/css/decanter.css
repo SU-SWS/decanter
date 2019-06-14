@@ -7730,7 +7730,7 @@ button,
 .su-card--icon img {
   margin-right: auto;
   margin-left: auto;
-  max-width: 10rem; }
+  max-width: 5em; }
   @media only screen and (min-width: 0) and (max-width: 575px) {
     .su-card--icon img {
       display: block; } }
@@ -7750,15 +7750,6 @@ button,
   -webkit-box-shadow: none;
           box-shadow: none;
   background-color: inherit; }
-  @media only screen and (min-width: 0) {
-    .su-card--minimal .su-card__contents {
-      padding-top: 2.31111104rem; } }
-  @media only screen and (min-width: 768px) {
-    .su-card--minimal .su-card__contents {
-      padding-top: 2.59999992rem; } }
-  @media only screen and (min-width: 1500px) {
-    .su-card--minimal .su-card__contents {
-      padding-top: 2.74444436rem; } }
   @media only screen and (min-width: 0) and (max-width: 575px) {
     .su-card--minimal .su-card__contents {
       padding-right: 0;
@@ -7789,8 +7780,17 @@ button,
       padding-right: 0;
       padding-bottom: 0;
       padding-left: 0; } }
+  @media only screen and (min-width: 0) {
+    .su-card--minimal:not(.su-card--icon) {
+      padding-top: 2.31111104rem; } }
+  @media only screen and (min-width: 768px) {
+    .su-card--minimal:not(.su-card--icon) {
+      padding-top: 2.59999992rem; } }
+  @media only screen and (min-width: 1500px) {
+    .su-card--minimal:not(.su-card--icon) {
+      padding-top: 2.74444436rem; } }
   @media only screen and (min-width: 0) and (max-width: 575px) {
-    .su-card--minimal .su-card__contents {
+    .su-card--minimal:not(.su-card--icon) .su_card__contents {
       padding-top: 0; } }
   @media only screen and (min-width: 0) and (max-width: 575px) {
     .su-card--minimal.su-card--horizontal {
