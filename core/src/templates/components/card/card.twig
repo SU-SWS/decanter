@@ -14,7 +14,9 @@
  * - card_image: A full HTML <img> element for the image including attributes.
  * - card_icon_image: A full HTML <img> element for the icon including attributes.
  * - card_icon_font_class: If using icon font, e.g., FontAwesome, the class(es) of the icon including modifier classes.
- * - card_video: A full HTML element for the video, e.g., <iframe> or <video>.
+ * - card_video: Provide whole <iframe> element if embedding from streaming sites such as YouTube and Vimeo.
+  Provide only the file path if embedding your own video file.
+ * - card_video_attributes: If providing your own video file, attributes for the <video> element, e.g., autoplay, muted, loop, etc.
  * - card_super_headline: Text super headline. Usually used for metadata such as category.
  * - card_headline: Text heading
  * - card_body: An open variable for anything. Generally this would be for
@@ -30,25 +32,50 @@
 <div {{ attributes }} class="su-card {{ modifier_class }}">
 
   {# Card Media - Image, image icon, icon font or video #}
-  {%- if 'su-card--video' in modifier_class %}
-    {# Support for: iframe #}
-    <div class="su-card__embed">{{ card_video }}</div>
-  {% elseif 'su-card--icon-font' in modifier_class %}
+  {%- if 'su-card--video' in modifier_class -%}
+    {# Support for: YouTube and Vimeo iframe or video #}
+    <div class="su-card__embed">
+    {%- if 'iframe' in card_video -%}
+      {{ card_video }}
+    {%- else -%}
+      <video controls {{ card_video_attributes }}>
+        {%- if 'mp4' in card_video -%}
+          {% set card_video_type = '/mp4' %}
+        {%- elseif 'webm' in card_video -%}
+          {% set card_video_type = '/webm' %}
+        {%- elseif 'mov' in card_video -%}
+          {% set card_video_type = '/mov' %}
+        {%- elseif 'ogg' in card_video -%}
+          {% set card_video_type = '/ogg' %}
+        {%- elseif 'avi' in card_video -%}
+          {% set card_video_type = '/avi' %}
+        {% endif -%}
+        <source src="{{ card_video }}" type="video{{ card_video_type }}">
+        <p>Sorry, your browser doesn't support embedded videos.</p>
+      </video>
+    {% endif -%}
+    </div>{# end su-card__embed #}
+
+  {%- elseif 'su-card--icon-font' in modifier_class -%}
     {# Support for: icon font #}
     <span class="{{ card_icon_font_class }}" aria-hidden="true"></span>
-  {% elseif 'su-card--icon' in modifier_class %}
+
+  {%- elseif 'su-card--icon' in modifier_class %}
     {# Support for: icon image; use card_icon_image if exists, if not, use card_Image #}
-    {% if card_icon_image is not empty %}
+    {%- if card_icon_image is not empty %}
       {{ card_icon_image }}
     {% else %}
       {{ card_image }}
-    {% endif %}
-  {% else %}
+    {% endif -%}
+
+  {%- else %}
+
     {# Support for: image if exists; <figure> wrapper allows for fixed aspect ratio #}
-    {% if card_image is not empty %}
+    {%- if card_image is not empty %}
       <figure>{{ card_image }}</figure>
-    {% endif %}
-  {% endif %}
+    {% endif -%}
+
+  {% endif -%}
 
   <div class="su-card__contents">
 

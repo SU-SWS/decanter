@@ -363,7 +363,7 @@ button,
           box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.13), 0px 3px 6px rgba(0, 0, 0, 0.1);
   background-color: #ffffff; }
   @media only screen and (min-width: 0) and (max-width: 575px) {
-    .su-card > img,
+    .su-card img,
     .su-card > figure {
       display: none; } }
   
@@ -7706,22 +7706,44 @@ button,
     padding-top: 0; }
   .su-card--icon.su-card--horizontal, .su-card--icon-font.su-card--horizontal {
     text-align: left; }
+    @media only screen and (min-width: 0) and (max-width: 575px) {
+      .su-card--icon.su-card--horizontal, .su-card--icon-font.su-card--horizontal {
+        -ms-grid-columns: 64px 1fr;
+        grid-template-columns: 64px 1fr; }
+        .su-card--icon.su-card--horizontal > *, .su-card--icon-font.su-card--horizontal > * {
+          margin-right: 20px; }
+        @supports (grid-column-gap: 20px) {
+          .su-card--icon.su-card--horizontal, .su-card--icon-font.su-card--horizontal {
+            grid-column-gap: 20px; }
+            .su-card--icon.su-card--horizontal > *, .su-card--icon-font.su-card--horizontal > * {
+              margin-right: 0;
+              margin-left: 0; } }
+        .su-card--icon.su-card--horizontal > img, .su-card--icon-font.su-card--horizontal > img {
+          max-width: 60px; } }
     @media (min-width: 576px) {
       .su-card--icon.su-card--horizontal, .su-card--icon-font.su-card--horizontal {
-        -ms-grid-columns: 100px 1fr;
-        grid-template-columns: 100px 1fr; } }
+        -ms-grid-columns: 10rem 1fr;
+        grid-template-columns: 10rem 1fr; } }
     .su-card--icon.su-card--horizontal .su-card__contents, .su-card--icon-font.su-card--horizontal .su-card__contents {
       padding-top: 0; }
 
 .su-card--icon img {
   margin-right: auto;
   margin-left: auto;
-  max-width: 5em; }
+  max-width: 10rem; }
+  @media only screen and (min-width: 0) and (max-width: 575px) {
+    .su-card--icon img {
+      display: block; } }
 
 .su-card--icon-font > span {
   display: block;
   font-size: 4em;
   text-align: center; }
+
+@media only screen and (min-width: 0) and (max-width: 575px) {
+  .su-card--icon-font.su-card--horizontal > span {
+    font-size: 3em;
+    text-align: left; } }
 
 .su-card--minimal {
   border: none;
