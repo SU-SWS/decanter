@@ -10,9 +10,10 @@
  * Available variables:
  * - attributes: For additional HTML attributes not already provided.
  * - modifier_class: Additional css classes to change look and behaviour.
- * -- su-card--horizontal
  * - card_link: The href value for the card. A single card is only allowed to link to one URL.
  * - card_image: A full HTML entity for an image.
+ * - card_icon: Boolean. If true, the card has an icon either as image or FontAwesome. It will not have non-icon image.
+ * - card_icon_font_class: If using icon font, e.g., FontAwesome, the class(es) of the icon including modifier classes.
  * - card_super_headline: Text heading
  * - card_headline: Text heading
  * - card_body: An open variable for anything. Generally this would be for
@@ -23,12 +24,28 @@
  * - card_button_label: The text label of the button component.
  */
 #}
-<div{{ attributes }} class="su-card {{ modifier_class }}">
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css' type='text/css' media='' />
 
-  {# Card Image #}
-  {% if card_image is not empty -%}
+<div {{ attributes }} class="su-card {{ modifier_class }}">
+
+  {# Card Media - Image, icon or video #}
+  {% if 'su-card--youtube' in modifier_class %}
+    {# Support for: iframe #}
+    {{ card_media }}
+  {% elseif 'su-card--icon-font' in modifier_class %}
+    {# Support for: icon font #}
+    <span class="{{ card_icon_font_class }}" aria-hidden="true"></span>
+  {% elseif 'su-card--icon' in modifier_class %}
+    {# Support for: icon image #}
+    {% if card_icon_image is not empty %}
+      {{ card_icon_image }}
+    {% else %}
+      {{ card_image }}
+    {% endif %}
+  {% else %}
+    {# Support for: image #}
     {{ card_image }}
-  {%- endif -%}
+  {% endif %}
 
   <div class="su-card__contents">
 

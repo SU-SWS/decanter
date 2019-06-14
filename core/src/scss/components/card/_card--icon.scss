@@ -1,0 +1,26 @@
+@charset 'UTF-8';
+
+.su-card--icon {
+  &,
+  &-font {
+    @include modular-spacing('padding', 2 null null);
+    text-align: center;
+
+    .su-card__contents {
+      @include modular-spacing('padding', 0 null null);
+    }
+  }
+
+  img {
+    @include margin(null auto);
+    max-width: 5em;
+  }
+
+  &-font {
+    > span {
+      display: block;
+      font-size: 4em;
+      text-align: center;
+    }
+  }
+}
