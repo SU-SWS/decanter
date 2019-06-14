@@ -16,7 +16,7 @@
 //
 
 .su-masthead {
-  @include box-shadow($depth: 'shallow', $stroke: 0);
+  @include box-shadow('shallow', 0);
   position: relative;
   background-color: color(bg);
   max-width: 100%;
@@ -32,13 +32,13 @@
     max-width: fit-content;
 
     @include grid-media-max('md') {
-      @include flex-column($columns: 10);
+      @include flex-column(10);
       // On mobile, lockup needs a higher z-index than nav because the nav takes up 100% width including margin
       z-index: 10010;
     }
 
     @include grid-media('lg') {
-      @include flex-column($columns: 8);
+      @include flex-column(8);
     }
   }
 
@@ -48,7 +48,7 @@
     }
 
     @include grid-media('lg') {
-      @include flex-column($columns: 4);
+      @include flex-column(4);
     }
 
     > form {
@@ -70,7 +70,7 @@
 
   @include grid-media-only('md') {
     .su-main-nav {
-      @include flex-column($columns: 2);
+      @include flex-column(2);
       @include margin(auto null null);
     }
   }
@@ -78,7 +78,7 @@
   .su-main-nav {
     @include grid-media-max('md') {
       > ul {
-        @include box-shadow($depth: 'medium', $stroke: none);
+        @include box-shadow('medium', 0);
       }
 
       > ul,
@@ -115,6 +115,7 @@
   .su-main-nav > ul,
   .su-main-nav .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 + .su-site-search {
     @include grid-media-only('xs') {
+      // We can't use 100vw for this because it doesn't work with OSX system preference to always show scrollbar
       width: calc(100% + #{map-get($screen-margins, 'xs') * 2});
     }
 
