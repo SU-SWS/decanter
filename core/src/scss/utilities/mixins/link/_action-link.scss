@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+//
+// <del>@action-link($color: $color-bright-blue)</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>link-glyph('›')</code> instead.
+//
+// Default more link styling, with ›.
+//
+// $color - Default color. Defaults to $color-bright-blue.
+// $hover - Hover color. Defaults to $color-black.
+//
+// Style guide: Mixins.Link.action-link
+//
+@mixin action-link($color: color(link), $hover: color(link--hover)) {
+  $msg: "The action-link mixin has been deprecated and will be removed in ";
+  $msg: $msg + "version 6. Use link-glyph('›') instead.";
+  @warn $msg;
+
+  @include link-glyph('›');
+}

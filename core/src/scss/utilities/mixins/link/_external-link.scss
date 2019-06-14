@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+//
+// <del>@external-link($external-link, $external-link-hover)</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>link-icon(arrow-up-right, 0.6em)</code> instead.
+//
+// Default external link styling, with external icon.
+//
+// $external-link - filename of external link png & svg
+// $external-link-hover - filename of external link png & svg on hover
+//
+// Style guide: Mixins.Link.external-link
+//
+@mixin external-link($external-link: external-link, $external-link-hover: external-link-hover) {
+  $msg: "The external-link mixin has been deprecated and will be removed in ";
+  $msg: $msg + "version 6. Use link-icon(arrow-up-right, 0.6em) instead.";
+  @warn $msg;
+
+  @include link-icon(arrow-up-right, 0.6em);
+}
