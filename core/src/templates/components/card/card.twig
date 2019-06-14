@@ -37,15 +37,17 @@
     {# Support for: icon font #}
     <span class="{{ card_icon_font_class }}" aria-hidden="true"></span>
   {% elseif 'su-card--icon' in modifier_class %}
-    {# Support for: icon image #}
+    {# Support for: icon image; use card_icon_image if exists, if not, use card_Image #}
     {% if card_icon_image is not empty %}
       {{ card_icon_image }}
     {% else %}
       {{ card_image }}
     {% endif %}
   {% else %}
-    {# Support for: image; <figure> wrapper allows for fixed aspect ratio #}
-    <figure>{{ card_image }}</figure>
+    {# Support for: image if exists; <figure> wrapper allows for fixed aspect ratio #}
+    {% if card_image is not empty %}
+      <figure>{{ card_image }}</figure>
+    {% endif %}
   {% endif %}
 
   <div class="su-card__contents">
