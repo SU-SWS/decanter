@@ -4,20 +4,21 @@
  * Css-Grid — Centered Column Mixins
  *
  * This file documents provides a visual example of of the mixin @centered-columns in action.
- *
+ * It uses the Toucan css grid layout.
  *
 #}
-<div class="layout css-column">
-  <section>
-    <h2>C1</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-  </section>
-  <section>
-    <h2>C2</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-  </section>
-  <section>
-    <h2>C3</h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-  </section>
+<div{{ attributes }} class="layout layout-toucan {{ modifier_class }}">
+  <div>
+
+    {# Required column #}
+    <div {{ region_attributes.first }}>
+      {{ first }}
+    </div>
+
+    {# Required column #}
+    <div {{ region_attributes.second }}>
+      {{ second }}
+    </div>
+
+  </div>
 </div>

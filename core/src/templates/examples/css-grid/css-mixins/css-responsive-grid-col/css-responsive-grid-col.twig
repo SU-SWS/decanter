@@ -7,19 +7,20 @@
  *
  *
 #}
-<div class="layout-bars">
-  <div class="css-responsive-grid-col">
-    <section>
-      <h2>C1</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+<div{{ attributes }} class="layout layout-bars {{ modifier_class }}">
+  <div>
+    {% block body %}
+    <section {{ region_attributes.first }}>
+      {{ first }}
     </section>
-    <section>
-      <h2>C2</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+
+    <section {{ region_attributes.second }}>
+      {{ second }}
     </section>
-    <section>
-      <h2>C3</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+
+    <section {{ region_attributes.third }}>
+      {{ third }}
     </section>
+    {% endblock %}
   </div>
 </div>

@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Css-Grid — Responsive Grid Map Mixins
+ *
+ * This file documents provides a visual example of of the mixin @responsive-grid-map in action.
+ *
+ *
+#}
+<div{{ attributes }} class="layout layout-blastila {{ modifier_class }}">
+
+  {% if header is not empty %}
+  <header {{ region_attributes.header }}>
+    {{ header }}
+  </header>
+  {% endif %}
+
+  {# Div for grid container #}
+  <div>
+
+    {# Sidebar #}
+    {% if sidebar is not empty %}
+    <aside {{ region_attributes.sidebar }}>
+      {{ sidebar }}
+    </aside>
+    {% endif %}
+
+    {# Mini header area #}
+    {% if first is not empty %}
+    <section {{ region_attributes.first }}>
+      {{ first }}
+    </section>
+    {% endif %}
+
+    {# Left content column #}
+    {% if second is not empty %}
+    <div {{ region_attributes.second }}>
+      {{ second }}
+    </div>
+    {% endif %}
+
+    {# Right content column #}
+    {% if third is not empty %}
+    <div {{ region_attributes.third }}>
+      {{ third }}
+    </div>
+    {% endif %}
+
+  </div>{# end grid container #}
+
+</div>
