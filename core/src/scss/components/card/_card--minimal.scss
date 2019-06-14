@@ -11,12 +11,12 @@
     }
   }
 
-  // When the media item disappears, remove the top padding as well except for the icon variantss.
+  // When the media item disappears, remove the top padding as well except for the icon variants.
   &:not(.su-card--icon) {
-    // Reduce top padding to move the contents closer to the image.
-    @include modular-spacing('padding', 1 null null);
+    .su-card__contents {
+      // Reduce top padding to move the contents closer to the image.
+      @include modular-spacing('padding', 1 null null);
 
-    .su_card__contents {
       @include grid-media-only(xs) {
         @include padding(0 null null);
       }
