@@ -3,7 +3,7 @@
  * Macro for creating nested menus.
  */
 #}
-{% macro main_nav_menu(items, menu_level, class_prefix) %}
+{% macro nav_menu(items, menu_level, class_prefix) %}
   {% import _self as menus %}
   <ul class="{{ class_prefix }}__menu-lv{{ menu_level }} {{ class_prefix }}__menu">
   {% for item in items %}
@@ -26,7 +26,7 @@
 
       <a href="{{ item.href }}" {{ the_attrs }}>{{ item.text }}</a>
       {% if item.children %}
-        {{ menus.main_nav_menu(item.children, menu_level + 1, class_prefix) }}
+        {{ menus.nav_menu(item.children, menu_level + 1, class_prefix) }}
       {% endif %}
     </li>
 

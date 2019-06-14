@@ -17,7 +17,7 @@
 <nav {{- attributes }} class="su-secondary-nav no-js {{ modifier_class }}" aria-label="{{ aria_label|default('secondary menu') }}">
   {% spaceless %}
   {% if list_items is iterable %}
-    {{ menus.main_nav_menu(list_items, 1, 'su-secondary-nav') }}
+    {{ menus.nav_menu(list_items, 1, 'su-secondary-nav') }}
   {% else %}
     {# If custom markup is provided, emit it as is #}
     {{ list_items }}
