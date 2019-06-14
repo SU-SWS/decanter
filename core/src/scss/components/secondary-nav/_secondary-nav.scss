@@ -20,6 +20,7 @@
   // Un-do default list styles.
   ul {
     @include list-unstyled;
+    overflow: hidden;
   }
 
   // Ensure everything is 100% width as we like large click areas.
@@ -53,7 +54,6 @@
   a:hover,
   a:focus {
     box-shadow: inset 5px 0 0 color(link--hover, $secondary-nav-colors);
-    // color: color(text);
   }
 
 }
@@ -68,29 +68,6 @@ $su-secondary-nav-item-indent: 16;
       @include padding(null null null #{$su-secondary-nav-item-indent * $i}px);
     }
   }
-}
-
-// PARENT ITEMS ////////////////////////////////////////////////////////////////
-
-.su-secondary-nav__item--parent {
-  > a::after {
-    transition: transform 0.5s ease-out;
-    content: "+";
-    line-height: 100%;
-    vertical-align: middle;
-    position: relative;
-    float: right;
-    font-size: 1.6em;
-    font-weight: $font-regular;
-  }
-
-  .su-secondary-nav__item--expanded {
-    &::after {
-      content: "—";
-      transform: rotate(180deg);
-    }
-  }
-
 }
 
 // ACTIVE TRAIL ////////////////////////////////////////////////////////////////
@@ -114,10 +91,6 @@ $su-secondary-nav-item-indent: 16;
   }
 }
 
-// EXPANDED ////////////////////////////////////////////////////////////////////
-
-
-
 // LEVEL 1 ITEMS ///////////////////////////////////////////////////////////////
 
 .su-secondary-nav__menu-lv1 {
@@ -128,9 +101,16 @@ $su-secondary-nav-item-indent: 16;
   }
 }
 
+// Accordion States (JS) ///////////////////////////////////////////////////////
 
-// LEVEL 2 ITEMS ///////////////////////////////////////////////////////////////
+.su-secondary-nav__item--parent {
+  clear: both;
+}
 
+.su-secondary-nav__toggle {
+  float: right;
+}
 
-
-// LEVEL 3 AND BELOW ITEMS /////////////////////////////////////////////////////
+.su-secondary-nav__menu[aria-expanded="false"] {
+  display: none;
+}

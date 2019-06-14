@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', event => {
     nav.classList.remove('no-js');
 
     // Create an instance of Nav, which in turn creates appropriate instances of NavItem.
-    const theNav = new Nav(nav);
+    let theNav = new Nav(nav);
 
     // Remember the nav for closeAllMobileNavs().
     theNavs.push(theNav);
