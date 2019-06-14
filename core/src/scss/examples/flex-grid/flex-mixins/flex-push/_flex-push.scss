@@ -3,17 +3,19 @@
 //
 // Flex-Grid-Push Mixins
 //
-// More details pretaining to the <code class="kss-code">@flex-grid-push($size: 1, $columns: $grid-columns)</code>
+// The flex-grid push mixin can be used to offset or push a column. In this example,
+// the column C2 has been set to <code class="kss-code">flex-grid-push(8)</code> which pushes the column
+// to the 8th column.
+//
+// More details pretaining to the <code class="kss-code">@flex-grid-push</code>
 // can be found in the section <a href="section-mixins.html#kssref-mixins-flex">6 Mixins</a>.
 //
 // Markup: ../../../../../templates/examples/flex-grid/flex-mixins/flex-push/flex-push.twig
 //
 // Weight: -50
 //
-// Style guide: Examples.Flex-Grid.Flex-Mixins.Flex-Column
-//
-// Push Mixin
+// Style guide: Examples.Flex-Grid.Flex-Mixins.flex-push
 //
 .flex-push {
-  @include flex-grid-push(8, 12);
+  @include flex-grid-push(8);
 }

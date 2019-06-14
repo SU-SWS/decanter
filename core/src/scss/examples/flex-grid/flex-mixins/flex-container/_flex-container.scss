@@ -3,17 +3,20 @@
 //
 // Flex Grid Container Mixins
 //
-// More details pretaining to the <code class="kss-code">@flex-grid-push($size: 1, $columns: $grid-columns)</code>
+// The flex-grid containermixin can be used to place the wrapped columns in line. In this example,
+// column C1 and C2 are not wrapped with the class containg <code class="kss-code">@flex-container</code> while the columns
+// C3 and C4 are wrapped with the class containing the mixin.
+//
+// More details pretaining to the <code class="kss-code">@flex-container</code>
 // can be found in the section <a href="section-mixins.html#kssref-mixins-flex">6 Mixins</a>.
 //
 // Markup: ../../../../../templates/examples/flex-grid/flex-mixins/flex-container/flex-container.twig
 //
 // Weight: -60
 //
-// Style guide: Examples.Flex-Grid.Flex-Mixins.Flex-Column
-//
-// Flex Container Mixin
+// Style guide: Examples.Flex-Grid.Flex-Mixins.flex-container
 //
 .flex-con {
+  margin-top: 1em;
   @include flex-container;
 }
