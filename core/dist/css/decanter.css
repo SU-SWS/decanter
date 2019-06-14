@@ -8067,6 +8067,7 @@ a {
   text-decoration: none; }
   @supports ((-webkit-mask-repeat: no-repeat) or (mask-repeat: no-repeat)) {
     .su-link--action::after {
+      margin-right: 0.3em;
       margin-bottom: -1px;
       margin-left: 0.4em;
       height: 0.5em;
@@ -8078,16 +8079,20 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: margin-left 0.2s ease-in-out;
-      transition: margin-left 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
     .su-link--action:hover::after, .su-link--action:focus::after {
       background-color: #2e2d29;
-      margin-left: 0.55em; } }
+      -webkit-transform: translateX(0.2em);
+              transform: translateX(0.2em); } }
 
 .su-link--download {
   text-decoration: none; }
   @supports ((-webkit-mask-repeat: no-repeat) or (mask-repeat: no-repeat)) {
     .su-link--download::after {
+      margin-right: 0.3em;
       margin-bottom: -1px;
       margin-left: 0.4em;
       height: 0.75em;
@@ -8099,16 +8104,20 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: margin-left 0.2s ease-in-out;
-      transition: margin-left 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
     .su-link--download:hover::after, .su-link--download:focus::after {
       background-color: #2e2d29;
-      margin-left: 0.55em; } }
+      -webkit-transform: translateX(0.2em);
+              transform: translateX(0.2em); } }
 
 .su-link--external {
   text-decoration: none; }
   @supports ((-webkit-mask-repeat: no-repeat) or (mask-repeat: no-repeat)) {
     .su-link--external::after {
+      margin-right: 0.3em;
       margin-bottom: -1px;
       margin-left: 0.4em;
       height: 0.6em;
@@ -8120,16 +8129,20 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: margin-left 0.2s ease-in-out;
-      transition: margin-left 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
     .su-link--external:hover::after, .su-link--external:focus::after {
       background-color: #2e2d29;
-      margin-left: 0.55em; } }
+      -webkit-transform: translateX(0.2em);
+              transform: translateX(0.2em); } }
 
 .su-link--internal {
   text-decoration: none; }
   @supports ((-webkit-mask-repeat: no-repeat) or (mask-repeat: no-repeat)) {
     .su-link--internal::after {
+      margin-right: 0.3em;
       margin-bottom: -1px;
       margin-left: 0.4em;
       height: 0.75em;
@@ -8141,16 +8154,20 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: margin-left 0.2s ease-in-out;
-      transition: margin-left 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
     .su-link--internal:hover::after, .su-link--internal:focus::after {
       background-color: #2e2d29;
-      margin-left: 0.55em; } }
+      -webkit-transform: translateX(0.2em);
+              transform: translateX(0.2em); } }
 
 .su-link--jump {
   text-decoration: none; }
   @supports ((-webkit-mask-repeat: no-repeat) or (mask-repeat: no-repeat)) {
     .su-link--jump::after {
+      margin-right: 0.3em;
       margin-bottom: -1px;
       margin-left: 0.4em;
       height: 0.65em;
@@ -8162,27 +8179,36 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: margin-left 0.2s ease-in-out;
-      transition: margin-left 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
     .su-link--jump:hover::after, .su-link--jump:focus::after {
       background-color: #2e2d29;
-      margin-left: 0.55em; } }
+      -webkit-transform: translateX(0.2em);
+              transform: translateX(0.2em); } }
 
 .su-link--more {
   text-decoration: none; }
   .su-link--more::after {
     content: "»";
+    display: inline-block;
+    margin-right: 0.3em;
     margin-bottom: -1px;
     margin-left: 0.4em;
-    -webkit-transition: margin-left 0.2s ease-in-out;
-    transition: margin-left 0.2s ease-in-out; }
+    -webkit-transition: -webkit-transform 0.2s ease-in-out;
+    transition: -webkit-transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
   .su-link--more:hover::after, .su-link--more:focus::after {
-    margin-left: 0.55em; }
+    -webkit-transform: translateX(0.2em);
+            transform: translateX(0.2em); }
 
 .su-link--video {
   text-decoration: none; }
   @supports ((-webkit-mask-repeat: no-repeat) or (mask-repeat: no-repeat)) {
     .su-link--video::after {
+      margin-right: 0.3em;
       margin-bottom: -1px;
       margin-left: 0.4em;
       height: 0.8em;
@@ -8194,11 +8220,14 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: margin-left 0.2s ease-in-out;
-      transition: margin-left 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
     .su-link--video:hover::after, .su-link--video:focus::after {
       background-color: #2e2d29;
-      margin-left: 0.55em; } }
+      -webkit-transform: translateX(0.2em);
+              transform: translateX(0.2em); } }
 
 .su-logo {
   display: inline-block;
