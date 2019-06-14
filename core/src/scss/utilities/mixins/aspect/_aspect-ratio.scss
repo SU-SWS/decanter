@@ -1,13 +1,36 @@
 @charset "UTF-8";
 
 //
-// @aspect-ratio( parameters )
+// @aspect-ratio()
+// Source Code: <a href="https://gist.github.com/jonathantneal/a9b8901273475d261dd3">@jonathantneal</a>
 //
-// $ratio - The ratio of the container
+// $horizontal - The ratio of the container
 // $selector -
+//
+//
+// // Markup: ../../../../../templates/example/aspect-ratio/aspect-ratio.twig
 //
 // Style guide: Mixins.Aspect.Ratio
 //
-@mixin aspect-ratio(/* parameters */) {
-/* styling */
+
+@mixin aspect-ratio($ratio: 1 1, $selector: "> :first-child") {
+	position: relative;
+  display: block;
+  height: auto;
+  min-height: 1em;
+  overflow: hidden;
+  padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1));
+  width: 100%;
+
+  #{$selector} {
+		left: 0;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+}
+
+.aspect-ratio {
+  @include aspect-ratio();
 }
