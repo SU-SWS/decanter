@@ -8065,14 +8065,24 @@ a {
 
 .su-link--action {
   text-decoration: none; }
-  .su-link--action::after {
-    content: "›";
-    margin-bottom: -1px;
-    margin-left: 0.4em;
-    -webkit-transition: margin-left 0.2s ease-in-out;
-    transition: margin-left 0.2s ease-in-out; }
-  .su-link--action:hover::after, .su-link--action:focus::after {
-    margin-left: 0.55em; }
+  @supports ((-webkit-mask-repeat: no-repeat) or (mask-repeat: no-repeat)) {
+    .su-link--action::after {
+      margin-bottom: -1px;
+      margin-left: 0.4em;
+      height: 0.5em;
+      width: 0.5em;
+      display: inline-block;
+      content: '';
+      -webkit-mask: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAxNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wLjQxNTY2MSAwLjUxMTI4NUMxLjAwMDI0IC0wLjEzNjI1MiAxLjk4NDQ5IC0wLjE3Mzc0NyAyLjYxNDA0IDAuNDI3NTM3TDEzLjUwMjkgMTAuODI3NUMxMy44MTk5IDExLjEzMDMgMTQgMTEuNTU1MSAxNCAxMkMxNCAxMi40NDQ5IDEzLjgxOTkgMTIuODY5NyAxMy41MDI5IDEzLjE3MjVMMi42MTQwNCAyMy41NzI1QzEuOTg0NDkgMjQuMTczNyAxLjAwMDI0IDI0LjEzNjMgMC40MTU2NjEgMjMuNDg4N0MtMC4xNjg5MjEgMjIuODQxMiAtMC4xMzI0NjcgMjEuODI4OCAwLjQ5NzA4MyAyMS4yMjc1TDEwLjE1ODQgMTJMMC40OTcwODMgMi43NzI0N0MtMC4xMzI0NjcgMi4xNzExOSAtMC4xNjg5MjEgMS4xNTg4MiAwLjQxNTY2MSAwLjUxMTI4NVoiIGZpbGw9IiMyRTJEMjkiLz4KPC9zdmc+Cg==) no-repeat 0 0;
+              mask: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAxNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wLjQxNTY2MSAwLjUxMTI4NUMxLjAwMDI0IC0wLjEzNjI1MiAxLjk4NDQ5IC0wLjE3Mzc0NyAyLjYxNDA0IDAuNDI3NTM3TDEzLjUwMjkgMTAuODI3NUMxMy44MTk5IDExLjEzMDMgMTQgMTEuNTU1MSAxNCAxMkMxNCAxMi40NDQ5IDEzLjgxOTkgMTIuODY5NyAxMy41MDI5IDEzLjE3MjVMMi42MTQwNCAyMy41NzI1QzEuOTg0NDkgMjQuMTczNyAxLjAwMDI0IDI0LjEzNjMgMC40MTU2NjEgMjMuNDg4N0MtMC4xNjg5MjEgMjIuODQxMiAtMC4xMzI0NjcgMjEuODI4OCAwLjQ5NzA4MyAyMS4yMjc1TDEwLjE1ODQgMTJMMC40OTcwODMgMi43NzI0N0MtMC4xMzI0NjcgMi4xNzExOSAtMC4xNjg5MjEgMS4xNTg4MiAwLjQxNTY2MSAwLjUxMTI4NVoiIGZpbGw9IiMyRTJEMjkiLz4KPC9zdmc+Cg==) no-repeat 0 0;
+      -webkit-mask-size: contain;
+              mask-size: contain;
+      background-color: #006cb8;
+      -webkit-transition: margin-left 0.2s ease-in-out;
+      transition: margin-left 0.2s ease-in-out; }
+    .su-link--action:hover::after, .su-link--action:focus::after {
+      background-color: #2e2d29;
+      margin-left: 0.55em; } }
 
 .su-link--download {
   text-decoration: none; }
