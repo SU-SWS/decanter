@@ -19,20 +19,21 @@
  * - card_body: An open variable for anything. Generally this would be for
  *     WYSIWYG editor contents.
  * - card_cta_attributes: Any html attributes on the link that need to be
- *     added. For example: _target.
+ *     added. For example: _target. This acts as the attributes for the link button and headline link as well.
  * - card_cta_label: The clickable text for the CTA link
  * - card_button_label: The text label of the button component.
  */
 #}
 
-{# For variant where whole card is a link, change the outer wrapper from <div> to <a> #}
-{% if "su-card--link" in modifier_class %}
-  {% set allow_links = false %}
-{% else %}
-  {% set allow_links = true %}
+{# For variant where whole card is a link, suppress all other links within the component #}
+{%- if "su-card--link" in modifier_class -%}
+  {%- set allow_links = false -%}
+{%- else -%}
+  {%- set allow_links = true -%}
 {%- endif -%}
 
 <div {{ attributes }} class="su-card {{ modifier_class }}">
+  {# For variant where whole card is a link, add an <a> within the outer wrapper <div> #}
   {%- if allow_links == false %}
     <a href="{{ card_link }}" {{ card_cta_attributes }}>
   {%- endif -%}
@@ -54,7 +55,7 @@
     {# Card Headline #}
     {%- block block_card_headline  %}
       {%- if card_headline is not empty %}
-        <h3>
+        <h2>
           {%- if card_headline_link and allow_links -%}
             <a href="{{ card_link }}" {{ card_cta_attributes }}>
           {%- endif -%}
@@ -62,7 +63,7 @@
           {% if card_headline_link and allow_links -%}
             </a>
           {%- endif -%}
-        </h3>
+        </h2>
       {% endif -%}
     {% endblock -%}
 

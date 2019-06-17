@@ -11,6 +11,7 @@
 %card-base {
   @include box-shadow($depth: 'shallow');
   display: block;
+  background-color: color(bg);
 
   > img {
     // Hide the image on the smallest screen sizes.
@@ -35,7 +36,7 @@
       @include margin(null null 0);
     }
 
-    > h3,
+    > h2,
     > span {
       @include sans;
     }
@@ -49,12 +50,13 @@
     }
 
     // Headline.
-    > h3 {
+    > h2 {
       @include modular-spacing('margin', null null -1);
       @include type-c;
 
       > a {
         font-weight: $font-bold;
+        transition: color 0.3s ease-out;
 
         &:hover,
         &:focus {
