@@ -43,18 +43,8 @@
   }
 }
 
-// Main Nav Component - fix z-index in styleguide demo when multiple nav variants are right on top of each other.
+// Main Nav Component.
 #kssref-components-main-navigation {
-  .kss-modifier__example {
-    @for $i from 2 through 8 {
-      &:nth-child(#{3 * $i}) {
-        nav {
-          z-index: 9999 - 100 * ($i - 1);
-        }
-      }
-    }
-  }
-
   > .kss-modifier__wrapper > div:nth-child(9) {
     background: $color-black;
   }
