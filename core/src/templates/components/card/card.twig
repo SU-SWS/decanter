@@ -17,7 +17,8 @@
  * - card_link: The href value for the card. A single card is only allowed to link to one URL.
  * - card_image: A full HTML <img> element for the image including attributes.
  * - card_icon_image: A full HTML <img> element for the icon including attributes.
- * - card_icon_font_class: If using icon font, e.g., FontAwesome, the class(es) of the icon including modifier classes.
+ * - card_icon_font_class: If using icon font, e.g., FontAwesome, the class(es) of the icon including modifier classes,
+  e.g. 'fas fa-globe fa-2x', 'far fa-thumbs-up fa-rotate-90'
  * - card_video: Provide whole <iframe> element if embedding from streaming sites such as YouTube and Vimeo.
   Provide only the file path if embedding your own video file.
  * - card_video_attributes: If providing your own video file, attributes for the <video> element, e.g., autoplay, muted, loop, etc.
@@ -35,9 +36,9 @@
 
 <div {{ attributes }} class="su-card {{ modifier_class }}">
 
-  {# Card Media - Image, image icon, icon font or video #}
+  {# Media field - Image, image icon, icon font or video #}
   {%- if 'su-card--video' in modifier_class -%}
-    {# Support for: YouTube and Vimeo iframe or video #}
+    {# Support for: YouTube and Vimeo iframe or video file #}
     <div class="su-card__embed">
     {%- if 'iframe' in card_video -%}
       {{ card_video }}
@@ -120,6 +121,7 @@
       {
       "link_href": card_link,
       "link_content": card_button_label,
+      "attributes": card_cta_attributes,
       "modifier_class": "su-button",
       }
       only
