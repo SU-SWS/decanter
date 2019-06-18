@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Date Stacked Component.
+ *
+ * Abbreviated month stacked on top of numerical day of the month.
+ *
+ * Available variables:
+ * - attributes: For additional HTML attributes not already provided.
+ * - modifier_class: Additional css classes to change look and behaviour.
+ * - month_of_year: The abbreviated month of the year.
+ * - day_of_month: The day of the month in digit form.
+ */
+#}
+
+<div{{ attributes }} class="su-date-stacked {{ modifier_class }}">
+  {% if month_of_year is not empty %}
+    <span class="su-date-stacked__month">{{ month_of_year }}</span>
+  {% endif %}
+
+  {% if day_of_month is not empty %}
+    <span class="su-date-stacked__day">{{ day_of_month }}</span>
+  {% endif %}
+
+</div>
