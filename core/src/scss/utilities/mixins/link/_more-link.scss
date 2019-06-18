@@ -1,24 +1,20 @@
 @charset "UTF-8";
 
 //
-// @more-link($color, $hover)
+// <del>@more-link()</del>
 //
-// Default more link styling, with raquo.
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>link-glyph('\00BB')</code> instead.
 //
-// $color - Default up color
-// $hover - Default hover color
+// Default more link styling, with &raquo;..
+// Use <code>link-glyph('\00BB')</code> instead.
 //
 // Style guide: Mixins.Link.more-link
 //
-@mixin more-link($color: $color-bright-red, $hover: $color-black) {
-  &::after {
-    color: $color;
-    content: '\00BB';
-    display: inline-block;
-    @include margin(null null null 4px);
-  }
+@mixin more-link {
+  $msg: "The action-link mixin has been deprecated and will be removed in ";
+  $msg: $msg + "version 6. Use link-glyph('\00BB') instead.";
+  @warn $msg;
 
-  &:hover::after {
-    color: $hover;
-  }
+  @include link-glyph('\00BB');
 }

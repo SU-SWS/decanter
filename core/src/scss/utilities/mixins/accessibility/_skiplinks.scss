@@ -18,16 +18,16 @@
   }
 
   @include padding(0);
-  background-color: $color-black;
-  color: $color-white;
-  font-family: $font-sans;
+  @include sans;
+  background-color: color(bg--reverse);
+  color: color(link--reverse);
   font-size: 0.75em;
   font-weight: 400;
-  left: 0.8em;
+  text-decoration: none;
   min-height: 1px;
   position: absolute;
-  text-decoration: none;
   top: -500px;
+  left: 0.8em;
   transition-duration: 0.25s;
   transition-property: top;
   transition-timing-function: ease-in-out;
@@ -35,23 +35,22 @@
   &,
   &:hover,
   &:visited {
-    color: $color-white;
-    height: 1px;
+    @include size(1px);
+    color: color(link--reverse);
     overflow: hidden;
     white-space: nowrap;
-    width: 1px;
   }
 
   &:active,
   &:focus {
     @include padding(0.4em 0.8em);
+    @include size(auto);
+    color: color(link--reverse);
     border: 1px solid $color-cool-grey;
     border-radius: $border-radius;
-    height: auto;
-    left: 0.8em;
     position: fixed;
+    left: 0.8em;
     top: 0.8em;
-    width: auto;
     z-index: 11222;
   }
 }

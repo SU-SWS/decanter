@@ -40,6 +40,8 @@
 
     a {
       color: $color-white;
+      text-decoration: none;
+      font-weight: $font-bold;
     }
   }
 
@@ -48,4 +50,23 @@
     -ms-grid-column: 2;
   }
 
+}
+
+// Fix z-index in styleguide demo when multiple masthead components are on top of each other.
+@include grid-media-max("md") {
+  #kssref-components-masthead {
+    .kss-modifier__example {
+      @for $i from 1 through 8 {
+        &:nth-child(#{3 * $i}) {
+          nav {
+            z-index: 9999 - 100 * ($i - 1) !important;
+          }
+
+          .su-lockup {
+            z-index: 10010 - 100 * ($i - 1) !important;
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,33 +1,22 @@
 @charset "UTF-8";
 
 //
-// @action-link($color: $color-bright-blue)
+// <del>@action-link($color: $color-bright-blue)</del>
 //
-// Provides a right carat link with alternate color.
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>link-icon(caret-right, 0.5em)</code> instead.
+//
+// Default action link styling, with right chevron.
 //
 // $color - Default color. Defaults to $color-bright-blue.
 // $hover - Hover color. Defaults to $color-black.
 //
 // Style guide: Mixins.Link.action-link
 //
-@mixin action-link($color: $color-bright-blue, $hover: $color-black) {
-  font-weight: $font-semi-bold;
-  text-decoration: none;
-  color: $color;
+@mixin action-link($color: color(link), $hover: color(link--hover)) {
+  $msg: "The action-link mixin has been deprecated and will be removed in ";
+  $msg: $msg + "version 6. Use link-icon(caret-right, 0.5em) instead.";
+  @warn $msg;
 
-  &::after {
-    content: ' ›';
-    left: 1px;
-    position: relative;
-    transition: left 0.2s ease-in-out;
-    text-decoration: none;
-  }
-
-  &:hover {
-    color: $hover;
-
-    &::after {
-      left: 4px;
-    }
-  }
+  @include link-icon(caret-right, 0.5em);
 }

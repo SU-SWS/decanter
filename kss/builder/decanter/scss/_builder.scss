@@ -14,9 +14,7 @@ $grid-columns: (
 );
 
 .main-page-layout {
-  @include display-grid;
   @include responsive-grid-columns($grid-columns);
-
 }
 
 body:not(.kss-home) .main-page-layout {
@@ -31,6 +29,13 @@ body:not(.kss-home) .main-page-layout {
    max-width: calc(100% - #{map_get($screen-margins, 'sm') * 2});
    width: calc(100% - #{map_get($screen-margins, 'sm') * 2});
  }
+}
+
+body:not(.kss-home).kss-fullscreen-mode .main-page-layout {
+  @include grid-media-max('sm') {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .kss-sidebar {
