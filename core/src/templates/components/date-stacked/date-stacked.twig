@@ -12,16 +12,14 @@
  * - day_of_month: The day of the month in digit form.
  */
 #}
-{% set day_of_month_time = day_of_month %}
 
 <div{{ attributes }} class="su-date-stacked {{ modifier_class }}">
   {% if month_of_year is not empty %}
-    {% set day_of_month_time = month_of_year ~ "-" ~ day_of_month %}
-    <time class="su-date-stacked__month" datetime="{{ month_of_year }}">{{ month_of_year }}</time>
+    <span class="su-date-stacked__month">{{ month_of_year }}</span>
   {% endif %}
 
   {% if day_of_month is not empty %}
-    <time class="su-date-stacked__day" datetime="{{ day_of_month_time }}">{{ day_of_month }}</time>
+    <span class="su-date-stacked__day">{{ day_of_month }}</span>
   {% endif %}
 
 </div>
