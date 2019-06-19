@@ -30,38 +30,91 @@ export default class Nav {
    *                                     May be a main nav (<nav>) or a subnav
    *                                     (NavItem).
    */
-  constructor(elem) {
+  constructor(elem, options) {
+
+    // Save the passed in configuration options.
+    this.options = options;
+
+    // The nav element.
     this.elem = elem;
+
+    // Get the instance of Nav that represents the top level nav of this instance.
     this.topNav = this.getTopNav();
-    // If this is a subnav, we need the correpsonding HTMLElement for
-    // .querySelector()
-    if (elem instanceof NavItem) {
-      elem = elem.item;
+
+    // Toggle element.
+    this.toggle = this.options.toggleElement;
+
+    // The text for the toggle element.
+    if (this.toggle !== null) {
+      this.toggleText = this.toggle ? this.toggle.innerText : this.options.toggleText;
     }
-    this.toggle = elem.querySelector(elem.tagName + ' > button');
-    this.toggleText = this.toggle ? this.toggle.innerText : '';
+
+    // Storage for the menu items.
     this.items = [];
+
+    // Set the z-index if configured.
+    if (this.options.zIndex > 1) {
+      this.elem.style.zIndex = this.options.zIndex;
+    }
+
+    // Remove the class that formats the nav for browsers with javascript disabled.
+    this.elem.classList.remove('no-js');
+
+    // Give this instance a unique ID.
+    let id = Math.random().toString(36).substr(2, 9);
+    this.elem.id = this.options.idPrefix + id;
+
+    // Initialize items
+    this.createNavItems();
+
+    // Initialize Events.
+    this.createEvents();
+
+    // Initialize the event listeners.
+    this.createEventListeners();
+  }
+
+  /**
+   * Create the children nav items.
+   * @return {[type]} [description]
+   */
+  createNavItems() {
+    let items = this.elem.querySelectorAll(this.elem.tagName + ' > ul > li');
+    items.forEach(
+      item => {
+        this.items.push(new NavItem(item, this, this.options));
+      }
+    );
+  }
+
+  /**
+   * [createEvents description]
+   * @return {[type]} [description]
+   */
+  createEvents() {
     // Add custom events to alert others when the mobile nav
     // opens or closes.
     // this.openEvent is dispatched in this.openMobileNav().
     this.openEvent = createEvent('openNav');
+
     // this.closeEvent is dispatched in this.closeMobileNav().
     this.closeEvent = createEvent('closeNav');
+  }
 
-    // Initialize items
-    let items = elem.querySelectorAll(elem.tagName + ' > ul > li');
-    items.forEach(
-      item => {
-        this.items.push(new NavItem(item, this));
-      }
-    );
+  /**
+   * [createEventListeners description]
+   * @return {[type]} [description]
+   */
+  createEventListeners() {
 
-    elem.addEventListener('keydown', this);
+    this.elem.addEventListener('keydown', this);
 
     if (this.toggle) {
       this.toggle.addEventListener('click', this);
     }
+
   }
+
 
   // -------------------------------------------------------------------------
   // Helper Methods.

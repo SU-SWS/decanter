@@ -8,27 +8,33 @@ document.addEventListener('DOMContentLoaded', event => {
   const navClass = 'su-main-nav';
   // All main navs.
   const navs = document.querySelectorAll('.' + navClass);
+  // Main nav specific settings.
+  let options = {
+    'zIndex': null,
+    'toggleElement': null,
+    'toggleText': '',
+    'expandedClass': 'su-main-nav__item--expanded',
+    'idPrefix': "su-"
+  };
 
-  // Process each nav.
-  let firstZindex;
   navs.forEach((nav, index) => {
-    // Remove the class that formats the nav for browsers with javascript disabled.
-    nav.classList.remove('no-js');
-
-    // Create an instance of Nav, which in turn creates appropriate instances of NavItem.
-    let theNav = new Nav(nav);
-
-    // Remember the nav for closeAllMobileNavs().
-    theNavs.push(theNav);
 
     // Manage zindexes in case there are multiple navs near enough for subnavs to overlap.
     // Rare, but it happens in the styleguide.
-    if (index === 0) {
-      firstZindex = getComputedStyle(nav, null).zIndex;
+    if (index >= 1) {
+      let zndx = getComputedStyle(navs[index - 1], null).zIndex;
+      zndx++;
+      options.zindex = zndx;
     }
-    else {
-      nav.style.zIndex = firstZindex - 300 * index;
-    }
+
+    // Define the toggle element.
+    options.toggleElement = nav.querySelector(nav.tagName + ' > button');
+
+    // Create an instance of Nav, which in turn creates appropriate instances of NavItem.
+    let theNav = new Nav(nav, options);
+
+    // Remember the nav for closeAllMobileNavs().
+    theNavs.push(theNav);
   }); // navs.forEach
 
   // Clicking anywhere outside a nav closes all navs.

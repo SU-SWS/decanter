@@ -20,7 +20,7 @@
       {% if item.attributes is iterable %}
         {% set the_attrs = "" %}
         {% for key, val in item.attributes %}
-          {% set the_attrs = the_attrs ~ key|trim ~ '="' ~ val|slice("twig_markup")|join|trim ~ '" ' %}
+          {% set the_attrs = the_attrs ~ key|trim ~ '="' ~ val|trans|trim ~ '" ' %}
         {% endfor %}
       {% endif %}
 
