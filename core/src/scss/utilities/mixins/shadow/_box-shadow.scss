@@ -11,6 +11,9 @@
 // Style guide: Mixins.Shadow.Box Shadow
 //
 @mixin box-shadow($depth: 'flat', $stroke: '1px solid #C6C6C6') {
-  border: #{$stroke};
+  @if $stroke != 0 and $stroke != 'none' and $stroke != null {
+    border: #{$stroke};
+  }
+
   box-shadow: #{map-get($su-box-shadow-depth, $depth)};
 }
