@@ -5,85 +5,172 @@
 //
 
 //
-// $gutter-xs
+// $su-gutter-xs
 //
-// Markup: $gutter-xs: 20px !default;
+// Markup: $su-gutter-xs: 20px !default;
+//
+// Styleguide: Variables.Core.Gutters.su-gutter-xs
+//
+$su-gutter-xs: 20px !default;
+
+//
+// <del>$gutter-xs</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-gutter-xs</code> instead.
 //
 // Styleguide: Variables.Core.Gutters.gutter-xs
 //
-$gutter-xs: 20px !default;
+$gutter-xs: $su-gutter-xs !default;
+
 
 //
-// $gutter-sm
+// $su-gutter-sm
 //
-// Markup: $gutter-sm: 20px !default;
+// Markup: $su-gutter-sm: 20px !default;
+//
+// Styleguide: Variables.Core.Gutters.su-gutter-sm
+//
+$su-gutter-sm: 20px !default;
+
+//
+// <del>$gutter-sm</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-gutter-sm</code> instead.
 //
 // Styleguide: Variables.Core.Gutters.gutter-sm
 //
-$gutter-sm: 20px !default;
+$gutter-sm: $su-gutter-sm !default;
+
 
 //
-// $gutter-md
+// $su-gutter-md
 //
-// Markup: $gutter-md: 20px !default;
+// Markup: $su-gutter-md: 20px !default;
+//
+// Styleguide: Variables.Core.Gutters.su-gutter-md
+//
+$su-gutter-md: 20px !default;
+
+//
+// <del>$gutter-md</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-gutter-md</code> instead.
 //
 // Styleguide: Variables.Core.Gutters.gutter-md
 //
-$gutter-md: 20px !default;
+$gutter-md: $su-gutter-md !default;
+
 
 //
-// $gutter-lg
+// $su-gutter-lg
 //
-// Markup: $gutter-lg: 36px !default;
+// Markup: $su-gutter-lg: 36px !default;
+//
+// Styleguide: Variables.Core.Gutters.su-gutter-lg
+//
+$su-gutter-lg: 36px !default;
+
+//
+// <del>$gutter-lg</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-gutter-lg</code> instead.
 //
 // Styleguide: Variables.Core.Gutters.gutter-lg
 //
-$gutter-lg: 36px !default;
+$gutter-lg: $su-gutter-lg !default;
+
 
 //
-// $gutter-xl
+// $su-gutter-xl
 //
-// Markup: $gutter-xl: 40px !default;
+// Markup: $su-gutter-xl: 40px !default;
+//
+// Styleguide: Variables.Core.Gutters.su-gutter-xl
+//
+$su-gutter-xl: 40px !default;
+
+//
+// <del>$gutter-xl</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-gutter-xl</code> instead.
 //
 // Styleguide: Variables.Core.Gutters.gutter-xl
 //
-$gutter-xl: 40px !default;
+$gutter-xl: $su-gutter-xl !default;
+
 
 //
-// $gutter-2xl
+// $su-gutter-2xl
 //
-// Markup: $gutter-2xl: 48px !default;
+// Markup: $su-gutter-2xl: 48px !default;
+//
+// Styleguide: Variables.Core.Gutters.su-gutter-2xl
+//
+$su-gutter-2xl: 48px !default;
+
+//
+// <del>$gutter-2xl</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-gutter-2xl</code> instead.
 //
 // Styleguide: Variables.Core.Gutters.gutter-2xl
 //
-$gutter-2xl: 48px !default;
+$gutter-2xl: $su-gutter-2xl !default;
 
-// $grid-gutters
+
+// $su-grid-gutters
 //
 // A sass map of css gutter width values keyed by breakpoint short codes.
 //
-// Style guide: Variables.Core.grid-gutters
+// Style guide: Variables.Core.Gutters.su-grid-gutters
 //
-$grid-gutters: (
-  'xs': $gutter-xs,
-  'sm': $gutter-sm,
-  'md': $gutter-md,
-  'lg': $gutter-lg,
-  'xl': $gutter-xl,
-  '2xl': $gutter-2xl
+$su-grid-gutters: (
+  'xs': $su-gutter-xs,
+  'sm': $su-gutter-sm,
+  'md': $su-gutter-md,
+  'lg': $su-gutter-lg,
+  'xl': $su-gutter-xl,
+  '2xl': $su-gutter-2xl
 ) !default;
 
-// $responsive-gutters-default
+//
+// <del>$grid-gutters</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-grid-gutters</code> instead.
+//
+// Styleguide: Variables.Core.Gutters.grid-gutters
+//
+$grid-gutters: $su-grid-gutters !default;
+
+
+// $su-responsive-gutters-default
 //
 // A sass map of css grid gap width keyed with breakpoint media queries.
 //
-// Style guide: Variables.Core.responsive-gutters-default
+// Style guide: Variables.Core.Gutters.su-responsive-gutters-default
 //
-$responsive-gutters-default: (
-  $su-breakpoint-xs: $gutter-xs,
-  $su-breakpoint-sm: $gutter-sm,
-  $su-breakpoint-md: $gutter-md,
-  $su-breakpoint-lg: $gutter-lg,
-  $su-breakpoint-xl: $gutter-xl,
-  $su-breakpoint-2xl: $gutter-2xl
+$su-responsive-gutters-default: (
+  $su-breakpoint-xs: $su-gutter-xs,
+  $su-breakpoint-sm: $su-gutter-sm,
+  $su-breakpoint-md: $su-gutter-md,
+  $su-breakpoint-lg: $su-gutter-lg,
+  $su-breakpoint-xl: $su-gutter-xl,
+  $su-breakpoint-2xl: $su-gutter-2xl
 ) !default;
+
+//
+// <del>$responsive-gutters-default</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-responsive-gutters-default</code> instead.
+//
+// Styleguide: Variables.Core.Gutters.responsive-gutters-default
+//
+$responsive-gutters-default: $su-responsive-gutters-default !default;

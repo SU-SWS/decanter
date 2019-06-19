@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 //
-// flex-column-width($columns, $gutter: $gutter-xs, $su-grid-columns: 12)
+// flex-column-width($columns, $gutter: $su-gutter-xs, $su-grid-columns: 12)
 //
 // Return a calulated column width that can then be passed in to a `calc()`.
 //
@@ -11,7 +11,7 @@
 //
 // Style guide: Functions.Flex.flex-column-width
 //
-@function flex-column-width($columns, $gutter: $gutter-xs, $grid-columns: $su-grid-columns) {
+@function flex-column-width($columns, $gutter: $su-gutter-xs, $grid-columns: $su-grid-columns) {
   $_column-ratio: flex-column-ratio($columns, $grid-columns);
 
   // Make note here.
