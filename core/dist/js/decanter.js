@@ -167,7 +167,10 @@ function () {
 
     this.toggle = this.options.toggleElement; // The text for the toggle element.
 
-    this.toggleText = this.toggle ? this.toggle.innerText : this.options.toggleText; // Storage for the menu items.
+    if (this.toggle !== null) {
+      this.toggleText = this.toggle ? this.toggle.innerText : this.options.toggleText;
+    } // Storage for the menu items.
+
 
     this.items = []; // Set the z-index if configured.
 
@@ -179,7 +182,7 @@ function () {
     this.elem.classList.remove('no-js'); // Give this instance a unique ID.
 
     var id = Math.random().toString(36).substr(2, 9);
-    this.elem.id = id; // Initialize items
+    this.elem.id = this.options.idPrefix + id; // Initialize items
 
     this.createNavItems(); // Initialize Events.
 
@@ -1046,7 +1049,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
     'zIndex': null,
     'toggleElement': null,
     'toggleText': '',
-    'expandedClass': 'su-main-nav__item--expanded'
+    'expandedClass': 'su-main-nav__item--expanded',
+    'idPrefix': "su-"
   };
   navs.forEach(function (nav, index) {
     // Manage zindexes in case there are multiple navs near enough for subnavs to overlap.
@@ -1090,9 +1094,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ "./core/src/js/core/core.js");
 /* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _main_nav_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../main-nav/globals */ "./core/src/js/components/main-nav/globals.js");
-/* harmony import */ var _main_nav_Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../main-nav/Nav */ "./core/src/js/components/main-nav/Nav.js");
-
+/* harmony import */ var _main_nav_Nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../main-nav/Nav */ "./core/src/js/components/main-nav/Nav.js");
 
 
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -1103,15 +1105,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
   var options = {
     'toggleElement': null,
-    'toggleText': '',
-    'expandedClass': 'su-secondary-nav__item--expanded'
+    'expandedClass': 'su-secondary-nav__item--expanded',
+    'idPrefix': "su-"
   }; // Generate the Accordion toggle for each nav.
 
   navs.forEach(function (nav) {
-    // Define the toggle element.
-    options.toggleElement = nav.querySelector(nav.tagName + ' > button'); // Create an instance of Nav, which in turn creates appropriate instances of NavItem.
-
-    var theNav = new _main_nav_Nav__WEBPACK_IMPORTED_MODULE_2__["default"](nav, options);
+    // Create an instance of Nav, which in turn creates appropriate instances of NavItem.
+    var theNav = new _main_nav_Nav__WEBPACK_IMPORTED_MODULE_1__["default"](nav, options);
   });
 });
 
