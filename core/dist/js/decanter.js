@@ -155,52 +155,95 @@ function () {
    *                                     May be a main nav (<nav>) or a subnav
    *                                     (NavItem).
    */
-  function Nav(elem) {
-    var _this = this;
-
+  function Nav(elem, options) {
     _classCallCheck(this, Nav);
 
-    this.elem = elem;
-    this.topNav = this.getTopNav(); // If this is a subnav, we need the correpsonding HTMLElement for
-    // .querySelector()
+    // Save the passed in configuration options.
+    this.options = options; // The nav element.
 
-    if (elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"]) {
-      elem = elem.item;
-    }
+    this.elem = elem; // Get the instance of Nav that represents the top level nav of this instance.
 
-    this.toggle = elem.querySelector(elem.tagName + ' > button');
-    this.toggleText = this.toggle ? this.toggle.innerText : '';
-    this.items = []; // Add custom events to alert others when the mobile nav
-    // opens or closes.
-    // this.openEvent is dispatched in this.openMobileNav().
+    this.topNav = this.getTopNav(); // Toggle element.
 
-    this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('openNav'); // this.closeEvent is dispatched in this.closeMobileNav().
+    this.toggle = this.options.toggleElement; // The text for the toggle element.
 
-    this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('closeNav'); // Initialize items
+    this.toggleText = this.toggle ? this.toggle.innerText : this.options.toggleText; // Storage for the menu items.
 
-    var items = elem.querySelectorAll(elem.tagName + ' > ul > li');
-    items.forEach(function (item) {
-      _this.items.push(new _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"](item, _this));
-    });
-    elem.addEventListener('keydown', this);
+    this.items = []; // Set the z-index if configured.
 
-    if (this.toggle) {
-      this.toggle.addEventListener('click', this);
-    }
-  } // -------------------------------------------------------------------------
-  // Helper Methods.
-  // -------------------------------------------------------------------------
+    if (this.options.zIndex > 1) {
+      this.elem.style.zIndex = this.options.zIndex;
+    } // Remove the class that formats the nav for browsers with javascript disabled.
 
+
+    this.elem.classList.remove('no-js'); // Give this instance a unique ID.
+
+    var id = Math.random().toString(36).substr(2, 9);
+    this.elem.id = id; // Initialize items
+
+    this.createNavItems(); // Initialize Events.
+
+    this.createEvents(); // Initialize the event listeners.
+
+    this.createEventListeners();
+  }
   /**
-   * Get the instance of Nav that represents the top level nav of this
-   * instance.
-   *
-   * @return {Nav}
-   *  Returns the navigation instance.
+   * Create the children nav items.
+   * @return {[type]} [description]
    */
 
 
   _createClass(Nav, [{
+    key: "createNavItems",
+    value: function createNavItems() {
+      var _this = this;
+
+      var items = this.elem.querySelectorAll(this.elem.tagName + ' > ul > li');
+      items.forEach(function (item) {
+        _this.items.push(new _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"](item, _this, _this.options));
+      });
+    }
+    /**
+     * [createEvents description]
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "createEvents",
+    value: function createEvents() {
+      // Add custom events to alert others when the mobile nav
+      // opens or closes.
+      // this.openEvent is dispatched in this.openMobileNav().
+      this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('openNav'); // this.closeEvent is dispatched in this.closeMobileNav().
+
+      this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('closeNav');
+    }
+    /**
+     * [createEventListeners description]
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "createEventListeners",
+    value: function createEventListeners() {
+      this.elem.addEventListener('keydown', this);
+
+      if (this.toggle) {
+        this.toggle.addEventListener('click', this);
+      }
+    } // -------------------------------------------------------------------------
+    // Helper Methods.
+    // -------------------------------------------------------------------------
+
+    /**
+     * Get the instance of Nav that represents the top level nav of this
+     * instance.
+     *
+     * @return {Nav}
+     *  Returns the navigation instance.
+     */
+
+  }, {
     key: "getTopNav",
     value: function getTopNav() {
       var nav = this;
@@ -598,9 +641,10 @@ function () {
    * @param {HTMLElement|Nav} nav   - The Nav that contains the element. May
    *                                  be a main nav (<nav>) or a subnav (Nav).
    */
-  function NavItem(item, nav) {
+  function NavItem(item, nav, options) {
     _classCallCheck(this, NavItem);
 
+    this.options = options;
     this.item = item;
     this.nav = nav;
     this.link = this.item.querySelector('a');
@@ -608,7 +652,7 @@ function () {
     this.item.addEventListener('keydown', this);
 
     if (this.isSubNavTrigger()) {
-      this.subNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](this); // Add custom events to alert others when a subnav opens or closes.
+      this.subNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](this.item, options); // Add custom events to alert others when a subnav opens or closes.
       // this.openEvent is dispatched in this.openSubNav().
 
       this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_3__["createEvent"])('openSubnav'); // this.closeEvent is dispatched in this.closeSubNav().
@@ -717,7 +761,7 @@ function () {
       Object(_globals__WEBPACK_IMPORTED_MODULE_0__["closeAllSubNavs"])();
 
       if (this.isSubNavTrigger()) {
-        this.item.classList.add('su-main-nav__item--expanded');
+        this.item.classList.add(this.options.expandedClass);
         this.setExpanded('true');
 
         if (focusOnFirst) {
@@ -744,7 +788,7 @@ function () {
 
       if (this.isSubNavTrigger()) {
         if (this.isExpanded()) {
-          this.item.classList.remove('su-main-nav__item--expanded');
+          this.item.classList.remove(this.options.expandedClass);
           this.setExpanded('false');
 
           if (focusOnTrigger) {
@@ -996,23 +1040,29 @@ document.addEventListener('DOMContentLoaded', function (event) {
   // The css class that this following behaviour is applied to.
   var navClass = 'su-main-nav'; // All main navs.
 
-  var navs = document.querySelectorAll('.' + navClass); // Process each nav.
+  var navs = document.querySelectorAll('.' + navClass); // Main nav specific settings.
 
-  var firstZindex;
+  var options = {
+    'zIndex': null,
+    'toggleElement': null,
+    'toggleText': '',
+    'expandedClass': 'su-main-nav__item--expanded'
+  };
   navs.forEach(function (nav, index) {
-    // Remove the class that formats the nav for browsers with javascript disabled.
-    nav.classList.remove('no-js'); // Create an instance of Nav, which in turn creates appropriate instances of NavItem.
-
-    var theNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](nav); // Remember the nav for closeAllMobileNavs().
-
-    _globals__WEBPACK_IMPORTED_MODULE_1__["theNavs"].push(theNav); // Manage zindexes in case there are multiple navs near enough for subnavs to overlap.
+    // Manage zindexes in case there are multiple navs near enough for subnavs to overlap.
     // Rare, but it happens in the styleguide.
+    if (index >= 1) {
+      var zndx = getComputedStyle(navs[index - 1], null).zIndex;
+      zndx++;
+      options.zindex = zndx;
+    } // Define the toggle element.
 
-    if (index === 0) {
-      firstZindex = getComputedStyle(nav, null).zIndex;
-    } else {
-      nav.style.zIndex = firstZindex - 300 * index;
-    }
+
+    options.toggleElement = nav.querySelector(nav.tagName + ' > button'); // Create an instance of Nav, which in turn creates appropriate instances of NavItem.
+
+    var theNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](nav, options); // Remember the nav for closeAllMobileNavs().
+
+    _globals__WEBPACK_IMPORTED_MODULE_1__["theNavs"].push(theNav);
   }); // navs.forEach
   // Clicking anywhere outside a nav closes all navs.
 
@@ -1029,241 +1079,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 /***/ }),
 
-/***/ "./core/src/js/components/secondary-nav/AccordionButton.js":
-/*!*****************************************************************!*\
-  !*** ./core/src/js/components/secondary-nav/AccordionButton.js ***!
-  \*****************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return AccordionButton; });
-/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-
-/**
- * [settings description]
- * @type {[type]}
- */
-
-var AccordionButton =
-/*#__PURE__*/
-function () {
-  // GO!
-  function AccordionButton(instance, settings) {
-    _classCallCheck(this, AccordionButton);
-
-    this.settings = settings;
-    this.containers = instance.querySelectorAll(settings.container); // Create a clickable button for the triggers.
-
-    this.createTriggers(); // Capture the newly created triggers.
-
-    this.triggers = instance.querySelectorAll("." + settings.trigger); // Add Event Handling to the triggers.
-
-    this.createTriggerEvents();
-  }
-  /**
-   * [createToggles description]
-   * @return {[type]} [description]
-   */
-
-
-  _createClass(AccordionButton, [{
-    key: "createTriggers",
-    value: function createTriggers() {
-      var _this = this;
-
-      this.containers.forEach(function (container) {
-        // Create unique ids for the trigger and panel of each accordion.
-        var id = Math.random().toString(36).substr(2, 9);
-        var panel_id = Math.random().toString(36).substr(2, 9);
-        var panel = container.querySelector(_this.settings.panel);
-        container.prepend(_this.createTrigger(id, panel_id));
-
-        _this.AddPanelAttributes(panel, id, panel_id);
-      });
-    }
-    /**
-     * Returns a toggle markup
-     * @return {[type]} [description]
-     */
-
-  }, {
-    key: "createTrigger",
-    value: function createTrigger(id, panel_id) {
-      var element = document.createElement("button");
-      var label = document.createTextNode(this.settings.trigger_collapsed_text);
-      element.setAttribute('class', this.settings.trigger);
-      element.setAttribute('aria-expanded', false);
-      element.setAttribute('aria-controls', panel_id);
-      element.setAttribute('id', id);
-      element.appendChild(label);
-      return element;
-    }
-    /**
-     * [createTriggerEvents description]
-     * @return {[type]} [description]
-     */
-
-  }, {
-    key: "createTriggerEvents",
-    value: function createTriggerEvents() {
-      var _this2 = this;
-
-      this.triggers.forEach(function (trigger) {
-        trigger.addEventListener('click', function (event) {
-          return _this2.triggerEventClick(event);
-        });
-        trigger.addEventListener('keydown', function (event) {
-          return _this2.triggerEventKeyPress(event);
-        });
-      });
-    }
-    /**
-     * [triggerEventClick description]
-     * @param  {[type]} evnt [description]
-     * @return {[type]}      [description]
-     */
-
-  }, {
-    key: "triggerEventClick",
-    value: function triggerEventClick(evnt) {
-      var me = evnt.target || evnt.srcElement;
-      var panel = document.getElementById(me.getAttribute('aria-controls'));
-
-      if (me.getAttribute('aria-expanded') == "true") {
-        this.collapseTrigger(me);
-        this.collapsePanel(panel);
-      } else {
-        this.expandPanel(panel);
-        this.expandTrigger(me);
-      }
-    }
-    /**
-     * [collapseTrigger description]
-     * @param  {[type]} me [description]
-     * @return {[type]}    [description]
-     */
-
-  }, {
-    key: "collapseTrigger",
-    value: function collapseTrigger(trigger) {
-      trigger.setAttribute('aria-expanded', "false");
-      trigger.innerText = this.settings.trigger_collapsed_text;
-    }
-    /**
-     * [expandTrigger description]
-     * @param  {[type]} me [description]
-     * @return {[type]}    [description]
-     */
-
-  }, {
-    key: "expandTrigger",
-    value: function expandTrigger(trigger) {
-      trigger.setAttribute('aria-expanded', "true");
-      trigger.innerText = this.settings.trigger_expanded_text;
-    }
-    /**
-     * [togglePanel description]
-     * @param  {[type]} panel [description]
-     * @return {[type]}       [description]
-     */
-
-  }, {
-    key: "togglePanel",
-    value: function togglePanel(panel) {
-      if (panel.getAttribute('aria-expanded')) {
-        panel.setAttribute('aria-expanded', false);
-        panel.setAttribute('aria-hidden', true);
-      } else {
-        panel.setAttribute('aria-expanded', true);
-        panel.setAttribute('aria-hidden', false);
-      }
-    }
-    /**
-     * [expandPanel description]
-     * @param  {[type]} panel [description]
-     * @return {[type]}       [description]
-     */
-
-  }, {
-    key: "expandPanel",
-    value: function expandPanel(panel) {
-      panel.setAttribute('aria-expanded', true);
-      panel.setAttribute('aria-hidden', false);
-    }
-    /**
-     * [collapsePanel description]
-     * @param  {[type]} panel [description]
-     * @return {[type]}       [description]
-     */
-
-  }, {
-    key: "collapsePanel",
-    value: function collapsePanel(panel) {
-      panel.setAttribute('aria-expanded', false);
-      panel.setAttribute('aria-hidden', true);
-    }
-    /**
-     * [triggerEventKeyPress description]
-     * @param  {[type]} evnt [description]
-     * @return {[type]}      [description]
-     */
-
-  }, {
-    key: "triggerEventKeyPress",
-    value: function triggerEventKeyPress(evnt) {
-      var theKey = evnt.key || evnt.keyCode;
-      var trigger = evnt.target || evnt.srcElement;
-      var panel = document.getElementById(trigger.getAttribute('aria-controls')); // Toggle on space or enter keys.
-
-      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isSpace"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isEnter"])(theKey)) {
-        this.triggerEventClick(evnt);
-      } // Collapse items on left or up arrows.
-
-
-      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isLeftArrow"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isUpArrow"])(theKey)) {
-        this.collapseTrigger(trigger);
-        this.collapsePanel(panel);
-      } // Expand items on down or right.
-
-
-      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isRightArrow"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isDownArrow"])(theKey)) {
-        this.expandTrigger(trigger);
-        this.expandPanel(panel);
-      }
-    }
-    /**
-     * [AddPanelAttributes description]
-     * @param {[type]} panel      [description]
-     * @param {[type]} trigger_id [description]
-     * @param {[type]} my_id      [description]
-     */
-
-  }, {
-    key: "AddPanelAttributes",
-    value: function AddPanelAttributes(panel, trigger_id, my_id) {
-      panel.setAttribute('id', my_id);
-      panel.setAttribute('aria-expanded', false);
-      panel.setAttribute('aria-hidden', true);
-      panel.setAttribute('aria-labelledby', trigger_id);
-      panel.setAttribute('data-la-initdispnone', true);
-    }
-  }]);
-
-  return AccordionButton;
-}();
-
-
-
-/***/ }),
-
 /***/ "./core/src/js/components/secondary-nav/secondary-nav.js":
 /*!***************************************************************!*\
   !*** ./core/src/js/components/secondary-nav/secondary-nav.js ***!
@@ -1273,23 +1088,30 @@ function () {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _AccordionButton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AccordionButton */ "./core/src/js/components/secondary-nav/AccordionButton.js");
+/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ "./core/src/js/core/core.js");
+/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _main_nav_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../main-nav/globals */ "./core/src/js/components/main-nav/globals.js");
+/* harmony import */ var _main_nav_Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../main-nav/Nav */ "./core/src/js/components/main-nav/Nav.js");
+
+
 
 document.addEventListener('DOMContentLoaded', function (event) {
   // The css class that this following behaviour is applied to.
   var navClass = 'su-secondary-nav'; // All secondary navs.
 
-  var navs = document.querySelectorAll('.' + navClass);
-  var settings = {
-    'trigger': 'su-secondary-nav__toggle',
-    'container': ".su-secondary-nav__item--parent",
-    'panel': "ul",
-    "trigger_expanded_text": "–",
-    "trigger_collapsed_text": "+"
+  var navs = document.querySelectorAll('.' + navClass); // Secondary nav specific settings.
+
+  var options = {
+    'toggleElement': null,
+    'toggleText': '',
+    'expandedClass': 'su-secondary-nav__item--expanded'
   }; // Generate the Accordion toggle for each nav.
 
   navs.forEach(function (nav) {
-    new _AccordionButton__WEBPACK_IMPORTED_MODULE_0__["default"](nav, settings);
+    // Define the toggle element.
+    options.toggleElement = nav.querySelector(nav.tagName + ' > button'); // Create an instance of Nav, which in turn creates appropriate instances of NavItem.
+
+    var theNav = new _main_nav_Nav__WEBPACK_IMPORTED_MODULE_2__["default"](nav, options);
   });
 });
 

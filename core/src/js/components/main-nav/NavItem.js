@@ -23,7 +23,8 @@ export default class NavItem {
    * @param {HTMLElement|Nav} nav   - The Nav that contains the element. May
    *                                  be a main nav (<nav>) or a subnav (Nav).
    */
-  constructor(item, nav) {
+  constructor(item, nav, options) {
+    this.options = options;
     this.item = item;
     this.nav = nav;
     this.link = this.item.querySelector('a');
@@ -31,7 +32,7 @@ export default class NavItem {
     this.item.addEventListener('keydown', this);
 
     if (this.isSubNavTrigger()) {
-      this.subNav = new Nav(this);
+      this.subNav = new Nav(this.item, options);
       // Add custom events to alert others when a subnav opens or closes.
       // this.openEvent is dispatched in this.openSubNav().
       this.openEvent = createEvent('openSubnav');
@@ -127,7 +128,7 @@ export default class NavItem {
     closeAllSubNavs();
 
     if (this.isSubNavTrigger()) {
-      this.item.classList.add('su-main-nav__item--expanded');
+      this.item.classList.add(this.options.expandedClass);
       this.setExpanded('true');
       if (focusOnFirst) {
         this.subNav.focusOn('first');
@@ -148,7 +149,7 @@ export default class NavItem {
   closeSubNav(focusOnTrigger = false) {
     if (this.isSubNavTrigger()) {
       if (this.isExpanded()) {
-        this.item.classList.remove('su-main-nav__item--expanded');
+        this.item.classList.remove(this.options.expandedClass);
         this.setExpanded('false');
         if (focusOnTrigger) {
           this.link.focus();

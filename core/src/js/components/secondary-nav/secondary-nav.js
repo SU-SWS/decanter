@@ -1,4 +1,5 @@
-import AccordionButton from "./AccordionButton";
+import '../../core/core';
+import Nav from '../main-nav/Nav';
 
 document.addEventListener('DOMContentLoaded', event => {
 
@@ -8,17 +9,17 @@ document.addEventListener('DOMContentLoaded', event => {
   // All secondary navs.
   const navs = document.querySelectorAll('.' + navClass);
 
-  let settings = {
-    'trigger': 'su-secondary-nav__toggle',
-    'container': ".su-secondary-nav__item--parent",
-    'panel': "ul",
-    "trigger_expanded_text": "–",
-    "trigger_collapsed_text": "+",
+  // Secondary nav specific settings.
+  let options = {
+    'toggleElement': null,
+    'expandedClass': 'su-secondary-nav__item--expanded',
+    'idPrefix': "su-"
   };
 
   // Generate the Accordion toggle for each nav.
   navs.forEach((nav) => {
-    new AccordionButton(nav, settings);
+    // Create an instance of Nav, which in turn creates appropriate instances of NavItem.
+    let theNav = new Nav(nav, options);
   });
 
 });

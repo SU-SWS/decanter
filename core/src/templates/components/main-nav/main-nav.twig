@@ -25,7 +25,7 @@
         {% set new_attr = {} %}
         {% if attrs.attr is not empty %}
           {% set v5 = true %}
-          {% set attrs_key = attrs.attr|slice("twig_markup")|join|trim %}
+          {% set attrs_key = attrs.attr|trans|trim %}
           {% set attrs_value = attrs.value %}
           {% set new_attr = new_attr|merge({(attrs_key): attrs_value}) %}
         {% endif %}
