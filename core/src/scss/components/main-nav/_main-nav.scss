@@ -66,23 +66,8 @@
   }
 
 
-  .su-main-nav__item--current > a {
-    font-weight: $font-bold;
-
-    &::before {
-      visibility: visible;
-      transform: scaleY(1);
-      background-color: color(border--mobile-active, $main-nav-colors);
-    }
-
-    &:hover,
-    &:focus {
-      &::before {
-        left: 6px;
-        transition: left 0.1s ease-out;
-        background-color: color(border--mobile-active, $main-nav-colors);
-      }
-    }
+  .su-main-nav__item--current {
+    @extend %nav-item-link--current;
   }
 
   .su-main-nav__item--parent {
