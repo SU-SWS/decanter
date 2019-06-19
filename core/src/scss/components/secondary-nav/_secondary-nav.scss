@@ -18,10 +18,21 @@
   // ---------------------------------------------------------------------------
   ul {
     @extend %nav-menu;
+    background: color(bg, $secondary-nav-colors);
+
     li {
       @extend %nav-item;
+      color: color(text);
+
       a {
         @extend %nav-item-link;
+        @include fancy-hover(
+          color(border--hover, $secondary-nav-colors),
+          color(border--active, $secondary-nav-colors),
+          'left'
+        );
+        color: color(link, $secondary-nav-colors);
+        border-bottom: color(divider, $secondary-nav-colors) solid 1px;
       }
     }
   }
@@ -34,6 +45,12 @@
 
   .su-secondary-nav__item--current {
     @extend %nav-item-link--current;
+    color: color(link--active, $secondary-nav-colors);
+
+    &:hover {
+      color: color(link--active-hover, $secondary-nav-colors);
+    }
+
   }
 
   .su-secondary-nav__item--parent {
@@ -44,7 +61,14 @@
     }
   }
 
-  // Section
+  // Level 1 Items
   // ---------------------------------------------------------------------------
+  .su-secondary-nav__menu-lv1 {
+    > li {
+      > a {
+        font-weight: $font-semi-bold;
+      }
+    }
+  }
 
 }

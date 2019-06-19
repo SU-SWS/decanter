@@ -569,14 +569,14 @@ button,
   .su-main-nav li a:active, .su-secondary-nav ul li a:active {
     font-weight: 700; }
 
-.su-secondary-nav .su-secondary-nav__item--current {
+.su-main-nav .su-main-nav__item--current, .su-secondary-nav .su-secondary-nav__item--current {
   font-weight: 700; }
-  .su-secondary-nav .su-secondary-nav__item--current::before {
+  .su-main-nav .su-main-nav__item--current::before, .su-secondary-nav .su-secondary-nav__item--current::before {
     visibility: visible;
     -webkit-transform: scaleY(1);
             transform: scaleY(1);
     background-color: #ec0513; }
-  .su-secondary-nav .su-secondary-nav__item--current:hover::before, .su-secondary-nav .su-secondary-nav__item--current:focus::before {
+  .su-main-nav .su-main-nav__item--current:hover::before, .su-secondary-nav .su-secondary-nav__item--current:hover::before, .su-main-nav .su-main-nav__item--current:focus::before, .su-secondary-nav .su-secondary-nav__item--current:focus::before {
     left: 6px;
     -webkit-transition: left 0.1s ease-out;
     transition: left 0.1s ease-out;
@@ -8272,18 +8272,6 @@ a {
   display: block;
   position: relative;
   z-index: 9999; }
-  .su-main-nav .su-main-nav__item--current > a {
-    font-weight: 700; }
-    .su-main-nav .su-main-nav__item--current > a::before {
-      visibility: visible;
-      -webkit-transform: scaleY(1);
-              transform: scaleY(1);
-      background-color: #ec0513; }
-    .su-main-nav .su-main-nav__item--current > a:hover::before, .su-main-nav .su-main-nav__item--current > a:focus::before {
-      left: 6px;
-      -webkit-transition: left 0.1s ease-out;
-      transition: left 0.1s ease-out;
-      background-color: #ec0513; }
   @media (max-width: 991px) {
     .su-main-nav .su-main-nav__item--current.su-main-nav__item--expanded > a {
       font-weight: 700; }
@@ -8756,6 +8744,53 @@ a {
 
 .su-secondary-nav {
   background: #ffffff; }
+  .su-secondary-nav ul {
+    background: #ffffff; }
+    .su-secondary-nav ul li {
+      color: #2e2d29; }
+      .su-secondary-nav ul li a {
+        text-decoration: none;
+        position: relative;
+        color: #2e2d29;
+        border-bottom: #dad7cb solid 1px; }
+        .su-secondary-nav ul li a::before {
+          content: "";
+          position: absolute;
+          visibility: hidden;
+          -webkit-transition: background-color 0.3s ease-in, -webkit-transform 0.3s ease-in;
+          transition: background-color 0.3s ease-in, -webkit-transform 0.3s ease-in;
+          transition: transform 0.3s ease-in, background-color 0.3s ease-in;
+          transition: transform 0.3s ease-in, background-color 0.3s ease-in, -webkit-transform 0.3s ease-in;
+          z-index: 1; }
+        .su-secondary-nav ul li a:hover, .su-secondary-nav ul li a:focus, .su-secondary-nav ul li a:active {
+          text-decoration: none; }
+          .su-secondary-nav ul li a:hover::before, .su-secondary-nav ul li a:focus::before, .su-secondary-nav ul li a:active::before {
+            visibility: visible;
+            -webkit-transition: background-color 0.3s ease-out, -webkit-transform 0.3s ease-out;
+            transition: background-color 0.3s ease-out, -webkit-transform 0.3s ease-out;
+            transition: transform 0.3s ease-out, background-color 0.3s ease-out;
+            transition: transform 0.3s ease-out, background-color 0.3s ease-out, -webkit-transform 0.3s ease-out; }
+        .su-secondary-nav ul li a:hover::before, .su-secondary-nav ul li a:focus::before {
+          background-color: #2e2d29; }
+        .su-secondary-nav ul li a:active::before {
+          background-color: #b1040e; }
+        .su-secondary-nav ul li a::before {
+          height: 100%;
+          width: 6px;
+          bottom: 0;
+          -webkit-transform: scaleY(0);
+                  transform: scaleY(0); }
+        .su-secondary-nav ul li a:hover::before, .su-secondary-nav ul li a:focus::before, .su-secondary-nav ul li a:active::before {
+          -webkit-transform: scaleY(1);
+                  transform: scaleY(1); }
+        .su-secondary-nav ul li a::before {
+          left: 0; }
+  .su-secondary-nav .su-secondary-nav__item--current {
+    color: #b1040e; }
+    .su-secondary-nav .su-secondary-nav__item--current:hover {
+      color: #b1040e; }
+  .su-secondary-nav .su-secondary-nav__menu-lv1 > li > a {
+    font-weight: 600; }
 
 .su-secondary-nav--dark {
   background: #2e2d29; }
