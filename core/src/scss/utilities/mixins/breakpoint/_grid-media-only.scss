@@ -1,24 +1,24 @@
 @charset "UTF-8";
 
 //
-// @grid-media-only($breakpoint: 'xs')
+// @su-su-grid-media-only($breakpoint: 'xs')
 //
 // A helper to quickly generate a media query for single breakpoints.
 //
 // $breakpoint - The breakpoint key code eg: 'sm', or 'all' for all breakpoints.
 //
-// Style guide: Mixins.Breakpoint.grid-media-only
+// Style guide: Mixins.Breakpoint.su-su-grid-media-only
 //
 @mixin grid-media-only($breakpoint: 'xs') {
   @if $breakpoint == 'all' {
-    @each $id, $query in $grid-media-only {
+    @each $id, $query in $su-grid-media-only {
       @media #{$query} {
         @content;
       }
     }
   }
   @else {
-    @media #{map-get($grid-media-only, $breakpoint)} {
+    @media #{map-get($su-grid-media-only, $breakpoint)} {
       @content;
     }
   }

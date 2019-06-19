@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 //
-// @grid-media-between($lower, $upper, $breakpoints: $grid-screens)
+// @su-grid-media-between($lower, $upper, $breakpoints: $su-grid-screens)
 //
 // Media query that spans multiple breakpoint widths (between the min and max breakpoints).
 //
@@ -9,8 +9,8 @@
 // $upper - The upper breakpoint key code eg: 'xl'
 // $breakpoints - A map of each of the screen breakpoint sizes.
 //
-// Style guide: Mixins.Breakpoint.grid-media-between
-@mixin grid-media-between($lower: 'xs', $upper: 'sm', $breakpoints: $grid-screens) {
+// Style guide: Mixins.Breakpoint.su-grid-media-between
+@mixin grid-media-between($lower: 'xs', $upper: 'sm', $breakpoints: $su-grid-screens) {
   $min: breakpoint-min($lower, $breakpoints);
   $max: breakpoint-max($upper, $breakpoints);
 

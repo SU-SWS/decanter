@@ -7,7 +7,7 @@
 //
 // Style guide: Mixins.Modular.modular-typography-base
 //
-@mixin modular-typography-base($grid: $grid-media) {
+@mixin modular-typography-base($grid: $su-grid-media) {
   @each $key, $breakpoint in $grid {
     @include grid-media($key) {
       font-size: map-get($modular-typography-base, $key);

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 //
-// @responsive-grid-columns($grid-map, $gutters-map)
+// @responsive-su-grid-columns($grid-map, $gutters-map)
 //
 // A mixin to create a responsive grid layout.
 //
@@ -9,9 +9,9 @@
 // $gutters-map: A complimentary map to the $grid-map.
 // $ie-fix-mobile: Set the mobile breakpoint to block for IE 11.
 //
-// Styleguide: Mixins.Grid.responsive-grid-columns
+// Styleguide: Mixins.Grid.responsive-su-grid-columns
 //
-@mixin responsive-grid-columns($grid-map: $responsive-columns-default, $gutters-map: $responsive-gutters-default, $ie-fix-mobile: true) {
+@mixin responsive-grid-columns($grid-map: $su-responsive-columns-default, $gutters-map: $responsive-gutters-default, $ie-fix-mobile: true) {
   @include display-grid;
 
   // Loop through each breakpoint generating the media query and grid.
