@@ -1,0 +1,35 @@
+//
+// %nav-item-link--parent-expanded
+//
+// Individual Nav Item Link -- Parent Expanded
+//
+// Style guide: Placeholders.Components.Nav-Item-Link-Parent-Expanded
+//
+%nav-item-link--parent-expanded {
+  > a {
+    &::after {
+      background: url("#{$image-path}/minus-white.svg") no-repeat 0 0;
+      background-size: 100%;
+
+      @include grid-media('lg') {
+        background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
+        background-size: 100%;
+        transform: rotate(180deg);
+      }
+    }
+
+    @include grid-media-max('md') {
+      &::before {
+        background-color: color(border--mobile-expanded, $main-nav-colors);
+      }
+
+      &:hover::before {
+        background-color: color(border--mobile-hover, $main-nav-colors);
+      }
+
+      &:active::before {
+        background-color: color(border--mobile-active, $main-nav-colors);
+      }
+    }
+  }
+}

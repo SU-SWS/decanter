@@ -1,0 +1,25 @@
+//
+// %nav-item-link--current
+//
+// Individual Nav Item Link -- current
+//
+// Style guide: Placeholders.Components.Nav-Item-Link-current
+//
+%nav-item-link--current {
+  font-weight: $font-bold;
+
+  &::before {
+    visibility: visible;
+    transform: scaleY(1);
+    background-color: color(border--mobile-active, $main-nav-colors);
+  }
+
+  &:hover,
+  &:focus {
+    &::before {
+      left: 6px;
+      transition: left 0.1s ease-out;
+      background-color: color(border--mobile-active, $main-nav-colors);
+    }
+  }
+}

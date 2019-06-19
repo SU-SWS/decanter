@@ -1,4 +1,3 @@
-@charset "UTF-8";
 //
 // Secondary Navigation
 //
@@ -14,131 +13,38 @@
 // Default styles for secondary nav core elements.
 .su-secondary-nav {
   background: color(bg, $secondary-nav-colors);
-  @include padding(0 18px);
-  @include margin(0);
 
-  // Un-do default list styles.
+  // Basic Structure.
+  // ---------------------------------------------------------------------------
   ul {
-    @include list-unstyled;
-    @include margin(0);
-    @include padding(0);
-    overflow: hidden;
-    clear: both;
-  }
-
-  // Ensure everything is 100% width as we like large click areas.
-  li,
-  a {
-    width: 100%;
-    display: block;
-    box-shadow: 0;
-    transition: box-shadow 0.25s ease-out;
-    text-decoration: none;
-  }
-
-  a {
-    @include padding(14px null 13px null);
-    @include margin(null null null null);
-    font-weight: $font-regular;
-    color: color(text);
-
-    // The background properties here create the border on the bottom of each
-    // link so that we don't have to add additional markup to the html.
-    background-origin: content-box;
-    background-image: linear-gradient(
-      to top,
-      rgba(217, 217, 217, 1),
-      rgba(217, 217, 217, 0) 1px
-    );
-    background-repeat: no-repeat;
-    background-position: 0 13px;
-  }
-
-  a:hover,
-  a:focus {
-    box-shadow: inset 5px 0 0 color(link--hover, $secondary-nav-colors);
-  }
-
-}
-
-// The number of (px) to indent at each level.
-$su-secondary-nav-item-indent: 16;
-// Support 10 levels. There may be a better way to do this but I think this
-// should be fine for now. Hints and suggestions are welcome.
-@for $i from 1 through 10 {
-  .su-secondary-nav__menu-lv#{$i} {
-    > li > a {
-      @include padding(null null null #{$su-secondary-nav-item-indent * $i}px);
+    @extend %nav-menu;
+    li {
+      @extend %nav-item;
+      a {
+        @extend %nav-item-link;
+      }
     }
   }
-}
 
-// ACTIVE TRAIL ////////////////////////////////////////////////////////////////
+  // States.
+  // ---------------------------------------------------------------------------
+  .su-secondary-nav__item--expanded {
+    @extend %nav-item-link--expanded;
+  }
 
-.su-secondary-nav__item--current {
-  > a {
-    box-shadow: inset 5px 0 0 color(link--active, $secondary-nav-colors);
-    color: color(link--active, $secondary-nav-colors);
-    font-weight: $font-bold;
-    transition-property: margin, margin-left, text-indent, background-position;
-    transition-duration: 0.25s;
-    transition-timing-function: ease-out;
+  .su-secondary-nav__item--current {
+    @extend %nav-item-link--current;
+  }
 
-    &:hover {
-      color: color(link--active-hover, $secondary-nav-colors);
-      box-shadow: inset 5px 0 0 color(border--active-hover, $secondary-nav-colors);
-      margin-left: 5px;
-      text-indent: -5px;
-      background-position: -5px 13px;
+  .su-secondary-nav__item--parent {
+    @extend %nav-item-link--parent;
+
+    &.su-secondary-nav__item--expanded {
+      @extend %nav-item-link--parent-expanded;
     }
   }
-}
 
-// LEVEL 1 ITEMS ///////////////////////////////////////////////////////////////
+  // Section
+  // ---------------------------------------------------------------------------
 
-.su-secondary-nav__menu-lv1 {
-  > li {
-    > a {
-      font-weight: $font-semi-bold;
-    }
-  }
-}
-
-// Accordion States (JS) ///////////////////////////////////////////////////////
-
-.su-secondary-nav__item--parent {
-  clear: both;
-}
-
-.su-secondary-nav__toggle {
-  @include margin(0);
-  @include padding(0);
-  vertical-align: middle;
-  text-align: center;
-  float: right;
-  background: transparent;
-  color: color(text);
-  font-size: 1.5em;
-  width: 53px;
-  max-width: 53px;
-  height: 53px;
-  line-height: 53px;
-
-  &:hover {
-    color: color(text);
-    background: transparent;
-    font-weight: bold;
-  }
-
-  &:focus,
-  &:active {
-    background: transparent;
-    color: color(text);
-    box-shadow: none;
-  }
-
-}
-
-.su-secondary-nav__menu[aria-expanded="false"] {
-  display: none;
 }

@@ -13,7 +13,7 @@
 + *
 + */
 +#}
-
+{% spaceless %}
 {# Macros #}
 {% import "@decanter/utilities/macros/menu-loop.twig" as menus %}
 
@@ -88,6 +88,7 @@
 {% if v5 == true %}
   {% set list_items = reformatted %}
 {% endif %}
+{% endspaceless %}
 {# BACKWARDS COMPATIBILITY WITH V5.0 #}
 
 <nav {{- attributes }} class="su-main-nav no-js {{ modifier_class }}" aria-label="{{ aria_label|default('main menu') }}">

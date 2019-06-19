@@ -1,0 +1,32 @@
+//
+// %nav-item-link--parent
+//
+// Individual Nav Item Link -- Parent
+//
+// Style guide: Placeholders.Components.Nav-Item-Link-Parent
+//
+%nav-item-link--parent {
+  > a::after {
+    background: url("#{$image-path}/plus-white.svg") no-repeat 0 0;
+    background-size: 100%;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: 2rem;
+    top: 2.06rem;
+    height: 1.8rem;
+    width: 1.8rem;
+
+    @include grid-media('lg') {
+      @include margin(null null 1px 6px);
+      background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
+      background-size: 100%;
+      position: relative;
+      right: 0;
+      top: 0;
+      height: 11px; // Small svg gets chopped off if use em instead of px
+      width: 11px;
+      transition: transform 0.3s ease-out;
+    }
+  }
+}
