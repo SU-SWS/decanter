@@ -22,3 +22,25 @@
 
   </div>
 </div>
+
+<figure class="kss-highlight">
+  <pre>
+    <span class="nt">@mixin</span><span class="s"> centered-column</span><span class="na">($grid: $grid-media, $screens: $grid-screens, $margin: $screen-margins)  </span><span class="nt">{</span>
+      <span class="nt">@include</span><span class="s"> margin</span><span class="na">(0 auto)</span><span class="nt">;</span>
+      <span class="nt">@each</span><span class="na"> $code, $breakpoint </span><span class="s">in </span><span class="na">$grid <span class="nt">{</span>
+      <span class="na">  $spacing:</span><span class="s">  map-get</span><span class="na">($margin, $code)</span><span class="nt">;</span>
+        <span class="nt">@media </span><span class="na">#{$breakpoint}</span><span class="nt">{</span>
+          <span class="nt">@if </span><span class="na">breakpoint-max($code, $grid) </span><span class="s">==</span><span class="nt"> null {</span>
+            <span class="na">$max-width: map-get($screens, $code)</span><span class="nt">;</span>
+            <span class="na">max-width: $max-width</span><span class="nt">;</span>
+            <span class="na">width: calc(100% - #{$spacing * 2})</span><span class="nt">;</span>
+          <span class="nt">}</span>
+          <span class="nt">@else </span><span class="nt">{</span>
+            <span class="na">max-width: calc</span><span class="na">(100% - #{$spacing * 2});
+            <span class="na">width: calc</span><span class="na">(100% - #{$spacing * 2});
+          <span class="nt">}</span>
+        <span class="nt">}</span>
+      <span class="nt">}</span>
+    <span class="nt">}</span>
+  </pre>
+</figure>
