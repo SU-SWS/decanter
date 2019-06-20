@@ -600,6 +600,11 @@ sub {
     max-width: calc(100% - 60px);
     width: calc(100% - 60px); } }
 
+@media (max-width: 767px) {
+  body:not(.kss-home).kss-fullscreen-mode .main-page-layout {
+    width: 100%;
+    max-width: 100%; } }
+
 .kss-sidebar {
   display: none;
   -ms-grid-column: 1;
@@ -798,9 +803,9 @@ sub {
   display: block; }
 
 @media (min-width: 992px) {
-  #kss-node.kss-fullscreen-mode .su-main-nav {
+  #kss-node.kss-fullscreen-mode #kssref-components-main-navigation .su-main-nav {
     margin-left: 1.6em; }
-    #kss-node.kss-fullscreen-mode .su-main-nav.su-main-nav--right {
+    #kss-node.kss-fullscreen-mode #kssref-components-main-navigation .su-main-nav.su-main-nav--right {
       margin-right: 3em;
       margin-left: 0; } }
 
@@ -1573,27 +1578,6 @@ body {
     margin-top: 0.4rem;
     padding-bottom: 1.6rem; } }
 
-#kssref-components-main-navigation .kss-modifier__example:nth-child(6) nav {
-  z-index: 9899; }
-
-#kssref-components-main-navigation .kss-modifier__example:nth-child(9) nav {
-  z-index: 9799; }
-
-#kssref-components-main-navigation .kss-modifier__example:nth-child(12) nav {
-  z-index: 9699; }
-
-#kssref-components-main-navigation .kss-modifier__example:nth-child(15) nav {
-  z-index: 9599; }
-
-#kssref-components-main-navigation .kss-modifier__example:nth-child(18) nav {
-  z-index: 9499; }
-
-#kssref-components-main-navigation .kss-modifier__example:nth-child(21) nav {
-  z-index: 9399; }
-
-#kssref-components-main-navigation .kss-modifier__example:nth-child(24) nav {
-  z-index: 9299; }
-
 #kssref-components-main-navigation > .kss-modifier__wrapper > div:nth-child(9) {
   background: #2e2d29; }
 
@@ -1690,6 +1674,40 @@ body {
   .masthead .main-nav {
     -ms-grid-row: 1;
     -ms-grid-column: 2; }
+
+@media (max-width: 991px) {
+  #kssref-components-masthead .kss-modifier__example:nth-child(3) nav {
+    z-index: 9999 !important; }
+  #kssref-components-masthead .kss-modifier__example:nth-child(3) .su-lockup {
+    z-index: 10010 !important; }
+  #kssref-components-masthead .kss-modifier__example:nth-child(6) nav {
+    z-index: 9899 !important; }
+  #kssref-components-masthead .kss-modifier__example:nth-child(6) .su-lockup {
+    z-index: 9910 !important; }
+  #kssref-components-masthead .kss-modifier__example:nth-child(9) nav {
+    z-index: 9799 !important; }
+  #kssref-components-masthead .kss-modifier__example:nth-child(9) .su-lockup {
+    z-index: 9810 !important; }
+  #kssref-components-masthead .kss-modifier__example:nth-child(12) nav {
+    z-index: 9699 !important; }
+  #kssref-components-masthead .kss-modifier__example:nth-child(12) .su-lockup {
+    z-index: 9710 !important; }
+  #kssref-components-masthead .kss-modifier__example:nth-child(15) nav {
+    z-index: 9599 !important; }
+  #kssref-components-masthead .kss-modifier__example:nth-child(15) .su-lockup {
+    z-index: 9610 !important; }
+  #kssref-components-masthead .kss-modifier__example:nth-child(18) nav {
+    z-index: 9499 !important; }
+  #kssref-components-masthead .kss-modifier__example:nth-child(18) .su-lockup {
+    z-index: 9510 !important; }
+  #kssref-components-masthead .kss-modifier__example:nth-child(21) nav {
+    z-index: 9399 !important; }
+  #kssref-components-masthead .kss-modifier__example:nth-child(21) .su-lockup {
+    z-index: 9410 !important; }
+  #kssref-components-masthead .kss-modifier__example:nth-child(24) nav {
+    z-index: 9299 !important; }
+  #kssref-components-masthead .kss-modifier__example:nth-child(24) .su-lockup {
+    z-index: 9310 !important; } }
 
 /* SPAN elements with the classes below are added by prettyprint. */
 .pln {

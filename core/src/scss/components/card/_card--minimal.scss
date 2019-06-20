@@ -1,0 +1,38 @@
+@charset 'UTF-8';
+
+.su-card--minimal {
+  box-shadow: none;
+  border: 0;
+  background-color: inherit;
+
+  .su-card__contents {
+    // Reduce top padding to move the contents closer to the image.
+    @include modular-spacing('padding', 1 null null);
+    // Remove left, bottom, right padding at all breakpoints.
+    @include grid-media-only(all) {
+      @include padding(null 0 0);
+    }
+    // When the image disappears, remove the top padding as well.
+    @include grid-media-only(xs) {
+      @include padding(0 null null);
+    }
+  }
+
+  .su-card__button {
+    text-align: left;
+  }
+
+  &.su-card--horizontal {
+    // Override modular spacing at all breakpoints.
+    @include grid-media-only(all) {
+      @include padding(0);
+    }
+
+    .su-card__contents {
+      // Remove the top padding we applied above.
+      @include grid-media-only(all) {
+        @include padding(0 null null);
+      }
+    }
+  }
+}
