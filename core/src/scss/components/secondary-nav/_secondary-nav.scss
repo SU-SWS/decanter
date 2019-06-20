@@ -45,10 +45,12 @@
 
   .su-secondary-nav__item--current {
     @extend %nav-item-link--current;
-    color: color(link--active, $secondary-nav-colors);
 
-    &:hover {
-      color: color(link--active-hover, $secondary-nav-colors);
+    > a {
+      color: color(link--active, $secondary-nav-colors);
+      &:hover {
+        color: color(link--active-hover, $secondary-nav-colors);
+      }
     }
 
   }

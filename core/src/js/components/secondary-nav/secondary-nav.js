@@ -11,15 +11,16 @@ document.addEventListener('DOMContentLoaded', event => {
 
   // Secondary nav specific settings.
   let options = {
-    'toggleElement': null,
-    'expandedClass': 'su-secondary-nav__item--expanded',
-    'idPrefix': "su-"
+    'itemExpandedClass': 'su-secondary-nav__item--expanded',
+    'itemEvents': {
+      'onClick': function(event, navItem) { console.log(event); console.log(navItem); let target = event.target || event.srcElement; navItem.onClick(event, target); }
+    }
   };
 
   // Generate the Accordion toggle for each nav.
   navs.forEach((nav) => {
     // Create an instance of Nav, which in turn creates appropriate instances of NavItem.
-    let theNav = new Nav(nav, options);
+    new Nav(nav, options);
   });
 
 });
