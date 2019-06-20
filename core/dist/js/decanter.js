@@ -116,11 +116,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
 /* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
 /* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NavItem */ "./core/src/js/components/main-nav/NavItem.js");
+/* harmony import */ var _SubNavItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SubNavItem */ "./core/src/js/components/main-nav/SubNavItem.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 
 
@@ -159,20 +161,13 @@ function () {
     _classCallCheck(this, Nav);
 
     // Save the passed in configuration options.
-    this.options = options; // The nav element.
+    this.options = options; // Prefixing the random ids.
 
-    this.elem = elem; // Get the instance of Nav that represents the top level nav of this instance.
+    this.idPrefix = options.idPrefix || 'su-'; // The nav element.
 
-    this.topNav = this.getTopNav(); // Toggle element.
+    this.elem = elem; // The toggle menu button or none.
 
-    this.toggle = this.options.toggleElement; // The text for the toggle element.
-
-    if (this.toggle !== null) {
-      this.toggleText = this.toggle ? this.toggle.innerText : this.options.toggleText;
-    } // Storage for the menu items.
-
-
-    this.items = []; // Set the z-index if configured.
+    this.toggle = options.toggle || false; // Set the z-index if configured.
 
     if (this.options.zIndex > 1) {
       this.elem.style.zIndex = this.options.zIndex;
@@ -182,11 +177,11 @@ function () {
     this.elem.classList.remove('no-js'); // Give this instance a unique ID.
 
     var id = Math.random().toString(36).substr(2, 9);
-    this.elem.id = this.options.idPrefix + id; // Initialize items
+    this.id = this.idPrefix + id;
+    this.elem.id = this.idPrefix + id; // Initialize items.
 
-    this.createNavItems(); // Initialize Events.
-
-    this.createEvents(); // Initialize the event listeners.
+    this.items = [];
+    this.createNavItems(); // Initialize the event listeners.
 
     this.createEventListeners();
   }
@@ -203,23 +198,13 @@ function () {
 
       var items = this.elem.querySelectorAll(this.elem.tagName + ' > ul > li');
       items.forEach(function (item) {
-        _this.items.push(new _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"](item, _this, _this.options));
+        // Subnav items have special behaviour.
+        if (item.querySelector(item.tagName + " > ul")) {
+          _this.items.push(new _SubNavItem__WEBPACK_IMPORTED_MODULE_4__["default"](item, _this, _this.options));
+        } else {
+          _this.items.push(new _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"](item, _this, _this.options));
+        }
       });
-    }
-    /**
-     * [createEvents description]
-     * @return {[type]} [description]
-     */
-
-  }, {
-    key: "createEvents",
-    value: function createEvents() {
-      // Add custom events to alert others when the mobile nav
-      // opens or closes.
-      // this.openEvent is dispatched in this.openMobileNav().
-      this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('openNav'); // this.closeEvent is dispatched in this.closeMobileNav().
-
-      this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('closeNav');
     }
     /**
      * [createEventListeners description]
@@ -229,366 +214,132 @@ function () {
   }, {
     key: "createEventListeners",
     value: function createEventListeners() {
-      this.elem.addEventListener('keydown', this);
+      var _this2 = this;
+
+      // What do when key down?
+      this.elem.addEventListener('keydown', this); // If this nav has a toggle to open and close it on mobile, add a handler
+      // to account for clicking off of the mobile nav.
 
       if (this.toggle) {
-        this.toggle.addEventListener('click', this);
+        // Clicking anywhere outside of this nav closes all children.
+        document.addEventListener('click', function (event) {
+          // The element that was clicked.
+          var target = event.target || event.srcElement; // If the clicked element was not in my nav wrapper, close me.
+
+          var found = target.closest('#' + _this2.id);
+
+          if (!found) {
+            event.stopPropagation();
+            event.preventDefault();
+
+            _this2.toggle.closeNav();
+          }
+        }, false);
       }
-    } // -------------------------------------------------------------------------
-    // Helper Methods.
+    } // /**
+    //  * Is this rendering the desktop style for the nav?
+    //  *
+    //  * @return {Boolean}
+    //  *  Returns wether or not it is desktop navigation.
+    //  */
+    // isDesktopNav() {
+    //   return getComputedStyle(this.topNav.toggle).display === 'none';
+    // }
     // -------------------------------------------------------------------------
-
-    /**
-     * Get the instance of Nav that represents the top level nav of this
-     * instance.
-     *
-     * @return {Nav}
-     *  Returns the navigation instance.
-     */
-
-  }, {
-    key: "getTopNav",
-    value: function getTopNav() {
-      var nav = this;
-
-      while (nav.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"]) {
-        // If nav is the main nav, nav.elem will be an HTMLElement
-        // (the <nav> element).
-        // If nav.elem is a NavItem, then this is a subNav, so get the Nav that
-        // contains the NavItem.
-        nav = nav.elem.nav;
-      }
-
-      return nav;
-    }
-    /**
-     * Get the instance of Nav that represents the parent of this instance.
-     * If this is the top nav, return this so you can safely call methods on it.
-     *
-     * @return {Nav}
-     *   Returns the navigation instance.
-     */
-
-  }, {
-    key: "getParentNav",
-    value: function getParentNav() {
-      return this.isSubNav() ? this.elem.nav : this;
-    }
-    /**
-     * Is this expanded?
-     * If this is a subnav, ask the subnav (NavItem) if it's expanded.
-     * Otherwise (this is the top nav), check aria-expanded.
-     *
-     * @return {Boolean}
-     *   Returns wether or not the item is expanded.
-     */
-
-  }, {
-    key: "isExpanded",
-    value: function isExpanded() {
-      if (this.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"]) {
-        return this.elem.isExpanded();
-      }
-
-      return this.elem.getAttribute('aria-expanded') === 'true';
-    }
-    /**
-     * Set whether or not this is expanded.
-     * If this is a subnav, let the subnav (NavItem) handled it.
-     * Otherwise (this is the top nav), set aria-expanded.
-     *
-     * @param {String} value - What to set the aria-expanded attribute of
-     *                         this's link to.
-     */
-
-  }, {
-    key: "setExpanded",
-    value: function setExpanded(value) {
-      if (this.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"]) {
-        this.elem.setExpanded(value);
-      } else {
-        this.elem.setAttribute('aria-expanded', value);
-
-        if (this.toggle) {
-          this.toggle.setAttribute('aria-expanded', value);
-        }
-      }
-    }
-    /**
-     * Is this rendering the desktop style for the nav?
-     *
-     * @return {Boolean}
-     *  Returns wether or not it is desktop navigation.
-     */
-
-  }, {
-    key: "isDesktopNav",
-    value: function isDesktopNav() {
-      return getComputedStyle(this.topNav.toggle).display === 'none';
-    }
-    /**
-     * Is this the top nav?
-     *
-     * @return {Boolean}
-     *  Returns wether or not it is the top nav item.
-     */
-
-  }, {
-    key: "isTopNav",
-    value: function isTopNav() {
-      return this.topNav === this;
-    }
-    /**
-     * Is this a subnav?
-     *
-     * @return {Boolean}
-     *  Returns wether or not this is a subnav item.
-     */
-
-  }, {
-    key: "isSubNav",
-    value: function isSubNav() {
-      return this.topNav !== this;
-    }
-    /**
-     * Get the first item in this nav.
-     *
-     * @return {NavItem}
-     *  Returns wether or not this is the first item.
-     */
-
-  }, {
-    key: "getFirstItem",
-    value: function getFirstItem() {
-      return this.items.length ? this.items[0] : null;
-    }
-    /**
-     * Get the last item in this nav.
-     *
-     * @return {NavItem}
-     *  Returns wether or not this is the last item.
-     */
-
-  }, {
-    key: "getLastItem",
-    value: function getLastItem() {
-      return this.items.length ? this.items[this.items.length - 1] : null;
-    }
-    /**
-     * Get the link associated with the first item in this nav.
-     *
-     * @return {HTMLAnchorElement}
-     *  Returns the very first link.
-     */
-
-  }, {
-    key: "getFirstLink",
-    value: function getFirstLink() {
-      return this.items.length ? this.getFirstItem().link : null;
-    }
-    /**
-     * Get the link associated with the last item in this nav.
-     *
-     * @return {HTMLAnchorElement}
-     *  Returns the very last link.
-     */
-
-  }, {
-    key: "getLastLink",
-    value: function getLastLink() {
-      return this.items.length ? this.getLastItem().link : null;
-    } // -------------------------------------------------------------------------
     // Functional methods
     // -------------------------------------------------------------------------
-
-    /**
-     * Set the focus on the specified link in this nav.
-     *
-     * @param {String|Number} link - 'first' | 'last' | 'next'
-     *                                | 'prev' | numerical index
-     * @param {NavItem} currentItem - If link is 'next' or 'prev', currentItem
-     *                                is the NavItem that next / prev is
-     *                                relative to.
-     */
-
-  }, {
-    key: "focusOn",
-    value: function focusOn(link) {
-      var currentItem = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-      var currentIndex = null;
-      var lastIndex = null;
-
-      if (currentItem) {
-        currentIndex = this.items.indexOf(currentItem);
-        lastIndex = this.items.length - 1;
-      }
-
-      switch (link) {
-        case 'first':
-          this.getFirstLink().focus();
-          break;
-
-        case 'last':
-          this.getLastLink().focus();
-          break;
-
-        case 'next':
-          if (currentIndex === lastIndex) {
-            this.getFirstLink().focus();
-          } else {
-            this.items[currentIndex + 1].link.focus();
-          }
-
-          break;
-
-        case 'prev':
-          if (currentIndex === 0) {
-            this.getLastLink().focus();
-          } else {
-            this.items[currentIndex - 1].link.focus();
-          }
-
-          break;
-
-        default:
-          if (Number.isInteger(link) && link >= 0 && link < this.items.length) {
-            this.items[link].link.focus();
-          }
-
-          break;
-      }
-    }
-    /**
-     * Close any mobile navs that might be open, then mark this mobile nav open.
-     * Optionally force focus on the first element in the nav (for keyboard nav)
-     *
-     * @param {Boolean} focusOnFirst - Whether or not to also focus on the
-     *                                 first element in the subnav.
-     */
-
-  }, {
-    key: "openMobileNav",
-    value: function openMobileNav() {
-      var focusOnFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-      Object(_globals__WEBPACK_IMPORTED_MODULE_0__["closeAllMobileNavs"])();
-      this.setExpanded('true');
-      this.toggle.innerText = 'Close';
-
-      if (focusOnFirst) {
-        // Focus on the first top level link.
-        this.focusOn('first');
-      } // Alert others the mobile nav has opened.
-
-
-      this.elem.dispatchEvent(this.openEvent);
-    }
-    /**
-     * Mark this mobile closed, and restore the button text to what it was
-     * initially.
-     */
-
-  }, {
-    key: "closeMobileNav",
-    value: function closeMobileNav() {
-      if (this.isExpanded()) {
-        this.setExpanded('false');
-        this.toggle.innerText = this.toggleText; // Alert others the mobile nav has closed.
-
-        this.elem.dispatchEvent(this.closeEvent);
-      }
-    } // -------------------------------------------------------------------------
+    // /**
+    //  * Set the focus on the specified link in this nav.
+    //  *
+    //  * @param {String|Number} link - 'first' | 'last' | 'next'
+    //  *                                | 'prev' | numerical index
+    //  * @param {NavItem} currentItem - If link is 'next' or 'prev', currentItem
+    //  *                                is the NavItem that next / prev is
+    //  *                                relative to.
+    //  */
+    // focusOn(link, currentItem = null) {
+    //   let currentIndex = null;
+    //   let lastIndex = null;
+    //   if (currentItem) {
+    //     currentIndex = this.items.indexOf(currentItem);
+    //     lastIndex = this.items.length - 1;
+    //   }
+    //   switch (link) {
+    //     case 'first':
+    //       this.getFirstLink().focus();
+    //       break;
+    //
+    //     case 'last':
+    //       this.getLastLink().focus();
+    //       break;
+    //
+    //     case 'next':
+    //       if (currentIndex === lastIndex) {
+    //         this.getFirstLink().focus();
+    //       }
+    //       else {
+    //         this.items[currentIndex + 1].link.focus();
+    //       }
+    //       break;
+    //
+    //     case 'prev':
+    //       if (currentIndex === 0) {
+    //         this.getLastLink().focus();
+    //       }
+    //       else {
+    //         this.items[currentIndex - 1].link.focus();
+    //       }
+    //       break;
+    //
+    //     default:
+    //       if (Number.isInteger(link) && link >= 0 && link < this.items.length) {
+    //         this.items[link].link.focus();
+    //       }
+    //       break;
+    //   }
+    // }
+    //
+    // -------------------------------------------------------------------------
     // Event handlers
     // -------------------------------------------------------------------------
+    // /**
+    //  * Handler for keydown events. keydown is bound to all Nav's.
+    //  * Dispatched from this.handleEvent().
+    //  *
+    //  * @param {KeyboardEvent} event   - The keyboard event object.
+    //  * @param {HTMLElement}   target  - The HTML Element target object.
+    //  */
+    // onKeydown(event, target) {
+    //   const theKey = event.key || event.keyCode;
+    //
+    //   if (isEsc(theKey)) {
+    //     if (this.isTopNav()) {
+    //       if (!this.isDesktopNav()) {
+    //         event.preventDefault();
+    //         event.stopPropagation();
+    //         this.closeMobileNav();
+    //         this.toggle.focus();
+    //       }
+    //     }
+    //     else {
+    //       if (this.()) {
+    //         event.preventDefault();
+    //         event.stopPropagation();
+    //         this.elem.closeSubNav(true);
+    //       }
+    //     }
+    //   }
+    //   else if (isEnter(theKey) || isSpace(theKey)) {
+    //     if (target === this.toggle) {
+    //       event.preventDefault();
+    //       event.stopPropagation();
+    //       if (!this.isExpanded()) {
+    //         this.openMobileNav();
+    //       }
+    //     }
+    //   }
+    // }
 
-    /**
-     * Handler for all events attached to an instance of this class. This method
-     * must exist when events are bound to an instance of a class
-     * (vs a function). This method is called for all events bound to an
-     * instance. It inspects the instance (this) for an appropriate handler
-     * based on the event type. If found, it dispatches the event to the
-     * appropriate handler.
-     *
-     * @param {KeyboardEvent} event - The keyboard event object.
-     *
-     * @return {*}
-     *  Whatever the dispatched handler returns (in our case nothing)
-     */
-
-  }, {
-    key: "handleEvent",
-    value: function handleEvent(event) {
-      event = event || window.event; // If this class has an onEvent method, e.g. onClick, onKeydown,
-      // invoke it.
-
-      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);
-
-      if (typeof this[handler] === 'function') {
-        // The element that was clicked.
-        var target = event.target || event.srcElement;
-        return this[handler](event, target);
-      }
-    }
-    /**
-     * Handler for click events. click is only bound to the mobile toggle.
-     * Dispatched from this.handleEvent().
-     *
-     * @param {KeyboardEvent} event   - The keyboard event object.
-     * @param {HTMLElement}   target  - The HTML Element target object.
-     */
-
-  }, {
-    key: "onClick",
-    value: function onClick(event, target) {
-      if (target === this.toggle) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        if (this.isExpanded()) {
-          this.closeMobileNav();
-        } else {
-          this.openMobileNav(false);
-        }
-      }
-    }
-    /**
-     * Handler for keydown events. keydown is bound to all Nav's.
-     * Dispatched from this.handleEvent().
-     *
-     * @param {KeyboardEvent} event   - The keyboard event object.
-     * @param {HTMLElement}   target  - The HTML Element target object.
-     */
-
-  }, {
-    key: "onKeydown",
-    value: function onKeydown(event, target) {
-      var theKey = event.key || event.keyCode;
-
-      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isEsc"])(theKey)) {
-        if (this.isTopNav()) {
-          if (!this.isDesktopNav()) {
-            event.preventDefault();
-            event.stopPropagation();
-            this.closeMobileNav();
-            this.toggle.focus();
-          }
-        } else {
-          if (this.isExpanded()) {
-            event.preventDefault();
-            event.stopPropagation();
-            this.elem.closeSubNav(true);
-          }
-        }
-      } else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isEnter"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isSpace"])(theKey)) {
-        if (target === this.toggle) {
-          event.preventDefault();
-          event.stopPropagation();
-
-          if (!this.isExpanded()) {
-            this.openMobileNav();
-          }
-        }
-      }
-    }
   }]);
 
   return Nav;
@@ -631,8 +382,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  *                                  May be a main nav (<nav>) or subnav (Nav).
  * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
  *                                  item (the <li>).
- * @prop {Nav}             subNav - if item is the trigger for a subnav, this
- *                                  is an instonce Nav that models the subnav.
  */
 
 var NavItem =
@@ -651,20 +400,7 @@ function () {
     this.item = item;
     this.nav = nav;
     this.link = this.item.querySelector('a');
-    this.subNav = null;
     this.item.addEventListener('keydown', this);
-
-    if (this.isSubNavTrigger()) {
-      this.subNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](this.item, options); // Add custom events to alert others when a subnav opens or closes.
-      // this.openEvent is dispatched in this.openSubNav().
-
-      this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_3__["createEvent"])('openSubnav'); // this.closeEvent is dispatched in this.closeSubNav().
-
-      this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_3__["createEvent"])('closeSubnav'); // Maintain global list of subnavs for closeAllSubNavs().
-
-      _globals__WEBPACK_IMPORTED_MODULE_0__["theSubNavs"].push(this);
-      this.item.addEventListener('click', this);
-    }
   } // -------------------------------------------------------------------------
   // Helper Methods.
   // -------------------------------------------------------------------------
@@ -693,118 +429,10 @@ function () {
     key: "isLastItem",
     value: function isLastItem() {
       return this.nav.items.indexOf(this) === this.nav.items.length - 1;
-    }
-    /**
-     * Is this a trigger that opens / closes a subnav?
-     *
-     * @return {Boolean}
-     *  Wether or not the item is the sub nav trigger item.
-     */
-
-  }, {
-    key: "isSubNavTrigger",
-    value: function isSubNavTrigger() {
-      return this.item.lastElementChild.tagName.toUpperCase() === 'UL';
-    }
-    /**
-     * Is this a component of a subnav - either the trigger or a nav item?
-     *
-     * @return {Boolean}
-     *  Wether or not the item is a subnav item.
-     */
-
-  }, {
-    key: "isSubNavItem",
-    value: function isSubNavItem() {
-      return this.isSubNavTrigger() || this.nav.isSubNav();
-    }
-    /**
-     * Is this expanded? Can only return TRUE if this is a subnav trigger.
-     *
-     * @return {Boolean}
-     *  Wether or not the item is expanded.
-     */
-
-  }, {
-    key: "isExpanded",
-    value: function isExpanded() {
-      return this.link.getAttribute('aria-expanded') === 'true';
-    }
-    /**
-     * Set whether or not this is expanded.
-     * Only meaningful if this is a subnav trigger.
-     *
-     * @param {String} value - What to set the aria-expanded attribute of this's
-     *                         link to.
-     */
-
-  }, {
-    key: "setExpanded",
-    value: function setExpanded(value) {
-      this.link.setAttribute('aria-expanded', value);
     } // -------------------------------------------------------------------------
     // Functional Methods.
     // -------------------------------------------------------------------------
-
-    /**
-     * Handles the opening of a sub-nav.
-     *
-     * If this is a subnav trigger, open the corresponding subnav.
-     * Optionally force focus on the first element in the subnav
-     * (for keyboard nav).
-     *
-     * @param {Boolean} focusOnFirst - whether or not to also focus on the first
-     *                                 element in the subnav
-     */
-
-  }, {
-    key: "openSubNav",
-    value: function openSubNav() {
-      var focusOnFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-      Object(_globals__WEBPACK_IMPORTED_MODULE_0__["closeAllSubNavs"])();
-
-      if (this.isSubNavTrigger()) {
-        this.item.classList.add(this.options.expandedClass);
-        this.setExpanded('true');
-
-        if (focusOnFirst) {
-          this.subNav.focusOn('first');
-        }
-
-        this.item.dispatchEvent(this.openEvent);
-      }
-    }
-    /**
-     * Handles the closing of a subnav.
-     *
-     * If this is a subnav trigger or an item in a subnav, close the
-     * corresponding subnav. Optionally force focus on the trigger.
-     *
-     * @param {Boolean} focusOnTrigger - Whether or not to also focus on the
-     *                                 subnav's trigger.
-     */
-
-  }, {
-    key: "closeSubNav",
-    value: function closeSubNav() {
-      var focusOnTrigger = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-      if (this.isSubNavTrigger()) {
-        if (this.isExpanded()) {
-          this.item.classList.remove(this.options.expandedClass);
-          this.setExpanded('false');
-
-          if (focusOnTrigger) {
-            this.link.focus();
-          }
-
-          this.item.dispatchEvent(this.closeEvent);
-        }
-      } else if (this.isSubNavItem()) {
-        // This.nav.elem should be a subNavTrigger.
-        this.nav.elem.closeSubNav(focusOnTrigger);
-      }
-    } // -------------------------------------------------------------------------
+    // -------------------------------------------------------------------------
     // Event Handlers.
     // -------------------------------------------------------------------------
 
@@ -827,13 +455,16 @@ function () {
     value: function handleEvent(event) {
       event = event || window.event; // If this class has an onEvent method (onClick, onKeydown) invoke it.
 
-      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);
+      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1); // What was clicked.
 
-      if (typeof this[handler] === 'function') {
-        // The element that was clicked.
-        var target = event.target || event.srcElement;
-        return this[handler](event, target);
-      }
+      var target = event.target || event.srcElement; // If the caller passed in their own event handling use that instead.
+
+      if (this.options.itemEvents && this.options.itemEvents[handler]) {
+        new this.options.itemEvents[handler](event, this);
+      } // Otherwise, check to see if we have an event available.
+      else if (typeof this[handler] === 'function') {
+          return this[handler](event, target);
+        }
     }
     /**
      * Handler for keydown events. keydown is bound to all NavItem's.
@@ -933,36 +564,363 @@ function () {
                       }
                     }
     }
-    /**
-     * Handler for click events.
-     *
-     * Dispatched from this.handleEvent().
-     * Click is only bound to subnav triggers. However, click bubbles up from
-     * subnav items to the trigger.
-     *
-     * @param {KeyboardEvent} event - The keyboard event object.
-     * @param {HTMLElement} target  - The HTML element target.
-     */
-
-  }, {
-    key: "onClick",
-    value: function onClick(event, target) {
-      if (this.isExpanded()) {
-        this.closeSubNav();
-      } else {
-        this.openSubNav(false);
-      } // If the click is directly on the trigger, then we're done.
-
-
-      if (target === this.link) {
-        event.preventDefault();
-        event.stopPropagation();
-      }
-    }
   }]);
 
   return NavItem;
 }();
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/main-nav/NavToggle.js":
+/*!******************************************************!*\
+  !*** ./core/src/js/components/main-nav/NavToggle.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NavToggle; });
+/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+/**
+ *
+ */
+
+var NavToggle =
+/*#__PURE__*/
+function () {
+  /**
+   * [constructor description]
+   * @param {[type]} element [description]
+   * @param {[type]} options [description]
+   */
+  function NavToggle(element, options) {
+    _classCallCheck(this, NavToggle);
+
+    // Params.
+    this.element = element;
+    this.options = options;
+    this.nav = options.nav;
+    this.toggleText = options.toggleText || element.innerText;
+    this.closeText = options.closeText || 'Close';
+    this.clickHandler = options.clickHandler || this;
+    this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_0__["createEvent"])('openNav');
+    this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_0__["createEvent"])('closeNav'); // Event listeners.
+
+    this.element.addEventListener('click', this.clickHandler);
+  }
+  /**
+   * Handler for all events attached to an instance of this class. This method
+   * must exist when events are bound to an instance of a class
+   * (vs a function). This method is called for all events bound to an
+   * instance. It inspects the instance (this) for an appropriate handler
+   * based on the event type. If found, it dispatches the event to the
+   * appropriate handler.
+   *
+   * @param {KeyboardEvent} event - The keyboard event object.
+   *
+   * @return {*}
+   *  Whatever the dispatched handler returns (in our case nothing)
+   */
+
+
+  _createClass(NavToggle, [{
+    key: "handleEvent",
+    value: function handleEvent(event) {
+      event = event || window.event; // If this class has an onEvent method, e.g. onClick, onKeydown,
+      // invoke it.
+
+      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);
+
+      if (typeof this[handler] === 'function') {
+        // The element that was clicked.
+        var target = event.target || event.srcElement;
+        return this[handler](event, target);
+      }
+    }
+    /**
+     * Handler for click events. click is only bound to the  toggle.
+     * Dispatched from this.handleEvent().
+     *
+     * @param {KeyboardEvent} event   - The keyboard event object.
+     */
+
+  }, {
+    key: "onClick",
+    value: function onClick(event) {
+      // Don't go nowhere.
+      event.preventDefault();
+      event.stopPropagation(); // Toggle open and close.
+
+      if (this.isExpanded()) {
+        this.closeNav();
+      } else {
+        this.openNav(false);
+      }
+    }
+    /**
+     * Close any  navs that might be open, then mark this  nav open.
+     * Optionally force focus on the first element in the nav (for keyboard nav)
+     *
+     * @param {Boolean} focusOnFirst - Whether or not to also focus on the
+     *                                 first element in the subnav.
+     */
+
+  }, {
+    key: "openNav",
+    value: function openNav() {
+      var focusOnFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      // closeAllNavs();
+      this.setExpanded(true);
+      this.element.innerText = this.closeText; // Focus on the first link in the nav.
+
+      if (focusOnFirst) {
+        this.nav.querySelector("a").focus();
+      } // Alert others the  nav has opened.
+
+
+      this.element.dispatchEvent(this.openEvent);
+    }
+    /**
+     * Mark this  closed, and restore the button text to what it was
+     * initially.
+     */
+
+  }, {
+    key: "closeNav",
+    value: function closeNav() {
+      if (this.isExpanded()) {
+        this.setExpanded('false');
+        this.element.innerText = this.toggleText; // Alert others the  nav has closed.
+
+        this.element.dispatchEvent(this.closeEvent);
+      }
+    }
+    /**
+     * Set whether or not this is expanded.
+     */
+
+  }, {
+    key: "setExpanded",
+    value: function setExpanded(value) {
+      this.element.setAttribute('aria-expanded', value);
+      this.nav.setAttribute('aria-expanded', value);
+    }
+    /**
+     * Is this expanded?
+     *
+     * @return {Boolean}
+     *   Returns wether or not the item is expanded.
+     */
+
+  }, {
+    key: "isExpanded",
+    value: function isExpanded() {
+      return this.element.getAttribute('aria-expanded') === 'true';
+    }
+  }]);
+
+  return NavToggle;
+}();
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/main-nav/SubNavItem.js":
+/*!*******************************************************!*\
+  !*** ./core/src/js/components/main-nav/SubNavItem.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SubNavItem; });
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./core/src/js/components/main-nav/globals.js");
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
+/* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NavItem */ "./core/src/js/components/main-nav/NavItem.js");
+/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+/**
+ * Represent an item in a navigation menu. May be a direct link or a subnav
+ * trigger.
+ *
+ * @prop {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
+ * @prop {HTMLElement|Nav} nav    - the Nav that contains the element.
+ *                                  May be a main nav (<nav>) or subnav (Nav).
+ * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
+ *                                  item (the <li>).
+ * @prop {Nav}             subNav - if item is the trigger for a subnav, this
+ *                                  is an instonce Nav that models the subnav.
+ */
+
+var SubNavItem =
+/*#__PURE__*/
+function (_NavItem) {
+  _inherits(SubNavItem, _NavItem);
+
+  /**
+   * Create a NavItem
+   * @param {HTMLLIElement}   item  - The <li> that is the NavItem in the DOM.
+   * @param {HTMLElement|Nav} nav   - The Nav that contains the element. May
+   *                                  be a main nav (<nav>) or a subnav (Nav).
+   */
+  function SubNavItem(item, nav, options) {
+    var _this;
+
+    _classCallCheck(this, SubNavItem);
+
+    // I'm feelin supa!
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SubNavItem).call(this, item, nav, options)); // Create the children navs.
+
+    _this.subNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](_this.item, options); // Add custom events to alert others when a subnav opens or closes.
+    // this.openEvent is dispatched in this.openSubNav().
+
+    _this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_4__["createEvent"])('openSubnav'); // this.closeEvent is dispatched in this.closeSubNav().
+
+    _this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_4__["createEvent"])('closeSubnav'); // Click event.
+
+    _this.item.addEventListener('click', _assertThisInitialized(_this));
+
+    return _this;
+  }
+  /**
+   * Handler for click events.
+   *
+   * Dispatched from this.handleEvent().
+   * Click is only bound to subnav triggers. However, click bubbles up from
+   * subnav items to the trigger.
+   *
+   * @param {KeyboardEvent} event - The keyboard event object.
+   * @param {HTMLElement} target  - The HTML element target.
+   */
+
+
+  _createClass(SubNavItem, [{
+    key: "onClick",
+    value: function onClick(event, target) {
+      // If the click is not on the trigger then ignore.
+      if (target !== this.link) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (this.isExpanded()) {
+        this.closeSubNav();
+      } else {
+        this.openSubNav(false);
+      }
+    }
+    /**
+     * Handles the opening of a sub-nav.
+     *
+     * If this is a subnav trigger, open the corresponding subnav.
+     * Optionally force focus on the first element in the subnav
+     * (for keyboard nav).
+     *
+     * @param {Boolean} focusOnFirst - whether or not to also focus on the first
+     *                                 element in the subnav
+     */
+
+  }, {
+    key: "openSubNav",
+    value: function openSubNav() {
+      var focusOnFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      this.item.classList.add(this.options.itemExpandedClass);
+      this.setExpanded(true);
+      this.item.dispatchEvent(this.openEvent);
+    }
+    /**
+     * Handles the closing of a subnav.
+     *
+     * If this is a subnav trigger or an item in a subnav, close the
+     * corresponding subnav. Optionally force focus on the trigger.
+     *
+     * @param {Boolean} focusOnTrigger - Whether or not to also focus on the
+     *                                 subnav's trigger.
+     */
+
+  }, {
+    key: "closeSubNav",
+    value: function closeSubNav() {
+      var focusOnTrigger = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+      if (this.isExpanded()) {
+        this.item.classList.remove(this.options.itemExpandedClass);
+        this.setExpanded('false');
+
+        if (focusOnTrigger) {
+          this.link.focus();
+        }
+
+        this.item.dispatchEvent(this.closeEvent);
+      }
+    }
+    /**
+     * Is this expanded? Can only return TRUE if this is a subnav trigger.
+     *
+     * @return {Boolean}
+     *  Wether or not the item is expanded.
+     */
+
+  }, {
+    key: "isExpanded",
+    value: function isExpanded() {
+      return this.link.getAttribute('aria-expanded') === 'true';
+    }
+    /**
+     * Set whether or not this is expanded.
+     * Only meaningful if this is a subnav trigger.
+     *
+     * @param {String} value - What to set the aria-expanded attribute of this's
+     *                         link to.
+     */
+
+  }, {
+    key: "setExpanded",
+    value: function setExpanded(value) {
+      this.link.setAttribute('aria-expanded', value);
+      this.subNav.elem.setAttribute('aria-expanded', value);
+    }
+  }]);
+
+  return SubNavItem;
+}(_NavItem__WEBPACK_IMPORTED_MODULE_3__["default"]);
 
 
 
@@ -1034,8 +992,9 @@ var closeAllMobileNavs = function closeAllMobileNavs() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ "./core/src/js/core/core.js");
 /* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globals */ "./core/src/js/components/main-nav/globals.js");
-/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
+/* harmony import */ var _NavToggle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavToggle */ "./core/src/js/components/main-nav/NavToggle.js");
+ // import { theNavs, theSubNavs, closeAllSubNavs, closeAllMobileNavs } from './globals';
 
 
 
@@ -1043,42 +1002,32 @@ document.addEventListener('DOMContentLoaded', function (event) {
   // The css class that this following behaviour is applied to.
   var navClass = 'su-main-nav'; // All main navs.
 
-  var navs = document.querySelectorAll('.' + navClass); // Main nav specific settings.
+  var navs = document.querySelectorAll('.' + navClass); // Main nav default constructor options.
 
   var options = {
     'zIndex': null,
-    'toggleElement': null,
-    'toggleText': '',
-    'expandedClass': 'su-main-nav__item--expanded',
-    'idPrefix': "su-"
-  };
+    'toggle': null,
+    'itemExpandedClass': 'su-main-nav__item--expanded'
+  }; // Loop through each of the navs and create a new instance.
+
   navs.forEach(function (nav, index) {
-    // Manage zindexes in case there are multiple navs near enough for subnavs to overlap.
-    // Rare, but it happens in the styleguide.
+    // Manage z-indexes in case there are multiple navs near each other.
     if (index >= 1) {
       var zndx = getComputedStyle(navs[index - 1], null).zIndex;
-      zndx++;
-      options.zindex = zndx;
-    } // Define the toggle element.
+      zndx--;
+      options.zIndex = zndx;
+    } // Create the toggle element to pass in to the nav constructor.
 
 
-    options.toggleElement = nav.querySelector(nav.tagName + ' > button'); // Create an instance of Nav, which in turn creates appropriate instances of NavItem.
+    var toggleElement = nav.querySelector(nav.tagName + ' > button');
+    var toggleOptions = {
+      'nav': nav
+    };
+    options.toggle = new _NavToggle__WEBPACK_IMPORTED_MODULE_2__["default"](toggleElement, toggleOptions); // Create an instance of Nav,
+    // which in turn creates appropriate instances of NavItem.
 
-    var theNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](nav, options); // Remember the nav for closeAllMobileNavs().
-
-    _globals__WEBPACK_IMPORTED_MODULE_1__["theNavs"].push(theNav);
-  }); // navs.forEach
-  // Clicking anywhere outside a nav closes all navs.
-
-  document.addEventListener('click', function (event) {
-    // The element that was clicked.
-    var target = event.target || event.srcElement; // If target is not under a main nav close all navs.
-
-    if (!target.matches('.' + navClass + ' ' + target.tagName)) {
-      Object(_globals__WEBPACK_IMPORTED_MODULE_1__["closeAllSubNavs"])();
-      Object(_globals__WEBPACK_IMPORTED_MODULE_1__["closeAllMobileNavs"])();
-    }
-  }, false);
+    var theNav = new _Nav__WEBPACK_IMPORTED_MODULE_1__["default"](nav, options);
+  });
 }); // on DOMContentLoaded.
 
 /***/ }),
@@ -1104,14 +1053,20 @@ document.addEventListener('DOMContentLoaded', function (event) {
   var navs = document.querySelectorAll('.' + navClass); // Secondary nav specific settings.
 
   var options = {
-    'toggleElement': null,
-    'expandedClass': 'su-secondary-nav__item--expanded',
-    'idPrefix': "su-"
+    'itemExpandedClass': 'su-secondary-nav__item--expanded',
+    'itemEvents': {
+      'onClick': function onClick(event, navItem) {
+        console.log(event);
+        console.log(navItem);
+        var target = event.target || event.srcElement;
+        navItem.onClick(event, target);
+      }
+    }
   }; // Generate the Accordion toggle for each nav.
 
   navs.forEach(function (nav) {
     // Create an instance of Nav, which in turn creates appropriate instances of NavItem.
-    var theNav = new _main_nav_Nav__WEBPACK_IMPORTED_MODULE_1__["default"](nav, options);
+    new _main_nav_Nav__WEBPACK_IMPORTED_MODULE_1__["default"](nav, options);
   });
 });
 

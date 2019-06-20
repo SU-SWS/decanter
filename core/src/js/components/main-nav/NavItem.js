@@ -12,8 +12,6 @@ import {createEvent} from '../../utilities/events';
  *                                  May be a main nav (<nav>) or subnav (Nav).
  * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
  *                                  item (the <li>).
- * @prop {Nav}             subNav - if item is the trigger for a subnav, this
- *                                  is an instonce Nav that models the subnav.
  */
 export default class NavItem {
 
@@ -28,21 +26,7 @@ export default class NavItem {
     this.item = item;
     this.nav = nav;
     this.link = this.item.querySelector('a');
-    this.subNav = null;
     this.item.addEventListener('keydown', this);
-
-    if (this.isSubNavTrigger()) {
-      this.subNav = new Nav(this.item, options);
-      // Add custom events to alert others when a subnav opens or closes.
-      // this.openEvent is dispatched in this.openSubNav().
-      this.openEvent = createEvent('openSubnav');
-      // this.closeEvent is dispatched in this.closeSubNav().
-      this.closeEvent = createEvent('closeSubnav');
-
-      // Maintain global list of subnavs for closeAllSubNavs().
-      theSubNavs.push(this);
-      this.item.addEventListener('click', this);
-    }
   }
 
   // -------------------------------------------------------------------------
@@ -69,99 +53,12 @@ export default class NavItem {
     return this.nav.items.indexOf(this) === (this.nav.items.length - 1);
   }
 
-  /**
-   * Is this a trigger that opens / closes a subnav?
-   *
-   * @return {Boolean}
-   *  Wether or not the item is the sub nav trigger item.
-   */
-  isSubNavTrigger() {
-    return this.item.lastElementChild.tagName.toUpperCase() === 'UL';
-  }
-
-  /**
-   * Is this a component of a subnav - either the trigger or a nav item?
-   *
-   * @return {Boolean}
-   *  Wether or not the item is a subnav item.
-   */
-  isSubNavItem() {
-    return (this.isSubNavTrigger() || this.nav.isSubNav());
-  }
-
-  /**
-   * Is this expanded? Can only return TRUE if this is a subnav trigger.
-   *
-   * @return {Boolean}
-   *  Wether or not the item is expanded.
-   */
-  isExpanded() {
-    return this.link.getAttribute('aria-expanded') === 'true';
-  }
-
-  /**
-   * Set whether or not this is expanded.
-   * Only meaningful if this is a subnav trigger.
-   *
-   * @param {String} value - What to set the aria-expanded attribute of this's
-   *                         link to.
-   */
-  setExpanded(value) {
-    this.link.setAttribute('aria-expanded', value);
-  }
 
   // -------------------------------------------------------------------------
   // Functional Methods.
   // -------------------------------------------------------------------------
 
-  /**
-   * Handles the opening of a sub-nav.
-   *
-   * If this is a subnav trigger, open the corresponding subnav.
-   * Optionally force focus on the first element in the subnav
-   * (for keyboard nav).
-   *
-   * @param {Boolean} focusOnFirst - whether or not to also focus on the first
-   *                                 element in the subnav
-   */
-  openSubNav(focusOnFirst = true) {
-    closeAllSubNavs();
 
-    if (this.isSubNavTrigger()) {
-      this.item.classList.add(this.options.expandedClass);
-      this.setExpanded('true');
-      if (focusOnFirst) {
-        this.subNav.focusOn('first');
-      }
-      this.item.dispatchEvent(this.openEvent);
-    }
-  }
-
-  /**
-   * Handles the closing of a subnav.
-   *
-   * If this is a subnav trigger or an item in a subnav, close the
-   * corresponding subnav. Optionally force focus on the trigger.
-   *
-   * @param {Boolean} focusOnTrigger - Whether or not to also focus on the
-   *                                 subnav's trigger.
-   */
-  closeSubNav(focusOnTrigger = false) {
-    if (this.isSubNavTrigger()) {
-      if (this.isExpanded()) {
-        this.item.classList.remove(this.options.expandedClass);
-        this.setExpanded('false');
-        if (focusOnTrigger) {
-          this.link.focus();
-        }
-        this.item.dispatchEvent(this.closeEvent);
-      }
-    }
-    else if (this.isSubNavItem()) {
-      // This.nav.elem should be a subNavTrigger.
-      this.nav.elem.closeSubNav(focusOnTrigger);
-    }
-  }
 
   // -------------------------------------------------------------------------
   // Event Handlers.
@@ -188,9 +85,15 @@ export default class NavItem {
       + event.type.charAt(0).toUpperCase()
       + event.type.slice(1);
 
-    if (typeof this[handler] === 'function') {
-      // The element that was clicked.
-      const target = event.target || event.srcElement;
+    // What was clicked.
+    const target = event.target || event.srcElement;
+
+    // If the caller passed in their own event handling use that instead.
+    if (this.options.itemEvents && this.options.itemEvents[handler]) {
+      new this.options.itemEvents[handler](event, this);
+    }
+    // Otherwise, check to see if we have an event available.
+    else if (typeof this[handler] === 'function') {
       return this[handler](event, target);
     }
   }
@@ -299,30 +202,6 @@ export default class NavItem {
       ) {
         this.closeSubNav(true);
       }
-    }
-  }
-
-  /**
-   * Handler for click events.
-   *
-   * Dispatched from this.handleEvent().
-   * Click is only bound to subnav triggers. However, click bubbles up from
-   * subnav items to the trigger.
-   *
-   * @param {KeyboardEvent} event - The keyboard event object.
-   * @param {HTMLElement} target  - The HTML element target.
-   */
-  onClick(event, target) {
-    if (this.isExpanded()) {
-      this.closeSubNav();
-    }
-    else {
-      this.openSubNav(false);
-    }
-    // If the click is directly on the trigger, then we're done.
-    if (target === this.link) {
-      event.preventDefault();
-      event.stopPropagation();
     }
   }
 
