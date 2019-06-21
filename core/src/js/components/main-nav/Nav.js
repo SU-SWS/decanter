@@ -1,4 +1,3 @@
-import { closeAllMobileNavs } from './globals';
 import { isEsc, isSpace, isEnter } from "../../utilities/keyboard";
 import { createEvent } from '../../utilities/events';
 import NavItem from './NavItem';
@@ -59,7 +58,8 @@ export default class Nav {
     this.elem.id = this.idPrefix + id;
 
     // Initialize items.
-    this.items = [];
+    this.navItems = [];
+    this.subNavItems = [];
     this.createNavItems();
 
     // Initialize the event listeners.
@@ -76,10 +76,10 @@ export default class Nav {
       item => {
         // Subnav items have special behaviour.
         if (item.querySelector(item.tagName + " > ul")) {
-          this.items.push(new SubNavItem(item, this, this.options));
+          this.subNavItems.push(new SubNavItem(item, this, this.options));
         }
         else {
-          this.items.push(new NavItem(item, this, this.options));
+          this.navItems.push(new NavItem(item, this, this.options));
         }
       }
     );
@@ -90,8 +90,12 @@ export default class Nav {
    * @return {[type]} [description]
    */
   createEventListeners() {
+
     // What do when key down?
     this.elem.addEventListener('keydown', this);
+
+    // Listen to the close so we can act on it.
+    this.elem.addEventListener('preOpenSubnav', this);
 
     // If this nav has a toggle to open and close it on mobile, add a handler
     // to account for clicking off of the mobile nav.
@@ -111,115 +115,62 @@ export default class Nav {
     }
   }
 
-  // /**
-  //  * Is this rendering the desktop style for the nav?
-  //  *
-  //  * @return {Boolean}
-  //  *  Returns wether or not it is desktop navigation.
-  //  */
-  // isDesktopNav() {
-  //   return getComputedStyle(this.topNav.toggle).display === 'none';
-  // }
-
   // -------------------------------------------------------------------------
-  // Functional methods
+  // Event Handlers.
   // -------------------------------------------------------------------------
 
-  // /**
-  //  * Set the focus on the specified link in this nav.
-  //  *
-  //  * @param {String|Number} link - 'first' | 'last' | 'next'
-  //  *                                | 'prev' | numerical index
-  //  * @param {NavItem} currentItem - If link is 'next' or 'prev', currentItem
-  //  *                                is the NavItem that next / prev is
-  //  *                                relative to.
-  //  */
-  // focusOn(link, currentItem = null) {
-  //   let currentIndex = null;
-  //   let lastIndex = null;
-  //   if (currentItem) {
-  //     currentIndex = this.items.indexOf(currentItem);
-  //     lastIndex = this.items.length - 1;
-  //   }
-  //   switch (link) {
-  //     case 'first':
-  //       this.getFirstLink().focus();
-  //       break;
-  //
-  //     case 'last':
-  //       this.getLastLink().focus();
-  //       break;
-  //
-  //     case 'next':
-  //       if (currentIndex === lastIndex) {
-  //         this.getFirstLink().focus();
-  //       }
-  //       else {
-  //         this.items[currentIndex + 1].link.focus();
-  //       }
-  //       break;
-  //
-  //     case 'prev':
-  //       if (currentIndex === 0) {
-  //         this.getLastLink().focus();
-  //       }
-  //       else {
-  //         this.items[currentIndex - 1].link.focus();
-  //       }
-  //       break;
-  //
-  //     default:
-  //       if (Number.isInteger(link) && link >= 0 && link < this.items.length) {
-  //         this.items[link].link.focus();
-  //       }
-  //       break;
-  //   }
-  // }
-  //
+  /**
+   * Handler for all events attached to an instance of this class. This method
+   * must exist when events are bound to an instance of a class
+   * (vs a function). This method is called for all events bound to an
+   * instance. It inspects the instance (this) for an appropriate handler
+   * based on the event type. If found, it dispatches the event to the
+   * appropriate handler.
+   *
+   * @param {KeyboardEvent} event - The keyboard event.
+   *
+   * @return {*}
+   *   Whatever the dispatched handler returns (in our case nothing)
+   */
+  handleEvent(event) {
+    event = event || window.event;
 
+    // If this class has an onEvent method (onClick, onKeydown) invoke it.
+    const handler = 'on'
+      + event.type.charAt(0).toUpperCase()
+      + event.type.slice(1);
 
-  // -------------------------------------------------------------------------
-  // Event handlers
-  // -------------------------------------------------------------------------
+    // What was clicked.
+    const target = event.target || event.srcElement;
 
+    // If the caller passed in their own event handling use that instead.
+    if (this.options.itemEvents && this.options.itemEvents[handler]) {
+      new this.options.itemEvents[handler](event, this);
+    }
+    // Otherwise, check to see if we have an event available.
+    else if (typeof this[handler] === 'function') {
+      return this[handler](event, target);
+    }
+  }
 
-
-  // /**
-  //  * Handler for keydown events. keydown is bound to all Nav's.
-  //  * Dispatched from this.handleEvent().
-  //  *
-  //  * @param {KeyboardEvent} event   - The keyboard event object.
-  //  * @param {HTMLElement}   target  - The HTML Element target object.
-  //  */
-  // onKeydown(event, target) {
-  //   const theKey = event.key || event.keyCode;
-  //
-  //   if (isEsc(theKey)) {
-  //     if (this.isTopNav()) {
-  //       if (!this.isDesktopNav()) {
-  //         event.preventDefault();
-  //         event.stopPropagation();
-  //         this.closeMobileNav();
-  //         this.toggle.focus();
-  //       }
-  //     }
-  //     else {
-  //       if (this.()) {
-  //         event.preventDefault();
-  //         event.stopPropagation();
-  //         this.elem.closeSubNav(true);
-  //       }
-  //     }
-  //   }
-  //   else if (isEnter(theKey) || isSpace(theKey)) {
-  //     if (target === this.toggle) {
-  //       event.preventDefault();
-  //       event.stopPropagation();
-  //       if (!this.isExpanded()) {
-  //         this.openMobileNav();
-  //       }
-  //     }
-  //   }
-  // }
+  /**
+   * [preOpenSubnav description]
+   * @param  {[type]} event     [description]
+   * @param  {[type]} parentNav [description]
+   * @return {[type]}           [description]
+   */
+  onPreOpenSubnav(event) {
+    console.log(event);
+    // Somebody is opening a nav. Check if this instance is in my purvey
+    // If we are not in the same parent. Close them all.
+    let triggerId = event.detail.nav.id || false;
+    if (triggerId !== this.id) {
+      this.subNavItems.forEach(
+        (item, event) => {
+          item.closeSubNav();
+        }
+      );
+    }
+  }
 
 }

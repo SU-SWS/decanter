@@ -1,9 +1,7 @@
-import {theSubNavs, closeAllSubNavs} from './globals';
 import {isHome, isEnd, isTab, isSpace, isEnter, isLeftArrow, isRightArrow, isUpArrow, isDownArrow} from "../../utilities/keyboard";
 import Nav from './Nav';
 import NavItem from './NavItem';
-import {createEvent} from '../../utilities/events';
-
+import 'custom-event-polyfill'; // @see https://github.com/krambuhl/custom-event-polyfill
 /**
  * Represent an item in a navigation menu. May be a direct link or a subnav
  * trigger.
@@ -33,11 +31,13 @@ export default class SubNavItem extends NavItem {
 
     // Add custom events to alert others when a subnav opens or closes.
     // this.openEvent is dispatched in this.openSubNav().
-    this.openEvent = createEvent('openSubnav');
+    this.preOpenEvent = new CustomEvent('preOpenSubnav', { bubbles: true, detail: { nav: this.nav }});
+    this.openEvent = new CustomEvent('openSubnav', { bubbles: true, detail: { nav: this.nav }});
+
     // this.closeEvent is dispatched in this.closeSubNav().
-    this.closeEvent = createEvent('closeSubnav');
-    // Click event.
-    this.item.addEventListener('click', this);
+    this.preCloseEvent = new CustomEvent('preCloseSubnav', { bubbles: true, detail: { nav: this.nav }});
+    this.closeEvent = new CustomEvent('closeSubnav', { bubbles: true, detail: { nav: this.nav }});
+
   }
 
   /**
@@ -79,6 +79,7 @@ export default class SubNavItem extends NavItem {
    *                                 element in the subnav
    */
   openSubNav(focusOnFirst = true) {
+    this.item.dispatchEvent(this.preOpenEvent);
     this.item.classList.add(this.options.itemExpandedClass);
     this.setExpanded(true);
     this.item.dispatchEvent(this.openEvent);
@@ -94,14 +95,13 @@ export default class SubNavItem extends NavItem {
    *                                 subnav's trigger.
    */
   closeSubNav(focusOnTrigger = false) {
-    if (this.isExpanded()) {
-      this.item.classList.remove(this.options.itemExpandedClass);
-      this.setExpanded('false');
-      if (focusOnTrigger) {
-        this.link.focus();
-      }
-      this.item.dispatchEvent(this.closeEvent);
+    this.item.dispatchEvent(this.preCloseEvent);
+    this.item.classList.remove(this.options.itemExpandedClass);
+    this.setExpanded('false');
+    if (focusOnTrigger) {
+      this.link.focus();
     }
+    this.item.dispatchEvent(this.closeEvent);
   }
 
   /**
@@ -123,7 +123,6 @@ export default class SubNavItem extends NavItem {
    */
   setExpanded(value) {
     this.link.setAttribute('aria-expanded', value);
-    this.subNav.elem.setAttribute('aria-expanded', value);
   }
 
 }

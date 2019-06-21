@@ -1,5 +1,4 @@
 import '../../core/core';
-// import { theNavs, theSubNavs, closeAllSubNavs, closeAllMobileNavs } from './globals';
 import Nav from './Nav';
 import NavToggle from './NavToggle';
 

@@ -112,17 +112,15 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Nav; });
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./core/src/js/components/main-nav/globals.js");
-/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
-/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
-/* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NavItem */ "./core/src/js/components/main-nav/NavItem.js");
-/* harmony import */ var _SubNavItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SubNavItem */ "./core/src/js/components/main-nav/SubNavItem.js");
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
+/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
+/* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavItem */ "./core/src/js/components/main-nav/NavItem.js");
+/* harmony import */ var _SubNavItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SubNavItem */ "./core/src/js/components/main-nav/SubNavItem.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
 
 
 
@@ -180,7 +178,8 @@ function () {
     this.id = this.idPrefix + id;
     this.elem.id = this.idPrefix + id; // Initialize items.
 
-    this.items = [];
+    this.navItems = [];
+    this.subNavItems = [];
     this.createNavItems(); // Initialize the event listeners.
 
     this.createEventListeners();
@@ -200,9 +199,9 @@ function () {
       items.forEach(function (item) {
         // Subnav items have special behaviour.
         if (item.querySelector(item.tagName + " > ul")) {
-          _this.items.push(new _SubNavItem__WEBPACK_IMPORTED_MODULE_4__["default"](item, _this, _this.options));
+          _this.subNavItems.push(new _SubNavItem__WEBPACK_IMPORTED_MODULE_3__["default"](item, _this, _this.options));
         } else {
-          _this.items.push(new _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"](item, _this, _this.options));
+          _this.navItems.push(new _NavItem__WEBPACK_IMPORTED_MODULE_2__["default"](item, _this, _this.options));
         }
       });
     }
@@ -217,7 +216,9 @@ function () {
       var _this2 = this;
 
       // What do when key down?
-      this.elem.addEventListener('keydown', this); // If this nav has a toggle to open and close it on mobile, add a handler
+      this.elem.addEventListener('keydown', this); // Listen to the close so we can act on it.
+
+      this.elem.addEventListener('preOpenSubnav', this); // If this nav has a toggle to open and close it on mobile, add a handler
       // to account for clicking off of the mobile nav.
 
       if (this.toggle) {
@@ -236,203 +237,7 @@ function () {
           }
         }, false);
       }
-    } // /**
-    //  * Is this rendering the desktop style for the nav?
-    //  *
-    //  * @return {Boolean}
-    //  *  Returns wether or not it is desktop navigation.
-    //  */
-    // isDesktopNav() {
-    //   return getComputedStyle(this.topNav.toggle).display === 'none';
-    // }
-    // -------------------------------------------------------------------------
-    // Functional methods
-    // -------------------------------------------------------------------------
-    // /**
-    //  * Set the focus on the specified link in this nav.
-    //  *
-    //  * @param {String|Number} link - 'first' | 'last' | 'next'
-    //  *                                | 'prev' | numerical index
-    //  * @param {NavItem} currentItem - If link is 'next' or 'prev', currentItem
-    //  *                                is the NavItem that next / prev is
-    //  *                                relative to.
-    //  */
-    // focusOn(link, currentItem = null) {
-    //   let currentIndex = null;
-    //   let lastIndex = null;
-    //   if (currentItem) {
-    //     currentIndex = this.items.indexOf(currentItem);
-    //     lastIndex = this.items.length - 1;
-    //   }
-    //   switch (link) {
-    //     case 'first':
-    //       this.getFirstLink().focus();
-    //       break;
-    //
-    //     case 'last':
-    //       this.getLastLink().focus();
-    //       break;
-    //
-    //     case 'next':
-    //       if (currentIndex === lastIndex) {
-    //         this.getFirstLink().focus();
-    //       }
-    //       else {
-    //         this.items[currentIndex + 1].link.focus();
-    //       }
-    //       break;
-    //
-    //     case 'prev':
-    //       if (currentIndex === 0) {
-    //         this.getLastLink().focus();
-    //       }
-    //       else {
-    //         this.items[currentIndex - 1].link.focus();
-    //       }
-    //       break;
-    //
-    //     default:
-    //       if (Number.isInteger(link) && link >= 0 && link < this.items.length) {
-    //         this.items[link].link.focus();
-    //       }
-    //       break;
-    //   }
-    // }
-    //
-    // -------------------------------------------------------------------------
-    // Event handlers
-    // -------------------------------------------------------------------------
-    // /**
-    //  * Handler for keydown events. keydown is bound to all Nav's.
-    //  * Dispatched from this.handleEvent().
-    //  *
-    //  * @param {KeyboardEvent} event   - The keyboard event object.
-    //  * @param {HTMLElement}   target  - The HTML Element target object.
-    //  */
-    // onKeydown(event, target) {
-    //   const theKey = event.key || event.keyCode;
-    //
-    //   if (isEsc(theKey)) {
-    //     if (this.isTopNav()) {
-    //       if (!this.isDesktopNav()) {
-    //         event.preventDefault();
-    //         event.stopPropagation();
-    //         this.closeMobileNav();
-    //         this.toggle.focus();
-    //       }
-    //     }
-    //     else {
-    //       if (this.()) {
-    //         event.preventDefault();
-    //         event.stopPropagation();
-    //         this.elem.closeSubNav(true);
-    //       }
-    //     }
-    //   }
-    //   else if (isEnter(theKey) || isSpace(theKey)) {
-    //     if (target === this.toggle) {
-    //       event.preventDefault();
-    //       event.stopPropagation();
-    //       if (!this.isExpanded()) {
-    //         this.openMobileNav();
-    //       }
-    //     }
-    //   }
-    // }
-
-  }]);
-
-  return Nav;
-}();
-
-
-
-/***/ }),
-
-/***/ "./core/src/js/components/main-nav/NavItem.js":
-/*!****************************************************!*\
-  !*** ./core/src/js/components/main-nav/NavItem.js ***!
-  \****************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NavItem; });
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./core/src/js/components/main-nav/globals.js");
-/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
-/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
-/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-
-
-
-
-/**
- * Represent an item in a navigation menu. May be a direct link or a subnav
- * trigger.
- *
- * @prop {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
- * @prop {HTMLElement|Nav} nav    - the Nav that contains the element.
- *                                  May be a main nav (<nav>) or subnav (Nav).
- * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
- *                                  item (the <li>).
- */
-
-var NavItem =
-/*#__PURE__*/
-function () {
-  /**
-   * Create a NavItem
-   * @param {HTMLLIElement}   item  - The <li> that is the NavItem in the DOM.
-   * @param {HTMLElement|Nav} nav   - The Nav that contains the element. May
-   *                                  be a main nav (<nav>) or a subnav (Nav).
-   */
-  function NavItem(item, nav, options) {
-    _classCallCheck(this, NavItem);
-
-    this.options = options;
-    this.item = item;
-    this.nav = nav;
-    this.link = this.item.querySelector('a');
-    this.item.addEventListener('keydown', this);
-  } // -------------------------------------------------------------------------
-  // Helper Methods.
-  // -------------------------------------------------------------------------
-
-  /**
-   * Is this the first item in the containing Nav?
-   *
-   * @return {Boolean}
-   *  Wether or not the item is the first item.
-   */
-
-
-  _createClass(NavItem, [{
-    key: "isFirstItem",
-    value: function isFirstItem() {
-      return this.nav.items.indexOf(this) === 0;
-    }
-    /**
-     * Is this the last item in the containing Nav?
-     *
-     * @return {Boolean}
-     *  Wether or not the item is the last item.
-     */
-
-  }, {
-    key: "isLastItem",
-    value: function isLastItem() {
-      return this.nav.items.indexOf(this) === this.nav.items.length - 1;
     } // -------------------------------------------------------------------------
-    // Functional Methods.
-    // -------------------------------------------------------------------------
-    // -------------------------------------------------------------------------
     // Event Handlers.
     // -------------------------------------------------------------------------
 
@@ -467,6 +272,122 @@ function () {
         }
     }
     /**
+     * [preOpenSubnav description]
+     * @param  {[type]} event     [description]
+     * @param  {[type]} parentNav [description]
+     * @return {[type]}           [description]
+     */
+
+  }, {
+    key: "onPreOpenSubnav",
+    value: function onPreOpenSubnav(event) {
+      console.log(event); // Somebody is opening a nav. Check if this instance is in my purvey
+      // If we are not in the same parent. Close them all.
+
+      var triggerId = event.detail.nav.id || false;
+
+      if (triggerId !== this.id) {
+        this.subNavItems.forEach(function (item, event) {
+          item.closeSubNav();
+        });
+      }
+    }
+  }]);
+
+  return Nav;
+}();
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/main-nav/NavItem.js":
+/*!****************************************************!*\
+  !*** ./core/src/js/components/main-nav/NavItem.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NavItem; });
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
+/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+/**
+ * Represent an item in a navigation menu. May be a direct link or a subnav
+ * trigger.
+ *
+ * @prop {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
+ * @prop {HTMLElement|Nav} nav    - the Nav that contains the element.
+ *                                  May be a main nav (<nav>) or subnav (Nav).
+ * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
+ *                                  item (the <li>).
+ */
+
+var NavItem =
+/*#__PURE__*/
+function () {
+  /**
+   * Create a NavItem
+   * @param {HTMLLIElement}   item  - The <li> that is the NavItem in the DOM.
+   * @param {HTMLElement|Nav} nav   - The Nav that contains the element. May
+   *                                  be a main nav (<nav>) or a subnav (Nav).
+   */
+  function NavItem(item, nav, options) {
+    _classCallCheck(this, NavItem);
+
+    this.options = options;
+    this.item = item;
+    this.nav = nav;
+    this.link = this.item.querySelector('a');
+    this.item.addEventListener('keydown', this);
+    this.item.addEventListener('click', this);
+  } // -------------------------------------------------------------------------
+  // Event Handlers.
+  // -------------------------------------------------------------------------
+
+  /**
+   * Handler for all events attached to an instance of this class. This method
+   * must exist when events are bound to an instance of a class
+   * (vs a function). This method is called for all events bound to an
+   * instance. It inspects the instance (this) for an appropriate handler
+   * based on the event type. If found, it dispatches the event to the
+   * appropriate handler.
+   *
+   * @param {KeyboardEvent} event - The keyboard event.
+   *
+   * @return {*}
+   *   Whatever the dispatched handler returns (in our case nothing)
+   */
+
+
+  _createClass(NavItem, [{
+    key: "handleEvent",
+    value: function handleEvent(event) {
+      event = event || window.event; // If this class has an onEvent method (onClick, onKeydown) invoke it.
+
+      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1); // What was clicked.
+
+      var target = event.target || event.srcElement; // If the caller passed in their own event handling use that instead.
+
+      if (this.options.itemEvents && this.options.itemEvents[handler]) {
+        new this.options.itemEvents[handler](event, this);
+      } // Otherwise, check to see if we have an event available.
+      else if (typeof this[handler] === 'function') {
+          return this[handler](event, target);
+        }
+    }
+    /**
      * Handler for keydown events. keydown is bound to all NavItem's.
      * Dispatched from this.handleEvent().
      *
@@ -477,92 +398,20 @@ function () {
   }, {
     key: "onKeydown",
     value: function onKeydown(event, target) {
-      var theKey = event.key || event.keyCode; // Handler for the space and enter key.
+      var theKey = event.key || event.keyCode;
+      console.log(theKey);
+    }
+    /**
+     * [onClick description]
+     * @param  {[type]} event  [description]
+     * @param  {[type]} target [description]
+     * @return {[type]}        [description]
+     */
 
-      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isSpace"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isEnter"])(theKey)) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        if (this.isSubNavTrigger()) {
-          this.openSubNav();
-        } else {
-          window.location = this.link;
-        }
-      } // Handler for the down arrow key.
-      else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isDownArrow"])(theKey)) {
-          event.preventDefault();
-          event.stopPropagation();
-
-          if (this.nav.isDesktopNav()) {
-            if (this.isSubNavTrigger()) {
-              this.openSubNav();
-            } else {
-              this.nav.focusOn('next', this);
-            }
-          } else {
-            this.nav.focusOn('next', this);
-          }
-        } // Handler for the up arrow key.
-        else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isUpArrow"])(theKey)) {
-            event.preventDefault();
-            event.stopPropagation();
-            this.nav.focusOn('prev', this);
-          } // Handler for the left arrow key.
-          else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isLeftArrow"])(theKey)) {
-              event.preventDefault();
-              event.stopPropagation();
-
-              if (this.nav.isDesktopNav()) {
-                if (this.nav.isSubNav()) {
-                  this.closeSubNav();
-                  var parent = this.nav.getParentNav(); // Focus on the previous item in the parent nav.
-
-                  parent.focusOn('prev', this.nav.elem);
-                } else {
-                  this.nav.focusOn('prev', this);
-                }
-              } else {
-                if (this.isSubNavItem()) {
-                  // Close the subnav and put the focus on the trigger.
-                  this.closeSubNav(true);
-                }
-              }
-            } // Handler for the right arrow key.
-            else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isRightArrow"])(theKey)) {
-                event.preventDefault();
-                event.stopPropagation();
-
-                if (this.nav.isDesktopNav()) {
-                  if (this.nav.isSubNav()) {
-                    this.closeSubNav();
-
-                    var _parent = this.nav.getParentNav(); // Focus on the next item in the parent nav.
-
-
-                    _parent.focusOn('next', this.nav.elem);
-                  } else {
-                    this.nav.focusOn('next', this);
-                  }
-                } else {
-                  if (this.isSubNavTrigger()) {
-                    this.openSubNav();
-                  }
-                }
-              } // Handler for the home key.
-              else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isHome"])(theKey)) {
-                  this.nav.focusOn('first');
-                } // Handler for the end key.
-                else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isEnd"])(theKey)) {
-                    this.nav.focusOn('last');
-                  } // Handler for the tab key.
-                  else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isTab"])(theKey)) {
-                      event.stopPropagation();
-                      var shifted = event.shiftKey;
-
-                      if (this.isSubNavItem() && (!shifted && this.isLastItem() || shifted && this.isFirstItem())) {
-                        this.closeSubNav(true);
-                      }
-                    }
+  }, {
+    key: "onClick",
+    value: function onClick(event, target) {
+      console.log(target);
     }
   }]);
 
@@ -746,11 +595,11 @@ function () {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SubNavItem; });
-/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./core/src/js/components/main-nav/globals.js");
-/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
-/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
-/* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NavItem */ "./core/src/js/components/main-nav/NavItem.js");
-/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
+/* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavItem */ "./core/src/js/components/main-nav/NavItem.js");
+/* harmony import */ var custom_event_polyfill__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! custom-event-polyfill */ "./node_modules/custom-event-polyfill/polyfill.js");
+/* harmony import */ var custom_event_polyfill__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(custom_event_polyfill__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -761,9 +610,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -772,7 +621,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
+ // @see https://github.com/krambuhl/custom-event-polyfill
 
 /**
  * Represent an item in a navigation menu. May be a direct link or a subnav
@@ -806,15 +655,34 @@ function (_NavItem) {
     // I'm feelin supa!
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SubNavItem).call(this, item, nav, options)); // Create the children navs.
 
-    _this.subNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](_this.item, options); // Add custom events to alert others when a subnav opens or closes.
+    _this.subNav = new _Nav__WEBPACK_IMPORTED_MODULE_1__["default"](_this.item, options); // Add custom events to alert others when a subnav opens or closes.
     // this.openEvent is dispatched in this.openSubNav().
 
-    _this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_4__["createEvent"])('openSubnav'); // this.closeEvent is dispatched in this.closeSubNav().
+    _this.preOpenEvent = new CustomEvent('preOpenSubnav', {
+      bubbles: true,
+      detail: {
+        nav: _this.nav
+      }
+    });
+    _this.openEvent = new CustomEvent('openSubnav', {
+      bubbles: true,
+      detail: {
+        nav: _this.nav
+      }
+    }); // this.closeEvent is dispatched in this.closeSubNav().
 
-    _this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_4__["createEvent"])('closeSubnav'); // Click event.
-
-    _this.item.addEventListener('click', _assertThisInitialized(_this));
-
+    _this.preCloseEvent = new CustomEvent('preCloseSubnav', {
+      bubbles: true,
+      detail: {
+        nav: _this.nav
+      }
+    });
+    _this.closeEvent = new CustomEvent('closeSubnav', {
+      bubbles: true,
+      detail: {
+        nav: _this.nav
+      }
+    });
     return _this;
   }
   /**
@@ -861,6 +729,7 @@ function (_NavItem) {
     key: "openSubNav",
     value: function openSubNav() {
       var focusOnFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      this.item.dispatchEvent(this.preOpenEvent);
       this.item.classList.add(this.options.itemExpandedClass);
       this.setExpanded(true);
       this.item.dispatchEvent(this.openEvent);
@@ -879,17 +748,15 @@ function (_NavItem) {
     key: "closeSubNav",
     value: function closeSubNav() {
       var focusOnTrigger = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+      this.item.dispatchEvent(this.preCloseEvent);
+      this.item.classList.remove(this.options.itemExpandedClass);
+      this.setExpanded('false');
 
-      if (this.isExpanded()) {
-        this.item.classList.remove(this.options.itemExpandedClass);
-        this.setExpanded('false');
-
-        if (focusOnTrigger) {
-          this.link.focus();
-        }
-
-        this.item.dispatchEvent(this.closeEvent);
+      if (focusOnTrigger) {
+        this.link.focus();
       }
+
+      this.item.dispatchEvent(this.closeEvent);
     }
     /**
      * Is this expanded? Can only return TRUE if this is a subnav trigger.
@@ -915,69 +782,13 @@ function (_NavItem) {
     key: "setExpanded",
     value: function setExpanded(value) {
       this.link.setAttribute('aria-expanded', value);
-      this.subNav.elem.setAttribute('aria-expanded', value);
     }
   }]);
 
   return SubNavItem;
-}(_NavItem__WEBPACK_IMPORTED_MODULE_3__["default"]);
+}(_NavItem__WEBPACK_IMPORTED_MODULE_2__["default"]);
 
 
-
-/***/ }),
-
-/***/ "./core/src/js/components/main-nav/globals.js":
-/*!****************************************************!*\
-  !*** ./core/src/js/components/main-nav/globals.js ***!
-  \****************************************************/
-/*! exports provided: theNavs, theSubNavs, closeAllSubNavs, closeAllMobileNavs */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "theNavs", function() { return theNavs; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "theSubNavs", function() { return theSubNavs; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeAllSubNavs", function() { return closeAllSubNavs; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeAllMobileNavs", function() { return closeAllMobileNavs; });
-// ---------------------------------------------------------------------------
-// Global variables and functions shared amongst the nav code
-// ---------------------------------------------------------------------------
-// Variables
-
-/**
- *  Global record of all main navs on the page
- *  - populated in the document.ready function in main-nav.js
- *  - used by closeAllMobileNavs
- * @type {Array}
- */
-var theNavs = [];
-/**
- *  Global record of all sub navs on the page (may be in different main navs
- *  - populated by the NavItem constructor
- *  - used by closeAllSubNavs
- * @type {Array}
- */
-
-var theSubNavs = []; // Functions
-
-/**
- * Close all subnavs on the page
- */
-
-var closeAllSubNavs = function closeAllSubNavs() {
-  theSubNavs.forEach(function (subNav) {
-    subNav.closeSubNav();
-  });
-};
-/**
- * Close all mobile navs on the page
- */
-
-var closeAllMobileNavs = function closeAllMobileNavs() {
-  theNavs.forEach(function (theNav) {
-    theNav.closeMobileNav();
-  });
-};
 
 /***/ }),
 
@@ -994,7 +805,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
 /* harmony import */ var _NavToggle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavToggle */ "./core/src/js/components/main-nav/NavToggle.js");
- // import { theNavs, theSubNavs, closeAllSubNavs, closeAllMobileNavs } from './globals';
 
 
 
@@ -1053,15 +863,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   var navs = document.querySelectorAll('.' + navClass); // Secondary nav specific settings.
 
   var options = {
-    'itemExpandedClass': 'su-secondary-nav__item--expanded',
-    'itemEvents': {
-      'onClick': function onClick(event, navItem) {
-        console.log(event);
-        console.log(navItem);
-        var target = event.target || event.srcElement;
-        navItem.onClick(event, target);
-      }
-    }
+    'itemExpandedClass': 'su-secondary-nav__item--expanded'
   }; // Generate the Accordion toggle for each nav.
 
   navs.forEach(function (nav) {
@@ -1117,17 +919,19 @@ __webpack_require__.r(__webpack_exports__);
  * @return {Event} - instance of event which can be dispatched / listened for
  */
 var createEvent = function createEvent(eventName) {
+  var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
+
   if (typeof eventName !== 'string' || eventName.length <= 0) {
     return null;
-  } // Modern browsers
+  } // Modern browsers.
 
 
   if (typeof Event == 'function') {
-    return new Event(eventName);
-  } // IE
+    return new Event(eventName, data);
+  } // IE.
   else {
       var ev = document.createEvent('UIEvent');
-      ev.initEvent(eventName, true, true);
+      ev.initEvent(eventName, true, true, data);
       return ev;
     }
 };
@@ -1197,6 +1001,70 @@ var isDownArrow = function isDownArrow(theKey) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./node_modules/custom-event-polyfill/polyfill.js":
+/*!********************************************************!*\
+  !*** ./node_modules/custom-event-polyfill/polyfill.js ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// Polyfill for creating CustomEvents on IE9/10/11
+
+// code pulled from:
+// https://github.com/d4tocchini/customevent-polyfill
+// https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent#Polyfill
+
+(function() {
+  if (typeof window === 'undefined') {
+    return;
+  }
+
+  try {
+    var ce = new window.CustomEvent('test', { cancelable: true });
+    ce.preventDefault();
+    if (ce.defaultPrevented !== true) {
+      // IE has problems with .preventDefault() on custom events
+      // http://stackoverflow.com/questions/23349191
+      throw new Error('Could not prevent default');
+    }
+  } catch (e) {
+    var CustomEvent = function(event, params) {
+      var evt, origPrevent;
+      params = params || {};
+      params.bubbles = !!params.bubbles;
+      params.cancelable = !!params.cancelable;
+
+      evt = document.createEvent('CustomEvent');
+      evt.initCustomEvent(
+        event,
+        params.bubbles,
+        params.cancelable,
+        params.detail
+      );
+      origPrevent = evt.preventDefault;
+      evt.preventDefault = function() {
+        origPrevent.call(this);
+        try {
+          Object.defineProperty(this, 'defaultPrevented', {
+            get: function() {
+              return true;
+            }
+          });
+        } catch (e) {
+          this.defaultPrevented = true;
+        }
+      };
+      return evt;
+    };
+
+    CustomEvent.prototype = window.Event.prototype;
+    window.CustomEvent = CustomEvent; // expose definition to window
+  }
+})();
+
 
 /***/ })
 
