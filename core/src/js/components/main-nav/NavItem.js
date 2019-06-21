@@ -24,9 +24,9 @@ export default class NavItem {
     this.options = options;
     this.item = item;
     this.nav = nav;
-    this.link = this.item.querySelector('a');
-    this.item.addEventListener('keydown', this);
-    this.item.addEventListener('click', this);
+    this.link = this.item.querySelector(this.item.tagName + ' > a');
+    this.link.addEventListener('keydown', this);
+    this.link.addEventListener('click', this);
   }
 
   // -------------------------------------------------------------------------
@@ -50,12 +50,12 @@ export default class NavItem {
     event = event || window.event;
 
     // If this class has an onEvent method (onClick, onKeydown) invoke it.
-    const handler = 'on'
+    let handler = 'on'
       + event.type.charAt(0).toUpperCase()
       + event.type.slice(1);
 
     // What was clicked.
-    const target = event.target || event.srcElement;
+    let target = event.target || event.srcElement;
 
     // If the caller passed in their own event handling use that instead.
     if (this.options.itemEvents && this.options.itemEvents[handler]) {

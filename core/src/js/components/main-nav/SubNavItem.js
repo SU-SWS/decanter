@@ -23,6 +23,7 @@ export default class SubNavItem extends NavItem {
    *                                  be a main nav (<nav>) or a subnav (Nav).
    */
   constructor(item, nav, options) {
+
     // I'm feelin supa!
     super(item, nav, options);
 
@@ -31,12 +32,44 @@ export default class SubNavItem extends NavItem {
 
     // Add custom events to alert others when a subnav opens or closes.
     // this.openEvent is dispatched in this.openSubNav().
-    this.preOpenEvent = new CustomEvent('preOpenSubnav', { bubbles: true, detail: { nav: this.nav }});
-    this.openEvent = new CustomEvent('openSubnav', { bubbles: true, detail: { nav: this.nav }});
+    this.preOpenEvent = new CustomEvent(
+      'preOpenSubnav',
+      {
+        bubbles: true,
+        detail: {
+          nav: this.nav
+        }
+      }
+    );
+    this.openEvent = new CustomEvent(
+      'openSubnav',
+      {
+        bubbles: true,
+        detail: {
+          nav: this.nav
+        }
+      }
+    );
 
     // this.closeEvent is dispatched in this.closeSubNav().
-    this.preCloseEvent = new CustomEvent('preCloseSubnav', { bubbles: true, detail: { nav: this.nav }});
-    this.closeEvent = new CustomEvent('closeSubnav', { bubbles: true, detail: { nav: this.nav }});
+    this.preCloseEvent = new CustomEvent(
+      'preCloseSubnav',
+      {
+        bubbles: true,
+        detail: {
+          nav: this.nav
+        }
+      }
+    );
+    this.closeEvent = new CustomEvent(
+      'closeSubnav',
+      {
+        bubbles: true,
+        detail: {
+          nav: this.nav
+        }
+      }
+    );
 
   }
 

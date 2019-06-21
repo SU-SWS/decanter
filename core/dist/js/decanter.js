@@ -195,14 +195,15 @@ function () {
     value: function createNavItems() {
       var _this = this;
 
-      var items = this.elem.querySelectorAll(this.elem.tagName + ' > ul > li');
+      var items = this.elem.querySelectorAll("#" + this.id + ' > ul > li');
       items.forEach(function (item) {
         // Subnav items have special behaviour.
         if (item.querySelector(item.tagName + " > ul")) {
           _this.subNavItems.push(new _SubNavItem__WEBPACK_IMPORTED_MODULE_3__["default"](item, _this, _this.options));
-        } else {
-          _this.navItems.push(new _NavItem__WEBPACK_IMPORTED_MODULE_2__["default"](item, _this, _this.options));
-        }
+        } // NavItems have specific event handling.
+        else {
+            _this.navItems.push(new _NavItem__WEBPACK_IMPORTED_MODULE_2__["default"](item, _this, _this.options));
+          }
       });
     }
     /**
@@ -213,30 +214,10 @@ function () {
   }, {
     key: "createEventListeners",
     value: function createEventListeners() {
-      var _this2 = this;
-
       // What do when key down?
       this.elem.addEventListener('keydown', this); // Listen to the close so we can act on it.
 
-      this.elem.addEventListener('preOpenSubnav', this); // If this nav has a toggle to open and close it on mobile, add a handler
-      // to account for clicking off of the mobile nav.
-
-      if (this.toggle) {
-        // Clicking anywhere outside of this nav closes all children.
-        document.addEventListener('click', function (event) {
-          // The element that was clicked.
-          var target = event.target || event.srcElement; // If the clicked element was not in my nav wrapper, close me.
-
-          var found = target.closest('#' + _this2.id);
-
-          if (!found) {
-            event.stopPropagation();
-            event.preventDefault();
-
-            _this2.toggle.closeNav();
-          }
-        }, false);
-      }
+      this.elem.addEventListener('preOpenSubnav', this);
     } // -------------------------------------------------------------------------
     // Event Handlers.
     // -------------------------------------------------------------------------
@@ -281,12 +262,14 @@ function () {
   }, {
     key: "onPreOpenSubnav",
     value: function onPreOpenSubnav(event) {
-      console.log(event); // Somebody is opening a nav. Check if this instance is in my purvey
-      // If we are not in the same parent. Close them all.
+      // Somebody clicked a subnav trigger. Check to see if it is one of my
+      // subnavitems. If it is one of my subnav items, close all of the subnav
+      // items so that everything on the same level are shut.
+      var triggerId = event.detail.nav.id || null;
 
-      var triggerId = event.detail.nav.id || false;
-
-      if (triggerId !== this.id) {
+      if (triggerId == this.id) {
+        event.preventDefault();
+        event.stopPropagation();
         this.subNavItems.forEach(function (item, event) {
           item.closeSubNav();
         });
@@ -349,9 +332,9 @@ function () {
     this.options = options;
     this.item = item;
     this.nav = nav;
-    this.link = this.item.querySelector('a');
-    this.item.addEventListener('keydown', this);
-    this.item.addEventListener('click', this);
+    this.link = this.item.querySelector(this.item.tagName + ' > a');
+    this.link.addEventListener('keydown', this);
+    this.link.addEventListener('click', this);
   } // -------------------------------------------------------------------------
   // Event Handlers.
   // -------------------------------------------------------------------------
@@ -453,6 +436,8 @@ function () {
    * @param {[type]} options [description]
    */
   function NavToggle(element, options) {
+    var _this = this;
+
     _classCallCheck(this, NavToggle);
 
     // Params.
@@ -461,11 +446,24 @@ function () {
     this.nav = options.nav;
     this.toggleText = options.toggleText || element.innerText;
     this.closeText = options.closeText || 'Close';
-    this.clickHandler = options.clickHandler || this;
     this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_0__["createEvent"])('openNav');
     this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_0__["createEvent"])('closeNav'); // Event listeners.
 
-    this.element.addEventListener('click', this.clickHandler);
+    this.element.addEventListener('click', this); // Clicking anywhere outside of attached nav closes all children.
+
+    document.addEventListener('click', function (event) {
+      // The element that was clicked.
+      var target = event.target || event.srcElement; // If the clicked element was not in my nav wrapper, close me.
+
+      var found = target.closest('#' + _this.nav.id);
+
+      if (!found) {
+        event.stopPropagation();
+        event.preventDefault();
+
+        _this.closeNav();
+      }
+    });
   }
   /**
    * Handler for all events attached to an instance of this class. This method
@@ -505,8 +503,13 @@ function () {
 
   }, {
     key: "onClick",
-    value: function onClick(event) {
-      // Don't go nowhere.
+    value: function onClick(event, target) {
+      // Only act if the target is me.
+      if (target !== this.element) {
+        return;
+      } // Don't go nowhere.
+
+
       event.preventDefault();
       event.stopPropagation(); // Toggle open and close.
 

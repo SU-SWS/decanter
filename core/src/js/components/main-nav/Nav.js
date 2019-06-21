@@ -71,13 +71,14 @@ export default class Nav {
    * @return {[type]} [description]
    */
   createNavItems() {
-    let items = this.elem.querySelectorAll(this.elem.tagName + ' > ul > li');
+    let items = this.elem.querySelectorAll("#" + this.id + ' > ul > li');
     items.forEach(
       item => {
         // Subnav items have special behaviour.
         if (item.querySelector(item.tagName + " > ul")) {
           this.subNavItems.push(new SubNavItem(item, this, this.options));
         }
+        // NavItems have specific event handling.
         else {
           this.navItems.push(new NavItem(item, this, this.options));
         }
@@ -97,22 +98,7 @@ export default class Nav {
     // Listen to the close so we can act on it.
     this.elem.addEventListener('preOpenSubnav', this);
 
-    // If this nav has a toggle to open and close it on mobile, add a handler
-    // to account for clicking off of the mobile nav.
-    if (this.toggle) {
-      // Clicking anywhere outside of this nav closes all children.
-      document.addEventListener('click', event => {
-        // The element that was clicked.
-        const target = event.target || event.srcElement;
-        // If the clicked element was not in my nav wrapper, close me.
-        let found = target.closest('#' + this.id);
-        if (!found) {
-          event.stopPropagation();
-          event.preventDefault();
-          this.toggle.closeNav();
-        }
-      }, false);
-    }
+
   }
 
   // -------------------------------------------------------------------------
@@ -160,11 +146,15 @@ export default class Nav {
    * @return {[type]}           [description]
    */
   onPreOpenSubnav(event) {
-    console.log(event);
-    // Somebody is opening a nav. Check if this instance is in my purvey
-    // If we are not in the same parent. Close them all.
-    let triggerId = event.detail.nav.id || false;
-    if (triggerId !== this.id) {
+    // Somebody clicked a subnav trigger. Check to see if it is one of my
+    // subnavitems. If it is one of my subnav items, close all of the subnav
+    // items so that everything on the same level are shut.
+    let triggerId = event.detail.nav.id || null;
+    if (triggerId == this.id) {
+
+      event.preventDefault();
+      event.stopPropagation();
+
       this.subNavItems.forEach(
         (item, event) => {
           item.closeSubNav();
