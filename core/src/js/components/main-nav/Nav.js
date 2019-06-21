@@ -31,39 +31,34 @@ export default class Nav {
    *                                     (NavItem).
    */
   constructor(elem, options) {
-
     // Save the passed in configuration options.
     this.options = options;
-
     // Prefixing the random ids.
     this.idPrefix = options.idPrefix || 'su-';
-
     // The nav element.
     this.elem = elem;
-
     // The toggle menu button or none.
     this.toggle = options.toggle || false;
-
     // Set the z-index if configured.
     if (this.options.zIndex > 1) {
       this.elem.style.zIndex = this.options.zIndex;
     }
-
     // Remove the class that formats the nav for browsers with javascript disabled.
     this.elem.classList.remove('no-js');
-
     // Give this instance a unique ID.
     let id = Math.random().toString(36).substr(2, 9);
     this.id = this.idPrefix + id;
     this.elem.id = this.idPrefix + id;
-
     // Initialize items.
     this.navItems = [];
     this.subNavItems = [];
     this.createNavItems();
-
     // Initialize the event listeners.
     this.createEventListeners();
+    // Once initialized pass me back to the toggle.
+    if (this.toggle) {
+      this.toggle.setNav(this);
+    }
   }
 
   /**
@@ -91,14 +86,11 @@ export default class Nav {
    * @return {[type]} [description]
    */
   createEventListeners() {
-
     // What do when key down?
     this.elem.addEventListener('keydown', this);
 
     // Listen to the close so we can act on it.
     this.elem.addEventListener('preOpenSubnav', this);
-
-
   }
 
   // -------------------------------------------------------------------------
@@ -154,13 +146,20 @@ export default class Nav {
 
       event.preventDefault();
       event.stopPropagation();
-
-      this.subNavItems.forEach(
-        (item, event) => {
-          item.closeSubNav();
-        }
-      );
+      this.closeAllSubNavs();
     }
+  }
+
+  /**
+   * Gotta close em all.
+   * @return {[type]} [description]
+   */
+  closeAllSubNavs() {
+    this.subNavItems.forEach(
+      (item, event) => {
+        item.closeSubNav();
+      }
+    );
   }
 
 }

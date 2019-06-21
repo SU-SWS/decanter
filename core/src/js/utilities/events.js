@@ -3,7 +3,7 @@
  * @param {string} eventName - the name of the event
  * @return {Event} - instance of event which can be dispatched / listened for
  */
-export const createEvent = (eventName, data = undefined) => {
+export const createEvent = (eventName, data) => {
   if (typeof eventName !== 'string' || eventName.length <= 0) {
     return null;
   }

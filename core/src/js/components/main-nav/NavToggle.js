@@ -15,7 +15,8 @@ export default class NavToggle {
     // Params.
     this.element = element;
     this.options = options;
-    this.nav = options.nav;
+    this.nav = null;
+    this.navElement = options.navElement;
     this.toggleText = options.toggleText || element.innerText;
     this.closeText = options.closeText || 'Close';
     this.openEvent = createEvent('openNav');
@@ -34,6 +35,7 @@ export default class NavToggle {
         event.stopPropagation();
         event.preventDefault();
         this.closeNav();
+        this.nav.closeAllSubNavs();
       }
     });
 
@@ -76,7 +78,7 @@ export default class NavToggle {
    */
   onClick(event, target) {
 
-    // Only act if the target is me.
+    // Only act if the target is my element.
     if (target !== this.element) {
       return;
     }
@@ -102,8 +104,6 @@ export default class NavToggle {
    *                                 first element in the subnav.
    */
   openNav(focusOnFirst = true) {
-    // closeAllNavs();
-
     this.setExpanded(true);
     this.element.innerText = this.closeText;
 
@@ -145,6 +145,14 @@ export default class NavToggle {
    */
   isExpanded() {
     return this.element.getAttribute('aria-expanded') === 'true';
+  }
+
+  /**
+   * Setter for nav property.
+   * @param {[type]} nav [description]
+   */
+  setNav(nav) {
+    this.nav = nav;
   }
 
 }

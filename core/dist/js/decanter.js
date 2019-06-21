@@ -182,7 +182,11 @@ function () {
     this.subNavItems = [];
     this.createNavItems(); // Initialize the event listeners.
 
-    this.createEventListeners();
+    this.createEventListeners(); // Once initialized pass me back to the toggle.
+
+    if (this.toggle) {
+      this.toggle.setNav(this);
+    }
   }
   /**
    * Create the children nav items.
@@ -270,10 +274,20 @@ function () {
       if (triggerId == this.id) {
         event.preventDefault();
         event.stopPropagation();
-        this.subNavItems.forEach(function (item, event) {
-          item.closeSubNav();
-        });
+        this.closeAllSubNavs();
       }
+    }
+    /**
+     * Gotta close em all.
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "closeAllSubNavs",
+    value: function closeAllSubNavs() {
+      this.subNavItems.forEach(function (item, event) {
+        item.closeSubNav();
+      });
     }
   }]);
 
@@ -443,7 +457,8 @@ function () {
     // Params.
     this.element = element;
     this.options = options;
-    this.nav = options.nav;
+    this.nav = null;
+    this.navElement = options.navElement;
     this.toggleText = options.toggleText || element.innerText;
     this.closeText = options.closeText || 'Close';
     this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_0__["createEvent"])('openNav');
@@ -462,6 +477,8 @@ function () {
         event.preventDefault();
 
         _this.closeNav();
+
+        _this.nav.closeAllSubNavs();
       }
     });
   }
@@ -504,7 +521,7 @@ function () {
   }, {
     key: "onClick",
     value: function onClick(event, target) {
-      // Only act if the target is me.
+      // Only act if the target is my element.
       if (target !== this.element) {
         return;
       } // Don't go nowhere.
@@ -531,7 +548,6 @@ function () {
     key: "openNav",
     value: function openNav() {
       var focusOnFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-      // closeAllNavs();
       this.setExpanded(true);
       this.element.innerText = this.closeText; // Focus on the first link in the nav.
 
@@ -578,6 +594,16 @@ function () {
     key: "isExpanded",
     value: function isExpanded() {
       return this.element.getAttribute('aria-expanded') === 'true';
+    }
+    /**
+     * Setter for nav property.
+     * @param {[type]} nav [description]
+     */
+
+  }, {
+    key: "setNav",
+    value: function setNav(nav) {
+      this.nav = nav;
     }
   }]);
 
@@ -834,7 +860,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     var toggleElement = nav.querySelector(nav.tagName + ' > button');
     var toggleOptions = {
-      'nav': nav
+      'navElement': nav
     };
     options.toggle = new _NavToggle__WEBPACK_IMPORTED_MODULE_2__["default"](toggleElement, toggleOptions); // Create an instance of Nav,
     // which in turn creates appropriate instances of NavItem.
@@ -921,9 +947,7 @@ __webpack_require__.r(__webpack_exports__);
  * @param {string} eventName - the name of the event
  * @return {Event} - instance of event which can be dispatched / listened for
  */
-var createEvent = function createEvent(eventName) {
-  var data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
-
+var createEvent = function createEvent(eventName, data) {
   if (typeof eventName !== 'string' || eventName.length <= 0) {
     return null;
   } // Modern browsers.
