@@ -11,10 +11,7 @@ document.addEventListener('DOMContentLoaded', event => {
 
   // Secondary nav specific settings.
   let options = {
-    'itemExpandedClass': 'su-secondary-nav__item--expanded',
-    'itemEvents': {
-      'onClick': function(event, navItem) { console.log(event); console.log(navItem); let target = event.target || event.srcElement; navItem.onClick(event, target); }
-    }
+    'itemExpandedClass': 'su-secondary-nav__item--expanded'
   };
 
   // Generate the Accordion toggle for each nav.
