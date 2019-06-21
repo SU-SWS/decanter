@@ -162,4 +162,11 @@ export default class SubNavItem extends NavItem {
     this.item.getElementsByTagName("ul")[0].querySelector("a").focus();
   }
 
+  /**
+   * Handler for keypress of
+   **/
+  onKeydownSpace(event, target) {
+  this.onKeydownArrowDown(event, target);
+  }
+
 }
