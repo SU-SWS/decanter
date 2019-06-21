@@ -155,7 +155,7 @@ export default class SubNavItem extends NavItem {
    * Handler for keypress of
    *
    **/
-  onKeydownArrowDown(event, target) {
+  onKeydownArrowRight(event, target) {
     event.preventDefault();
     // Open and focus on the first item.
     this.openSubNav();

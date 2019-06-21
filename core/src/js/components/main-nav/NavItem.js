@@ -149,15 +149,24 @@ export default class NavItem {
    * Handler for keypress of
    *
    **/
-  onKeydownArrowLeft(event, target) {
+  onKeydownArrowUp(event, target) {
     event.preventDefault();
+    this.nav.closeAllSubNavs();
+
     // Go to the previous item.
     let node = this.link.parentNode.previousElementSibling;
     if (node !== null) {
       node.firstChild.focus();
     }
     else {
-      this.onKeydownEnd(event, target);
+      // If this is a nav item in a subnav. Go up a level and close the subnav.
+      if (this.item.parentNode.parentNode.classList.contains(this.options.itemExpandedClass)){
+        this.item.parentNode.parentNode.querySelector("a").focus();
+      }
+      // Circle back to the last item.
+      else {
+        this.onKeydownEnd(event, target);
+      }
     }
   }
 
@@ -167,6 +176,8 @@ export default class NavItem {
    **/
   onKeydownArrowRight(event, target) {
     event.preventDefault();
+    this.nav.closeAllSubNavs();
+
     // Go to the next item.
     let node = this.link.parentNode.nextElementSibling;
     if (node !== null) {
@@ -181,7 +192,7 @@ export default class NavItem {
    * Handler for keypress of
    *
    **/
-  onKeydownArrowUp(event, target) {
+  onKeydownArrowLeft(event, target) {
     event.preventDefault();
     // Go to the previous item.
     let node = this.link.parentNode.previousElementSibling;
@@ -189,15 +200,7 @@ export default class NavItem {
       node.firstChild.focus();
     }
     else {
-      // If this is a nav item in a subnav. Go up a level and close the subnav.
-      if (this.item.parentNode.parentNode.classList.contains(this.options.itemExpandedClass)){
-        this.nav.closeAllSubNavs();
-        this.item.parentNode.parentNode.querySelector("a").focus();
-      }
-      // Circle back to the last item.
-      else {
-        this.onKeydownEnd(event, target);
-      }
+      this.onKeydownEnd(event, target);
     }
   }
 

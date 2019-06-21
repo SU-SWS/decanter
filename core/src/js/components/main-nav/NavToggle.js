@@ -150,7 +150,7 @@ export default class NavToggle {
    */
   setExpanded(value) {
     this.element.setAttribute('aria-expanded', value);
-    this.nav.setAttribute('aria-expanded', value);
+    this.nav.elem.setAttribute('aria-expanded', value);
   }
 
   /**
