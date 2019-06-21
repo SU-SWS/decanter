@@ -1,4 +1,5 @@
 import { createEvent } from '../../utilities/events';
+import {isHome, isEnd, isTab, isSpace, isEnter, isLeftArrow, isRightArrow, isUpArrow, isDownArrow} from "../../utilities/keyboard";
 
 /**
  *
@@ -24,16 +25,15 @@ export default class NavToggle {
 
     // Event listeners.
     this.element.addEventListener('click', this);
+    this.element.addEventListener('keydown', this);
 
-    // Clicking anywhere outside of attached nav closes all children.
+    // Clicking anywhere outside of attached nav closes all the children.
     document.addEventListener('click', event => {
       // The element that was clicked.
       const target = event.target || event.srcElement;
       // If the clicked element was not in my nav wrapper, close me.
       let found = target.closest('#' + this.nav.id);
       if (!found) {
-        event.stopPropagation();
-        event.preventDefault();
         this.closeNav();
         this.nav.closeAllSubNavs();
       }
@@ -94,6 +94,22 @@ export default class NavToggle {
     else {
       this.openNav(false);
     }
+  }
+
+  /**
+   * [onKeydown description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   * @return {[type]}        [description]
+   */
+  onKeydown(event, target) {
+    const theKey = event.key || event.keyCode;
+
+    // Do the click toggle for enter and space keys.
+    if (isEnter(theKey) || isSpace(theKey)) {
+      this.onClick(event, target);
+    }
+
   }
 
   /**

@@ -2,6 +2,7 @@ import {isHome, isEnd, isTab, isSpace, isEnter, isLeftArrow, isRightArrow, isUpA
 import Nav from './Nav';
 import NavItem from './NavItem';
 import 'custom-event-polyfill'; // @see https://github.com/krambuhl/custom-event-polyfill
+
 /**
  * Represent an item in a navigation menu. May be a direct link or a subnav
  * trigger.
@@ -98,6 +99,21 @@ export default class SubNavItem extends NavItem {
     }
     else {
       this.openSubNav(false);
+    }
+  }
+
+  /**
+   * [onKeyDown description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   * @return {[type]}        [description]
+   */
+  onKeydown(event, target) {
+    const theKey = event.key || event.keyCode;
+
+    // Do the click toggle for enter and space keys.
+    if (isEnter(theKey) || isSpace(theKey)) {
+      this.onClick(event, target);
     }
   }
 
