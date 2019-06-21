@@ -3,7 +3,6 @@ import { createEvent } from '../../utilities/events';
 /**
  *
  */
-
 export default class NavToggle {
 
   /**
@@ -19,12 +18,26 @@ export default class NavToggle {
     this.nav = options.nav;
     this.toggleText = options.toggleText || element.innerText;
     this.closeText = options.closeText || 'Close';
-    this.clickHandler = options.clickHandler || this;
     this.openEvent = createEvent('openNav');
     this.closeEvent = createEvent('closeNav');
 
     // Event listeners.
-    this.element.addEventListener('click', this.clickHandler);
+    this.element.addEventListener('click', this);
+
+    // Clicking anywhere outside of attached nav closes all children.
+    document.addEventListener('click', event => {
+      // The element that was clicked.
+      const target = event.target || event.srcElement;
+      // If the clicked element was not in my nav wrapper, close me.
+      let found = target.closest('#' + this.nav.id);
+      if (!found) {
+        event.stopPropagation();
+        event.preventDefault();
+        this.closeNav();
+      }
+    });
+
+
   }
 
  /**
@@ -61,7 +74,13 @@ export default class NavToggle {
    *
    * @param {KeyboardEvent} event   - The keyboard event object.
    */
-  onClick(event) {
+  onClick(event, target) {
+
+    // Only act if the target is me.
+    if (target !== this.element) {
+      return;
+    }
+
     // Don't go nowhere.
     event.preventDefault();
     event.stopPropagation();
