@@ -491,16 +491,23 @@ function () {
      **/
 
   }, {
-    key: "onKeydownArrowLeft",
-    value: function onKeydownArrowLeft(event, target) {
-      event.preventDefault(); // Go to the previous item.
+    key: "onKeydownArrowUp",
+    value: function onKeydownArrowUp(event, target) {
+      event.preventDefault();
+      this.nav.closeAllSubNavs(); // Go to the previous item.
 
       var node = this.link.parentNode.previousElementSibling;
 
       if (node !== null) {
         node.firstChild.focus();
       } else {
-        this.onKeydownEnd(event, target);
+        // If this is a nav item in a subnav. Go up a level and close the subnav.
+        if (this.item.parentNode.parentNode.classList.contains(this.options.itemExpandedClass)) {
+          this.item.parentNode.parentNode.querySelector("a").focus();
+        } // Circle back to the last item.
+        else {
+            this.onKeydownEnd(event, target);
+          }
       }
     }
     /**
@@ -511,7 +518,8 @@ function () {
   }, {
     key: "onKeydownArrowRight",
     value: function onKeydownArrowRight(event, target) {
-      event.preventDefault(); // Go to the next item.
+      event.preventDefault();
+      this.nav.closeAllSubNavs(); // Go to the next item.
 
       var node = this.link.parentNode.nextElementSibling;
 
@@ -527,8 +535,8 @@ function () {
      **/
 
   }, {
-    key: "onKeydownArrowUp",
-    value: function onKeydownArrowUp(event, target) {
+    key: "onKeydownArrowLeft",
+    value: function onKeydownArrowLeft(event, target) {
       event.preventDefault(); // Go to the previous item.
 
       var node = this.link.parentNode.previousElementSibling;
@@ -536,14 +544,7 @@ function () {
       if (node !== null) {
         node.firstChild.focus();
       } else {
-        // If this is a nav item in a subnav. Go up a level and close the subnav.
-        if (this.item.parentNode.parentNode.classList.contains(this.options.itemExpandedClass)) {
-          this.nav.closeAllSubNavs();
-          this.item.parentNode.parentNode.querySelector("a").focus();
-        } // Circle back to the last item.
-        else {
-            this.onKeydownEnd(event, target);
-          }
+        this.onKeydownEnd(event, target);
       }
     }
     /**
@@ -751,7 +752,7 @@ function () {
     key: "setExpanded",
     value: function setExpanded(value) {
       this.element.setAttribute('aria-expanded', value);
-      this.nav.setAttribute('aria-expanded', value);
+      this.nav.elem.setAttribute('aria-expanded', value);
     }
     /**
      * Is this expanded?
@@ -976,12 +977,21 @@ function (_NavItem) {
      **/
 
   }, {
-    key: "onKeydownArrowDown",
-    value: function onKeydownArrowDown(event, target) {
+    key: "onKeydownArrowRight",
+    value: function onKeydownArrowRight(event, target) {
       event.preventDefault(); // Open and focus on the first item.
 
       this.openSubNav();
       this.item.getElementsByTagName("ul")[0].querySelector("a").focus();
+    }
+    /**
+     * Handler for keypress of
+     **/
+
+  }, {
+    key: "onKeydownSpace",
+    value: function onKeydownSpace(event, target) {
+      this.onKeydownArrowDown(event, target);
     }
   }]);
 
