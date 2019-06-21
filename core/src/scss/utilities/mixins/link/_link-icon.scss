@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+//
+// @link-icon($link-icon, $width: 0.65em, $animate: true)
+//
+// Display an icon after a link.
+//
+// $icon {string} - Basename of link icon .svg file (without the .svg suffix).
+// $width {string} - Width of icon including unit, e.g. 0.75em, 24px.
+// $animate {boolean} - Whether or not to animate on hover.
+//
+// Style guide: Mixins.Link.link-icon
+//
+@mixin link-icon($icon, $width: 0.65em, $animate: true) {
+  text-decoration: none;
+  @supports (mask-repeat: no-repeat) {
+    &::after {
+      @include margin(null 0.3em -1px 0.4em);
+      @include size($width);
+      display: inline-block;
+      content: '';
+      mask: url("#{$image-path}/#{$icon}.svg") no-repeat 0 0;
+      mask-size: contain;
+      background-color: color(link);
+      transition: transform 0.2s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        background-color: color(link--hover);
+        @if $animate {
+          transform: translateX(0.2em);
+        }
+      }
+    }
+  }
+}
