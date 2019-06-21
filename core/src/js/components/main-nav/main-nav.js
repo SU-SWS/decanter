@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', event => {
     // Create the toggle element to pass in to the nav constructor.
     let toggleElement = nav.querySelector(nav.tagName + ' > button');
     let toggleOptions = {
-      'nav': nav,
+      'navElement': nav,
     };
     options.toggle = new NavToggle(toggleElement, toggleOptions);
 
