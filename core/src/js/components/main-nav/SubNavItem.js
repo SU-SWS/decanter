@@ -103,31 +103,13 @@ export default class SubNavItem extends NavItem {
   }
 
   /**
-   * [onKeyDown description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
-   * @return {[type]}        [description]
-   */
-  onKeydown(event, target) {
-    const theKey = event.key || event.keyCode;
-
-    // Do the click toggle for enter and space keys.
-    if (isEnter(theKey) || isSpace(theKey)) {
-      this.onClick(event, target);
-    }
-  }
-
-  /**
    * Handles the opening of a sub-nav.
    *
    * If this is a subnav trigger, open the corresponding subnav.
    * Optionally force focus on the first element in the subnav
    * (for keyboard nav).
-   *
-   * @param {Boolean} focusOnFirst - whether or not to also focus on the first
-   *                                 element in the subnav
    */
-  openSubNav(focusOnFirst = true) {
+  openSubNav() {
     this.item.dispatchEvent(this.preOpenEvent);
     this.item.classList.add(this.options.itemExpandedClass);
     this.setExpanded(true);
@@ -140,16 +122,11 @@ export default class SubNavItem extends NavItem {
    * If this is a subnav trigger or an item in a subnav, close the
    * corresponding subnav. Optionally force focus on the trigger.
    *
-   * @param {Boolean} focusOnTrigger - Whether or not to also focus on the
-   *                                 subnav's trigger.
    */
-  closeSubNav(focusOnTrigger = false) {
+  closeSubNav() {
     this.item.dispatchEvent(this.preCloseEvent);
     this.item.classList.remove(this.options.itemExpandedClass);
     this.setExpanded('false');
-    if (focusOnTrigger) {
-      this.link.focus();
-    }
     this.item.dispatchEvent(this.closeEvent);
   }
 
@@ -172,6 +149,17 @@ export default class SubNavItem extends NavItem {
    */
   setExpanded(value) {
     this.link.setAttribute('aria-expanded', value);
+  }
+
+  /**
+   * Handler for keypress of
+   *
+   **/
+  onKeydownArrowDown(event, target) {
+    event.preventDefault();
+    // Open and focus on the first item.
+    this.openSubNav();
+    this.item.getElementsByTagName("ul")[0].querySelector("a").focus();
   }
 
 }

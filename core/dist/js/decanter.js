@@ -410,18 +410,159 @@ function () {
     key: "onKeydown",
     value: function onKeydown(event, target) {
       var theKey = event.key || event.keyCode;
+      var normalized = Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["normalizeKey"])(theKey); // We don't know about that key.
+
+      if (!normalized) {
+        return;
+      } // Prepare a dynamic handler.
+
+
+      var handler = 'onKeydown' + normalized.charAt(0).toUpperCase() + normalized.slice(1);
+
+      if (typeof this[handler] === 'function') {
+        return this[handler](event, target);
+      }
     }
     /**
-     * [onClick description]
-     * @param  {[type]} event  [description]
-     * @param  {[type]} target [description]
-     * @return {[type]}        [description]
-     */
+     * Handler for keypress of
+     *
+     **/
 
   }, {
-    key: "onClick",
-    value: function onClick(event, target) {
-      console.log(target);
+    key: "onKeydownHome",
+    value: function onKeydownHome(event, target) {
+      event.preventDefault(); // Focus on the first item in the same level of this list.
+
+      this.link.parentNode.parentNode.firstElementChild.firstChild.focus();
+    }
+    /**
+     * Handler for keypress of
+     *
+     **/
+
+  }, {
+    key: "onKeydownEnd",
+    value: function onKeydownEnd(event, target) {
+      event.preventDefault(); // Focus on the last item in the same level of this list.
+
+      this.link.parentNode.parentNode.lastElementChild.firstChild.focus();
+    }
+    /**
+     * Handler for keypress of
+     *
+     **/
+
+  }, {
+    key: "onKeydownTab",
+    value: function onKeydownTab(event, target) {} // Nada. Let the browser default run.
+
+    /**
+     * Handler for keypress of
+     *
+     **/
+
+  }, {
+    key: "onKeydownEscape",
+    value: function onKeydownEscape(event, target) {
+      event.preventDefault(); // Close everything.
+
+      this.nav.closeAllSubNavs();
+    }
+    /**
+     * Handler for keypress of
+     **/
+
+  }, {
+    key: "onKeydownSpace",
+    value: function onKeydownSpace(event, target) {} // Nada, let the browser default run.
+
+    /**
+     * Handler for keypress of
+     *
+     **/
+
+  }, {
+    key: "onKeydownEnter",
+    value: function onKeydownEnter(event, target) {} // Nada, let the browser default run.
+
+    /**
+     * Handler for keypress of
+     *
+     **/
+
+  }, {
+    key: "onKeydownArrowLeft",
+    value: function onKeydownArrowLeft(event, target) {
+      event.preventDefault(); // Go to the previous item.
+
+      var node = this.link.parentNode.previousElementSibling;
+
+      if (node !== null) {
+        node.firstChild.focus();
+      } else {
+        this.onKeydownEnd(event, target);
+      }
+    }
+    /**
+     * Handler for keypress of
+     *
+     **/
+
+  }, {
+    key: "onKeydownArrowRight",
+    value: function onKeydownArrowRight(event, target) {
+      event.preventDefault(); // Go to the next item.
+
+      var node = this.link.parentNode.nextElementSibling;
+
+      if (node !== null) {
+        node.firstChild.focus();
+      } else {
+        this.onKeydownHome(event, target);
+      }
+    }
+    /**
+     * Handler for keypress of
+     *
+     **/
+
+  }, {
+    key: "onKeydownArrowUp",
+    value: function onKeydownArrowUp(event, target) {
+      event.preventDefault(); // Go to the previous item.
+
+      var node = this.link.parentNode.previousElementSibling;
+
+      if (node !== null) {
+        node.firstChild.focus();
+      } else {
+        // If this is a nav item in a subnav. Go up a level and close the subnav.
+        if (this.item.parentNode.parentNode.classList.contains(this.options.itemExpandedClass)) {
+          this.nav.closeAllSubNavs();
+          this.item.parentNode.parentNode.querySelector("a").focus();
+        } // Circle back to the last item.
+        else {
+            this.onKeydownEnd(event, target);
+          }
+      }
+    }
+    /**
+     * Handler for keypress of
+     *
+     **/
+
+  }, {
+    key: "onKeydownArrowDown",
+    value: function onKeydownArrowDown(event, target) {
+      event.preventDefault(); // Go to the next item.
+
+      var node = this.link.parentNode.nextElementSibling;
+
+      if (node !== null) {
+        node.firstChild.focus();
+      } else {
+        this.onKeydownHome(event, target);
+      }
     }
   }]);
 
@@ -773,36 +914,16 @@ function (_NavItem) {
       }
     }
     /**
-     * [onKeyDown description]
-     * @param  {[type]} event  [description]
-     * @param  {[type]} target [description]
-     * @return {[type]}        [description]
-     */
-
-  }, {
-    key: "onKeydown",
-    value: function onKeydown(event, target) {
-      var theKey = event.key || event.keyCode; // Do the click toggle for enter and space keys.
-
-      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isEnter"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isSpace"])(theKey)) {
-        this.onClick(event, target);
-      }
-    }
-    /**
      * Handles the opening of a sub-nav.
      *
      * If this is a subnav trigger, open the corresponding subnav.
      * Optionally force focus on the first element in the subnav
      * (for keyboard nav).
-     *
-     * @param {Boolean} focusOnFirst - whether or not to also focus on the first
-     *                                 element in the subnav
      */
 
   }, {
     key: "openSubNav",
     value: function openSubNav() {
-      var focusOnFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
       this.item.dispatchEvent(this.preOpenEvent);
       this.item.classList.add(this.options.itemExpandedClass);
       this.setExpanded(true);
@@ -814,22 +935,14 @@ function (_NavItem) {
      * If this is a subnav trigger or an item in a subnav, close the
      * corresponding subnav. Optionally force focus on the trigger.
      *
-     * @param {Boolean} focusOnTrigger - Whether or not to also focus on the
-     *                                 subnav's trigger.
      */
 
   }, {
     key: "closeSubNav",
     value: function closeSubNav() {
-      var focusOnTrigger = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
       this.item.dispatchEvent(this.preCloseEvent);
       this.item.classList.remove(this.options.itemExpandedClass);
       this.setExpanded('false');
-
-      if (focusOnTrigger) {
-        this.link.focus();
-      }
-
       this.item.dispatchEvent(this.closeEvent);
     }
     /**
@@ -856,6 +969,19 @@ function (_NavItem) {
     key: "setExpanded",
     value: function setExpanded(value) {
       this.link.setAttribute('aria-expanded', value);
+    }
+    /**
+     * Handler for keypress of
+     *
+     **/
+
+  }, {
+    key: "onKeydownArrowDown",
+    value: function onKeydownArrowDown(event, target) {
+      event.preventDefault(); // Open and focus on the first item.
+
+      this.openSubNav();
+      this.item.getElementsByTagName("ul")[0].querySelector("a").focus();
     }
   }]);
 
@@ -1014,7 +1140,7 @@ var createEvent = function createEvent(eventName, data) {
 /*!*******************************************!*\
   !*** ./core/src/js/utilities/keyboard.js ***!
   \*******************************************/
-/*! exports provided: isHome, isEnd, isTab, isEsc, isSpace, isEnter, isLeftArrow, isRightArrow, isUpArrow, isDownArrow */
+/*! exports provided: isHome, isEnd, isTab, isEsc, isSpace, isEnter, isLeftArrow, isRightArrow, isUpArrow, isDownArrow, normalizeKey */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1029,6 +1155,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isRightArrow", function() { return isRightArrow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isUpArrow", function() { return isUpArrow; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDownArrow", function() { return isDownArrow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "normalizeKey", function() { return normalizeKey; });
 // ---------------------------------------------------------------------------
 // Keyboard helper functions
 // ---------------------------------------------------------------------------
@@ -1061,6 +1188,55 @@ var isUpArrow = function isUpArrow(theKey) {
 };
 var isDownArrow = function isDownArrow(theKey) {
   return theKey === 'ArrowDown' || theKey === 'Down' || theKey === 40;
+};
+/**
+ * [normalizeKey description]
+ * @param  {[type]} theKey [description]
+ * @return {[type]}        [description]
+ */
+
+var normalizeKey = function normalizeKey(theKey) {
+  if (isHome(theKey)) {
+    return "home";
+  }
+
+  if (isEnd(theKey)) {
+    return "end";
+  }
+
+  if (isTab(theKey)) {
+    return "tab";
+  }
+
+  if (isEsc(theKey)) {
+    return "escape";
+  }
+
+  if (isSpace(theKey)) {
+    return "space";
+  }
+
+  if (isEnter(theKey)) {
+    return "enter";
+  }
+
+  if (isLeftArrow(theKey)) {
+    return "arrowLeft";
+  }
+
+  if (isRightArrow(theKey)) {
+    return "arrowRight";
+  }
+
+  if (isUpArrow(theKey)) {
+    return "arrowUp";
+  }
+
+  if (isDownArrow(theKey)) {
+    return "arrowDown";
+  }
+
+  return false;
 };
 
 /***/ }),
