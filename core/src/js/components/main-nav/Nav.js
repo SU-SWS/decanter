@@ -143,9 +143,6 @@ export default class Nav {
     // items so that everything on the same level are shut.
     let triggerId = event.detail.nav.id || null;
     if (triggerId == this.id) {
-
-      event.preventDefault();
-      event.stopPropagation();
       this.closeAllSubNavs();
     }
   }
@@ -160,6 +157,20 @@ export default class Nav {
         item.closeSubNav();
       }
     );
+  }
+
+  /**
+   * [onKeydown description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   * @return {[type]}        [description]
+   */
+  onKeydown(event, target) {
+    const theKey = event.key || event.keyCode;
+
+    if (isEsc(theKey)) {
+      this.closeAllSubNavs();
+    }
   }
 
 }

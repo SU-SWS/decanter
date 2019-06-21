@@ -76,7 +76,6 @@ export default class NavItem {
    */
   onKeydown(event, target) {
     let theKey = event.key || event.keyCode;
-    console.log(theKey);
   }
 
   /**

@@ -272,8 +272,6 @@ function () {
       var triggerId = event.detail.nav.id || null;
 
       if (triggerId == this.id) {
-        event.preventDefault();
-        event.stopPropagation();
         this.closeAllSubNavs();
       }
     }
@@ -288,6 +286,22 @@ function () {
       this.subNavItems.forEach(function (item, event) {
         item.closeSubNav();
       });
+    }
+    /**
+     * [onKeydown description]
+     * @param  {[type]} event  [description]
+     * @param  {[type]} target [description]
+     * @return {[type]}        [description]
+     */
+
+  }, {
+    key: "onKeydown",
+    value: function onKeydown(event, target) {
+      var theKey = event.key || event.keyCode;
+
+      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isEsc"])(theKey)) {
+        this.closeAllSubNavs();
+      }
     }
   }]);
 
@@ -396,7 +410,6 @@ function () {
     key: "onKeydown",
     value: function onKeydown(event, target) {
       var theKey = event.key || event.keyCode;
-      console.log(theKey);
     }
     /**
      * [onClick description]
@@ -430,11 +443,13 @@ function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NavToggle; });
 /* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 
 /**
@@ -464,7 +479,8 @@ function () {
     this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_0__["createEvent"])('openNav');
     this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_0__["createEvent"])('closeNav'); // Event listeners.
 
-    this.element.addEventListener('click', this); // Clicking anywhere outside of attached nav closes all children.
+    this.element.addEventListener('click', this);
+    this.element.addEventListener('keydown', this); // Clicking anywhere outside of attached nav closes all the children.
 
     document.addEventListener('click', function (event) {
       // The element that was clicked.
@@ -473,9 +489,6 @@ function () {
       var found = target.closest('#' + _this.nav.id);
 
       if (!found) {
-        event.stopPropagation();
-        event.preventDefault();
-
         _this.closeNav();
 
         _this.nav.closeAllSubNavs();
@@ -534,6 +547,22 @@ function () {
         this.closeNav();
       } else {
         this.openNav(false);
+      }
+    }
+    /**
+     * [onKeydown description]
+     * @param  {[type]} event  [description]
+     * @param  {[type]} target [description]
+     * @return {[type]}        [description]
+     */
+
+  }, {
+    key: "onKeydown",
+    value: function onKeydown(event, target) {
+      var theKey = event.key || event.keyCode; // Do the click toggle for enter and space keys.
+
+      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isEnter"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isSpace"])(theKey)) {
+        this.onClick(event, target);
       }
     }
     /**
@@ -741,6 +770,22 @@ function (_NavItem) {
         this.closeSubNav();
       } else {
         this.openSubNav(false);
+      }
+    }
+    /**
+     * [onKeyDown description]
+     * @param  {[type]} event  [description]
+     * @param  {[type]} target [description]
+     * @return {[type]}        [description]
+     */
+
+  }, {
+    key: "onKeydown",
+    value: function onKeydown(event, target) {
+      var theKey = event.key || event.keyCode; // Do the click toggle for enter and space keys.
+
+      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isEnter"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isSpace"])(theKey)) {
+        this.onClick(event, target);
       }
     }
     /**
