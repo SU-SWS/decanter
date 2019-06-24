@@ -37,6 +37,14 @@
     }
   }
 
+  > ul {
+    > li:last-of-type {
+      > a {
+        border-bottom: 0;
+      }
+    }
+  }
+
   // States.
   // ---------------------------------------------------------------------------
   .su-secondary-nav__item--expanded {
@@ -52,6 +60,16 @@
       &:hover::before,
       &:focus::before {
         background-color: color(border--active, $secondary-nav-colors);
+      }
+    }
+
+    &.su-secondary-nav__item--expanded {
+      > a {
+        color: color(link--expanded, $secondary-nav-colors);
+
+        &::before {
+          background-color: color(border--expanded, $secondary-nav-colors);
+        }
       }
     }
 
