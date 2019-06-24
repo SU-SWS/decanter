@@ -44,12 +44,14 @@
   }
 
   .su-secondary-nav__item--current {
-    @extend %nav-item-link--current;
-
     > a {
+      @extend %nav-item-link--current;
       color: color(link--active, $secondary-nav-colors);
-      &:hover {
-        color: color(link--active-hover, $secondary-nav-colors);
+
+      &::before,
+      &:hover::before,
+      &:focus::before {
+        background-color: color(border--active, $secondary-nav-colors);
       }
     }
 
