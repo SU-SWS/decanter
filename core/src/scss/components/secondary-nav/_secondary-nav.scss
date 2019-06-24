@@ -38,7 +38,7 @@
   }
 
   > ul {
-    > li:last-of-type {
+    > li:last-of-type:not(.su-secondary-nav__item--expanded) {
       > a {
         border-bottom: 0;
       }
@@ -89,6 +89,12 @@
     > li {
       > a {
         font-weight: $font-semi-bold;
+      }
+    }
+
+    > .su-secondary-nav__item--current {
+      > a {
+        font-weight: $font-bold;
       }
     }
   }
