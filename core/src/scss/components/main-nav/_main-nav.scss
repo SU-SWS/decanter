@@ -73,6 +73,20 @@
   .su-main-nav__item--parent {
     @extend %nav-item-link--parent;
 
+    > a::after {
+      @include grid-media('lg') {
+        @include margin(null null 1px 6px);
+        background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
+        background-size: 100%;
+        position: relative;
+        right: 0;
+        top: 0;
+        height: 11px; // Small svg gets chopped off if use em instead of px
+        width: 11px;
+        transition: transform 0.3s ease-out;
+      }
+    }
+
     &.su-main-nav__item--expanded {
       > a::after {
         @include grid-media('lg') {

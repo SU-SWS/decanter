@@ -13,27 +13,17 @@
 // Default styles for secondary nav core elements.
 .su-secondary-nav {
   @include font-smoothing;
-  background: color(bg, $secondary-nav-colors);
 
   // Basic Structure.
   // ---------------------------------------------------------------------------
   ul {
     @extend %nav-menu;
-    background: color(bg, $secondary-nav-colors);
 
     li {
       @extend %nav-item;
-      color: color(text);
 
       a {
         @extend %nav-item-link;
-        @include fancy-hover(
-          color(border--hover, $secondary-nav-colors),
-          color(border--active, $secondary-nav-colors),
-          'left'
-        );
-        color: color(link, $secondary-nav-colors);
-        border-bottom: color(divider, $secondary-nav-colors) solid 1px;
       }
     }
   }
@@ -55,23 +45,6 @@
   .su-secondary-nav__item--current {
     > a {
       @extend %nav-item-link--current;
-      color: color(link--active, $secondary-nav-colors);
-
-      &::before,
-      &:hover::before,
-      &:focus::before {
-        background-color: color(border--active, $secondary-nav-colors);
-      }
-    }
-
-    &.su-secondary-nav__item--expanded {
-      > a {
-        color: color(link--expanded, $secondary-nav-colors);
-
-        &::before {
-          background-color: color(border--expanded, $secondary-nav-colors);
-        }
-      }
     }
 
   }
