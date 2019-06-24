@@ -92,8 +92,8 @@
 {% endspaceless %}
 {# BACKWARDS COMPATIBILITY WITH V5.0 #}
 
-<nav {{- attributes }} class="su-main-nav no-js {{ modifier_class }}" aria-label="{{ aria_label|default('main menu') }}">
-  <button class="su-main-nav__toggle {{- toggle_modifier_class }}" aria-expanded="false">{{ toggle_text }}</button>
+<nav {{ attributes }} class="su-main-nav no-js {{ modifier_class }}" aria-label="{{ aria_label|default('main menu') }}">
+  <button class="su-main-nav__toggle {{ toggle_modifier_class }}" aria-expanded="false">{{ toggle_text }}</button>
   {% spaceless %}
   {% if list_items is iterable %}
     {{ menus.nav_menu(list_items, 1, 'su-main-nav') }}
