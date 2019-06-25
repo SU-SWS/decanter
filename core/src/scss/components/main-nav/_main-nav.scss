@@ -113,7 +113,7 @@
   // Top level only menu styles
   > ul {
     @include grid-media-max('md') {
-      @include box-shadow($depth: 'medium', $stroke: none);
+      @include box-shadow('medium', none);
     }
 
     > li {
@@ -137,7 +137,7 @@
 
       > li {
         > a {
-          @include fancy-hover($color: color(h-border--hover, $nav-colors), $active: color(h-border--active, $nav-colors));
+          @include fancy-hover(color(h-border--hover, $nav-colors), color(h-border--active, $nav-colors));
           @include padding(null 0);
           @include margin(0 1.2em 0 0);
           color: color(h-link, $nav-colors);
@@ -262,7 +262,7 @@
 .su-main-nav__toggle {
 
   @include grid-media-max('md') {
-    @include fancy-hover($color: color(h-border--hover, $nav-colors), $active: color(h-border--active, $nav-colors));
+    @include fancy-hover(color(h-border--hover, $nav-colors), color(h-border--active, $nav-colors));
     @include padding(0 0 2rem);
     @include margin(0);
     display: flex;
