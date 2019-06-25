@@ -57,13 +57,20 @@
       @extend %nav-item-link--current;
     }
 
+    &.su-secondary-nav__item--expanded {
+      > a {
+        @extend %nav-item-link--current-expanded;
+      }
+    }
   }
 
   .su-secondary-nav__item--parent {
     @extend %nav-item-link--parent;
 
     &.su-secondary-nav__item--expanded {
-      @extend %nav-item-link--parent-expanded;
+      > a {
+        @extend %nav-item-link--parent-expanded;
+      }
     }
   }
 
