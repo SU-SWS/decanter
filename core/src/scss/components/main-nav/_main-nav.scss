@@ -67,13 +67,11 @@
 
 
   .su-main-nav__item--current {
-    > a {
-      @extend %nav-item-link--current;
-    }
+    @extend %nav-item--current;
   }
 
   .su-main-nav__item--parent {
-    @extend %nav-item-link--parent;
+    @extend %nav-item--parent;
 
     > a::after {
       @include grid-media('lg') {

@@ -3,7 +3,7 @@
 //
 // The secondary site navigation that is...
 //
-// .su-secondary-nav--light   - Light theme with white background. This variant is often used as the default style.
+// .su-secondary-nav--light   - Light theme with white background. This variant is often used instead of the default.
 //
 // Markup: ../templates/components/secondary-nav/secondary-nav.twig
 //
@@ -52,24 +52,22 @@
     @extend %nav-item--expanded;
   }
 
-  .su-secondary-nav__item--current {
-    > a {
-      @extend %nav-item-link--current;
-    }
-
-    &.su-secondary-nav__item--expanded {
-      > a {
-        @extend %nav-item-link--current-expanded;
-      }
-    }
-  }
-
   .su-secondary-nav__item--parent {
-    @extend %nav-item-link--parent;
+    @extend %nav-item--parent;
 
     &.su-secondary-nav__item--expanded {
       > a {
         @extend %nav-item-link--parent-expanded;
+      }
+    }
+  }
+
+  .su-secondary-nav__item--current {
+    @extend %nav-item--current;
+
+    &.su-secondary-nav__item--expanded {
+      > a {
+        @extend %nav-item-link--current-expanded;
       }
     }
   }
