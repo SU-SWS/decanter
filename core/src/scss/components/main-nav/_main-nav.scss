@@ -67,7 +67,9 @@
 
 
   .su-main-nav__item--current {
-    @extend %nav-item-link--current;
+    > a {
+      @extend %nav-item-link--current;
+    }
   }
 
   .su-main-nav__item--parent {
@@ -98,39 +100,15 @@
     }
   }
 
-  @include grid-media-max('md') {
+  //@include grid-media-max('md') {
     .su-main-nav__item--current {
       &.su-main-nav__item--expanded {
         > a {
-          font-weight: $font-bold;
-
-          &::before {
-            background-color: color(border--mobile-active-expanded, $main-nav-colors);
-          }
-        }
-
-        > a:focus::before {
-          left: 0;
-          background-color: color(border--mobile-active-expanded, $main-nav-colors);
-        }
-
-        > a[aria-expanded="true"] {
-          &:hover::before {
-            left: 6px;
-          }
-
-          &:active {
-            font-weight: $font-bold;
-
-            &::before {
-              background-color: color(border--mobile-active, $main-nav-colors);
-            }
-          }
+          @extend %nav-item-link--current-expanded;
         }
       }
     }
-  }
-
+  //}
 
   // Top level only menu styles
   > ul {

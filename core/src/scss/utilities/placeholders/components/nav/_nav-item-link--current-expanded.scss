@@ -1,0 +1,35 @@
+@charset 'UTF-8';
+//
+// %nav-item-link--current-expanded
+//
+// Individual Nav Item Link -- Current Page and Expanded
+//
+// Style guide: Placeholders.Components.Nav-Item-Link-Current-Expanded
+//
+
+%nav-item-link--current-expanded {
+  font-weight: $font-bold;
+
+  &::before {
+    background-color: color(border--mobile-active-expanded, $main-nav-colors);
+  }
+
+  &:focus::before {
+    left: 0;
+    background-color: color(border--mobile-active-expanded, $main-nav-colors);
+  }
+
+  &[aria-expanded="true"] {
+    &:hover::before {
+      left: 6px;
+    }
+
+    &:active {
+      font-weight: $font-bold;
+
+      &::before {
+        background-color: color(border--mobile-active, $main-nav-colors);
+      }
+    }
+  }
+}
