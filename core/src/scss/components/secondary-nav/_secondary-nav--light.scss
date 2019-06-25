@@ -1,0 +1,97 @@
+@charset "UTF-8";
+//
+// Secondary Navigation Light Theme
+//
+.su-secondary-nav--light {
+  $_su-secondary-nav-color-map: $secondary-nav-light-colors;
+
+  ul {
+    background: color(bg, $_su-secondary-nav-color-map);
+
+    li {
+      color: color(link--mobile, $main-nav-light-colors);
+
+      a {
+        color: color(link--mobile, $main-nav-light-colors);
+        border-bottom-color: color(divider, $main-nav-light-colors);
+
+        &:hover,
+        &:focus {
+          &::before {
+            background-color: color(border--mobile-hover, $main-nav-light-colors);
+          }
+        }
+
+        &:active {
+          color: color(link--mobile-active, $main-nav-light-colors);
+
+          &::before {
+            background-color: color(border--mobile-active, $main-nav-light-colors);
+          }
+        }
+      }
+    }
+  }
+
+  .su-secondary-nav__item--current {
+    > a {
+      color: color(link--mobile-active, $main-nav-light-colors);
+
+      &::before {
+        background-color: color(border--mobile-active, $main-nav-light-colors);
+      }
+
+      &:hover,
+      &:focus {
+        &::before {
+          background-color: color(border--mobile-active, $main-nav-light-colors);
+        }
+      }
+    }
+  }
+
+  .su-secondary-nav__item--parent {
+    > a::after {
+      background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
+      background-size: 100%;
+    }
+
+    &.su-secondary-nav__item--expanded > a {
+      &::after {
+        background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
+        background-size: 100%;
+      }
+
+      &:focus::before {
+        background-color: color(border--mobile-expanded, $main-nav-light-colors);
+      }
+
+      &[aria-expanded="true"] {
+        &:hover::before {
+          background-color: color(border--mobile-hover, $main-nav-light-colors);
+        }
+
+        &:active::before {
+          background-color: color(border--mobile-active, $main-nav-light-colors);
+        }
+      }
+    }
+  }
+
+  .su-secondary-nav__item--current {
+    &.su-secondary-nav__item--expanded {
+      > a {
+        color: color(link--mobile-expanded, $main-nav-light-colors);
+
+        &::before,
+        &:focus::before {
+          background-color: color(border--mobile-active-expanded, $main-nav-light-colors);
+        }
+
+        &[aria-expanded="true"]:active {
+          color: color(link--mobile-active, $main-nav-light-colors);
+        }
+      }
+    }
+  }
+}

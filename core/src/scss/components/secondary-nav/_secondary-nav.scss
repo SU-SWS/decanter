@@ -3,7 +3,7 @@
 //
 // The secondary site navigation that is...
 //
-// .su-secondary-nav--dark   - Light on dark theme (for use on dark background colors).
+// .su-secondary-nav--light   - Light theme with white background. This variant is often used as the default style.
 //
 // Markup: ../templates/components/secondary-nav/secondary-nav.twig
 //
@@ -25,6 +25,10 @@
       a {
         @extend %nav-item-link;
       }
+    }
+
+    > li > ul {
+      @include padding(null null null 2rem);
     }
   }
 
@@ -72,5 +76,4 @@
       }
     }
   }
-
 }
