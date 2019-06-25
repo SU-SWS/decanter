@@ -137,10 +137,10 @@
 
       > li {
         > a {
-          @include fancy-hover($color: color(h-border--hover, $main-nav-colors), $active: color(h-border--active, $main-nav-colors));
+          @include fancy-hover($color: color(h-border--hover, $nav-colors), $active: color(h-border--active, $nav-colors));
           @include padding(null 0);
           @include margin(0 1.2em 0 0);
-          color: color(h-link, $main-nav-colors);
+          color: color(h-link, $nav-colors);
           transition: color 0.3s ease-out;
           font-size: 2.1rem;
           border-bottom: 0;
@@ -151,27 +151,27 @@
 
           &:hover,
           &:focus {
-            color: color(h-link--hover, $main-nav-colors);
+            color: color(h-link--hover, $nav-colors);
           }
 
           &:active,
           &[aria-expanded="true"] {
-            color: color(h-link--active, $main-nav-colors);
+            color: color(h-link--active, $nav-colors);
           }
 
           &[aria-expanded="true"] {
             &:hover {
-              color: color(h-link--active-hover, $main-nav-colors);
+              color: color(h-link--active-hover, $nav-colors);
             }
 
             &:active {
-              color: color(h-link--active, $main-nav-colors);
+              color: color(h-link--active, $nav-colors);
             }
 
             &::before {
               visibility: visible;
               transform: scaleX(1);
-              background-color: color(h-border--expanded, $main-nav-colors);
+              background-color: color(h-border--expanded, $nav-colors);
             }
           }
         }
@@ -186,20 +186,20 @@
           font-weight: $font-semi-bold;
 
           &::before {
-            background-color: color(h-border--active, $main-nav-colors);
+            background-color: color(h-border--active, $nav-colors);
           }
 
           &:hover,
           &:focus {
             &::before {
               left: 0;
-              background-color: color(h-border--active-hover, $main-nav-colors);
+              background-color: color(h-border--active-hover, $nav-colors);
               transition: background-color 0.3s ease-out;
             }
           }
 
           &:active::before {
-            background-color: color(h-border--active, $main-nav-colors);
+            background-color: color(h-border--active, $nav-colors);
           }
         }
 
@@ -207,7 +207,7 @@
           font-weight: $font-semi-bold;
 
           &:focus::before {
-            background-color: color(h-border--active, $main-nav-colors);
+            background-color: color(h-border--active, $nav-colors);
           }
 
           &[aria-expanded="true"] {
@@ -220,16 +220,16 @@
 
       > .su-main-nav__item--expanded {
         > a:focus::before {
-          background-color: color(h-border--expanded, $main-nav-colors);
+          background-color: color(h-border--expanded, $nav-colors);
         }
 
         > a[aria-expanded="true"] {
           &:hover::before {
-            background-color: color(h-border--hover, $main-nav-colors);
+            background-color: color(h-border--hover, $nav-colors);
           }
 
           &:active::before {
-            background-color: color(h-border--expanded, $main-nav-colors);
+            background-color: color(h-border--expanded, $nav-colors);
           }
         }
       }
@@ -262,7 +262,7 @@
 .su-main-nav__toggle {
 
   @include grid-media-max('md') {
-    @include fancy-hover($color: color(h-border--hover, $main-nav-colors), $active: color(h-border--active, $main-nav-colors));
+    @include fancy-hover($color: color(h-border--hover, $nav-colors), $active: color(h-border--active, $nav-colors));
     @include padding(0 0 2rem);
     @include margin(0);
     display: flex;
@@ -270,7 +270,7 @@
     align-items: center;
     width: 40px;
     background-color: transparent;
-    color: color(h-link, $main-nav-colors);
+    color: color(h-link, $nav-colors);
     font-size: 1.6rem;
     font-weight: $font-regular;
     line-height: 0.7;
@@ -288,7 +288,7 @@
       &::before {
         visibility: visible;
         transform: scaleX(1);
-        background-color: color(h-border--expanded, $main-nav-colors);
+        background-color: color(h-border--expanded, $nav-colors);
       }
 
       &::after {
@@ -298,11 +298,11 @@
       }
 
       &:hover::before {
-        background-color: color(h-border--hover, $main-nav-colors);
+        background-color: color(h-border--hover, $nav-colors);
       }
 
       &:active::before {
-        background-color: color(h-border--active, $main-nav-colors);
+        background-color: color(h-border--active, $nav-colors);
       }
     }
 
@@ -310,7 +310,7 @@
     &:active,
     &:focus {
       background-color: transparent;
-      color: color(h-link, $main-nav-colors);
+      color: color(h-link, $nav-colors);
       box-shadow: none;
     }
 
