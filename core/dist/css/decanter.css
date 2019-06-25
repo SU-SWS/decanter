@@ -9429,8 +9429,12 @@ a {
           transition: background-color 0.3s ease-out; }
         .su-main-nav > ul > .su-main-nav__item--current > a:active::before {
           background-color: #2e2d29; }
-      .su-main-nav > ul > .su-main-nav__item--current.su-main-nav__item--expanded > a:focus::before {
-        background-color: #2e2d29; }
+      .su-main-nav > ul > .su-main-nav__item--current.su-main-nav__item--expanded > a {
+        font-weight: 600; }
+        .su-main-nav > ul > .su-main-nav__item--current.su-main-nav__item--expanded > a:focus::before {
+          background-color: #2e2d29; }
+        .su-main-nav > ul > .su-main-nav__item--current.su-main-nav__item--expanded > a[aria-expanded="true"]:hover::before {
+          left: 0; }
       .su-main-nav > ul > .su-main-nav__item--expanded > a:focus::before {
         background-color: #2e2d29; }
       .su-main-nav > ul > .su-main-nav__item--expanded > a[aria-expanded="true"]:hover::before {

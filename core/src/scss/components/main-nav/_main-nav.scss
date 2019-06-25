@@ -204,8 +204,16 @@
         }
 
         &.su-main-nav__item--expanded > a {
+          font-weight: $font-semi-bold;
+
           &:focus::before {
             background-color: color(border--active, $main-nav-colors);
+          }
+
+          &[aria-expanded="true"] {
+            &:hover::before {
+              left: 0;
+            }
           }
         }
       }
