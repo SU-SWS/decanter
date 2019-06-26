@@ -158,6 +158,10 @@
           }
 
           > a[aria-expanded="true"] {
+            &::before {
+              background-color: color(h-border--expanded, $_su-nav-color-map);
+            }
+
             &:hover {
               color: color(h-link--hover, $_su-nav-color-map);
 
@@ -173,6 +177,7 @@
                 background-color: color(h-border--active, $_su-nav-color-map);
               }
             }
+
           }
         }
       }
