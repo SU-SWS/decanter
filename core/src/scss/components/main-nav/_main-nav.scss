@@ -89,11 +89,25 @@
     &.su-main-nav__item--expanded {
       @extend %nav-item--parent-expanded;
 
-      > a::after {
-        @include grid-media('lg') {
-          background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
-          background-size: 100%;
-          transform: rotate(180deg);
+      @include grid-media('lg') {
+        > a {
+          &::after {
+            background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
+            background-size: 100%;
+            transform: rotate(180deg);
+          }
+
+          &::before {
+            background-color: color(h-border--expanded, $nav-colors);
+          }
+
+          &:hover::before {
+            background-color: color(h-border--hover, $nav-colors);
+          }
+
+          &:active::before {
+            background-color: color(h-border--active, $nav-colors);
+          }
         }
       }
     }
