@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
 .su-main-nav--light {
+  @extend %nav--light;
+
   $_su-nav-color-map: $nav-light-colors;
 
   @include grid-media-max('md') {
@@ -16,33 +18,6 @@
 
         &:active::before {
           background-color: color(h-border--active, $_su-nav-color-map);
-        }
-      }
-    }
-  }
-
-  // General menu styles - mobile, also desktop drop down part
-  ul {
-    background-color: color(bg, $_su-nav-color-map);
-  }
-
-  li {
-    a {
-      color: color(link, $_su-nav-color-map);
-      border-bottom-color: color(divider, $_su-nav-color-map);
-
-      &:hover,
-      &:focus {
-        &::before {
-          background-color: color(border--hover, $_su-nav-color-map);
-        }
-      }
-
-      &:active {
-        color: color(link--active, $_su-nav-color-map);
-
-        &::before {
-          background-color: color(border--active, $_su-nav-color-map);
         }
       }
     }
