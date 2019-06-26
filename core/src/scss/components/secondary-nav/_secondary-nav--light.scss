@@ -2,36 +2,11 @@
 //
 // Secondary Navigation Light Theme
 //
+
 .su-secondary-nav--light {
+  @extend %nav--light;
+
   $_su-nav-color-map: $nav-light-colors;
-
-  ul {
-    background: color(bg, $_su-nav-color-map);
-
-    li {
-      color: color(link, $_su-nav-color-map);
-
-      a {
-        color: color(link, $_su-nav-color-map);
-        border-bottom-color: color(divider, $_su-nav-color-map);
-
-        &:hover,
-        &:focus {
-          &::before {
-            background-color: color(border--hover, $_su-nav-color-map);
-          }
-        }
-
-        &:active {
-          color: color(link--active, $_su-nav-color-map);
-
-          &::before {
-            background-color: color(border--active, $_su-nav-color-map);
-          }
-        }
-      }
-    }
-  }
 
   .su-secondary-nav__item--current {
     > a {
