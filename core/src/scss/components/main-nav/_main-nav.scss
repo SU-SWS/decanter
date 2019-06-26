@@ -113,13 +113,25 @@
     }
   }
 
-  //@include grid-media-max('md') {
-    .su-main-nav__item--current {
-      &.su-main-nav__item--expanded {
-        @extend %nav-item--current-expanded;
+  .su-main-nav__item--current {
+    &.su-main-nav__item--expanded {
+      @extend %nav-item--current-expanded;
+
+      @include grid-media('lg') {
+        > a {
+          &[aria-expanded="true"] {
+            &:active {
+              font-weight: $font-semi-bold;
+
+              &::before {
+                background-color: color(h-border--active, $nav-colors);
+              }
+            }
+          }
+        }
       }
     }
-  //}
+  }
 
   // Top level only menu styles
   > ul {
