@@ -127,6 +127,16 @@
           }
         }
 
+        &.su-main-nav__item--current {
+          > a {
+            &[aria-expanded="true"] {
+              &:active::before {
+                background-color: color(h-border--expanded-active, $_su-nav-color-map);
+              }
+            }
+          }
+        }
+
         > a[aria-expanded="true"] {
           &:hover::before {
             background-color: color(h-border--expanded-hover, $_su-nav-color-map);
