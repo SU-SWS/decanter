@@ -28,4 +28,18 @@
       }
     }
   }
+
+  [class$="nav__item--current"] {
+    > a {
+      color: color(link--active, $nav-light-colors);
+
+      &,
+      &:hover,
+      &:focus {
+        &::before {
+          background-color: color(border--active, $nav-light-colors);
+        }
+      }
+    }
+  }
 }

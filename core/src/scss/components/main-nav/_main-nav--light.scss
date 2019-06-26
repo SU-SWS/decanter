@@ -23,23 +23,6 @@
     }
   }
 
-  .su-main-nav__item--current {
-    > a {
-      color: color(link--active, $_su-nav-color-map);
-
-      &::before {
-        background-color: color(border--active, $_su-nav-color-map);
-      }
-
-      &:hover,
-      &:focus {
-        &::before {
-          background-color: color(border--active, $_su-nav-color-map);
-        }
-      }
-    }
-  }
-
   @include grid-media-max('md') {
     .su-main-nav__item--parent {
       > a::after {

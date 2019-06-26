@@ -8,23 +8,6 @@
 
   $_su-nav-color-map: $nav-light-colors;
 
-  .su-secondary-nav__item--current {
-    > a {
-      color: color(link--active, $_su-nav-color-map);
-
-      &::before {
-        background-color: color(border--active, $_su-nav-color-map);
-      }
-
-      &:hover,
-      &:focus {
-        &::before {
-          background-color: color(border--active, $_su-nav-color-map);
-        }
-      }
-    }
-  }
-
   .su-secondary-nav__item--parent {
     > a::after {
       background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
