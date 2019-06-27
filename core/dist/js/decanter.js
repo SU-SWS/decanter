@@ -893,37 +893,13 @@ function (_NavItem) {
     _classCallCheck(this, SubNavItem);
 
     // I'm feelin supa!
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(SubNavItem).call(this, item, nav, options)); // Create the children navs.
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SubNavItem).call(this, item, nav, options)); // Create the children navs based on the parent constructor.
 
-    _this.subNav = new _Nav__WEBPACK_IMPORTED_MODULE_1__["default"](_this.item, options); // Add custom events to alert others when a subnav opens or closes.
-    // this.openEvent is dispatched in this.openSubNav().
+    var construct = nav.constructor;
+    _this.subNav = new construct(_this.item, options); // Create the custom events.
 
-    _this.preOpenEvent = new CustomEvent('preOpenSubnav', {
-      bubbles: true,
-      detail: {
-        nav: _this.nav
-      }
-    }); // this.closeEvent is dispatched in this.closeSubNav().
+    _this.createCustomEvents();
 
-    _this.openEvent = new CustomEvent('openSubnav', {
-      bubbles: true,
-      detail: {
-        nav: _this.nav
-      }
-    }); // this.closeEvent is dispatched in this.closeSubNav().
-
-    _this.preCloseEvent = new CustomEvent('preCloseSubnav', {
-      bubbles: true,
-      detail: {
-        nav: _this.nav
-      }
-    });
-    _this.closeEvent = new CustomEvent('closeSubnav', {
-      bubbles: true,
-      detail: {
-        nav: _this.nav
-      }
-    });
     return _this;
   }
   /**
@@ -1034,10 +1010,306 @@ function (_NavItem) {
     value: function onKeydownSpace(event, target) {
       this.onKeydownArrowDown(event, target);
     }
+    /**
+     * [createCustomEvents description]
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "createCustomEvents",
+    value: function createCustomEvents() {
+      // Add custom events to alert others when a subnav opens or closes.
+      // this.openEvent is dispatched in this.openSubNav().
+      this.preOpenEvent = new CustomEvent('preOpenSubnav', {
+        bubbles: true,
+        detail: {
+          nav: this.nav
+        }
+      }); // this.closeEvent is dispatched in this.closeSubNav().
+
+      this.openEvent = new CustomEvent('openSubnav', {
+        bubbles: true,
+        detail: {
+          nav: this.nav
+        }
+      }); // this.closeEvent is dispatched in this.closeSubNav().
+
+      this.preCloseEvent = new CustomEvent('preCloseSubnav', {
+        bubbles: true,
+        detail: {
+          nav: this.nav
+        }
+      });
+      this.closeEvent = new CustomEvent('closeSubnav', {
+        bubbles: true,
+        detail: {
+          nav: this.nav
+        }
+      });
+    }
   }]);
 
   return SubNavItem;
 }(_NavItem__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/main-nav/ToggleNav.js":
+/*!******************************************************!*\
+  !*** ./core/src/js/components/main-nav/ToggleNav.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ToggleNav; });
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
+/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
+/* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavItem */ "./core/src/js/components/main-nav/NavItem.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
+/* harmony import */ var _ToggleSubNavItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ToggleSubNavItem */ "./core/src/js/components/main-nav/ToggleSubNavItem.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+/**
+ * Represent a navigation menu. May be the top nav or a subnav.
+ *
+ * @prop {HTMLElement|NavItem} elem       - The element that is the nav. May
+ *                                          be a main nav (<nav>) or a subnav
+ *                                          (NavItem).
+ * @prop {Nav}                 topNav     - The instance of Nav that models
+ *                                          the top nav. If this is the top
+ *                                          nav, topNav === this.
+ * @prop {HTMLButtonElement}   toggle     - The <button> in the DOM that
+ *                                          toggles the menu on mobile. NULL
+ *                                          if this is a subnav.
+ * @prop {String}              toggleText - The initial text of the mobile
+ *                                          toggle (so we can reset it when
+ *                                          the mobile nav is closed).
+ * @prop {Array}               items      - Instances of NavItem that model
+ *                                          each element in the nav
+ */
+
+var ToggleNav =
+/*#__PURE__*/
+function (_Nav) {
+  _inherits(ToggleNav, _Nav);
+
+  function ToggleNav() {
+    _classCallCheck(this, ToggleNav);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(ToggleNav).apply(this, arguments));
+  }
+
+  _createClass(ToggleNav, [{
+    key: "createNavItems",
+
+    /**
+     * Create the children nav items.
+     * @return {[type]} [description]
+     */
+    value: function createNavItems() {
+      var _this = this;
+
+      var items = this.elem.querySelectorAll("#" + this.id + ' > ul > li');
+      items.forEach(function (item) {
+        // Subnav items have special behaviour.
+        if (item.querySelector(item.tagName + " > ul")) {
+          _this.subNavItems.push(new _ToggleSubNavItem__WEBPACK_IMPORTED_MODULE_4__["default"](item, _this, _this.options));
+        } // NavItems have specific event handling.
+        else {
+            _this.navItems.push(new _NavItem__WEBPACK_IMPORTED_MODULE_2__["default"](item, _this, _this.options));
+          }
+      });
+    }
+  }]);
+
+  return ToggleNav;
+}(_Nav__WEBPACK_IMPORTED_MODULE_3__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/main-nav/ToggleSubNavItem.js":
+/*!*************************************************************!*\
+  !*** ./core/src/js/components/main-nav/ToggleSubNavItem.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ToggleSubNavItem; });
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
+/* harmony import */ var _SubNavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SubNavItem */ "./core/src/js/components/main-nav/SubNavItem.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+/**
+ * Represent an item in a navigation menu. May be a direct link or a subnav
+ * trigger.
+ *
+ * @prop {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
+ * @prop {HTMLElement|Nav} nav    - the Nav that contains the element.
+ *                                  May be a main nav (<nav>) or subnav (Nav).
+ * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
+ *                                  item (the <li>).
+ * @prop {Nav}             subNav - if item is the trigger for a subnav, this
+ *                                  is an instonce Nav that models the subnav.
+ */
+
+var ToggleSubNavItem =
+/*#__PURE__*/
+function (_SubNavItem) {
+  _inherits(ToggleSubNavItem, _SubNavItem);
+
+  /**
+   * Create a NavItem
+   * @param {HTMLLIElement}   item  - The <li> that is the NavItem in the DOM.
+   * @param {HTMLElement|Nav} nav   - The Nav that contains the element. May
+   *                                  be a main nav (<nav>) or a subnav (Nav).
+   */
+  function ToggleSubNavItem(item, nav, options) {
+    var _this;
+
+    _classCallCheck(this, ToggleSubNavItem);
+
+    // I'm feelin supa!
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ToggleSubNavItem).call(this, item, nav, options)); // Set text.
+
+    _this.toggleText = options.subNavToggleText || "+";
+    _this.triggerText = options.navToggleClass || "nav-toggle"; // Create the buttons.
+
+    _this.toggle = _this.createToggleButton();
+
+    _this.item.appendChild(_this.toggle); // Create the toggle events.
+
+
+    _this.toggle.addEventListener('click', _assertThisInitialized(_this));
+
+    return _this;
+  }
+  /**
+   * [createToggleButton description]
+   * @return {[type]} [description]
+   */
+
+
+  _createClass(ToggleSubNavItem, [{
+    key: "createToggleButton",
+    value: function createToggleButton() {
+      var element = document.createElement("button");
+      var label = document.createTextNode(this.toggleText); // Give this instance a unique ID.
+
+      var id = "toggle-" + Math.random().toString(36).substr(2, 9);
+      element.setAttribute('class', this.triggerClass);
+      element.setAttribute('aria-expanded', false);
+      element.setAttribute('aria-controls', this.subNav.id);
+      element.setAttribute('id', id);
+      element.appendChild(label);
+      return element;
+    }
+    /**
+     * Handler for click events.
+     *
+     * Dispatched from this.handleEvent().
+     * Click is only bound to subnav triggers. However, click bubbles up from
+     * subnav items to the trigger.
+     *
+     * @param {KeyboardEvent} event - The keyboard event object.
+     * @param {HTMLElement} target  - The HTML element target.
+     */
+
+  }, {
+    key: "onClick",
+    value: function onClick(event, target) {
+      // If the click is on the trigger then ignore.
+      if (target == this.link) {
+        return;
+      }
+
+      if (target == this.toggle) {
+        if (this.isExpanded()) {
+          this.closeSubNav();
+        } else {
+          this.openSubNav();
+        }
+
+        return;
+      }
+    }
+    /**
+     * Is this expanded? Can only return TRUE if this is a subnav trigger.
+     *
+     * @return {Boolean}
+     *  Wether or not the item is expanded.
+     */
+
+  }, {
+    key: "isExpanded",
+    value: function isExpanded() {
+      return this.toggle.getAttribute('aria-expanded') === 'true';
+    }
+    /**
+     * Set whether or not this is expanded.
+     * Only meaningful if this is a subnav trigger.
+     *
+     * @param {String} value - What to set the aria-expanded attribute of this's
+     *                         link to.
+     */
+
+  }, {
+    key: "setExpanded",
+    value: function setExpanded(value) {
+      this.toggle.setAttribute('aria-expanded', value);
+    }
+  }]);
+
+  return ToggleSubNavItem;
+}(_SubNavItem__WEBPACK_IMPORTED_MODULE_2__["default"]);
 
 
 
@@ -1056,6 +1328,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
 /* harmony import */ var _NavToggle__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavToggle */ "./core/src/js/components/main-nav/NavToggle.js");
+/* harmony import */ var _ToggleNav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ToggleNav */ "./core/src/js/components/main-nav/ToggleNav.js");
+
 
 
 
@@ -1107,6 +1381,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ "./core/src/js/core/core.js");
 /* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _main_nav_Nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../main-nav/Nav */ "./core/src/js/components/main-nav/Nav.js");
+/* harmony import */ var _main_nav_ToggleNav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../main-nav/ToggleNav */ "./core/src/js/components/main-nav/ToggleNav.js");
+
 
 
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -1118,12 +1394,20 @@ document.addEventListener('DOMContentLoaded', function (event) {
   var options = {
     'itemExpandedClass': 'su-secondary-nav__item--expanded',
     'itemActiveClass': 'su-secondary-nav__item--current',
+    'triggerClass': "su-secondary-nav__toggle",
     'activePath': true
   }; // Generate the Accordion toggle for each nav.
 
   navs.forEach(function (nav) {
-    // Create an instance of Nav, which in turn creates appropriate instances of NavItem.
-    new _main_nav_Nav__WEBPACK_IMPORTED_MODULE_1__["default"](nav, options);
+    if (nav.className.match(/--toggles/)) {
+      // Create an instance of ToggleNav, which in turn create appropriate
+      // instances of ToggleSubNavItems.
+      new _main_nav_ToggleNav__WEBPACK_IMPORTED_MODULE_2__["default"](nav, options);
+    } else {
+      // Create an instance of Nav, which in turn creates appropriate instances
+      // of NavItem.
+      new _main_nav_Nav__WEBPACK_IMPORTED_MODULE_1__["default"](nav, options);
+    }
   });
 });
 

@@ -3,7 +3,6 @@
  * @type {[type]}
  */
 (function($) {
-
   // Scroll the sidebar to stay in the window.
   // Todo: move this to a file not called main-nav.js
   $(window).scroll(function() {

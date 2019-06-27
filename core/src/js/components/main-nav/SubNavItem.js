@@ -28,50 +28,12 @@ export default class SubNavItem extends NavItem {
     // I'm feelin supa!
     super(item, nav, options);
 
-    // Create the children navs.
-    this.subNav = new Nav(this.item, options);
+    // Create the children navs based on the parent constructor.
+    let construct = nav.constructor;
+    this.subNav = new construct(this.item, options);
 
-    // Add custom events to alert others when a subnav opens or closes.
-    // this.openEvent is dispatched in this.openSubNav().
-    this.preOpenEvent = new CustomEvent(
-      'preOpenSubnav',
-      {
-        bubbles: true,
-        detail: {
-          nav: this.nav
-        }
-      }
-    );
-    // this.closeEvent is dispatched in this.closeSubNav().
-    this.openEvent = new CustomEvent(
-      'openSubnav',
-      {
-        bubbles: true,
-        detail: {
-          nav: this.nav
-        }
-      }
-    );
-    // this.closeEvent is dispatched in this.closeSubNav().
-    this.preCloseEvent = new CustomEvent(
-      'preCloseSubnav',
-      {
-        bubbles: true,
-        detail: {
-          nav: this.nav
-        }
-      }
-    );
-    this.closeEvent = new CustomEvent(
-      'closeSubnav',
-      {
-        bubbles: true,
-        detail: {
-          nav: this.nav
-        }
-      }
-    );
-
+    // Create the custom events.
+    this.createCustomEvents();
   }
 
   /**
@@ -167,6 +129,53 @@ export default class SubNavItem extends NavItem {
    **/
   onKeydownSpace(event, target) {
   this.onKeydownArrowDown(event, target);
+  }
+
+  /**
+   * [createCustomEvents description]
+   * @return {[type]} [description]
+   */
+  createCustomEvents() {
+    // Add custom events to alert others when a subnav opens or closes.
+    // this.openEvent is dispatched in this.openSubNav().
+    this.preOpenEvent = new CustomEvent(
+      'preOpenSubnav',
+      {
+        bubbles: true,
+        detail: {
+          nav: this.nav
+        }
+      }
+    );
+    // this.closeEvent is dispatched in this.closeSubNav().
+    this.openEvent = new CustomEvent(
+      'openSubnav',
+      {
+        bubbles: true,
+        detail: {
+          nav: this.nav
+        }
+      }
+    );
+    // this.closeEvent is dispatched in this.closeSubNav().
+    this.preCloseEvent = new CustomEvent(
+      'preCloseSubnav',
+      {
+        bubbles: true,
+        detail: {
+          nav: this.nav
+        }
+      }
+    );
+    this.closeEvent = new CustomEvent(
+      'closeSubnav',
+      {
+        bubbles: true,
+        detail: {
+          nav: this.nav
+        }
+      }
+    );
   }
 
 }
