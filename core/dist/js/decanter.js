@@ -189,7 +189,14 @@ function (_NavAbstract) {
     } // Add an active class to the children.
 
 
-    _this.setActivePath();
+    if (options.activePath) {
+      _this.setActivePath();
+    } // Expand to the active path.
+
+
+    if (options.expandActivePath) {
+      _this.expandActivePath();
+    }
 
     return _this;
   }
@@ -329,9 +336,10 @@ function () {
     this.elem.id = this.idPrefix + id; // Initialize items.
 
     this.navItems = [];
-    this.subNavItems = []; // Add an active class to the children.
+    this.subNavItems = []; // Class properties.
 
     this.itemActiveClass = options.itemActiveClass || "active";
+    this.itemExpandedClass = options.itemExpandedClass || "expanded";
   }
   /**
    * Create the children nav items.
@@ -419,6 +427,24 @@ function () {
             currentLink = currentLink.parentNode;
           }
         }
+      }
+    }
+    /**
+     * [expandActivePath description]
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "expandActivePath",
+    value: function expandActivePath() {
+      var _this2 = this;
+
+      var actives = this.elem.querySelectorAll("." + this.itemActiveClass);
+
+      if (actives.length) {
+        actives.forEach(function (item) {
+          item.classList.add(_this2.itemExpandedClass);
+        });
       }
     }
     /**
@@ -1573,7 +1599,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
     'itemExpandedClass': 'su-secondary-nav__item--expanded',
     'itemActiveClass': 'su-secondary-nav__item--current',
     'triggerClass': "su-secondary-nav__toggle",
-    'activePath': true
+    'activePath': true,
+    'expandActivePath': true
   }; // Generate the Accordion toggle for each nav.
 
   navs.forEach(function (nav) {

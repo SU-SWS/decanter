@@ -50,8 +50,10 @@ export default class NavAbstract {
     // Initialize items.
     this.navItems = [];
     this.subNavItems = [];
-    // Add an active class to the children.
+
+    // Class properties.
     this.itemActiveClass = options.itemActiveClass || "active";
+    this.itemExpandedClass = options.itemExpandedClass || "expanded";
   }
 
   /**
@@ -138,6 +140,21 @@ export default class NavAbstract {
           currentLink = currentLink.parentNode;
         }
       }
+    }
+  }
+
+  /**
+   * [expandActivePath description]
+   * @return {[type]} [description]
+   */
+  expandActivePath() {
+    let actives = this.elem.querySelectorAll("." + this.itemActiveClass);
+    if (actives.length) {
+      actives.forEach(
+        item => {
+          item.classList.add(this.itemExpandedClass);
+        }
+      );
     }
   }
 

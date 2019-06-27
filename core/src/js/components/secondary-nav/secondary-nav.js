@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', event => {
     'itemActiveClass': 'su-secondary-nav__item--current',
     'triggerClass': "su-secondary-nav__toggle",
     'activePath': true,
+    'expandActivePath': true,
   };
 
   // Generate the Accordion toggle for each nav.
