@@ -1514,6 +1514,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     'toggle': null,
     'itemExpandedClass': 'su-main-nav__item--expanded',
     'itemActiveClass': 'su-main-nav__item--current',
+    'triggerClass': "su-main-nav__toggle",
     'activePath': true
   }; // Loop through each of the navs and create a new instance.
 
@@ -1530,10 +1531,17 @@ document.addEventListener('DOMContentLoaded', function (event) {
     var toggleOptions = {
       'navElement': nav
     };
-    options.toggle = new _NavToggle__WEBPACK_IMPORTED_MODULE_2__["default"](toggleElement, toggleOptions); // Create an instance of Nav,
-    // which in turn creates appropriate instances of NavItem.
+    options.toggle = new _NavToggle__WEBPACK_IMPORTED_MODULE_2__["default"](toggleElement, toggleOptions);
 
-    var theNav = new _Nav__WEBPACK_IMPORTED_MODULE_1__["default"](nav, options);
+    if (nav.className.match(/--buttons/)) {
+      // Create an instance of ToggleNav, which in turn create appropriate
+      // instances of ToggleSubNavItems.
+      new _ToggleNav__WEBPACK_IMPORTED_MODULE_3__["default"](nav, options);
+    } else {
+      // Create an instance of Nav,
+      // which in turn creates appropriate instances of NavItem.
+      new _Nav__WEBPACK_IMPORTED_MODULE_1__["default"](nav, options);
+    }
   });
 }); // on DOMContentLoaded.
 
@@ -1569,7 +1577,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   }; // Generate the Accordion toggle for each nav.
 
   navs.forEach(function (nav) {
-    if (nav.className.match(/--toggles/)) {
+    if (nav.className.match(/--buttons/)) {
       // Create an instance of ToggleNav, which in turn create appropriate
       // instances of ToggleSubNavItems.
       new _main_nav_ToggleNav__WEBPACK_IMPORTED_MODULE_2__["default"](nav, options);

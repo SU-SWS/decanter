@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', event => {
   // Generate the Accordion toggle for each nav.
   navs.forEach((nav) => {
 
-    if (nav.className.match(/--toggles/)) {
+    if (nav.className.match(/--buttons/)) {
       // Create an instance of ToggleNav, which in turn create appropriate
       // instances of ToggleSubNavItems.
       new ToggleNav(nav, options);
