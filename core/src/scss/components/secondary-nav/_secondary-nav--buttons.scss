@@ -3,40 +3,64 @@
 // Accordion States (JS) ///////////////////////////////////////////////////////
 
 .su-secondary-nav--buttons {
+
   .su-secondary-nav__item--parent {
     position: relative;
+
+    > a::after {
+      background: transparent;
+    }
+
     > a {
       @include padding(null 60px null null);
+    }
+
+    &.su-secondary-nav__item--expanded {
+      > a::after {
+        background: transparent;
+      }
+    }
+  }
+
+  .su-secondary-nav__item--expanded {
+    > a::after {
+      background: transparent;
     }
   }
 }
 
 .su-secondary-nav__toggle {
   @include margin(0);
-  @include padding(0);
+  @include padding(15px);
   vertical-align: middle;
   text-align: center;
-  font-size: 1.5em;
-  width: 53px;
-  max-width: 53px;
-  height: 53px;
-  line-height: 53px;
+  font-size: 0;
+  width: 54px;
+  max-width: 54px;
+  height: 54px;
+  line-height: 54px;
   position: absolute;
-  right: 0px;
-  top: 0px;
+  right: 0;
+  top: 1px;
   z-index: 10;
+  background: color(brand--dark) url("#{$image-path}/caret-down-white.svg") no-repeat 50% 50%;
+  background-size: 30%;
 
   &:hover {
-    color: color(text);
-    background: transparent;
     font-weight: bold;
+    background-position: 50% 42%;
+    background-color: color(brand--bright);
   }
 
   &:focus,
   &:active {
-    background: transparent;
-    color: color(text);
     box-shadow: none;
+    background-color: color(brand);
+  }
+
+  &[aria-expanded="true"] {
+    transform: rotate(180deg);
+    background-color: color(brand--bright);
   }
 
 }

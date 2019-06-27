@@ -42,7 +42,13 @@ export default class Nav extends NavAbstract {
       this.toggle.setNav(this);
     }
     // Add an active class to the children.
-    this.setActivePath();
+    if (options.activePath) {
+      this.setActivePath();
+    }
+    // Expand to the active path.
+    if (options.expandActivePath) {
+      this.expandActivePath();
+    }
   }
 
   /**
@@ -60,8 +66,6 @@ export default class Nav extends NavAbstract {
   // -------------------------------------------------------------------------
   // Event Handlers.
   // -------------------------------------------------------------------------
-
-
 
   /**
    * [preOpenSubnav description]
