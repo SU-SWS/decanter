@@ -1,7 +1,6 @@
 import {isHome, isEnd, isTab, isSpace, isEnter, isLeftArrow, isRightArrow, isUpArrow, isDownArrow} from "../../utilities/keyboard";
-import Nav from './Nav';
-import NavItem from './NavItem';
 import 'custom-event-polyfill'; // @see https://github.com/krambuhl/custom-event-polyfill
+import NavItem from './NavItem';
 
 /**
  * Represent an item in a navigation menu. May be a direct link or a subnav

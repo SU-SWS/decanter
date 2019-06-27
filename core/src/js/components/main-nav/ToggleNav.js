@@ -1,8 +1,8 @@
 import { isEsc, isSpace, isEnter } from "../../utilities/keyboard";
 import { createEvent } from '../../utilities/events';
+import ToggleSubNavItem from './ToggleSubNavItem';
 import NavItem from './NavItem';
 import Nav from './Nav';
-import ToggleSubNavItem from './ToggleSubNavItem';
 
 /**
  * Represent a navigation menu. May be the top nav or a subnav.
@@ -23,6 +23,15 @@ import ToggleSubNavItem from './ToggleSubNavItem';
  *                                          each element in the nav
  */
 export default class ToggleNav extends Nav {
+
+  /**
+   * [constructor description]
+   * @param {[type]} elem    [description]
+   * @param {[type]} options [description]
+   */
+  constructor(elem, options) {
+    super(elem, options);
+  }
 
   /**
    * Create the children nav items.
