@@ -186,7 +186,11 @@ function () {
 
     if (this.toggle) {
       this.toggle.setNav(this);
-    }
+    } // Add an active class to the children.
+
+
+    this.itemActiveClass = options.itemActiveClass || "active";
+    this.setActivePath();
   }
   /**
    * Create the children nav items.
@@ -301,6 +305,42 @@ function () {
 
       if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isEsc"])(theKey)) {
         this.closeAllSubNavs();
+      }
+    }
+    /**
+     * [setActivePath description]
+     */
+
+  }, {
+    key: "setActivePath",
+    value: function setActivePath() {
+      if (this.options.activePath !== true) {
+        return;
+      }
+
+      var pathname = window.location.pathname;
+      var anchor = window.location.hash;
+
+      if (pathname.length) {
+        var currentLink;
+
+        if (!anchor) {
+          currentLink = this.elem.querySelector("a[href*='" + pathname + "']");
+        } else {
+          currentLink = this.elem.querySelector("a[href*='" + anchor + "']");
+        }
+
+        if (currentLink) {
+          while (currentLink) {
+            if (currentLink.getAttribute('id') == this.id) {
+              currentLink = false;
+            } else if (currentLink.tagName == "LI") {
+              currentLink.classList.add(this.itemActiveClass);
+            }
+
+            currentLink = currentLink.parentNode;
+          }
+        }
       }
     }
   }]);
@@ -863,7 +903,8 @@ function (_NavItem) {
       detail: {
         nav: _this.nav
       }
-    });
+    }); // this.closeEvent is dispatched in this.closeSubNav().
+
     _this.openEvent = new CustomEvent('openSubnav', {
       bubbles: true,
       detail: {
@@ -1027,7 +1068,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
   var options = {
     'zIndex': null,
     'toggle': null,
-    'itemExpandedClass': 'su-main-nav__item--expanded'
+    'itemExpandedClass': 'su-main-nav__item--expanded',
+    'itemActiveClass': 'su-main-nav__item--current',
+    'activePath': true
   }; // Loop through each of the navs and create a new instance.
 
   navs.forEach(function (nav, index) {
@@ -1073,7 +1116,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
   var navs = document.querySelectorAll('.' + navClass); // Secondary nav specific settings.
 
   var options = {
-    'itemExpandedClass': 'su-secondary-nav__item--expanded'
+    'itemExpandedClass': 'su-secondary-nav__item--expanded',
+    'itemActiveClass': 'su-secondary-nav__item--current',
+    'activePath': true
   }; // Generate the Accordion toggle for each nav.
 
   navs.forEach(function (nav) {

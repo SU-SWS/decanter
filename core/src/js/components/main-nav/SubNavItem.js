@@ -42,6 +42,7 @@ export default class SubNavItem extends NavItem {
         }
       }
     );
+    // this.closeEvent is dispatched in this.closeSubNav().
     this.openEvent = new CustomEvent(
       'openSubnav',
       {
@@ -51,7 +52,6 @@ export default class SubNavItem extends NavItem {
         }
       }
     );
-
     // this.closeEvent is dispatched in this.closeSubNav().
     this.preCloseEvent = new CustomEvent(
       'preCloseSubnav',

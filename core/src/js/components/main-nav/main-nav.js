@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', event => {
     'zIndex': null,
     'toggle': null,
     'itemExpandedClass': 'su-main-nav__item--expanded',
+    'itemActiveClass': 'su-main-nav__item--current',
+    'activePath': true,
   };
 
   // Loop through each of the navs and create a new instance.
