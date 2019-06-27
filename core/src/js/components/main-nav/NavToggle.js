@@ -12,7 +12,6 @@ export default class NavToggle {
    * @param {[type]} options [description]
    */
   constructor(element, options) {
-
     // Params.
     this.element = element;
     this.options = options;

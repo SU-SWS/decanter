@@ -1,5 +1,4 @@
 import {isHome, isEnd, isTab, isSpace, isEnter, isLeftArrow, isRightArrow, isUpArrow, isDownArrow} from "../../utilities/keyboard";
-import Nav from './Nav';
 import SubNavItem from './SubNavItem';
 
 /**
@@ -27,11 +26,11 @@ export default class ToggleSubNavItem extends SubNavItem {
 
     // Set text.
     this.toggleText = options.subNavToggleText || "+";
-    this.triggerText = options.navToggleClass || "nav-toggle";
+    this.triggerClass = options.triggerClass || "nav-toggle";
 
     // Create the buttons.
     this.toggle = this.createToggleButton();
-    this.item.appendChild(this.toggle);
+    this.item.prepend(this.toggle);
 
     // Create the toggle events.
     this.toggle.addEventListener('click', this);

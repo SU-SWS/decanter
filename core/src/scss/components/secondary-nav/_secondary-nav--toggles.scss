@@ -4,7 +4,10 @@
 
 .su-secondary-nav--toggles {
   .su-secondary-nav__item--parent {
-    clear: both;
+    position: relative;
+    > a {
+      @include padding(null 60px null null);
+    }
   }
 }
 
@@ -13,14 +16,15 @@
   @include padding(0);
   vertical-align: middle;
   text-align: center;
-  float: right;
-  background: transparent;
-  color: color(text);
   font-size: 1.5em;
   width: 53px;
   max-width: 53px;
   height: 53px;
   line-height: 53px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  z-index: 10;
 
   &:hover {
     color: color(text);

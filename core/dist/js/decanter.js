@@ -116,6 +116,158 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
 /* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavItem */ "./core/src/js/components/main-nav/NavItem.js");
 /* harmony import */ var _SubNavItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SubNavItem */ "./core/src/js/components/main-nav/SubNavItem.js");
+/* harmony import */ var _NavAbstract__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./NavAbstract */ "./core/src/js/components/main-nav/NavAbstract.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+
+/**
+ * Represent a navigation menu. May be the top nav or a subnav.
+ *
+ * @prop {HTMLElement|NavItem} elem       - The element that is the nav. May
+ *                                          be a main nav (<nav>) or a subnav
+ *                                          (NavItem).
+ * @prop {Nav}                 topNav     - The instance of Nav that models
+ *                                          the top nav. If this is the top
+ *                                          nav, topNav === this.
+ * @prop {HTMLButtonElement}   toggle     - The <button> in the DOM that
+ *                                          toggles the menu on mobile. NULL
+ *                                          if this is a subnav.
+ * @prop {String}              toggleText - The initial text of the mobile
+ *                                          toggle (so we can reset it when
+ *                                          the mobile nav is closed).
+ * @prop {Array}               items      - Instances of NavItem that model
+ *                                          each element in the nav
+ */
+
+var Nav =
+/*#__PURE__*/
+function (_NavAbstract) {
+  _inherits(Nav, _NavAbstract);
+
+  /**
+   * Create a Nav
+   *
+   * @param {HTMLElement|NavItem} elem - The element that is the nav menu.
+   *                                     May be a main nav (<nav>) or a subnav
+   *                                     (NavItem).
+   */
+  function Nav(elem, options) {
+    var _this;
+
+    _classCallCheck(this, Nav);
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Nav).call(this, elem, options)); // Create navItems.
+
+    _this.createNavItems(); // Initialize the event listeners.
+
+
+    _this.createEventListeners(); // Once initialized pass me back to the toggle.
+
+
+    if (_this.toggle) {
+      _this.toggle.setNav(_assertThisInitialized(_this));
+    } // Add an active class to the children.
+
+
+    _this.setActivePath();
+
+    return _this;
+  }
+  /**
+   * [createEventListeners description]
+   * @return {[type]} [description]
+   */
+
+
+  _createClass(Nav, [{
+    key: "createEventListeners",
+    value: function createEventListeners() {
+      // What do when key down?
+      this.elem.addEventListener('keydown', this); // Listen to the close so we can act on it.
+
+      this.elem.addEventListener('preOpenSubnav', this);
+    } // -------------------------------------------------------------------------
+    // Event Handlers.
+    // -------------------------------------------------------------------------
+
+    /**
+     * [preOpenSubnav description]
+     * @param  {[type]} event     [description]
+     * @param  {[type]} parentNav [description]
+     * @return {[type]}           [description]
+     */
+
+  }, {
+    key: "onPreOpenSubnav",
+    value: function onPreOpenSubnav(event) {
+      // Somebody clicked a subnav trigger. Check to see if it is one of my
+      // subnavitems. If it is one of my subnav items, close all of the subnav
+      // items so that everything on the same level are shut.
+      var triggerId = event.detail.nav.id || null;
+
+      if (triggerId == this.id) {
+        this.closeAllSubNavs();
+      }
+    }
+    /**
+     * [onKeydown description]
+     * @param  {[type]} event  [description]
+     * @param  {[type]} target [description]
+     * @return {[type]}        [description]
+     */
+
+  }, {
+    key: "onKeydown",
+    value: function onKeydown(event, target) {
+      var theKey = event.key || event.keyCode;
+
+      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isEsc"])(theKey)) {
+        this.closeAllSubNavs();
+      }
+    }
+  }]);
+
+  return Nav;
+}(_NavAbstract__WEBPACK_IMPORTED_MODULE_4__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/main-nav/NavAbstract.js":
+/*!********************************************************!*\
+  !*** ./core/src/js/components/main-nav/NavAbstract.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NavAbstract; });
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
+/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
+/* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavItem */ "./core/src/js/components/main-nav/NavItem.js");
+/* harmony import */ var _SubNavItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SubNavItem */ "./core/src/js/components/main-nav/SubNavItem.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -145,7 +297,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
  *                                          each element in the nav
  */
 
-var Nav =
+var NavAbstract =
 /*#__PURE__*/
 function () {
   /**
@@ -155,8 +307,8 @@ function () {
    *                                     May be a main nav (<nav>) or a subnav
    *                                     (NavItem).
    */
-  function Nav(elem, options) {
-    _classCallCheck(this, Nav);
+  function NavAbstract(elem, options) {
+    _classCallCheck(this, NavAbstract);
 
     // Save the passed in configuration options.
     this.options = options; // Prefixing the random ids.
@@ -169,28 +321,17 @@ function () {
 
     if (this.options.zIndex > 1) {
       this.elem.style.zIndex = this.options.zIndex;
-    } // Remove the class that formats the nav for browsers with javascript disabled.
+    } // Give this instance a unique ID.
 
-
-    this.elem.classList.remove('no-js'); // Give this instance a unique ID.
 
     var id = Math.random().toString(36).substr(2, 9);
     this.id = this.idPrefix + id;
     this.elem.id = this.idPrefix + id; // Initialize items.
 
     this.navItems = [];
-    this.subNavItems = [];
-    this.createNavItems(); // Initialize the event listeners.
-
-    this.createEventListeners(); // Once initialized pass me back to the toggle.
-
-    if (this.toggle) {
-      this.toggle.setNav(this);
-    } // Add an active class to the children.
-
+    this.subNavItems = []; // Add an active class to the children.
 
     this.itemActiveClass = options.itemActiveClass || "active";
-    this.setActivePath();
   }
   /**
    * Create the children nav items.
@@ -198,7 +339,7 @@ function () {
    */
 
 
-  _createClass(Nav, [{
+  _createClass(NavAbstract, [{
     key: "createNavItems",
     value: function createNavItems() {
       var _this = this;
@@ -214,22 +355,6 @@ function () {
           }
       });
     }
-    /**
-     * [createEventListeners description]
-     * @return {[type]} [description]
-     */
-
-  }, {
-    key: "createEventListeners",
-    value: function createEventListeners() {
-      // What do when key down?
-      this.elem.addEventListener('keydown', this); // Listen to the close so we can act on it.
-
-      this.elem.addEventListener('preOpenSubnav', this);
-    } // -------------------------------------------------------------------------
-    // Event Handlers.
-    // -------------------------------------------------------------------------
-
     /**
      * Handler for all events attached to an instance of this class. This method
      * must exist when events are bound to an instance of a class
@@ -259,53 +384,6 @@ function () {
       else if (typeof this[handler] === 'function') {
           return this[handler](event, target);
         }
-    }
-    /**
-     * [preOpenSubnav description]
-     * @param  {[type]} event     [description]
-     * @param  {[type]} parentNav [description]
-     * @return {[type]}           [description]
-     */
-
-  }, {
-    key: "onPreOpenSubnav",
-    value: function onPreOpenSubnav(event) {
-      // Somebody clicked a subnav trigger. Check to see if it is one of my
-      // subnavitems. If it is one of my subnav items, close all of the subnav
-      // items so that everything on the same level are shut.
-      var triggerId = event.detail.nav.id || null;
-
-      if (triggerId == this.id) {
-        this.closeAllSubNavs();
-      }
-    }
-    /**
-     * Gotta close em all.
-     * @return {[type]} [description]
-     */
-
-  }, {
-    key: "closeAllSubNavs",
-    value: function closeAllSubNavs() {
-      this.subNavItems.forEach(function (item, event) {
-        item.closeSubNav();
-      });
-    }
-    /**
-     * [onKeydown description]
-     * @param  {[type]} event  [description]
-     * @param  {[type]} target [description]
-     * @return {[type]}        [description]
-     */
-
-  }, {
-    key: "onKeydown",
-    value: function onKeydown(event, target) {
-      var theKey = event.key || event.keyCode;
-
-      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isEsc"])(theKey)) {
-        this.closeAllSubNavs();
-      }
     }
     /**
      * [setActivePath description]
@@ -343,9 +421,21 @@ function () {
         }
       }
     }
+    /**
+     * Gotta close em all.
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "closeAllSubNavs",
+    value: function closeAllSubNavs() {
+      this.subNavItems.forEach(function (item, event) {
+        item.closeSubNav();
+      });
+    }
   }]);
 
-  return Nav;
+  return NavAbstract;
 }();
 
 
@@ -363,13 +453,27 @@ function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NavItem; });
 /* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
-/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
-/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
+/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
+/* harmony import */ var _NavItemAbstract__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NavItemAbstract */ "./core/src/js/components/main-nav/NavItemAbstract.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -387,7 +491,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 var NavItem =
 /*#__PURE__*/
-function () {
+function (_NavItemAbstract) {
+  _inherits(NavItem, _NavItemAbstract);
+
   /**
    * Create a NavItem
    * @param {HTMLLIElement}   item  - The <li> that is the NavItem in the DOM.
@@ -395,80 +501,25 @@ function () {
    *                                  be a main nav (<nav>) or a subnav (Nav).
    */
   function NavItem(item, nav, options) {
+    var _this;
+
     _classCallCheck(this, NavItem);
 
-    this.options = options;
-    this.item = item;
-    this.nav = nav;
-    this.link = this.item.querySelector(this.item.tagName + ' > a');
-    this.link.addEventListener('keydown', this);
-    this.link.addEventListener('click', this);
-  } // -------------------------------------------------------------------------
-  // Event Handlers.
-  // -------------------------------------------------------------------------
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(NavItem).call(this, item, nav, options));
 
+    _this.link.addEventListener('keydown', _assertThisInitialized(_this));
+
+    _this.link.addEventListener('click', _assertThisInitialized(_this));
+
+    return _this;
+  }
   /**
-   * Handler for all events attached to an instance of this class. This method
-   * must exist when events are bound to an instance of a class
-   * (vs a function). This method is called for all events bound to an
-   * instance. It inspects the instance (this) for an appropriate handler
-   * based on the event type. If found, it dispatches the event to the
-   * appropriate handler.
+   * Handler for keypress of
    *
-   * @param {KeyboardEvent} event - The keyboard event.
-   *
-   * @return {*}
-   *   Whatever the dispatched handler returns (in our case nothing)
-   */
+   **/
 
 
   _createClass(NavItem, [{
-    key: "handleEvent",
-    value: function handleEvent(event) {
-      event = event || window.event; // If this class has an onEvent method (onClick, onKeydown) invoke it.
-
-      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1); // What was clicked.
-
-      var target = event.target || event.srcElement; // If the caller passed in their own event handling use that instead.
-
-      if (this.options.itemEvents && this.options.itemEvents[handler]) {
-        new this.options.itemEvents[handler](event, this);
-      } // Otherwise, check to see if we have an event available.
-      else if (typeof this[handler] === 'function') {
-          return this[handler](event, target);
-        }
-    }
-    /**
-     * Handler for keydown events. keydown is bound to all NavItem's.
-     * Dispatched from this.handleEvent().
-     *
-     * @param {KeyboardEvent} event - The keyboard event object.
-     * @param {HTMLElement} target  - The HTML element target.
-     */
-
-  }, {
-    key: "onKeydown",
-    value: function onKeydown(event, target) {
-      var theKey = event.key || event.keyCode;
-      var normalized = Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["normalizeKey"])(theKey); // We don't know about that key.
-
-      if (!normalized) {
-        return;
-      } // Prepare a dynamic handler.
-
-
-      var handler = 'onKeydown' + normalized.charAt(0).toUpperCase() + normalized.slice(1);
-
-      if (typeof this[handler] === 'function') {
-        return this[handler](event, target);
-      }
-    }
-    /**
-     * Handler for keypress of
-     *
-     **/
-
-  }, {
     key: "onKeydownHome",
     value: function onKeydownHome(event, target) {
       event.preventDefault(); // Focus on the first item in the same level of this list.
@@ -608,6 +659,124 @@ function () {
   }]);
 
   return NavItem;
+}(_NavItemAbstract__WEBPACK_IMPORTED_MODULE_3__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/main-nav/NavItemAbstract.js":
+/*!************************************************************!*\
+  !*** ./core/src/js/components/main-nav/NavItemAbstract.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NavItemAbstract; });
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
+/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+
+/**
+ * Represent an item in a navigation menu. May be a direct link or a subnav
+ * trigger.
+ *
+ * @prop {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
+ * @prop {HTMLElement|Nav} nav    - the Nav that contains the element.
+ *                                  May be a main nav (<nav>) or subnav (Nav).
+ * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
+ *                                  item (the <li>).
+ */
+
+var NavItemAbstract =
+/*#__PURE__*/
+function () {
+  /**
+   * Create a NavItem
+   * @param {HTMLLIElement}   item  - The <li> that is the NavItem in the DOM.
+   * @param {HTMLElement|Nav} nav   - The Nav that contains the element. May
+   *                                  be a main nav (<nav>) or a subnav (Nav).
+   */
+  function NavItemAbstract(item, nav, options) {
+    _classCallCheck(this, NavItemAbstract);
+
+    this.options = options;
+    this.item = item;
+    this.nav = nav;
+    this.link = this.item.querySelector(this.item.tagName + ' > a');
+  } // -------------------------------------------------------------------------
+  // Event Handlers.
+  // -------------------------------------------------------------------------
+
+  /**
+   * Handler for all events attached to an instance of this class. This method
+   * must exist when events are bound to an instance of a class
+   * (vs a function). This method is called for all events bound to an
+   * instance. It inspects the instance (this) for an appropriate handler
+   * based on the event type. If found, it dispatches the event to the
+   * appropriate handler.
+   *
+   * @param {KeyboardEvent} event - The keyboard event.
+   *
+   * @return {*}
+   *   Whatever the dispatched handler returns (in our case nothing)
+   */
+
+
+  _createClass(NavItemAbstract, [{
+    key: "handleEvent",
+    value: function handleEvent(event) {
+      event = event || window.event; // If this class has an onEvent method (onClick, onKeydown) invoke it.
+
+      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1); // What was clicked.
+
+      var target = event.target || event.srcElement; // If the caller passed in their own event handling use that instead.
+
+      if (this.options.itemEvents && this.options.itemEvents[handler]) {
+        new this.options.itemEvents[handler](event, this);
+      } // Otherwise, check to see if we have an event available.
+      else if (typeof this[handler] === 'function') {
+          return this[handler](event, target);
+        }
+    }
+    /**
+     * Handler for keydown events. keydown is bound to all NavItem's.
+     * Dispatched from this.handleEvent().
+     *
+     * @param {KeyboardEvent} event - The keyboard event object.
+     * @param {HTMLElement} target  - The HTML element target.
+     */
+
+  }, {
+    key: "onKeydown",
+    value: function onKeydown(event, target) {
+      var theKey = event.key || event.keyCode;
+      var normalized = Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["normalizeKey"])(theKey); // We don't know about that key.
+
+      if (!normalized) {
+        return;
+      } // Prepare a dynamic handler.
+
+
+      var handler = 'onKeydown' + normalized.charAt(0).toUpperCase() + normalized.slice(1);
+
+      if (typeof this[handler] === 'function') {
+        return this[handler](event, target);
+      }
+    }
+  }]);
+
+  return NavItemAbstract;
 }();
 
 
@@ -836,10 +1005,9 @@ function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SubNavItem; });
 /* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
-/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
+/* harmony import */ var custom_event_polyfill__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! custom-event-polyfill */ "./node_modules/custom-event-polyfill/polyfill.js");
+/* harmony import */ var custom_event_polyfill__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(custom_event_polyfill__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavItem */ "./core/src/js/components/main-nav/NavItem.js");
-/* harmony import */ var custom_event_polyfill__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! custom-event-polyfill */ "./node_modules/custom-event-polyfill/polyfill.js");
-/* harmony import */ var custom_event_polyfill__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(custom_event_polyfill__WEBPACK_IMPORTED_MODULE_3__);
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -859,9 +1027,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 
-
-
  // @see https://github.com/krambuhl/custom-event-polyfill
+
 
 /**
  * Represent an item in a navigation menu. May be a direct link or a subnav
@@ -1068,9 +1235,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ToggleNav; });
 /* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
 /* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
-/* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./NavItem */ "./core/src/js/components/main-nav/NavItem.js");
-/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
-/* harmony import */ var _ToggleSubNavItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ToggleSubNavItem */ "./core/src/js/components/main-nav/ToggleSubNavItem.js");
+/* harmony import */ var _ToggleSubNavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ToggleSubNavItem */ "./core/src/js/components/main-nav/ToggleSubNavItem.js");
+/* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NavItem */ "./core/src/js/components/main-nav/NavItem.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1118,19 +1285,24 @@ var ToggleNav =
 function (_Nav) {
   _inherits(ToggleNav, _Nav);
 
-  function ToggleNav() {
+  /**
+   * [constructor description]
+   * @param {[type]} elem    [description]
+   * @param {[type]} options [description]
+   */
+  function ToggleNav(elem, options) {
     _classCallCheck(this, ToggleNav);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ToggleNav).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(ToggleNav).call(this, elem, options));
   }
+  /**
+   * Create the children nav items.
+   * @return {[type]} [description]
+   */
+
 
   _createClass(ToggleNav, [{
     key: "createNavItems",
-
-    /**
-     * Create the children nav items.
-     * @return {[type]} [description]
-     */
     value: function createNavItems() {
       var _this = this;
 
@@ -1138,17 +1310,17 @@ function (_Nav) {
       items.forEach(function (item) {
         // Subnav items have special behaviour.
         if (item.querySelector(item.tagName + " > ul")) {
-          _this.subNavItems.push(new _ToggleSubNavItem__WEBPACK_IMPORTED_MODULE_4__["default"](item, _this, _this.options));
+          _this.subNavItems.push(new _ToggleSubNavItem__WEBPACK_IMPORTED_MODULE_2__["default"](item, _this, _this.options));
         } // NavItems have specific event handling.
         else {
-            _this.navItems.push(new _NavItem__WEBPACK_IMPORTED_MODULE_2__["default"](item, _this, _this.options));
+            _this.navItems.push(new _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"](item, _this, _this.options));
           }
       });
     }
   }]);
 
   return ToggleNav;
-}(_Nav__WEBPACK_IMPORTED_MODULE_3__["default"]);
+}(_Nav__WEBPACK_IMPORTED_MODULE_4__["default"]);
 
 
 
@@ -1165,8 +1337,7 @@ function (_Nav) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ToggleSubNavItem; });
 /* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
-/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
-/* harmony import */ var _SubNavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SubNavItem */ "./core/src/js/components/main-nav/SubNavItem.js");
+/* harmony import */ var _SubNavItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SubNavItem */ "./core/src/js/components/main-nav/SubNavItem.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1184,7 +1355,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
 
 
 
@@ -1221,11 +1391,11 @@ function (_SubNavItem) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ToggleSubNavItem).call(this, item, nav, options)); // Set text.
 
     _this.toggleText = options.subNavToggleText || "+";
-    _this.triggerText = options.navToggleClass || "nav-toggle"; // Create the buttons.
+    _this.triggerClass = options.triggerClass || "nav-toggle"; // Create the buttons.
 
     _this.toggle = _this.createToggleButton();
 
-    _this.item.appendChild(_this.toggle); // Create the toggle events.
+    _this.item.prepend(_this.toggle); // Create the toggle events.
 
 
     _this.toggle.addEventListener('click', _assertThisInitialized(_this));
@@ -1309,7 +1479,7 @@ function (_SubNavItem) {
   }]);
 
   return ToggleSubNavItem;
-}(_SubNavItem__WEBPACK_IMPORTED_MODULE_2__["default"]);
+}(_SubNavItem__WEBPACK_IMPORTED_MODULE_1__["default"]);
 
 
 
