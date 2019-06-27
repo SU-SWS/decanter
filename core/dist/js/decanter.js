@@ -444,6 +444,7 @@ function () {
       if (actives.length) {
         actives.forEach(function (item) {
           item.classList.add(_this2.itemExpandedClass);
+          item.firstElementChild.setAttribute('aria-expanded', true);
         });
       }
     }

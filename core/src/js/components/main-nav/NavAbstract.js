@@ -153,6 +153,7 @@ export default class NavAbstract {
       actives.forEach(
         item => {
           item.classList.add(this.itemExpandedClass);
+          item.firstElementChild.setAttribute('aria-expanded', true);
         }
       );
     }
@@ -168,6 +169,19 @@ export default class NavAbstract {
         item.closeSubNav();
       }
     );
+  }
+
+  /**
+   * Set the focus on the specified link in this nav.
+   *
+   * @param {String|Number} link - 'first' | 'last' | 'next'
+   *                                | 'prev' | numerical index
+   * @param {NavItem} currentItem - If link is 'next' or 'prev', currentItem
+   *                                is the NavItem that next / prev is
+   *                                relative to.
+   */
+  focusOn(link, currentItem = null) {
+    console.log("This function has been deprecated.");
   }
 
 }

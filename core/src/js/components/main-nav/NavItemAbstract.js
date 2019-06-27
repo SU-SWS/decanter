@@ -89,4 +89,39 @@ export default class NavItemAbstract {
       return this[handler](event, target);
     }
   }
+
+
+  /**
+   * Set the focus on the specified link in this nav.
+   *
+   * @param {String|Number} link - 'first' | 'last' | 'next'
+   *                                | 'prev' | numerical index
+   * @param {NavItem} currentItem - If link is 'next' or 'prev', currentItem
+   *                                is the NavItem that next / prev is
+   *                                relative to.
+   */
+  focusOn(what) {
+    switch (what) {
+      case 'first':
+        this.item.querySelector("a").focus();
+        break;
+
+      case 'last':
+        this.item.querySelector(this.item.tagName " ul:lastChild a").focus();
+        break;
+
+      case 'next':
+        this.item.nextElementSibling.querySelector("a").focus();
+        break;
+
+      case 'prev':
+        this.item.previousElementSibling.querySelector("a").focus();
+        break;
+
+      default:
+        this.item.querySelector("a").focus();
+        break;
+    }
+  }
+
 }
