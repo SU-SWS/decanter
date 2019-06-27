@@ -1,6 +1,7 @@
 import '../../core/core';
 import Nav from './Nav';
 import NavToggle from './NavToggle';
+import ToggleNav from './ToggleNav';
 
 document.addEventListener('DOMContentLoaded', event => {
 
