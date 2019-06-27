@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', event => {
     'toggle': null,
     'itemExpandedClass': 'su-main-nav__item--expanded',
     'itemActiveClass': 'su-main-nav__item--current',
+    'triggerClass': "su-main-nav__toggle",
     'activePath': true,
   };
 
@@ -37,9 +38,16 @@ document.addEventListener('DOMContentLoaded', event => {
     };
     options.toggle = new NavToggle(toggleElement, toggleOptions);
 
-    // Create an instance of Nav,
-    // which in turn creates appropriate instances of NavItem.
-    let theNav = new Nav(nav, options);
+    if (nav.className.match(/--buttons/)) {
+      // Create an instance of ToggleNav, which in turn create appropriate
+      // instances of ToggleSubNavItems.
+      new ToggleNav(nav, options);
+    }
+    else {
+      // Create an instance of Nav,
+      // which in turn creates appropriate instances of NavItem.
+      new Nav(nav, options);
+    }
   });
 
 }); // on DOMContentLoaded.
