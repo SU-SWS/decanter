@@ -59,6 +59,9 @@ export default class Nav {
     if (this.toggle) {
       this.toggle.setNav(this);
     }
+    // Add an active class to the children.
+    this.itemActiveClass = options.itemActiveClass || "active";
+    this.setActivePath();
   }
 
   /**
@@ -170,6 +173,39 @@ export default class Nav {
 
     if (isEsc(theKey)) {
       this.closeAllSubNavs();
+    }
+  }
+
+  /**
+   * [setActivePath description]
+   */
+  setActivePath() {
+    if (this.options.activePath !== true) {
+      return;
+    }
+
+    var pathname = window.location.pathname;
+    var anchor = window.location.hash;
+    if (pathname.length) {
+      let currentLink;
+
+      if (!anchor) {
+        currentLink = this.elem.querySelector("a[href*='" + pathname + "']");
+      } else {
+        currentLink = this.elem.querySelector("a[href*='" + anchor + "']");
+      }
+
+      if (currentLink) {
+        while(currentLink) {
+          if (currentLink.getAttribute('id') == this.id) {
+            currentLink = false;
+          }
+          else if (currentLink.tagName == "LI") {
+            currentLink.classList.add(this.itemActiveClass);
+          }
+          currentLink = currentLink.parentNode;
+        }
+      }
     }
   }
 

@@ -4,25 +4,6 @@
  */
 (function($) {
 
-  // Set the active nav item in the main menu.
-  var pathname = window.location.pathname;
-  var anchor = window.location.hash;
-  if (pathname.length && pathname !== "/") {
-    var currentLink, currentParentItems;
-
-    if (!anchor) {
-      currentLink = $(".su-main-nav").find("a[href*='" + pathname + "']").eq(0);
-    } else {
-      currentLink = $(".su-main-nav").find("a[href*='" + anchor + "']");
-    }
-
-    currentParentItems = currentLink.parents('li');
-    currentParentItems.addClass('su-main-nav__item--current');
-
-  } else {
-    $(".su-main-nav a").eq(0).parent('li').addClass('su-main-nav__item--current');
-  }
-
   // Scroll the sidebar to stay in the window.
   // Todo: move this to a file not called main-nav.js
   $(window).scroll(function() {
