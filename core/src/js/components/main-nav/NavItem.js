@@ -94,14 +94,7 @@ export default class NavItem extends NavItemAbstract {
       node.firstChild.focus();
     }
     else {
-      // If this is a nav item in a subnav. Go up a level and close the subnav.
-      if (this.item.parentNode.parentNode.classList.contains(this.options.itemExpandedClass)){
-        this.item.parentNode.parentNode.querySelector("a").focus();
-      }
-      // Circle back to the last item.
-      else {
-        this.onKeydownEnd(event, target);
-      }
+      this.onKeydownEnd(event, target);
     }
   }
 
@@ -109,10 +102,8 @@ export default class NavItem extends NavItemAbstract {
    * Handler for keypress of
    *
    **/
-  onKeydownArrowRight(event, target) {
+  onKeydownArrowDown(event, target) {
     event.preventDefault();
-    this.nav.closeAllSubNavs();
-
     // Go to the next item.
     let node = this.link.parentNode.nextElementSibling;
     if (node !== null) {
@@ -129,11 +120,24 @@ export default class NavItem extends NavItemAbstract {
    **/
   onKeydownArrowLeft(event, target) {
     event.preventDefault();
-    // Go to the previous item.
-    let node = this.link.parentNode.previousElementSibling;
+    let node = null;
+
+    // If the very first level of the nav move horizontally,
+    // If the second level or deeper meetings move up and left.
+    if (this.item.parentNode.parentNode.tagName == "NAV") {
+      node = this.link.parentNode.previousElementSibling;
+    }
+    else {
+      node = this.item.parentNode.parentNode.previousElementSibling;
+      this.nav.closeAllSubNavs();
+      this.nav.closeThisSubNav();
+    }
+
+    // Validate that an element exists.
     if (node !== null) {
       node.firstChild.focus();
     }
+    // Jump to the other end.
     else {
       this.onKeydownEnd(event, target);
     }
@@ -143,13 +147,26 @@ export default class NavItem extends NavItemAbstract {
    * Handler for keypress of
    *
    **/
-  onKeydownArrowDown(event, target) {
+  onKeydownArrowRight(event, target) {
     event.preventDefault();
-    // Go to the next item.
-    let node = this.link.parentNode.nextElementSibling;
+    let node = null;
+
+    // If the very first level of the nav move horizontally,
+    // If the second level or deeper meetings move up and left.
+    if (this.item.parentNode.parentNode.tagName == "NAV") {
+      node = this.link.parentNode.nextElementSibling;
+    }
+    else {
+      node = this.item.parentNode.parentNode.nextElementSibling;
+      this.nav.closeAllSubNavs();
+      this.nav.closeThisSubNav();
+    }
+
+    // Validate that an element exists.
     if (node !== null) {
       node.firstChild.focus();
     }
+    // Jump to the other end.
     else {
       this.onKeydownHome(event, target);
     }

@@ -52,7 +52,7 @@ export default class NavItemAbstract {
       + event.type.charAt(0).toUpperCase()
       + event.type.slice(1);
 
-    // What was clicked.
+    // What was evented.
     let target = event.target || event.srcElement;
 
     // If the caller passed in their own event handling use that instead.
@@ -107,7 +107,7 @@ export default class NavItemAbstract {
         break;
 
       case 'last':
-        this.item.querySelector(this.item.tagName " ul:lastChild a").focus();
+        this.item.querySelector(this.item.tagName + " > ul:lastChild a").focus();
         break;
 
       case 'next':

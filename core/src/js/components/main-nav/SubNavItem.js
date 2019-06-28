@@ -29,7 +29,7 @@ export default class SubNavItem extends NavItem {
 
     // Create the children navs based on the parent constructor.
     let construct = nav.constructor;
-    this.subNav = new construct(this.item, options);
+    this.subNav = new construct(this.item, options, nav);
 
     // Create the custom events.
     this.createCustomEvents();
@@ -72,7 +72,6 @@ export default class SubNavItem extends NavItem {
    */
   openSubNav() {
     this.item.dispatchEvent(this.preOpenEvent);
-    this.item.classList.add(this.options.itemExpandedClass);
     this.setExpanded(true);
     this.item.dispatchEvent(this.openEvent);
   }
@@ -86,8 +85,7 @@ export default class SubNavItem extends NavItem {
    */
   closeSubNav() {
     this.item.dispatchEvent(this.preCloseEvent);
-    this.item.classList.remove(this.options.itemExpandedClass);
-    this.setExpanded('false');
+    this.setExpanded(false);
     this.item.dispatchEvent(this.closeEvent);
   }
 
@@ -110,13 +108,19 @@ export default class SubNavItem extends NavItem {
    */
   setExpanded(value) {
     this.link.setAttribute('aria-expanded', value);
+    if (value) {
+      this.item.classList.add(this.options.itemExpandedClass);
+    }
+    else {
+      this.item.classList.remove(this.options.itemExpandedClass);
+    }
   }
 
   /**
    * Handler for keypress of
    *
    **/
-  onKeydownArrowRight(event, target) {
+  onKeydownArrowDown(event, target) {
     event.preventDefault();
     // Open and focus on the first item.
     this.openSubNav();
@@ -127,7 +131,7 @@ export default class SubNavItem extends NavItem {
    * Handler for keypress of
    **/
   onKeydownSpace(event, target) {
-  this.onKeydownArrowDown(event, target);
+    this.onKeydownArrowDown(event, target);
   }
 
   /**

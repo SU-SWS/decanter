@@ -47,10 +47,11 @@ export default class NavAbstract {
     let id = Math.random().toString(36).substr(2, 9);
     this.id = this.idPrefix + id;
     this.elem.id = this.idPrefix + id;
+    // Remove the no-js class.
+    this.elem.classList.remove('no-js');
     // Initialize items.
     this.navItems = [];
     this.subNavItems = [];
-
     // Class properties.
     this.itemActiveClass = options.itemActiveClass || "active";
     this.itemExpandedClass = options.itemExpandedClass || "expanded";
@@ -169,6 +170,15 @@ export default class NavAbstract {
         item.closeSubNav();
       }
     );
+  }
+
+  /**
+   * [closeParentSubNavs description]
+   * @return {[type]} [description]
+   */
+  closeThisSubNav() {
+    this.elem.classList.remove(this.options.itemExpandedClass);
+    this.elem.firstElementChild.setAttribute('aria-expanded', false);
   }
 
   /**
