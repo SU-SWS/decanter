@@ -124,4 +124,12 @@ export default class NavItemAbstract {
     }
   }
 
+  /**
+   * [getDepth description]
+   * @return {[type]} [description]
+   */
+  getDepth() {
+    return this.nav.getDepth();
+  }
+
 }

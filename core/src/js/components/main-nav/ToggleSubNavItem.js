@@ -104,6 +104,12 @@ export default class ToggleSubNavItem extends SubNavItem {
    */
   setExpanded(value) {
     this.toggle.setAttribute('aria-expanded', value);
+    if (value) {
+      this.item.classList.add(this.options.itemExpandedClass);
+    }
+    else {
+      this.item.classList.remove(this.options.itemExpandedClass);
+    }
   }
 
 }

@@ -29,7 +29,9 @@ export default class SubNavItem extends NavItem {
 
     // Create the children navs based on the parent constructor.
     let construct = nav.constructor;
-    this.subNav = new construct(this.item, options, nav);
+    let navOptions = options;
+    navOptions.depth = nav.getDepth() + 1;
+    this.subNav = new construct(this.item, navOptions);
 
     // Create the custom events.
     this.createCustomEvents();
@@ -117,21 +119,38 @@ export default class SubNavItem extends NavItem {
   }
 
   /**
-   * Handler for keypress of
-   *
-   **/
-  onKeydownArrowDown(event, target) {
+   * [onKeydownArrowLeft description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   * @return {[type]}        [description]
+   */
+  onKeydownArrowLeft(event, target) {
+    // Go up a level and close the nav.
     event.preventDefault();
-    // Open and focus on the first item.
-    this.openSubNav();
-    this.item.getElementsByTagName("ul")[0].querySelector("a").focus();
+
+    let node = this.item.parentNode.parentNode.previousElementSibling;
+    if (node) {
+      this.nav.closeAllSubNavs();
+      this.nav.closeThisSubNav();
+      node.querySelector("a").focus();
+    }
+    else {
+      super.onKeydownArrowLeft(event, target);
+    }
+
   }
 
   /**
-   * Handler for keypress of
-   **/
-  onKeydownSpace(event, target) {
-    this.onKeydownArrowDown(event, target);
+   * [onKeydownArrowRight description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   * @return {[type]}        [description]
+   */
+  onKeydownArrowRight(event, target) {
+    // Go down a level and open the SubNav.
+    event.preventDefault();
+    this.openSubNav();
+    this.item.querySelector("#" + this.item.getAttribute("id") + " > ul li a").focus();
   }
 
   /**

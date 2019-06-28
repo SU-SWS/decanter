@@ -322,7 +322,9 @@ function () {
 
     this.idPrefix = options.idPrefix || 'su-'; // The nav element.
 
-    this.elem = elem; // The toggle menu button or none.
+    this.elem = elem; // Depth of menu item.
+
+    this.depth = options.depth || 1; // The toggle menu button or none.
 
     this.toggle = options.toggle || false; // Set the z-index if configured.
 
@@ -489,6 +491,16 @@ function () {
       var currentItem = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
       console.log("This function has been deprecated.");
     }
+    /**
+     * [getDepth description]
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "getDepth",
+    value: function getDepth() {
+      return this.depth;
+    }
   }]);
 
   return NavAbstract;
@@ -640,8 +652,7 @@ function (_NavItemAbstract) {
   }, {
     key: "onKeydownArrowUp",
     value: function onKeydownArrowUp(event, target) {
-      event.preventDefault();
-      this.nav.closeAllSubNavs(); // Go to the previous item.
+      event.preventDefault(); // Go to the previous item.
 
       var node = this.link.parentNode.previousElementSibling;
 
@@ -650,6 +661,31 @@ function (_NavItemAbstract) {
       } else {
         this.onKeydownEnd(event, target);
       }
+    }
+    /**
+     * Handler for keypress of
+     *
+     **/
+
+  }, {
+    key: "onKeydownArrowLeft",
+    value: function onKeydownArrowLeft(event, target) {
+      // If this is a nested item. Go back up a level.
+      if (this.getDepth() > 1) {
+        var node = this.item.parentNode.parentNode.previousElementSibling;
+
+        if (node) {
+          this.nav.closeAllSubNavs();
+          this.nav.closeThisSubNav();
+          node.querySelector("a").focus();
+        } // Go to parent's end.
+        else {
+            this.item.parentNode.parentNode.parentNode.lastElementChild.querySelector("a").focus();
+          }
+      } // Otherwise just to to the previous sibling.
+      else {
+          this.onKeydownArrowUp(event, target);
+        }
     }
     /**
      * Handler for keypress of
@@ -675,55 +711,24 @@ function (_NavItemAbstract) {
      **/
 
   }, {
-    key: "onKeydownArrowLeft",
-    value: function onKeydownArrowLeft(event, target) {
-      event.preventDefault();
-      var node = null; // If the very first level of the nav move horizontally,
-      // If the second level or deeper meetings move up and left.
-
-      if (this.item.parentNode.parentNode.tagName == "NAV") {
-        node = this.link.parentNode.previousElementSibling;
-      } else {
-        node = this.item.parentNode.parentNode.previousElementSibling;
-        this.nav.closeAllSubNavs();
-        this.nav.closeThisSubNav();
-      } // Validate that an element exists.
-
-
-      if (node !== null) {
-        node.firstChild.focus();
-      } // Jump to the other end.
-      else {
-          this.onKeydownEnd(event, target);
-        }
-    }
-    /**
-     * Handler for keypress of
-     *
-     **/
-
-  }, {
     key: "onKeydownArrowRight",
     value: function onKeydownArrowRight(event, target) {
-      event.preventDefault();
-      var node = null; // If the very first level of the nav move horizontally,
-      // If the second level or deeper meetings move up and left.
-
-      if (this.item.parentNode.parentNode.tagName == "NAV") {
-        node = this.link.parentNode.nextElementSibling;
-      } else {
-        node = this.item.parentNode.parentNode.nextElementSibling;
+      // If we are in the second level or more we check about traversing
+      // the parent.
+      if (this.getDepth() > 1) {
+        var node = this.item.parentNode.parentNode.nextElementSibling;
         this.nav.closeAllSubNavs();
         this.nav.closeThisSubNav();
-      } // Validate that an element exists.
 
-
-      if (node !== null) {
-        node.firstChild.focus();
-      } // Jump to the other end.
-      else {
-          this.onKeydownHome(event, target);
-        }
+        if (node) {
+          node.querySelector("a").focus();
+        } // Go back to start.
+        else {
+            this.item.parentNode.parentNode.parentNode.firstElementChild.querySelector("a").focus();
+          }
+      } else {
+        this.onKeydownArrowDown(event, target);
+      }
     }
   }]);
 
@@ -877,6 +882,16 @@ function () {
           this.item.querySelector("a").focus();
           break;
       }
+    }
+    /**
+     * [getDepth description]
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "getDepth",
+    value: function getDepth() {
+      return this.nav.getDepth();
     }
   }]);
 
@@ -1124,6 +1139,10 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
@@ -1167,7 +1186,9 @@ function (_NavItem) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SubNavItem).call(this, item, nav, options)); // Create the children navs based on the parent constructor.
 
     var construct = nav.constructor;
-    _this.subNav = new construct(_this.item, options, nav); // Create the custom events.
+    var navOptions = options;
+    navOptions.depth = nav.getDepth() + 1;
+    _this.subNav = new construct(_this.item, navOptions); // Create the custom events.
 
     _this.createCustomEvents();
 
@@ -1264,26 +1285,41 @@ function (_NavItem) {
       }
     }
     /**
-     * Handler for keypress of
-     *
-     **/
+     * [onKeydownArrowLeft description]
+     * @param  {[type]} event  [description]
+     * @param  {[type]} target [description]
+     * @return {[type]}        [description]
+     */
 
   }, {
-    key: "onKeydownArrowDown",
-    value: function onKeydownArrowDown(event, target) {
-      event.preventDefault(); // Open and focus on the first item.
+    key: "onKeydownArrowLeft",
+    value: function onKeydownArrowLeft(event, target) {
+      // Go up a level and close the nav.
+      event.preventDefault();
+      var node = this.item.parentNode.parentNode.previousElementSibling;
 
-      this.openSubNav();
-      this.item.getElementsByTagName("ul")[0].querySelector("a").focus();
+      if (node) {
+        this.nav.closeAllSubNavs();
+        this.nav.closeThisSubNav();
+        node.querySelector("a").focus();
+      } else {
+        _get(_getPrototypeOf(SubNavItem.prototype), "onKeydownArrowLeft", this).call(this, event, target);
+      }
     }
     /**
-     * Handler for keypress of
-     **/
+     * [onKeydownArrowRight description]
+     * @param  {[type]} event  [description]
+     * @param  {[type]} target [description]
+     * @return {[type]}        [description]
+     */
 
   }, {
-    key: "onKeydownSpace",
-    value: function onKeydownSpace(event, target) {
-      this.onKeydownArrowDown(event, target);
+    key: "onKeydownArrowRight",
+    value: function onKeydownArrowRight(event, target) {
+      // Go down a level and open the SubNav.
+      event.preventDefault();
+      this.openSubNav();
+      this.item.querySelector("#" + this.item.getAttribute("id") + " > ul li a").focus();
     }
     /**
      * [createCustomEvents description]
@@ -1583,6 +1619,12 @@ function (_SubNavItem) {
     key: "setExpanded",
     value: function setExpanded(value) {
       this.toggle.setAttribute('aria-expanded', value);
+
+      if (value) {
+        this.item.classList.add(this.options.itemExpandedClass);
+      } else {
+        this.item.classList.remove(this.options.itemExpandedClass);
+      }
     }
   }]);
 
@@ -1615,19 +1657,19 @@ document.addEventListener('DOMContentLoaded', function (event) {
   // The css class that this following behaviour is applied to.
   var navClass = 'su-main-nav'; // All main navs.
 
-  var navs = document.querySelectorAll('.' + navClass); // Main nav default constructor options.
-
-  var options = {
-    'zIndex': null,
-    'toggle': null,
-    'itemExpandedClass': 'su-main-nav__item--expanded',
-    'itemActiveClass': 'su-main-nav__item--current',
-    'triggerClass': "su-main-nav__toggle",
-    'activePath': true
-  }; // Loop through each of the navs and create a new instance.
+  var navs = document.querySelectorAll('.' + navClass); // Loop through each of the navs and create a new instance.
 
   navs.forEach(function (nav, index) {
-    // Manage z-indexes in case there are multiple navs near each other.
+    // Main nav default constructor options.
+    var options = {
+      'zIndex': null,
+      'toggle': null,
+      'itemExpandedClass': 'su-main-nav__item--expanded',
+      'itemActiveClass': 'su-main-nav__item--current',
+      'triggerClass': "su-main-nav__toggle",
+      'activePath': true
+    }; // Manage z-indexes in case there are multiple navs near each other.
+
     if (index >= 1) {
       var zndx = getComputedStyle(navs[index - 1], null).zIndex;
       zndx--;
@@ -1675,17 +1717,18 @@ document.addEventListener('DOMContentLoaded', function (event) {
   // The css class that this following behaviour is applied to.
   var navClass = 'su-secondary-nav'; // All secondary navs.
 
-  var navs = document.querySelectorAll('.' + navClass); // Secondary nav specific settings.
-
-  var options = {
-    'itemExpandedClass': 'su-secondary-nav__item--expanded',
-    'itemActiveClass': 'su-secondary-nav__item--current',
-    'triggerClass': "su-secondary-nav__toggle",
-    'activePath': true,
-    'expandActivePath': true
-  }; // Generate the Accordion toggle for each nav.
+  var navs = document.querySelectorAll('.' + navClass); // Generate the Accordion toggle for each nav.
 
   navs.forEach(function (nav) {
+    // Secondary nav specific settings.
+    var options = {
+      'itemExpandedClass': 'su-secondary-nav__item--expanded',
+      'itemActiveClass': 'su-secondary-nav__item--current',
+      'triggerClass': "su-secondary-nav__toggle",
+      'activePath': true,
+      'expandActivePath': true
+    };
+
     if (nav.className.match(/--buttons/)) {
       // Create an instance of ToggleNav, which in turn create appropriate
       // instances of ToggleSubNavItems.

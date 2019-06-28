@@ -37,6 +37,8 @@ export default class NavAbstract {
     this.idPrefix = options.idPrefix || 'su-';
     // The nav element.
     this.elem = elem;
+    // Depth of menu item.
+    this.depth = options.depth || 1;
     // The toggle menu button or none.
     this.toggle = options.toggle || false;
     // Set the z-index if configured.
@@ -192,6 +194,14 @@ export default class NavAbstract {
    */
   focusOn(link, currentItem = null) {
     console.log("This function has been deprecated.");
+  }
+
+  /**
+   * [getDepth description]
+   * @return {[type]} [description]
+   */
+  getDepth() {
+    return this.depth;
   }
 
 }
