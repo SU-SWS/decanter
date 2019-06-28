@@ -86,7 +86,6 @@ export default class NavItem extends NavItemAbstract {
    **/
   onKeydownArrowUp(event, target) {
     event.preventDefault();
-    this.nav.closeAllSubNavs();
 
     // Go to the previous item.
     let node = this.link.parentNode.previousElementSibling;
@@ -95,6 +94,30 @@ export default class NavItem extends NavItemAbstract {
     }
     else {
       this.onKeydownEnd(event, target);
+    }
+  }
+
+  /**
+   * Handler for keypress of
+   *
+   **/
+  onKeydownArrowLeft(event, target) {
+    // If this is a nested item. Go back up a level.
+    if (this.getDepth() > 1) {
+      let node = this.item.parentNode.parentNode.previousElementSibling;
+      if (node) {
+        this.nav.closeAllSubNavs();
+        this.nav.closeThisSubNav();
+        node.querySelector("a").focus();
+      }
+      // Go to parent's end.
+      else {
+        this.item.parentNode.parentNode.parentNode.lastElementChild.querySelector("a").focus();
+      }
+    }
+    // Otherwise just to to the previous sibling.
+    else {
+      this.onKeydownArrowUp(event, target);
     }
   }
 
@@ -118,57 +141,24 @@ export default class NavItem extends NavItemAbstract {
    * Handler for keypress of
    *
    **/
-  onKeydownArrowLeft(event, target) {
-    event.preventDefault();
-    let node = null;
-
-    // If the very first level of the nav move horizontally,
-    // If the second level or deeper meetings move up and left.
-    if (this.item.parentNode.parentNode.tagName == "NAV") {
-      node = this.link.parentNode.previousElementSibling;
-    }
-    else {
-      node = this.item.parentNode.parentNode.previousElementSibling;
-      this.nav.closeAllSubNavs();
-      this.nav.closeThisSubNav();
-    }
-
-    // Validate that an element exists.
-    if (node !== null) {
-      node.firstChild.focus();
-    }
-    // Jump to the other end.
-    else {
-      this.onKeydownEnd(event, target);
-    }
-  }
-
-  /**
-   * Handler for keypress of
-   *
-   **/
   onKeydownArrowRight(event, target) {
-    event.preventDefault();
-    let node = null;
-
-    // If the very first level of the nav move horizontally,
-    // If the second level or deeper meetings move up and left.
-    if (this.item.parentNode.parentNode.tagName == "NAV") {
-      node = this.link.parentNode.nextElementSibling;
-    }
-    else {
-      node = this.item.parentNode.parentNode.nextElementSibling;
+    // If we are in the second level or more we check about traversing
+    // the parent.
+    if (this.getDepth() > 1) {
+      let node = this.item.parentNode.parentNode.nextElementSibling;
       this.nav.closeAllSubNavs();
       this.nav.closeThisSubNav();
-    }
 
-    // Validate that an element exists.
-    if (node !== null) {
-      node.firstChild.focus();
+      if (node) {
+        node.querySelector("a").focus();
+      }
+      // Go back to start.
+      else {
+        this.item.parentNode.parentNode.parentNode.firstElementChild.querySelector("a").focus();
+      }
     }
-    // Jump to the other end.
     else {
-      this.onKeydownHome(event, target);
+      this.onKeydownArrowDown(event, target);
     }
   }
 

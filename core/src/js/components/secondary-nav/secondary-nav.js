@@ -10,17 +10,18 @@ document.addEventListener('DOMContentLoaded', event => {
   // All secondary navs.
   const navs = document.querySelectorAll('.' + navClass);
 
-  // Secondary nav specific settings.
-  let options = {
-    'itemExpandedClass': 'su-secondary-nav__item--expanded',
-    'itemActiveClass': 'su-secondary-nav__item--current',
-    'triggerClass': "su-secondary-nav__toggle",
-    'activePath': true,
-    'expandActivePath': true,
-  };
-
   // Generate the Accordion toggle for each nav.
   navs.forEach((nav) => {
+
+    // Secondary nav specific settings.
+    let options = {
+      'itemExpandedClass': 'su-secondary-nav__item--expanded',
+      'itemActiveClass': 'su-secondary-nav__item--current',
+      'triggerClass': "su-secondary-nav__toggle",
+      'activePath': true,
+      'expandActivePath': true,
+    };
+
     if (nav.className.match(/--buttons/)) {
       // Create an instance of ToggleNav, which in turn create appropriate
       // instances of ToggleSubNavItems.

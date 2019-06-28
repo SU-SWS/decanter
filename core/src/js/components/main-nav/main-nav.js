@@ -11,18 +11,18 @@ document.addEventListener('DOMContentLoaded', event => {
   // All main navs.
   const navs = document.querySelectorAll('.' + navClass);
 
-  // Main nav default constructor options.
-  let options = {
-    'zIndex': null,
-    'toggle': null,
-    'itemExpandedClass': 'su-main-nav__item--expanded',
-    'itemActiveClass': 'su-main-nav__item--current',
-    'triggerClass': "su-main-nav__toggle",
-    'activePath': true,
-  };
-
   // Loop through each of the navs and create a new instance.
   navs.forEach((nav, index) => {
+
+    // Main nav default constructor options.
+    let options = {
+      'zIndex': null,
+      'toggle': null,
+      'itemExpandedClass': 'su-main-nav__item--expanded',
+      'itemActiveClass': 'su-main-nav__item--current',
+      'triggerClass': "su-main-nav__toggle",
+      'activePath': true,
+    };
 
     // Manage z-indexes in case there are multiple navs near each other.
     if (index >= 1) {
