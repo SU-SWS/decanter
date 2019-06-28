@@ -333,7 +333,9 @@ function () {
 
     var id = Math.random().toString(36).substr(2, 9);
     this.id = this.idPrefix + id;
-    this.elem.id = this.idPrefix + id; // Initialize items.
+    this.elem.id = this.idPrefix + id; // Remove the no-js class.
+
+    this.elem.classList.remove('no-js'); // Initialize items.
 
     this.navItems = [];
     this.subNavItems = []; // Class properties.
@@ -459,6 +461,33 @@ function () {
       this.subNavItems.forEach(function (item, event) {
         item.closeSubNav();
       });
+    }
+    /**
+     * [closeParentSubNavs description]
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "closeThisSubNav",
+    value: function closeThisSubNav() {
+      this.elem.classList.remove(this.options.itemExpandedClass);
+      this.elem.firstElementChild.setAttribute('aria-expanded', false);
+    }
+    /**
+     * Set the focus on the specified link in this nav.
+     *
+     * @param {String|Number} link - 'first' | 'last' | 'next'
+     *                                | 'prev' | numerical index
+     * @param {NavItem} currentItem - If link is 'next' or 'prev', currentItem
+     *                                is the NavItem that next / prev is
+     *                                relative to.
+     */
+
+  }, {
+    key: "focusOn",
+    value: function focusOn(link) {
+      var currentItem = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      console.log("This function has been deprecated.");
     }
   }]);
 
@@ -619,49 +648,6 @@ function (_NavItemAbstract) {
       if (node !== null) {
         node.firstChild.focus();
       } else {
-        // If this is a nav item in a subnav. Go up a level and close the subnav.
-        if (this.item.parentNode.parentNode.classList.contains(this.options.itemExpandedClass)) {
-          this.item.parentNode.parentNode.querySelector("a").focus();
-        } // Circle back to the last item.
-        else {
-            this.onKeydownEnd(event, target);
-          }
-      }
-    }
-    /**
-     * Handler for keypress of
-     *
-     **/
-
-  }, {
-    key: "onKeydownArrowRight",
-    value: function onKeydownArrowRight(event, target) {
-      event.preventDefault();
-      this.nav.closeAllSubNavs(); // Go to the next item.
-
-      var node = this.link.parentNode.nextElementSibling;
-
-      if (node !== null) {
-        node.firstChild.focus();
-      } else {
-        this.onKeydownHome(event, target);
-      }
-    }
-    /**
-     * Handler for keypress of
-     *
-     **/
-
-  }, {
-    key: "onKeydownArrowLeft",
-    value: function onKeydownArrowLeft(event, target) {
-      event.preventDefault(); // Go to the previous item.
-
-      var node = this.link.parentNode.previousElementSibling;
-
-      if (node !== null) {
-        node.firstChild.focus();
-      } else {
         this.onKeydownEnd(event, target);
       }
     }
@@ -682,6 +668,62 @@ function (_NavItemAbstract) {
       } else {
         this.onKeydownHome(event, target);
       }
+    }
+    /**
+     * Handler for keypress of
+     *
+     **/
+
+  }, {
+    key: "onKeydownArrowLeft",
+    value: function onKeydownArrowLeft(event, target) {
+      event.preventDefault();
+      var node = null; // If the very first level of the nav move horizontally,
+      // If the second level or deeper meetings move up and left.
+
+      if (this.item.parentNode.parentNode.tagName == "NAV") {
+        node = this.link.parentNode.previousElementSibling;
+      } else {
+        node = this.item.parentNode.parentNode.previousElementSibling;
+        this.nav.closeAllSubNavs();
+        this.nav.closeThisSubNav();
+      } // Validate that an element exists.
+
+
+      if (node !== null) {
+        node.firstChild.focus();
+      } // Jump to the other end.
+      else {
+          this.onKeydownEnd(event, target);
+        }
+    }
+    /**
+     * Handler for keypress of
+     *
+     **/
+
+  }, {
+    key: "onKeydownArrowRight",
+    value: function onKeydownArrowRight(event, target) {
+      event.preventDefault();
+      var node = null; // If the very first level of the nav move horizontally,
+      // If the second level or deeper meetings move up and left.
+
+      if (this.item.parentNode.parentNode.tagName == "NAV") {
+        node = this.link.parentNode.nextElementSibling;
+      } else {
+        node = this.item.parentNode.parentNode.nextElementSibling;
+        this.nav.closeAllSubNavs();
+        this.nav.closeThisSubNav();
+      } // Validate that an element exists.
+
+
+      if (node !== null) {
+        node.firstChild.focus();
+      } // Jump to the other end.
+      else {
+          this.onKeydownHome(event, target);
+        }
     }
   }]);
 
@@ -765,7 +807,7 @@ function () {
     value: function handleEvent(event) {
       event = event || window.event; // If this class has an onEvent method (onClick, onKeydown) invoke it.
 
-      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1); // What was clicked.
+      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1); // What was evented.
 
       var target = event.target || event.srcElement; // If the caller passed in their own event handling use that instead.
 
@@ -799,6 +841,41 @@ function () {
 
       if (typeof this[handler] === 'function') {
         return this[handler](event, target);
+      }
+    }
+    /**
+     * Set the focus on the specified link in this nav.
+     *
+     * @param {String|Number} link - 'first' | 'last' | 'next'
+     *                                | 'prev' | numerical index
+     * @param {NavItem} currentItem - If link is 'next' or 'prev', currentItem
+     *                                is the NavItem that next / prev is
+     *                                relative to.
+     */
+
+  }, {
+    key: "focusOn",
+    value: function focusOn(what) {
+      switch (what) {
+        case 'first':
+          this.item.querySelector("a").focus();
+          break;
+
+        case 'last':
+          this.item.querySelector(this.item.tagName + " > ul:lastChild a").focus();
+          break;
+
+        case 'next':
+          this.item.nextElementSibling.querySelector("a").focus();
+          break;
+
+        case 'prev':
+          this.item.previousElementSibling.querySelector("a").focus();
+          break;
+
+        default:
+          this.item.querySelector("a").focus();
+          break;
       }
     }
   }]);
@@ -1090,7 +1167,7 @@ function (_NavItem) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SubNavItem).call(this, item, nav, options)); // Create the children navs based on the parent constructor.
 
     var construct = nav.constructor;
-    _this.subNav = new construct(_this.item, options); // Create the custom events.
+    _this.subNav = new construct(_this.item, options, nav); // Create the custom events.
 
     _this.createCustomEvents();
 
@@ -1137,7 +1214,6 @@ function (_NavItem) {
     key: "openSubNav",
     value: function openSubNav() {
       this.item.dispatchEvent(this.preOpenEvent);
-      this.item.classList.add(this.options.itemExpandedClass);
       this.setExpanded(true);
       this.item.dispatchEvent(this.openEvent);
     }
@@ -1153,8 +1229,7 @@ function (_NavItem) {
     key: "closeSubNav",
     value: function closeSubNav() {
       this.item.dispatchEvent(this.preCloseEvent);
-      this.item.classList.remove(this.options.itemExpandedClass);
-      this.setExpanded('false');
+      this.setExpanded(false);
       this.item.dispatchEvent(this.closeEvent);
     }
     /**
@@ -1181,6 +1256,12 @@ function (_NavItem) {
     key: "setExpanded",
     value: function setExpanded(value) {
       this.link.setAttribute('aria-expanded', value);
+
+      if (value) {
+        this.item.classList.add(this.options.itemExpandedClass);
+      } else {
+        this.item.classList.remove(this.options.itemExpandedClass);
+      }
     }
     /**
      * Handler for keypress of
@@ -1188,8 +1269,8 @@ function (_NavItem) {
      **/
 
   }, {
-    key: "onKeydownArrowRight",
-    value: function onKeydownArrowRight(event, target) {
+    key: "onKeydownArrowDown",
+    value: function onKeydownArrowDown(event, target) {
       event.preventDefault(); // Open and focus on the first item.
 
       this.openSubNav();
