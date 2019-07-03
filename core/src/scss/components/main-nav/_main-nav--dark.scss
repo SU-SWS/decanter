@@ -1,22 +1,22 @@
 @charset "UTF-8";
 
 .su-main-nav--dark {
-  $_su-main-nav-color-map: $main-nav-dark-colors;
+  $_su-nav-color-map: $nav-dark-colors;
 
   @include grid-media-max('md') {
     .su-main-nav__toggle {
-      color: color(link, $_su-main-nav-color-map);
+      color: color(h-link, $_su-nav-color-map);
 
       &:hover,
       &:focus {
         &::before {
-          background-color: color(border--hover, $_su-main-nav-color-map);
+          background-color: color(h-border--hover, $_su-nav-color-map);
         }
       }
 
       &:active {
         &::before {
-          background-color: color(border--active, $_su-main-nav-color-map);
+          background-color: color(h-border--active, $_su-nav-color-map);
         }
       }
 
@@ -26,15 +26,15 @@
 
       &[aria-expanded="true"] {
         &::before {
-          background-color: color(border--expanded, $_su-main-nav-color-map);
+          background-color: color(h-border--expanded, $_su-nav-color-map);
         }
 
         &:hover::before {
-          background-color: color(border--expanded-hover, $_su-main-nav-color-map);
+          background-color: color(h-border--expanded-hover, $_su-nav-color-map);
         }
 
         &:active::before {
-          background-color: color(border--expanded-active, $_su-main-nav-color-map);
+          background-color: color(h-border--expanded-active, $_su-nav-color-map);
         }
 
         &::after {
@@ -50,34 +50,34 @@
     > ul {
       > li {
         > a {
-          color: color(link, $_su-main-nav-color-map);
+          color: color(h-link, $_su-nav-color-map);
 
           &:hover,
           &:focus {
-            color: color(link--hover, $_su-main-nav-color-map);
+            color: color(h-link--hover, $_su-nav-color-map);
 
             &::before {
-              background-color: color(border--hover, $_su-main-nav-color-map);
+              background-color: color(h-border--hover, $_su-nav-color-map);
             }
           }
 
           &:active {
-            color: color(link--active, $_su-main-nav-color-map);
+            color: color(h-link--active, $_su-nav-color-map);
 
             &::before {
-              background-color: color(border--active, $_su-main-nav-color-map);
+              background-color: color(h-border--active, $_su-nav-color-map);
             }
           }
 
           &[aria-expanded="true"] {
-            color: color(link--expanded, $_su-main-nav-color-map);
+            color: color(h-link--expanded, $_su-nav-color-map);
 
             &::before {
-              background-color: color(border--expanded, $_su-main-nav-color-map);
+              background-color: color(h-border--expanded, $_su-nav-color-map);
             }
 
             &:hover {
-              color: color(link--hover, $_su-main-nav-color-map);
+              color: color(h-link--hover, $_su-nav-color-map);
             }
           }
         }
@@ -95,23 +95,23 @@
 
       > .su-main-nav__item--current {
         > a {
-          color: color(link--active, $_su-main-nav-color-map);
+          color: color(h-link--active, $_su-nav-color-map);
 
           &::before {
-            background-color: color(border--active, $_su-main-nav-color-map);
+            background-color: color(h-border--active, $_su-nav-color-map);
           }
 
           &:hover,
           &:focus {
-            color: color(link--active-hover, $_su-main-nav-color-map);
+            color: color(h-link--active-hover, $_su-nav-color-map);
 
             &::before {
-              background-color: color(border--active-hover, $_su-main-nav-color-map);
+              background-color: color(h-border--active-hover, $_su-nav-color-map);
             }
           }
 
           &:active::before {
-            background-color: color(border--active, $_su-main-nav-color-map);
+            background-color: color(h-border--active, $_su-nav-color-map);
           }
         }
       }
@@ -122,18 +122,28 @@
           > a,
           > a:focus {
             &::before {
-              background-color: color(border--expanded, $_su-main-nav-color-map);
+              background-color: color(h-border--expanded, $_su-nav-color-map);
+            }
+          }
+        }
+
+        &.su-main-nav__item--current {
+          > a {
+            &[aria-expanded="true"] {
+              &:active::before {
+                background-color: color(h-border--expanded-active, $_su-nav-color-map);
+              }
             }
           }
         }
 
         > a[aria-expanded="true"] {
           &:hover::before {
-            background-color: color(border--expanded-hover, $_su-main-nav-color-map);
+            background-color: color(h-border--expanded-hover, $_su-nav-color-map);
           }
 
           &:active::before {
-            background-color: color(border--expanded-active, $_su-main-nav-color-map);
+            background-color: color(h-border--expanded-active, $_su-nav-color-map);
           }
         }
       }
