@@ -51,14 +51,6 @@ export default class NavItem extends NavItemAbstract {
    * Handler for keypress of
    *
    **/
-  onKeydownTab(event, target) {
-    // Nada. Let the browser default run.
-  }
-
-  /**
-   * Handler for keypress of
-   *
-   **/
   onKeydownEscape(event, target) {
     event.preventDefault();
     // Close everything.
@@ -69,15 +61,8 @@ export default class NavItem extends NavItemAbstract {
    * Handler for keypress of
    **/
   onKeydownSpace(event, target) {
-    // Nada, let the browser default run.
-  }
-
-  /**
-   * Handler for keypress of
-   *
-   **/
-  onKeydownEnter(event, target) {
-    // Nada, let the browser default run.
+    event.preventDefault();
+    window.location = this.link.getAttribute("href");
   }
 
   /**

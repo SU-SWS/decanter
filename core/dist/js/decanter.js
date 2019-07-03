@@ -612,15 +612,6 @@ function (_NavItemAbstract) {
      **/
 
   }, {
-    key: "onKeydownTab",
-    value: function onKeydownTab(event, target) {} // Nada. Let the browser default run.
-
-    /**
-     * Handler for keypress of
-     *
-     **/
-
-  }, {
     key: "onKeydownEscape",
     value: function onKeydownEscape(event, target) {
       event.preventDefault(); // Close everything.
@@ -633,17 +624,10 @@ function (_NavItemAbstract) {
 
   }, {
     key: "onKeydownSpace",
-    value: function onKeydownSpace(event, target) {} // Nada, let the browser default run.
-
-    /**
-     * Handler for keypress of
-     *
-     **/
-
-  }, {
-    key: "onKeydownEnter",
-    value: function onKeydownEnter(event, target) {} // Nada, let the browser default run.
-
+    value: function onKeydownSpace(event, target) {
+      event.preventDefault();
+      window.location = this.link.getAttribute("href");
+    }
     /**
      * Handler for keypress of
      *
@@ -1320,6 +1304,26 @@ function (_NavItem) {
       event.preventDefault();
       this.openSubNav();
       this.item.querySelector("#" + this.item.getAttribute("id") + " > ul li a").focus();
+    }
+    /**
+     * Handler for keypress of
+     *
+     **/
+
+  }, {
+    key: "onKeydownSpace",
+    value: function onKeydownSpace(event, target) {
+      this.onClick(event, target);
+    }
+    /**
+     * Handler for keypress of
+     *
+     **/
+
+  }, {
+    key: "onKeydownEnter",
+    value: function onKeydownEnter(event, target) {
+      this.onClick(event, target);
     }
     /**
      * [createCustomEvents description]
