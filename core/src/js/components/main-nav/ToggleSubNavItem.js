@@ -34,6 +34,7 @@ export default class ToggleSubNavItem extends SubNavItem {
 
     // Create the toggle events.
     this.toggle.addEventListener('click', this);
+    this.toggle.addEventListener('keydown', this);
   }
 
   /**
