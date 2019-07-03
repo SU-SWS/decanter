@@ -1544,6 +1544,8 @@ function (_SubNavItem) {
 
     _this.toggle.addEventListener('click', _assertThisInitialized(_this));
 
+    _this.toggle.addEventListener('keydown', _assertThisInitialized(_this));
+
     return _this;
   }
   /**
