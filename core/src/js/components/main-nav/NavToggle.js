@@ -91,7 +91,7 @@ export default class NavToggle {
       this.closeNav();
     }
     else {
-      this.openNav(false);
+      this.openNav(true);
     }
   }
 
@@ -106,7 +106,7 @@ export default class NavToggle {
 
     // Do the click toggle for enter and space keys.
     if (isEnter(theKey) || isSpace(theKey)) {
-      this.onClick(event, target);
+      this.onClick(event, this.element);
     }
 
   }
@@ -124,10 +124,10 @@ export default class NavToggle {
 
     // Focus on the first link in the nav.
     if (focusOnFirst) {
-      this.nav.querySelector("a").focus();
+      this.nav.elem.querySelector("a").focus();
     }
 
-    // Alert others the  nav has opened.
+    // Alert others the nav has opened.
     this.element.dispatchEvent(this.openEvent);
   }
 

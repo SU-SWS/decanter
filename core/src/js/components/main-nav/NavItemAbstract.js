@@ -52,12 +52,16 @@ export default class NavItemAbstract {
       + event.type.charAt(0).toUpperCase()
       + event.type.slice(1);
 
-    // What was evented.
     let target = event.target || event.srcElement;
+    let constructorName = this.constructor.name;
+    let depth = this.getDepth();
 
     // If the caller passed in their own event handling use that instead.
-    if (this.options.itemEvents && this.options.itemEvents[handler]) {
-      new this.options.itemEvents[handler](event, this);
+    if (this.options.itemEvents
+      && this.options.itemEvents[constructorName]
+      && this.options.itemEvents[constructorName][depth]
+      && this.options.itemEvents[constructorName][depth][handler]) {
+      new this.options.itemEvents[constructorName][depth][handler](event, this);
     }
     // Otherwise, check to see if we have an event available.
     else if (typeof this[handler] === 'function') {
@@ -85,7 +89,19 @@ export default class NavItemAbstract {
     let handler = 'onKeydown'
       + normalized.charAt(0).toUpperCase()
       + normalized.slice(1);
-    if (typeof this[handler] === 'function') {
+
+    // Check out the
+    let constructorName = this.constructor.name;
+    let depth = this.getDepth();
+
+    // If the caller passed in their own event handling use that instead.
+    if (this.options.itemEvents
+      && this.options.itemEvents[constructorName]
+      && this.options.itemEvents[constructorName][depth]
+      && this.options.itemEvents[constructorName][depth][handler]) {
+      new this.options.itemEvents[constructorName][depth][handler](event, this);
+    }
+    else if (typeof this[handler] === 'function') {
       return this[handler](event, target);
     }
   }

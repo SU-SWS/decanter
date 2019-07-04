@@ -620,6 +620,32 @@ function (_NavItemAbstract) {
     }
     /**
      * Handler for keypress of
+     *
+     **/
+
+  }, {
+    key: "onKeydownTab",
+    value: function onKeydownTab(event, target) {
+      var shifted = event.shiftKey;
+      var node = null;
+
+      if (shifted) {
+        node = this.item.previousElementSibling;
+      } else {
+        node = this.item.nextElementSibling;
+      }
+
+      if (!node) {
+        if (this.options.toggle && this.getDepth() == 1) {
+          this.options.toggle.closeNav();
+        }
+
+        this.nav.closeAllSubNavs();
+        this.nav.closeThisSubNav();
+      }
+    }
+    /**
+     * Handler for keypress of
      **/
 
   }, {
@@ -656,12 +682,12 @@ function (_NavItemAbstract) {
     value: function onKeydownArrowLeft(event, target) {
       // If this is a nested item. Go back up a level.
       if (this.getDepth() > 1) {
-        var node = this.item.parentNode.parentNode.previousElementSibling;
+        var node = this.item.parentNode.parentNode.firstElementChild;
 
         if (node) {
           this.nav.closeAllSubNavs();
           this.nav.closeThisSubNav();
-          node.querySelector("a").focus();
+          node.focus();
         } // Go to parent's end.
         else {
             this.item.parentNode.parentNode.parentNode.lastElementChild.querySelector("a").focus();
@@ -796,12 +822,13 @@ function () {
     value: function handleEvent(event) {
       event = event || window.event; // If this class has an onEvent method (onClick, onKeydown) invoke it.
 
-      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1); // What was evented.
+      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);
+      var target = event.target || event.srcElement;
+      var constructorName = this.constructor.name;
+      var depth = this.getDepth(); // If the caller passed in their own event handling use that instead.
 
-      var target = event.target || event.srcElement; // If the caller passed in their own event handling use that instead.
-
-      if (this.options.itemEvents && this.options.itemEvents[handler]) {
-        new this.options.itemEvents[handler](event, this);
+      if (this.options.itemEvents && this.options.itemEvents[constructorName] && this.options.itemEvents[constructorName][depth] && this.options.itemEvents[constructorName][depth][handler]) {
+        new this.options.itemEvents[constructorName][depth][handler](event, this);
       } // Otherwise, check to see if we have an event available.
       else if (typeof this[handler] === 'function') {
           return this[handler](event, target);
@@ -826,9 +853,14 @@ function () {
       } // Prepare a dynamic handler.
 
 
-      var handler = 'onKeydown' + normalized.charAt(0).toUpperCase() + normalized.slice(1);
+      var handler = 'onKeydown' + normalized.charAt(0).toUpperCase() + normalized.slice(1); // Check out the
 
-      if (typeof this[handler] === 'function') {
+      var constructorName = this.constructor.name;
+      var depth = this.getDepth(); // If the caller passed in their own event handling use that instead.
+
+      if (this.options.itemEvents && this.options.itemEvents[constructorName] && this.options.itemEvents[constructorName][depth] && this.options.itemEvents[constructorName][depth][handler]) {
+        new this.options.itemEvents[constructorName][depth][handler](event, this);
+      } else if (typeof this[handler] === 'function') {
         return this[handler](event, target);
       }
     }
@@ -1000,7 +1032,7 @@ function () {
       if (this.isExpanded()) {
         this.closeNav();
       } else {
-        this.openNav(false);
+        this.openNav(true);
       }
     }
     /**
@@ -1016,7 +1048,7 @@ function () {
       var theKey = event.key || event.keyCode; // Do the click toggle for enter and space keys.
 
       if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isEnter"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isSpace"])(theKey)) {
-        this.onClick(event, target);
+        this.onClick(event, this.element);
       }
     }
     /**
@@ -1035,8 +1067,8 @@ function () {
       this.element.innerText = this.closeText; // Focus on the first link in the nav.
 
       if (focusOnFirst) {
-        this.nav.querySelector("a").focus();
-      } // Alert others the  nav has opened.
+        this.nav.elem.querySelector("a").focus();
+      } // Alert others the nav has opened.
 
 
       this.element.dispatchEvent(this.openEvent);
@@ -1203,8 +1235,10 @@ function (_NavItem) {
 
       if (this.isExpanded()) {
         this.closeSubNav();
+        this.link.focus();
       } else {
-        this.openSubNav(false);
+        this.openSubNav();
+        this.item.querySelector("#" + this.item.getAttribute("id") + " > ul li a").focus();
       }
     }
     /**
@@ -1280,12 +1314,11 @@ function (_NavItem) {
     value: function onKeydownArrowLeft(event, target) {
       // Go up a level and close the nav.
       event.preventDefault();
-      var node = this.item.parentNode.parentNode.previousElementSibling;
 
-      if (node) {
+      if (this.getDepth() > 1) {
+        this.item.parentNode.parentNode.firstElementChild.focus();
         this.nav.closeAllSubNavs();
         this.nav.closeThisSubNav();
-        node.querySelector("a").focus();
       } else {
         _get(_getPrototypeOf(SubNavItem.prototype), "onKeydownArrowLeft", this).call(this, event, target);
       }
@@ -1663,7 +1696,32 @@ document.addEventListener('DOMContentLoaded', function (event) {
   // The css class that this following behaviour is applied to.
   var navClass = 'su-main-nav'; // All main navs.
 
-  var navs = document.querySelectorAll('.' + navClass); // Loop through each of the navs and create a new instance.
+  var navs = document.querySelectorAll('.' + navClass); // Event Overrides.
+
+  var customEvents = {
+    SubNavItem: {
+      1: {
+        onKeydownArrowRight: function onKeydownArrowRight(event, instance) {
+          // Only change the behaviour when in desktop mode. If not in desktop
+          // mode go with the default.
+          if (!instance.options.toggle || instance.options.toggle.isExpanded()) {
+            instance.onKeydownArrowRight(event, instance.link);
+          } else {
+            instance.onKeydownArrowDown(event, instance.link);
+          }
+        },
+        onKeydownArrowDown: function onKeydownArrowDown(event, instance) {
+          // Only change the behaviour when in desktop mode. If not in desktop
+          // mode go with the default.
+          if (!instance.options.toggle || instance.options.toggle.isExpanded()) {
+            instance.onKeydownArrowDown(event, instance.link);
+          } else {
+            instance.onKeydownArrowRight(event, instance.link);
+          }
+        }
+      }
+    }
+  }; // Loop through each of the navs and create a new instance.
 
   navs.forEach(function (nav, index) {
     // Main nav default constructor options.
@@ -1673,7 +1731,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
       'itemExpandedClass': 'su-main-nav__item--expanded',
       'itemActiveClass': 'su-main-nav__item--current',
       'triggerClass': "su-main-nav__toggle",
-      'activePath': true
+      'activePath': true,
+      'itemEvents': customEvents
     }; // Manage z-indexes in case there are multiple navs near each other.
 
     if (index >= 1) {
@@ -1687,17 +1746,10 @@ document.addEventListener('DOMContentLoaded', function (event) {
     var toggleOptions = {
       'navElement': nav
     };
-    options.toggle = new _NavToggle__WEBPACK_IMPORTED_MODULE_2__["default"](toggleElement, toggleOptions);
+    options.toggle = new _NavToggle__WEBPACK_IMPORTED_MODULE_2__["default"](toggleElement, toggleOptions); // Create an instance of Nav,
+    // which in turn creates appropriate instances of NavItem and SubNavItem.
 
-    if (nav.className.match(/--buttons/)) {
-      // Create an instance of ToggleNav, which in turn create appropriate
-      // instances of ToggleSubNavItems.
-      new _ToggleNav__WEBPACK_IMPORTED_MODULE_3__["default"](nav, options);
-    } else {
-      // Create an instance of Nav,
-      // which in turn creates appropriate instances of NavItem.
-      new _Nav__WEBPACK_IMPORTED_MODULE_1__["default"](nav, options);
-    }
+    new _Nav__WEBPACK_IMPORTED_MODULE_1__["default"](nav, options);
   });
 }); // on DOMContentLoaded.
 

@@ -59,9 +59,11 @@ export default class SubNavItem extends NavItem {
 
     if (this.isExpanded()) {
       this.closeSubNav();
+      this.link.focus();
     }
     else {
-      this.openSubNav(false);
+      this.openSubNav();
+      this.item.querySelector("#" + this.item.getAttribute("id") + " > ul li a").focus();
     }
   }
 
@@ -128,16 +130,14 @@ export default class SubNavItem extends NavItem {
     // Go up a level and close the nav.
     event.preventDefault();
 
-    let node = this.item.parentNode.parentNode.previousElementSibling;
-    if (node) {
+    if (this.getDepth() > 1) {
+      this.item.parentNode.parentNode.firstElementChild.focus();
       this.nav.closeAllSubNavs();
       this.nav.closeThisSubNav();
-      node.querySelector("a").focus();
     }
     else {
       super.onKeydownArrowLeft(event, target);
     }
-
   }
 
   /**
@@ -152,7 +152,6 @@ export default class SubNavItem extends NavItem {
     this.openSubNav();
     this.item.querySelector("#" + this.item.getAttribute("id") + " > ul li a").focus();
   }
-
 
   /**
    * Handler for keypress of

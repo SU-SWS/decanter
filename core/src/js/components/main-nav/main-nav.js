@@ -11,6 +11,35 @@ document.addEventListener('DOMContentLoaded', event => {
   // All main navs.
   const navs = document.querySelectorAll('.' + navClass);
 
+  // Event Overrides.
+  let customEvents = {
+    SubNavItem: {
+      1: {
+        onKeydownArrowRight: function(event, instance) {
+          // Only change the behaviour when in desktop mode. If not in desktop
+          // mode go with the default.
+          if (!instance.options.toggle || instance.options.toggle.isExpanded()) {
+            instance.onKeydownArrowRight(event, instance.link);
+          }
+          else {
+            instance.onKeydownArrowDown(event, instance.link);
+          }
+
+        },
+        onKeydownArrowDown: function(event, instance) {
+          // Only change the behaviour when in desktop mode. If not in desktop
+          // mode go with the default.
+          if (!instance.options.toggle || instance.options.toggle.isExpanded()) {
+            instance.onKeydownArrowDown(event, instance.link);
+          }
+          else {
+            instance.onKeydownArrowRight(event, instance.link);
+          }
+        }
+      }
+    }
+  };
+
   // Loop through each of the navs and create a new instance.
   navs.forEach((nav, index) => {
 
@@ -22,6 +51,7 @@ document.addEventListener('DOMContentLoaded', event => {
       'itemActiveClass': 'su-main-nav__item--current',
       'triggerClass': "su-main-nav__toggle",
       'activePath': true,
+      'itemEvents': customEvents,
     };
 
     // Manage z-indexes in case there are multiple navs near each other.
@@ -38,16 +68,9 @@ document.addEventListener('DOMContentLoaded', event => {
     };
     options.toggle = new NavToggle(toggleElement, toggleOptions);
 
-    if (nav.className.match(/--buttons/)) {
-      // Create an instance of ToggleNav, which in turn create appropriate
-      // instances of ToggleSubNavItems.
-      new ToggleNav(nav, options);
-    }
-    else {
-      // Create an instance of Nav,
-      // which in turn creates appropriate instances of NavItem.
-      new Nav(nav, options);
-    }
+    // Create an instance of Nav,
+    // which in turn creates appropriate instances of NavItem and SubNavItem.
+    new Nav(nav, options);
   });
 
 }); // on DOMContentLoaded.

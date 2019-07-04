@@ -59,6 +59,31 @@ export default class NavItem extends NavItemAbstract {
 
   /**
    * Handler for keypress of
+   *
+   **/
+  onKeydownTab(event, target) {
+
+    const shifted = event.shiftKey;
+    let node = null;
+
+    if (shifted) {
+      node = this.item.previousElementSibling;
+    }
+    else {
+      node = this.item.nextElementSibling;
+    }
+
+    if (!node) {
+      if (this.options.toggle && this.getDepth() == 1) {
+        this.options.toggle.closeNav();
+      }
+      this.nav.closeAllSubNavs();
+      this.nav.closeThisSubNav();
+    }
+  }
+
+  /**
+   * Handler for keypress of
    **/
   onKeydownSpace(event, target) {
     event.preventDefault();
@@ -89,11 +114,11 @@ export default class NavItem extends NavItemAbstract {
   onKeydownArrowLeft(event, target) {
     // If this is a nested item. Go back up a level.
     if (this.getDepth() > 1) {
-      let node = this.item.parentNode.parentNode.previousElementSibling;
+      let node = this.item.parentNode.parentNode.firstElementChild;
       if (node) {
         this.nav.closeAllSubNavs();
         this.nav.closeThisSubNav();
-        node.querySelector("a").focus();
+        node.focus();
       }
       // Go to parent's end.
       else {
