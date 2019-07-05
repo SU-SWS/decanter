@@ -1,42 +1,21 @@
 @charset "UTF-8";
 
 //
-// Nav Color Maps
+// Main Nav Color Maps
 //
-// Color maps for the Main Nav and Secondary Nav Components.
-// "h-" prefix in the color names indicate horizontal orientation, which currently only applies to the 1st level items
-// of the desktop version of Main Nav component. Colors without the "-h" applies to the Secondary Nav (all items),
-// mobile version of the Main Nav, and the drop down menus of the desktop version of Main Nav.
-// Active color is also used to indicate "current" page.
+// Color maps for the Main Nav component. Active color is also used to
+// indicate "current" page. The mobile colors apply also to desktop drop
+// down menus.
 //
-// Styleguide: Variables.Components.nav-colors
+// Styleguide: Variables.Components.main-nav-colors
 //
 
 //
 // $nav-colors
 //
-// Color maps for the default Main Nav and Secondary Nav Components.
+// Color map for the default Main Nav component .su-main-nav.
 //
 // Markup: $nav-colors: (
-//  bg:                             $color-black,
-//  divider:                        $color-cool-grey,
-//  link:                           $color-white,
-//  link--hover:                     $color-white,
-//  border--hover:                   $color-white,
-//  link--active:                    $color-white,
-//  border--active:                  $color-vivid-red,
-//  link--expanded:                  $color-white,
-//  border--expanded:                transparent,
-//  border--active-expanded:         $color-white,
-//  h-link:                                   $color-black,
-//  h-link--hover:                            $color-bright-red,
-//  h-border--hover:                          $color-bright-red,
-//  h-link--active:                           $color-black,
-//  h-border--active:                         $color-black,
-//  h-link--active-hover:                     $color-bright-red,
-//  h-border--active-hover:                   $color-bright-red,
-//  h-link--expanded:                         $color-black,
-//  h-border--expanded:                       $color-black,
 //) !default;
 //
 // Styleguide: Variables.Components.nav-colors.default
@@ -45,136 +24,73 @@
 $nav-colors: (
   bg:                             $color-black,
   divider:                        $color-cool-grey,
+
   link:                           $color-white,
+  link--active-hover:             $color-bright-red,
+  link--hover:                    $color-white,
+  link--active:                   $color-white,
+  link--expanded:                 $color-white,
 
-  link--hover:                     $color-white,
-  border--hover:                   $color-white,
-
-  link--active:                    $color-white,
-  border--active:                  $color-vivid-red,
-
-  link--expanded:                  $color-white,
-  border--expanded:                transparent,
-  border--active-expanded:         $color-white,
-
-  // Horizontal menu colors (desktop Main Nav 1st level)
-  h-link:                                   $color-black,
-
-  h-link--hover:                            $color-bright-red,
-  h-border--hover:                          $color-bright-red,
-
-  h-link--active:                           $color-black,
-  h-border--active:                         $color-black,
-
-  h-link--active-hover:                     $color-bright-red,
-  h-border--active-hover:                   $color-bright-red,
-
-  h-link--expanded:                         $color-black,
-  h-border--expanded:                       $color-black,
+  border--active-hover:           $color-bright-red,
+  border--hover:                  $color-white,
+  border--active:                 $color-vivid-red,
+  border--expanded:               transparent,
+  border--active-expanded:        $color-white,
 ) !default;
 
 //
 // $nav-dark-colors
 //
-// Color map for the desktop version of the Main Nav dark variant 1st level items.
+// Color map for the Main Nav component dark variant .su-main-nav--dark.
 //
 // Markup: $nav-dark-colors: (
-//  h-link:                               $color-white,
-//  h-link--hover:                        $color-white,
-//  h-border--hover:                      $color-white,
-//  h-link--active:                       $color-white,
-//  h-border--active:                     $color-vivid-red,
-//  h-link--active-hover:                 $color-white,
-//  h-border--active-hover:               $color-white,
-//  h-link--expanded:                     $color-white,
-//  h-link--expanded-hover:               $color-white,
-//  h-border--expanded:                   $color-white,
-//  h-border--expanded-hover:             $color-vivid-red,
-//  h-border--expanded-active:            $color-white,
 //) !default;
 //
-// Styleguide: Variables.Components.nav-colors.variant-dark
+// Styleguide: Variables.Components.main-nav-colors.variant-dark
 //
 
 $nav-dark-colors: (
-  h-link:                               $color-white,
-
-  h-link--hover:                        $color-white,
-  h-border--hover:                      $color-white,
-
-  h-link--active:                       $color-white,
-  h-border--active:                     $color-vivid-red,
-
-  h-link--active-hover:                 $color-white,
-  h-border--active-hover:               $color-white,
-
-  h-link--expanded:                     $color-white,
-  h-link--expanded-hover:               $color-white,
-  h-border--expanded:                   $color-white,
-  h-border--expanded-hover:             $color-vivid-red,
-  h-border--expanded-active:            $color-white,
+  link:                               $color-white,
+  link--hover:                        $color-white,
+  link--expanded:                     $color-white,
+  link--expanded-hover:               $color-white,
+  link--active:                       $color-white,
+  link--active-hover:                 $color-white,
+  border--hover:                      $color-white,
+  border--active:                     $color-vivid-red,
+  border--active-hover:               $color-white,
+  border--expanded:                   $color-white,
+  border--expanded-hover:             $color-vivid-red,
+  border--expanded-active:            $color-white,
 ) !default;
 
 //
 // $nav-light-colors
 //
-// Color map for the Main Nav and Secondary Nav light variants.
+// Color map for the Main Nav component light variant .su-main-nav--light.
 //
 // Markup: $nav-light-colors: (
-//  bg:                         $color-white,
-//  divider:                    #d9d9d9,
-//  link:                       $color-black,
-//  link--hover:                 $color-black,
-//  border--hover:               $color-black,
-//  link--active:                $color-bright-red,
-//  border--active:              $color-bright-red,
-//  link--expanded:              $color-black,
-//  border--expanded:            transparent,
-//  border--active-expanded:     $color-black,
-//  h-link:                               $color-black,
-//  h-link--hover:                        $color-bright-red,
-//  h-border--hover:                      $color-bright-red,
-//  h-link--active:                       $color-black,
-//  h-border--active:                     $color-black,
-//  h-border--current:                    $color-driftwood,
-//  h-link--active-hover:                 $color-bright-red,
-//  h-border--active-hover:               $color-bright-red,
-//  h-link--expanded:                     $color-black,
-//  h-border--expanded:                   $color-driftwood,
 //) !default;
 //
-// Styleguide: Variables.Components.nav-colors.variant-light
+// Styleguide: Variables.Components.main-nav-colors.variant-light
 //
 
 $nav-light-colors: (
-  bg:                         $color-white,
-  divider:                    #d9d9d9,
-  link:                       $color-black,
+  bg:                                 $color-white,
+  divider:                            #d9d9d9,
 
-  link--hover:                 $color-black,
-  border--hover:               $color-black,
+  link:                               $color-black,
+  link--hover:                        $color-black,
+  link--active:                       $color-bright-red,
+  link--active-hover:                 $color-bright-red,
+  link--expanded:                     $color-black,
 
-  link--active:                $color-bright-red,
-  border--active:              $color-bright-red,
-
-  link--expanded:              $color-black,
-  border--expanded:            transparent,
-  border--active-expanded:     $color-black,
-
-  h-link:                               $color-black,
-
-  h-link--hover:                        $color-bright-red,
-  h-border--hover:                      $color-bright-red,
-
-  h-link--active:                       $color-black,
-  h-border--active:                     $color-black,
-
-// In this variant current and active state have different border colors
-  h-border--current:                    $color-driftwood,
-
-  h-link--active-hover:                 $color-bright-red,
-  h-border--active-hover:               $color-bright-red,
-
-  h-link--expanded:                     $color-black,
-  h-border--expanded:                   $color-driftwood,
+  border--hover:                      $color-black,
+  border--active:                     $color-bright-red,
+  // In this variant current and active state have different border colors
+  border--current:                    $color-bright-red,
+  border--active-hover:               $color-bright-red,
+  border--expanded:                   $color-black,
+  border--active-expanded:            $color-black,
+  border--expanded-hover:                   $color-black,
 ) !default;

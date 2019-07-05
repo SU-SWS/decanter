@@ -21,7 +21,7 @@
 // - .su-main-nav--light          - Light colored theme
 // - .su-main-nav--dark           - Light on dark theme (for use on dark background colors).
 // Note: The dark background color in below example is just for demo. The actual background is transparent.
-// - .su-main-nav--mobile-search  - Include search form inside the mobile nav
+// - .su-main-nav-search  - Include search form inside the mobile nav
 // - .su-main-nav--center         - Center both the desktop and mobile nav
 // - .su-main-nav--right          - Right justify both the desktop and mobile nav
 //
@@ -32,7 +32,7 @@
 // .su-main-nav--light          - Light colored theme
 // .su-main-nav--dark           - Light on dark theme (for use on dark background colors).
 // The dark background color in below example is just for demo. The actual background is transparent.
-// .su-main-nav--mobile-search  - Include search form inside the mobile nav
+// .su-main-nav-search  - Include search form inside the mobile nav
 // .su-main-nav--center         - Center both the desktop and mobile nav
 // .su-main-nav--right          - Right justify both the desktop and mobile nav
 //
@@ -48,212 +48,36 @@
   position: relative;
   z-index: 9999;
 
-  // General menu styles
+  // All ul contaiers.
   ul {
     @extend %nav-menu;
   }
 
+  // All li items.
   li {
     @extend %nav-item;
-
-    a {
-      @extend %nav-item-link;
-    }
   }
 
-  .su-main-nav__item--expanded {
-    @extend %nav-item--expanded;
+  a {
+    @extend %nav-item-link;
   }
 
-  .su-main-nav__item--current {
-    @extend %nav-item--current;
-  }
+  // Second Level Drop Downs.
+  > ul > li > ul {
+    @include padding(null null null 2rem);
 
-  .su-main-nav__item--parent {
-    @extend %nav-item--parent;
-
-    > a::after {
-      @include grid-media('lg') {
-        @include margin(null null 1px 6px);
-        background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
-        background-size: 100%;
-        position: relative;
-        right: 0;
-        top: 0;
-        height: 11px; // Small svg gets chopped off if use em instead of px
-        width: 11px;
-        transition: transform 0.3s ease-out;
-      }
-    }
-
-    &.su-main-nav__item--expanded {
-      @extend %nav-item--parent-expanded;
-
-      @include grid-media('lg') {
-        > a {
-          &::after {
-            background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
-            background-size: 100%;
-            transform: rotate(180deg);
-          }
-
-          &::before {
-            background-color: color(h-border--expanded, $nav-colors);
-          }
-
-          &:hover::before {
-            background-color: color(h-border--hover, $nav-colors);
-          }
-
-          &:active::before {
-            background-color: color(h-border--active, $nav-colors);
-          }
-        }
-      }
-    }
-  }
-
-  .su-main-nav__item--current {
-    &.su-main-nav__item--expanded {
-      @extend %nav-item--current-expanded;
-
-      @include grid-media('lg') {
-        > a {
-          &[aria-expanded="true"] {
-            &:active {
-              font-weight: $font-semi-bold;
-
-              &::before {
-                background-color: color(h-border--active, $nav-colors);
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  // Top level only menu styles
-  > ul {
-    @include grid-media-max('md') {
-      @include box-shadow('medium', none);
-    }
-
-    > li {
-      > a {
-        font-weight: $font-semi-bold;
-      }
-
-      &:last-of-type:not(.su-main-nav__item--expanded) {
-        > a {
-          border-bottom: 0;
-        }
-      }
-    }
-
-    // Top level menu desktop styles
+    // Desktop dropdown menu
     @include grid-media('lg') {
-      @include padding(null null null 0);
-      flex-direction: row;
-      flex-wrap: wrap;
-      background-color: transparent;
+      @include padding(1px null null 1.2rem);
+      @include margin(null null null -1.8rem);
+      @include box-shadow($depth: 'medium', $stroke: none);
+      z-index: 11111; //When menu wrap to 2nd line make sure dropdown covers up top level links
+      position: absolute;
+      max-width: 30rem;
 
-      > li {
-        > a {
-          @include fancy-hover(color(h-border--hover, $nav-colors), color(h-border--active, $nav-colors));
-          @include padding(null 0);
-          @include margin(0 1.2em 0 0);
-          color: color(h-link, $nav-colors);
-          transition: color 0.3s ease-out;
-          font-size: 2.1rem;
+      li:last-child {
+        a {
           border-bottom: 0;
-
-          &:active {
-            font-weight: $font-semi-bold;
-          }
-
-          &:hover,
-          &:focus {
-            color: color(h-link--hover, $nav-colors);
-          }
-
-          &:active,
-          &[aria-expanded="true"] {
-            color: color(h-link--active, $nav-colors);
-          }
-
-          &[aria-expanded="true"] {
-            &:hover {
-              color: color(h-link--active-hover, $nav-colors);
-            }
-
-            &:active {
-              color: color(h-link--active, $nav-colors);
-            }
-
-            &::before {
-              visibility: visible;
-              transform: scaleX(1);
-              background-color: color(h-border--expanded, $nav-colors);
-            }
-          }
-        }
-
-        &:last-child > a {
-          @include margin(null 0 null null);
-        }
-      }
-
-      > .su-main-nav__item--current {
-        > a {
-          font-weight: $font-semi-bold;
-
-          &::before {
-            background-color: color(h-border--active, $nav-colors);
-          }
-
-          &:hover,
-          &:focus {
-            &::before {
-              left: 0;
-              background-color: color(h-border--active-hover, $nav-colors);
-              transition: background-color 0.3s ease-out;
-            }
-          }
-
-          &:active::before {
-            background-color: color(h-border--active, $nav-colors);
-          }
-        }
-
-        &.su-main-nav__item--expanded > a {
-          font-weight: $font-semi-bold;
-
-          &:focus::before {
-            background-color: color(h-border--active, $nav-colors);
-          }
-
-          &[aria-expanded="true"] {
-            &:hover::before {
-              left: 0;
-            }
-          }
-        }
-      }
-
-      > .su-main-nav__item--expanded {
-        > a:focus::before {
-          background-color: color(h-border--expanded, $nav-colors);
-        }
-
-        > a[aria-expanded="true"] {
-          &:hover::before {
-            background-color: color(h-border--hover, $nav-colors);
-          }
-
-          &:active::before {
-            background-color: color(h-border--expanded, $nav-colors);
-          }
         }
       }
     }
@@ -282,107 +106,19 @@
   }
 }
 
-.su-main-nav__toggle {
+.su-main-nav__item--parent {
+  @extend %nav-item--parent;
 
-  @include grid-media-max('md') {
-    @include fancy-hover(color(h-border--hover, $nav-colors), color(h-border--active, $nav-colors));
-    @include padding(0 0 2rem);
-    @include margin(0);
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    width: 40px;
-    background-color: transparent;
-    color: color(h-link, $nav-colors);
-    font-size: 1.6rem;
-    font-weight: $font-regular;
-    line-height: 0.7;
-
-    &::after {
-      @include margin(0 auto);
-      display: inline-block;
-      width: 30px;
-      height: 26px;
-      background: url("#{$image-path}/hamburger-black.svg") no-repeat 3px 0;
-      content: "";
-    }
-
-    &[aria-expanded="true"] {
-      &::before {
-        visibility: visible;
-        transform: scaleX(1);
-        background-color: color(h-border--expanded, $nav-colors);
-      }
-
-      &::after {
-        width: 22px;
-        background: url("#{$image-path}/close-black.svg") no-repeat 3px 0;
-        background-size: 16px 16px;
-      }
-
-      &:hover::before {
-        background-color: color(h-border--hover, $nav-colors);
-      }
-
-      &:active::before {
-        background-color: color(h-border--active, $nav-colors);
-      }
-    }
-
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: transparent;
-      color: color(h-link, $nav-colors);
-      box-shadow: none;
-    }
-
-    &[aria-expanded="false"] + .su-main-nav__menu-lv1 {
-      display: none;
-    }
-
-    &[aria-expanded="true"] + .su-main-nav__menu-lv1 {
-      position: absolute;
-    }
-
-    // Toggle button variants
-    &--center {
-      @include margin(null auto);
-    }
-
-    &--right {
-      @include margin(null 0 null auto);
-    }
+  // All children menus have the same color.
+  > ul {
+    background-color: color(bg, $nav-colors);
   }
 
-  @include grid-media-only('md') {
-    &[aria-expanded="true"]  + .su-main-nav__menu-lv1 {
-      max-width: 24em;
-    }
-  }
-
-  @include grid-media('lg') {
-    display: none;
+  &.su-main-nav__item--expanded {
+    @extend %nav-item--expanded;
   }
 }
 
-// 2nd level menu
-.su-main-nav > ul > li > ul {
-  @include padding(null null null 2rem);
-
-  // Desktop dropdown menu
-  @include grid-media('lg') {
-    @include padding(1px null null 1.2rem);
-    @include margin(null null null -1.8rem);
-    @include box-shadow('medium', none);
-    z-index: 11111; // When menu wrap to 2nd line make sure dropdown covers up top level links
-    position: absolute;
-    max-width: 30rem;
-
-    li:last-child {
-      a {
-        border-bottom: 0;
-      }
-    }
-  }
+.su-main-nav__item--current {
+  @extend %nav-item--current;
 }

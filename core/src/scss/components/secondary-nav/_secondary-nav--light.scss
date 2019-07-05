@@ -4,52 +4,82 @@
 //
 
 .su-secondary-nav--light {
-  @extend %nav--light;
+  background-color: color(bg, $nav-light-colors);
 
-  $_su-nav-color-map: $nav-light-colors;
+  ul {
+    background-color: color(bg, $nav-light-colors);
+  }
 
-  .su-secondary-nav__item--parent {
-    > a::after {
-      background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
-      background-size: 100%;
+  a {
+    color: color(link, $nav-light-colors);
+
+    &:focus,
+    &:hover {
+      color: color(link--hover, $nav-light-colors);
+
+      &::before {
+        background-color: color(border--hover, $nav-light-colors);
+      }
     }
 
-    &.su-secondary-nav__item--expanded > a {
+    &:active {
+      color: color(link--active, $nav-light-colors);
+
+      &::before {
+        background-color: color(border--active, $nav-light-colors);
+      }
+    }
+  }
+
+  // States.
+  // ---------------------------------------------------------------------------
+  .su-secondary-nav__item--parent {
+    > a {
       &::after {
-        background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
-        background-size: 100%;
+        background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
       }
+    }
 
-      &:focus::before {
-        background-color: color(border--expanded, $_su-nav-color-map);
-      }
-
-      &[aria-expanded="true"] {
-        &:hover::before {
-          background-color: color(border--hover, $_su-nav-color-map);
+    &.su-secondary-nav__item--expanded {
+      > a {
+        &::after {
+          background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
         }
 
-        &:active::before {
-          background-color: color(border--active, $_su-nav-color-map);
+        &::before {
+          background-color: color(border--expanded, $nav-light-colors);
+        }
+
+        &:hover {
+          &::before {
+            background-color: color(border--expanded-hover, $nav-light-colors);
+          }
         }
       }
     }
   }
 
   .su-secondary-nav__item--current {
-    &.su-secondary-nav__item--expanded {
-      > a {
-        color: color(link--expanded, $_su-nav-color-map);
+    > a {
+      color: color(link--active, $nav-light-colors);
 
-        &::before,
-        &:focus::before {
-          background-color: color(border--active-expanded, $_su-nav-color-map);
-        }
+      &::before {
+        background-color: color(border--active-hover, $nav-light-colors);
+      }
 
-        &[aria-expanded="true"]:active {
-          color: color(link--active, $_su-nav-color-map);
+      &:focus,
+      &:hover {
+        color: color(link--active-hover, $nav-light-colors);
+
+        &::before {
+          background-color: color(border--active-hover, $nav-light-colors);
         }
+      }
+
+      &:active {
+        color: color(link--active, $nav-light-colors);
       }
     }
   }
+
 }

@@ -9,7 +9,7 @@
 //
 // $color - String - Color variable name from a color map, e.g., brand, link
 // $colormap - Color palette in the form of a SASS map,
-// e.g., $alert-colors, $main-nav-dark-colors.
+// e.g., $alert-colors, $nav-dark-colors.
 // Default is $core-colors.
 //
 // Style guide: Functions.Color
@@ -21,7 +21,7 @@
       $color: map-get($core-colors, $color);
     }
     @else {
-      @error "Color does not exist in color map $core-colors."
+      @error "Color does not exist in color map $core-colors.";
     }
   }
   @else {
@@ -29,7 +29,7 @@
       $color: map-get($colormap, $color);
     }
     @else {
-      @error "Color does not exist in color map."
+      @error "#{$color} color does not exist in color map";
     }
   }
   @return $color;

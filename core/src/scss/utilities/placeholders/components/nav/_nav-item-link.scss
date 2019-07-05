@@ -13,8 +13,13 @@
   color: color(link, $nav-colors);
   font-weight: $font-regular;
   font-size: 1.8rem;
-  border-bottom: 1px solid color(divider, $nav-colors);
+  border-bottom: color(divider, $nav-colors) solid 1px;
   outline: 0;
+
+  &:focus,
+  &:hover {
+    color: color(link, $nav-colors);
+  }
 
   &:active {
     font-weight: $font-bold;
