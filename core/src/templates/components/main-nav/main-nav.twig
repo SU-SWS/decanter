@@ -14,45 +14,94 @@
 + *
 + */
 +#}
-<nav {{ attributes }} class="su-main-nav no-js {{ modifier_class }}" aria-label="{{ aria_label|default('main menu') }}">
-  <button class="su-main-nav__toggle {{ toggle_modifier_class }}" aria-expanded="false">{{ toggle_text|default('Menu') }}</button>
-  <ul class="su-main-nav__menu-lv1">
-    {% spaceless %}
-    {% if list_items is iterable %}
-      {# If no custom markup, generate markup based on structured data #}
-      {% for item in list_items %}
-        {% set is_parent = item.lv2 is empty ? false : true %}
-        <li class="{% if is_parent %}su-main-nav__item--parent{% endif %} {% if item.current %}su-main-nav__item--current{% endif %}">
-          {% set the_attrs = "" %}
-          {% if item.attributes is not empty and item.attributes is iterable %}
-            {% for pair in item.attributes %}
-              {% set the_attrs = the_attrs ~ ' ' ~ pair.attr ~ '="' ~ pair.value ~ '"' %}
+{% spaceless %}
+  {# Macros #}
+  {% import "@decanter/utilities/macros/menu-loop.twig" as menus %}
+
+  {# BACKWARDS COMPATIBILITY WITH V5.0 #}
+  {% set reformatted = [] %}
+  {% set v5 = false %}
+  {% if list_items is iterable %}
+    {% for item in list_items %}
+
+      {% if item.attributes is not empty %}
+        {% set new_attr = {} %}
+
+        {% for attrs in item.attributes %}
+          {% if attrs.attr is not empty %}
+            {% set v5 = true %}
+            {% set attrs_key = attrs.attr|slice("twig_markup")|join|trim %}
+            {% set attrs_value = attrs.value|slice("twig_markup")|join|trim %}
+            {% set new_attr = new_attr|merge({(attrs_key): (attrs_value)}) %}
+          {% endif %}
+
+          {% if new_attr is not empty %}
+            {% set item2 = {} %}
+            {% for prop_key, prop in item %}
+              {% if prop_key != "attributes" %}
+                {% set item2 = item2|merge({(prop_key): prop}) %}
+              {% endif %}
+            {% endfor %}
+            {% set item2 = item2|merge({"attributes": new_attr}) %}
+            {% set item = item2 %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+
+      {% if item.lv2 is not empty %}
+        {% set v5 = true %}
+        {% set the_children = [] %}
+        {% for child in item.lv2 %}
+
+          {% if child.attributes is not empty %}
+            {% set new_attr = {} %}
+
+            {% for attrs in child.attributes %}
+              {% if attrs.attr is not empty %}
+                {% set v5 = true %}
+                {% set attrs_key = attrs.attr|slice("twig_markup")|join|trim %}
+                {% set attrs_value = attrs.value|slice("twig_markup")|join|trim %}
+                {% set new_attr = new_attr|merge({(attrs_key): (attrs_value)}) %}
+              {% endif %}
+
+              {% if new_attr is not empty %}
+                {% set child2 = {} %}
+                {% for prop_key, prop in child %}
+                  {% if prop_key != "attributes" %}
+                    {% set child2 = child2|merge({(prop_key): prop}) %}
+                  {% endif %}
+                {% endfor %}
+                {% set child2 = child2|merge({"attributes": new_attr}) %}
+                {% set child = child2 %}
+              {% endif %}
             {% endfor %}
           {% endif %}
-          <a href="{{ item.href }}" {{ the_attrs }}>{{ item.text }}</a>
-          {% if is_parent -%}
-            <ul class="su-main-nav__menu-lv2">
-              {%- for item_lv2 in item.lv2 -%}
-                <li class="{% if item_lv2.current %}su-main-nav__item--current{% endif %}">
-                  {% set the_attrs = "" %}
-                  {% if item_lv2.attributes is not empty and item_lv2.attributes is iterable %}
-                    {% for pair in item_lv2.attributes %}
-                      {% set the_attrs = the_attrs ~ ' ' ~ pair.attr ~ '="' ~ pair.value ~ '"' %}
-                    {% endfor %}
-                  {% endif %}
-                  <a href="{{ item_lv2.href }}" {{ the_attrs }}>{{ item_lv2.text }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          {% endif -%}
-        </li>
-      {% endfor %}
+
+          {% set the_children = the_children|merge([child]) %}
+        {% endfor %}
+        {% set item = item|merge({"children": the_children}) %}
+      {% endif %}
+
+      {% set reformatted = reformatted|merge([item]) %}
+    {% endfor %}
+  {% endif %}
+
+  {% if v5 == true %}
+    {% set list_items = reformatted %}
+  {% endif %}
+{% endspaceless %}
+{# BACKWARDS COMPATIBILITY WITH V5.0 #}
+
+<nav {{ attributes }} class="su-main-nav no-js {{ modifier_class }}" aria-label="{{ aria_label|default('main menu') }}">
+  <button class="su-main-nav__toggle {{ toggle_modifier_class }}" aria-expanded="false">{{ toggle_text }}</button>
+  {% spaceless %}
+    {% if list_items is iterable %}
+      {{ menus.nav_menu(list_items, 1, 'su-main-nav') }}
     {% else %}
       {# If custom markup is provided, emit it as is #}
       {{ list_items }}
     {% endif %}
-    {% endspaceless %}
-  </ul>
+  {% endspaceless %}
   {% if "su-main-nav--mobile-search" in modifier_class %}
     {% include "@decanter/components/site-search/site-search.twig" with
       {
@@ -60,7 +109,8 @@
         "method": mobile_search.method,
         "search_label": mobile_search.search_label,
         "placeholder": mobile_search.placeholder,
-        "search_input_name": mobile_search.search_input_name
+        "search_input_name": mobile_search.search_input_name,
+        "search_icon_src": mobile_search.search_icon_src
       }
       only
     %}
