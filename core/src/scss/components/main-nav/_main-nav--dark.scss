@@ -2,140 +2,147 @@
 
 .su-main-nav--dark {
 
-  @include grid-media-max('md') {
-    .su-main-nav__toggle {
-      color: color(link, $nav-dark-colors);
-
-      &:hover,
-      &:focus {
-        &::before {
-          background-color: color(border--hover, $nav-dark-colors);
-        }
-      }
-
-      &:active {
-        &::before {
-          background-color: color(border--active, $nav-dark-colors);
-        }
-      }
-
-      &::after {
-        background: url("#{$image-path}/hamburger-white.svg") no-repeat 3px 0;
-      }
-
-      &[aria-expanded="true"] {
-        &::before {
-          background-color: color(border--expanded, $nav-dark-colors);
-        }
-
-        &:hover::before {
-          background-color: color(border--expanded-hover, $nav-dark-colors);
-        }
-
-        &:active::before {
-          background-color: color(border--expanded-active, $nav-dark-colors);
-        }
-
-        &::after {
-          background: url("#{$image-path}/close-white.svg") no-repeat 3px 0;
-          background-size: 16px 16px;
-        }
-      }
-    }
+  // First Level Links.
+  > ul > li > a {
+    color: color(h--link, $nav-dark-colors);
   }
 
-  // desktop first level menu style override
-  @include grid-media('lg') {
-    > ul {
-      > li {
-        > a {
-          color: color(link, $nav-dark-colors);
 
-          &:hover,
-          &:focus {
-            color: color(link--hover, $nav-dark-colors);
-
-            &::before {
-              background-color: color(border--hover, $nav-dark-colors);
-            }
-          }
-
-          &:active {
-            color: color(link--active, $nav-dark-colors);
-
-            &::before {
-              background-color: color(border--active, $nav-dark-colors);
-            }
-          }
-
-          &[aria-expanded="true"] {
-            color: color(link--expanded, $nav-dark-colors);
-
-            &::before {
-              background-color: color(border--expanded, $nav-dark-colors);
-            }
-
-            &:hover {
-              color: color(link--hover, $nav-dark-colors);
-            }
-          }
-        }
-      }
-
-      > .su-main-nav__item--parent {
-        &,
-        &.su-main-nav__item--expanded {
-          > a::after {
-            background: url("#{$image-path}/caret-down-white.svg") no-repeat 0 0;
-            background-size: 100%;
-          }
-        }
-      }
-
-      > .su-main-nav__item--current {
-        > a {
-          color: color(link--active, $nav-dark-colors);
-
-          &::before {
-            background-color: color(border--active, $nav-dark-colors);
-          }
-
-          &:hover,
-          &:focus {
-            color: color(link--active-hover, $nav-dark-colors);
-
-            &::before {
-              background-color: color(border--active-hover, $nav-dark-colors);
-            }
-          }
-
-          &:active::before {
-            background-color: color(border--active, $nav-dark-colors);
-          }
-        }
-      }
-
-      > .su-main-nav__item--expanded {
-        &,
-        &.su-main-nav__item--current {
-          > a,
-          > a:focus {
-            &::before {
-              background-color: color(border--expanded, $nav-dark-colors);
-            }
-          }
-        }
-
-        > a[aria-expanded="true"] {
-          &:hover::before {
-            background-color: color(border--expanded-hover, $nav-dark-colors);
-          }
-
-          &:active::before {
-            background-color: color(border--expanded-active, $nav-dark-colors);
-          }
-        }
-      }
-    }
-  }
+  //
+  // @include grid-media-max('md') {
+  //   .su-main-nav__toggle {
+  //     color: color(link, $nav-dark-colors);
+  //
+  //     &:hover,
+  //     &:focus {
+  //       &::before {
+  //         background-color: color(border--hover, $nav-dark-colors);
+  //       }
+  //     }
+  //
+  //     &:active {
+  //       &::before {
+  //         background-color: color(border--active, $nav-dark-colors);
+  //       }
+  //     }
+  //
+  //     &::after {
+  //       background: url("#{$image-path}/hamburger-white.svg") no-repeat 3px 0;
+  //     }
+  //
+  //     &[aria-expanded="true"] {
+  //       &::before {
+  //         background-color: color(border--expanded, $nav-dark-colors);
+  //       }
+  //
+  //       &:hover::before {
+  //         background-color: color(border--expanded-hover, $nav-dark-colors);
+  //       }
+  //
+  //       &:active::before {
+  //         background-color: color(border--expanded-active, $nav-dark-colors);
+  //       }
+  //
+  //       &::after {
+  //         background: url("#{$image-path}/close-white.svg") no-repeat 3px 0;
+  //         background-size: 16px 16px;
+  //       }
+  //     }
+  //   }
+  // }
+  //
+  // // desktop first level menu style override
+  // @include grid-media('lg') {
+  //   > ul {
+  //     > li {
+  //       > a {
+  //         color: color(link, $nav-dark-colors);
+  //
+  //         &:hover,
+  //         &:focus {
+  //           color: color(link--hover, $nav-dark-colors);
+  //
+  //           &::before {
+  //             background-color: color(border--hover, $nav-dark-colors);
+  //           }
+  //         }
+  //
+  //         &:active {
+  //           color: color(link--active, $nav-dark-colors);
+  //
+  //           &::before {
+  //             background-color: color(border--active, $nav-dark-colors);
+  //           }
+  //         }
+  //
+  //         &[aria-expanded="true"] {
+  //           color: color(link--expanded, $nav-dark-colors);
+  //
+  //           &::before {
+  //             background-color: color(border--expanded, $nav-dark-colors);
+  //           }
+  //
+  //           &:hover {
+  //             color: color(link--hover, $nav-dark-colors);
+  //           }
+  //         }
+  //       }
+  //     }
+  //
+  //     > .su-main-nav__item--parent {
+  //       &,
+  //       &.su-main-nav__item--expanded {
+  //         > a::after {
+  //           background: url("#{$image-path}/caret-down-white.svg") no-repeat 0 0;
+  //           background-size: 100%;
+  //         }
+  //       }
+  //     }
+  //
+  //     > .su-main-nav__item--current {
+  //       > a {
+  //         color: color(link--active, $nav-dark-colors);
+  //
+  //         &::before {
+  //           background-color: color(border--active, $nav-dark-colors);
+  //         }
+  //
+  //         &:hover,
+  //         &:focus {
+  //           color: color(link--active-hover, $nav-dark-colors);
+  //
+  //           &::before {
+  //             background-color: color(border--active-hover, $nav-dark-colors);
+  //           }
+  //         }
+  //
+  //         &:active::before {
+  //           background-color: color(border--active, $nav-dark-colors);
+  //         }
+  //       }
+  //     }
+  //
+  //     > .su-main-nav__item--expanded {
+  //       &,
+  //       &.su-main-nav__item--current {
+  //         > a,
+  //         > a:focus {
+  //           &::before {
+  //             background-color: color(border--expanded, $nav-dark-colors);
+  //           }
+  //         }
+  //       }
+  //
+  //       > a[aria-expanded="true"] {
+  //         &:hover::before {
+  //           background-color: color(border--expanded-hover, $nav-dark-colors);
+  //         }
+  //
+  //         &:active::before {
+  //           background-color: color(border--expanded-active, $nav-dark-colors);
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 }

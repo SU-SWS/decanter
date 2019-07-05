@@ -109,11 +109,6 @@
 .su-main-nav__item--parent {
   @extend %nav-item--parent;
 
-  // All children menus have the same color.
-  > ul {
-    background-color: color(bg, $nav-colors);
-  }
-
   &.su-main-nav__item--expanded {
     @extend %nav-item--expanded;
   }
@@ -121,4 +116,72 @@
 
 .su-main-nav__item--current {
   @extend %nav-item--current;
+}
+
+// -----------------------------------------------------------------------------
+// TOP LEVEL STYLES
+// -----------------------------------------------------------------------------
+
+.su-main-nav {
+
+  // First level deskop menu.
+  > ul {
+    @include grid-media("lg") {
+      @include padding(null null null 0);
+      flex-direction: row;
+      flex-wrap: wrap;
+      background: transparent;
+    }
+  }
+
+  // First Level Links.
+  > ul > li > a {
+    @include grid-media("lg") {
+      color: color(h--link, $nav-colors);
+      @include padding(null 0);
+      @include margin(0 1.2em 0 0);
+      font-size: 2.1rem;
+      border-bottom: 0;
+
+      &::before {
+        height: 6px;
+        width: 100%;
+        transition: transform 0.3s ease-out;
+      }
+
+      &:hover {
+        color: color(h--link-hover, $nav-colors);
+
+        &::before {
+          transform: scaleX(1);
+          visibility: visible;
+          left: 0;
+          background-color: color(h--border-hover, $nav-colors);
+        }
+      }
+    }
+  }
+
+  // First level nav items.
+  > ul > li {
+
+    // First level parent items.
+    &.su-main-nav__item--parent {
+      @include grid-media("lg") {
+        > a {
+          &::after {
+            @include margin(null null 1px 6px);
+            background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
+            background-size: 100%;
+            position: relative;
+            height: 11px;
+            width: 11px;
+            right: 0;
+            top: 0;
+            transition: transform 0.3s ease-out;
+          }
+        }
+      }
+    }
+  }
 }
