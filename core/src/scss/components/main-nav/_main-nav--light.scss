@@ -3,21 +3,19 @@
 .su-main-nav--light {
   @extend %nav--light;
 
-  $_su-nav-color-map: $nav-light-colors;
-
   @include grid-media-max('md') {
     .su-main-nav__toggle {
       &[aria-expanded="true"] {
         &::before {
-          background-color: color(h-border--expanded, $_su-nav-color-map);
+          background-color: color(h-border--expanded, $nav-light-colors);
         }
 
         &:hover::before {
-          background-color: color(h-border--hover, $_su-nav-color-map);
+          background-color: color(h-border--hover, $nav-light-colors);
         }
 
         &:active::before {
-          background-color: color(h-border--active, $_su-nav-color-map);
+          background-color: color(h-border--active, $nav-light-colors);
         }
       }
     }
@@ -37,16 +35,16 @@
         }
 
         &:focus::before {
-          background-color: color(border--expanded, $_su-nav-color-map);
+          background-color: color(border--expanded, $nav-light-colors);
         }
 
         &[aria-expanded="true"] {
           &:hover::before {
-            background-color: color(border--hover, $_su-nav-color-map);
+            background-color: color(border--hover, $nav-light-colors);
           }
 
           &:active::before {
-            background-color: color(border--active, $_su-nav-color-map);
+            background-color: color(border--active, $nav-light-colors);
           }
         }
       }
@@ -55,15 +53,15 @@
     .su-main-nav__item--current {
       &.su-main-nav__item--expanded {
         > a {
-          color: color(link--expanded, $_su-nav-color-map);
+          color: color(link--expanded, $nav-light-colors);
 
           &::before,
           &:focus::before {
-            background-color: color(border--active-expanded, $_su-nav-color-map);
+            background-color: color(border--active-expanded, $nav-light-colors);
           }
 
           &[aria-expanded="true"]:active {
-            color: color(link--active, $_su-nav-color-map);
+            color: color(link--active, $nav-light-colors);
           }
         }
       }
@@ -79,44 +77,44 @@
         > a {
           &:hover,
           &:focus {
-            color: color(h-link--hover, $_su-nav-color-map);
+            color: color(h-link--hover, $nav-light-colors);
 
             &::before {
-              background-color: color(h-border--hover, $_su-nav-color-map);
+              background-color: color(h-border--hover, $nav-light-colors);
             }
           }
 
           &:active {
-            color: color(h-link--active, $_su-nav-color-map);
+            color: color(h-link--active, $nav-light-colors);
 
             &::before {
-              background-color: color(h-border--active, $_su-nav-color-map);
+              background-color: color(h-border--active, $nav-light-colors);
             }
           }
 
           &[aria-expanded="true"] {
-            color: color(h-link--expanded, $_su-nav-color-map);
+            color: color(h-link--expanded, $nav-light-colors);
 
             &::before {
-              background-color: color(h-border--expanded, $_su-nav-color-map);
+              background-color: color(h-border--expanded, $nav-light-colors);
             }
 
             &:hover {
-              color: color(h-link--hover, $_su-nav-color-map);
+              color: color(h-link--hover, $nav-light-colors);
 
               &::before {
-                background-color: color(h-border--hover, $_su-nav-color-map);
+                background-color: color(h-border--hover, $nav-light-colors);
               }
             }
 
             &:focus {
               &::before {
-                background-color: color(h-border--expanded, $_su-nav-color-map);
+                background-color: color(h-border--expanded, $nav-light-colors);
               }
             }
 
             &:active {
-              color: color(h-link--active, $_su-nav-color-map);
+              color: color(h-link--active, $nav-light-colors);
             }
           }
         }
@@ -124,57 +122,57 @@
 
       > .su-main-nav__item--current {
         > a {
-          color: color(h-link--active, $_su-nav-color-map);
+          color: color(h-link--active, $nav-light-colors);
 
           &::before {
-            background-color: color(h-border--current, $_su-nav-color-map);
+            background-color: color(h-border--current, $nav-light-colors);
           }
 
           &:hover,
           &:focus {
-            color: color(h-link--hover, $_su-nav-color-map);
+            color: color(h-link--hover, $nav-light-colors);
 
             &::before {
-              background-color: color(h-border--hover, $_su-nav-color-map);
+              background-color: color(h-border--hover, $nav-light-colors);
             }
           }
 
           &:active {
-            color: color(h-link--active, $_su-nav-color-map);
+            color: color(h-link--active, $nav-light-colors);
 
             &::before {
-              background-color: color(h-border--active, $_su-nav-color-map);
+              background-color: color(h-border--active, $nav-light-colors);
             }
           }
         }
 
         &.su-main-nav__item--expanded {
           > a:focus {
-            color: color(h-link--expanded, $_su-nav-color-map);
+            color: color(h-link--expanded, $nav-light-colors);
 
             &::before {
-              background-color: color(h-border--expanded, $_su-nav-color-map);
+              background-color: color(h-border--expanded, $nav-light-colors);
             }
           }
 
           > a[aria-expanded="true"] {
             &::before {
-              background-color: color(h-border--expanded, $_su-nav-color-map);
+              background-color: color(h-border--expanded, $nav-light-colors);
             }
 
             &:hover {
-              color: color(h-link--hover, $_su-nav-color-map);
+              color: color(h-link--hover, $nav-light-colors);
 
               &::before {
-                background-color: color(h-border--hover, $_su-nav-color-map);
+                background-color: color(h-border--hover, $nav-light-colors);
               }
             }
 
             &:active {
-              color: color(h-link--active, $_su-nav-color-map);
+              color: color(h-link--active, $nav-light-colors);
 
               &::before {
-                background-color: color(h-border--active, $_su-nav-color-map);
+                background-color: color(h-border--active, $nav-light-colors);
               }
             }
 
@@ -188,7 +186,7 @@
     .su-main-nav__toggle[aria-expanded="true"] {
       @include grid-media-max('md') {
         + .su-main-nav__menu-lv1 + .su-site-search {
-          background-color: color(bg, $_su-nav-color-map);
+          background-color: color(bg, $nav-light-colors);
         }
       }
     }
