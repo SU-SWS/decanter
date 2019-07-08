@@ -3,18 +3,18 @@
 .su-main-nav--dark {
   @include grid-media-max('md') {
     .su-main-nav__toggle {
-      color: color(h-link, $nav-dark-colors);
+      color: color(h-link, $nav-colors--dark);
 
       &:hover,
       &:focus {
         &::before {
-          background-color: color(h-border--hover, $nav-dark-colors);
+          background-color: color(h-border--hover, $nav-colors--dark);
         }
       }
 
       &:active {
         &::before {
-          background-color: color(h-border--active, $nav-dark-colors);
+          background-color: color(h-border--active, $nav-colors--dark);
         }
       }
 
@@ -24,15 +24,15 @@
 
       &[aria-expanded="true"] {
         &::before {
-          background-color: color(h-border--expanded, $nav-dark-colors);
+          background-color: color(h-border--expanded, $nav-colors--dark);
         }
 
         &:hover::before {
-          background-color: color(h-border--expanded-hover, $nav-dark-colors);
+          background-color: color(h-border--expanded-hover, $nav-colors--dark);
         }
 
         &:active::before {
-          background-color: color(h-border--expanded-active, $nav-dark-colors);
+          background-color: color(h-border--expanded-active, $nav-colors--dark);
         }
 
         &::after {
@@ -48,34 +48,34 @@
     > ul {
       > li {
         > a {
-          color: color(h-link, $nav-dark-colors);
+          color: color(h-link, $nav-colors--dark);
 
           &:hover,
           &:focus {
-            color: color(h-link--hover, $nav-dark-colors);
+            color: color(h-link--hover, $nav-colors--dark);
 
             &::before {
-              background-color: color(h-border--hover, $nav-dark-colors);
+              background-color: color(h-border--hover, $nav-colors--dark);
             }
           }
 
           &:active {
-            color: color(h-link--active, $nav-dark-colors);
+            color: color(h-link--active, $nav-colors--dark);
 
             &::before {
-              background-color: color(h-border--active, $nav-dark-colors);
+              background-color: color(h-border--active, $nav-colors--dark);
             }
           }
 
           &[aria-expanded="true"] {
-            color: color(h-link--expanded, $nav-dark-colors);
+            color: color(h-link--expanded, $nav-colors--dark);
 
             &::before {
-              background-color: color(h-border--expanded, $nav-dark-colors);
+              background-color: color(h-border--expanded, $nav-colors--dark);
             }
 
             &:hover {
-              color: color(h-link--hover, $nav-dark-colors);
+              color: color(h-link--hover, $nav-colors--dark);
             }
           }
         }
@@ -93,23 +93,23 @@
 
       > .su-main-nav__item--current {
         > a {
-          color: color(h-link--active, $nav-dark-colors);
+          color: color(h-link--active, $nav-colors--dark);
 
           &::before {
-            background-color: color(h-border--active, $nav-dark-colors);
+            background-color: color(h-border--active, $nav-colors--dark);
           }
 
           &:hover,
           &:focus {
-            color: color(h-link--active-hover, $nav-dark-colors);
+            color: color(h-link--active-hover, $nav-colors--dark);
 
             &::before {
-              background-color: color(h-border--active-hover, $nav-dark-colors);
+              background-color: color(h-border--active-hover, $nav-colors--dark);
             }
           }
 
           &:active::before {
-            background-color: color(h-border--active, $nav-dark-colors);
+            background-color: color(h-border--active, $nav-colors--dark);
           }
         }
       }
@@ -120,7 +120,7 @@
           > a,
           > a:focus {
             &::before {
-              background-color: color(h-border--expanded, $nav-dark-colors);
+              background-color: color(h-border--expanded, $nav-colors--dark);
             }
           }
         }
@@ -129,7 +129,7 @@
           > a {
             &[aria-expanded="true"] {
               &:active::before {
-                background-color: color(h-border--expanded-active, $nav-dark-colors);
+                background-color: color(h-border--expanded-active, $nav-colors--dark);
               }
             }
           }
@@ -137,11 +137,11 @@
 
         > a[aria-expanded="true"] {
           &:hover::before {
-            background-color: color(h-border--expanded-hover, $nav-dark-colors);
+            background-color: color(h-border--expanded-hover, $nav-colors--dark);
           }
 
           &:active::before {
-            background-color: color(h-border--expanded-active, $nav-dark-colors);
+            background-color: color(h-border--expanded-active, $nav-colors--dark);
           }
         }
       }
