@@ -1,10 +1,9 @@
 @charset "UTF-8";
 
 .su-main-nav__toggle {
-  $nav-colors: $nav-colors;
 
   @include grid-media-max('md') {
-    @include fancy-hover($color: color(border--hover, $nav-colors), $active: color(border--active, $nav-colors));
+    @include fancy-hover(color(border--hover, $nav-colors), color(border--active, $nav-colors));
     @include padding(0 0 2rem);
     @include margin(0);
     display: flex;
@@ -12,7 +11,7 @@
     align-items: center;
     width: 40px;
     background-color: transparent;
-    color: color(link, $nav-colors);
+    color: color(h--link, $nav-colors);
     font-size: 1.6rem;
     font-weight: $font-regular;
     line-height: 0.7;
@@ -52,7 +51,7 @@
     &:active,
     &:focus {
       background-color: transparent;
-      color: color(link, $nav-colors);
+      color: color(h--link-hover, $nav-colors);
       box-shadow: none;
     }
 

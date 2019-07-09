@@ -74,12 +74,6 @@
       z-index: 11111; //When menu wrap to 2nd line make sure dropdown covers up top level links
       position: absolute;
       max-width: 30rem;
-
-      li:last-child {
-        a {
-          border-bottom: 0;
-        }
-      }
     }
   }
 
@@ -142,14 +136,21 @@
       @include margin(0 1.2em 0 0);
       font-size: 2.1rem;
       border-bottom: 0;
+      font-weight: $font-semi-bold;
 
       &::before {
         height: 6px;
         width: 100%;
         transition: transform 0.3s ease-out;
+        background-color: color(h--border, $nav-colors);
       }
 
-      &:hover {
+      // State styles for horizontal desktop.
+      // -----------------------------------------------------------------------
+      &:hover,
+      &:active,
+      &:focus {
+        font-weight: $font-semi-bold;
         color: color(h--link-hover, $nav-colors);
 
         &::before {
@@ -164,6 +165,17 @@
 
   // First level nav items.
   > ul > li {
+    // First level expanded items.
+    &.su-main-nav__item--expanded {
+      @include grid-media("lg") {
+        > a {
+          &::before {
+            height: 6px;
+            transform: scaleX(1);
+          }
+        }
+      }
+    }
 
     // First level parent items.
     &.su-main-nav__item--parent {

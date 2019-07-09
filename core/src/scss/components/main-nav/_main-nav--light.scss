@@ -2,51 +2,44 @@
 
 .su-main-nav--light {
 
-  @include grid-media-max('md') {
-    .su-main-nav__toggle {
-      &[aria-expanded="true"] {
-        &::before {
-          background-color: color(border--expanded, $nav-light-colors);
-        }
-
-        &:hover::before {
-          background-color: color(border--hover, $nav-light-colors);
-        }
-
-        &:active::before {
-          background-color: color(border--active, $nav-light-colors);
-        }
-      }
-    }
-  }
-
-  // General menu styles - mobile, also desktop drop down part
+  // All ul contaiers.
   ul {
     background-color: color(bg, $nav-light-colors);
   }
 
-  li {
-    a {
-      color: color(link, $nav-light-colors);
-      border-bottom-color: color(divider, $nav-light-colors);
+  a {
+    color: color(link, $nav-light-colors);
+    border-bottom: solid 1px color(divider, $nav-light-colors);
 
-      &:hover,
-      &:focus {
-        &::before {
-          background-color: color(border--hover, $nav-light-colors);
-        }
+    &:focus,
+    &:hover {
+      color: color(link--hover, $nav-light-colors);
+
+      &::before {
+        background-color: color(border--hover, $nav-light-colors);
       }
 
-      &:active {
-        color: color(link--active, $nav-light-colors);
+    }
 
-        &::before {
-          background-color: color(border--active, $nav-light-colors);
+  }
+
+  .su-main-nav__item--parent {
+    > a {
+      &::after {
+        background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
+      }
+    }
+
+    &.su-main-nav__item--expanded {
+      > a {
+        &::after {
+          background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
         }
       }
     }
   }
 
+  // Active path.
   .su-main-nav__item--current {
     > a {
       color: color(link--active, $nav-light-colors);
@@ -54,179 +47,69 @@
       &::before {
         background-color: color(border--active, $nav-light-colors);
       }
+    }
+  }
 
+  // First Level Links.
+  > ul > li > a {
+    @include grid-media("lg") {
+      color: color(h--link, $nav-light-colors);
+
+      &::before {
+        background-color: color(h--border, $nav-light-colors);
+      }
+
+      // State styles for horizontal desktop.
+      // -----------------------------------------------------------------------
       &:hover,
+      &:active,
       &:focus {
+        color: color(h--link-hover, $nav-light-colors);
+
         &::before {
-          background-color: color(border--active, $nav-light-colors);
+          background-color: color(h--border-hover, $nav-light-colors);
         }
       }
     }
   }
 
-  @include grid-media-max('md') {
-    .su-main-nav__item--parent {
-      > a::after {
-        background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
-        background-size: 100%;
-      }
-
-      &.su-main-nav__item--expanded > a {
-        &::after {
-          background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
-          background-size: 100%;
-        }
-
-        &:focus::before {
-          background-color: color(border--expanded, $nav-light-colors);
-        }
-
-        &[aria-expanded="true"] {
-          &:hover::before {
-            background-color: color(border--hover, $nav-light-colors);
-          }
-
-          &:active::before {
-            background-color: color(border--active, $nav-light-colors);
-          }
-        }
-      }
-    }
-
-    .su-main-nav__item--current {
+  // First level nav items.
+  > ul > li {
+    @include grid-media("lg") {
+      // First level expanded items.
+      // First level parent items.
       &.su-main-nav__item--expanded {
-        > a {
-          color: color(link--expanded, $nav-light-colors);
-
-          &::before,
-          &:focus::before {
-            background-color: color(border--active-expanded, $nav-light-colors);
-          }
-
-          &[aria-expanded="true"]:active {
-            color: color(link--active, $nav-light-colors);
+        &.su-main-nav__item--parent {
+          > a {
+            &::after {
+              background-size: 100%;
+              background-image: url("#{$image-path}/caret-down-black.svg");
+            }
           }
         }
       }
     }
-  }
 
-  // desktop first level menu style override
-  @include grid-media('lg') {
-    > ul {
-      background-color: transparent;
-
-      > li {
+    // Current path items.
+    &.su-main-nav__item--current {
+      @include grid-media("lg") {
         > a {
-          &:hover,
-          &:focus {
-            color: color(link--hover, $nav-light-colors);
+          color: color(h--link, $nav-light-colors);
+
+          &:hover {
+            color: color(h--link-hover, $nav-light-colors);
 
             &::before {
-              background-color: color(border--hover, $nav-light-colors);
+              background-color: color(h--border-hover, $nav-light-colors);
             }
           }
-
-          &:active {
-            color: color(link--active, $nav-light-colors);
-
-            &::before {
-              background-color: color(border--active, $nav-light-colors);
-            }
-          }
-
-          &[aria-expanded="true"] {
-            color: color(link--expanded, $nav-light-colors);
-
-            &::before {
-              background-color: color(border--expanded, $nav-light-colors);
-            }
-
-            &:hover {
-              color: color(link--hover, $nav-light-colors);
-
-              &::before {
-                background-color: color(border--hover, $nav-light-colors);
-              }
-            }
-
-            &:focus {
-              &::before {
-                background-color: color(border--expanded, $nav-light-colors);
-              }
-            }
-
-            &:active {
-              color: color(link--active, $nav-light-colors);
-            }
-          }
-        }
-      }
-
-      > .su-main-nav__item--current {
-        > a {
-          color: color(link--active, $nav-light-colors);
 
           &::before {
-            background-color: color(border--current, $nav-light-colors);
-          }
-
-          &:hover,
-          &:focus {
-            color: color(link--hover, $nav-light-colors);
-
-            &::before {
-              background-color: color(border--hover, $nav-light-colors);
-            }
-          }
-
-          &:active {
-            color: color(link--active, $nav-light-colors);
-
-            &::before {
-              background-color: color(border--active, $nav-light-colors);
-            }
-          }
-        }
-
-        &.su-main-nav__item--expanded {
-          > a:focus {
-            color: color(link--expanded, $nav-light-colors);
-
-            &::before {
-              background-color: color(border--expanded, $nav-light-colors);
-            }
-          }
-
-          > a[aria-expanded="true"] {
-            &:hover {
-              color: color(link--hover, $nav-light-colors);
-
-              &::before {
-                background-color: color(border--hover, $nav-light-colors);
-              }
-            }
-
-            &:active {
-              color: color(link--active, $nav-light-colors);
-
-              &::before {
-                background-color: color(border--active, $nav-light-colors);
-              }
-            }
+            background-color: color(h--border, $nav-light-colors);
           }
         }
       }
     }
-  }
 
-  &.su-main-nav-search {
-    .su-main-nav__toggle[aria-expanded="true"] {
-      @include grid-media-max('md') {
-        + .su-main-nav__menu-lv1 + .su-site-search {
-          background-color: color(bg, $nav-light-colors);
-        }
-      }
-    }
   }
 }
