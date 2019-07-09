@@ -24,7 +24,7 @@
           {% if val.twig_markup == true %}
             {% set val = val|merge({'twig_markup': null}) %}
           {% endif %}
-          {% set the_attrs = the_attrs ~ key|trim ~ '="' ~ val|trans|join|trim ~ '" ' %}
+          {% set the_attrs = the_attrs ~ key|trim ~ '="' ~ val|join|trim ~ '" ' %}
         {% endfor %}
       {% endif %}
 

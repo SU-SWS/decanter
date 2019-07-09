@@ -1,4 +1,3 @@
-import {isHome, isEnd, isTab, isSpace, isEnter, isLeftArrow, isRightArrow, isUpArrow, isDownArrow} from "../../utilities/keyboard";
 import SubNavItem from './SubNavItem';
 
 /**
@@ -25,8 +24,8 @@ export default class ToggleSubNavItem extends SubNavItem {
     super(item, nav, options);
 
     // Set text.
-    this.toggleText = options.subNavToggleText || "+";
-    this.triggerClass = options.triggerClass || "nav-toggle";
+    this.toggleText = options.subNavToggleText || '+';
+    this.triggerClass = options.triggerClass || 'nav-toggle';
 
     // Create the buttons.
     this.toggle = this.createToggleButton();
@@ -42,11 +41,11 @@ export default class ToggleSubNavItem extends SubNavItem {
    * @return {[type]} [description]
    */
   createToggleButton() {
-    let element = document.createElement("button");
+    let element = document.createElement('button');
     let label = document.createTextNode(this.toggleText);
 
     // Give this instance a unique ID.
-    let id = "toggle-" + Math.random().toString(36).substr(2, 9);
+    let id = 'toggle-' + Math.random().toString(36).substr(2, 9);
 
     element.setAttribute('class', this.triggerClass);
     element.setAttribute('aria-expanded', false);
@@ -70,11 +69,11 @@ export default class ToggleSubNavItem extends SubNavItem {
   onClick(event, target) {
 
     // If the click is on the trigger then ignore.
-    if (target == this.link) {
+    if (target === this.link) {
       return;
     }
 
-    if (target == this.toggle) {
+    if (target === this.toggle) {
       if (this.isExpanded()) {
         this.closeSubNav();
       }

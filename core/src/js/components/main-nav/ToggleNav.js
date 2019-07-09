@@ -1,5 +1,3 @@
-import { isEsc, isSpace, isEnter } from "../../utilities/keyboard";
-import { createEvent } from '../../utilities/events';
 import ToggleSubNavItem from './ToggleSubNavItem';
 import NavItem from './NavItem';
 import Nav from './Nav';
@@ -38,11 +36,11 @@ export default class ToggleNav extends Nav {
    * @return {[type]} [description]
    */
   createNavItems() {
-    let items = this.elem.querySelectorAll("#" + this.id + ' > ul > li');
+    let items = this.elem.querySelectorAll('#' + this.id + ' > ul > li');
     items.forEach(
       item => {
         // Subnav items have special behaviour.
-        if (item.querySelector(item.tagName + " > ul")) {
+        if (item.querySelector(item.tagName + ' > ul')) {
           this.subNavItems.push(new ToggleSubNavItem(item, this, this.options));
         }
         // NavItems have specific event handling.

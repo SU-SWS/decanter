@@ -15,11 +15,11 @@ document.addEventListener('DOMContentLoaded', event => {
 
     // Secondary nav specific settings.
     let options = {
-      'itemExpandedClass': 'su-secondary-nav__item--expanded',
-      'itemActiveClass': 'su-secondary-nav__item--current',
-      'triggerClass': "su-secondary-nav__toggle",
-      'activePath': true,
-      'expandActivePath': true,
+      itemExpandedClass: 'su-secondary-nav__item--expanded',
+      itemActiveClass: 'su-secondary-nav__item--current',
+      triggerClass: "su-secondary-nav__toggle",
+      activePath: true,
+      expandActivePath: true,
     };
 
     if (nav.className.match(/--buttons/)) {

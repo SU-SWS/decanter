@@ -1,6 +1,3 @@
-import {normalizeKey} from "../../utilities/keyboard";
-import {createEvent} from '../../utilities/events';
-import Nav from './Nav';
 import NavItemAbstract from './NavItemAbstract';
 
 /**
@@ -74,7 +71,7 @@ export default class NavItem extends NavItemAbstract {
     }
 
     if (!node) {
-      if (this.options.toggle && this.getDepth() == 1) {
+      if (this.options.toggle && this.getDepth() === 1) {
         this.options.toggle.closeNav();
       }
       this.nav.closeAllSubNavs();

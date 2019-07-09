@@ -1,5 +1,4 @@
-import { isEsc, isSpace, isEnter } from "../../utilities/keyboard";
-import { createEvent } from '../../utilities/events';
+import {createEvent} from '../../utilities/events';
 import NavItem from './NavItem';
 import SubNavItem from './SubNavItem';
 
@@ -55,8 +54,13 @@ export default class NavAbstract {
     this.navItems = [];
     this.subNavItems = [];
     // Class properties.
-    this.itemActiveClass = options.itemActiveClass || "active";
-    this.itemExpandedClass = options.itemExpandedClass || "expanded";
+    this.itemActiveClass = options.itemActiveClass || 'active';
+    this.itemExpandedClass = options.itemExpandedClass || 'expanded';
+
+    if (this.options.activePath == true) {
+      this.setActivePath();
+    }
+
   }
 
   /**
@@ -64,11 +68,11 @@ export default class NavAbstract {
    * @return {[type]} [description]
    */
   createNavItems() {
-    let items = this.elem.querySelectorAll("#" + this.id + ' > ul > li');
+    let items = this.elem.querySelectorAll('#' + this.id + ' > ul > li');
     items.forEach(
       item => {
         // Subnav items have special behaviour.
-        if (item.querySelector(item.tagName + " > ul")) {
+        if (item.querySelector(item.tagName + ' > ul')) {
           this.subNavItems.push(new SubNavItem(item, this, this.options));
         }
         // NavItems have specific event handling.
@@ -117,10 +121,6 @@ export default class NavAbstract {
    * [setActivePath description]
    */
   setActivePath() {
-    if (this.options.activePath !== true) {
-      return;
-    }
-
     var pathname = window.location.pathname;
     var anchor = window.location.hash;
     if (pathname.length) {
@@ -128,16 +128,17 @@ export default class NavAbstract {
 
       if (!anchor) {
         currentLink = this.elem.querySelector("a[href*='" + pathname + "']");
-      } else {
+      }
+      else {
         currentLink = this.elem.querySelector("a[href*='" + anchor + "']");
       }
 
       if (currentLink) {
-        while(currentLink) {
-          if (currentLink.getAttribute('id') == this.id) {
+        while (currentLink) {
+          if (currentLink.getAttribute('id') === this.id) {
             currentLink = false;
           }
-          else if (currentLink.tagName == "LI") {
+          else if (currentLink.tagName === "LI") {
             currentLink.classList.add(this.itemActiveClass);
           }
           currentLink = currentLink.parentNode;
@@ -151,7 +152,7 @@ export default class NavAbstract {
    * @return {[type]} [description]
    */
   expandActivePath() {
-    let actives = this.elem.querySelectorAll("." + this.itemActiveClass);
+    let actives = this.elem.querySelectorAll('.' + this.itemActiveClass);
     if (actives.length) {
       actives.forEach(
         item => {

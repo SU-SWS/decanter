@@ -1,4 +1,3 @@
-import {isHome, isEnd, isTab, isSpace, isEnter, isLeftArrow, isRightArrow, isUpArrow, isDownArrow} from "../../utilities/keyboard";
 import 'custom-event-polyfill'; // @see https://github.com/krambuhl/custom-event-polyfill
 import NavItem from './NavItem';
 
@@ -150,7 +149,7 @@ export default class SubNavItem extends NavItem {
     // Go down a level and open the SubNav.
     event.preventDefault();
     this.openSubNav();
-    this.item.querySelector("#" + this.item.getAttribute("id") + " > ul li a").focus();
+    this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul li a').focus();
   }
 
   /**

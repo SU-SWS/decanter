@@ -1,6 +1,4 @@
-import {normalizeKey} from "../../utilities/keyboard";
-import {createEvent} from '../../utilities/events';
-import Nav from './Nav';
+import {normalizeKey} from '../../utilities/keyboard';
 
 /**
  * Represent an item in a navigation menu. May be a direct link or a subnav
@@ -123,19 +121,19 @@ export default class NavItemAbstract {
         break;
 
       case 'last':
-        this.item.querySelector(this.item.tagName + " > ul:lastChild a").focus();
+        this.item.querySelector(this.item.tagName + ' > ul:lastChild a').focus();
         break;
 
       case 'next':
-        this.item.nextElementSibling.querySelector("a").focus();
+        this.item.nextElementSibling.querySelector('a').focus();
         break;
 
       case 'prev':
-        this.item.previousElementSibling.querySelector("a").focus();
+        this.item.previousElementSibling.querySelector('a').focus();
         break;
 
       default:
-        this.item.querySelector("a").focus();
+        this.item.querySelector('a').focus();
         break;
     }
   }

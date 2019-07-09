@@ -1,5 +1,4 @@
 import { createEvent } from '../../utilities/events';
-import {isHome, isEnd, isTab, isSpace, isEnter, isLeftArrow, isRightArrow, isUpArrow, isDownArrow} from "../../utilities/keyboard";
 
 /**
  *
@@ -54,20 +53,20 @@ export default class NavToggle {
   * @return {*}
   *  Whatever the dispatched handler returns (in our case nothing)
   */
- handleEvent(event) {
-   event = event || window.event;
-   // If this class has an onEvent method, e.g. onClick, onKeydown,
-   // invoke it.
-   const handler = 'on'
-     + event.type.charAt(0).toUpperCase()
-     + event.type.slice(1);
+  handleEvent(event) {
+    event = event || window.event;
+    // If this class has an onEvent method, e.g. onClick, onKeydown,
+    // invoke it.
+    const handler = 'on'
+      + event.type.charAt(0).toUpperCase()
+      + event.type.slice(1);
 
-   if (typeof this[handler] === 'function') {
-     // The element that was clicked.
-     const target = event.target || event.srcElement;
-     return this[handler](event, target);
-   }
- }
+    if (typeof this[handler] === 'function') {
+      // The element that was clicked.
+      const target = event.target || event.srcElement;
+      return this[handler](event, target);
+    }
+  }
 
   /**
    * Handler for click events. click is only bound to the  toggle.
@@ -124,7 +123,7 @@ export default class NavToggle {
 
     // Focus on the first link in the nav.
     if (focusOnFirst) {
-      this.nav.elem.querySelector("a").focus();
+      this.nav.elem.querySelector('a').focus();
     }
 
     // Alert others the nav has opened.

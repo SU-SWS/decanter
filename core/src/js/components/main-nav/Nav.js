@@ -1,7 +1,4 @@
-import { isEsc, isSpace, isEnter } from "../../utilities/keyboard";
-import { createEvent } from '../../utilities/events';
-import NavItem from './NavItem';
-import SubNavItem from './SubNavItem';
+import { isEsc } from "../../utilities/keyboard";
 import NavAbstract from './NavAbstract';
 
 /**
@@ -78,7 +75,7 @@ export default class Nav extends NavAbstract {
     // subnavitems. If it is one of my subnav items, close all of the subnav
     // items so that everything on the same level are shut.
     let triggerId = event.detail.nav.id || null;
-    if (triggerId == this.id) {
+    if (triggerId === this.id) {
       this.closeAllSubNavs();
     }
   }
