@@ -19,36 +19,38 @@ export const isDownArrow = theKey => (theKey === 'ArrowDown' || theKey === 'Down
  * @return {[type]}        [description]
  */
 export const normalizeKey = (theKey) => {
+  let ret = false;
+
   if (isHome(theKey)) {
-    return 'home';
+    ret = 'home';
   }
-  if (isEnd(theKey)) {
-    return 'end';
+  else if (isEnd(theKey)) {
+    ret = 'end';
   }
-  if (isTab(theKey)) {
-    return 'tab';
+  else if (isTab(theKey)) {
+    ret = 'tab';
   }
-  if (isEsc(theKey)) {
-    return 'escape';
+  else if (isEsc(theKey)) {
+    ret = 'escape';
   }
-  if (isSpace(theKey)) {
-    return 'space';
+  else if (isSpace(theKey)) {
+    ret = 'space';
   }
-  if (isEnter(theKey)) {
-    return 'enter';
+  else if (isEnter(theKey)) {
+    ret = 'enter';
   }
   if (isLeftArrow(theKey)) {
-    return 'arrowLeft';
+    ret = 'arrowLeft';
   }
-  if (isRightArrow(theKey)) {
-    return 'arrowRight';
+  else if (isRightArrow(theKey)) {
+    ret = 'arrowRight';
   }
-  if (isUpArrow(theKey)) {
-    return 'arrowUp';
+  else if (isUpArrow(theKey)) {
+    ret = 'arrowUp';
   }
-  if (isDownArrow(theKey)) {
-    return 'arrowDown';
+  else if (isDownArrow(theKey)) {
+    ret = 'arrowDown';
   }
 
-  return false;
+  return ret;
 };

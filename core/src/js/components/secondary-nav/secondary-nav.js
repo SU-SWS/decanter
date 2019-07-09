@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', event => {
     let options = {
       itemExpandedClass: 'su-secondary-nav__item--expanded',
       itemActiveClass: 'su-secondary-nav__item--current',
-      triggerClass: "su-secondary-nav__toggle",
+      triggerClass: 'su-secondary-nav__toggle',
       activePath: true,
       expandActivePath: true,
     };

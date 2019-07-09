@@ -82,8 +82,38 @@ export default class ToggleSubNavItem extends SubNavItem {
       }
       return;
     }
-
   }
+
+  /**
+   * [onKeydownTab description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   * @return {[type]}        [description]
+   */
+  onKeydownTab(event, target) {
+    console.log(target);
+  }
+
+  /**
+   * [onKeydownSpace description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   * @return {[type]}        [description]
+   */
+  onKeydownSpace(event, target) {
+    console.log(target);
+  }
+
+  /**
+   * [onKeydownEnter description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   * @return {[type]}        [description]
+   */
+  onKeydownEnter(event, target) {
+    console.log(target);
+  }
+
 
   /**
    * Is this expanded? Can only return TRUE if this is a subnav trigger.

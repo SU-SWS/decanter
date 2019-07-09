@@ -7,24 +7,8 @@
   .su-secondary-nav__item--parent {
     position: relative;
 
-    > a::after {
-      background: transparent;
-    }
-
     > a {
       @include padding(null 60px null null);
-    }
-
-    &.su-secondary-nav__item--expanded {
-      > a::after {
-        background: transparent;
-      }
-    }
-  }
-
-  .su-secondary-nav__item--expanded {
-    > a::after {
-      background: transparent;
     }
   }
 }
@@ -35,32 +19,40 @@
   vertical-align: middle;
   text-align: center;
   font-size: 0;
-  width: 54px;
-  max-width: 54px;
-  height: 54px;
-  line-height: 54px;
+  width: 53px;
+  max-width: 53px;
+  height: 53px;
+  line-height: 53px;
   position: absolute;
-  right: 0;
-  top: 1px;
+  right: 2px;
+  top: 2px;
   z-index: 10;
   background: color(brand--dark) url("#{$image-path}/caret-down-white.svg") no-repeat 50% 50%;
   background-size: 30%;
 
   &:hover {
-    font-weight: bold;
-    background-position: 50% 42%;
-    background-color: color(brand--bright);
+    font-weight: $font-bold;
+    animation: dropout 0.4s ease-out;
+    background-color: color(brand--dark);
+    background-size: 40%;
+  }
+
+  @keyframes dropout {
+    0%   { background-position: 50% 50%; }
+    5%   { background-position: 50% 40%; }
+    25%  { background-position: 50% 200%; }
+    50%  { background-position: 50% -50px; background-image: none; }
+    95% { background-position: 50% 60%; }
+    100% { background-position: 50% 50%; }
   }
 
   &:focus,
   &:active {
+    background-color: color(brand--bright);
     box-shadow: none;
-    background-color: #F0F;
   }
 
   &[aria-expanded="true"] {
     transform: rotate(180deg);
-    background-color: color(brand--bright);
   }
-
 }
