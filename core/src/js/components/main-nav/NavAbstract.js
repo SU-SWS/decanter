@@ -40,6 +40,11 @@ export default class NavAbstract {
     this.depth = options.depth || 1;
     // The toggle menu button or none.
     this.toggle = options.toggle || false;
+    // The JS Classes to use for building nav items.
+    this.itemClasses =  options.itemClasses || {
+      single: NavItem,
+      sub: SubNavItem
+    };
     // Set the z-index if configured.
     if (this.options.zIndex > 1) {
       this.elem.style.zIndex = this.options.zIndex;
@@ -71,13 +76,13 @@ export default class NavAbstract {
     let items = this.elem.querySelectorAll('#' + this.id + ' > ul > li');
     items.forEach(
       item => {
-        // Subnav items have special behaviour.
+        // SubNavItems have special behaviour.
         if (item.querySelector(item.tagName + ' > ul')) {
-          this.subNavItems.push(new SubNavItem(item, this, this.options));
+          this.subNavItems.push(new this.itemClasses['sub'](item, this, this.options));
         }
         // NavItems have specific event handling.
         else {
-          this.navItems.push(new NavItem(item, this, this.options));
+          this.navItems.push(new this.itemClasses['single'](item, this, this.options));
         }
       }
     );

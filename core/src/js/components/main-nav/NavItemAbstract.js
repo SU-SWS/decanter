@@ -49,22 +49,40 @@ export default class NavItemAbstract {
     let handler = 'on'
       + event.type.charAt(0).toUpperCase()
       + event.type.slice(1);
-
     let target = event.target || event.srcElement;
     let constructorName = this.constructor.name;
     let depth = this.getDepth();
 
     // If the caller passed in their own event handling use that instead.
-    if (this.options.itemEvents
-      && this.options.itemEvents[constructorName]
-      && this.options.itemEvents[constructorName][depth]
-      && this.options.itemEvents[constructorName][depth][handler]) {
-      new this.options.itemEvents[constructorName][depth][handler](event, this);
+    if (this.handleUserEvent(constructorName, depth, handler, event, target)) {
+      return true;
     }
     // Otherwise, check to see if we have an event available.
     else if (typeof this[handler] === 'function') {
       return this[handler](event, target);
     }
+  }
+
+  /**
+   * [getUserEvent description]
+   * @param  {[type]} constructorName [description]
+   * @param  {[type]} depth           [description]
+   * @param  {[type]} handler         [description]
+   * @return {[type]}                 [description]
+   */
+  handleUserEvent(constructorName, depth, handler, event, target) {
+
+    // Check the deep nesting for the event.
+    if (this.options.itemEvents
+      && this.options.itemEvents[constructorName]
+      && this.options.itemEvents[constructorName][depth]
+      && this.options.itemEvents[constructorName][depth][handler]) {
+        this.options.itemEvents[constructorName][depth][handler](event, this);
+        return true;
+    }
+
+    // No event provided
+    return false;
   }
 
   /**
@@ -87,23 +105,18 @@ export default class NavItemAbstract {
     let handler = 'onKeydown'
       + normalized.charAt(0).toUpperCase()
       + normalized.slice(1);
-
-    // Check out the
     let constructorName = this.constructor.name;
     let depth = this.getDepth();
 
     // If the caller passed in their own event handling use that instead.
-    if (this.options.itemEvents
-      && this.options.itemEvents[constructorName]
-      && this.options.itemEvents[constructorName][depth]
-      && this.options.itemEvents[constructorName][depth][handler]) {
-      new this.options.itemEvents[constructorName][depth][handler](event, this);
+    if (this.handleUserEvent(constructorName, depth, handler, event, target)) {
+      return true;
     }
+    // Check if a handling is on this instance.
     else if (typeof this[handler] === 'function') {
       return this[handler](event, target);
     }
   }
-
 
   /**
    * Set the focus on the specified link in this nav.
