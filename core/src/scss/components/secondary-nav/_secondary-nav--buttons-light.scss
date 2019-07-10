@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+// Specific to me styles.
+.su-secondary-nav--buttons-light {
+  background-color: color(bg, $nav-light-colors);
+
+  ul {
+    background-color: color(bg, $nav-light-colors);
+  }
+
+  a {
+    color: color(link, $nav-light-colors);
+    border-bottom: color(divider, $nav-light-colors) solid 1px;
+
+    &:focus,
+    &:hover {
+      color: color(link--hover, $nav-light-colors);
+
+      &::before {
+        background-color: color(border--hover, $nav-light-colors);
+      }
+    }
+
+    &:active {
+      color: color(link--active, $nav-light-colors);
+
+      &::before {
+        background-color: color(border--active, $nav-light-colors);
+      }
+    }
+  }
+
+  // States.
+  // ---------------------------------------------------------------------------
+  .su-secondary-nav__item--parent {
+    position: relative;
+
+    > a {
+      @include padding(null 60px null null);
+
+      &::after {
+        background: transparent;
+      }
+    }
+
+    &.su-secondary-nav__item--expanded {
+      > a {
+        &::after {
+          background: transparent;
+        }
+      }
+    }
+  }
+
+  .su-secondary-nav__item--current {
+    > a {
+      color: color(link--active, $nav-light-colors);
+
+      &::before {
+        background-color: color(border--active-hover, $nav-light-colors);
+      }
+
+      &:focus,
+      &:hover {
+        color: color(link--active-hover, $nav-light-colors);
+
+        &::before {
+          background-color: color(border--active-hover, $nav-light-colors);
+        }
+      }
+
+      &:active {
+        color: color(link--active, $nav-light-colors);
+      }
+    }
+  }
+
+  .su-secondary-nav__toggle {
+    background: transparent url("#{$image-path}/caret-down-black.svg") no-repeat 50% 50%;
+    border: solid 1px color(h--border, $nav-light-colors);
+    background-size: 30%;
+
+    &:hover {
+      background-color: transparent;
+      background-size: 40%;
+      border-color: color(border--active, $nav-light-colors);
+    }
+
+    &:focus,
+    &:active {
+      background-color: transparent;
+      border-color: color(border--active, $nav-light-colors);
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import { createEvent } from '../../utilities/events';
+import { isEnter, isSpace } from "../../utilities/keyboard";
 
 /**
  *
@@ -14,7 +15,7 @@ export default class NavToggle {
     // Params.
     this.element = element;
     this.options = options;
-    this.nav = null;
+    this.nav = options.nav || null;
     this.navElement = options.navElement;
     this.toggleText = options.toggleText || element.innerText;
     this.closeText = options.closeText || 'Close';

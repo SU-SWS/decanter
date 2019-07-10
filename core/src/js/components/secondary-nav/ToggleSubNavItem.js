@@ -1,4 +1,4 @@
-import SubNavItem from './SubNavItem';
+import SubNavItem from '../main-nav/SubNavItem';
 
 /**
  * Represent an item in a navigation menu. May be a direct link or a subnav
@@ -25,11 +25,11 @@ export default class ToggleSubNavItem extends SubNavItem {
 
     // Set text.
     this.toggleText = options.subNavToggleText || '+';
-    this.triggerClass = options.triggerClass || 'nav-toggle';
+    this.toggleClass = options.toggleClass || 'nav-toggle';
 
     // Create the buttons.
     this.toggle = this.createToggleButton();
-    this.item.prepend(this.toggle);
+    this.item.insertBefore(this.toggle, this.item.querySelector('ul'));
 
     // Create the toggle events.
     this.toggle.addEventListener('click', this);
@@ -47,8 +47,8 @@ export default class ToggleSubNavItem extends SubNavItem {
     // Give this instance a unique ID.
     let id = 'toggle-' + Math.random().toString(36).substr(2, 9);
 
-    element.setAttribute('class', this.triggerClass);
-    element.setAttribute('aria-expanded', false);
+    element.setAttribute('class', this.toggleClass);
+    element.setAttribute('aria-expanded', this.item.classList.contains(this.options.itemActiveClass));
     element.setAttribute('aria-controls', this.subNav.id);
     element.setAttribute('id', id);
     element.appendChild(label);
@@ -91,7 +91,10 @@ export default class ToggleSubNavItem extends SubNavItem {
    * @return {[type]}        [description]
    */
   onKeydownTab(event, target) {
-    console.log(target);
+    // If the target is the link and no shift then go to the button.
+    if (target === this.link && event.shiftKey) {
+      event.stopPropagation();
+    }
   }
 
   /**
@@ -101,7 +104,9 @@ export default class ToggleSubNavItem extends SubNavItem {
    * @return {[type]}        [description]
    */
   onKeydownSpace(event, target) {
-    console.log(target);
+    event.stopPropagation();
+    event.preventDefault();
+    this.onClick(event, target);
   }
 
   /**
@@ -111,9 +116,90 @@ export default class ToggleSubNavItem extends SubNavItem {
    * @return {[type]}        [description]
    */
   onKeydownEnter(event, target) {
-    console.log(target);
+    this.onKeydownSpace(event, target);
   }
 
+  /**
+   * [onKeydownArrowRight description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   * @return {[type]}        [description]
+   */
+  onKeydownArrowRight(event, target) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    // If on the link go to the toggle.
+    if (target == this.link) {
+      this.toggle.focus();
+    }
+
+  }
+
+  /**
+   * [onKeydownArrowLeft description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   * @return {[type]}        [description]
+   */
+  onKeydownArrowLeft(event, target) {
+
+    // If on the toggle go to the link.
+    if (target == this.toggle) {
+      event.stopPropagation();
+      event.preventDefault();
+      this.link.focus();
+      return;
+    }
+
+    super.onKeydownArrowLeft(event, target);
+  }
+
+  /**
+   * [onKeydownArrowDown description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   * @return {[type]}        [description]
+   */
+  onKeydownArrowDown(event, target) {
+
+    if (target === this.toggle && this.isExpanded()) {
+      event.stopPropagation();
+      event.preventDefault();
+      this.item.querySelector("#" + this.item.getAttribute('id') + ' > ul > li > a').focus();
+      return;
+    }
+
+    if (target === this.toggle && !this.isExpanded()) {
+      super.onKeydownArrowRight(event, this.link);
+      return;
+    }
+
+    super.onKeydownArrowDown(event, this.link);
+  }
+
+  /**
+   * [onKeydownArrowDown description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   * @return {[type]}        [description]
+   */
+  onKeydownArrowUp(event, target) {
+    if (target === this.toggle && this.isExpanded()) {
+      event.stopPropagation();
+      event.preventDefault();
+      this.closeNav();
+      this.item.parentElementNode.parentElementNode.querySelector('a').focus();
+      return;
+    }
+
+    if (target === this.toggle && !this.isExpanded()) {
+      super.onKeydownArrowLeft(event, this.link);
+      return;
+    }
+
+    super.onKeydownArrowUp(event, this.link);
+  }
 
   /**
    * Is this expanded? Can only return TRUE if this is a subnav trigger.

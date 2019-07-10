@@ -31,7 +31,7 @@ export default class NavItem extends NavItemAbstract {
   onKeydownHome(event, target) {
     event.preventDefault();
     // Focus on the first item in the same level of this list.
-    this.link.parentNode.parentNode.firstElementChild.firstChild.focus();
+    this.item.parentNode.firstElementChild.firstChild.focus();
   }
 
   /**
@@ -41,7 +41,7 @@ export default class NavItem extends NavItemAbstract {
   onKeydownEnd(event, target) {
     event.preventDefault();
     // Focus on the last item in the same level of this list.
-    this.link.parentNode.parentNode.lastElementChild.firstChild.focus();
+    this.item.parentNode.lastElementChild.firstChild.focus();
   }
 
   /**

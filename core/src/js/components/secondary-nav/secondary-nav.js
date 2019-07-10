@@ -1,6 +1,6 @@
 import '../../core/core';
 import Nav from '../main-nav/Nav';
-import ToggleNav from '../main-nav/ToggleNav';
+import ToggleNav from './ToggleNav';
 
 document.addEventListener('DOMContentLoaded', event => {
 
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', event => {
     let options = {
       itemExpandedClass: 'su-secondary-nav__item--expanded',
       itemActiveClass: 'su-secondary-nav__item--current',
-      triggerClass: 'su-secondary-nav__toggle',
+      toggleClass: 'su-secondary-nav__toggle',
       activePath: true,
       expandActivePath: true,
     };

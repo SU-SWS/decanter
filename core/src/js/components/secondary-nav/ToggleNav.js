@@ -1,6 +1,7 @@
+import ToggleNavItem from './ToggleNavItem';
 import ToggleSubNavItem from './ToggleSubNavItem';
-import NavItem from './NavItem';
-import Nav from './Nav';
+import NavItem from '../main-nav/NavItem';
+import Nav from '../main-nav/Nav';
 
 /**
  * Represent a navigation menu. May be the top nav or a subnav.
@@ -45,10 +46,20 @@ export default class ToggleNav extends Nav {
         }
         // NavItems have specific event handling.
         else {
-          this.navItems.push(new NavItem(item, this, this.options));
+          this.navItems.push(new ToggleNavItem(item, this, this.options));
         }
       }
     );
+  }
+
+  /**
+   * [closeThisSubNav description]
+   * @return {Boolean} [description]
+   */
+  closeThisSubNav() {
+    this.elem.classList.remove(this.options.itemExpandedClass);
+    let toggle = this.elem.querySelector("#" + this.id + " ." + this.options.toggleClass);
+    toggle.setAttribute('aria-expanded', false);
   }
 
 }

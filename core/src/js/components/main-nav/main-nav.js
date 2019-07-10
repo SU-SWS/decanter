@@ -1,6 +1,6 @@
 import '../../core/core';
 import Nav from './Nav';
-import NavToggle from './NavToggle';
+import { mainEvents } from './MainEvents';
 
 document.addEventListener('DOMContentLoaded', event => {
 
@@ -11,33 +11,7 @@ document.addEventListener('DOMContentLoaded', event => {
   const navs = document.querySelectorAll('.' + navClass);
 
   // Event Overrides.
-  let customEvents = {
-    SubNavItem: {
-      1: {
-        onKeydownArrowRight: function (event, instance) {
-          // Only change the behaviour when in desktop mode. If not in desktop
-          // mode go with the default.
-          if (!instance.options.toggle || instance.options.toggle.isExpanded()) {
-            instance.onKeydownArrowRight(event, instance.link);
-          }
-          else {
-            instance.onKeydownArrowDown(event, instance.link);
-          }
-
-        },
-        onKeydownArrowDown: function (event, instance) {
-          // Only change the behaviour when in desktop mode. If not in desktop
-          // mode go with the default.
-          if (!instance.options.toggle || instance.options.toggle.isExpanded()) {
-            instance.onKeydownArrowDown(event, instance.link);
-          }
-          else {
-            instance.onKeydownArrowRight(event, instance.link);
-          }
-        }
-      }
-    }
-  };
+  let customEvents = mainEvents();
 
   // Loop through each of the navs and create a new instance.
   navs.forEach((nav, index) => {
@@ -46,9 +20,10 @@ document.addEventListener('DOMContentLoaded', event => {
     let options = {
       zIndex: null,
       toggle: null,
+      toggleSelector: " > button",
+      toggleClass: "su-main-nav__toggle",
       itemExpandedClass: 'su-main-nav__item--expanded',
       itemActiveClass: 'su-main-nav__item--current',
-      triggerClass: "su-main-nav__toggle",
       activePath: true,
       itemEvents: customEvents
     };
@@ -59,13 +34,6 @@ document.addEventListener('DOMContentLoaded', event => {
       zndx--;
       options.zIndex = zndx;
     }
-
-    // Create the toggle element to pass in to the nav constructor.
-    let toggleElement = nav.querySelector(nav.tagName + ' > button');
-    let toggleOptions = {
-      navElement: nav
-    };
-    options.toggle = new NavToggle(toggleElement, toggleOptions);
 
     // Create an instance of Nav,
     // which in turn creates appropriate instances of NavItem and SubNavItem.

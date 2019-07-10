@@ -1,7 +1,6 @@
 @charset "UTF-8";
 
-// Accordion States (JS) ///////////////////////////////////////////////////////
-
+// Specific to me styles.
 .su-secondary-nav--buttons {
 
   .su-secondary-nav__item--parent {
@@ -9,50 +8,18 @@
 
     > a {
       @include padding(null 60px null null);
+
+      &::after {
+        background: transparent;
+      }
     }
   }
-}
 
-.su-secondary-nav__toggle {
-  @include margin(0);
-  @include padding(15px);
-  vertical-align: middle;
-  text-align: center;
-  font-size: 0;
-  width: 53px;
-  max-width: 53px;
-  height: 53px;
-  line-height: 53px;
-  position: absolute;
-  right: 2px;
-  top: 2px;
-  z-index: 10;
-  background: color(brand--dark) url("#{$image-path}/caret-down-white.svg") no-repeat 50% 50%;
-  background-size: 30%;
-
-  &:hover {
-    font-weight: $font-bold;
-    animation: dropout 0.4s ease-out;
-    background-color: color(brand--dark);
-    background-size: 40%;
-  }
-
-  @keyframes dropout {
-    0%   { background-position: 50% 50%; }
-    5%   { background-position: 50% 40%; }
-    25%  { background-position: 50% 200%; }
-    50%  { background-position: 50% -50px; background-image: none; }
-    95% { background-position: 50% 60%; }
-    100% { background-position: 50% 50%; }
-  }
-
-  &:focus,
-  &:active {
-    background-color: color(brand--bright);
-    box-shadow: none;
-  }
-
-  &[aria-expanded="true"] {
-    transform: rotate(180deg);
+  .su-secondary-nav__item--expanded {
+    > a {
+      &::after {
+        background: transparent;
+      }
+    }
   }
 }

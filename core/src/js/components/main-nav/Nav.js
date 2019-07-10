@@ -1,5 +1,6 @@
-import { isEsc } from "../../utilities/keyboard";
+import { isEsc, isEnter } from "../../utilities/keyboard";
 import NavAbstract from './NavAbstract';
+import NavToggle from './NavToggle';
 
 /**
  * Represent a navigation menu. May be the top nav or a subnav.
@@ -34,9 +35,9 @@ export default class Nav extends NavAbstract {
     this.createNavItems();
     // Initialize the event listeners.
     this.createEventListeners();
-    // Once initialized pass me back to the toggle.
-    if (this.toggle) {
-      this.toggle.setNav(this);
+    // Gobble gobble toggle toggle.
+    if (options.toggleSelector) {
+      this.createNavToggle();
     }
     // Add an active class to the children.
     if (options.activePath) {
@@ -92,6 +93,28 @@ export default class Nav extends NavAbstract {
     if (isEsc(theKey)) {
       this.closeAllSubNavs();
     }
+  }
+
+  /**
+   * Create the toggle element.
+   * @return {[type]} [description]
+   */
+  createNavToggle() {
+    // Find the element.
+    let toggleElement = this.elem.querySelector(this.elem.tagName + this.options.toggleSelector);
+
+    // If we cannot find a toggle element return null.
+    if (!toggleElement) {
+      return;
+    }
+
+    // Attach the behaviour.
+    let toggleOptions = {
+      navElement: this.elem,
+      nav: this
+    };
+    this.toggle =
+    this.options.toggle = new NavToggle(toggleElement, toggleOptions);
   }
 
 }
