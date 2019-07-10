@@ -19,17 +19,17 @@ document.addEventListener('DOMContentLoaded', event => {
       itemActiveClass: 'su-secondary-nav__item--current',
       toggleClass: 'su-secondary-nav__toggle',
       activePath: true,
-      expandActivePath: true,
+      expandActivePath: true
     };
 
+    // Create an instance of ToggleNav, which in turn create appropriate
+    // instances of ToggleSubNavItems.
     if (nav.className.match(/--buttons/)) {
-      // Create an instance of ToggleNav, which in turn create appropriate
-      // instances of ToggleSubNavItems.
       new ToggleNav(nav, options);
     }
+    // Create an instance of Nav, which in turn creates appropriate instances
+    // of NavItem.
     else {
-      // Create an instance of Nav, which in turn creates appropriate instances
-      // of NavItem.
       new Nav(nav, options);
     }
   });

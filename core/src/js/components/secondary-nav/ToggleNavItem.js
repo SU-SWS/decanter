@@ -24,12 +24,10 @@ export default class ToggleNavItem extends NavItem {
     super(item, nav, options);
   }
 
-  // Override event keys.
   /**
    * [onKeydownTab description]
    * @param  {[type]} event  [description]
    * @param  {[type]} target [description]
-   * @return {[type]}        [description]
    */
   onKeydownTab(event, target) {
     // If the tab was shift tabbed prevent the nav from collapsing.

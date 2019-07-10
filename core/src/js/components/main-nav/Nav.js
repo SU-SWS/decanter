@@ -1,4 +1,4 @@
-import { isEsc, isEnter } from "../../utilities/keyboard";
+import {isEsc} from '../../utilities/keyboard';
 import NavAbstract from './NavAbstract';
 import NavToggle from './NavToggle';
 
@@ -51,7 +51,6 @@ export default class Nav extends NavAbstract {
 
   /**
    * [createEventListeners description]
-   * @return {[type]} [description]
    */
   createEventListeners() {
     // What do when key down?
@@ -69,7 +68,6 @@ export default class Nav extends NavAbstract {
    * [preOpenSubnav description]
    * @param  {[type]} event     [description]
    * @param  {[type]} parentNav [description]
-   * @return {[type]}           [description]
    */
   onPreOpenSubnav(event) {
     // Somebody clicked a subnav trigger. Check to see if it is one of my
@@ -85,7 +83,6 @@ export default class Nav extends NavAbstract {
    * [onKeydown description]
    * @param  {[type]} event  [description]
    * @param  {[type]} target [description]
-   * @return {[type]}        [description]
    */
   onKeydown(event, target) {
     const theKey = event.key || event.keyCode;
@@ -97,7 +94,6 @@ export default class Nav extends NavAbstract {
 
   /**
    * Create the toggle element.
-   * @return {[type]} [description]
    */
   createNavToggle() {
     // Find the element.

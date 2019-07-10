@@ -1,4 +1,3 @@
-import {createEvent} from '../../utilities/events';
 import NavItem from './NavItem';
 import SubNavItem from './SubNavItem';
 
@@ -23,11 +22,9 @@ import SubNavItem from './SubNavItem';
 export default class NavAbstract {
 
   /**
-   * Create a Nav
-   *
-   * @param {HTMLElement|NavItem} elem - The element that is the nav menu.
-   *                                     May be a main nav (<nav>) or a subnav
-   *                                     (NavItem).
+   * [constructor description]
+   * @param {[type]} elem    [description]
+   * @param {[type]} options [description]
    */
   constructor(elem, options) {
     // Save the passed in configuration options.
@@ -41,7 +38,7 @@ export default class NavAbstract {
     // The toggle menu button or none.
     this.toggle = options.toggle || false;
     // The JS Classes to use for building nav items.
-    this.itemClasses =  options.itemClasses || {
+    this.itemClasses = options.itemClasses || {
       single: NavItem,
       sub: SubNavItem
     };
@@ -62,15 +59,14 @@ export default class NavAbstract {
     this.itemActiveClass = options.itemActiveClass || 'active';
     this.itemExpandedClass = options.itemExpandedClass || 'expanded';
 
-    if (this.options.activePath == true) {
+    if (this.options.activePath === true) {
       this.setActivePath();
     }
 
   }
 
   /**
-   * Create the children nav items.
-   * @return {[type]} [description]
+   * [createNavItems description]
    */
   createNavItems() {
     let items = this.elem.querySelectorAll('#' + this.id + ' > ul > li');
@@ -143,7 +139,7 @@ export default class NavAbstract {
           if (currentLink.getAttribute('id') === this.id) {
             currentLink = false;
           }
-          else if (currentLink.tagName === "LI") {
+          else if (currentLink.tagName === 'LI') {
             currentLink.classList.add(this.itemActiveClass);
           }
           currentLink = currentLink.parentNode;
@@ -154,7 +150,6 @@ export default class NavAbstract {
 
   /**
    * [expandActivePath description]
-   * @return {[type]} [description]
    */
   expandActivePath() {
     let actives = this.elem.querySelectorAll('.' + this.itemActiveClass);
@@ -199,12 +194,11 @@ export default class NavAbstract {
    *                                relative to.
    */
   focusOn(link, currentItem = null) {
-    console.log("This function has been deprecated.");
+    // console.log('This function has been deprecated.');
   }
 
   /**
    * [getDepth description]
-   * @return {[type]} [description]
    */
   getDepth() {
     return this.depth;

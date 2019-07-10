@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', event => {
     let options = {
       zIndex: null,
       toggle: null,
-      toggleSelector: " > button",
-      toggleClass: "su-main-nav__toggle",
+      toggleSelector: ' > button',
+      toggleClass: 'su-main-nav__toggle',
       itemExpandedClass: 'su-main-nav__item--expanded',
       itemActiveClass: 'su-main-nav__item--current',
       activePath: true,

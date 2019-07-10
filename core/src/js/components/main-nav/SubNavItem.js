@@ -62,7 +62,7 @@ export default class SubNavItem extends NavItem {
     }
     else {
       this.openSubNav();
-      this.item.querySelector("#" + this.item.getAttribute("id") + " > ul li a").focus();
+      this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul li a').focus();
     }
   }
 
@@ -120,10 +120,9 @@ export default class SubNavItem extends NavItem {
   }
 
   /**
-   * [onKeydownArrowLeft description]
+   * [onKeydown description]
    * @param  {[type]} event  [description]
    * @param  {[type]} target [description]
-   * @return {[type]}        [description]
    */
   onKeydownArrowLeft(event, target) {
     // Go up a level and close the nav.
@@ -140,10 +139,9 @@ export default class SubNavItem extends NavItem {
   }
 
   /**
-   * [onKeydownArrowRight description]
+   * [onKeydown description]
    * @param  {[type]} event  [description]
    * @param  {[type]} target [description]
-   * @return {[type]}        [description]
    */
   onKeydownArrowRight(event, target) {
     // Go down a level and open the SubNav.
@@ -153,24 +151,25 @@ export default class SubNavItem extends NavItem {
   }
 
   /**
-   * Handler for keypress of
-   *
-   **/
+   * [onKeydown description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   */
   onKeydownSpace(event, target) {
     this.onClick(event, target);
   }
 
   /**
-   * Handler for keypress of
-   *
-   **/
+   * [onKeydown description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   */
   onKeydownEnter(event, target) {
     this.onClick(event, target);
   }
 
   /**
    * [createCustomEvents description]
-   * @return {[type]} [description]
    */
   createCustomEvents() {
     // Add custom events to alert others when a subnav opens or closes.
@@ -214,5 +213,4 @@ export default class SubNavItem extends NavItem {
       }
     );
   }
-
 }

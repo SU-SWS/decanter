@@ -1,5 +1,5 @@
-import { createEvent } from '../../utilities/events';
-import { isEnter, isSpace } from "../../utilities/keyboard";
+import {createEvent} from '../../utilities/events';
+import {isEnter, isSpace} from '../../utilities/keyboard';
 
 /**
  *
@@ -70,10 +70,9 @@ export default class NavToggle {
   }
 
   /**
-   * Handler for click events. click is only bound to the  toggle.
-   * Dispatched from this.handleEvent().
-   *
-   * @param {KeyboardEvent} event   - The keyboard event object.
+   * [onKeydown description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
    */
   onClick(event, target) {
 
@@ -99,7 +98,6 @@ export default class NavToggle {
    * [onKeydown description]
    * @param  {[type]} event  [description]
    * @param  {[type]} target [description]
-   * @return {[type]}        [description]
    */
   onKeydown(event, target) {
     const theKey = event.key || event.keyCode;

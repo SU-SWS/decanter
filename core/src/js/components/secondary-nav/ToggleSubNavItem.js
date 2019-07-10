@@ -65,6 +65,7 @@ export default class ToggleSubNavItem extends SubNavItem {
    *
    * @param {KeyboardEvent} event - The keyboard event object.
    * @param {HTMLElement} target  - The HTML element target.
+   * @return {[type]}        [description]
    */
   onClick(event, target) {
 
@@ -88,7 +89,6 @@ export default class ToggleSubNavItem extends SubNavItem {
    * [onKeydownTab description]
    * @param  {[type]} event  [description]
    * @param  {[type]} target [description]
-   * @return {[type]}        [description]
    */
   onKeydownTab(event, target) {
     // If the target is the link and no shift then go to the button.
@@ -101,7 +101,6 @@ export default class ToggleSubNavItem extends SubNavItem {
    * [onKeydownSpace description]
    * @param  {[type]} event  [description]
    * @param  {[type]} target [description]
-   * @return {[type]}        [description]
    */
   onKeydownSpace(event, target) {
     event.stopPropagation();
@@ -113,7 +112,6 @@ export default class ToggleSubNavItem extends SubNavItem {
    * [onKeydownEnter description]
    * @param  {[type]} event  [description]
    * @param  {[type]} target [description]
-   * @return {[type]}        [description]
    */
   onKeydownEnter(event, target) {
     this.onKeydownSpace(event, target);
@@ -123,14 +121,13 @@ export default class ToggleSubNavItem extends SubNavItem {
    * [onKeydownArrowRight description]
    * @param  {[type]} event  [description]
    * @param  {[type]} target [description]
-   * @return {[type]}        [description]
    */
   onKeydownArrowRight(event, target) {
     event.stopPropagation();
     event.preventDefault();
 
     // If on the link go to the toggle.
-    if (target == this.link) {
+    if (target === this.link) {
       this.toggle.focus();
     }
 
@@ -145,7 +142,7 @@ export default class ToggleSubNavItem extends SubNavItem {
   onKeydownArrowLeft(event, target) {
 
     // If on the toggle go to the link.
-    if (target == this.toggle) {
+    if (target === this.toggle) {
       event.stopPropagation();
       event.preventDefault();
       this.link.focus();
@@ -166,7 +163,7 @@ export default class ToggleSubNavItem extends SubNavItem {
     if (target === this.toggle && this.isExpanded()) {
       event.stopPropagation();
       event.preventDefault();
-      this.item.querySelector("#" + this.item.getAttribute('id') + ' > ul > li > a').focus();
+      this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul > li > a').focus();
       return;
     }
 

@@ -25,9 +25,10 @@ export default class NavItem extends NavItemAbstract {
   }
 
   /**
-   * Handler for keypress of
-   *
-   **/
+   * [onKeydownHome description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   */
   onKeydownHome(event, target) {
     event.preventDefault();
     // Focus on the first item in the same level of this list.
@@ -35,9 +36,10 @@ export default class NavItem extends NavItemAbstract {
   }
 
   /**
-   * Handler for keypress of
-   *
-   **/
+   * [onKeydownHome description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   */
   onKeydownEnd(event, target) {
     event.preventDefault();
     // Focus on the last item in the same level of this list.
@@ -45,9 +47,10 @@ export default class NavItem extends NavItemAbstract {
   }
 
   /**
-   * Handler for keypress of
-   *
-   **/
+   * [onKeydownHome description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   */
   onKeydownEscape(event, target) {
     event.preventDefault();
     // Close everything.
@@ -55,9 +58,10 @@ export default class NavItem extends NavItemAbstract {
   }
 
   /**
-   * Handler for keypress of
-   *
-   **/
+   * [onKeydownHome description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   */
   onKeydownTab(event, target) {
 
     const shifted = event.shiftKey;
@@ -80,17 +84,20 @@ export default class NavItem extends NavItemAbstract {
   }
 
   /**
-   * Handler for keypress of
-   **/
+   * [onKeydownHome description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   */
   onKeydownSpace(event, target) {
     event.preventDefault();
-    window.location = this.link.getAttribute("href");
+    window.location = this.link.getAttribute('href');
   }
 
   /**
-   * Handler for keypress of
-   *
-   **/
+   * [onKeydownHome description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   */
   onKeydownArrowUp(event, target) {
     event.preventDefault();
 
@@ -105,9 +112,10 @@ export default class NavItem extends NavItemAbstract {
   }
 
   /**
-   * Handler for keypress of
-   *
-   **/
+   * [onKeydownHome description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   */
   onKeydownArrowLeft(event, target) {
     // If this is a nested item. Go back up a level.
     if (this.getDepth() > 1) {
@@ -119,7 +127,7 @@ export default class NavItem extends NavItemAbstract {
       }
       // Go to parent's end.
       else {
-        this.item.parentNode.parentNode.parentNode.lastElementChild.querySelector("a").focus();
+        this.item.parentNode.parentNode.parentNode.lastElementChild.querySelector('a').focus();
       }
     }
     // Otherwise just to to the previous sibling.
@@ -129,9 +137,10 @@ export default class NavItem extends NavItemAbstract {
   }
 
   /**
-   * Handler for keypress of
-   *
-   **/
+   * [onKeydownHome description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   */
   onKeydownArrowDown(event, target) {
     event.preventDefault();
     // Go to the next item.
@@ -145,9 +154,10 @@ export default class NavItem extends NavItemAbstract {
   }
 
   /**
-   * Handler for keypress of
-   *
-   **/
+   * [onKeydownHome description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   */
   onKeydownArrowRight(event, target) {
     // If we are in the second level or more we check about traversing
     // the parent.
@@ -157,11 +167,11 @@ export default class NavItem extends NavItemAbstract {
       this.nav.closeThisSubNav();
 
       if (node) {
-        node.querySelector("a").focus();
+        node.querySelector('a').focus();
       }
       // Go back to start.
       else {
-        this.item.parentNode.parentNode.parentNode.firstElementChild.querySelector("a").focus();
+        this.item.parentNode.parentNode.parentNode.firstElementChild.querySelector('a').focus();
       }
     }
     else {

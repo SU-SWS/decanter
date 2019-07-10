@@ -73,12 +73,13 @@ export default class NavItemAbstract {
   handleUserEvent(constructorName, depth, handler, event, target) {
 
     // Check the deep nesting for the event.
-    if (this.options.itemEvents
-      && this.options.itemEvents[constructorName]
-      && this.options.itemEvents[constructorName][depth]
-      && this.options.itemEvents[constructorName][depth][handler]) {
-        this.options.itemEvents[constructorName][depth][handler](event, this);
-        return true;
+    if (this.options.itemEvents &&
+    this.options.itemEvents[constructorName] &&
+    this.options.itemEvents[constructorName][depth] &&
+    this.options.itemEvents[constructorName][depth][handler]) {
+
+      this.options.itemEvents[constructorName][depth][handler](event, this);
+      return true;
     }
 
     // No event provided
@@ -91,6 +92,7 @@ export default class NavItemAbstract {
    *
    * @param {KeyboardEvent} event - The keyboard event object.
    * @param {HTMLElement} target  - The HTML element target.
+   * @return {*} - Mixed
    */
   onKeydown(event, target) {
     let theKey = event.key || event.keyCode;
@@ -130,7 +132,7 @@ export default class NavItemAbstract {
   focusOn(what) {
     switch (what) {
       case 'first':
-        this.item.querySelector("a").focus();
+        this.item.querySelector('a').focus();
         break;
 
       case 'last':
