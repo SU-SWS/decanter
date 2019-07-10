@@ -1,6 +1,6 @@
 import '../../core/core';
 import Nav from './Nav';
-import { mainEvents } from './MainEvents';
+import {mainEvents} from './MainEvents';
 
 document.addEventListener('DOMContentLoaded', event => {
 

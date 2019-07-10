@@ -152,6 +152,7 @@
       &:focus {
         font-weight: $font-semi-bold;
         color: color(h--link-hover, $nav-colors);
+        text-decoration: none;
 
         &::before {
           transform: scaleX(1);
@@ -172,6 +173,8 @@
           &::before {
             height: 6px;
             transform: scaleX(1);
+            visibility: visible;
+            background-color: color(h--border-hover, $nav-colors);
           }
         }
       }

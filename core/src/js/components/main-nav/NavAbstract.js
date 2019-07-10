@@ -122,30 +122,39 @@ export default class NavAbstract {
    * [setActivePath description]
    */
   setActivePath() {
-    var pathname = window.location.pathname;
-    var anchor = window.location.hash;
-    if (pathname.length) {
-      let currentLink;
+    let pathname = window.location.pathname;
+    let anchor = window.location.hash;
+    let currentLink;
 
-      if (!anchor) {
-        currentLink = this.elem.querySelector("a[href*='" + pathname + "']");
-      }
-      else {
-        currentLink = this.elem.querySelector("a[href*='" + anchor + "']");
-      }
-
-      if (currentLink) {
-        while (currentLink) {
-          if (currentLink.getAttribute('id') === this.id) {
-            currentLink = false;
-          }
-          else if (currentLink.tagName === 'LI') {
-            currentLink.classList.add(this.itemActiveClass);
-          }
-          currentLink = currentLink.parentNode;
-        }
-      }
+    if (!anchor) {
+      currentLink = this.elem.querySelector("a[href*='" + pathname + "']");
     }
+    else {
+      currentLink = this.elem.querySelector("a[href*='" + anchor + "']");
+    }
+
+    // Can't find anything. End.
+    if (!currentLink) {
+      return;
+    }
+
+    // While we have parents go up and add the class.
+    while (currentLink) {
+
+      // End when we get to the parent nav item.
+      if (currentLink.getAttribute('id') === this.id) {
+        break;
+      }
+
+      // If we are on a LI element we need to add the active class.
+      if (currentLink.tagName === 'LI') {
+        currentLink.classList.add(this.itemActiveClass);
+      }
+
+      // Always increment.
+      currentLink = currentLink.parentNode;
+    }
+
   }
 
   /**

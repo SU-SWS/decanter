@@ -1,23 +1,18 @@
 import NavItemAbstract from './NavItemAbstract';
 
 /**
- * Represent an item in a navigation menu. May be a direct link or a subnav
- * trigger.
+ * Navigation item.
  *
- * @prop {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
- * @prop {HTMLElement|Nav} nav    - the Nav that contains the element.
- *                                  May be a main nav (<nav>) or subnav (Nav).
- * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
- *                                  item (the <li>).
+ * This class represents the most basic list item with a link.
  */
 export default class NavItem extends NavItemAbstract {
 
-  /**
-   * Create a NavItem
-   * @param {HTMLLIElement}   item  - The <li> that is the NavItem in the DOM.
-   * @param {HTMLElement|Nav} nav   - The Nav that contains the element. May
-   *                                  be a main nav (<nav>) or a subnav (Nav).
-   */
+/**
+ * Create a new list item.
+ *
+ * @param {HTMLLIElement} item  - The <li> that is the NavItem in the DOM.
+ * @param {NavAbstract} nav     - An instance or extension of NavAbstract.
+ */
   constructor(item, nav, options) {
     super(item, nav, options);
     this.link.addEventListener('keydown', this);
@@ -25,42 +20,52 @@ export default class NavItem extends NavItemAbstract {
   }
 
   /**
-   * [onKeydownHome description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * Event handler for key press: Home
+   *
+   * Go and focus on the first sibling of this item.
+   *
+   * @param {KeyboardEvent} event - The keyboard event.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownHome(event, target) {
     event.preventDefault();
-    // Focus on the first item in the same level of this list.
-    this.item.parentNode.firstElementChild.firstChild.focus();
+    this.focusOn('first');
   }
 
   /**
-   * [onKeydownHome description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * Event handler for key press: End
+   *
+   * Go and focus on the last sibling of this item.
+   *
+   * @param {KeyboardEvent} event - The keyboard event.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownEnd(event, target) {
     event.preventDefault();
-    // Focus on the last item in the same level of this list.
-    this.item.parentNode.lastElementChild.firstChild.focus();
+    this.focusOn('last');
   }
 
   /**
-   * [onKeydownHome description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * Event handler for key press: ESC
+   *
+   * Stop, drop, and close everything.
+   *
+   * @param {KeyboardEvent} event - The keyboard event.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownEscape(event, target) {
     event.preventDefault();
-    // Close everything.
     this.nav.closeAllSubNavs();
   }
 
   /**
-   * [onKeydownHome description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * Event handler for key press: Tab
+   *
+   * Allow the natural tab order but when traversing levels close previous
+   * sub nav items as we go.
+   *
+   * @param {KeyboardEvent} event - The keyboard event.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownTab(event, target) {
 
@@ -85,8 +90,8 @@ export default class NavItem extends NavItemAbstract {
 
   /**
    * [onKeydownHome description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * @param {KeyboardEvent} event - The keyboard event.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownSpace(event, target) {
     event.preventDefault();
@@ -95,8 +100,8 @@ export default class NavItem extends NavItemAbstract {
 
   /**
    * [onKeydownHome description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * @param {KeyboardEvent} event - The keyboard event.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownArrowUp(event, target) {
     event.preventDefault();
@@ -113,8 +118,8 @@ export default class NavItem extends NavItemAbstract {
 
   /**
    * [onKeydownHome description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * @param {KeyboardEvent} event - The keyboard event.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownArrowLeft(event, target) {
     // If this is a nested item. Go back up a level.
@@ -138,8 +143,8 @@ export default class NavItem extends NavItemAbstract {
 
   /**
    * [onKeydownHome description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * @param {KeyboardEvent} event - The keyboard event.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownArrowDown(event, target) {
     event.preventDefault();
@@ -155,8 +160,8 @@ export default class NavItem extends NavItemAbstract {
 
   /**
    * [onKeydownHome description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * @param {KeyboardEvent} event - The keyboard event.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownArrowRight(event, target) {
     // If we are in the second level or more we check about traversing

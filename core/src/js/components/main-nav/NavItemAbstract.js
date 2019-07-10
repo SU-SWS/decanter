@@ -1,27 +1,29 @@
 import {normalizeKey} from '../../utilities/keyboard';
 
 /**
- * Represent an item in a navigation menu. May be a direct link or a subnav
- * trigger.
+ * NavItemAbstract Class
  *
- * @prop {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
- * @prop {HTMLElement|Nav} nav    - the Nav that contains the element.
- *                                  May be a main nav (<nav>) or subnav (Nav).
- * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
- *                                  item (the <li>).
+ * The most abstract version of a NavItem. All NavItem types should extend
+ * this class in order to have a psuedo interface and default methods.
  */
 export default class NavItemAbstract {
 
   /**
-   * Create a NavItem
-   * @param {HTMLLIElement}   item  - The <li> that is the NavItem in the DOM.
-   * @param {HTMLElement|Nav} nav   - The Nav that contains the element. May
-   *                                  be a main nav (<nav>) or a subnav (Nav).
+   * Constructor magic method.
+   *
+   * @param {HTMLLIElement} item  - The <li> that is the NavItem in the DOM.
+   * @param {NavAbstract} nav     - An instance or extension of NavAbstract.
+   * @param {Object} options      - A simple object of key values used as
+   *                                configuration options for each instance.
    */
   constructor(item, nav, options) {
+    // Save all configuration options somewhere handy.
     this.options = options;
+    // A reference to the HTML item this instance is attached to.
     this.item = item;
+    // A reference to the Nav instance this NavItem is created by.
     this.nav = nav;
+    // The link <a> html element reference.
     this.link = this.item.querySelector(this.item.tagName + ' > a');
   }
 
@@ -53,26 +55,42 @@ export default class NavItemAbstract {
     let constructorName = this.constructor.name;
     let depth = this.getDepth();
 
-    // If the caller passed in their own event handling use that instead.
+    // If the caller passed in their own event handling use their function.
+    // See `MainEvents.js` and `main-nav.js` for an example.
     if (this.handleUserEvent(constructorName, depth, handler, event, target)) {
       return true;
     }
-    // Otherwise, check to see if we have an event available.
+    // Otherwise, check to see if we have an event available on this class.
     else if (typeof this[handler] === 'function') {
       return this[handler](event, target);
     }
+
+    // If an event has happened and we don't have a handler just let the browser
+    // do its defualt thing.
   }
 
   /**
-   * [getUserEvent description]
-   * @param  {[type]} constructorName [description]
-   * @param  {[type]} depth           [description]
-   * @param  {[type]} handler         [description]
-   * @return {[type]}                 [description]
+   * Check and call creator supplied event override functions.
+   *
+   * When constructing a new Nav item the developer can pass in functions to
+   * override keyboard and mouse events to provide specific behaviour to a
+   * single depth of item in specific nav.
+   *
+   * @param {NavItemAbstract} constructorName An extension of the NavItemAbstract class.
+   * @param {int}             depth           The current navItem's depth. (starts at 1)
+   * @param {String}          handler         The name of the method to call.
+   * @param {KeyboardEvent}   event           The keyboard event.
+   * @param {HTMLElement}     target          The HTML element target.
+   *
+   * @return {Boolean}          Success status.
    */
   handleUserEvent(constructorName, depth, handler, event, target) {
 
     // Check the deep nesting for the event.
+    // We look for the following nesting
+    // ClassName
+    //  |_ Depth of menu item
+    //    |_ Formatted name of event (eg: onEventName)
     if (this.options.itemEvents &&
     this.options.itemEvents[constructorName] &&
     this.options.itemEvents[constructorName][depth] &&
@@ -82,7 +100,7 @@ export default class NavItemAbstract {
       return true;
     }
 
-    // No event provided
+    // No event provided.
     return false;
   }
 
@@ -92,13 +110,14 @@ export default class NavItemAbstract {
    *
    * @param {KeyboardEvent} event - The keyboard event object.
    * @param {HTMLElement} target  - The HTML element target.
+   *
    * @return {*} - Mixed
    */
   onKeydown(event, target) {
     let theKey = event.key || event.keyCode;
     let normalized = normalizeKey(theKey);
 
-    // We don't know about that key.
+    // We don't know or need to handle the key that was pressed.
     if (!normalized) {
       return;
     }
@@ -110,7 +129,8 @@ export default class NavItemAbstract {
     let constructorName = this.constructor.name;
     let depth = this.getDepth();
 
-    // If the caller passed in their own event handling use that instead.
+    // If the caller passed in their own event handling use their function.
+    // See `MainEvents.js` and `main-nav.js` for an example.
     if (this.handleUserEvent(constructorName, depth, handler, event, target)) {
       return true;
     }
@@ -118,44 +138,90 @@ export default class NavItemAbstract {
     else if (typeof this[handler] === 'function') {
       return this[handler](event, target);
     }
+
+    // If a KeyDown event has happened and we don't have a handler just let the
+    // browser do its defualt thing.
   }
 
   /**
-   * Set the focus on the specified link in this nav.
+   * Set the focus on an element.
    *
-   * @param {String|Number} link - 'first' | 'last' | 'next'
-   *                                | 'prev' | numerical index
-   * @param {NavItem} currentItem - If link is 'next' or 'prev', currentItem
-   *                                is the NavItem that next / prev is
-   *                                relative to.
+   * The focus to be set on the specified element in relation to this nav item.
+   *
+   * @param {String|Number} what    A key for the switch in getElement(). Options can
+   *                                include but are not limited to:
+   *                                first, last, next, prev, parentItem, parentButton
+   *                                DEPRECATED - Number, do not pass in numerical index.
+   * @param {NavItem} currentItem   DEPRECATED - DO NOT USE.
    */
-  focusOn(what) {
-    switch (what) {
-      case 'first':
-        this.item.querySelector('a').focus();
-        break;
+  focusOn(what, currentItem = null) {
+    let element = false;
 
-      case 'last':
-        this.item.querySelector(this.item.tagName + ' > ul:lastChild a').focus();
-        break;
+    // See if `what` in an idex, otherwise get the relative keyword.
+    if (Number.isInteger(what)) {
+      try {
+        element = this.item.parentNode.querySelectorAll("li")[what];
+      }
+      catch(error) {
+        // `what` was an invalid index.
+        element = false;
+      }
+    }
+    // Use the relative shortcut function to fetch an HTMLElement.
+    else {
+      element = this.getElement(what);
+    }
 
-      case 'next':
-        this.item.nextElementSibling.querySelector('a').focus();
-        break;
-
-      case 'prev':
-        this.item.previousElementSibling.querySelector('a').focus();
-        break;
-
-      default:
-        this.item.querySelector('a').focus();
-        break;
+    // If after all of that we get an element we should focus on it.
+    if (element) {
+      element.focus();
     }
   }
 
   /**
-   * [getDepth description]
-   * @return {[type]} [description]
+   * Returns an HTML element relative to this current item.
+   *
+   * @param  {String} what A key for the switch statement. (first, last, etc).
+   *
+   * @return {HTMLElement|False} The HTMLElement related to the passed in key.
+   */
+  getElement(what) {
+    switch (what) {
+      // Focus on the first item in the same level of this list.
+      case 'first':
+        return this.item.parentNode.firstElementChild.firstChild;
+
+      case 'last':
+        return this.item.parentNode.lastElementChild.firstChild;
+
+      case 'next':
+        return this.item.nextElementSibling.querySelector('a');
+
+      case 'prev':
+        return this.item.previousElementSibling.querySelector('a');
+
+      case 'parentItem':
+        return this.item.parentNode.parentNode.querySelector('a');
+
+      case 'parentButton':
+        return this.item.parentNode.parentNode.querySelector('button');
+
+      case 'parentNav':
+        return this.item.parentNode.parentNode;
+
+      default:
+        return false;
+    }
+  }
+
+  /**
+   * Get this item's nav depth.
+   *
+   * Each time we create a SubNav we increment the item by one and attach it to
+   * the nav element. This function gets the containing Nav instance and
+   * retreives the depth as each item in the nav is at the same depth.
+   *
+   * @return {int} Which level of the nav we are on starting at 1.
    */
   getDepth() {
     return this.nav.getDepth();
