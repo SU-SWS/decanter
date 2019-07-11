@@ -2,14 +2,16 @@ import {createEvent} from '../../utilities/events';
 import {isEnter, isSpace} from '../../utilities/keyboard';
 
 /**
- *
+ * Nav Toggle for the mobile/desktop button. Opens and closes the navigation
  */
 export default class NavToggle {
 
   /**
-   * [constructor description]
-   * @param {[type]} element [description]
-   * @param {[type]} options [description]
+   * Create a new toggle.
+   *
+   * @param {HTMLLIElement} element  - The <li> that is the NavItem in the DOM.
+   * @param {Object} options      - A simple object of key values used as
+   *                                configuration options for each instance.
    */
   constructor(element, options) {
     // Params.
@@ -144,6 +146,8 @@ export default class NavToggle {
 
   /**
    * Set whether or not this is expanded.
+   *
+   * @param {Boolean} value true for an expanded menu.
    */
   setExpanded(value) {
     this.element.setAttribute('aria-expanded', value);

@@ -113,8 +113,11 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "mainEvents", function() { return mainEvents; });
 /**
- * [mainEvents description]
- * @return {[type]} [description]
+ * Custom Keyboard Events for the main nav.
+ *
+ * Event handling functions for the MainNav's first level SubNavItem.
+ *
+ * @return {Object} An object of callback functions.
  */
 var mainEvents = function mainEvents() {
   return {
@@ -188,8 +191,24 @@ function (_NavAbstract) {
 
   /**
    * Create a nav container istance.
-   * @param {[type]} elem    [description]
-   * @param {[type]} options [description]
+   *
+   * @param {HTMLElement} elem    The html element to use as the parent for the nav list.
+   * @param {Object} options      An object with key value pairs of configuration options.
+   *                              zIndex            - css property is set on load.
+   *                              toggleSelector    - The css selector for the toggle element.
+   *                              toggleClass       - The css class for the toggle element
+   *                              itemExpandedClass - The css class to give to expanded items
+   *                              itemActiveClass   - The css class to give to the `active path`
+   *                              activePath        - Boolean flag to add the itemActiveClass to
+   *                                                  the `active path`
+   *                              itemEvents        - Object containing custom event functions
+   *                              toggle            - The nav's toggle element
+   *                              expandActivePath  - Boolean flag to open all SubNavItems of the
+   *                                                  active path
+   *                              idPrefix          - Prefix string to give to the nav ids.
+   *                              depth             - The current depth of the menu.
+   *                              itemClasses       - An object containing the JS classes to use to
+   *                                                  create single and sub nav items.
    */
   function Nav(elem, options) {
     var _this;
@@ -533,6 +552,8 @@ function () {
     }
     /**
      * Get the depth of nesting for this menu. (starts at 1).
+     *
+     * @return {int} The depth of the menu.
      */
 
   }, {
@@ -973,7 +994,7 @@ function () {
 
       if (Number.isInteger(what)) {
         try {
-          element = this.item.parentNode.querySelectorAll("li")[what];
+          element = this.item.parentNode.querySelectorAll('li')[what];
         } catch (error) {
           // `what` was an invalid index.
           element = false;
@@ -1082,16 +1103,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 /**
- *
+ * Nav Toggle for the mobile/desktop button. Opens and closes the navigation
  */
 
 var NavToggle =
 /*#__PURE__*/
 function () {
   /**
-   * [constructor description]
-   * @param {[type]} element [description]
-   * @param {[type]} options [description]
+   * Create a new toggle.
+   *
+   * @param {HTMLLIElement} element  - The <li> that is the NavItem in the DOM.
+   * @param {Object} options      - A simple object of key values used as
+   *                                configuration options for each instance.
    */
   function NavToggle(element, options) {
     var _this = this;
@@ -1231,6 +1254,8 @@ function () {
     }
     /**
      * Set whether or not this is expanded.
+     *
+     * @param {Boolean} value true for an expanded menu.
      */
 
   }, {
@@ -1320,7 +1345,8 @@ function (_NavItem) {
   _inherits(SubNavItem, _NavItem);
 
   /**
-   * Create a NavItem
+   * Create an instance.
+   *
    * @param {HTMLLIElement} item  - The <li> that is the NavItem in the DOM.
    * @param {NavAbstract} nav     - An instance or extension of NavAbstract.
    * @param {Object} options      - A simple object of key values used as
@@ -1386,9 +1412,7 @@ function (_NavItem) {
   }, {
     key: "openSubNav",
     value: function openSubNav() {
-      this.item.dispatchEvent(this.preOpenEvent);
-      this.setExpanded(true);
-      this.item.dispatchEvent(this.openEvent);
+      this.setSubNav('open');
     }
     /**
      * Handles the closing of a subnav.
@@ -1400,9 +1424,40 @@ function (_NavItem) {
   }, {
     key: "closeSubNav",
     value: function closeSubNav() {
-      this.item.dispatchEvent(this.preCloseEvent);
-      this.setExpanded(false);
-      this.item.dispatchEvent(this.closeEvent);
+      this.setSubNav('close');
+    }
+    /**
+     * Open or close the subnav.
+     *
+     * @param  {[type]} open [description]
+     * @return {[type]}      [description]
+     */
+
+  }, {
+    key: "setSubNav",
+    value: function setSubNav() {
+      var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'open';
+      var hooks = {
+        open: {
+          pre: this.preOpenEvent,
+          post: this.openEvent
+        },
+        close: {
+          pre: this.preCloseEvent,
+          post: this.closeEvent
+        } // Pre event dispatch.
+
+      };
+      this.item.dispatchEvent(hooks[state].pre); // Toggle the state.
+
+      if (state === 'open') {
+        this.setExpanded(false);
+      } else {
+        this.setExpanded(false);
+      } // Post event dispatch.
+
+
+      this.item.dispatchEvent(hooks[state].post);
     }
     /**
      * Is this expanded? Can only return TRUE if this is a subnav trigger.
@@ -1655,22 +1710,8 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * Represent a navigation menu. May be the top nav or a subnav.
- *
- * @prop {HTMLElement|NavItem} elem       - The element that is the nav. May
- *                                          be a main nav (<nav>) or a subnav
- *                                          (NavItem).
- * @prop {Nav}                 topNav     - The instance of Nav that models
- *                                          the top nav. If this is the top
- *                                          nav, topNav === this.
- * @prop {HTMLButtonElement}   toggle     - The <button> in the DOM that
- *                                          toggles the menu on mobile. NULL
- *                                          if this is a subnav.
- * @prop {String}              toggleText - The initial text of the mobile
- *                                          toggle (so we can reset it when
- *                                          the mobile nav is closed).
- * @prop {Array}               items      - Instances of NavItem that model
- *                                          each element in the nav
+ * A Navigation class for where the submenus have toggle buttons instead of
+ * toggle links.
  */
 
 var ToggleNav =
@@ -1679,9 +1720,25 @@ function (_Nav) {
   _inherits(ToggleNav, _Nav);
 
   /**
-   * [constructor description]
-   * @param {[type]} elem    [description]
-   * @param {[type]} options [description]
+   * Constructor
+   *
+   * @param {HTMLElement} elem    The html element to use as the parent for the nav list.
+   * @param {Object} options      An object with key value pairs of configuration options.
+   *                              zIndex            - css property is set on load.
+   *                              toggleSelector    - The css selector for the toggle element.
+   *                              toggleClass       - The css class for the toggle element
+   *                              itemExpandedClass - The css class to give to expanded items
+   *                              itemActiveClass   - The css class to give to the `active path`
+   *                              activePath        - Boolean flag to add the itemActiveClass to
+   *                                                  the `active path`
+   *                              itemEvents        - Object containing custom event functions
+   *                              toggle            - The nav's toggle element
+   *                              expandActivePath  - Boolean flag to open all SubNavItems of the
+   *                                                  active path
+   *                              idPrefix          - Prefix string to give to the nav ids.
+   *                              depth             - The current depth of the menu.
+   *                              itemClasses       - An object containing the JS classes to use to
+   *                                                  create single and sub nav items.
    */
   function ToggleNav(elem, options) {
     _classCallCheck(this, ToggleNav);
@@ -1690,11 +1747,14 @@ function (_Nav) {
     options.itemClasses = options.itemClasses || {
       single: _ToggleNavItem__WEBPACK_IMPORTED_MODULE_0__["default"],
       sub: _ToggleSubNavItem__WEBPACK_IMPORTED_MODULE_1__["default"]
-    };
+    }; // Let the parent do it all.
+
     return _possibleConstructorReturn(this, _getPrototypeOf(ToggleNav).call(this, elem, options));
   }
   /**
-   * [closeThisSubNav description]
+   * Closes this nav.
+   *
+   * Overrides parent class with behaviour to target the toggle button.
    */
 
 
@@ -1745,16 +1805,10 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * Represent an item in a navigation menu. May be a direct link or a subnav
- * trigger.
+ * Toggle Navigation item.
  *
- * @prop {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
- * @prop {HTMLElement|Nav} nav    - the Nav that contains the element.
- *                                  May be a main nav (<nav>) or subnav (Nav).
- * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
- *                                  item (the <li>).
- * @prop {Nav}             subNav - if item is the trigger for a subnav, this
- *                                  is an instonce Nav that models the subnav.
+ * This class represents the most basic list item with a link. Because it has
+ * toggles instead of just links the keyboard events are different.
  */
 
 var ToggleNavItem =
@@ -1763,10 +1817,12 @@ function (_NavItem) {
   _inherits(ToggleNavItem, _NavItem);
 
   /**
-   * Build.
-   * @param {[type]} item    [description]
-   * @param {[type]} nav     [description]
-   * @param {[type]} options [description]
+   * Constructor Method.
+   *
+   * @param {HTMLLIElement} item  - The <li> that is the NavItem in the DOM.
+   * @param {NavAbstract} nav     - An instance or extension of NavAbstract.
+   * @param {Object} options      - A simple object of key values used as
+   *                                configuration options for each instance.
    */
   function ToggleNavItem(item, nav, options) {
     _classCallCheck(this, ToggleNavItem);
@@ -1774,9 +1830,13 @@ function (_NavItem) {
     return _possibleConstructorReturn(this, _getPrototypeOf(ToggleNavItem).call(this, item, nav, options));
   }
   /**
-   * [onKeydownTab description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * Event handler for key press: Tab
+   *
+   * Allow the natural tab order but when traversing levels close previous
+   * sub nav items as we go.
+   *
+   * @param {KeyboardEvent} event - The keyboard event.
+   * @param {HTMLElement} target  - The HTML element target.
    */
 
 
@@ -1832,16 +1892,10 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * Represent an item in a navigation menu. May be a direct link or a subnav
- * trigger.
+ * Sub Navigation item.
  *
- * @prop {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
- * @prop {HTMLElement|Nav} nav    - the Nav that contains the element.
- *                                  May be a main nav (<nav>) or subnav (Nav).
- * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
- *                                  item (the <li>).
- * @prop {Nav}             subNav - if item is the trigger for a subnav, this
- *                                  is an instonce Nav that models the subnav.
+ * This class represents a menu list item with another menu in it that is
+ * triggered by a toggle button instead of the links.
  */
 
 var ToggleSubNavItem =
@@ -1850,10 +1904,12 @@ function (_SubNavItem) {
   _inherits(ToggleSubNavItem, _SubNavItem);
 
   /**
-   * Create a NavItem
-   * @param {HTMLLIElement}   item  - The <li> that is the NavItem in the DOM.
-   * @param {HTMLElement|Nav} nav   - The Nav that contains the element. May
-   *                                  be a main nav (<nav>) or a subnav (Nav).
+   * Create an instance.
+   *
+   * @param {HTMLLIElement} item  - The <li> that is the NavItem in the DOM.
+   * @param {NavAbstract} nav     - An instance or extension of NavAbstract.
+   * @param {Object} options      - A simple object of key values used as
+   *                                configuration options for each instance.
    */
   function ToggleSubNavItem(item, nav, options) {
     var _this;
@@ -1864,7 +1920,7 @@ function (_SubNavItem) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ToggleSubNavItem).call(this, item, nav, options)); // Set text.
 
     _this.toggleText = options.subNavToggleText || '+';
-    _this.toggleClass = options.toggleClass || 'nav-toggle'; // Create the buttons.
+    _this.toggleClass = options.toggleClass || 'nav-toggle'; // Create the toggle buttons.
 
     _this.toggle = _this.createToggleButton();
 
@@ -1878,8 +1934,9 @@ function (_SubNavItem) {
     return _this;
   }
   /**
-   * [createToggleButton description]
-   * @return {[type]} [description]
+   * Create and a button for the expand/collapse actions.
+   *
+   * @return {HTMLElement} The button toggle.
    */
 
 
@@ -1914,7 +1971,8 @@ function (_SubNavItem) {
       // If the click is on the trigger then ignore.
       if (target === this.link) {
         return;
-      }
+      } // Toggle subnav item when clicking on the toggle.
+
 
       if (target === this.toggle) {
         if (this.isExpanded()) {
@@ -1922,8 +1980,6 @@ function (_SubNavItem) {
         } else {
           this.openSubNav();
         }
-
-        return;
       }
     }
     /**
@@ -2011,7 +2067,8 @@ function (_SubNavItem) {
         event.preventDefault();
         this.link.focus();
         return;
-      }
+      } // If the current focus is on the link let the parent method handle it.
+
 
       _get(_getPrototypeOf(ToggleSubNavItem.prototype), "onKeydownArrowLeft", this).call(this, event, target);
     }
@@ -2202,7 +2259,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createEvent", function() { return createEvent; });
 /**
  * Create an event with the specified name in a browser-agnostic way.
- * @param {string} eventName - the name of the event
+ *
+ * @param {String} eventName - The name of the event
+ * @param {Object} data - Additional data along with the event.
+ *
  * @return {Event} - instance of event which can be dispatched / listened for
  */
 var createEvent = function createEvent(eventName, data) {

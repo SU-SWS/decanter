@@ -70,9 +70,7 @@ export default class SubNavItem extends NavItem {
    * (for keyboard nav).
    */
   openSubNav() {
-    this.item.dispatchEvent(this.preOpenEvent);
-    this.setExpanded(true);
-    this.item.dispatchEvent(this.openEvent);
+    this.setSubNav('open');
   }
 
   /**
@@ -82,10 +80,43 @@ export default class SubNavItem extends NavItem {
    * corresponding subnav. Optionally force focus on the trigger.
    */
   closeSubNav() {
-    this.item.dispatchEvent(this.preCloseEvent);
-    this.setExpanded(false);
-    this.item.dispatchEvent(this.closeEvent);
+    this.setSubNav('close');
   }
+
+  /**
+   * Open or close the subnav.
+   *
+   * @param  {[type]} open [description]
+   * @return {[type]}      [description]
+   */
+  setSubNav(state = 'open') {
+
+    let hooks = {
+      open: {
+        pre: this.preOpenEvent,
+        post: this.openEvent
+      },
+      close: {
+        pre: this.preCloseEvent,
+        post: this.closeEvent
+      }
+    }
+
+    // Pre event dispatch.
+    this.item.dispatchEvent(hooks[state].pre);
+    // Toggle the state.
+    if (state === 'open') {
+      this.setExpanded(false);
+    }
+    else {
+      this.setExpanded(false);
+    }
+    // Post event dispatch.
+    this.item.dispatchEvent(hooks[state].post);
+
+  }
+
+
 
   /**
    * Is this expanded? Can only return TRUE if this is a subnav trigger.
