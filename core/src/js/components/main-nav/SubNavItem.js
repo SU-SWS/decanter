@@ -183,7 +183,7 @@ export default class SubNavItem extends NavItem {
    * @return {HTMLElement|False} The HTMLElement related to the passed in key.
    */
   getElement(what) {
-    switch(what) {
+    switch (what) {
       case 'firstSubnavLink':
         return this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul li a');
 

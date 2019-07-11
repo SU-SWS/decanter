@@ -7,6 +7,7 @@ import SubNavItem from '../main-nav/SubNavItem';
  * triggered by a toggle button instead of the links.
  */
 export default class ToggleSubNavItem extends SubNavItem {
+
   /**
    * Create an instance.
    *

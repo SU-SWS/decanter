@@ -209,6 +209,8 @@ export default class NavAbstract {
 
   /**
    * Get the depth of nesting for this menu. (starts at 1).
+   *
+   * @return {int} The depth of the menu.
    */
   getDepth() {
     return this.depth;
