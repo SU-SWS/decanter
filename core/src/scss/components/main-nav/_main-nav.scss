@@ -121,8 +121,6 @@
         > a {
           &[aria-expanded="true"] {
             &:active {
-              font-weight: $font-semi-bold;
-
               &::before {
                 background-color: color(h-border--active, $nav-colors);
               }
@@ -140,10 +138,6 @@
     }
 
     > li {
-      > a {
-        font-weight: $font-semi-bold;
-      }
-
       &:last-of-type:not(.su-main-nav__item--expanded) {
         > a {
           border-bottom: 0;
@@ -167,10 +161,6 @@
           transition: color 0.3s ease-out;
           font-size: 2.1rem;
           border-bottom: 0;
-
-          &:active {
-            font-weight: $font-semi-bold;
-          }
 
           &:hover,
           &:focus {
@@ -206,8 +196,6 @@
 
       > .su-main-nav__item--current {
         > a {
-          font-weight: $font-semi-bold;
-
           &::before {
             background-color: color(h-border--active, $nav-colors);
           }
@@ -227,8 +215,6 @@
         }
 
         &.su-main-nav__item--expanded > a {
-          font-weight: $font-semi-bold;
-
           &:focus::before {
             background-color: color(h-border--active, $nav-colors);
           }
@@ -295,7 +281,6 @@
     background-color: transparent;
     color: color(h-link, $nav-colors);
     font-size: 1.6rem;
-    font-weight: $font-regular;
     line-height: 0.7;
 
     &::after {
