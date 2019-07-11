@@ -86,8 +86,7 @@ export default class SubNavItem extends NavItem {
   /**
    * Open or close the subnav.
    *
-   * @param  {[type]} open [description]
-   * @return {[type]}      [description]
+   * @param  {String} state Either open or close.
    */
   setSubNav(state = 'open') {
 
@@ -100,10 +99,11 @@ export default class SubNavItem extends NavItem {
         pre: this.preCloseEvent,
         post: this.closeEvent
       }
-    }
+    };
 
     // Pre event dispatch.
     this.item.dispatchEvent(hooks[state].pre);
+
     // Toggle the state.
     if (state === 'open') {
       this.setExpanded(false);
@@ -111,9 +111,9 @@ export default class SubNavItem extends NavItem {
     else {
       this.setExpanded(false);
     }
+
     // Post event dispatch.
     this.item.dispatchEvent(hooks[state].post);
-
   }
 
 
