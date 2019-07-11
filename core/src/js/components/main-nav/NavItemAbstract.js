@@ -189,37 +189,26 @@ export default class NavItemAbstract {
     switch (what) {
       case 'first':
         return this.item.parentNode.firstElementChild.firstChild;
-
       case 'last':
         return this.item.parentNode.lastElementChild.firstChild;
-
       case 'firstElement':
         return this.item.parentNode.firstElementChild;
-
       case 'lastElement':
         return this.item.parentNode.lastElementChild;
-
       case 'next':
         return this.item.nextElementSibling.querySelector('a');
-
       case 'prev':
         return this.item.previousElementSibling.querySelector('a');
-
       case 'nextElement':
         return this.item.nextElementSibling;
-
       case 'prevElement':
         return this.item.previousElementSibling;
-
       case 'parentItem':
         return this.item.parentNode.parentNode.querySelector('a');
-
       case 'parentButton':
         return this.item.parentNode.parentNode.querySelector('button');
-
       case 'parentNav':
         return this.item.parentNode.parentNode;
-
       default:
         return false;
     }

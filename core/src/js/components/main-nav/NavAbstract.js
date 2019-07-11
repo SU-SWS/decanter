@@ -2,12 +2,16 @@ import NavItem from './NavItem';
 import SubNavItem from './SubNavItem';
 
 /**
- * Represent a navigation menu. May be the top nav or a subnav.
+ * NavAbstract Class
+ *
+ * The most abstract version of a Nav. All Nav types should extend
+ * this class in order to have a psuedo interface and default methods.
  */
 export default class NavAbstract {
 
   /**
-   * [constructor description]
+   * Nav Abstract Constructor class.
+   *
    * @param {HTMLElement} elem    The html element to use as the parent for the nav list.
    * @param {Object} options      An object with key value pairs of configuration options.
    *                              zIndex            - css property is set on load.
@@ -58,7 +62,7 @@ export default class NavAbstract {
     // Class properties.
     this.itemActiveClass = options.itemActiveClass || 'active';
     this.itemExpandedClass = options.itemExpandedClass || 'expanded';
-
+    // Set the active path on the menu tree.
     if (this.options.activePath === true) {
       this.setActivePath();
     }
@@ -87,8 +91,9 @@ export default class NavAbstract {
   }
 
   /**
-   * Handler for all events attached to an instance of this class. This method
-   * must exist when events are bound to an instance of a class
+   * Handler for all events attached to an instance of this class.
+   *
+   * This method must exist when events are bound to an instance of a class
    * (vs a function). This method is called for all events bound to an
    * instance. It inspects the instance (this) for an appropriate handler
    * based on the event type. If found, it dispatches the event to the

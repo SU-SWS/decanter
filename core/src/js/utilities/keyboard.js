@@ -14,13 +14,14 @@ export const isUpArrow = theKey => (theKey === 'ArrowUp' || theKey === 'Up' || t
 export const isDownArrow = theKey => (theKey === 'ArrowDown' || theKey === 'Down' || theKey === 40);
 
 /**
- * [normalizeKey description]
- * @param  {[type]} theKey [description]
- * @return {[type]}        [description]
+ * Return a consistent string for each key validation.
+ *
+ * @param {*} theKey the code from a keypress event.
+ *
+ * @return {String} A string name for the key that was pressed.
  */
 export const normalizeKey = (theKey) => {
   let ret = false;
-
   if (isHome(theKey)) {
     ret = 'home';
   }
@@ -51,6 +52,5 @@ export const normalizeKey = (theKey) => {
   else if (isDownArrow(theKey)) {
     ret = 'arrowDown';
   }
-
   return ret;
 };

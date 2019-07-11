@@ -1510,13 +1510,13 @@ function (_NavItem) {
     key: "getElement",
     value: function getElement(what) {
       switch (what) {
-        case "firstSubnavLink":
+        case 'firstSubnavLink':
           return this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul li a');
 
-        case "firstSubnavItem":
+        case 'firstSubnavItem':
           return this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul li');
 
-        case "subnav":
+        case 'subnav':
           return this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul');
       } // Carry along to the parent class for more.
 
@@ -2061,7 +2061,8 @@ function (_SubNavItem) {
     }
     /**
      * Set whether or not this is expanded.
-     * Only meaningful if this is a subnav trigger.
+     *
+     * Overrides Parent Method.
      *
      * @param {String} value - What to set the aria-expanded attribute of this's
      *                         link to.
@@ -2070,13 +2071,10 @@ function (_SubNavItem) {
   }, {
     key: "setExpanded",
     value: function setExpanded(value) {
-      this.toggle.setAttribute('aria-expanded', value);
+      _get(_getPrototypeOf(ToggleSubNavItem.prototype), "setExpanded", this).call(this, value);
 
-      if (value) {
-        this.item.classList.add(this.options.itemExpandedClass);
-      } else {
-        this.item.classList.remove(this.options.itemExpandedClass);
-      }
+      this.link.removeAttribute('aria-expanded', value);
+      this.toggle.setAttribute('aria-expanded', value);
     }
   }]);
 
@@ -2248,9 +2246,11 @@ var isDownArrow = function isDownArrow(theKey) {
   return theKey === 'ArrowDown' || theKey === 'Down' || theKey === 40;
 };
 /**
- * [normalizeKey description]
- * @param  {[type]} theKey [description]
- * @return {[type]}        [description]
+ * Return a consistent string for each key validation.
+ *
+ * @param {*} theKey the code from a keypress event.
+ *
+ * @return {String} A string name for the key that was pressed.
  */
 
 var normalizeKey = function normalizeKey(theKey) {
