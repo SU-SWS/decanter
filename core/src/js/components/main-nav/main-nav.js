@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', event => {
     // Create an instance of Nav,
     // which in turn creates appropriate instances of NavItem and SubNavItem.
     new Nav(nav, options);
+
   });
 
 }); // on DOMContentLoaded.

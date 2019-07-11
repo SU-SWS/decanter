@@ -112,4 +112,18 @@ export default class Nav extends NavAbstract {
     this.options.toggle = new NavToggle(toggleElement, toggleOptions);
   }
 
+  /**
+   * Expand open the active path.
+   */
+  expandActivePath() {
+    // Let super do its thing first.
+    super.expandActivePath();
+
+    // On Desktop with initial expanded menu items we need to collapse the first
+    // level only and leave the rest expanded.
+    if (this.toggle && window.innerWidth > 768) {
+      this.closeAllSubNavs();
+    }
+  }
+
 }

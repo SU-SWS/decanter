@@ -183,24 +183,6 @@ export default class NavAbstract {
 
             // End when we get to the parent nav item stop.
             if (item.getAttribute('id') === this.id) {
-
-              // Main menu only, must move this somewhere else that makes sense.
-              // Set all first level items to collapsed if on Desktop.
-              if (this.toggle) {
-                let visible = window.getComputedStyle(this.toggle.element).getPropertyValue('display');
-                if (visible === 'none') {
-                  // Collapse the first level items.
-                  let firstLevelItems = this.elem.querySelectorAll("#" + this.id + " > ul > li");
-                  firstLevelItems.forEach(
-                    function(val) {
-                      val.classList.remove(this.itemExpandedClass);
-                      val.firstElementChild.setAttribute('aria-expanded', false);
-                    },
-                    this
-                  );
-                }
-              }
-
               // Stop at the top most level.
               break;
             }

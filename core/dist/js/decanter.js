@@ -171,6 +171,10 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
@@ -308,6 +312,22 @@ function (_NavAbstract) {
         nav: this
       };
       this.toggle = this.options.toggle = new _NavToggle__WEBPACK_IMPORTED_MODULE_2__["default"](toggleElement, toggleOptions);
+    }
+    /**
+     * Expand open the active path.
+     */
+
+  }, {
+    key: "expandActivePath",
+    value: function expandActivePath() {
+      // Let super do its thing first.
+      _get(_getPrototypeOf(Nav.prototype), "expandActivePath", this).call(this); // On Desktop with initial expanded menu items we need to collapse the first
+      // level only and leave the rest expanded.
+
+
+      if (this.toggle && window.innerWidth > 768) {
+        this.closeAllSubNavs();
+      }
     }
   }]);
 
@@ -524,22 +544,7 @@ function () {
           while (item) {
             // End when we get to the parent nav item stop.
             if (item.getAttribute('id') === _this2.id) {
-              // Main menu only, must move this somewhere else that makes sense.
-              // Set all first level items to collapsed if on Desktop.
-              if (_this2.toggle) {
-                var visible = window.getComputedStyle(_this2.toggle.element).getPropertyValue('display');
-
-                if (visible === 'none') {
-                  // Collapse the first level items.
-                  var firstLevelItems = _this2.elem.querySelectorAll("#" + _this2.id + " > ul > li");
-
-                  firstLevelItems.forEach(function (val) {
-                    val.classList.remove(this.itemExpandedClass);
-                    val.firstElementChild.setAttribute('aria-expanded', false);
-                  }, _this2);
-                }
-              }
-
+              // Stop at the top most level.
               break;
             } // If we are on a LI element we need to add the active class.
 
@@ -1046,42 +1051,46 @@ function () {
   }, {
     key: "getElement",
     value: function getElement(what) {
-      switch (what) {
-        case 'first':
-          return this.item.parentNode.firstElementChild.firstChild;
+      try {
+        switch (what) {
+          case 'first':
+            return this.item.parentNode.firstElementChild.firstChild;
 
-        case 'last':
-          return this.item.parentNode.lastElementChild.firstChild;
+          case 'last':
+            return this.item.parentNode.lastElementChild.firstChild;
 
-        case 'firstElement':
-          return this.item.parentNode.firstElementChild;
+          case 'firstElement':
+            return this.item.parentNode.firstElementChild;
 
-        case 'lastElement':
-          return this.item.parentNode.lastElementChild;
+          case 'lastElement':
+            return this.item.parentNode.lastElementChild;
 
-        case 'next':
-          return this.item.nextElementSibling.querySelector('a');
+          case 'next':
+            return this.item.nextElementSibling.querySelector('a');
 
-        case 'prev':
-          return this.item.previousElementSibling.querySelector('a');
+          case 'prev':
+            return this.item.previousElementSibling.querySelector('a');
 
-        case 'nextElement':
-          return this.item.nextElementSibling;
+          case 'nextElement':
+            return this.item.nextElementSibling;
 
-        case 'prevElement':
-          return this.item.previousElementSibling;
+          case 'prevElement':
+            return this.item.previousElementSibling;
 
-        case 'parentItem':
-          return this.item.parentNode.parentNode.querySelector('a');
+          case 'parentItem':
+            return this.item.parentNode.parentNode.querySelector('a');
 
-        case 'parentButton':
-          return this.item.parentNode.parentNode.querySelector('button');
+          case 'parentButton':
+            return this.item.parentNode.parentNode.querySelector('button');
 
-        case 'parentNav':
-          return this.item.parentNode.parentNode;
+          case 'parentNav':
+            return this.item.parentNode.parentNode;
 
-        default:
-          return false;
+          default:
+            return false;
+        }
+      } catch (err) {
+        return false;
       }
     }
     /**
