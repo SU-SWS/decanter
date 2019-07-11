@@ -138,9 +138,9 @@
     }
 
     > li {
-      &:last-of-type:not(.su-main-nav__item--expanded) {
+      &:first-of-type:not(.su-main-nav__item--expanded) {
         > a {
-          border-bottom: 0;
+          border-top: 0;
         }
       }
     }
@@ -160,7 +160,7 @@
           color: color(h-link, $nav-colors);
           transition: color 0.3s ease-out;
           font-size: 2.1rem;
-          border-bottom: 0;
+          border-top: 0;
 
           &:hover,
           &:focus {
@@ -364,9 +364,9 @@
     position: absolute;
     max-width: 30rem;
 
-    li:last-child {
+    li:first-child {
       a {
-        border-bottom: 0;
+        border-top: 0;
       }
     }
   }
