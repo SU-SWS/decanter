@@ -477,34 +477,30 @@ function () {
     value: function setActivePath() {
       var pathname = window.location.pathname;
       var anchor = window.location.hash;
-      var currentLink; // If there is an anchor in the URL use that to find <a>'s in this menu.
+      var currentItem; // If there is an anchor in the URL use that to find <a>'s in this menu.
       // Otherwise, try to find a matching path string in the <a>'s href.
 
       if (!anchor) {
-        currentLink = this.elem.querySelector("a[href*='" + pathname + "']");
+        currentItem = this.elem.querySelector("a[href*='" + pathname + "']");
       } else {
-        currentLink = this.elem.querySelector("a[href*='" + anchor + "']");
+        currentItem = this.elem.querySelector("a[href*='" + anchor + "']");
       } // Can't find anything. End.
 
 
-      if (!currentLink) {
+      if (!currentItem) {
         return;
       } // While we have parents go up and add the active class.
 
 
-      while (currentLink) {
-        // End when we get to the parent nav item.
-        if (currentLink.getAttribute('id') === this.id) {
+      while (currentItem) {
+        // If we are on a LI element we need to add the active class.
+        if (currentItem.tagName === 'LI') {
+          currentItem.classList.add(this.itemActiveClass);
           break;
-        } // If we are on a LI element we need to add the active class.
-
-
-        if (currentLink.tagName === 'LI') {
-          currentLink.classList.add(this.itemActiveClass);
         } // Always increment.
 
 
-        currentLink = currentLink.parentNode;
+        currentItem = currentItem.parentNode;
       }
     }
     /**
@@ -524,8 +520,22 @@ function () {
 
       if (actives.length) {
         actives.forEach(function (item) {
-          item.classList.add(_this2.itemExpandedClass);
-          item.firstElementChild.setAttribute('aria-expanded', true);
+          // While we have parents go up and add the active class.
+          while (item) {
+            // End when we get to the parent nav item stop.
+            if (item.getAttribute('id') === _this2.id) {
+              break;
+            } // If we are on a LI element we need to add the active class.
+
+
+            if (item.tagName === 'LI') {
+              item.classList.add(_this2.itemExpandedClass);
+              item.firstElementChild.setAttribute('aria-expanded', true);
+            } // Always increment.
+
+
+            item = item.parentNode;
+          }
         });
       }
     }
