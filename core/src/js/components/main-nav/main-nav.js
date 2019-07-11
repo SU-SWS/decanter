@@ -23,12 +23,13 @@ document.addEventListener('DOMContentLoaded', event => {
 
     // Main nav default constructor options.
     let options = {
-      zIndex: null, // Explicit index value to give with JS after domready.
+      zIndex: null,
       toggleSelector: ' > button',
       toggleClass: 'su-main-nav__toggle',
       itemExpandedClass: 'su-main-nav__item--expanded',
       itemActiveClass: 'su-main-nav__item--current',
       activePath: true,
+      expandActivePath: true,
       itemEvents: customEvents
     };
 

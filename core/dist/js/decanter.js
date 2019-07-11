@@ -524,6 +524,22 @@ function () {
           while (item) {
             // End when we get to the parent nav item stop.
             if (item.getAttribute('id') === _this2.id) {
+              // Main menu only, must move this somewhere else that makes sense.
+              // Set all first level items to collapsed if on Desktop.
+              if (_this2.toggle) {
+                var visible = window.getComputedStyle(_this2.toggle.element).getPropertyValue('display');
+
+                if (visible === 'none') {
+                  // Collapse the first level items.
+                  var firstLevelItems = _this2.elem.querySelectorAll("#" + _this2.id + " > ul > li");
+
+                  firstLevelItems.forEach(function (val) {
+                    val.classList.remove(this.itemExpandedClass);
+                    val.firstElementChild.setAttribute('aria-expanded', false);
+                  }, _this2);
+                }
+              }
+
               break;
             } // If we are on a LI element we need to add the active class.
 
@@ -1661,12 +1677,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
     // Main nav default constructor options.
     var options = {
       zIndex: null,
-      // Explicit index value to give with JS after domready.
       toggleSelector: ' > button',
       toggleClass: 'su-main-nav__toggle',
       itemExpandedClass: 'su-main-nav__item--expanded',
       itemActiveClass: 'su-main-nav__item--current',
       activePath: true,
+      expandActivePath: true,
       itemEvents: customEvents
     }; // Manage z-indexes in case there are multiple navs near each other.
 
