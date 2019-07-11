@@ -1429,8 +1429,7 @@ function (_NavItem) {
     /**
      * Open or close the subnav.
      *
-     * @param  {[type]} open [description]
-     * @return {[type]}      [description]
+     * @param  {String} state Either open or close.
      */
 
   }, {
@@ -1445,13 +1444,13 @@ function (_NavItem) {
         close: {
           pre: this.preCloseEvent,
           post: this.closeEvent
-        } // Pre event dispatch.
+        }
+      }; // Pre event dispatch.
 
-      };
       this.item.dispatchEvent(hooks[state].pre); // Toggle the state.
 
       if (state === 'open') {
-        this.setExpanded(false);
+        this.setExpanded(true);
       } else {
         this.setExpanded(false);
       } // Post event dispatch.

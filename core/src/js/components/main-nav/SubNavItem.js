@@ -106,7 +106,7 @@ export default class SubNavItem extends NavItem {
 
     // Toggle the state.
     if (state === 'open') {
-      this.setExpanded(false);
+      this.setExpanded(true);
     }
     else {
       this.setExpanded(false);
