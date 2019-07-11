@@ -921,10 +921,49 @@ function () {
   _createClass(NavItemAbstract, [{
     key: "handleEvent",
     value: function handleEvent(event) {
-      event = event || window.event; // If this class has an onEvent method (onClick, onKeydown) invoke it.
-
-      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);
+      event = event || window.event;
       var target = event.target || event.srcElement;
+      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1); // If this class has an onEvent method (onClick, onKeydown) invoke it.
+
+      this.callEvent(event, target, handler);
+    }
+    /**
+     * Handler for keydown events. keydown is bound to all NavItem's.
+     * Dispatched from this.handleEvent().
+     *
+     * @param {KeyboardEvent} event - The keyboard event object.
+     * @param {HTMLElement} target  - The HTML element target.
+     *
+     * @return {*} - Mixed
+     */
+
+  }, {
+    key: "onKeydown",
+    value: function onKeydown(event, target) {
+      var theKey = event.key || event.keyCode;
+      var normalized = Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["normalizeKey"])(theKey); // We don't know or need to handle the key that was pressed.
+
+      if (!normalized) {
+        return;
+      } // Prepare a dynamic handler.
+
+
+      var handler = 'onKeydown' + normalized.charAt(0).toUpperCase() + normalized.slice(1); // Do eet.
+
+      this.callEvent(event, target, handler);
+    }
+    /**
+     * [callEvent description]
+     * @param {KeyboardEvent} event - The keyboard event object.
+     * @param {HTMLElement} target  - The HTML element target.
+     * @param  {String} handler         [description]
+     *
+     * @return {*}                 [description]
+     */
+
+  }, {
+    key: "callEvent",
+    value: function callEvent(event, target, handler) {
       var constructorName = this.constructor.name;
       var depth = this.getDepth(); // If the caller passed in their own event handling use their function.
       // See `MainEvents.js` and `main-nav.js` for an example.
@@ -969,41 +1008,6 @@ function () {
 
 
       return false;
-    }
-    /**
-     * Handler for keydown events. keydown is bound to all NavItem's.
-     * Dispatched from this.handleEvent().
-     *
-     * @param {KeyboardEvent} event - The keyboard event object.
-     * @param {HTMLElement} target  - The HTML element target.
-     *
-     * @return {*} - Mixed
-     */
-
-  }, {
-    key: "onKeydown",
-    value: function onKeydown(event, target) {
-      var theKey = event.key || event.keyCode;
-      var normalized = Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["normalizeKey"])(theKey); // We don't know or need to handle the key that was pressed.
-
-      if (!normalized) {
-        return;
-      } // Prepare a dynamic handler.
-
-
-      var handler = 'onKeydown' + normalized.charAt(0).toUpperCase() + normalized.slice(1);
-      var constructorName = this.constructor.name;
-      var depth = this.getDepth(); // If the caller passed in their own event handling use their function.
-      // See `MainEvents.js` and `main-nav.js` for an example.
-
-      if (this.handleUserEvent(constructorName, depth, handler, event, target)) {
-        return true;
-      } // Check if a handling is on this instance.
-      else if (typeof this[handler] === 'function') {
-          return this[handler](event, target);
-        } // If a KeyDown event has happened and we don't have a handler just let the
-      // browser do its defualt thing.
-
     }
     /**
      * Set the focus on an element.

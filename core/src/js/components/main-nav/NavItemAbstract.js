@@ -46,12 +46,52 @@ export default class NavItemAbstract {
    */
   handleEvent(event) {
     event = event || window.event;
-
-    // If this class has an onEvent method (onClick, onKeydown) invoke it.
+    let target = event.target || event.srcElement;
     let handler = 'on'
       + event.type.charAt(0).toUpperCase()
       + event.type.slice(1);
-    let target = event.target || event.srcElement;
+
+    // If this class has an onEvent method (onClick, onKeydown) invoke it.
+    this.callEvent(event, target, handler);
+  }
+
+  /**
+   * Handler for keydown events. keydown is bound to all NavItem's.
+   * Dispatched from this.handleEvent().
+   *
+   * @param {KeyboardEvent} event - The keyboard event object.
+   * @param {HTMLElement} target  - The HTML element target.
+   *
+   * @return {*} - Mixed
+   */
+  onKeydown(event, target) {
+    let theKey = event.key || event.keyCode;
+    let normalized = normalizeKey(theKey);
+
+    // We don't know or need to handle the key that was pressed.
+    if (!normalized) {
+      return;
+    }
+
+    // Prepare a dynamic handler.
+    let handler = 'onKeydown'
+      + normalized.charAt(0).toUpperCase()
+      + normalized.slice(1);
+
+    // Do eet.
+    this.callEvent(event, target, handler);
+  }
+
+  /**
+   * [callEvent description]
+   * @param {KeyboardEvent} event - The keyboard event object.
+   * @param {HTMLElement} target  - The HTML element target.
+   * @param  {String} handler         [description]
+   *
+   * @return {*}                 [description]
+   */
+  callEvent(event, target, handler) {
+
     let constructorName = this.constructor.name;
     let depth = this.getDepth();
 
@@ -102,45 +142,6 @@ export default class NavItemAbstract {
 
     // No event provided.
     return false;
-  }
-
-  /**
-   * Handler for keydown events. keydown is bound to all NavItem's.
-   * Dispatched from this.handleEvent().
-   *
-   * @param {KeyboardEvent} event - The keyboard event object.
-   * @param {HTMLElement} target  - The HTML element target.
-   *
-   * @return {*} - Mixed
-   */
-  onKeydown(event, target) {
-    let theKey = event.key || event.keyCode;
-    let normalized = normalizeKey(theKey);
-
-    // We don't know or need to handle the key that was pressed.
-    if (!normalized) {
-      return;
-    }
-
-    // Prepare a dynamic handler.
-    let handler = 'onKeydown'
-      + normalized.charAt(0).toUpperCase()
-      + normalized.slice(1);
-    let constructorName = this.constructor.name;
-    let depth = this.getDepth();
-
-    // If the caller passed in their own event handling use their function.
-    // See `MainEvents.js` and `main-nav.js` for an example.
-    if (this.handleUserEvent(constructorName, depth, handler, event, target)) {
-      return true;
-    }
-    // Check if a handling is on this instance.
-    else if (typeof this[handler] === 'function') {
-      return this[handler](event, target);
-    }
-
-    // If a KeyDown event has happened and we don't have a handler just let the
-    // browser do its defualt thing.
   }
 
   /**
