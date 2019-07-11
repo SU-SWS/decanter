@@ -1,23 +1,19 @@
 import SubNavItem from '../main-nav/SubNavItem';
 
 /**
- * Represent an item in a navigation menu. May be a direct link or a subnav
- * trigger.
+ * Sub Navigation item.
  *
- * @prop {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
- * @prop {HTMLElement|Nav} nav    - the Nav that contains the element.
- *                                  May be a main nav (<nav>) or subnav (Nav).
- * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
- *                                  item (the <li>).
- * @prop {Nav}             subNav - if item is the trigger for a subnav, this
- *                                  is an instonce Nav that models the subnav.
+ * This class represents a menu list item with another menu in it that is
+ * triggered by a toggle button instead of the links.
  */
 export default class ToggleSubNavItem extends SubNavItem {
   /**
-   * Create a NavItem
-   * @param {HTMLLIElement}   item  - The <li> that is the NavItem in the DOM.
-   * @param {HTMLElement|Nav} nav   - The Nav that contains the element. May
-   *                                  be a main nav (<nav>) or a subnav (Nav).
+   * Create an instance.
+   *
+   * @param {HTMLLIElement} item  - The <li> that is the NavItem in the DOM.
+   * @param {NavAbstract} nav     - An instance or extension of NavAbstract.
+   * @param {Object} options      - A simple object of key values used as
+   *                                configuration options for each instance.
    */
   constructor(item, nav, options) {
     // I'm feelin supa!
@@ -27,7 +23,7 @@ export default class ToggleSubNavItem extends SubNavItem {
     this.toggleText = options.subNavToggleText || '+';
     this.toggleClass = options.toggleClass || 'nav-toggle';
 
-    // Create the buttons.
+    // Create the toggle buttons.
     this.toggle = this.createToggleButton();
     this.item.insertBefore(this.toggle, this.item.querySelector('ul'));
 
@@ -37,8 +33,9 @@ export default class ToggleSubNavItem extends SubNavItem {
   }
 
   /**
-   * [createToggleButton description]
-   * @return {[type]} [description]
+   * Create and a button for the expand/collapse actions.
+   *
+   * @return {HTMLElement} The button toggle.
    */
   createToggleButton() {
     let element = document.createElement('button');
@@ -73,6 +70,7 @@ export default class ToggleSubNavItem extends SubNavItem {
       return;
     }
 
+    // Toggle subnav item when clicking on the toggle.
     if (target === this.toggle) {
       if (this.isExpanded()) {
         this.closeSubNav();
@@ -80,7 +78,6 @@ export default class ToggleSubNavItem extends SubNavItem {
       else {
         this.openSubNav();
       }
-      return;
     }
   }
 
@@ -162,6 +159,7 @@ export default class ToggleSubNavItem extends SubNavItem {
       return;
     }
 
+    // If the current focus is on the link let the parent method handle it.
     super.onKeydownArrowLeft(event, target);
   }
 

@@ -1,33 +1,33 @@
 import NavItem from '../main-nav/NavItem';
 
 /**
- * Represent an item in a navigation menu. May be a direct link or a subnav
- * trigger.
+ * Toggle Navigation item.
  *
- * @prop {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
- * @prop {HTMLElement|Nav} nav    - the Nav that contains the element.
- *                                  May be a main nav (<nav>) or subnav (Nav).
- * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
- *                                  item (the <li>).
- * @prop {Nav}             subNav - if item is the trigger for a subnav, this
- *                                  is an instonce Nav that models the subnav.
+ * This class represents the most basic list item with a link. Because it has
+ * toggles instead of just links the keyboard events are different.
  */
 export default class ToggleNavItem extends NavItem {
 
   /**
-   * Build.
-   * @param {[type]} item    [description]
-   * @param {[type]} nav     [description]
-   * @param {[type]} options [description]
+   * Constructor Method.
+   *
+   * @param {HTMLLIElement} item  - The <li> that is the NavItem in the DOM.
+   * @param {NavAbstract} nav     - An instance or extension of NavAbstract.
+   * @param {Object} options      - A simple object of key values used as
+   *                                configuration options for each instance.
    */
   constructor(item, nav, options) {
     super(item, nav, options);
   }
 
   /**
-   * [onKeydownTab description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * Event handler for key press: Tab
+   *
+   * Allow the natural tab order but when traversing levels close previous
+   * sub nav items as we go.
+   *
+   * @param {KeyboardEvent} event - The keyboard event.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownTab(event, target) {
     // If the tab was shift tabbed prevent the nav from collapsing.

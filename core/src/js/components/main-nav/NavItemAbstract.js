@@ -160,9 +160,9 @@ export default class NavItemAbstract {
     // See if `what` in an idex, otherwise get the relative keyword.
     if (Number.isInteger(what)) {
       try {
-        element = this.item.parentNode.querySelectorAll("li")[what];
+        element = this.item.parentNode.querySelectorAll('li')[what];
       }
-      catch(error) {
+      catch (error) {
         // `what` was an invalid index.
         element = false;
       }

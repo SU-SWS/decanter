@@ -3,29 +3,31 @@ import ToggleSubNavItem from './ToggleSubNavItem';
 import Nav from '../main-nav/Nav';
 
 /**
- * Represent a navigation menu. May be the top nav or a subnav.
- *
- * @prop {HTMLElement|NavItem} elem       - The element that is the nav. May
- *                                          be a main nav (<nav>) or a subnav
- *                                          (NavItem).
- * @prop {Nav}                 topNav     - The instance of Nav that models
- *                                          the top nav. If this is the top
- *                                          nav, topNav === this.
- * @prop {HTMLButtonElement}   toggle     - The <button> in the DOM that
- *                                          toggles the menu on mobile. NULL
- *                                          if this is a subnav.
- * @prop {String}              toggleText - The initial text of the mobile
- *                                          toggle (so we can reset it when
- *                                          the mobile nav is closed).
- * @prop {Array}               items      - Instances of NavItem that model
- *                                          each element in the nav
+ * A Navigation class for where the submenus have toggle buttons instead of
+ * toggle links.
  */
 export default class ToggleNav extends Nav {
 
   /**
-   * [constructor description]
-   * @param {[type]} elem    [description]
-   * @param {[type]} options [description]
+   * Constructor
+   *
+   * @param {HTMLElement} elem    The html element to use as the parent for the nav list.
+   * @param {Object} options      An object with key value pairs of configuration options.
+   *                              zIndex            - css property is set on load.
+   *                              toggleSelector    - The css selector for the toggle element.
+   *                              toggleClass       - The css class for the toggle element
+   *                              itemExpandedClass - The css class to give to expanded items
+   *                              itemActiveClass   - The css class to give to the `active path`
+   *                              activePath        - Boolean flag to add the itemActiveClass to
+   *                                                  the `active path`
+   *                              itemEvents        - Object containing custom event functions
+   *                              toggle            - The nav's toggle element
+   *                              expandActivePath  - Boolean flag to open all SubNavItems of the
+   *                                                  active path
+   *                              idPrefix          - Prefix string to give to the nav ids.
+   *                              depth             - The current depth of the menu.
+   *                              itemClasses       - An object containing the JS classes to use to
+   *                                                  create single and sub nav items.
    */
   constructor(elem, options) {
 
@@ -35,11 +37,14 @@ export default class ToggleNav extends Nav {
       sub: ToggleSubNavItem
     };
 
+    // Let the parent do it all.
     super(elem, options);
   }
 
   /**
-   * [closeThisSubNav description]
+   * Closes this nav.
+   *
+   * Overrides parent class with behaviour to target the toggle button.
    */
   closeThisSubNav() {
     this.elem.classList.remove(this.options.itemExpandedClass);

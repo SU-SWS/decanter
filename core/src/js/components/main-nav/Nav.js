@@ -9,8 +9,24 @@ export default class Nav extends NavAbstract {
 
   /**
    * Create a nav container istance.
-   * @param {[type]} elem    [description]
-   * @param {[type]} options [description]
+   *
+   * @param {HTMLElement} elem    The html element to use as the parent for the nav list.
+   * @param {Object} options      An object with key value pairs of configuration options.
+   *                              zIndex            - css property is set on load.
+   *                              toggleSelector    - The css selector for the toggle element.
+   *                              toggleClass       - The css class for the toggle element
+   *                              itemExpandedClass - The css class to give to expanded items
+   *                              itemActiveClass   - The css class to give to the `active path`
+   *                              activePath        - Boolean flag to add the itemActiveClass to
+   *                                                  the `active path`
+   *                              itemEvents        - Object containing custom event functions
+   *                              toggle            - The nav's toggle element
+   *                              expandActivePath  - Boolean flag to open all SubNavItems of the
+   *                                                  active path
+   *                              idPrefix          - Prefix string to give to the nav ids.
+   *                              depth             - The current depth of the menu.
+   *                              itemClasses       - An object containing the JS classes to use to
+   *                                                  create single and sub nav items.
    */
   constructor(elem, options) {
     super(elem, options);

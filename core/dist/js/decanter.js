@@ -320,14 +320,18 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 /**
- * Represent a navigation menu. May be the top nav or a subnav.
+ * NavAbstract Class
+ *
+ * The most abstract version of a Nav. All Nav types should extend
+ * this class in order to have a psuedo interface and default methods.
  */
 
 var NavAbstract =
 /*#__PURE__*/
 function () {
   /**
-   * [constructor description]
+   * Nav Abstract Constructor class.
+   *
    * @param {HTMLElement} elem    The html element to use as the parent for the nav list.
    * @param {Object} options      An object with key value pairs of configuration options.
    *                              zIndex            - css property is set on load.
@@ -380,7 +384,7 @@ function () {
     this.subNavItems = []; // Class properties.
 
     this.itemActiveClass = options.itemActiveClass || 'active';
-    this.itemExpandedClass = options.itemExpandedClass || 'expanded';
+    this.itemExpandedClass = options.itemExpandedClass || 'expanded'; // Set the active path on the menu tree.
 
     if (this.options.activePath === true) {
       this.setActivePath();
@@ -411,8 +415,9 @@ function () {
       });
     }
     /**
-     * Handler for all events attached to an instance of this class. This method
-     * must exist when events are bound to an instance of a class
+     * Handler for all events attached to an instance of this class.
+     *
+     * This method must exist when events are bound to an instance of a class
      * (vs a function). This method is called for all events bound to an
      * instance. It inspects the instance (this) for an appropriate handler
      * based on the event type. If found, it dispatches the event to the
@@ -1901,7 +1906,6 @@ function (_SubNavItem) {
      *
      * @param {KeyboardEvent} event - The keyboard event object.
      * @param {HTMLElement} target  - The HTML element target.
-     * @return {[type]}        [description]
      */
 
   }, {
@@ -1923,23 +1927,30 @@ function (_SubNavItem) {
       }
     }
     /**
-     * [onKeydownTab description]
-     * @param  {[type]} event  [description]
-     * @param  {[type]} target [description]
+     * Event handler for key press: Tab
+     *
+     * Go and focus on the last sibling of this item.
+     *
+     * @param {KeyboardEvent} event - The keyboard event.
+     * @param {HTMLElement} target  - The HTML element target.
      */
 
   }, {
     key: "onKeydownTab",
     value: function onKeydownTab(event, target) {
-      // If the target is the link and no shift then go to the button.
+      // If the target is the link and no shift then go to the button and don't
+      // collapse anything.
       if (target === this.link && event.shiftKey) {
         event.stopPropagation();
       }
     }
     /**
-     * [onKeydownSpace description]
-     * @param  {[type]} event  [description]
-     * @param  {[type]} target [description]
+     * Event handler for key press: Space
+     *
+     * Just pass through to what the click event would do.
+     *
+     * @param {KeyboardEvent} event - The keyboard event.
+     * @param {HTMLElement} target  - The HTML element target.
      */
 
   }, {
@@ -1950,9 +1961,12 @@ function (_SubNavItem) {
       this.onClick(event, target);
     }
     /**
-     * [onKeydownEnter description]
-     * @param  {[type]} event  [description]
-     * @param  {[type]} target [description]
+     * Event handler for key press: Enter
+     *
+     * Just pass through to what the click event would do.
+     *
+     * @param {KeyboardEvent} event - The keyboard event.
+     * @param {HTMLElement} target  - The HTML element target.
      */
 
   }, {
@@ -1961,9 +1975,12 @@ function (_SubNavItem) {
       this.onKeydownSpace(event, target);
     }
     /**
-     * [onKeydownArrowRight description]
-     * @param  {[type]} event  [description]
-     * @param  {[type]} target [description]
+     * Event handler for key press: Right
+     *
+     * Go from the link to the button but don't let it go any further.
+     *
+     * @param {KeyboardEvent} event - The keyboard event.
+     * @param {HTMLElement} target  - The HTML element target.
      */
 
   }, {
@@ -1977,10 +1994,12 @@ function (_SubNavItem) {
       }
     }
     /**
-     * [onKeydownArrowLeft description]
-     * @param  {[type]} event  [description]
-     * @param  {[type]} target [description]
-     * @return {[type]}        [description]
+     * Event handler for key press: Left
+     *
+     * If on the button, go to the link, otherwise do what the parent class does.
+     *
+     * @param {KeyboardEvent} event - The keyboard event.
+     * @param {HTMLElement} target  - The HTML element target.
      */
 
   }, {
@@ -1997,53 +2016,67 @@ function (_SubNavItem) {
       _get(_getPrototypeOf(ToggleSubNavItem.prototype), "onKeydownArrowLeft", this).call(this, event, target);
     }
     /**
-     * [onKeydownArrowDown description]
-     * @param  {[type]} event  [description]
-     * @param  {[type]} target [description]
-     * @return {[type]}        [description]
+     * Event handler for key press: Down
+     *
+     * Complex event handling depending on focus and submenu state.
+     *
+     * @param {KeyboardEvent} event - The keyboard event.
+     * @param {HTMLElement} target  - The HTML element target.
      */
 
   }, {
     key: "onKeydownArrowDown",
     value: function onKeydownArrowDown(event, target) {
+      // If on the toggle item and the menu is expanded go down in to the first
+      // menu item link as the focus.
       if (target === this.toggle && this.isExpanded()) {
         event.stopPropagation();
         event.preventDefault();
-        this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul > li > a').focus();
+        this.getElement('firstSubnavLink').focus();
         return;
-      }
+      } // If current focus is on the toggle and the menu is not open, go to the
+      // next sibling menu item.
+
 
       if (target === this.toggle && !this.isExpanded()) {
         _get(_getPrototypeOf(ToggleSubNavItem.prototype), "onKeydownArrowRight", this).call(this, event, this.link);
 
         return;
-      }
+      } // If the focus is current not on the toggle, let the super class do it.
+
 
       _get(_getPrototypeOf(ToggleSubNavItem.prototype), "onKeydownArrowDown", this).call(this, event, this.link);
     }
     /**
-     * [onKeydownArrowDown description]
-     * @param  {[type]} event  [description]
-     * @param  {[type]} target [description]
-     * @return {[type]}        [description]
+    * Event handler for key press: Up
+    *
+    * Complex event handling depending on focus and submenu state.
+    *
+    * @param {KeyboardEvent} event - The keyboard event.
+    * @param {HTMLElement} target  - The HTML element target.
      */
 
   }, {
     key: "onKeydownArrowUp",
     value: function onKeydownArrowUp(event, target) {
+      // If the current focus is on the toggle and the menu is expanded, close
+      // this nav menu and go to the parent list item.
       if (target === this.toggle && this.isExpanded()) {
         event.stopPropagation();
         event.preventDefault();
         this.closeNav();
-        this.item.parentElementNode.parentElementNode.querySelector('a').focus();
+        this.getElement('parentItem').focus();
         return;
-      }
+      } // If the focus is on the toggle and the menu is not expanded, go to the
+      // previous sibling item by calling the super method.
+
 
       if (target === this.toggle && !this.isExpanded()) {
         _get(_getPrototypeOf(ToggleSubNavItem.prototype), "onKeydownArrowLeft", this).call(this, event, this.link);
 
         return;
-      }
+      } // If the focus is on the link just do what the super method does.
+
 
       _get(_getPrototypeOf(ToggleSubNavItem.prototype), "onKeydownArrowUp", this).call(this, event, this.link);
     }
@@ -2061,8 +2094,6 @@ function (_SubNavItem) {
     }
     /**
      * Set whether or not this is expanded.
-     *
-     * Overrides Parent Method.
      *
      * @param {String} value - What to set the aria-expanded attribute of this's
      *                         link to.

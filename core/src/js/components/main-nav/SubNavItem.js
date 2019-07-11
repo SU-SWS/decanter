@@ -9,7 +9,8 @@ import NavItem from './NavItem';
 export default class SubNavItem extends NavItem {
 
   /**
-   * Create a NavItem
+   * Create an instance.
+   *
    * @param {HTMLLIElement} item  - The <li> that is the NavItem in the DOM.
    * @param {NavAbstract} nav     - An instance or extension of NavAbstract.
    * @param {Object} options      - A simple object of key values used as
