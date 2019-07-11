@@ -321,21 +321,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 /**
  * Represent a navigation menu. May be the top nav or a subnav.
- *
- * @prop {HTMLElement|NavItem} elem       - The element that is the nav. May
- *                                          be a main nav (<nav>) or a subnav
- *                                          (NavItem).
- * @prop {Nav}                 topNav     - The instance of Nav that models
- *                                          the top nav. If this is the top
- *                                          nav, topNav === this.
- * @prop {HTMLButtonElement}   toggle     - The <button> in the DOM that
- *                                          toggles the menu on mobile. NULL
- *                                          if this is a subnav.
- * @prop {String}              toggleText - The initial text of the mobile
- *                                          toggle (so we can reset it when
- *                                          the mobile nav is closed).
- * @prop {Array}               items      - Instances of NavItem that model
- *                                          each element in the nav
  */
 
 var NavAbstract =
@@ -343,8 +328,23 @@ var NavAbstract =
 function () {
   /**
    * [constructor description]
-   * @param {[type]} elem    [description]
-   * @param {[type]} options [description]
+   * @param {HTMLElement} elem    The html element to use as the parent for the nav list.
+   * @param {Object} options      An object with key value pairs of configuration options.
+   *                              zIndex            - css property is set on load.
+   *                              toggleSelector    - The css selector for the toggle element.
+   *                              toggleClass       - The css class for the toggle element
+   *                              itemExpandedClass - The css class to give to expanded items
+   *                              itemActiveClass   - The css class to give to the `active path`
+   *                              activePath        - Boolean flag to add the itemActiveClass to
+   *                                                  the `active path`
+   *                              itemEvents        - Object containing custom event functions
+   *                              toggle            - The nav's toggle element
+   *                              expandActivePath  - Boolean flag to open all SubNavItems of the
+   *                                                  active path
+   *                              idPrefix          - Prefix string to give to the nav ids.
+   *                              depth             - The current depth of the menu.
+   *                              itemClasses       - An object containing the JS classes to use to
+   *                                                  create single and sub nav items.
    */
   function NavAbstract(elem, options) {
     _classCallCheck(this, NavAbstract);
@@ -387,7 +387,10 @@ function () {
     }
   }
   /**
-   * [createNavItems description]
+   * Create all the children items.
+   *
+   * Loop through each LI element and either create a single level NavItem, or,
+   * create another nav through a SubNavItem.
    */
 
 
@@ -438,7 +441,11 @@ function () {
         }
     }
     /**
-     * [setActivePath description]
+     * Dynamically add an active path to the menu tree.
+     *
+     * Find all links with the current window's url and add the
+     * options.itemActiveClass class to the LI element container all the way up
+     * the menu tree back to the root.
      */
 
   }, {
@@ -446,7 +453,8 @@ function () {
     value: function setActivePath() {
       var pathname = window.location.pathname;
       var anchor = window.location.hash;
-      var currentLink;
+      var currentLink; // If there is an anchor in the URL use that to find <a>'s in this menu.
+      // Otherwise, try to find a matching path string in the <a>'s href.
 
       if (!anchor) {
         currentLink = this.elem.querySelector("a[href*='" + pathname + "']");
@@ -457,7 +465,7 @@ function () {
 
       if (!currentLink) {
         return;
-      } // While we have parents go up and add the class.
+      } // While we have parents go up and add the active class.
 
 
       while (currentLink) {
@@ -476,7 +484,11 @@ function () {
       }
     }
     /**
-     * [expandActivePath description]
+     * Expand all menus in the active path.
+     *
+     * After this.setActivePath() has been run or the itemActiveClass has been set
+     * on all the appropriate menu items go through the nav and expand the
+     * subNavItems that contain activeClass items.
      */
 
   }, {
@@ -494,8 +506,7 @@ function () {
       }
     }
     /**
-     * Gotta close em all.
-     * @return {[type]} [description]
+     * Close all subNavItems in this Nav.
      */
 
   }, {
@@ -506,8 +517,7 @@ function () {
       });
     }
     /**
-     * [closeParentSubNavs description]
-     * @return {[type]} [description]
+     * Close this nav.
      */
 
   }, {
@@ -517,23 +527,7 @@ function () {
       this.elem.firstElementChild.setAttribute('aria-expanded', false);
     }
     /**
-     * Set the focus on the specified link in this nav.
-     *
-     * @param {String|Number} link - 'first' | 'last' | 'next'
-     *                                | 'prev' | numerical index
-     * @param {NavItem} currentItem - If link is 'next' or 'prev', currentItem
-     *                                is the NavItem that next / prev is
-     *                                relative to.
-     */
-
-  }, {
-    key: "focusOn",
-    value: function focusOn(link) {
-      var currentItem = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-    } // console.log('This function has been deprecated.');
-
-    /**
-     * [getDepth description]
+     * Get the depth of nesting for this menu. (starts at 1).
      */
 
   }, {
@@ -596,6 +590,8 @@ function (_NavItemAbstract) {
    *
    * @param {HTMLLIElement} item  - The <li> that is the NavItem in the DOM.
    * @param {NavAbstract} nav     - An instance or extension of NavAbstract.
+   * @param {Object} options      - A simple object of key values used as
+   *                                configuration options for each instance.
    */
   function NavItem(item, nav, options) {
     var _this;
@@ -673,9 +669,9 @@ function (_NavItemAbstract) {
       var node = null;
 
       if (shifted) {
-        node = this.item.previousElementSibling;
+        node = this.getElement('prev');
       } else {
-        node = this.item.nextElementSibling;
+        node = this.getElement('next');
       }
 
       if (!node) {
@@ -688,7 +684,8 @@ function (_NavItemAbstract) {
       }
     }
     /**
-     * [onKeydownHome description]
+     * Event handler for key press: Space
+     *
      * @param {KeyboardEvent} event - The keyboard event.
      * @param {HTMLElement} target  - The HTML element target.
      */
@@ -696,11 +693,11 @@ function (_NavItemAbstract) {
   }, {
     key: "onKeydownSpace",
     value: function onKeydownSpace(event, target) {
-      event.preventDefault();
-      window.location = this.link.getAttribute('href');
+      event.stopPropagation(); // window.location = this.link.getAttribute('href');
     }
     /**
-     * [onKeydownHome description]
+     * Event handler for key press: Up Arrow
+     *
      * @param {KeyboardEvent} event - The keyboard event.
      * @param {HTMLElement} target  - The HTML element target.
      */
@@ -710,7 +707,7 @@ function (_NavItemAbstract) {
     value: function onKeydownArrowUp(event, target) {
       event.preventDefault(); // Go to the previous item.
 
-      var node = this.link.parentNode.previousElementSibling;
+      var node = this.getElement('prevElement');
 
       if (node !== null) {
         node.firstChild.focus();
@@ -729,7 +726,7 @@ function (_NavItemAbstract) {
     value: function onKeydownArrowLeft(event, target) {
       // If this is a nested item. Go back up a level.
       if (this.getDepth() > 1) {
-        var node = this.item.parentNode.parentNode.firstElementChild;
+        var node = this.getElement('parentItem');
 
         if (node) {
           this.nav.closeAllSubNavs();
@@ -959,6 +956,7 @@ function () {
      * @param {String|Number} what    A key for the switch in getElement(). Options can
      *                                include but are not limited to:
      *                                first, last, next, prev, parentItem, parentButton
+     *                                DEPRECATED - Number, do not pass in numerical index.
      * @param {NavItem} currentItem   DEPRECATED - DO NOT USE.
      */
 
@@ -966,23 +964,24 @@ function () {
     key: "focusOn",
     value: function focusOn(what) {
       var currentItem = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-      var element = false;
+      var element = false; // See if `what` in an idex, otherwise get the relative keyword.
 
       if (Number.isInteger(what)) {
         try {
           element = this.item.parentNode.querySelectorAll("li")[what];
         } catch (error) {
-          // What was an invalid index.
+          // `what` was an invalid index.
           element = false;
         }
-      } // else {
-      //   element = this.getElement(what);
-      // }
-      //
-      // if (element) {
-      //   element.focus();
-      // }
+      } // Use the relative shortcut function to fetch an HTMLElement.
+      else {
+          element = this.getElement(what);
+        } // If after all of that we get an element we should focus on it.
 
+
+      if (element) {
+        element.focus();
+      }
     }
     /**
      * Returns an HTML element relative to this current item.
@@ -996,18 +995,29 @@ function () {
     key: "getElement",
     value: function getElement(what) {
       switch (what) {
-        // Focus on the first item in the same level of this list.
         case 'first':
           return this.item.parentNode.firstElementChild.firstChild;
 
         case 'last':
           return this.item.parentNode.lastElementChild.firstChild;
 
+        case 'firstElement':
+          return this.item.parentNode.firstElementChild;
+
+        case 'lastElement':
+          return this.item.parentNode.lastElementChild;
+
         case 'next':
           return this.item.nextElementSibling.querySelector('a');
 
         case 'prev':
           return this.item.previousElementSibling.querySelector('a');
+
+        case 'nextElement':
+          return this.item.nextElementSibling;
+
+        case 'prevElement':
+          return this.item.previousElementSibling;
 
         case 'parentItem':
           return this.item.parentNode.parentNode.querySelector('a');
@@ -1294,16 +1304,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * Represent an item in a navigation menu. May be a direct link or a subnav
- * trigger.
+ * Sub Navigation item.
  *
- * @prop {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
- * @prop {HTMLElement|Nav} nav    - the Nav that contains the element.
- *                                  May be a main nav (<nav>) or subnav (Nav).
- * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
- *                                  item (the <li>).
- * @prop {Nav}             subNav - if item is the trigger for a subnav, this
- *                                  is an instonce Nav that models the subnav.
+ * This class represents a menu list item with another menu in it.
  */
 
 var SubNavItem =
@@ -1313,9 +1316,10 @@ function (_NavItem) {
 
   /**
    * Create a NavItem
-   * @param {HTMLLIElement}   item  - The <li> that is the NavItem in the DOM.
-   * @param {HTMLElement|Nav} nav   - The Nav that contains the element. May
-   *                                  be a main nav (<nav>) or a subnav (Nav).
+   * @param {HTMLLIElement} item  - The <li> that is the NavItem in the DOM.
+   * @param {NavAbstract} nav     - An instance or extension of NavAbstract.
+   * @param {Object} options      - A simple object of key values used as
+   *                                configuration options for each instance.
    */
   function SubNavItem(item, nav, options) {
     var _this;
@@ -1323,7 +1327,8 @@ function (_NavItem) {
     _classCallCheck(this, SubNavItem);
 
     // I'm feelin supa!
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(SubNavItem).call(this, item, nav, options)); // Create the children navs based on the parent constructor.
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SubNavItem).call(this, item, nav, options)); // Create the children navs based on the parent constructor as we can
+    // have different parent nav classes.
 
     var construct = nav.constructor;
     var navOptions = options;
@@ -1362,7 +1367,7 @@ function (_NavItem) {
         this.link.focus();
       } else {
         this.openSubNav();
-        this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul li a').focus();
+        this.getElement('firstSubnavLink').focus();
       }
     }
     /**
@@ -1385,7 +1390,6 @@ function (_NavItem) {
      *
      * If this is a subnav trigger or an item in a subnav, close the
      * corresponding subnav. Optionally force focus on the trigger.
-     *
      */
 
   }, {
@@ -1427,9 +1431,12 @@ function (_NavItem) {
       }
     }
     /**
-     * [onKeydown description]
-     * @param  {[type]} event  [description]
-     * @param  {[type]} target [description]
+     * Event handler for key press: Left Arrow
+     *
+     * Go and focus on the previous sibling of this item.
+     *
+     * @param {KeyboardEvent} event - The keyboard event.
+     * @param {HTMLElement} target  - The HTML element target.
      */
 
   }, {
@@ -1439,7 +1446,7 @@ function (_NavItem) {
       event.preventDefault();
 
       if (this.getDepth() > 1) {
-        this.item.parentNode.parentNode.firstElementChild.focus();
+        this.getElement('parentItem').focus();
         this.nav.closeAllSubNavs();
         this.nav.closeThisSubNav();
       } else {
@@ -1447,9 +1454,12 @@ function (_NavItem) {
       }
     }
     /**
-     * [onKeydown description]
-     * @param  {[type]} event  [description]
-     * @param  {[type]} target [description]
+     * Event handler for key press: Right Arrow
+     *
+     * Go and focus on the next sibling of this item.
+     *
+     * @param {KeyboardEvent} event - The keyboard event.
+     * @param {HTMLElement} target  - The HTML element target.
      */
 
   }, {
@@ -1458,12 +1468,15 @@ function (_NavItem) {
       // Go down a level and open the SubNav.
       event.preventDefault();
       this.openSubNav();
-      this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul li a').focus();
+      this.getElement('firstSubnavLink').focus();
     }
     /**
-     * [onKeydown description]
-     * @param  {[type]} event  [description]
-     * @param  {[type]} target [description]
+     * Event handler for key press: Space
+     *
+     * Do what the click would have done by passing through the event.
+     *
+     * @param {KeyboardEvent} event - The keyboard event.
+     * @param {HTMLElement} target  - The HTML element target.
      */
 
   }, {
@@ -1472,9 +1485,12 @@ function (_NavItem) {
       this.onClick(event, target);
     }
     /**
-     * [onKeydown description]
-     * @param  {[type]} event  [description]
-     * @param  {[type]} target [description]
+     * Event handler for key press: Enter
+     *
+     * Do what the click would have done by passing through the event.
+     *
+     * @param {KeyboardEvent} event - The keyboard event.
+     * @param {HTMLElement} target  - The HTML element target.
      */
 
   }, {
@@ -1483,40 +1499,55 @@ function (_NavItem) {
       this.onClick(event, target);
     }
     /**
-     * [createCustomEvents description]
+     * Returns an HTML element relative to this current item.
+     *
+     * @param {String} what A key for the switch statement. (first, last, etc).
+     *
+     * @return {HTMLElement|False} The HTMLElement related to the passed in key.
+     */
+
+  }, {
+    key: "getElement",
+    value: function getElement(what) {
+      switch (what) {
+        case "firstSubnavLink":
+          return this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul li a');
+
+        case "firstSubnavItem":
+          return this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul li');
+
+        case "subnav":
+          return this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul');
+      } // Carry along to the parent class for more.
+
+
+      return _get(_getPrototypeOf(SubNavItem.prototype), "getElement", this).call(this, what);
+    }
+    /**
+     * Create some custom event listeners.
+     *
+     * Before and after opening a subnav item fire off custom events. These are
+     * the custom events.
      */
 
   }, {
     key: "createCustomEvents",
     value: function createCustomEvents() {
-      // Add custom events to alert others when a subnav opens or closes.
-      // this.openEvent is dispatched in this.openSubNav().
-      this.preOpenEvent = new CustomEvent('preOpenSubnav', {
+      // CustomEvent Options.
+      var opts = {
         bubbles: true,
         detail: {
           nav: this.nav
         }
-      }); // this.closeEvent is dispatched in this.closeSubNav().
+      }; // this.preOpenEvent is dispatched in this.openSubNav().
 
-      this.openEvent = new CustomEvent('openSubnav', {
-        bubbles: true,
-        detail: {
-          nav: this.nav
-        }
-      }); // this.closeEvent is dispatched in this.closeSubNav().
+      this.preOpenEvent = new CustomEvent('preOpenSubnav', opts); // this.openEvent is dispatched in this.openSubNav().
 
-      this.preCloseEvent = new CustomEvent('preCloseSubnav', {
-        bubbles: true,
-        detail: {
-          nav: this.nav
-        }
-      });
-      this.closeEvent = new CustomEvent('closeSubnav', {
-        bubbles: true,
-        detail: {
-          nav: this.nav
-        }
-      });
+      this.openEvent = new CustomEvent('openSubnav', opts); // this.preCloseEvent is dispatched in this.closeSubNav().
+
+      this.preCloseEvent = new CustomEvent('preCloseSubnav', opts); // this.closeEvent is dispatched in this.closeSubNav().
+
+      this.closeEvent = new CustomEvent('closeSubnav', opts);
     }
   }]);
 
@@ -1543,11 +1574,17 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+/**
+ * Initiate the main nav elements on the page when the dom content is loaded.
+ *
+ */
+
 document.addEventListener('DOMContentLoaded', function (event) {
   // The css class that this following behaviour is applied to.
   var navClass = 'su-main-nav'; // All main navs.
 
-  var navs = document.querySelectorAll('.' + navClass); // Event Overrides.
+  var navs = document.querySelectorAll('.' + navClass); // Event Overrides. These custom functions are for the first level items on
+  // desktop only as they have different behaviour than all other items.
 
   var customEvents = Object(_MainEvents__WEBPACK_IMPORTED_MODULE_2__["mainEvents"])(); // Loop through each of the navs and create a new instance.
 
@@ -1555,7 +1592,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     // Main nav default constructor options.
     var options = {
       zIndex: null,
-      toggle: null,
+      // Explicit index value to give with JS after domready.
       toggleSelector: ' > button',
       toggleClass: 'su-main-nav__toggle',
       itemExpandedClass: 'su-main-nav__item--expanded',

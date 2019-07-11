@@ -3,28 +3,28 @@ import SubNavItem from './SubNavItem';
 
 /**
  * Represent a navigation menu. May be the top nav or a subnav.
- *
- * @prop {HTMLElement|NavItem} elem       - The element that is the nav. May
- *                                          be a main nav (<nav>) or a subnav
- *                                          (NavItem).
- * @prop {Nav}                 topNav     - The instance of Nav that models
- *                                          the top nav. If this is the top
- *                                          nav, topNav === this.
- * @prop {HTMLButtonElement}   toggle     - The <button> in the DOM that
- *                                          toggles the menu on mobile. NULL
- *                                          if this is a subnav.
- * @prop {String}              toggleText - The initial text of the mobile
- *                                          toggle (so we can reset it when
- *                                          the mobile nav is closed).
- * @prop {Array}               items      - Instances of NavItem that model
- *                                          each element in the nav
  */
 export default class NavAbstract {
 
   /**
    * [constructor description]
-   * @param {[type]} elem    [description]
-   * @param {[type]} options [description]
+   * @param {HTMLElement} elem    The html element to use as the parent for the nav list.
+   * @param {Object} options      An object with key value pairs of configuration options.
+   *                              zIndex            - css property is set on load.
+   *                              toggleSelector    - The css selector for the toggle element.
+   *                              toggleClass       - The css class for the toggle element
+   *                              itemExpandedClass - The css class to give to expanded items
+   *                              itemActiveClass   - The css class to give to the `active path`
+   *                              activePath        - Boolean flag to add the itemActiveClass to
+   *                                                  the `active path`
+   *                              itemEvents        - Object containing custom event functions
+   *                              toggle            - The nav's toggle element
+   *                              expandActivePath  - Boolean flag to open all SubNavItems of the
+   *                                                  active path
+   *                              idPrefix          - Prefix string to give to the nav ids.
+   *                              depth             - The current depth of the menu.
+   *                              itemClasses       - An object containing the JS classes to use to
+   *                                                  create single and sub nav items.
    */
   constructor(elem, options) {
     // Save the passed in configuration options.
@@ -62,11 +62,13 @@ export default class NavAbstract {
     if (this.options.activePath === true) {
       this.setActivePath();
     }
-
   }
 
   /**
-   * [createNavItems description]
+   * Create all the children items.
+   *
+   * Loop through each LI element and either create a single level NavItem, or,
+   * create another nav through a SubNavItem.
    */
   createNavItems() {
     let items = this.elem.querySelectorAll('#' + this.id + ' > ul > li');
@@ -119,13 +121,19 @@ export default class NavAbstract {
   }
 
   /**
-   * [setActivePath description]
+   * Dynamically add an active path to the menu tree.
+   *
+   * Find all links with the current window's url and add the
+   * options.itemActiveClass class to the LI element container all the way up
+   * the menu tree back to the root.
    */
   setActivePath() {
     let pathname = window.location.pathname;
     let anchor = window.location.hash;
     let currentLink;
 
+    // If there is an anchor in the URL use that to find <a>'s in this menu.
+    // Otherwise, try to find a matching path string in the <a>'s href.
     if (!anchor) {
       currentLink = this.elem.querySelector("a[href*='" + pathname + "']");
     }
@@ -138,7 +146,7 @@ export default class NavAbstract {
       return;
     }
 
-    // While we have parents go up and add the class.
+    // While we have parents go up and add the active class.
     while (currentLink) {
 
       // End when we get to the parent nav item.
@@ -154,11 +162,14 @@ export default class NavAbstract {
       // Always increment.
       currentLink = currentLink.parentNode;
     }
-
   }
 
   /**
-   * [expandActivePath description]
+   * Expand all menus in the active path.
+   *
+   * After this.setActivePath() has been run or the itemActiveClass has been set
+   * on all the appropriate menu items go through the nav and expand the
+   * subNavItems that contain activeClass items.
    */
   expandActivePath() {
     let actives = this.elem.querySelectorAll('.' + this.itemActiveClass);
@@ -173,8 +184,7 @@ export default class NavAbstract {
   }
 
   /**
-   * Gotta close em all.
-   * @return {[type]} [description]
+   * Close all subNavItems in this Nav.
    */
   closeAllSubNavs() {
     this.subNavItems.forEach(
@@ -185,8 +195,7 @@ export default class NavAbstract {
   }
 
   /**
-   * [closeParentSubNavs description]
-   * @return {[type]} [description]
+   * Close this nav.
    */
   closeThisSubNav() {
     this.elem.classList.remove(this.options.itemExpandedClass);
@@ -194,20 +203,7 @@ export default class NavAbstract {
   }
 
   /**
-   * Set the focus on the specified link in this nav.
-   *
-   * @param {String|Number} link - 'first' | 'last' | 'next'
-   *                                | 'prev' | numerical index
-   * @param {NavItem} currentItem - If link is 'next' or 'prev', currentItem
-   *                                is the NavItem that next / prev is
-   *                                relative to.
-   */
-  focusOn(link, currentItem = null) {
-    // console.log('This function has been deprecated.');
-  }
-
-  /**
-   * [getDepth description]
+   * Get the depth of nesting for this menu. (starts at 1).
    */
   getDepth() {
     return this.depth;

@@ -2,6 +2,10 @@ import '../../core/core';
 import Nav from './Nav';
 import {mainEvents} from './MainEvents';
 
+/**
+ * Initiate the main nav elements on the page when the dom content is loaded.
+ *
+ */
 document.addEventListener('DOMContentLoaded', event => {
 
   // The css class that this following behaviour is applied to.
@@ -10,7 +14,8 @@ document.addEventListener('DOMContentLoaded', event => {
   // All main navs.
   const navs = document.querySelectorAll('.' + navClass);
 
-  // Event Overrides.
+  // Event Overrides. These custom functions are for the first level items on
+  // desktop only as they have different behaviour than all other items.
   let customEvents = mainEvents();
 
   // Loop through each of the navs and create a new instance.
@@ -18,8 +23,7 @@ document.addEventListener('DOMContentLoaded', event => {
 
     // Main nav default constructor options.
     let options = {
-      zIndex: null,
-      toggle: null,
+      zIndex: null, // Explicit index value to give with JS after domready.
       toggleSelector: ' > button',
       toggleClass: 'su-main-nav__toggle',
       itemExpandedClass: 'su-main-nav__item--expanded',

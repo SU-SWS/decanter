@@ -2,31 +2,26 @@ import 'custom-event-polyfill'; // @see https://github.com/krambuhl/custom-event
 import NavItem from './NavItem';
 
 /**
- * Represent an item in a navigation menu. May be a direct link or a subnav
- * trigger.
+ * Sub Navigation item.
  *
- * @prop {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
- * @prop {HTMLElement|Nav} nav    - the Nav that contains the element.
- *                                  May be a main nav (<nav>) or subnav (Nav).
- * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
- *                                  item (the <li>).
- * @prop {Nav}             subNav - if item is the trigger for a subnav, this
- *                                  is an instonce Nav that models the subnav.
+ * This class represents a menu list item with another menu in it.
  */
 export default class SubNavItem extends NavItem {
 
   /**
    * Create a NavItem
-   * @param {HTMLLIElement}   item  - The <li> that is the NavItem in the DOM.
-   * @param {HTMLElement|Nav} nav   - The Nav that contains the element. May
-   *                                  be a main nav (<nav>) or a subnav (Nav).
+   * @param {HTMLLIElement} item  - The <li> that is the NavItem in the DOM.
+   * @param {NavAbstract} nav     - An instance or extension of NavAbstract.
+   * @param {Object} options      - A simple object of key values used as
+   *                                configuration options for each instance.
    */
   constructor(item, nav, options) {
 
     // I'm feelin supa!
     super(item, nav, options);
 
-    // Create the children navs based on the parent constructor.
+    // Create the children navs based on the parent constructor as we can
+    // have different parent nav classes.
     let construct = nav.constructor;
     let navOptions = options;
     navOptions.depth = nav.getDepth() + 1;
@@ -62,7 +57,7 @@ export default class SubNavItem extends NavItem {
     }
     else {
       this.openSubNav();
-      this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul li a').focus();
+      this.getElement('firstSubnavLink').focus();
     }
   }
 
@@ -84,7 +79,6 @@ export default class SubNavItem extends NavItem {
    *
    * If this is a subnav trigger or an item in a subnav, close the
    * corresponding subnav. Optionally force focus on the trigger.
-   *
    */
   closeSubNav() {
     this.item.dispatchEvent(this.preCloseEvent);
@@ -120,16 +114,19 @@ export default class SubNavItem extends NavItem {
   }
 
   /**
-   * [onKeydown description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * Event handler for key press: Left Arrow
+   *
+   * Go and focus on the previous sibling of this item.
+   *
+   * @param {KeyboardEvent} event - The keyboard event.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownArrowLeft(event, target) {
     // Go up a level and close the nav.
     event.preventDefault();
 
     if (this.getDepth() > 1) {
-      this.item.parentNode.parentNode.firstElementChild.focus();
+      this.getElement('parentItem').focus();
       this.nav.closeAllSubNavs();
       this.nav.closeThisSubNav();
     }
@@ -139,78 +136,100 @@ export default class SubNavItem extends NavItem {
   }
 
   /**
-   * [onKeydown description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * Event handler for key press: Right Arrow
+   *
+   * Go and focus on the next sibling of this item.
+   *
+   * @param {KeyboardEvent} event - The keyboard event.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownArrowRight(event, target) {
     // Go down a level and open the SubNav.
     event.preventDefault();
     this.openSubNav();
-    this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul li a').focus();
+    this.getElement('firstSubnavLink').focus();
   }
 
   /**
-   * [onKeydown description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * Event handler for key press: Space
+   *
+   * Do what the click would have done by passing through the event.
+   *
+   * @param {KeyboardEvent} event - The keyboard event.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownSpace(event, target) {
     this.onClick(event, target);
   }
 
   /**
-   * [onKeydown description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * Event handler for key press: Enter
+   *
+   * Do what the click would have done by passing through the event.
+   *
+   * @param {KeyboardEvent} event - The keyboard event.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownEnter(event, target) {
     this.onClick(event, target);
   }
 
   /**
-   * [createCustomEvents description]
+   * Returns an HTML element relative to this current item.
+   *
+   * @param {String} what A key for the switch statement. (first, last, etc).
+   *
+   * @return {HTMLElement|False} The HTMLElement related to the passed in key.
+   */
+  getElement(what) {
+    switch(what) {
+      case 'firstSubnavLink':
+        return this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul li a');
+
+      case 'firstSubnavItem':
+        return this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul li');
+
+      case 'subnav':
+        return this.item.querySelector('#' + this.item.getAttribute('id') + ' > ul');
+    }
+
+    // Carry along to the parent class for more.
+    return super.getElement(what);
+  }
+
+  /**
+   * Create some custom event listeners.
+   *
+   * Before and after opening a subnav item fire off custom events. These are
+   * the custom events.
    */
   createCustomEvents() {
-    // Add custom events to alert others when a subnav opens or closes.
-    // this.openEvent is dispatched in this.openSubNav().
+    // CustomEvent Options.
+    let opts = {
+      bubbles: true,
+      detail: {
+        nav: this.nav
+      }
+    };
+    // this.preOpenEvent is dispatched in this.openSubNav().
     this.preOpenEvent = new CustomEvent(
       'preOpenSubnav',
-      {
-        bubbles: true,
-        detail: {
-          nav: this.nav
-        }
-      }
+      opts
     );
-    // this.closeEvent is dispatched in this.closeSubNav().
+    // this.openEvent is dispatched in this.openSubNav().
     this.openEvent = new CustomEvent(
       'openSubnav',
-      {
-        bubbles: true,
-        detail: {
-          nav: this.nav
-        }
-      }
+      opts
     );
-    // this.closeEvent is dispatched in this.closeSubNav().
+    // this.preCloseEvent is dispatched in this.closeSubNav().
     this.preCloseEvent = new CustomEvent(
       'preCloseSubnav',
-      {
-        bubbles: true,
-        detail: {
-          nav: this.nav
-        }
-      }
+      opts
     );
+    // this.closeEvent is dispatched in this.closeSubNav().
     this.closeEvent = new CustomEvent(
       'closeSubnav',
-      {
-        bubbles: true,
-        detail: {
-          nav: this.nav
-        }
-      }
+      opts
     );
   }
 }

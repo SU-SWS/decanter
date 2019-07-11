@@ -12,6 +12,8 @@ export default class NavItem extends NavItemAbstract {
  *
  * @param {HTMLLIElement} item  - The <li> that is the NavItem in the DOM.
  * @param {NavAbstract} nav     - An instance or extension of NavAbstract.
+ * @param {Object} options      - A simple object of key values used as
+ *                                configuration options for each instance.
  */
   constructor(item, nav, options) {
     super(item, nav, options);
@@ -73,10 +75,10 @@ export default class NavItem extends NavItemAbstract {
     let node = null;
 
     if (shifted) {
-      node = this.item.previousElementSibling;
+      node = this.getElement('prev');
     }
     else {
-      node = this.item.nextElementSibling;
+      node = this.getElement('next');
     }
 
     if (!node) {
@@ -89,17 +91,19 @@ export default class NavItem extends NavItemAbstract {
   }
 
   /**
-   * [onKeydownHome description]
+   * Event handler for key press: Space
+   *
    * @param {KeyboardEvent} event - The keyboard event.
    * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownSpace(event, target) {
-    event.preventDefault();
-    window.location = this.link.getAttribute('href');
+    event.stopPropagation();
+    // window.location = this.link.getAttribute('href');
   }
 
   /**
-   * [onKeydownHome description]
+   * Event handler for key press: Up Arrow
+   *
    * @param {KeyboardEvent} event - The keyboard event.
    * @param {HTMLElement} target  - The HTML element target.
    */
@@ -107,7 +111,7 @@ export default class NavItem extends NavItemAbstract {
     event.preventDefault();
 
     // Go to the previous item.
-    let node = this.link.parentNode.previousElementSibling;
+    let node = this.getElement('prevElement');
     if (node !== null) {
       node.firstChild.focus();
     }
@@ -124,7 +128,7 @@ export default class NavItem extends NavItemAbstract {
   onKeydownArrowLeft(event, target) {
     // If this is a nested item. Go back up a level.
     if (this.getDepth() > 1) {
-      let node = this.item.parentNode.parentNode.firstElementChild;
+      let node = this.getElement('parentItem');
       if (node) {
         this.nav.closeAllSubNavs();
         this.nav.closeThisSubNav();
