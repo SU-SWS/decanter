@@ -40,9 +40,6 @@ export default class NavItemAbstract {
    * appropriate handler.
    *
    * @param {KeyboardEvent} event - The keyboard event.
-   *
-   * @return {*}
-   *   Whatever the dispatched handler returns (in our case nothing)
    */
   handleEvent(event) {
     event = event || window.event;
@@ -61,8 +58,6 @@ export default class NavItemAbstract {
    *
    * @param {KeyboardEvent} event - The keyboard event object.
    * @param {HTMLElement} target  - The HTML element target.
-   *
-   * @return {*} - Mixed
    */
   onKeydown(event, target) {
     let theKey = event.key || event.keyCode;
@@ -86,9 +81,9 @@ export default class NavItemAbstract {
    * [callEvent description]
    * @param {KeyboardEvent} event - The keyboard event object.
    * @param {HTMLElement} target  - The HTML element target.
-   * @param  {String} handler         [description]
+   * @param  {String} handler     - the name of the function handler.
    *
-   * @return {*}                 [description]
+   * @return {*} mixed.
    */
   callEvent(event, target, handler) {
 
