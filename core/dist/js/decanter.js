@@ -912,9 +912,6 @@ function () {
    * appropriate handler.
    *
    * @param {KeyboardEvent} event - The keyboard event.
-   *
-   * @return {*}
-   *   Whatever the dispatched handler returns (in our case nothing)
    */
 
 
@@ -933,8 +930,6 @@ function () {
      *
      * @param {KeyboardEvent} event - The keyboard event object.
      * @param {HTMLElement} target  - The HTML element target.
-     *
-     * @return {*} - Mixed
      */
 
   }, {
@@ -956,9 +951,9 @@ function () {
      * [callEvent description]
      * @param {KeyboardEvent} event - The keyboard event object.
      * @param {HTMLElement} target  - The HTML element target.
-     * @param  {String} handler         [description]
+     * @param  {String} handler     - the name of the function handler.
      *
-     * @return {*}                 [description]
+     * @return {*} mixed.
      */
 
   }, {
@@ -2122,21 +2117,21 @@ function (_SubNavItem) {
   }, {
     key: "onKeydownArrowDown",
     value: function onKeydownArrowDown(event, target) {
-      // If on the toggle item and the menu is expanded go down in to the first
-      // menu item link as the focus.
-      if (target === this.toggle && this.isExpanded()) {
-        event.stopPropagation();
-        event.preventDefault();
-        this.getElement('firstSubnavLink').focus();
-        return;
-      } // If current focus is on the toggle and the menu is not open, go to the
-      // next sibling menu item.
+      if (target === this.toggle) {
+        // If on the toggle item and the menu is expanded go down in to the first
+        // menu item link as the focus.
+        if (this.isExpanded()) {
+          event.stopPropagation();
+          event.preventDefault();
+          this.getElement('firstSubnavLink').focus();
+          return;
+        } // If current focus is on the toggle and the menu is not open, go to the
+        // next sibling menu item.
+        else {
+            _get(_getPrototypeOf(ToggleSubNavItem.prototype), "onKeydownArrowRight", this).call(this, event, this.link);
 
-
-      if (target === this.toggle && !this.isExpanded()) {
-        _get(_getPrototypeOf(ToggleSubNavItem.prototype), "onKeydownArrowRight", this).call(this, event, this.link);
-
-        return;
+            return;
+          }
       } // If the focus is current not on the toggle, let the super class do it.
 
 
@@ -2383,6 +2378,7 @@ var isDownArrow = function isDownArrow(theKey) {
  */
 
 var normalizeKey = function normalizeKey(theKey) {
+  // Key Value Map of the normalized string and the check function.
   var map = {
     home: isHome,
     end: isEnd,
@@ -2401,7 +2397,6 @@ var normalizeKey = function normalizeKey(theKey) {
 
   for (var _i = 0; _i < _arr.length; _i++) {
     var entry = _arr[_i];
-    console.log(entry);
 
     if (entry[1](theKey)) {
       return entry[0];

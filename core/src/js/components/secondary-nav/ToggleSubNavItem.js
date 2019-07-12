@@ -174,20 +174,21 @@ export default class ToggleSubNavItem extends SubNavItem {
    */
   onKeydownArrowDown(event, target) {
 
-    // If on the toggle item and the menu is expanded go down in to the first
-    // menu item link as the focus.
-    if (target === this.toggle && this.isExpanded()) {
-      event.stopPropagation();
-      event.preventDefault();
-      this.getElement('firstSubnavLink').focus();
-      return;
-    }
-
-    // If current focus is on the toggle and the menu is not open, go to the
-    // next sibling menu item.
-    if (target === this.toggle && !this.isExpanded()) {
-      super.onKeydownArrowRight(event, this.link);
-      return;
+    if (target === this.toggle) {
+      // If on the toggle item and the menu is expanded go down in to the first
+      // menu item link as the focus.
+      if (this.isExpanded()) {
+        event.stopPropagation();
+        event.preventDefault();
+        this.getElement('firstSubnavLink').focus();
+        return;
+      }
+      // If current focus is on the toggle and the menu is not open, go to the
+      // next sibling menu item.
+      else {
+        super.onKeydownArrowRight(event, this.link);
+        return;
+      }
     }
 
     // If the focus is current not on the toggle, let the super class do it.
