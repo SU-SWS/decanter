@@ -30,9 +30,9 @@ export const normalizeKey = (theKey) => {
     escape: isEsc,
     space: isSpace,
     enter: isEnter,
-    arrowLeft : isLeftArrow,
+    arrowLeft: isLeftArrow,
     arrowRight: isRightArrow,
-    arrowUp : isUpArrow,
+    arrowUp: isUpArrow,
     arrowDown: isDownArrow
   };
 
