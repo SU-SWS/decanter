@@ -408,7 +408,7 @@ function () {
       sub: _SubNavItem__WEBPACK_IMPORTED_MODULE_1__["default"]
     }; // Set the z-index if configured.
 
-    if (this.options.zIndex > 1) {
+    if (this.options.zIndex > 1 && this.depth === 1) {
       this.elem.style.zIndex = this.options.zIndex;
     } // Give this instance a unique ID.
 
