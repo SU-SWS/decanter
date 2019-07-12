@@ -328,6 +328,192 @@ function (_NavAbstract) {
       if (this.toggle && window.innerWidth > 768) {
         this.closeAllSubNavs();
       }
+    } // ---------------------------------------------------------------------------
+    // Deprecated functions
+    // ---------------------------------------------------------------------------
+
+    /**
+     * Deprecated.
+     */
+
+  }, {
+    key: "getTopNav",
+    value: function getTopNav() {
+      return this.elem.closest('nav');
+    }
+    /**
+     * Deprecated.
+     */
+
+  }, {
+    key: "getParentNav",
+    value: function getParentNav() {
+      // New version intentionally doesn't know about parents. How to do this?
+      return this;
+    }
+    /**
+     * Deprecated
+     */
+
+  }, {
+    key: "isExpanded",
+    value: function isExpanded() {
+      if (this.toggle) {
+        return this.toggle.isExpanded();
+      }
+
+      return false;
+    }
+    /**
+     * Deprecated
+     */
+
+  }, {
+    key: "setExpanded",
+    value: function setExpanded() {
+      if (this.toggle) {
+        return this.toggle.setExpanded();
+      }
+
+      return false;
+    }
+    /**
+     * Deprecated
+     */
+
+  }, {
+    key: "isDesktopNav",
+    value: function isDesktopNav() {
+      return window.innerWidth > 768;
+    }
+    /**
+     * Deprecated.
+     */
+
+  }, {
+    key: "isTopNav",
+    value: function isTopNav() {
+      return this.getDepth() === 1;
+    }
+    /**
+     * Deprecated.
+     */
+
+  }, {
+    key: "isSubNav",
+    value: function isSubNav() {
+      return this.subNavItems.length > 0;
+    }
+    /**
+     * Deprecated.
+     */
+
+  }, {
+    key: "getFirstItem",
+    value: function getFirstItem() {
+      return this.elem.firstElementChild;
+    }
+    /**
+     * Deprecated
+     */
+
+  }, {
+    key: "getLastItem",
+    value: function getLastItem() {
+      return this.elem.lastElementChild;
+    }
+    /**
+     * Deprecated.
+     */
+
+  }, {
+    key: "getFirstLink",
+    value: function getFirstLink() {
+      return this.elem.querySelector('a');
+    }
+    /**
+     * Deprecated.
+     */
+
+  }, {
+    key: "getLastLink",
+    value: function getLastLink() {
+      return this.elem.querySelector(this.tagName + ' > li > a');
+    }
+    /**
+     * Deprecated.
+     */
+
+  }, {
+    key: "focusOn",
+    value: function focusOn(link) {
+      var currentItem = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+      switch (link) {
+        case 'first':
+          this.getFirstLink().focus();
+          break;
+
+        case 'last':
+          this.getLastLink().focus();
+          break;
+
+        case 'next':
+          this.getLastLink().focus();
+          break;
+
+        case 'prev':
+          this.getFirstLink().focus();
+          break;
+
+        default:
+          try {
+            this.elem.querySelectorAll('a')[link].focus();
+          } catch (err) {// Nada.
+          }
+
+          break;
+      }
+    }
+    /**
+     * Deprecated.
+     */
+
+  }, {
+    key: "openMobileNav",
+    value: function openMobileNav() {
+      var focusOnFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+      if (this.toggle) {
+        this.toggle.openNav(focusOnFirst);
+      }
+    }
+    /**
+     * Deprecated.
+     */
+
+  }, {
+    key: "closeMobileNav",
+    value: function closeMobileNav() {
+      if (this.toggle) {
+        this.toggle.closeNav();
+      }
+    }
+    /**
+     * Deprecated.
+     */
+
+  }, {
+    key: "onClick",
+    value: function onClick(event, target) {} // Functionality moved to the toggle class.
+
+    /**
+     * Deprecated.
+     */
+
+  }, {
+    key: "onKeydown",
+    value: function onKeydown(event, target) {// Events have been moved to navItem and navToggle.
     }
   }]);
 

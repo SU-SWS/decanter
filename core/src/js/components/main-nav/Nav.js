@@ -126,4 +126,156 @@ export default class Nav extends NavAbstract {
     }
   }
 
+  // ---------------------------------------------------------------------------
+  // Deprecated functions
+  // ---------------------------------------------------------------------------
+
+  /**
+   * Deprecated.
+   */
+  getTopNav() {
+    return this.elem.closest('nav');
+  }
+
+  /**
+   * Deprecated.
+   */
+  getParentNav() {
+    // New version intentionally doesn't know about parents. How to do this?
+    return this;
+  }
+
+  /**
+   * Deprecated
+   */
+  isExpanded() {
+    if (this.toggle) {
+      return this.toggle.isExpanded();
+    }
+    return false;
+  }
+
+  /**
+   * Deprecated
+   */
+  setExpanded() {
+    if (this.toggle) {
+      return this.toggle.setExpanded();
+    }
+    return false;
+  }
+
+  /**
+   * Deprecated
+   */
+  isDesktopNav() {
+    return (window.innerWidth > 768);
+  }
+
+  /**
+   * Deprecated.
+   */
+  isTopNav() {
+    return (this.getDepth() === 1);
+  }
+
+  /**
+   * Deprecated.
+   */
+  isSubNav() {
+    return (this.subNavItems.length > 0);
+  }
+
+  /**
+   * Deprecated.
+   */
+  getFirstItem() {
+    return this.elem.firstElementChild;
+  }
+
+  /**
+   * Deprecated
+   */
+  getLastItem() {
+    return this.elem.lastElementChild;
+  }
+
+  /**
+   * Deprecated.
+   */
+  getFirstLink() {
+    return this.elem.querySelector('a');
+  }
+
+  /**
+   * Deprecated.
+   */
+  getLastLink() {
+    return this.elem.querySelector(this.tagName + ' > li > a');
+  }
+
+  /**
+   * Deprecated.
+   */
+  focusOn(link, currentItem = null) {
+    switch (link) {
+      case 'first':
+        this.getFirstLink().focus();
+        break;
+
+      case 'last':
+        this.getLastLink().focus();
+        break;
+
+      case 'next':
+        this.getLastLink().focus();
+        break;
+
+      case 'prev':
+        this.getFirstLink().focus();
+        break;
+
+      default:
+        try {
+          this.elem.querySelectorAll('a')[link].focus();
+        }
+        catch(err) {
+          // Nada.
+        }
+        break;
+    }
+  }
+
+  /**
+   * Deprecated.
+   */
+  openMobileNav(focusOnFirst = true) {
+    if (this.toggle) {
+      this.toggle.openNav(focusOnFirst);
+    }
+  }
+
+  /**
+   * Deprecated.
+   */
+  closeMobileNav() {
+    if (this.toggle) {
+      this.toggle.closeNav();
+    }
+  }
+
+  /**
+   * Deprecated.
+   */
+  onClick(event, target) {
+    // Functionality moved to the toggle class.
+  }
+
+  /**
+   * Deprecated.
+   */
+  onKeydown(event, target) {
+    // Events have been moved to navItem and navToggle.
+  }
+
 }
