@@ -21,36 +21,28 @@ export const isDownArrow = theKey => (theKey === 'ArrowDown' || theKey === 'Down
  * @return {String} A string name for the key that was pressed.
  */
 export const normalizeKey = (theKey) => {
-  let ret = false;
-  if (isHome(theKey)) {
-    ret = 'home';
+
+  // Key Value Map of the normalized string and the check function.
+  const map = {
+    home: isHome,
+    end: isEnd,
+    tab: isTab,
+    escape: isEsc,
+    space: isSpace,
+    enter: isEnter,
+    arrowLeft : isLeftArrow,
+    arrowRight: isRightArrow,
+    arrowUp : isUpArrow,
+    arrowDown: isDownArrow
+  };
+
+  // Loop through the key/val object and run the check function (val) in order
+  // to return the normalized string (key)
+  for (var entry of Object.entries(map)) {
+    if (entry[1](theKey)) {
+      return entry[0];
+    }
   }
-  else if (isEnd(theKey)) {
-    ret = 'end';
-  }
-  else if (isTab(theKey)) {
-    ret = 'tab';
-  }
-  else if (isEsc(theKey)) {
-    ret = 'escape';
-  }
-  else if (isSpace(theKey)) {
-    ret = 'space';
-  }
-  else if (isEnter(theKey)) {
-    ret = 'enter';
-  }
-  if (isLeftArrow(theKey)) {
-    ret = 'arrowLeft';
-  }
-  else if (isRightArrow(theKey)) {
-    ret = 'arrowRight';
-  }
-  else if (isUpArrow(theKey)) {
-    ret = 'arrowUp';
-  }
-  else if (isDownArrow(theKey)) {
-    ret = 'arrowDown';
-  }
-  return ret;
+
+  return false;
 };

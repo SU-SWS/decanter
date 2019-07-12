@@ -2383,33 +2383,32 @@ var isDownArrow = function isDownArrow(theKey) {
  */
 
 var normalizeKey = function normalizeKey(theKey) {
-  var ret = false;
+  var map = {
+    home: isHome,
+    end: isEnd,
+    tab: isTab,
+    escape: isEsc,
+    space: isSpace,
+    enter: isEnter,
+    arrowLeft: isLeftArrow,
+    arrowRight: isRightArrow,
+    arrowUp: isUpArrow,
+    arrowDown: isDownArrow
+  }; // Loop through the key/val object and run the check function (val) in order
+  // to return the normalized string (key)
 
-  if (isHome(theKey)) {
-    ret = 'home';
-  } else if (isEnd(theKey)) {
-    ret = 'end';
-  } else if (isTab(theKey)) {
-    ret = 'tab';
-  } else if (isEsc(theKey)) {
-    ret = 'escape';
-  } else if (isSpace(theKey)) {
-    ret = 'space';
-  } else if (isEnter(theKey)) {
-    ret = 'enter';
+  var _arr = Object.entries(map);
+
+  for (var _i = 0; _i < _arr.length; _i++) {
+    var entry = _arr[_i];
+    console.log(entry);
+
+    if (entry[1](theKey)) {
+      return entry[0];
+    }
   }
 
-  if (isLeftArrow(theKey)) {
-    ret = 'arrowLeft';
-  } else if (isRightArrow(theKey)) {
-    ret = 'arrowRight';
-  } else if (isUpArrow(theKey)) {
-    ret = 'arrowUp';
-  } else if (isDownArrow(theKey)) {
-    ret = 'arrowDown';
-  }
-
-  return ret;
+  return false;
 };
 
 /***/ }),
