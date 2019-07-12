@@ -75,15 +75,19 @@
 
   // First level nav items.
   > ul > li {
-    @include grid-media("lg") {
-      // First level expanded items.
-      // First level parent items.
-      &.su-main-nav__item--expanded {
-        &.su-main-nav__item--parent {
-          > a {
+    // First level expanded items.
+    // First level parent items.
+    &.su-main-nav__item--expanded {
+      &.su-main-nav__item--parent {
+        > a {
+          @include grid-media("lg") {
             &::after {
               background-size: 100%;
               background-image: url("#{$image-path}/caret-down-black.svg");
+            }
+
+            &::before {
+              background-color: color(h--border-expanded, $nav-light-colors);
             }
           }
         }
@@ -110,6 +114,15 @@
         }
       }
     }
+  }
 
+  &.su-main-nav--mobile-search {
+    .su-main-nav__toggle[aria-expanded="true"] {
+      @include grid-media-max('md') {
+        + .su-main-nav__menu-lv1 + .su-site-search {
+          background-color: color(bg, $nav-light-colors);
+        }
+      }
+    }
   }
 }
