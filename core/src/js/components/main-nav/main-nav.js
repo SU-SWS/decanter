@@ -4,7 +4,6 @@ import {mainEvents} from './MainEvents';
 
 /**
  * Initiate the main nav elements on the page when the dom content is loaded.
- *
  */
 document.addEventListener('DOMContentLoaded', event => {
 

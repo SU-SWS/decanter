@@ -41,7 +41,7 @@ export default class NavAbstract {
     this.depth = options.depth || 1;
     // The toggle menu button or none.
     this.toggle = options.toggle || false;
-    // The JS Classes to use for building nav items.
+    // The JS Classes to use for building children nav items.
     this.itemClasses = options.itemClasses || {
       single: NavItem,
       sub: SubNavItem
@@ -64,7 +64,10 @@ export default class NavAbstract {
     this.itemExpandedClass = options.itemExpandedClass || 'expanded';
     // Set the active path on the menu tree.
     if (this.options.activePath === true) {
+      // Set it from the parent most nav.
       this.setActivePath();
+      // Only run once.
+      this.options.activePath = false;
     }
   }
 
@@ -78,13 +81,21 @@ export default class NavAbstract {
     let items = this.elem.querySelectorAll('#' + this.id + ' > ul > li');
     items.forEach(
       item => {
-        // SubNavItems have special behaviour.
+        // SubNavItems have special behaviour so they have their own class.
+        // Caller can pass in different classes but must extend or interface
+        // subNavItem.
         if (item.querySelector(item.tagName + ' > ul')) {
-          this.subNavItems.push(new this.itemClasses['sub'](item, this, this.options));
+          this.subNavItems.push(
+            new this.itemClasses['sub'](item, this, this.options)
+          );
         }
         // NavItems have specific event handling.
+        // Caller can pass in different classes but must extend or interface
+        // navItemAbstract.
         else {
-          this.navItems.push(new this.itemClasses['single'](item, this, this.options));
+          this.navItems.push(
+            new this.itemClasses['single'](item, this, this.options)
+          );
         }
       }
     );
@@ -99,10 +110,7 @@ export default class NavAbstract {
    * based on the event type. If found, it dispatches the event to the
    * appropriate handler.
    *
-   * @param {KeyboardEvent} event - The keyboard event.
-   *
-   * @return {*}
-   *   Whatever the dispatched handler returns (in our case nothing)
+   * @param {Event} event - The triggering event.
    */
   handleEvent(event) {
     event = event || window.event;
@@ -121,7 +129,7 @@ export default class NavAbstract {
     }
     // Otherwise, check to see if we have an event available.
     else if (typeof this[handler] === 'function') {
-      return this[handler](event, target);
+      this[handler](event, target);
     }
   }
 
@@ -133,18 +141,25 @@ export default class NavAbstract {
    * the menu tree back to the root.
    */
   setActivePath() {
-    let pathname = window.location.pathname;
-    let anchor = window.location.hash;
-    let currentItem;
+    let path = window.location.pathname;
+    let anchor = window.location.hash || '';
+    let query = window.location.search || '';
+    let currentItem = false;
 
-    // If there is an anchor in the URL use that to find <a>'s in this menu.
-    // Otherwise, try to find a matching path string in the <a>'s href.
-    if (!anchor) {
-      currentItem = this.elem.querySelector("a[href*='" + pathname + "']");
-    }
-    else {
-      currentItem = this.elem.querySelector("a[href*='" + anchor + "']");
-    }
+    // Queries to run to find matching active paths in order of unqiueness.
+    let finders = [
+      this.elem.querySelector("a[href*='" + anchor + "']"),
+      this.elem.querySelector("a[href*='" + query + "']"),
+      this.elem.querySelector("a[href='" + path + query + anchor + "']"),
+      this.elem.querySelector("a[href*='" + path + query + "']")
+    ];
+
+    // Go through the queries and see if we have any results.
+    finders.forEach(function(val) {
+      if (!currentItem && val) {
+        currentItem = val;
+      }
+    });
 
     // Can't find anything. End.
     if (!currentItem) {

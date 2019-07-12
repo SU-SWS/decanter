@@ -219,22 +219,23 @@ function (_NavAbstract) {
 
     _classCallCheck(this, Nav);
 
+    // Run the NavAbstract class first.
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Nav).call(this, elem, options)); // Create navItems.
 
     _this.createNavItems(); // Initialize the event listeners.
 
 
-    _this.createEventListeners(); // Gobble gobble toggle toggle.
+    _this.createEventListeners(); // Create the Mobile/Desktop nav toggle..
 
 
     if (options.toggleSelector) {
       _this.createNavToggle();
-    } // Add an active class to the children.
+    } // Add an active class to items that match the current url.
 
 
     if (options.activePath) {
       _this.setActivePath();
-    } // Expand to the active path.
+    } // Expand to the active items.
 
 
     if (options.expandActivePath) {
@@ -244,7 +245,7 @@ function (_NavAbstract) {
     return _this;
   }
   /**
-   * [createEventListeners description]
+   * Create new event listeners for the nav element and our custom events.
    */
 
 
@@ -260,9 +261,9 @@ function (_NavAbstract) {
     // -------------------------------------------------------------------------
 
     /**
-     * [preOpenSubnav description]
-     * @param  {[type]} event     [description]
-     * @param  {[type]} parentNav [description]
+     * A subnav event was called. Handle it.
+     *
+     * @param {Event} event - The event object.
      */
 
   }, {
@@ -278,15 +279,16 @@ function (_NavAbstract) {
       }
     }
     /**
-     * [onKeydown description]
-     * @param  {[type]} event  [description]
-     * @param  {[type]} target [description]
+     * Handle the key press events.
+     *
+     * @param {KeyboardEvent} event - The keyboard event.
+     * @param {HTMLElement} target  - The HTML element target.
      */
 
   }, {
     key: "onKeydown",
     value: function onKeydown(event, target) {
-      var theKey = event.key || event.keyCode;
+      var theKey = event.key || event.keyCode; // Close all the navs.
 
       if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isEsc"])(theKey)) {
         this.closeAllSubNavs();
@@ -294,6 +296,8 @@ function (_NavAbstract) {
     }
     /**
      * Create the toggle element.
+     *
+     * The toggle element is the item that opens and closes the mobile nav menu.
      */
 
   }, {
@@ -321,8 +325,9 @@ function (_NavAbstract) {
     key: "expandActivePath",
     value: function expandActivePath() {
       // Let super do its thing first.
-      _get(_getPrototypeOf(Nav.prototype), "expandActivePath", this).call(this); // On Desktop with initial expanded menu items we need to collapse the first
-      // level only and leave the rest expanded.
+      _get(_getPrototypeOf(Nav.prototype), "expandActivePath", this).call(this); // This condition is specific for the main menu nav only as identified by
+      // the toggle item. On Desktop with initial expanded menu items we need to
+      // collapse the first level only and leave the rest expanded.
 
 
       if (this.toggle && window.innerWidth > 768) {
@@ -333,188 +338,54 @@ function (_NavAbstract) {
     // ---------------------------------------------------------------------------
 
     /**
-     * Deprecated.
+     * @deprecated since 5.0.1 to be removed in 6.0
      */
 
   }, {
     key: "getTopNav",
-    value: function getTopNav() {
-      return this.elem.closest('nav');
-    }
-    /**
-     * Deprecated.
-     */
-
+    value: function getTopNav() {}
   }, {
     key: "getParentNav",
-    value: function getParentNav() {
-      // New version intentionally doesn't know about parents. How to do this?
-      return this;
-    }
-    /**
-     * Deprecated
-     */
-
+    value: function getParentNav() {}
   }, {
     key: "isExpanded",
-    value: function isExpanded() {
-      if (this.toggle) {
-        return this.toggle.isExpanded();
-      }
-
-      return false;
-    }
-    /**
-     * Deprecated
-     */
-
+    value: function isExpanded() {}
   }, {
     key: "setExpanded",
-    value: function setExpanded() {
-      if (this.toggle) {
-        return this.toggle.setExpanded();
-      }
-
-      return false;
-    }
-    /**
-     * Deprecated
-     */
-
+    value: function setExpanded() {}
   }, {
     key: "isDesktopNav",
-    value: function isDesktopNav() {
-      return window.innerWidth > 768;
-    }
-    /**
-     * Deprecated.
-     */
-
+    value: function isDesktopNav() {}
   }, {
     key: "isTopNav",
-    value: function isTopNav() {
-      return this.getDepth() === 1;
-    }
-    /**
-     * Deprecated.
-     */
-
+    value: function isTopNav() {}
   }, {
     key: "isSubNav",
-    value: function isSubNav() {
-      return this.subNavItems.length > 0;
-    }
-    /**
-     * Deprecated.
-     */
-
+    value: function isSubNav() {}
   }, {
     key: "getFirstItem",
-    value: function getFirstItem() {
-      return this.elem.firstElementChild;
-    }
-    /**
-     * Deprecated
-     */
-
+    value: function getFirstItem() {}
   }, {
     key: "getLastItem",
-    value: function getLastItem() {
-      return this.elem.lastElementChild;
-    }
-    /**
-     * Deprecated.
-     */
-
+    value: function getLastItem() {}
   }, {
     key: "getFirstLink",
-    value: function getFirstLink() {
-      return this.elem.querySelector('a');
-    }
-    /**
-     * Deprecated.
-     */
-
+    value: function getFirstLink() {}
   }, {
     key: "getLastLink",
-    value: function getLastLink() {
-      return this.elem.querySelector(this.tagName + ' > li > a');
-    }
-    /**
-     * Deprecated.
-     */
-
+    value: function getLastLink() {}
   }, {
     key: "focusOn",
-    value: function focusOn(link) {
-      var currentItem = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
-
-      switch (link) {
-        case 'first':
-          this.getFirstLink().focus();
-          break;
-
-        case 'last':
-          this.getLastLink().focus();
-          break;
-
-        case 'next':
-          this.getLastLink().focus();
-          break;
-
-        case 'prev':
-          this.getFirstLink().focus();
-          break;
-
-        default:
-          try {
-            this.elem.querySelectorAll('a')[link].focus();
-          } catch (err) {// Nada.
-          }
-
-          break;
-      }
-    }
-    /**
-     * Deprecated.
-     */
-
+    value: function focusOn() {}
   }, {
     key: "openMobileNav",
-    value: function openMobileNav() {
-      var focusOnFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-
-      if (this.toggle) {
-        this.toggle.openNav(focusOnFirst);
-      }
-    }
-    /**
-     * Deprecated.
-     */
-
+    value: function openMobileNav() {}
   }, {
     key: "closeMobileNav",
-    value: function closeMobileNav() {
-      if (this.toggle) {
-        this.toggle.closeNav();
-      }
-    }
-    /**
-     * Deprecated.
-     */
-
+    value: function closeMobileNav() {}
   }, {
     key: "onClick",
-    value: function onClick(event, target) {} // Functionality moved to the toggle class.
-
-    /**
-     * Deprecated.
-     */
-
-  }, {
-    key: "onKeydown",
-    value: function onKeydown(event, target) {// Events have been moved to navItem and navToggle.
-    }
+    value: function onClick() {}
   }]);
 
   return Nav;
@@ -587,7 +458,7 @@ function () {
 
     this.depth = options.depth || 1; // The toggle menu button or none.
 
-    this.toggle = options.toggle || false; // The JS Classes to use for building nav items.
+    this.toggle = options.toggle || false; // The JS Classes to use for building children nav items.
 
     this.itemClasses = options.itemClasses || {
       single: _NavItem__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -612,7 +483,10 @@ function () {
     this.itemExpandedClass = options.itemExpandedClass || 'expanded'; // Set the active path on the menu tree.
 
     if (this.options.activePath === true) {
-      this.setActivePath();
+      // Set it from the parent most nav.
+      this.setActivePath(); // Only run once.
+
+      this.options.activePath = false;
     }
   }
   /**
@@ -630,10 +504,14 @@ function () {
 
       var items = this.elem.querySelectorAll('#' + this.id + ' > ul > li');
       items.forEach(function (item) {
-        // SubNavItems have special behaviour.
+        // SubNavItems have special behaviour so they have their own class.
+        // Caller can pass in different classes but must extend or interface
+        // subNavItem.
         if (item.querySelector(item.tagName + ' > ul')) {
           _this.subNavItems.push(new _this.itemClasses['sub'](item, _this, _this.options));
         } // NavItems have specific event handling.
+        // Caller can pass in different classes but must extend or interface
+        // navItemAbstract.
         else {
             _this.navItems.push(new _this.itemClasses['single'](item, _this, _this.options));
           }
@@ -648,10 +526,7 @@ function () {
      * based on the event type. If found, it dispatches the event to the
      * appropriate handler.
      *
-     * @param {KeyboardEvent} event - The keyboard event.
-     *
-     * @return {*}
-     *   Whatever the dispatched handler returns (in our case nothing)
+     * @param {Event} event - The triggering event.
      */
 
   }, {
@@ -667,7 +542,7 @@ function () {
         new this.options.itemEvents[handler](event, this);
       } // Otherwise, check to see if we have an event available.
       else if (typeof this[handler] === 'function') {
-          return this[handler](event, target);
+          this[handler](event, target);
         }
     }
     /**
@@ -681,17 +556,21 @@ function () {
   }, {
     key: "setActivePath",
     value: function setActivePath() {
-      var pathname = window.location.pathname;
-      var anchor = window.location.hash;
-      var currentItem; // If there is an anchor in the URL use that to find <a>'s in this menu.
-      // Otherwise, try to find a matching path string in the <a>'s href.
+      var path = window.location.pathname;
+      var anchor = window.location.hash || '';
+      var query = window.location.search || '';
+      var currentItem = false;
+      console.log(path + query + anchor); // Queries to run to find matching active paths in order of unqiueness.
 
-      if (!anchor) {
-        currentItem = this.elem.querySelector("a[href*='" + pathname + "']");
-      } else {
-        currentItem = this.elem.querySelector("a[href*='" + anchor + "']");
-      } // Can't find anything. End.
+      var finders = [this.elem.querySelector("a[href*='" + anchor + "']"), this.elem.querySelector("a[href*='" + query + "']"), this.elem.querySelector("a[href='" + path + query + anchor + "']"), this.elem.querySelector("a[href*='" + path + query + "']")]; // Go through the queries and see if we have any results.
 
+      finders.forEach(function (val) {
+        console.log(val);
+
+        if (!currentItem && val) {
+          currentItem = val;
+        }
+      }); // Can't find anything. End.
 
       if (!currentItem) {
         return;
@@ -1028,7 +907,36 @@ function (_NavItemAbstract) {
       } else {
         this.onKeydownArrowDown(event, target);
       }
-    }
+    } // Deprecated functions
+    // ---------------------------------------------------------------------------
+
+  }, {
+    key: "isFirstItem",
+    value: function isFirstItem() {}
+  }, {
+    key: "isLastItem",
+    value: function isLastItem() {}
+  }, {
+    key: "isSubNavTrigger",
+    value: function isSubNavTrigger() {}
+  }, {
+    key: "isSubNavItem",
+    value: function isSubNavItem() {}
+  }, {
+    key: "isExpanded",
+    value: function isExpanded() {}
+  }, {
+    key: "setExpanded",
+    value: function setExpanded() {}
+  }, {
+    key: "openSubNav",
+    value: function openSubNav() {}
+  }, {
+    key: "closeSubNav",
+    value: function closeSubNav() {}
+  }, {
+    key: "onClick",
+    value: function onClick() {}
   }]);
 
   return NavItem;
@@ -1855,7 +1763,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /**
  * Initiate the main nav elements on the page when the dom content is loaded.
- *
  */
 
 document.addEventListener('DOMContentLoaded', function (event) {

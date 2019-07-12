@@ -29,27 +29,34 @@ export default class Nav extends NavAbstract {
    *                                                  create single and sub nav items.
    */
   constructor(elem, options) {
+    // Run the NavAbstract class first.
     super(elem, options);
+
     // Create navItems.
     this.createNavItems();
+
     // Initialize the event listeners.
+
     this.createEventListeners();
-    // Gobble gobble toggle toggle.
+
+    // Create the Mobile/Desktop nav toggle..
     if (options.toggleSelector) {
       this.createNavToggle();
     }
-    // Add an active class to the children.
+
+    // Add an active class to items that match the current url.
     if (options.activePath) {
       this.setActivePath();
     }
-    // Expand to the active path.
+
+    // Expand to the active items.
     if (options.expandActivePath) {
       this.expandActivePath();
     }
   }
 
   /**
-   * [createEventListeners description]
+   * Create new event listeners for the nav element and our custom events.
    */
   createEventListeners() {
     // What do when key down?
@@ -64,9 +71,9 @@ export default class Nav extends NavAbstract {
   // -------------------------------------------------------------------------
 
   /**
-   * [preOpenSubnav description]
-   * @param  {[type]} event     [description]
-   * @param  {[type]} parentNav [description]
+   * A subnav event was called. Handle it.
+   *
+   * @param {Event} event - The event object.
    */
   onPreOpenSubnav(event) {
     // Somebody clicked a subnav trigger. Check to see if it is one of my
@@ -79,13 +86,15 @@ export default class Nav extends NavAbstract {
   }
 
   /**
-   * [onKeydown description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * Handle the key press events.
+   *
+   * @param {KeyboardEvent} event - The keyboard event.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydown(event, target) {
     const theKey = event.key || event.keyCode;
 
+    // Close all the navs.
     if (isEsc(theKey)) {
       this.closeAllSubNavs();
     }
@@ -93,6 +102,8 @@ export default class Nav extends NavAbstract {
 
   /**
    * Create the toggle element.
+   *
+   * The toggle element is the item that opens and closes the mobile nav menu.
    */
   createNavToggle() {
     // Find the element.
@@ -119,8 +130,9 @@ export default class Nav extends NavAbstract {
     // Let super do its thing first.
     super.expandActivePath();
 
-    // On Desktop with initial expanded menu items we need to collapse the first
-    // level only and leave the rest expanded.
+    // This condition is specific for the main menu nav only as identified by
+    // the toggle item. On Desktop with initial expanded menu items we need to
+    // collapse the first level only and leave the rest expanded.
     if (this.toggle && window.innerWidth > 768) {
       this.closeAllSubNavs();
     }
@@ -131,151 +143,22 @@ export default class Nav extends NavAbstract {
   // ---------------------------------------------------------------------------
 
   /**
-   * Deprecated.
+   * @deprecated since 5.0.1 to be removed in 6.0
    */
-  getTopNav() {
-    return this.elem.closest('nav');
-  }
-
-  /**
-   * Deprecated.
-   */
-  getParentNav() {
-    // New version intentionally doesn't know about parents. How to do this?
-    return this;
-  }
-
-  /**
-   * Deprecated
-   */
-  isExpanded() {
-    if (this.toggle) {
-      return this.toggle.isExpanded();
-    }
-    return false;
-  }
-
-  /**
-   * Deprecated
-   */
-  setExpanded() {
-    if (this.toggle) {
-      return this.toggle.setExpanded();
-    }
-    return false;
-  }
-
-  /**
-   * Deprecated
-   */
-  isDesktopNav() {
-    return (window.innerWidth > 768);
-  }
-
-  /**
-   * Deprecated.
-   */
-  isTopNav() {
-    return (this.getDepth() === 1);
-  }
-
-  /**
-   * Deprecated.
-   */
-  isSubNav() {
-    return (this.subNavItems.length > 0);
-  }
-
-  /**
-   * Deprecated.
-   */
-  getFirstItem() {
-    return this.elem.firstElementChild;
-  }
-
-  /**
-   * Deprecated
-   */
-  getLastItem() {
-    return this.elem.lastElementChild;
-  }
-
-  /**
-   * Deprecated.
-   */
-  getFirstLink() {
-    return this.elem.querySelector('a');
-  }
-
-  /**
-   * Deprecated.
-   */
-  getLastLink() {
-    return this.elem.querySelector(this.tagName + ' > li > a');
-  }
-
-  /**
-   * Deprecated.
-   */
-  focusOn(link, currentItem = null) {
-    switch (link) {
-      case 'first':
-        this.getFirstLink().focus();
-        break;
-
-      case 'last':
-        this.getLastLink().focus();
-        break;
-
-      case 'next':
-        this.getLastLink().focus();
-        break;
-
-      case 'prev':
-        this.getFirstLink().focus();
-        break;
-
-      default:
-        try {
-          this.elem.querySelectorAll('a')[link].focus();
-        }
-        catch(err) {
-          // Nada.
-        }
-        break;
-    }
-  }
-
-  /**
-   * Deprecated.
-   */
-  openMobileNav(focusOnFirst = true) {
-    if (this.toggle) {
-      this.toggle.openNav(focusOnFirst);
-    }
-  }
-
-  /**
-   * Deprecated.
-   */
-  closeMobileNav() {
-    if (this.toggle) {
-      this.toggle.closeNav();
-    }
-  }
-
-  /**
-   * Deprecated.
-   */
-  onClick(event, target) {
-    // Functionality moved to the toggle class.
-  }
-
-  /**
-   * Deprecated.
-   */
-  onKeydown(event, target) {
-    // Events have been moved to navItem and navToggle.
-  }
+  getTopNav() {}
+  getParentNav() {}
+  isExpanded() {}
+  setExpanded() {}
+  isDesktopNav() {}
+  isTopNav() {}
+  isSubNav() {}
+  getFirstItem() {}
+  getLastItem() {}
+  getFirstLink() {}
+  getLastLink() {}
+  focusOn() {}
+  openMobileNav() {}
+  closeMobileNav() {}
+  onClick() {}
 
 }

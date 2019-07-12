@@ -188,4 +188,17 @@ export default class NavItem extends NavItemAbstract {
     }
   }
 
+  // Deprecated functions
+  // ---------------------------------------------------------------------------
+
+  isFirstItem() {}
+  isLastItem() {}
+  isSubNavTrigger() {}
+  isSubNavItem() {}
+  isExpanded() {}
+  setExpanded() {}
+  openSubNav() {}
+  closeSubNav() {}
+  onClick() {}
+
 }
