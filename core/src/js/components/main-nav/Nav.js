@@ -130,8 +130,8 @@ export default class Nav extends NavAbstract {
     // Let super do its thing first.
     super.expandActivePath();
 
-    // This condition is specific for the main menu nav only as identified by
-    // the toggle item. On Desktop with initial expanded menu items we need to
+    // This condition is specific for the main menu nav only.
+    // On Desktop with initial expanded menu items we need to
     // collapse the first level only and leave the rest expanded.
     if (this.toggle && window.innerWidth > 768) {
       this.closeAllSubNavs();

@@ -10,8 +10,8 @@ export default class NavToggle {
    * Create a new toggle.
    *
    * @param {HTMLLIElement} element  - The <li> that is the NavItem in the DOM.
-   * @param {Object} options      - A simple object of key values used as
-   *                                configuration options for each instance.
+   * @param {Object} options         - A simple object of key values used as
+   *                                   configuration options for each instance.
    */
   constructor(element, options) {
     // Params.
@@ -72,9 +72,10 @@ export default class NavToggle {
   }
 
   /**
-   * [onKeydown description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * Handle the click event on the toggle.
+   *
+   * @param {Event} event         - The event object.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   onClick(event, target) {
 
@@ -97,9 +98,10 @@ export default class NavToggle {
   }
 
   /**
-   * [onKeydown description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
+   * Event handler for key: Down Arrow.
+   *
+   * @param {KeyboardEvent} event - The keyboard event object.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydown(event, target) {
     const theKey = event.key || event.keyCode;
@@ -119,7 +121,7 @@ export default class NavToggle {
    *                                 first element in the subnav.
    */
   openNav(focusOnFirst = true) {
-    this.setExpanded(true);
+    this.setExpanded('true');
     this.element.innerText = this.closeText;
 
     // Focus on the first link in the nav.
@@ -136,12 +138,15 @@ export default class NavToggle {
    * initially.
    */
   closeNav() {
-    if (this.isExpanded()) {
-      this.setExpanded('false');
-      this.element.innerText = this.toggleText;
-      // Alert others the  nav has closed.
-      this.element.dispatchEvent(this.closeEvent);
+
+    if (!this.isExpanded()) {
+      return;
     }
+
+    this.setExpanded('false');
+    this.element.innerText = this.toggleText;
+    // Alert others the  nav has closed.
+    this.element.dispatchEvent(this.closeEvent);
   }
 
   /**
@@ -166,7 +171,8 @@ export default class NavToggle {
 
   /**
    * Setter for nav property.
-   * @param {[type]} nav [description]
+   *
+   * @param {NavAbstract} nav The attached navigation item.
    */
   setNav(nav) {
     this.nav = nav;

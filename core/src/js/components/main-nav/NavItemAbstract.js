@@ -78,12 +78,11 @@ export default class NavItemAbstract {
   }
 
   /**
-   * [callEvent description]
+   * After handling has been done, actually execute the event.
+   *
    * @param {KeyboardEvent} event - The keyboard event object.
    * @param {HTMLElement} target  - The HTML element target.
    * @param  {String} handler     - the name of the function handler.
-   *
-   * @return {*} mixed.
    */
   callEvent(event, target, handler) {
 
@@ -97,7 +96,7 @@ export default class NavItemAbstract {
     }
     // Otherwise, check to see if we have an event available on this class.
     else if (typeof this[handler] === 'function') {
-      return this[handler](event, target);
+      this[handler](event, target);
     }
 
     // If an event has happened and we don't have a handler just let the browser
@@ -140,41 +139,6 @@ export default class NavItemAbstract {
   }
 
   /**
-   * Set the focus on an element.
-   *
-   * The focus to be set on the specified element in relation to this nav item.
-   *
-   * @param {String|Number} what    A key for the switch in getElement(). Options can
-   *                                include but are not limited to:
-   *                                first, last, next, prev, parentItem, parentButton
-   *                                DEPRECATED - Number, do not pass in numerical index.
-   * @param {NavItem} currentItem   DEPRECATED - DO NOT USE.
-   */
-  focusOn(what, currentItem = null) {
-    let element = false;
-
-    // See if `what` in an idex, otherwise get the relative keyword.
-    if (Number.isInteger(what)) {
-      try {
-        element = this.item.parentNode.querySelectorAll('li')[what];
-      }
-      catch (error) {
-        // `what` was an invalid index.
-        element = false;
-      }
-    }
-    // Use the relative shortcut function to fetch an HTMLElement.
-    else {
-      element = this.getElement(what);
-    }
-
-    // If after all of that we get an element we should focus on it.
-    if (element) {
-      element.focus();
-    }
-  }
-
-  /**
    * Returns an HTML element relative to this current item.
    *
    * @param  {String} what A key for the switch statement. (first, last, etc).
@@ -206,6 +170,12 @@ export default class NavItemAbstract {
           return this.item.parentNode.parentNode.querySelector('button');
         case 'parentNav':
           return this.item.parentNode.parentNode;
+        case 'parentNavLast':
+          return item.parentNode.parentNode.parentNode.lastElementChild.querySelector('a');
+        case 'parentNavFirst':
+          return this.item.parentNode.parentNode.parentNode.firstElementChild.querySelector('a');
+        case 'parentNavNext':
+          return this.item.parentNode.parentNode.nextElementSibling;
         default:
           return false;
       }
@@ -222,7 +192,7 @@ export default class NavItemAbstract {
    * the nav element. This function gets the containing Nav instance and
    * retreives the depth as each item in the nav is at the same depth.
    *
-   * @return {int} Which level of the nav we are on starting at 1.
+   * @return {Integer} Which level of the nav we are on starting at 1.
    */
   getDepth() {
     return this.nav.getDepth();

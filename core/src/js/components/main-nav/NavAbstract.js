@@ -78,6 +78,7 @@ export default class NavAbstract {
    * create another nav through a SubNavItem.
    */
   createNavItems() {
+    // Navs are only responsible for their direct descendant items.
     let items = this.elem.querySelectorAll('#' + this.id + ' > ul > li');
     items.forEach(
       item => {
@@ -238,7 +239,7 @@ export default class NavAbstract {
   /**
    * Get the depth of nesting for this menu. (starts at 1).
    *
-   * @return {int} The depth of the menu.
+   * @return {Integer} The depth of the menu.
    */
   getDepth() {
     return this.depth;

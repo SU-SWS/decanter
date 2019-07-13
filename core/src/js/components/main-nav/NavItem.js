@@ -31,7 +31,7 @@ export default class NavItem extends NavItemAbstract {
    */
   onKeydownHome(event, target) {
     event.preventDefault();
-    this.focusOn('first');
+    this.getElement('first').focus();
   }
 
   /**
@@ -44,7 +44,7 @@ export default class NavItem extends NavItemAbstract {
    */
   onKeydownEnd(event, target) {
     event.preventDefault();
-    this.focusOn('last');
+    this.getElement('last').focus();
   }
 
   /**
@@ -98,7 +98,6 @@ export default class NavItem extends NavItemAbstract {
    */
   onKeydownSpace(event, target) {
     event.stopPropagation();
-    // window.location = this.link.getAttribute('href');
   }
 
   /**
@@ -113,7 +112,7 @@ export default class NavItem extends NavItemAbstract {
     // Go to the previous item.
     let node = this.getElement('prevElement');
     if (node !== null) {
-      node.firstChild.focus();
+      node.firstElementChild.focus();
     }
     else {
       this.onKeydownEnd(event, target);
@@ -121,7 +120,8 @@ export default class NavItem extends NavItemAbstract {
   }
 
   /**
-   * [onKeydownHome description]
+   * Event handler for key press: Left Arrow
+   *
    * @param {KeyboardEvent} event - The keyboard event.
    * @param {HTMLElement} target  - The HTML element target.
    */
@@ -136,7 +136,7 @@ export default class NavItem extends NavItemAbstract {
       }
       // Go to parent's end.
       else {
-        this.item.parentNode.parentNode.parentNode.lastElementChild.querySelector('a').focus();
+        this.getElement('parentNavLast').focus();
       }
     }
     // Otherwise just to to the previous sibling.
@@ -146,16 +146,17 @@ export default class NavItem extends NavItemAbstract {
   }
 
   /**
-   * [onKeydownHome description]
+   * Event handler for key press: Down Arrow
+   *
    * @param {KeyboardEvent} event - The keyboard event.
    * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownArrowDown(event, target) {
     event.preventDefault();
     // Go to the next item.
-    let node = this.link.parentNode.nextElementSibling;
+    let node = this.getElement('nextElement');
     if (node !== null) {
-      node.firstChild.focus();
+      node.firstElementChild.focus();
     }
     else {
       this.onKeydownHome(event, target);
@@ -163,7 +164,8 @@ export default class NavItem extends NavItemAbstract {
   }
 
   /**
-   * [onKeydownHome description]
+   * Event handler for key press: Home
+   *
    * @param {KeyboardEvent} event - The keyboard event.
    * @param {HTMLElement} target  - The HTML element target.
    */
@@ -171,7 +173,7 @@ export default class NavItem extends NavItemAbstract {
     // If we are in the second level or more we check about traversing
     // the parent.
     if (this.getDepth() > 1) {
-      let node = this.item.parentNode.parentNode.nextElementSibling;
+      let node = this.getElement('parentNavNext');
       this.nav.closeAllSubNavs();
       this.nav.closeThisSubNav();
 
@@ -180,7 +182,7 @@ export default class NavItem extends NavItemAbstract {
       }
       // Go back to start.
       else {
-        this.item.parentNode.parentNode.parentNode.firstElementChild.querySelector('a').focus();
+        this.getElement('parentNavFirst').focus();
       }
     }
     else {
