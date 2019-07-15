@@ -1870,6 +1870,47 @@ function (_Nav) {
       var toggle = this.elem.querySelector('#' + this.id + ' .' + this.options.toggleClass);
       toggle.setAttribute('aria-expanded', false);
     }
+    /**
+     * Expand all menus in the active path.
+     *
+     * After this.setActivePath() has been run or the itemActiveClass has been set
+     * on all the appropriate menu items go through the nav and expand the
+     * subNavItems that contain activeClass items.
+     */
+
+  }, {
+    key: "expandActivePath",
+    value: function expandActivePath() {
+      var _this = this;
+
+      var actives = this.elem.querySelectorAll('.' + this.itemActiveClass);
+
+      if (actives.length) {
+        actives.forEach(function (item) {
+          // While we have parents go up and add the active class.
+          while (item) {
+            // End when we get to the parent nav item stop.
+            if (item.getAttribute('id') === _this.id) {
+              // Stop at the top most level.
+              break;
+            } // If we are on a LI element we need to add the active class.
+
+
+            if (item.tagName === 'LI') {
+              item.classList.add(_this.itemExpandedClass);
+              var toggleButton = item.querySelector('.' + _this.options.toggleClass);
+
+              if (toggleButton) {
+                toggleButton.setAttribute('aria-expanded', true);
+              }
+            } // Always increment.
+
+
+            item = item.parentNode;
+          }
+        });
+      }
+    }
   }]);
 
   return ToggleNav;
