@@ -136,28 +136,4 @@ export default class Nav extends NavAbstract {
       this.closeAllSubNavs();
     }
   }
-
-  // ---------------------------------------------------------------------------
-  // Deprecated functions
-  // ---------------------------------------------------------------------------
-
-  /**
-   * @deprecated since 5.0.1 to be removed in 6.0
-   */
-  getTopNav() {}
-  getParentNav() {}
-  isExpanded() {}
-  setExpanded() {}
-  isDesktopNav() {}
-  isTopNav() {}
-  isSubNav() {}
-  getFirstItem() {}
-  getLastItem() {}
-  getFirstLink() {}
-  getLastLink() {}
-  focusOn() {}
-  openMobileNav() {}
-  closeMobileNav() {}
-  onClick() {}
-
 }

@@ -333,59 +333,7 @@ function (_NavAbstract) {
       if (this.toggle && window.innerWidth > 768) {
         this.closeAllSubNavs();
       }
-    } // ---------------------------------------------------------------------------
-    // Deprecated functions
-    // ---------------------------------------------------------------------------
-
-    /**
-     * @deprecated since 5.0.1 to be removed in 6.0
-     */
-
-  }, {
-    key: "getTopNav",
-    value: function getTopNav() {}
-  }, {
-    key: "getParentNav",
-    value: function getParentNav() {}
-  }, {
-    key: "isExpanded",
-    value: function isExpanded() {}
-  }, {
-    key: "setExpanded",
-    value: function setExpanded() {}
-  }, {
-    key: "isDesktopNav",
-    value: function isDesktopNav() {}
-  }, {
-    key: "isTopNav",
-    value: function isTopNav() {}
-  }, {
-    key: "isSubNav",
-    value: function isSubNav() {}
-  }, {
-    key: "getFirstItem",
-    value: function getFirstItem() {}
-  }, {
-    key: "getLastItem",
-    value: function getLastItem() {}
-  }, {
-    key: "getFirstLink",
-    value: function getFirstLink() {}
-  }, {
-    key: "getLastLink",
-    value: function getLastLink() {}
-  }, {
-    key: "focusOn",
-    value: function focusOn() {}
-  }, {
-    key: "openMobileNav",
-    value: function openMobileNav() {}
-  }, {
-    key: "closeMobileNav",
-    value: function closeMobileNav() {}
-  }, {
-    key: "onClick",
-    value: function onClick() {}
+    }
   }]);
 
   return Nav;
@@ -908,36 +856,7 @@ function (_NavItemAbstract) {
       } else {
         this.onKeydownArrowDown(event, target);
       }
-    } // Deprecated functions
-    // ---------------------------------------------------------------------------
-
-  }, {
-    key: "isFirstItem",
-    value: function isFirstItem() {}
-  }, {
-    key: "isLastItem",
-    value: function isLastItem() {}
-  }, {
-    key: "isSubNavTrigger",
-    value: function isSubNavTrigger() {}
-  }, {
-    key: "isSubNavItem",
-    value: function isSubNavItem() {}
-  }, {
-    key: "isExpanded",
-    value: function isExpanded() {}
-  }, {
-    key: "setExpanded",
-    value: function setExpanded() {}
-  }, {
-    key: "openSubNav",
-    value: function openSubNav() {}
-  }, {
-    key: "closeSubNav",
-    value: function closeSubNav() {}
-  }, {
-    key: "onClick",
-    value: function onClick() {}
+    }
   }]);
 
   return NavItem;
@@ -2069,6 +1988,7 @@ function (_SubNavItem) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ToggleSubNavItem).call(this, item, nav, options)); // Set text.
 
     _this.toggleText = options.subNavToggleText || '+';
+    _this.toggleLabel = options.toggleLabel || 'expand menu';
     _this.toggleClass = options.toggleClass || 'nav-toggle'; // Create the toggle buttons.
 
     _this.toggle = _this.createToggleButton();
@@ -2099,7 +2019,7 @@ function (_SubNavItem) {
       element.setAttribute('class', this.toggleClass);
       element.setAttribute('aria-expanded', this.item.classList.contains(this.options.itemActiveClass));
       element.setAttribute('aria-controls', this.subNav.id);
-      element.setAttribute('aria-label', 'expand menu');
+      element.setAttribute('aria-label', this.toggleLabel);
       element.setAttribute('id', id);
       element.appendChild(label);
       return element;
