@@ -22,6 +22,7 @@ export default class ToggleSubNavItem extends SubNavItem {
 
     // Set text.
     this.toggleText = options.subNavToggleText || '+';
+    this.toggleLabel = options.toggleLabel || 'expand menu';
     this.toggleClass = options.toggleClass || 'nav-toggle';
 
     // Create the toggle buttons.
@@ -48,6 +49,7 @@ export default class ToggleSubNavItem extends SubNavItem {
     element.setAttribute('class', this.toggleClass);
     element.setAttribute('aria-expanded', this.item.classList.contains(this.options.itemActiveClass));
     element.setAttribute('aria-controls', this.subNav.id);
+    element.setAttribute('aria-label', this.toggleLabel);
     element.setAttribute('id', id);
     element.appendChild(label);
 
@@ -75,9 +77,12 @@ export default class ToggleSubNavItem extends SubNavItem {
     if (target === this.toggle) {
       if (this.isExpanded()) {
         this.closeSubNav();
+        this.toggle.blur();
+        this.toggle.focus();
       }
       else {
         this.openSubNav();
+        this.getElement('firstSubnavLink').focus();
       }
     }
   }

@@ -1501,7 +1501,10 @@ function (_NavItem) {
       event.stopPropagation();
 
       if (this.isExpanded()) {
-        this.closeSubNav();
+        this.closeSubNav(); // We blur then focus so that the browser announces the collapse to
+        // those using screen readers and other assistive devices.
+
+        this.link.blur();
         this.link.focus();
       } else {
         this.openSubNav();
@@ -2096,6 +2099,7 @@ function (_SubNavItem) {
       element.setAttribute('class', this.toggleClass);
       element.setAttribute('aria-expanded', this.item.classList.contains(this.options.itemActiveClass));
       element.setAttribute('aria-controls', this.subNav.id);
+      element.setAttribute('aria-label', 'expand menu');
       element.setAttribute('id', id);
       element.appendChild(label);
       return element;
@@ -2123,8 +2127,11 @@ function (_SubNavItem) {
       if (target === this.toggle) {
         if (this.isExpanded()) {
           this.closeSubNav();
+          this.toggle.blur();
+          this.toggle.focus();
         } else {
           this.openSubNav();
+          this.getElement('firstSubnavLink').focus();
         }
       }
     }

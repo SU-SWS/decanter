@@ -54,6 +54,9 @@ export default class SubNavItem extends NavItem {
 
     if (this.isExpanded()) {
       this.closeSubNav();
+      // We blur then focus so that the browser announces the collapse to
+      // those using screen readers and other assistive devices.
+      this.link.blur();
       this.link.focus();
     }
     else {

@@ -36,7 +36,6 @@ export default class Nav extends NavAbstract {
     this.createNavItems();
 
     // Initialize the event listeners.
-
     this.createEventListeners();
 
     // Create the Mobile/Desktop nav toggle..
