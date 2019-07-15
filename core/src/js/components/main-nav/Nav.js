@@ -73,6 +73,7 @@ export default class Nav {
    *
    * @return {Nav}
    *  Returns the navigation instance.
+   * @deprecated To be removed in 6.0
    */
   getTopNav() {
     let nav = this;
@@ -92,7 +93,8 @@ export default class Nav {
    *
    * @return {Nav}
    *   Returns the navigation instance.
-   */
+  * @deprecated To be removed in 6.0
+  */
   getParentNav() {
     return this.isSubNav() ? this.elem.nav : this;
   }
@@ -105,7 +107,8 @@ export default class Nav {
    *
    * @return {Boolean}
    *   Returns wether or not the item is expanded.
-   */
+   * @deprecated To be removed in 6.0
+  */
   isExpanded() {
     if (this.elem instanceof NavItem) {
       return this.elem.isExpanded();
@@ -121,6 +124,7 @@ export default class Nav {
    *
    * @param {String} value - What to set the aria-expanded attribute of
    *                         this's link to.
+   * @deprecated To be removed in 6.0
    */
   setExpanded(value) {
     if (this.elem instanceof NavItem) {
@@ -139,6 +143,7 @@ export default class Nav {
    *
    * @return {Boolean}
    *  Returns wether or not it is desktop navigation.
+   * @deprecated To be removed in 6.0
    */
   isDesktopNav() {
     return getComputedStyle(this.topNav.toggle).display === 'none';
@@ -149,6 +154,8 @@ export default class Nav {
    *
    * @return {Boolean}
    *  Returns wether or not it is the top nav item.
+   * 
+   * @deprecated To be removed in 6.0
    */
   isTopNav() {
     return this.topNav === this;
@@ -159,6 +166,7 @@ export default class Nav {
    *
    * @return {Boolean}
    *  Returns wether or not this is a subnav item.
+   * @deprecated To be removed in 6.0
    */
   isSubNav() {
     return this.topNav !== this;
@@ -169,6 +177,7 @@ export default class Nav {
    *
    * @return {NavItem}
    *  Returns wether or not this is the first item.
+   * @deprecated To be removed in 6.0
    */
   getFirstItem() {
     return this.items.length ? this.items[0] : null;
@@ -179,6 +188,7 @@ export default class Nav {
    *
    * @return {NavItem}
    *  Returns wether or not this is the last item.
+   * @deprecated To be removed in 6.0
    */
   getLastItem() {
     return this.items.length ? this.items[this.items.length - 1] : null;
@@ -189,6 +199,7 @@ export default class Nav {
    *
    * @return {HTMLAnchorElement}
    *  Returns the very first link.
+   * @deprecated To be removed in 6.0
    */
   getFirstLink() {
     return this.items.length ? this.getFirstItem().link : null;
@@ -199,6 +210,7 @@ export default class Nav {
    *
    * @return {HTMLAnchorElement}
    *  Returns the very last link.
+   * @deprecated To be removed in 6.0
    */
   getLastLink() {
     return this.items.length ? this.getLastItem().link : null;
@@ -216,6 +228,7 @@ export default class Nav {
    * @param {NavItem} currentItem - If link is 'next' or 'prev', currentItem
    *                                is the NavItem that next / prev is
    *                                relative to.
+   * @deprecated To be removed in 6.0
    */
   focusOn(link, currentItem = null) {
     let currentIndex = null;
@@ -265,6 +278,7 @@ export default class Nav {
    *
    * @param {Boolean} focusOnFirst - Whether or not to also focus on the
    *                                 first element in the subnav.
+   * @deprecated To be removed in 6.0
    */
   openMobileNav(focusOnFirst = true) {
     closeAllMobileNavs();
@@ -282,6 +296,7 @@ export default class Nav {
   /**
    * Mark this mobile closed, and restore the button text to what it was
    * initially.
+   * @deprecated To be removed in 6.0
    */
   closeMobileNav() {
     if (this.isExpanded()) {
@@ -330,6 +345,7 @@ export default class Nav {
    *
    * @param {KeyboardEvent} event   - The keyboard event object.
    * @param {HTMLElement}   target  - The HTML Element target object.
+   * @deprecated To be removed in 6.0
    */
   onClick(event, target) {
     if (target === this.toggle) {
