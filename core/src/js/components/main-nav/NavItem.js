@@ -53,6 +53,7 @@ export default class NavItem {
    *
    * @return {Boolean}
    *  Wether or not the item is the first item.
+   * @deprecated To be removed in 6.0
    */
   isFirstItem() {
     return this.nav.items.indexOf(this) === 0;
@@ -63,6 +64,7 @@ export default class NavItem {
    *
    * @return {Boolean}
    *  Wether or not the item is the last item.
+   * @deprecated To be removed in 6.0
    */
   isLastItem() {
     return this.nav.items.indexOf(this) === (this.nav.items.length - 1);
@@ -73,6 +75,7 @@ export default class NavItem {
    *
    * @return {Boolean}
    *  Wether or not the item is the sub nav trigger item.
+   * @deprecated To be removed in 6.0
    */
   isSubNavTrigger() {
     return this.item.lastElementChild.tagName.toUpperCase() === 'UL';
@@ -83,6 +86,7 @@ export default class NavItem {
    *
    * @return {Boolean}
    *  Wether or not the item is a subnav item.
+   * @deprecated To be removed in 6.0
    */
   isSubNavItem() {
     return (this.isSubNavTrigger() || this.nav.isSubNav());
@@ -93,6 +97,7 @@ export default class NavItem {
    *
    * @return {Boolean}
    *  Wether or not the item is expanded.
+   * @deprecated To be removed in 6.0
    */
   isExpanded() {
     return this.link.getAttribute('aria-expanded') === 'true';
@@ -104,6 +109,7 @@ export default class NavItem {
    *
    * @param {String} value - What to set the aria-expanded attribute of this's
    *                         link to.
+   * @deprecated To be removed in 6.0
    */
   setExpanded(value) {
     this.link.setAttribute('aria-expanded', value);
@@ -122,6 +128,7 @@ export default class NavItem {
    *
    * @param {Boolean} focusOnFirst - whether or not to also focus on the first
    *                                 element in the subnav
+   * @deprecated To be removed in 6.0
    */
   openSubNav(focusOnFirst = true) {
     closeAllSubNavs();
@@ -144,6 +151,7 @@ export default class NavItem {
    *
    * @param {Boolean} focusOnTrigger - Whether or not to also focus on the
    *                                 subnav's trigger.
+   * @deprecated To be removed in 6.0
    */
   closeSubNav(focusOnTrigger = false) {
     if (this.isSubNavTrigger()) {
@@ -310,6 +318,7 @@ export default class NavItem {
    *
    * @param {KeyboardEvent} event - The keyboard event object.
    * @param {HTMLElement} target  - The HTML element target.
+   * @deprecated To be removed in 6.0
    */
   onClick(event, target) {
     if (this.isExpanded()) {
