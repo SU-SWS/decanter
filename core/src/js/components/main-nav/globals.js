@@ -1,4 +1,5 @@
 // ---------------------------------------------------------------------------
+// DEPRECATED: THIS FILE WILL BE REMOVED IN Version 6.0
 // Global variables and functions shared amongst the nav code
 // ---------------------------------------------------------------------------
 
@@ -9,6 +10,7 @@
  *  - populated in the document.ready function in main-nav.js
  *  - used by closeAllMobileNavs
  * @type {Array}
+ * @deprecated To be removed in 6.0
  */
 export var theNavs = [];
 
@@ -16,6 +18,7 @@ export var theNavs = [];
  *  Global record of all sub navs on the page (may be in different main navs
  *  - populated by the NavItem constructor
  *  - used by closeAllSubNavs
+ * @deprecated To be removed in 6.0
  * @type {Array}
  */
 export var theSubNavs = [];
@@ -24,6 +27,7 @@ export var theSubNavs = [];
 
 /**
  * Close all subnavs on the page
+ * @deprecated To be removed in 6.0
  */
 export const closeAllSubNavs = () => {
   theSubNavs.forEach(
@@ -33,6 +37,7 @@ export const closeAllSubNavs = () => {
 
 /**
  * Close all mobile navs on the page
+ * @deprecated To be removed in 6.0
  */
 export const closeAllMobileNavs = () => {
   theNavs.forEach(
