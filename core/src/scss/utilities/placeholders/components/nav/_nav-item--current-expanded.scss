@@ -1,0 +1,34 @@
+@charset 'UTF-8';
+
+//
+// %nav-item--current-expanded
+//
+// Individual Nav Item -- Current Page and Expanded
+//
+// Style guide: Placeholders.Components.Nav-Item-Current-Expanded
+//
+
+%nav-item--current-expanded {
+  > a {
+    &::before {
+      background-color: color(border--active-expanded, $nav-colors);
+    }
+
+    &:focus::before {
+      left: 0;
+      background-color: color(border--active-expanded, $nav-colors);
+    }
+
+    &[aria-expanded="true"] {
+      &:hover::before {
+        left: 6px;
+      }
+
+      &:active {
+        &::before {
+          background-color: color(border--active, $nav-colors);
+        }
+      }
+    }
+  }
+}
