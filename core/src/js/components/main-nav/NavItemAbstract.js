@@ -92,7 +92,7 @@ export default class NavItemAbstract {
     // If the caller passed in their own event handling use their function.
     // See `MainEvents.js` and `main-nav.js` for an example.
     if (this.handleUserEvent(constructorName, depth, handler, event, target)) {
-      return true;
+      return;
     }
     // Otherwise, check to see if we have an event available on this class.
     else if (typeof this[handler] === 'function') {
@@ -171,7 +171,7 @@ export default class NavItemAbstract {
         case 'parentNav':
           return this.item.parentNode.parentNode;
         case 'parentNavLast':
-          return item.parentNode.parentNode.parentNode.lastElementChild.querySelector('a');
+          return this.item.parentNode.parentNode.parentNode.lastElementChild.querySelector('a');
         case 'parentNavFirst':
           return this.item.parentNode.parentNode.parentNode.firstElementChild.querySelector('a');
         case 'parentNavNext':

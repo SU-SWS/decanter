@@ -775,13 +775,15 @@ function (_NavItemAbstract) {
     value: function onKeydownArrowUp(event, target) {
       event.preventDefault(); // Go to the previous item.
 
-      var node = this.getElement('prevElement');
+      var node = this.getElement('prev');
 
-      if (node !== null) {
-        node.firstElementChild.focus();
-      } else {
-        this.onKeydownEnd(event, target);
-      }
+      if (node) {
+        node.focus();
+        return;
+      } // Default.
+
+
+      this.onKeydownEnd(event, target);
     }
     /**
      * Event handler for key press: Left Arrow
@@ -822,13 +824,14 @@ function (_NavItemAbstract) {
     value: function onKeydownArrowDown(event, target) {
       event.preventDefault(); // Go to the next item.
 
-      var node = this.getElement('nextElement');
+      var node = this.getElement('next');
 
-      if (node !== null) {
-        node.firstElementChild.focus();
-      } else {
-        this.onKeydownHome(event, target);
+      if (node) {
+        node.focus();
+        return;
       }
+
+      this.onKeydownHome(event, target);
     }
     /**
      * Event handler for key press: Home
@@ -977,7 +980,7 @@ function () {
       // See `MainEvents.js` and `main-nav.js` for an example.
 
       if (this.handleUserEvent(constructorName, depth, handler, event, target)) {
-        return true;
+        return;
       } // Otherwise, check to see if we have an event available on this class.
       else if (typeof this[handler] === 'function') {
           this[handler](event, target);
@@ -1064,7 +1067,7 @@ function () {
             return this.item.parentNode.parentNode;
 
           case 'parentNavLast':
-            return item.parentNode.parentNode.parentNode.lastElementChild.querySelector('a');
+            return this.item.parentNode.parentNode.parentNode.lastElementChild.querySelector('a');
 
           case 'parentNavFirst':
             return this.item.parentNode.parentNode.parentNode.firstElementChild.querySelector('a');

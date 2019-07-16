@@ -110,13 +110,14 @@ export default class NavItem extends NavItemAbstract {
     event.preventDefault();
 
     // Go to the previous item.
-    let node = this.getElement('prevElement');
-    if (node !== null) {
-      node.firstElementChild.focus();
+    let node = this.getElement('prev');
+    if (node) {
+      node.focus();
+      return;
     }
-    else {
-      this.onKeydownEnd(event, target);
-    }
+
+    // Default.
+    this.onKeydownEnd(event, target);
   }
 
   /**
@@ -154,13 +155,13 @@ export default class NavItem extends NavItemAbstract {
   onKeydownArrowDown(event, target) {
     event.preventDefault();
     // Go to the next item.
-    let node = this.getElement('nextElement');
-    if (node !== null) {
-      node.firstElementChild.focus();
+    let node = this.getElement('next');
+    if (node) {
+      node.focus();
+      return;
     }
-    else {
-      this.onKeydownHome(event, target);
-    }
+
+    this.onKeydownHome(event, target);
   }
 
   /**

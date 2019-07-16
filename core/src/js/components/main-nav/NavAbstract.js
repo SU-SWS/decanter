@@ -156,7 +156,7 @@ export default class NavAbstract {
     ];
 
     // Go through the queries and see if we have any results.
-    finders.forEach(function(val) {
+    finders.forEach(function (val) {
       if (!currentItem && val) {
         currentItem = val;
       }
