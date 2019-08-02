@@ -42,8 +42,6 @@
 //
 
 .su-main-nav {
-  $_su-main-nav-color-map: $su-main-nav-colors;
-
   @include font-smoothing;
   @include sans;
   display: block;
@@ -52,78 +50,32 @@
 
   // General menu styles
   ul {
-    @include margin(0 null);
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    list-style: none;
-    background-color: color(bg--mobile, $_su-main-nav-color-map);
+    @extend %nav-menu;
   }
 
   li {
-    @include margin(null null 0);
+    @extend %nav-item;
 
     a {
-      @include fancy-hover($color: color(border--mobile-hover, $_su-main-nav-color-map), $active: color(border--mobile-active, $_su-main-nav-color-map), $position: 'left');
-      @include padding(1.6rem 4.8rem 1.6rem 2.4rem);
-      display: block;
-      color: color(link--mobile, $_su-main-nav-color-map);
-      font-weight: $font-regular;
-      font-size: 1.8rem;
-      border-bottom: color(divider, $_su-main-nav-color-map) solid 1px;
-      outline: 0;
-
-      &:active {
-        font-weight: $font-bold;
-      }
-    }
-
-    > ul {
-      display: none;
+      @extend %nav-item-link;
     }
   }
 
   .su-main-nav__item--expanded {
-    > ul {
-      display: flex;
-    }
+    @extend %nav-item--expanded;
   }
 
-
-  .su-main-nav__item--current > a {
-    font-weight: $font-bold;
-
-    &::before {
-      visibility: visible;
-      transform: scaleY(1);
-      background-color: color(border--mobile-active, $_su-main-nav-color-map);
-    }
-
-    &:hover,
-    &:focus {
-      &::before {
-        left: 6px;
-        transition: left 0.1s ease-out;
-        background-color: color(border--mobile-active, $_su-main-nav-color-map);
-      }
-    }
+  .su-main-nav__item--current {
+    @extend %nav-item--current;
   }
 
   .su-main-nav__item--parent {
-    > a::after {
-      background: url("#{$su-image-path}/plus-white.svg") no-repeat 0 0;
-      background-size: 100%;
-      content: "";
-      display: inline-block;
-      position: absolute;
-      right: 2rem;
-      top: 2.06rem;
-      height: 1.8rem;
-      width: 1.8rem;
+    @extend %nav-item--parent;
 
+    > a::after {
       @include grid-media('lg') {
         @include margin(null null 1px 6px);
-        background: url("#{$su-image-path}/caret-down-black.svg") no-repeat 0 0;
+        background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
         background-size: 100%;
         position: relative;
         right: 0;
@@ -134,60 +86,44 @@
       }
     }
 
-    &.su-main-nav__item--expanded > a {
-      &::after {
-        background: url("#{$su-image-path}/minus-white.svg") no-repeat 0 0;
-        background-size: 100%;
+    &.su-main-nav__item--expanded {
+      @extend %nav-item--parent-expanded;
 
-        @include grid-media('lg') {
-          background: url("#{$su-image-path}/caret-down-black.svg") no-repeat 0 0;
-          background-size: 100%;
-          transform: rotate(180deg);
-        }
-      }
+      @include grid-media('lg') {
+        > a {
+          &::after {
+            background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
+            background-size: 100%;
+            transform: rotate(180deg);
+          }
 
-      @include grid-media-max('md') {
-        &::before {
-          background-color: color(border--mobile-expanded, $_su-main-nav-color-map);
-        }
+          &::before {
+            background-color: color(h-border--expanded, $nav-colors);
+          }
 
-        &:hover::before {
-          background-color: color(border--mobile-hover, $_su-main-nav-color-map);
-        }
+          &:hover::before {
+            background-color: color(h-border--hover, $nav-colors);
+          }
 
-        &:active::before {
-          background-color: color(border--mobile-active, $_su-main-nav-color-map);
+          &:active::before {
+            background-color: color(h-border--active, $nav-colors);
+          }
         }
       }
     }
   }
 
-  @include grid-media-max('md') {
-    .su-main-nav__item--current {
-      &.su-main-nav__item--expanded {
+  .su-main-nav__item--current {
+    &.su-main-nav__item--expanded {
+      @extend %nav-item--current-expanded;
+
+      @include grid-media('lg') {
         > a {
-          font-weight: $font-bold;
-
-          &::before {
-            background-color: color(border--mobile-active-expanded, $_su-main-nav-color-map);
-          }
-        }
-
-        > a:focus::before {
-          left: 0;
-          background-color: color(border--mobile-active-expanded, $_su-main-nav-color-map);
-        }
-
-        > a[aria-expanded="true"] {
-          &:hover::before {
-            left: 6px;
-          }
-
-          &:active {
-            font-weight: $font-bold;
-
-            &::before {
-              background-color: color(border--mobile-active, $_su-main-nav-color-map);
+          &[aria-expanded="true"] {
+            &:active {
+              &::before {
+                background-color: color(h-border--active, $nav-colors);
+              }
             }
           }
         }
@@ -195,16 +131,17 @@
     }
   }
 
-
   // Top level only menu styles
   > ul {
     @include grid-media-max('md') {
-      @include box-shadow($depth: 'medium', $stroke: none);
+      @include box-shadow('medium', none);
     }
 
     > li {
-      > a {
-        font-weight: $font-semi-bold;
+      &:first-of-type:not(.su-main-nav__item--expanded) {
+        > a {
+          border-top: 0;
+        }
       }
     }
 
@@ -217,41 +154,37 @@
 
       > li {
         > a {
-          @include fancy-hover($color: color(border--hover, $_su-main-nav-color-map), $active: color(border--active, $_su-main-nav-color-map));
+          @include fancy-hover(color(h-border--hover, $nav-colors), color(h-border--active, $nav-colors));
           @include padding(null 0);
           @include margin(0 1.2em 0 0);
-          color: color(link, $_su-main-nav-color-map);
+          color: color(h-link, $nav-colors);
           transition: color 0.3s ease-out;
           font-size: 2.1rem;
-          border-bottom: 0;
-
-          &:active {
-            font-weight: $font-semi-bold;
-          }
+          border-top: 0;
 
           &:hover,
           &:focus {
-            color: color(link--hover, $_su-main-nav-color-map);
+            color: color(h-link--hover, $nav-colors);
           }
 
           &:active,
           &[aria-expanded="true"] {
-            color: color(link--active, $_su-main-nav-color-map);
+            color: color(h-link--active, $nav-colors);
           }
 
           &[aria-expanded="true"] {
             &:hover {
-              color: color(link--active-hover, $_su-main-nav-color-map);
+              color: color(h-link--active-hover, $nav-colors);
             }
 
             &:active {
-              color: color(link--active, $_su-main-nav-color-map);
+              color: color(h-link--active, $nav-colors);
             }
 
             &::before {
               visibility: visible;
               transform: scaleX(1);
-              background-color: color(border--expanded, $_su-main-nav-color-map);
+              background-color: color(h-border--expanded, $nav-colors);
             }
           }
         }
@@ -263,45 +196,49 @@
 
       > .su-main-nav__item--current {
         > a {
-          font-weight: $font-semi-bold;
-
           &::before {
-            background-color: color(border--active, $_su-main-nav-color-map);
+            background-color: color(h-border--active, $nav-colors);
           }
 
           &:hover,
           &:focus {
             &::before {
               left: 0;
-              background-color: color(border--active-hover, $_su-main-nav-color-map);
+              background-color: color(h-border--active-hover, $nav-colors);
               transition: background-color 0.3s ease-out;
             }
           }
 
           &:active::before {
-            background-color: color(border--active, $_su-main-nav-color-map);
+            background-color: color(h-border--active, $nav-colors);
           }
         }
 
         &.su-main-nav__item--expanded > a {
           &:focus::before {
-            background-color: color(border--active, $_su-main-nav-color-map);
+            background-color: color(h-border--active, $nav-colors);
+          }
+
+          &[aria-expanded="true"] {
+            &:hover::before {
+              left: 0;
+            }
           }
         }
       }
 
       > .su-main-nav__item--expanded {
         > a:focus::before {
-          background-color: color(border--expanded, $_su-main-nav-color-map);
+          background-color: color(h-border--expanded, $nav-colors);
         }
 
         > a[aria-expanded="true"] {
           &:hover::before {
-            background-color: color(border--hover, $_su-main-nav-color-map);
+            background-color: color(h-border--hover, $nav-colors);
           }
 
           &:active::before {
-            background-color: color(border--expanded, $_su-main-nav-color-map);
+            background-color: color(h-border--expanded, $nav-colors);
           }
         }
       }
@@ -332,20 +269,19 @@
 }
 
 .su-main-nav__toggle {
-  $_su-main-nav-color-map: $su-main-nav-colors;
 
   @include grid-media-max('md') {
-    @include fancy-hover($color: color(border--hover, $_su-main-nav-color-map), $active: color(border--active, $_su-main-nav-color-map));
+    @include fancy-hover(color(h-border--hover, $nav-colors), color(h-border--active, $nav-colors));
     @include padding(0 0 2rem);
     @include margin(0);
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    outline: none;
     width: 40px;
     background-color: transparent;
-    color: color(link, $_su-main-nav-color-map);
+    color: color(h-link, $nav-colors);
     font-size: 1.6rem;
-    font-weight: $font-regular;
     line-height: 0.7;
 
     &::after {
@@ -353,7 +289,7 @@
       display: inline-block;
       width: 30px;
       height: 26px;
-      background: url("#{$su-image-path}/hamburger-black.svg") no-repeat 3px 0;
+      background: url("#{$image-path}/hamburger-black.svg") no-repeat 3px 0;
       content: "";
     }
 
@@ -361,21 +297,21 @@
       &::before {
         visibility: visible;
         transform: scaleX(1);
-        background-color: color(border--expanded, $_su-main-nav-color-map);
+        background-color: color(h-border--expanded, $nav-colors);
       }
 
       &::after {
         width: 22px;
-        background: url("#{$su-image-path}/close-black.svg") no-repeat 3px 0;
+        background: url("#{$image-path}/close-black.svg") no-repeat 3px 0;
         background-size: 16px 16px;
       }
 
       &:hover::before {
-        background-color: color(border--hover, $_su-main-nav-color-map);
+        background-color: color(h-border--hover, $nav-colors);
       }
 
       &:active::before {
-        background-color: color(border--active, $_su-main-nav-color-map);
+        background-color: color(h-border--active, $nav-colors);
       }
     }
 
@@ -383,7 +319,7 @@
     &:active,
     &:focus {
       background-color: transparent;
-      color: color(link, $_su-main-nav-color-map);
+      color: color(h-link, $nav-colors);
       box-shadow: none;
     }
 
@@ -424,14 +360,14 @@
   @include grid-media('lg') {
     @include padding(1px null null 1.2rem);
     @include margin(null null null -1.8rem);
-    @include box-shadow($depth: 'medium', $stroke: none);
-    z-index: 11111; //When menu wrap to 2nd line make sure dropdown covers up top level links
+    @include box-shadow('medium', none);
+    z-index: 11111; // When menu wrap to 2nd line make sure dropdown covers up top level links
     position: absolute;
     max-width: 30rem;
 
-    li:last-child {
+    li:first-child {
       a {
-        border-bottom: 0;
+        border-top: 0;
       }
     }
   }
