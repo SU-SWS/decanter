@@ -32,8 +32,8 @@
   {%- set allow_links = true -%}
 {%- endif -%}
 
-<div {{ attributes }} class="su-card {{ modifier_class }}">
-  {# For variant where whole card is a link, add an <a> within the outer wrapper <div> #}
+<article {{ attributes }} class="su-card {{ modifier_class }}">
+  {# For variant where whole card is a link, add an <a> within the outer wrapper <article> #}
   {%- if allow_links == false %}
     <a href="{{ card_link }}" {{ card_cta_attributes }}>
   {%- endif -%}
@@ -43,7 +43,7 @@
       {{ card_image }}
     {%- endif -%}
 
-    <div class="su-card__contents">
+    <section class="su-card__contents">
 
     {# Card Super Headline #}
     {%- block block_card_super_headline %}
@@ -85,7 +85,7 @@
 
     {# Big ol button. Adds a BEM class for targeting. #}
     {%- if card_button_label is not empty and allow_links %}
-      <div class="su-card__button">
+      <button class="su-card__button">
       {%- include "@decanter/components/link/link.twig" with
         {
         "link_href": card_link,
@@ -95,12 +95,12 @@
         }
         only
       -%}
-      </div>
+      </button>
     {% endif -%}
 
-    </div> {# /su-card__contents #}
+    </section> {# /su-card__contents #}
 
   {%- if allow_links == false %}
     </a>
   {%- endif -%}
-</div>
+</article>
