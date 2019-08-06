@@ -85,7 +85,7 @@
 
     {# Big ol button. Adds a BEM class for targeting. #}
     {%- if card_button_label is not empty and allow_links %}
-      <button class="su-card__button">
+      <div class="su-card__button">
       {%- include "@decanter/components/link/link.twig" with
         {
         "link_href": card_link,
@@ -95,7 +95,7 @@
         }
         only
       -%}
-      </button>
+      </div>
     {% endif -%}
 
     </section> {# /su-card__contents #}
