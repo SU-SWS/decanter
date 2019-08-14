@@ -76,20 +76,19 @@
   }
 
   .su-secondary-nav__toggle {
-    background: transparent url("#{$image-path}/caret-down-black.svg") no-repeat 50% 50%;
-    border: solid 2px color(h--border, $nav-light-colors);
+    background: $color-cloud url("#{$image-path}/caret-down-black.svg") no-repeat 50% 50%;
     background-size: 30%;
 
-    &:hover {
-      background-color: transparent;
+    &:hover,
+    &:focus,
+    &:active {
+      background: color(border--active, $nav-light-colors) url("#{$image-path}/caret-down-white.svg") no-repeat 50% 50%;
       background-size: 40%;
-      border-color: color(border--active, $nav-light-colors);
     }
 
     &:focus,
     &:active {
-      background-color: transparent;
-      border-color: color(border--active, $nav-light-colors);
+      //background-color: color(border--active, $nav-light-colors);
     }
   }
 }
