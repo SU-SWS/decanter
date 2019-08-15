@@ -9362,7 +9362,9 @@ a {
       transition: -webkit-transform 0.3s ease-out;
       transition: transform 0.3s ease-out;
       transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
-      background-color: #2e2d29; }
+      background-color: #2e2d29;
+      -webkit-transform: scaleX(0);
+              transform: scaleX(0); }
     .su-main-nav > ul > li > a:hover, .su-main-nav > ul > li > a:active, .su-main-nav > ul > li > a:focus {
       font-weight: 600;
       color: #b1040e;
@@ -9373,6 +9375,10 @@ a {
         visibility: visible;
         left: 0;
         background-color: #b1040e; } }
+
+.su-main-nav > ul > li.su-main-nav__item--current > a::before {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1); }
 
 @media only screen and (min-width: 992px) {
   .su-main-nav > ul > li.su-main-nav__item--expanded > a::before {

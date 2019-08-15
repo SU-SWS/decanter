@@ -143,6 +143,7 @@
         width: 100%;
         transition: transform 0.3s ease-out;
         background-color: color(h--border, $nav-colors);
+        transform: scaleX(0);
       }
 
       // State styles for horizontal desktop.
@@ -166,6 +167,16 @@
 
   // First level nav items.
   > ul > li {
+
+    // First level current items.
+    &.su-main-nav__item--current {
+      > a {
+        &::before {
+          transform: scaleX(1);
+        }
+      }
+    }
+
     // First level expanded items.
     &.su-main-nav__item--expanded {
       @include grid-media("lg") {
