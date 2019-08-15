@@ -1,0 +1,28 @@
+@charset 'UTF-8';
+
+//
+// %nav-item--current
+//
+// Individual Nav Item -- current
+//
+// Style guide: Placeholders.Components.Nav-Item-current
+//
+
+%nav-item--current {
+  > a {
+    &::before {
+      visibility: visible;
+      transform: scaleY(1);
+      background-color: color(border--active, $nav-colors);
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        left: 6px;
+        transition: left 0.1s ease-out;
+        background-color: color(border--active, $nav-colors);
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+@charset 'UTF-8';
+
+//
+// %nav-menu
+//
+// Individual Nav Menu.
+//
+// Style guide: Placeholders.Components.Nav-Menu
+//
+
+%nav-menu {
+  @include margin(0 null);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  list-style: none;
+  background-color: color(bg, $nav-colors);
+
+  li ul li a {
+    font-size: 1.8rem;
+  }
+
+  li ul li ul li a {
+    font-size: 1.6rem;
+  }
+}
