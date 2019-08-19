@@ -292,6 +292,10 @@ function (_NavAbstract) {
 
       if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isEsc"])(theKey)) {
         this.closeAllSubNavs();
+
+        if (this.toggle) {
+          this.toggle.closeNav();
+        }
       }
     }
     /**
@@ -2267,7 +2271,7 @@ __webpack_require__.r(__webpack_exports__);
 
 document.addEventListener('DOMContentLoaded', function (event) {
   // The css class that this following behaviour is applied to.
-  var navClass = 'su-secondary-nav'; // All secondary navs.
+  var navClass = 'su-secondary-nav:not(.su-secondary-nav--no-interactivity)'; // All secondary navs.
 
   var navs = document.querySelectorAll('.' + navClass); // Generate the Accordion toggle for each nav.
 

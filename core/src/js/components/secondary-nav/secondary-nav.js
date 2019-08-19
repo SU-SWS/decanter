@@ -5,7 +5,7 @@ import ToggleNav from './ToggleNav';
 document.addEventListener('DOMContentLoaded', event => {
 
   // The css class that this following behaviour is applied to.
-  const navClass = 'su-secondary-nav';
+  const navClass = 'su-secondary-nav:not(.su-secondary-nav--no-interactivity)';
 
   // All secondary navs.
   const navs = document.querySelectorAll('.' + navClass);
