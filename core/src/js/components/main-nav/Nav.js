@@ -96,6 +96,7 @@ export default class Nav extends NavAbstract {
     // Close all the navs.
     if (isEsc(theKey)) {
       this.closeAllSubNavs();
+      // If this nav has a toggle element, close that too.
       if (this.toggle) {
         this.toggle.closeNav();
       }
