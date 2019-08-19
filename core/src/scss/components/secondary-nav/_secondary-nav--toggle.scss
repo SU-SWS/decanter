@@ -1,62 +1,80 @@
 @charset 'UTF-8';
 
+@keyframes dropout {
+  0% {
+    background-position: 50% 50%;
+  }
+
+  5% {
+    background-position: 50% 40%;
+  }
+
+  25% {
+    background-position: 50% 200%;
+  }
+
+  50% {
+    background-position: 50% -50px;
+    background-image: none;
+  }
+
+  95% {
+    background-position: 50% 60%;
+  }
+
+  100% {
+    background-position: 50% 50%;
+  }
+}
+
 .su-secondary-nav__toggle {
   @include margin(0);
   @include padding(15px);
   vertical-align: middle;
   text-align: center;
   font-size: 0;
-  width: 40px;
-  max-width: 40px;
-  height: 40px;
-  line-height: 40px;
+  width: 49px;
+  max-width: 49px;
+  height: 58px;
+  line-height: 58px;
   position: absolute;
-  right: 9px;
-  top: 9px;
+  right: 0;
+  top: 0;
   z-index: 10;
-  background: color(border--expanded, $nav-colors) url("#{$image-path}/caret-down-white.svg") no-repeat 50% 50%;
-  background-size: 30%;
-  border-radius: 20px;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+
+  &::before {
+    content: "";
+    background: color(border--expanded, $nav-colors) url("#{$image-path}/caret-down-white.svg") no-repeat center/50%;
+    border-radius: 20px;
+    height: 40px;
+    width: 40px;
+    display: block;
+    position: absolute;
+    top: calc(50% - 20px);
+    right: calc(50% - 20px);
+  }
 
   &:hover {
     font-weight: $font-bold;
-    animation: dropout 0.4s ease-out;
-    background-color: color(border--active, $nav-colors);
-    background-size: 40%;
-  }
+    background: transparent;
+    outline: none;
 
-  @keyframes dropout {
-    0% {
-      background-position: 50% 50%;
-    }
-
-    5% {
-      background-position: 50% 40%;
-    }
-
-    25% {
-      background-position: 50% 200%;
-    }
-
-    50% {
-      background-position: 50% -50px;
-      background-image: none;
-    }
-
-    95% {
-      background-position: 50% 60%;
-    }
-
-    100% {
-      background-position: 50% 50%;
+    &::before {
+      animation: dropout 0.4s ease-out;
     }
   }
 
   &:focus,
   &:active {
-    animation: dropout 0.4s ease-out;
-    background-size: 40%;
-    background-color: color(brand--bright);
+    outline: none;
+    box-shadow: none;
+
+    &::before {
+      animation: dropout 0.4s ease-out;
+    }
   }
 
   &[aria-expanded="true"] {

@@ -2066,7 +2066,6 @@ function (_SubNavItem) {
           this.toggle.focus();
         } else {
           this.openSubNav();
-          this.getElement('firstSubnavLink').focus();
         }
       }
     }
@@ -2102,7 +2101,11 @@ function (_SubNavItem) {
     value: function onKeydownSpace(event, target) {
       event.stopPropagation();
       event.preventDefault();
-      this.onClick(event, target);
+      this.onClick(event, target); // Only focus on keyboard nav not on click.
+
+      if (this.isExpanded()) {
+        this.getElement('firstSubnavLink').focus();
+      }
     }
     /**
      * Event handler for key press: Enter

@@ -82,7 +82,6 @@ export default class ToggleSubNavItem extends SubNavItem {
       }
       else {
         this.openSubNav();
-        this.getElement('firstSubnavLink').focus();
       }
     }
   }
@@ -115,6 +114,11 @@ export default class ToggleSubNavItem extends SubNavItem {
     event.stopPropagation();
     event.preventDefault();
     this.onClick(event, target);
+
+    // Only focus on keyboard nav not on click.
+    if (this.isExpanded()) {
+      this.getElement('firstSubnavLink').focus();
+    }
   }
 
   /**
