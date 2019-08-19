@@ -61,7 +61,6 @@ export default class SubNavItem extends NavItem {
     }
     else {
       this.openSubNav();
-      this.getElement('firstSubnavLink').focus();
     }
   }
 
@@ -194,7 +193,13 @@ export default class SubNavItem extends NavItem {
    * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownSpace(event, target) {
+    // Do the rest of the stuff click does.
     this.onClick(event, target);
+
+    // Focus on the first element for keyboard but not clicks.
+    if (this.isExpanded()) {
+      this.getElement('firstSubnavLink').focus();
+    }
   }
 
   /**
@@ -207,6 +212,11 @@ export default class SubNavItem extends NavItem {
    */
   onKeydownEnter(event, target) {
     this.onClick(event, target);
+
+    // Focus on the first element for keyboard but not clicks.
+    if (this.isExpanded()) {
+      this.getElement('firstSubnavLink').focus();
+    }
   }
 
   /**

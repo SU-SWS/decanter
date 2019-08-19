@@ -291,7 +291,7 @@ function (_NavAbstract) {
       var theKey = event.key || event.keyCode; // Close all the navs.
 
       if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["isEsc"])(theKey)) {
-        this.closeAllSubNavs();
+        this.closeAllSubNavs(); // If this nav has a toggle element, close that too.
 
         if (this.toggle) {
           this.toggle.closeNav();
@@ -1434,7 +1434,6 @@ function (_NavItem) {
         this.link.focus();
       } else {
         this.openSubNav();
-        this.getElement('firstSubnavLink').focus();
       }
     }
     /**
@@ -1577,7 +1576,12 @@ function (_NavItem) {
   }, {
     key: "onKeydownSpace",
     value: function onKeydownSpace(event, target) {
-      this.onClick(event, target);
+      // Do the rest of the stuff click does.
+      this.onClick(event, target); // Focus on the first element for keyboard but not clicks.
+
+      if (this.isExpanded()) {
+        this.getElement('firstSubnavLink').focus();
+      }
     }
     /**
      * Event handler for key press: Enter
@@ -1591,7 +1595,11 @@ function (_NavItem) {
   }, {
     key: "onKeydownEnter",
     value: function onKeydownEnter(event, target) {
-      this.onClick(event, target);
+      this.onClick(event, target); // Focus on the first element for keyboard but not clicks.
+
+      if (this.isExpanded()) {
+        this.getElement('firstSubnavLink').focus();
+      }
     }
     /**
      * Returns an HTML element relative to this current item.
