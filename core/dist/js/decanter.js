@@ -801,11 +801,11 @@ function (_NavItemAbstract) {
     value: function onKeydownArrowLeft(event, target) {
       // If this is a nested item. Go back up a level.
       if (this.getDepth() > 1) {
-        var node = this.getElement('parentItem');
+        var node = this.getElement('parentNavPrevItem');
+        this.nav.closeAllSubNavs();
+        this.nav.closeThisSubNav();
 
         if (node) {
-          this.nav.closeAllSubNavs();
-          this.nav.closeThisSubNav();
           node.focus();
         } // Go to parent's end.
         else {
@@ -1078,6 +1078,12 @@ function () {
 
           case 'parentNavNext':
             return this.item.parentNode.parentNode.nextElementSibling;
+
+          case 'parentNavPrev':
+            return this.item.parentNode.parentNode.previousElementSibling;
+
+          case 'parentNavPrevItem':
+            return this.item.parentNode.parentNode.previousElementSibling.querySelector('a');
 
           default:
             return false;
@@ -1537,12 +1543,14 @@ function (_NavItem) {
     key: "onKeydownArrowLeft",
     value: function onKeydownArrowLeft(event, target) {
       // Go up a level and close the nav.
-      event.preventDefault();
+      event.preventDefault(); // Previous nav parents link item to focus on.
 
-      if (this.getDepth() > 1) {
-        this.getElement('parentItem').focus();
-        this.nav.closeAllSubNavs();
-        this.nav.closeThisSubNav();
+      var node = this.getElement('parentNavPrevItem');
+      this.nav.closeAllSubNavs();
+      this.nav.closeThisSubNav();
+
+      if (node) {
+        node.focus();
       } else {
         _get(_getPrototypeOf(SubNavItem.prototype), "onKeydownArrowLeft", this).call(this, event, target);
       }

@@ -159,10 +159,13 @@ export default class SubNavItem extends NavItem {
     // Go up a level and close the nav.
     event.preventDefault();
 
-    if (this.getDepth() > 1) {
-      this.getElement('parentItem').focus();
-      this.nav.closeAllSubNavs();
-      this.nav.closeThisSubNav();
+    // Previous nav parents link item to focus on.
+    var node = this.getElement('parentNavPrevItem');
+    this.nav.closeAllSubNavs();
+    this.nav.closeThisSubNav();
+
+    if (node) {
+      node.focus();
     }
     else {
       super.onKeydownArrowLeft(event, target);

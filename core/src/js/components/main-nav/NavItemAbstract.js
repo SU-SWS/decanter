@@ -176,6 +176,10 @@ export default class NavItemAbstract {
           return this.item.parentNode.parentNode.parentNode.firstElementChild.querySelector('a');
         case 'parentNavNext':
           return this.item.parentNode.parentNode.nextElementSibling;
+        case 'parentNavPrev':
+          return this.item.parentNode.parentNode.previousElementSibling;
+        case 'parentNavPrevItem':
+          return this.item.parentNode.parentNode.previousElementSibling.querySelector('a');
         default:
           return false;
       }

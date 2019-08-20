@@ -129,10 +129,11 @@ export default class NavItem extends NavItemAbstract {
   onKeydownArrowLeft(event, target) {
     // If this is a nested item. Go back up a level.
     if (this.getDepth() > 1) {
-      let node = this.getElement('parentItem');
+      let node = this.getElement('parentNavPrevItem');
+      this.nav.closeAllSubNavs();
+      this.nav.closeThisSubNav();
+
       if (node) {
-        this.nav.closeAllSubNavs();
-        this.nav.closeThisSubNav();
         node.focus();
       }
       // Go to parent's end.
