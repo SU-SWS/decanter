@@ -1,8 +1,6 @@
 @charset "UTF-8";
-
 //
 // @aspect-ratio()
-// Source Code: <a href="https://gist.github.com/jonathantneal/a9b8901273475d261dd3">@jonathantneal</a>
 //
 // $horizontal - The ratio of the container
 // $selector -
@@ -12,9 +10,8 @@
 //
 // Style guide: Mixins.Aspect.Ratio
 //
-
-@mixin aspect-ratio($ratio: 1 1, $selector: "> :first-child") {
-	position: relative;
+@mixin aspect-ratio($ratio: 1 1, $selector: '> :first-child') {
+  position: relative;
   display: block;
   height: auto;
   min-height: 1em;
@@ -23,14 +20,14 @@
   width: 100%;
 
   #{$selector} {
-		left: 0;
-		height: 100%;
-		position: absolute;
-		top: 0;
-		width: 100%;
-	}
+    left: 0;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 }
 
 .aspect-ratio {
-  @include aspect-ratio();
+  @include aspect-ratio;
 }
