@@ -1,5 +1,10 @@
 # Changelog
 
+
+Version 6.0                        2019-08-21
+---------------------------------------------
+Adds to the alert component: HTML5 article and section elements, role="alert"
+
 Version 5.0.1                      2019-05-22
 ---------------------------------------------
 - Fix CSS grid gaps not displaying on Edge issue and other minor grid related issue
