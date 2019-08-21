@@ -1,5 +1,10 @@
 # Changelog
 
+Version 6.0.0                      2019-XX-XX
+---------------------------------------------
+- Added new card_button_link to Card component.
+
+
 Version 5.0.1                      2019-05-22
 ---------------------------------------------
 - Fix CSS grid gaps not displaying on Edge issue and other minor grid related issue
