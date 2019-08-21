@@ -1300,7 +1300,6 @@ function () {
     key: "setExpanded",
     value: function setExpanded(value) {
       this.element.setAttribute('aria-expanded', value);
-      this.nav.elem.setAttribute('aria-expanded', value);
     }
     /**
      * Is this expanded?
