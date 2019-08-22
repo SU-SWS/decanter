@@ -64,6 +64,9 @@ export default class NavItem extends NavItemAbstract {
     }
     else {
       this.nav.closeAllSubNavs();
+      if (this.nav.toggle) {
+        this.nav.toggle.element.focus();
+      }
     }
 
   }

@@ -728,6 +728,10 @@ function (_NavItemAbstract) {
         this.onKeydownArrowLeft(event, target);
       } else {
         this.nav.closeAllSubNavs();
+
+        if (this.nav.toggle) {
+          this.nav.toggle.element.focus();
+        }
       }
     }
     /**
@@ -1238,7 +1242,6 @@ function () {
       // back out of the navigation the nav items don't know about this event and
       // the focus goes outside of the nav and on to the toggle. This is to
       // catch that behavior and to close the nav.
-      // Toggle open and close.
       if (this.isExpanded()) {
         this.closeNav();
       }
