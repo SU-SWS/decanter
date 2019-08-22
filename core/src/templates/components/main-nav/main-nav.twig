@@ -95,14 +95,6 @@
 
 <nav {{ attributes }} class="su-main-nav no-js {{ modifier_class }}" aria-label="{{ aria_label|default('main menu') }}">
   <button class="su-main-nav__toggle {{ toggle_modifier_class }}" aria-expanded="false">{{ toggle_text|default('Menu') }}</button>
-  {% spaceless %}
-  {% if list_items is iterable %}
-    {{ menus.nav_menu(list_items, 1, 'su-main-nav') }}
-  {% else %}
-    {# If custom markup is provided, emit it as is #}
-    {{ list_items }}
-  {% endif %}
-  {% endspaceless %}
   {% if "su-main-nav--mobile-search" in modifier_class %}
     {% include "@decanter/components/site-search/site-search.twig" with
       {
@@ -116,4 +108,12 @@
       only
     %}
   {% endif %}
+  {% spaceless %}
+  {% if list_items is iterable %}
+    {{ menus.nav_menu(list_items, 1, 'su-main-nav') }}
+  {% else %}
+    {# If custom markup is provided, emit it as is #}
+    {{ list_items }}
+  {% endif %}
+  {% endspaceless %}
 </nav>

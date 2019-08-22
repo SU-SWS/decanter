@@ -7,29 +7,29 @@
 
   .su-main-nav__toggle[aria-expanded="true"] {
     @include grid-media-max('md') {
-      + .su-main-nav__menu-lv1 {
+
+      ~ .su-main-nav__menu-lv1 {
         @include padding(8.6rem null null null);
+      }
 
-        + .su-site-search {
-          @include padding(2rem);
-          display: block;
-          position: absolute;
-          width: 100%;
-          background-color: color(bg, $nav-colors);
+      ~ .su-site-search {
+        @include padding(2rem);
+        display: block;
+        position: absolute;
+        z-index: 100;
+        width: 100%;
+        background-color: color(bg, $nav-colors);
 
-          .su-site-search__submit {
-            top: 3.1rem;
-            right: 3.1rem;
-          }
+        .su-site-search__submit {
+          top: 3.1rem;
+          right: 3.1rem;
         }
       }
     }
 
-    + .su-main-nav__menu-lv1 {
-      + .su-site-search {
-        @include grid-media-only('md') {
-          width: 24em;
-        }
+    ~ .su-site-search {
+      @include grid-media-only('md') {
+        width: 24em;
       }
     }
   }

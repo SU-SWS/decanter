@@ -722,7 +722,13 @@ function (_NavItemAbstract) {
     key: "onKeydownEscape",
     value: function onKeydownEscape(event, target) {
       event.preventDefault();
-      this.nav.closeAllSubNavs();
+
+      if (this.getDepth() > 1) {
+        event.stopPropagation();
+        this.onKeydownArrowLeft(event, target);
+      } else {
+        this.nav.closeAllSubNavs();
+      }
     }
     /**
      * Event handler for key press: Tab
@@ -738,6 +744,7 @@ function (_NavItemAbstract) {
     key: "onKeydownTab",
     value: function onKeydownTab(event, target) {
       var shifted = event.shiftKey;
+      var isSearch = this.nav.elem.classList.contains('su-main-nav--mobile-search');
       var node = null;
 
       if (shifted) {
@@ -748,11 +755,17 @@ function (_NavItemAbstract) {
 
       if (!node) {
         if (this.options.toggle && this.getDepth() === 1) {
-          this.options.toggle.closeNav();
-        }
+          // If we are on the last item and there is a search, go focus on that.
+          if (shifted && isSearch) {
+            event.stopPropagation();
+            return;
+          } // Else, close everything.
 
-        this.nav.closeAllSubNavs();
-        this.nav.closeThisSubNav();
+
+          this.options.toggle.closeNav();
+          this.nav.closeAllSubNavs();
+          this.nav.closeThisSubNav();
+        }
       }
     }
     /**
@@ -1166,7 +1179,8 @@ function () {
     this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_0__["createEvent"])('closeNav'); // Event listeners.
 
     this.element.addEventListener('click', this);
-    this.element.addEventListener('keydown', this); // Clicking anywhere outside of attached nav closes all the children.
+    this.element.addEventListener('keydown', this);
+    this.element.addEventListener('focus', this); // Clicking anywhere outside of attached nav closes all the children.
 
     document.addEventListener('click', function (event) {
       // The element that was clicked.
@@ -1211,6 +1225,25 @@ function () {
       }
     }
     /**
+     * Handle the focus event on the toggle.
+     *
+     * @param {Event} event         - The event object.
+     * @param {HTMLElement} target  - The HTML element target.
+     */
+
+  }, {
+    key: "onFocus",
+    value: function onFocus(event, target) {
+      // This is a bit of a hack for the nav with the search, if you shift tab
+      // back out of the navigation the nav items don't know about this event and
+      // the focus goes outside of the nav and on to the toggle. This is to
+      // catch that behavior and to close the nav.
+      // Toggle open and close.
+      if (this.isExpanded()) {
+        this.closeNav();
+      }
+    }
+    /**
      * Handle the click event on the toggle.
      *
      * @param {Event} event         - The event object.
@@ -1223,8 +1256,9 @@ function () {
       // Only act if the target is my element.
       if (target !== this.element) {
         return;
-      } // Don't go nowhere.
+      }
 
+      var isSearch = this.nav.elem.classList.contains('su-main-nav--mobile-search'); // Don't go nowhere.
 
       event.preventDefault();
       event.stopPropagation(); // Toggle open and close.
@@ -1232,7 +1266,13 @@ function () {
       if (this.isExpanded()) {
         this.closeNav();
       } else {
-        this.openNav(true);
+        this.openNav();
+
+        if (isSearch) {
+          this.nav.elem.querySelector('.su-site-search__input').focus();
+        } else {
+          this.nav.elem.querySelector('a').focus();
+        }
       }
     }
     /**
@@ -1254,22 +1294,13 @@ function () {
     /**
      * Close any  navs that might be open, then mark this  nav open.
      * Optionally force focus on the first element in the nav (for keyboard nav)
-     *
-     * @param {Boolean} focusOnFirst - Whether or not to also focus on the
-     *                                 first element in the subnav.
      */
 
   }, {
     key: "openNav",
     value: function openNav() {
-      var focusOnFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
       this.setExpanded('true');
-      this.element.innerText = this.closeText; // Focus on the first link in the nav.
-
-      if (focusOnFirst) {
-        this.nav.elem.querySelector('a').focus();
-      } // Alert others the nav has opened.
-
+      this.element.innerText = this.closeText; // Alert others the nav has opened.
 
       this.element.dispatchEvent(this.openEvent);
     }

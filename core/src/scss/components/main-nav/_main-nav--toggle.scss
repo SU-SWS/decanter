@@ -54,11 +54,11 @@
       color: color(h--link-hover, $nav-colors);
     }
 
-    &[aria-expanded="false"] + .su-main-nav__menu-lv1 {
+    &[aria-expanded="false"] ~ .su-main-nav__menu-lv1 {
       display: none;
     }
 
-    &[aria-expanded="true"] + .su-main-nav__menu-lv1 {
+    &[aria-expanded="true"] ~ .su-main-nav__menu-lv1 {
       position: absolute;
     }
 
@@ -73,7 +73,7 @@
   }
 
   @include grid-media-only('md') {
-    &[aria-expanded="true"]  + .su-main-nav__menu-lv1 {
+    &[aria-expanded="true"]  ~ .su-main-nav__menu-lv1 {
       max-width: 24em;
     }
   }

@@ -9532,20 +9532,21 @@ a {
   display: none; }
 
 @media (max-width: 991px) {
-  .su-main-nav--mobile-search .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 {
+  .su-main-nav--mobile-search .su-main-nav__toggle[aria-expanded="true"] ~ .su-main-nav__menu-lv1 {
     padding-top: 8.6rem; }
-    .su-main-nav--mobile-search .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 + .su-site-search {
-      padding: 2rem;
-      display: block;
-      position: absolute;
-      width: 100%;
-      background-color: #2e2d29; }
-      .su-main-nav--mobile-search .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 + .su-site-search .su-site-search__submit {
-        top: 3.1rem;
-        right: 3.1rem; } }
+  .su-main-nav--mobile-search .su-main-nav__toggle[aria-expanded="true"] ~ .su-site-search {
+    padding: 2rem;
+    display: block;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    background-color: #2e2d29; }
+    .su-main-nav--mobile-search .su-main-nav__toggle[aria-expanded="true"] ~ .su-site-search .su-site-search__submit {
+      top: 3.1rem;
+      right: 3.1rem; } }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .su-main-nav--mobile-search .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 + .su-site-search {
+  .su-main-nav--mobile-search .su-main-nav__toggle[aria-expanded="true"] ~ .su-site-search {
     width: 24em; } }
 
 .su-main-nav--right > ul {
@@ -9640,9 +9641,9 @@ a {
     .su-main-nav__toggle:hover, .su-main-nav__toggle:active, .su-main-nav__toggle:focus {
       background-color: transparent;
       color: #b1040e; }
-    .su-main-nav__toggle[aria-expanded="false"] + .su-main-nav__menu-lv1 {
+    .su-main-nav__toggle[aria-expanded="false"] ~ .su-main-nav__menu-lv1 {
       display: none; }
-    .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 {
+    .su-main-nav__toggle[aria-expanded="true"] ~ .su-main-nav__menu-lv1 {
       position: absolute; }
     .su-main-nav__toggle--center {
       margin-right: auto;
@@ -9652,7 +9653,7 @@ a {
       margin-left: auto; } }
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
-  .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 {
+  .su-main-nav__toggle[aria-expanded="true"] ~ .su-main-nav__menu-lv1 {
     max-width: 24em; } }
 
 @media only screen and (min-width: 992px) {

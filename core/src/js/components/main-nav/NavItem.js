@@ -57,7 +57,15 @@ export default class NavItem extends NavItemAbstract {
    */
   onKeydownEscape(event, target) {
     event.preventDefault();
-    this.nav.closeAllSubNavs();
+
+    if (this.getDepth() > 1) {
+      event.stopPropagation();
+      this.onKeydownArrowLeft(event, target);
+    }
+    else {
+      this.nav.closeAllSubNavs();
+    }
+
   }
 
   /**
@@ -72,6 +80,7 @@ export default class NavItem extends NavItemAbstract {
   onKeydownTab(event, target) {
 
     const shifted = event.shiftKey;
+    const isSearch = this.nav.elem.classList.contains('su-main-nav--mobile-search');
     let node = null;
 
     if (shifted) {
@@ -83,10 +92,16 @@ export default class NavItem extends NavItemAbstract {
 
     if (!node) {
       if (this.options.toggle && this.getDepth() === 1) {
+        // If we are on the last item and there is a search, go focus on that.
+        if (shifted && isSearch) {
+          event.stopPropagation();
+          return;
+        }
+        // Else, close everything.
         this.options.toggle.closeNav();
+        this.nav.closeAllSubNavs();
+        this.nav.closeThisSubNav();
       }
-      this.nav.closeAllSubNavs();
-      this.nav.closeThisSubNav();
     }
   }
 
