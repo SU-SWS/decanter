@@ -1242,7 +1242,7 @@ function () {
       // back out of the navigation the nav items don't know about this event and
       // the focus goes outside of the nav and on to the toggle. This is to
       // catch that behavior and to close the nav.
-      if (this.isExpanded()) {
+      if (this.isExpanded() && event.shiftKey) {
         this.closeNav();
       }
     }
@@ -1327,13 +1327,13 @@ function () {
     /**
      * Set whether or not this is expanded.
      *
-     * @param {Boolean} value true for an expanded menu.
+     * @param {Boolean} val true for an expanded menu.
      */
 
   }, {
     key: "setExpanded",
-    value: function setExpanded(value) {
-      this.element.setAttribute('aria-expanded', value);
+    value: function setExpanded(val) {
+      this.element.setAttribute('aria-expanded', val);
     }
     /**
      * Is this expanded?

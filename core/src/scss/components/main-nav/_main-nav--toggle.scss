@@ -2,6 +2,8 @@
 
 .su-main-nav__toggle {
 
+  cursor: pointer;
+
   @include grid-media-max('md') {
     @include fancy-hover(color(border--hover, $nav-colors), color(border--active, $nav-colors));
     @include padding(0 0 2rem);
@@ -52,6 +54,7 @@
     &:focus {
       background-color: transparent;
       color: color(h--link-hover, $nav-colors);
+      cursor: pointer;
     }
 
     &[aria-expanded="false"] ~ .su-main-nav__menu-lv1 {

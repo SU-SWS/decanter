@@ -92,7 +92,7 @@
     }
 
     > ul,
-    .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 + .su-site-search {
+    .su-main-nav__toggle[aria-expanded="true"] ~ .su-site-search {
       @include grid-media-only('md') {
         width: 40rem;
       }
@@ -113,7 +113,7 @@
 
   .su-main-nav,
   .su-main-nav > ul,
-  .su-main-nav .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 + .su-site-search {
+  .su-main-nav .su-main-nav__toggle[aria-expanded="true"] ~ .su-site-search {
     @include grid-media-only('xs') {
       // We can't use 100vw for this because it doesn't work with OSX system preference to always show scrollbar
       width: calc(100% + #{map-get($screen-margins, 'xs') * 2});
