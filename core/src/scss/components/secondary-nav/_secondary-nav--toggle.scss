@@ -29,7 +29,7 @@
 
 .su-secondary-nav__toggle {
   @include margin(0);
-  @include padding(15px);
+  @include padding(15px 28px);
   vertical-align: middle;
   text-align: center;
   font-size: 0;
@@ -48,6 +48,7 @@
   &::before {
     content: "";
     background: color(border--expanded, $nav-colors) url("#{$image-path}/caret-down-white.svg") no-repeat center / 50%;
+    background-size: 15px;
     border-radius: 20px;
     height: 40px;
     width: 40px;
