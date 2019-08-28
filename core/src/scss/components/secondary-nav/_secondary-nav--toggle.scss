@@ -58,13 +58,16 @@
     right: calc(50% - 20px);
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     font-weight: $font-bold;
     background: transparent;
     outline: none;
 
     &::before {
       animation: dropout 0.4s ease-out;
+      background: $color-fog url("#{$image-path}/caret-down-black.svg") no-repeat center / 50%;
+      background-size: 15px;
     }
   }
 
