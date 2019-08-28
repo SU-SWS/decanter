@@ -786,6 +786,7 @@ function (_NavItemAbstract) {
     key: "onKeydownSpace",
     value: function onKeydownSpace(event, target) {
       event.stopPropagation();
+      event.preventDefault();
       window.location = target.getAttribute('href');
     }
     /**
