@@ -121,6 +121,22 @@ __webpack_require__.r(__webpack_exports__);
  */
 var mainEvents = function mainEvents() {
   return {
+    NavItem: {
+      2: {
+        onKeydownArrowLeft: function onKeydownArrowLeft(event, instance) {
+          if (instance.options.toggle && !instance.options.toggle.isExpanded()) {
+            instance.onKeydownArrowLeft(event, instance.link);
+            var node = instance.getElement('parentNavPrevItem');
+
+            if (node) {
+              node.focus();
+            }
+          } else {
+            instance.onKeydownArrowLeft(event, instance);
+          }
+        }
+      }
+    },
     SubNavItem: {
       // Only change the behaviour when in desktop mode. If not in desktop
       // mode go with the default so we set it to depth of 1.
@@ -137,6 +153,20 @@ var mainEvents = function mainEvents() {
             instance.onKeydownArrowDown(event, instance.link);
           } else {
             instance.onKeydownArrowRight(event, instance.link);
+          }
+        }
+      },
+      2: {
+        onKeydownArrowLeft: function onKeydownArrowLeft(event, instance) {
+          if (instance.options.toggle && !instance.options.toggle.isExpanded()) {
+            instance.onKeydownArrowLeft(event, instance.link);
+            var node = instance.getElement('parentNavPrevItem');
+
+            if (node) {
+              node.focus();
+            }
+          } else {
+            instance.onKeydownArrowLeft(event, instance);
           }
         }
       }
@@ -786,6 +816,7 @@ function (_NavItemAbstract) {
     key: "onKeydownSpace",
     value: function onKeydownSpace(event, target) {
       event.stopPropagation();
+      event.preventDefault();
       window.location = target.getAttribute('href');
     }
     /**
@@ -822,7 +853,7 @@ function (_NavItemAbstract) {
     value: function onKeydownArrowLeft(event, target) {
       // If this is a nested item. Go back up a level.
       if (this.getDepth() > 1) {
-        var node = this.getElement('parentNavPrevItem');
+        var node = this.getElement('parentItem');
         this.nav.closeAllSubNavs();
         this.nav.closeThisSubNav();
 
@@ -1582,14 +1613,12 @@ function (_NavItem) {
       // Go up a level and close the nav.
       event.preventDefault(); // Previous nav parents link item to focus on.
 
-      var node = this.getElement('parentNavPrevItem');
+      var node = this.getElement('parentItem');
       this.nav.closeAllSubNavs();
       this.nav.closeThisSubNav();
 
       if (node) {
         node.focus();
-      } else {
-        _get(_getPrototypeOf(SubNavItem.prototype), "onKeydownArrowLeft", this).call(this, event, target);
       }
     }
     /**

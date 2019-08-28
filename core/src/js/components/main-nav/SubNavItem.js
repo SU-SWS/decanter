@@ -160,15 +160,12 @@ export default class SubNavItem extends NavItem {
     event.preventDefault();
 
     // Previous nav parents link item to focus on.
-    var node = this.getElement('parentNavPrevItem');
+    var node = this.getElement('parentItem');
     this.nav.closeAllSubNavs();
     this.nav.closeThisSubNav();
 
     if (node) {
       node.focus();
-    }
-    else {
-      super.onKeydownArrowLeft(event, target);
     }
   }
 

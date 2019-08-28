@@ -7,6 +7,22 @@
  */
 export const mainEvents = () => {
   return {
+    NavItem: {
+      2: {
+        onKeydownArrowLeft: function (event, instance) {
+          if (instance.options.toggle && !instance.options.toggle.isExpanded()) {
+            instance.onKeydownArrowLeft(event, instance.link);
+            let node = instance.getElement('parentNavPrevItem');
+            if (node) {
+              node.focus();
+            }
+          }
+          else {
+            instance.onKeydownArrowLeft(event, instance);
+          }
+        }
+      }
+    },
     SubNavItem: {
       // Only change the behaviour when in desktop mode. If not in desktop
       // mode go with the default so we set it to depth of 1.
@@ -25,6 +41,20 @@ export const mainEvents = () => {
           }
           else {
             instance.onKeydownArrowRight(event, instance.link);
+          }
+        }
+      },
+      2: {
+        onKeydownArrowLeft: function (event, instance) {
+          if (instance.options.toggle && !instance.options.toggle.isExpanded()) {
+            instance.onKeydownArrowLeft(event, instance.link);
+            let node = instance.getElement('parentNavPrevItem');
+            if (node) {
+              node.focus();
+            }
+          }
+          else {
+            instance.onKeydownArrowLeft(event, instance);
           }
         }
       }
