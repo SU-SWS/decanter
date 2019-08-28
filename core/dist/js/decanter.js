@@ -1619,6 +1619,8 @@ function (_NavItem) {
 
       if (node) {
         node.focus();
+      } else {
+        _get(_getPrototypeOf(SubNavItem.prototype), "onKeydownArrowLeft", this).call(this, event, target);
       }
     }
     /**

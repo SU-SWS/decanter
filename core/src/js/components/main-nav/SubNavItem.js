@@ -167,6 +167,9 @@ export default class SubNavItem extends NavItem {
     if (node) {
       node.focus();
     }
+    else {
+      super.onKeydownArrowLeft(event, target);
+    }
   }
 
   /**
