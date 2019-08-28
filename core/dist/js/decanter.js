@@ -786,6 +786,7 @@ function (_NavItemAbstract) {
     key: "onKeydownSpace",
     value: function onKeydownSpace(event, target) {
       event.stopPropagation();
+      window.location = target.getAttribute('href');
     }
     /**
      * Event handler for key press: Up Arrow
@@ -2144,11 +2145,19 @@ function (_SubNavItem) {
     key: "onKeydownSpace",
     value: function onKeydownSpace(event, target) {
       event.stopPropagation();
-      event.preventDefault();
-      this.onClick(event, target); // Only focus on keyboard nav not on click.
+      event.preventDefault(); // Go to the link if a link.
 
-      if (this.isExpanded()) {
-        this.getElement('firstSubnavLink').focus();
+      if (target == this.link) {
+        window.location = this.link.getAttribute('href');
+      } // Go to the toggle if a toggle.
+
+
+      if (target == this.toggle) {
+        this.onClick(event, target); // Only focus on keyboard nav not on click.
+
+        if (this.isExpanded()) {
+          this.getElement('firstSubnavLink').focus();
+        }
       }
     }
     /**
@@ -2163,7 +2172,9 @@ function (_SubNavItem) {
   }, {
     key: "onKeydownEnter",
     value: function onKeydownEnter(event, target) {
-      this.onKeydownSpace(event, target);
+      if (target == this.toggle) {
+        this.onKeydownSpace(event, target);
+      }
     }
     /**
      * Event handler for key press: Right
