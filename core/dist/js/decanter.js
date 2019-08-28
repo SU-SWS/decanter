@@ -725,7 +725,10 @@ function (_NavItemAbstract) {
 
       if (this.getDepth() > 1) {
         event.stopPropagation();
-        this.onKeydownArrowLeft(event, target);
+        var node = this.getElement('parentItem');
+        this.nav.closeAllSubNavs();
+        this.nav.closeThisSubNav();
+        node.focus();
       } else {
         this.nav.closeAllSubNavs();
 
