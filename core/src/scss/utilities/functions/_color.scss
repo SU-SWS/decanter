@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+//
+// color($color, $colormap: $core-colors)
+//
+// Return a color from a color map. If only a color is specified, then it
+// returns a color from $core-colors. If a color and a color map are specified,
+// then it returns a color from the particular color map.
+//
+// $color - String - Color variable name from a color map, e.g., brand, link
+// $colormap - Color palette in the form of a SASS map,
+// e.g., $alert-colors, $main-nav-dark-colors.
+// Default is $core-colors.
+//
+// Style guide: Functions.Color
+//
+
+@function color($color, $colormap: $core-colors) {
+  @if $colormap == $core-colors {
+    @if map-has-key($core-colors, $color) {
+      $color: map-get($core-colors, $color);
+    }
+    @else {
+      @error "Color does not exist in color map $core-colors."
+    }
+  }
+  @else {
+    @if map-has-key($colormap, $color) {
+      $color: map-get($colormap, $color);
+    }
+    @else {
+      @error "Color does not exist in color map."
+    }
+  }
+  @return $color;
+}

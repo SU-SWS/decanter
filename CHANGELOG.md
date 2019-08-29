@@ -1,5 +1,16 @@
 # Changelog
 
+Version 5.0.1                      2019-05-22
+---------------------------------------------
+- Fix CSS grid gaps not displaying on Edge issue and other minor grid related issue
+- Fix main nav color variants css selector specificity issues
+- Add drop shadow to md breakpoint mobile menu
+- Main Navigation components now fires openNav, closeNav, openSubnav, closeSubnav events
+- "More info" link icon now inherits color from the link itself
+- Adjust linter settings
+- Add favicon to style guide
+- Update README
+
 Version 5.0.0                      2019-03-27
 ---------------------------------------------
 - New Webpack Build System

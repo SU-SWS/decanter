@@ -11,6 +11,7 @@
   flex-direction: column;
   overflow: hidden;
   line-height: 0;
+  text-decoration: none;
 
   .su-cta__img {
     width: 100%;
@@ -21,6 +22,7 @@
 
   .su-cta__button {
     @include button-big;
+    @include margin(null null 0);
     @include grid-media('xs') {
       width: 100%;
       z-index: 100;
@@ -39,7 +41,7 @@
     }
 
     .su-cta__button {
-      background-color: $color-black;
+      background-color: color(bg--reverse);
       text-decoration: none;
     }
   }

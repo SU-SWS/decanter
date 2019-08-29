@@ -6,9 +6,16 @@
 // It is a horizontal menu bar on larger breakpoints, while on smaller breakpoints,
 // it changes into a vertical menu and can be expanded or collapsed by a toggle button.
 //
-// This component is implemented to be accessible. For more information, please see:
+// The following Javascript events are dispatched:
+// - `openNav` - fires when a mobile nav is opened - dispatched on `.su-main-nav`
+// - `closeNav` - fires when a mobile nav is closed - dispatched on `.su-main-nav`
+// - `openSubnav` - fires when a subnav is opened - dispatched on `li.su-main-nav__item--parent`
+// - `closeSubnav` - fires when a subnav is closed - dispatched on `li.su-main-nav__item--parent`
 //
-// <a href="https://github.com/SU-SWS/decanter/wiki/About-the-Main-Nav-Component">https://github.com/SU-SWS/decanter/wiki/About-the-Main-Nav-Component</a>
+// The Main Navigation component is implemented to be accessible. For more information on building
+// accessible site navigation, please see
+// <a href="https://github.com/SU-SWS/decanter/wiki/About-the-Main-Nav-Component">About the Main Nav Component</a>
+// on Decanter's wiki.
 //
 //**Modifier classes for the Main Nav:**
 // - .su-main-nav--light          - Light colored theme
@@ -41,139 +48,104 @@
   position: relative;
   z-index: 9999;
 
-  // general menu styles
+  // General menu styles
   ul {
-    @include margin(0 null);
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    list-style: none;
-    background-color: $color-black;
+    @extend %nav-menu;
   }
 
   li {
-    @include margin(null null 0);
+    @extend %nav-item;
 
     a {
-      @include fancy-hover($color: $color-white, $active: $color-vivid-red, $position: 'left');
-      @include padding(1.6rem 4.8rem 1.6rem 2.4rem);
-      display: block;
-      color: $color-white;
-      font-weight: $font-regular;
-      font-size: 1.8rem;
-      border-bottom: $color-cool-grey solid 1px;
-      outline: 0;
-
-      &:active {
-        font-weight: $font-bold;
-      }
+      @extend %nav-item-link;
     }
+  }
 
-    > ul {
-      display: none;
+  .su-main-nav__item--expanded {
+    @extend %nav-item--expanded;
+  }
+
+  .su-main-nav__item--current {
+    @extend %nav-item--current;
+  }
+
+  .su-main-nav__item--parent {
+    @extend %nav-item--parent;
+
+    > a::after {
+      @include grid-media('lg') {
+        @include margin(null null 1px 6px);
+        background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
+        background-size: 100%;
+        position: relative;
+        right: 0;
+        top: 0;
+        height: 11px; // Small svg gets chopped off if use em instead of px
+        width: 11px;
+        transition: transform 0.3s ease-out;
+      }
     }
 
     &.su-main-nav__item--expanded {
-      > ul {
-        display: flex;
-      }
-    }
+      @extend %nav-item--parent-expanded;
 
-    &.su-main-nav__item--current > a {
-      font-weight: $font-bold;
-
-      &::before {
-        visibility: visible;
-        transform: scaleY(1);
-        background-color: $color-vivid-red;
-        transition: left 0.1s ease-out;
-      }
-
-      &:hover,
-      &:focus {
-        &::before {
-          left: 6px;
-        }
-      }
-    }
-
-    &.su-main-nav__item--parent {
-      > a::after {
-        background: url("#{$image-path}/plus-white.svg") no-repeat 0 0;
-        background-size: 100%;
-        content: "";
-        display: inline-block;
-        position: absolute;
-        right: 2rem;
-        top: 2.06rem;
-        height: 1.8rem;
-        width: 1.8rem;
-
-        @include grid-media('lg') {
-          @include margin(null null 1px 6px);
-          background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
-          background-size: 100%;
-          position: relative;
-          right: 0;
-          top: 0;
-          height: 11px; //small svg gets chopped off if use em instead of px
-          width: 11px;
-          transition: transform 0.3s ease-out;
-        }
-      }
-
-      &.su-main-nav__item--expanded > a {
-        &::after {
-          background: url("#{$image-path}/minus-white.svg") no-repeat 0 0;
-          background-size: 100%;
-
-          @include grid-media('lg') {
+      @include grid-media('lg') {
+        > a {
+          &::after {
             background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
             background-size: 100%;
             transform: rotate(180deg);
           }
-        }
 
-        @include grid-media-max('md') {
           &::before {
-            background-color: transparent;
+            background-color: color(h-border--expanded, $nav-colors);
           }
 
           &:hover::before {
-            background-color: $color-white;
+            background-color: color(h-border--hover, $nav-colors);
           }
 
           &:active::before {
-            background-color: $color-vivid-red;
-          }
-        }
-      }
-    }
-
-    @include grid-media-max('md') {
-      &.su-main-nav__item--current.su-main-nav__item--expanded {
-        > a {
-          font-weight: $font-bold;
-
-          &::before {
-            background-color: $color-white;
+            background-color: color(h-border--active, $nav-colors);
           }
         }
       }
     }
   }
 
-  //top level menu styles
-  > ul {
-    > li {
-      @include margin(null null 0);
+  .su-main-nav__item--current {
+    &.su-main-nav__item--expanded {
+      @extend %nav-item--current-expanded;
 
-      > a {
-        font-weight: $font-semi-bold;
+      @include grid-media('lg') {
+        > a {
+          &[aria-expanded="true"] {
+            &:active {
+              &::before {
+                background-color: color(h-border--active, $nav-colors);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Top level only menu styles
+  > ul {
+    @include grid-media-max('md') {
+      @include box-shadow('medium', none);
+    }
+
+    > li {
+      &:first-of-type:not(.su-main-nav__item--expanded) {
+        > a {
+          border-top: 0;
+        }
       }
     }
 
-    // top level menu desktop styles
+    // Top level menu desktop styles
     @include grid-media('lg') {
       @include padding(null null null 0);
       flex-direction: row;
@@ -182,38 +154,91 @@
 
       > li {
         > a {
-          @include fancy-hover;
+          @include fancy-hover(color(h-border--hover, $nav-colors), color(h-border--active, $nav-colors));
           @include padding(null 0);
           @include margin(0 1.2em 0 0);
+          color: color(h-link, $nav-colors);
+          transition: color 0.3s ease-out;
           font-size: 2.1rem;
-          border-bottom: 0;
+          border-top: 0;
 
-          &:active {
-            font-weight: $font-semi-bold;
+          &:hover,
+          &:focus {
+            color: color(h-link--hover, $nav-colors);
           }
 
-          &[aria-expanded="true"]::before {
-            visibility: visible;
-            transform: scaleX(1);
-            background-color: $color-black;
+          &:active,
+          &[aria-expanded="true"] {
+            color: color(h-link--active, $nav-colors);
+          }
+
+          &[aria-expanded="true"] {
+            &:hover {
+              color: color(h-link--active-hover, $nav-colors);
+            }
+
+            &:active {
+              color: color(h-link--active, $nav-colors);
+            }
+
+            &::before {
+              visibility: visible;
+              transform: scaleX(1);
+              background-color: color(h-border--expanded, $nav-colors);
+            }
           }
         }
 
         &:last-child > a {
           @include margin(null 0 null null);
         }
+      }
 
-        &.su-main-nav__item--current > a {
-          font-weight: $font-semi-bold;
+      > .su-main-nav__item--current {
+        > a {
+          &::before {
+            background-color: color(h-border--active, $nav-colors);
+          }
+
+          &:hover,
+          &:focus {
+            &::before {
+              left: 0;
+              background-color: color(h-border--active-hover, $nav-colors);
+              transition: background-color 0.3s ease-out;
+            }
+          }
+
+          &:active::before {
+            background-color: color(h-border--active, $nav-colors);
+          }
         }
 
         &.su-main-nav__item--expanded > a {
           &:focus::before {
-            background-color: $color-black;
+            background-color: color(h-border--active, $nav-colors);
           }
 
-          &[aria-expanded="true"]:hover::before {
-            background-color: $color-dark-red;
+          &[aria-expanded="true"] {
+            &:hover::before {
+              left: 0;
+            }
+          }
+        }
+      }
+
+      > .su-main-nav__item--expanded {
+        > a:focus::before {
+          background-color: color(h-border--expanded, $nav-colors);
+        }
+
+        > a[aria-expanded="true"] {
+          &:hover::before {
+            background-color: color(h-border--hover, $nav-colors);
+          }
+
+          &:active::before {
+            background-color: color(h-border--expanded, $nav-colors);
           }
         }
       }
@@ -233,7 +258,8 @@
       }
     }
 
-    //On desktop, if mouse user hovers over a parent menu item, submenu is expanded
+    // On desktop, if mouse user hovers over a parent menu item,
+    // submenu is expanded
     @include grid-media('lg') {
       li:hover > ul {
         display: flex;
@@ -243,18 +269,19 @@
 }
 
 .su-main-nav__toggle {
+
   @include grid-media-max('md') {
-    @include fancy-hover;
+    @include fancy-hover(color(h-border--hover, $nav-colors), color(h-border--active, $nav-colors));
     @include padding(0 0 2rem);
     @include margin(0);
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    outline: none;
     width: 40px;
     background-color: transparent;
-    color: $color-black;
+    color: color(h-link, $nav-colors);
     font-size: 1.6rem;
-    font-weight: $font-regular;
     line-height: 0.7;
 
     &::after {
@@ -270,7 +297,7 @@
       &::before {
         visibility: visible;
         transform: scaleX(1);
-        background-color: $color-black;
+        background-color: color(h-border--expanded, $nav-colors);
       }
 
       &::after {
@@ -280,11 +307,11 @@
       }
 
       &:hover::before {
-        background-color: $color-dark-red;
+        background-color: color(h-border--hover, $nav-colors);
       }
 
       &:active::before {
-        background-color: $color-black;
+        background-color: color(h-border--active, $nav-colors);
       }
     }
 
@@ -292,7 +319,7 @@
     &:active,
     &:focus {
       background-color: transparent;
-      color: $color-black;
+      color: color(h-link, $nav-colors);
       box-shadow: none;
     }
 
@@ -304,7 +331,7 @@
       position: absolute;
     }
 
-    //toggle button variants
+    // Toggle button variants
     &--center {
       @include margin(null auto);
     }
@@ -325,98 +352,22 @@
   }
 }
 
-.su-main-nav__menu-lv1 > li {
-  @include grid-media('lg') {
-    > a {
-      color: $color-black;
-      transition: color 0.3s ease-out;
-
-      &:hover,
-      &:focus {
-        color: $color-dark-red;
-      }
-
-      &:active,
-      &[aria-expanded="true"] {
-        color: $color-black;
-      }
-
-      &[aria-expanded="true"]:hover {
-        color: $color-dark-red;
-      }
-    }
-  }
-
-  &.su-main-nav__item--current {
-    > a {
-      &::before {
-        transform: scaleY(1);
-        background-color: $color-vivid-red;
-      }
-
-      &:hover,
-      &:focus {
-        &::before {
-          background-color: $color-vivid-red;
-        }
-      }
-    }
-
-    @include grid-media-max('md') {
-      &.su-main-nav__item--expanded {
-        > a:focus::before {
-          left: 0;
-          background-color: $color-white;
-        }
-
-        > a[aria-expanded="true"] {
-          &:hover::before {
-            left: 6px;
-          }
-
-          &:active {
-            font-weight: $font-bold;
-
-            &::before {
-              background-color: $color-vivid-red;
-            }
-          }
-        }
-      }
-    }
-
-    @include grid-media('lg') {
-      > a {
-        &::before {
-          background-color: $color-black;
-        }
-
-        &:hover,
-        &:focus {
-          &::before {
-            left: 0;
-            background-color: $color-dark-red;
-          }
-        }
-      }
-    }
-  }
-}
-
-.su-main-nav__menu-lv2 {
+// 2nd level menu
+.su-main-nav > ul > li > ul {
   @include padding(null null null 2rem);
 
+  // Desktop dropdown menu
   @include grid-media('lg') {
     @include padding(1px null null 1.2rem);
     @include margin(null null null -1.8rem);
-    @include box-shadow($depth: 'medium', $stroke: none);
-    z-index: 11111; //When menu wrap to 2nd line make sure dropdown covers up top level links
+    @include box-shadow('medium', none);
+    z-index: 11111; // When menu wrap to 2nd line make sure dropdown covers up top level links
     position: absolute;
     max-width: 30rem;
 
-    li:last-child {
+    li:first-child {
       a {
-        border-bottom: 0;
+        border-top: 0;
       }
     }
   }

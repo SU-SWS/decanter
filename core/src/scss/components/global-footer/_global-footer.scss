@@ -13,15 +13,17 @@
 // Global styles for the global footer.
 .su-global-footer {
   @include modular-spacing('padding', 1 null);
-  background-color: $color-cardinal-red;
-  color: $color-white;
+  background-color: color(brand);
+  color: color(link--reverse);
 
   a {
     color: rgba($color-white, 0.9);
     text-decoration: none;
+    font-weight: 400;
 
-    &:hover {
-      color: $color-white;
+    &:hover,
+    &:focus {
+      color: color(link--reverse);
       text-decoration: underline;
     }
   }
@@ -42,7 +44,7 @@
 
     a {
       @include logo;
-      color: $color-white;
+      color: color(link--reverse);
       font-size: 3.4rem;
 
       @include grid-media-only('xs') {
@@ -135,6 +137,10 @@
   .su-global-footer__menu--policy {
     font-size: 1.5rem;
     font-weight: 300;
+
+    a {
+      font-weight: 300;
+    }
 
     @include grid-media-only('xs') {
       @include padding(null null null 2rem);

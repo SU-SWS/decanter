@@ -1,7 +1,7 @@
-import { theSubNavs, closeAllSubNavs } from './globals';
-import { isHome, isEnd, isTab, isSpace, isEnter, isLeftArrow, isRightArrow, isUpArrow, isDownArrow } from "../../utilities/keyboard";
+import {theSubNavs, closeAllSubNavs} from './globals';
+import {isHome, isEnd, isTab, isSpace, isEnter, isLeftArrow, isRightArrow, isUpArrow, isDownArrow} from "../../utilities/keyboard";
 import Nav from './Nav';
-import '../../utilities/keyboard';
+import {createEvent} from '../../utilities/events';
 
 /**
  * Represent an item in a navigation menu. May be a direct link or a subnav
@@ -32,6 +32,12 @@ export default class NavItem {
 
     if (this.isSubNavTrigger()) {
       this.subNav = new Nav(this);
+      // Add custom events to alert others when a subnav opens or closes.
+      // this.openEvent is dispatched in this.openSubNav().
+      this.openEvent = createEvent('openSubnav');
+      // this.closeEvent is dispatched in this.closeSubNav().
+      this.closeEvent = createEvent('closeSubnav');
+
       // Maintain global list of subnavs for closeAllSubNavs().
       theSubNavs.push(this);
       this.item.addEventListener('click', this);
@@ -126,6 +132,7 @@ export default class NavItem {
       if (focusOnFirst) {
         this.subNav.focusOn('first');
       }
+      this.item.dispatchEvent(this.openEvent);
     }
   }
 
@@ -140,10 +147,13 @@ export default class NavItem {
    */
   closeSubNav(focusOnTrigger = false) {
     if (this.isSubNavTrigger()) {
-      this.item.classList.remove('su-main-nav__item--expanded');
-      this.setExpanded('false');
-      if (focusOnTrigger) {
-        this.link.focus();
+      if (this.isExpanded()) {
+        this.item.classList.remove('su-main-nav__item--expanded');
+        this.setExpanded('false');
+        if (focusOnTrigger) {
+          this.link.focus();
+        }
+        this.item.dispatchEvent(this.closeEvent);
       }
     }
     else if (this.isSubNavItem()) {

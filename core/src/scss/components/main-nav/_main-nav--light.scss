@@ -1,101 +1,67 @@
 @charset "UTF-8";
 
 .su-main-nav--light {
-  .su-main-nav__toggle {
-    &[aria-expanded="true"] {
-      &::before {
-        background-color: $color-driftwood;
-      }
+  @extend %nav--light;
 
-      &:hover::before {
-        background-color: $color-dark-red;
-      }
+  @include grid-media-max('md') {
+    .su-main-nav__toggle {
+      &[aria-expanded="true"] {
+        &::before {
+          background-color: color(h-border--expanded, $nav-colors--light);
+        }
 
-      &:active::before {
-        background-color: $color-black;
+        &:hover::before {
+          background-color: color(h-border--hover, $nav-colors--light);
+        }
+
+        &:active::before {
+          background-color: color(h-border--active, $nav-colors--light);
+        }
       }
     }
   }
 
-  // general menu styles
-  ul {
-    background-color: $color-white;
-  }
-
-  li {
-    a {
-      color: $color-black;
-      border-bottom-color: #d9d9d9;
-
-      &:hover,
-      &:focus {
-        &::before {
-          background-color: $color-black;
-        }
+  @include grid-media-max('md') {
+    .su-main-nav__item--parent {
+      > a::after {
+        background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
+        background-size: 100%;
       }
 
-      &:active {
-        color: $color-dark-red;
-
-        &::before {
-          background-color: $color-dark-red;
-        }
-      }
-    }
-
-    &.su-main-nav__item--current {
-      > a {
-        color: $color-dark-red;
-
-        &::before {
-          background-color: $color-dark-red;
-        }
-      }
-    }
-
-    @include grid-media-max('md') {
-      &.su-main-nav__item--parent {
-        > a::after {
-          background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
+      &.su-main-nav__item--expanded > a {
+        &::after {
+          background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
           background-size: 100%;
         }
 
-        &.su-main-nav__item--expanded > a {
-          ::after {
-            background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
-            background-size: 100%;
+        &:focus::before {
+          background-color: color(border--expanded, $nav-colors--light);
+        }
+
+        &[aria-expanded="true"] {
+          &:hover::before {
+            background-color: color(border--hover, $nav-colors--light);
           }
 
-          &:focus::before {
-            background-color: transparent;
-          }
-
-          &[aria-expanded="true"] {
-            &:hover::before {
-              background-color: $color-black;
-            }
-
-            &:active::before {
-              background-color: $color-dark-red;
-            }
+          &:active::before {
+            background-color: color(border--active, $nav-colors--light);
           }
         }
       }
+    }
 
-      &.su-main-nav__item--current.su-main-nav__item--expanded {
+    .su-main-nav__item--current {
+      &.su-main-nav__item--expanded {
         > a {
-          color: $color-black;
+          color: color(link--expanded, $nav-colors--light);
 
-          &::before {
-            background-color: $color-black;
-          }
-
+          &::before,
           &:focus::before {
-            background-color: $color-black;
+            background-color: color(border--active-expanded, $nav-colors--light);
           }
 
           &[aria-expanded="true"]:active {
-            color: $color-dark-red;
+            color: color(link--active, $nav-colors--light);
           }
         }
       }
@@ -103,81 +69,124 @@
   }
 
   // desktop first level menu style override
-  > ul {
-    @include grid-media('lg') {
+  @include grid-media('lg') {
+    > ul {
       background-color: transparent;
 
       > li {
         > a {
           &:hover,
           &:focus {
-            color: $color-dark-red;
+            color: color(h-link--hover, $nav-colors--light);
 
             &::before {
-              background-color: $color-dark-red;
+              background-color: color(h-border--hover, $nav-colors--light);
             }
           }
 
           &:active {
-            color: $color-black;
+            color: color(h-link--active, $nav-colors--light);
 
             &::before {
-              background-color: $color-black;
+              background-color: color(h-border--active, $nav-colors--light);
             }
           }
 
           &[aria-expanded="true"] {
-            color: $color-black;
+            color: color(h-link--expanded, $nav-colors--light);
 
             &::before {
-              background-color: $color-driftwood;
+              background-color: color(h-border--expanded, $nav-colors--light);
             }
 
             &:hover {
-              color: $color-dark-red;
+              color: color(h-link--hover, $nav-colors--light);
 
               &::before {
-                background-color: $color-dark-red;
+                background-color: color(h-border--hover, $nav-colors--light);
               }
+            }
+
+            &:focus {
+              &::before {
+                background-color: color(h-border--expanded, $nav-colors--light);
+              }
+            }
+
+            &:active {
+              color: color(h-link--active, $nav-colors--light);
+            }
+          }
+        }
+      }
+
+      > .su-main-nav__item--current {
+        > a {
+          color: color(h-link--active, $nav-colors--light);
+
+          &::before {
+            background-color: color(h-border--current, $nav-colors--light);
+          }
+
+          &:hover,
+          &:focus {
+            color: color(h-link--hover, $nav-colors--light);
+
+            &::before {
+              background-color: color(h-border--hover, $nav-colors--light);
+            }
+          }
+
+          &:active {
+            color: color(h-link--active, $nav-colors--light);
+
+            &::before {
+              background-color: color(h-border--active, $nav-colors--light);
             }
           }
         }
 
-        &.su-main-nav__item--current {
-          > a {
-            color: $color-black;
+        &.su-main-nav__item--expanded {
+          > a:focus {
+            color: color(h-link--expanded, $nav-colors--light);
 
             &::before {
-              background-color: $color-driftwood;
-            }
-
-            &:hover,
-            &:focus {
-              color: $color-dark-red;
-
-              &::before {
-                background-color: $color-dark-red;
-              }
+              background-color: color(h-border--expanded, $nav-colors--light);
             }
           }
 
-          &.su-main-nav__item--expanded {
-            > a:focus {
-              color: $color-black;
+          > a[aria-expanded="true"] {
+            &::before {
+              background-color: color(h-border--expanded, $nav-colors--light);
+            }
+
+            &:hover {
+              color: color(h-link--hover, $nav-colors--light);
 
               &::before {
-                background-color: $color-driftwood;
+                background-color: color(h-border--hover, $nav-colors--light);
               }
             }
 
-            > a[aria-expanded="true"]:hover {
-              color: $color-dark-red;
+            &:active {
+              color: color(h-link--active, $nav-colors--light);
 
               &::before {
-                background-color: $color-dark-red;
+                background-color: color(h-border--active, $nav-colors--light);
               }
             }
+
           }
+        }
+      }
+    }
+  }
+
+  &.su-main-nav--mobile-search {
+    .su-main-nav__toggle[aria-expanded="true"] {
+      @include grid-media-max('md') {
+        + .su-main-nav__menu-lv1 + .su-site-search {
+          background-color: color(bg, $nav-colors--light);
         }
       }
     }

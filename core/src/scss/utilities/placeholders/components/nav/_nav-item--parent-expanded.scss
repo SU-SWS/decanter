@@ -1,0 +1,30 @@
+@charset 'UTF-8';
+
+//
+// %nav-item--parent-expanded
+//
+// Individual Nav Item -- Parent Expanded
+//
+// Style guide: Placeholders.Components.Nav-Item-Parent-Expanded
+//
+
+%nav-item--parent-expanded {
+  > a {
+    &::after {
+      background: url("#{$image-path}/minus-white.svg") no-repeat 0 0;
+      background-size: 100%;
+    }
+
+    &::before {
+      background-color: color(border--expanded, $nav-colors);
+    }
+
+    &:hover::before {
+      background-color: color(border--hover, $nav-colors);
+    }
+
+    &:active::before {
+      background-color: color(border--active, $nav-colors);
+    }
+  }
+}

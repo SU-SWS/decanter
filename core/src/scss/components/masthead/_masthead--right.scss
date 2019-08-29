@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+// Masthead with right-aligned Main Nav
+
+.su-masthead--right {
+  .su-main-nav {
+    @include grid-media-min("lg") {
+      > ul {
+        justify-content: flex-end;
+      }
+    }
+  }
+}

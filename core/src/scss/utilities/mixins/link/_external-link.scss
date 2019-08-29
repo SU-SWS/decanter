@@ -1,7 +1,10 @@
 @charset "UTF-8";
 
 //
-// @external-link($external-link, $external-link-hover)
+// <del>@external-link($external-link, $external-link-hover)</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>link-icon(arrow-up-right, 0.6em)</code> instead.
 //
 // Default external link styling, with external icon.
 //
@@ -11,19 +14,9 @@
 // Style guide: Mixins.Link.external-link
 //
 @mixin external-link($external-link: external-link, $external-link-hover: external-link-hover) {
-  &::after {
-    @include margin(null null -1px 4px);
-    background: url("#{$image-path}/#{$external-link}.png") no-repeat 0 0;
-    background: url("#{$image-path}/#{$external-link}.svg") no-repeat 0 0;
-    background-size: 100%;
-    content: '';
-    display: inline-block;
-    height: 0.65em;
-    width: 0.65em;
-  }
+  $msg: "The external-link mixin has been deprecated and will be removed in ";
+  $msg: $msg + "version 6. Use link-icon(arrow-up-right, 0.6em) instead.";
+  @warn $msg;
 
-  &:hover::after {
-    background-image: url("#{$image-path}/#{$external-link-hover}.png");
-    background-image: url("#{$image-path}/#{$external-link-hover}.svg");
-  }
+  @include link-icon(arrow-up-right, 0.6em);
 }
