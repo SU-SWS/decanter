@@ -1,6 +1,7 @@
 import Nav from '../nav/Nav.js';
 import MainNavItem from './MainNavItem';
 import MainSubNavItem from './MainSubNavItem';
+
 /**
  * Represent a main navigation menu
  */

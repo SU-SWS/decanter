@@ -50,13 +50,13 @@ export default class MainNavItem extends NavItem {
    */
   onKeydownArrowLeft(event, target) {
     // For top level don't do nothing.
-    if (this.isMobileExpanded() && this.getDepth() == 1) {
+    if (this.isMobileExpanded() && this.getDepth() === 1) {
       return;
     }
 
     // For everything else just do the lefty thing but change the focus.
     super.onKeydownArrowLeft(event, target);
-    if (!this.isMobileExpanded() && this.getDepth() == 2) {
+    if (!this.isMobileExpanded() && this.getDepth() === 2) {
       let node = this.getElement('parentNavPrevItem');
       if (node) {
         node.focus();
@@ -82,7 +82,7 @@ export default class MainNavItem extends NavItem {
       return;
     }
 
-    node = this.getElement('prev');
+    var node = this.getElement('prev');
     if (!node) {
       event.stopPropagation();
       return;

@@ -279,18 +279,18 @@ function (_NavItem) {
     key: "onKeydownArrowLeft",
     value: function onKeydownArrowLeft(event, target) {
       // For top level don't do nothing.
-      if (this.isMobileExpanded() && this.getDepth() == 1) {
+      if (this.isMobileExpanded() && this.getDepth() === 1) {
         return;
       } // For everything else just do the lefty thing but change the focus.
 
 
       _get(_getPrototypeOf(MainNavItem.prototype), "onKeydownArrowLeft", this).call(this, event, target);
 
-      if (!this.isMobileExpanded() && this.getDepth() == 2) {
-        var _node = this.getElement('parentNavPrevItem');
+      if (!this.isMobileExpanded() && this.getDepth() === 2) {
+        var node = this.getElement('parentNavPrevItem');
 
-        if (_node) {
-          _node.focus();
+        if (node) {
+          node.focus();
         }
       }
     }
@@ -316,7 +316,7 @@ function (_NavItem) {
         return;
       }
 
-      node = this.getElement('prev');
+      var node = this.getElement('prev');
 
       if (!node) {
         event.stopPropagation();
@@ -413,14 +413,14 @@ function (_SubNavItem) {
     value: function onKeydownArrowRight(event, target) {
       // When the main menu focus is at level 1 and not on mobile move to the
       // next sibling.
-      if (!this.isMobileExpanded() && this.getDepth() == 1) {
+      if (!this.isMobileExpanded() && this.getDepth() === 1) {
         _get(_getPrototypeOf(MainSubNavItem.prototype), "onKeydownArrowDown", this).call(this, event, target);
 
         return;
       } // When the mobile menu is active do the secondary nav thing.
 
 
-      if (this.isMobileExpanded() && this.getDepth() == 1) {
+      if (this.isMobileExpanded() && this.getDepth() === 1) {
         _get(_getPrototypeOf(MainSubNavItem.prototype), "onKeydownArrowRight", this).call(this, event, target);
 
         return;
@@ -438,7 +438,7 @@ function (_SubNavItem) {
   }, {
     key: "onKeydownArrowDown",
     value: function onKeydownArrowDown(event, target) {
-      if (!this.isMobileExpanded() && this.getDepth() == 1) {
+      if (!this.isMobileExpanded() && this.getDepth() === 1) {
         _get(_getPrototypeOf(MainSubNavItem.prototype), "onKeydownArrowRight", this).call(this, event, target);
       } else {
         _get(_getPrototypeOf(MainSubNavItem.prototype), "onKeydownArrowDown", this).call(this, event, target);
@@ -455,18 +455,18 @@ function (_SubNavItem) {
     key: "onKeydownArrowLeft",
     value: function onKeydownArrowLeft(event, target) {
       // For top level don't do nothing.
-      if (this.isMobileExpanded() && this.getDepth() == 1) {
+      if (this.isMobileExpanded() && this.getDepth() === 1) {
         return;
       } // For everything else just do the lefty thing but change the focus.
 
 
       _get(_getPrototypeOf(MainSubNavItem.prototype), "onKeydownArrowLeft", this).call(this, event, target);
 
-      if (!this.isMobileExpanded() && this.getDepth() == 2) {
-        var _node = this.getElement('parentNavPrevItem');
+      if (!this.isMobileExpanded() && this.getDepth() === 2) {
+        var node = this.getElement('parentNavPrevItem');
 
-        if (_node) {
-          _node.focus();
+        if (node) {
+          node.focus();
         }
       }
     }
@@ -484,7 +484,7 @@ function (_SubNavItem) {
     key: "onKeydownTab",
     value: function onKeydownTab(event, target) {
       var shifted = event.shiftKey;
-      var isSearch = this.nav.elem.classList.contains('su-main-nav--mobile-search');
+      var isSearch = this.nav.elem.classList.contains('su-main-nav--mobile-search'); // If not any of these conditions let the default thing happen.
 
       if (!shifted || !isSearch || this.getDepth() > 1) {
         _get(_getPrototypeOf(MainSubNavItem.prototype), "onKeydownTab", this).call(this, event, target);
@@ -492,7 +492,7 @@ function (_SubNavItem) {
         return;
       }
 
-      node = this.getElement('prev');
+      var node = this.getElement('prev');
 
       if (!node) {
         event.stopPropagation();
@@ -1505,7 +1505,7 @@ function () {
           case 'parentItem':
             var node = this.item.parentNode.parentNode;
 
-            if (node.tagName == "NAV") {
+            if (node.tagName === "NAV") {
               return false;
             }
 
@@ -2513,12 +2513,12 @@ function (_SubNavItem) {
       event.stopPropagation();
       event.preventDefault(); // Go to the link if a link.
 
-      if (target == this.link) {
+      if (target === this.link) {
         window.location = this.link.getAttribute('href');
       } // Go to the toggle if a toggle.
 
 
-      if (target == this.toggle) {
+      if (target === this.toggle) {
         this.onClick(event, target); // Only focus on keyboard nav not on click.
 
         if (this.isExpanded()) {
@@ -2538,7 +2538,7 @@ function (_SubNavItem) {
   }, {
     key: "onKeydownEnter",
     value: function onKeydownEnter(event, target) {
-      if (target == this.toggle) {
+      if (target === this.toggle) {
         this.onKeydownSpace(event, target);
       }
     }

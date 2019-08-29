@@ -115,12 +115,12 @@ export default class ToggleSubNavItem extends SubNavItem {
     event.preventDefault();
 
     // Go to the link if a link.
-    if (target == this.link) {
+    if (target === this.link) {
       window.location = this.link.getAttribute('href');
     }
 
     // Go to the toggle if a toggle.
-    if (target == this.toggle) {
+    if (target === this.toggle) {
       this.onClick(event, target);
 
       // Only focus on keyboard nav not on click.
@@ -139,7 +139,7 @@ export default class ToggleSubNavItem extends SubNavItem {
    * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownEnter(event, target) {
-    if (target == this.toggle) {
+    if (target === this.toggle) {
       this.onKeydownSpace(event, target);
     }
   }

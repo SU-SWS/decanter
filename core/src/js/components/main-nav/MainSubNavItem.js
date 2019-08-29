@@ -11,14 +11,14 @@ export default class MainSubNavItem extends SubNavItem {
    * Wether or not the mobile option is active.
    * @return {Boolean} [description]
    */
-   isMobileExpanded() {
-     if (this.options.toggle) {
-       if (this.options.toggle.isExpanded()) {
-         return true;
-       }
-     }
-     return false;
-   }
+  isMobileExpanded() {
+    if (this.options.toggle) {
+      if (this.options.toggle.isExpanded()) {
+        return true;
+      }
+    }
+    return false;
+  }
 
   /**
    * Event handler for key press: Right Arrow
@@ -32,13 +32,13 @@ export default class MainSubNavItem extends SubNavItem {
 
     // When the main menu focus is at level 1 and not on mobile move to the
     // next sibling.
-    if (!this.isMobileExpanded() && this.getDepth() == 1) {
+    if (!this.isMobileExpanded() && this.getDepth() === 1) {
       super.onKeydownArrowDown(event, target);
       return;
     }
 
     // When the mobile menu is active do the secondary nav thing.
-    if (this.isMobileExpanded() && this.getDepth() == 1) {
+    if (this.isMobileExpanded() && this.getDepth() === 1) {
       super.onKeydownArrowRight(event, target);
       return;
     }
@@ -53,7 +53,7 @@ export default class MainSubNavItem extends SubNavItem {
    * @param {HTMLElement} target  - The HTML element target.
    */
   onKeydownArrowDown(event, target) {
-    if (!this.isMobileExpanded() && this.getDepth() == 1) {
+    if (!this.isMobileExpanded() && this.getDepth() === 1) {
       super.onKeydownArrowRight(event, target);
     }
     else {
@@ -69,13 +69,13 @@ export default class MainSubNavItem extends SubNavItem {
    */
   onKeydownArrowLeft(event, target) {
     // For top level don't do nothing.
-    if (this.isMobileExpanded() && this.getDepth() == 1) {
+    if (this.isMobileExpanded() && this.getDepth() === 1) {
       return;
     }
 
     // For everything else just do the lefty thing but change the focus.
     super.onKeydownArrowLeft(event, target);
-    if (!this.isMobileExpanded() && this.getDepth() == 2) {
+    if (!this.isMobileExpanded() && this.getDepth() === 2) {
       let node = this.getElement('parentNavPrevItem');
       if (node) {
         node.focus();
@@ -102,7 +102,7 @@ export default class MainSubNavItem extends SubNavItem {
       return;
     }
 
-    node = this.getElement('prev');
+    var node = this.getElement('prev');
     if (!node) {
       event.stopPropagation();
       return;
