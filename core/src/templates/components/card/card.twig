@@ -32,7 +32,7 @@
   {%- set allow_links = true -%}
 {%- endif -%}
 
-<div {{ attributes }} class="su-card {{ modifier_class }}">
+<article {{ attributes }} class="su-card {{ modifier_class }}">
   {# For variant where whole card is a link, add an <a> within the outer wrapper <div> #}
   {%- if allow_links == false %}
     <a href="{{ card_link }}" {{ card_cta_attributes }}>
@@ -43,7 +43,7 @@
       {{ card_image }}
     {%- endif -%}
 
-    <div class="su-card__contents">
+    <section class="su-card__contents">
 
     {# Card Super Headline #}
     {%- block block_card_super_headline %}
@@ -98,9 +98,9 @@
       </div>
     {% endif -%}
 
-    </div> {# /su-card__contents #}
+    </section> {# /su-card__contents #}
 
   {%- if allow_links == false %}
     </a>
   {%- endif -%}
-</div>
+</article>
