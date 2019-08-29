@@ -1,5 +1,10 @@
 # Changelog
 
+Version 6.0                        2019-08-28
+---------------------------------------------
+- Change card and quote components to use HTML5.
+- Update card component to allow a variant where the entire card is a link.
+
 Version 5.0.1                      2019-05-22
 ---------------------------------------------
 - Fix CSS grid gaps not displaying on Edge issue and other minor grid related issue
