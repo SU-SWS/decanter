@@ -157,7 +157,7 @@ export default class NavItem extends NavItemAbstract {
       }
     }
     // Otherwise just to to the previous sibling.
-    else if (this.getDepth() == 1) {
+    else if (this.getDepth() === 1) {
       this.onKeydownArrowUp(event, target);
     }
   }
