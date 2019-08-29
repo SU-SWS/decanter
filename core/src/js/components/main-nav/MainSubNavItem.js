@@ -96,6 +96,7 @@ export default class MainSubNavItem extends SubNavItem {
     const shifted = event.shiftKey;
     const isSearch = this.nav.elem.classList.contains('su-main-nav--mobile-search');
 
+    // If not any of these conditions let the default thing happen.
     if (!shifted || !isSearch || this.getDepth() > 1) {
       super.onKeydownTab(event, target);
       return;
