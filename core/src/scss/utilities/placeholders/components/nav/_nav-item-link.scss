@@ -1,0 +1,26 @@
+@charset 'UTF-8';
+
+//
+// %nav-item-link
+//
+// Individual Nav Item Link.
+//
+// Style guide: Placeholders.Components.Nav-Item-Link
+//
+
+%nav-item-link {
+  @include fancy-hover(color(border--hover, $nav-colors), color(border--active, $nav-colors), 'left');
+  @include padding(1.6rem 4.8rem 1.6rem 2.4rem);
+  display: block;
+  color: color(link, $nav-colors);
+  font-size: 1.8rem;
+  font-weight: $font-semi-bold;
+  border-top: 1px solid color(divider, $nav-colors);
+  outline: 0;
+
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: underline;
+  }
+}

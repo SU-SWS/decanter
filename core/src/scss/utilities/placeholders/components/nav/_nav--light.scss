@@ -1,0 +1,45 @@
+@charset 'UTF-8';
+
+// General menu styles - mobile, also desktop drop down part
+
+%nav--light {
+  ul {
+    background-color: color(bg, $nav-colors--light);
+
+    li {
+      a {
+        color: color(link, $nav-colors--light);
+        border-color: color(divider, $nav-colors--light);
+
+        &:hover,
+        &:focus {
+          &::before {
+            background-color: color(border--hover, $nav-colors--light);
+          }
+        }
+
+        &:active {
+          color: color(link--active, $nav-colors--light);
+
+          &::before {
+            background-color: color(border--active, $nav-colors--light);
+          }
+        }
+      }
+    }
+  }
+
+  [class$="nav__item--current"] {
+    > a {
+      color: color(link--active, $nav-colors--light);
+
+      &,
+      &:hover,
+      &:focus {
+        &::before {
+          background-color: color(border--active, $nav-colors--light);
+        }
+      }
+    }
+  }
+}
