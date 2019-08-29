@@ -1253,7 +1253,7 @@ function (_NavItemAbstract) {
             this.getElement('parentNavLast').focus();
           }
       } // Otherwise just to to the previous sibling.
-      else if (this.getDepth() == 1) {
+      else if (this.getDepth() === 1) {
           this.onKeydownArrowUp(event, target);
         }
     }
@@ -1505,7 +1505,7 @@ function () {
           case 'parentItem':
             var node = this.item.parentNode.parentNode;
 
-            if (node.tagName === "NAV") {
+            if (node.tagName === 'NAV') {
               return false;
             }
 
