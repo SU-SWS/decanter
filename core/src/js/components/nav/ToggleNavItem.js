@@ -1,4 +1,4 @@
-import NavItem from '../main-nav/NavItem';
+import NavItem from './NavItem';
 
 /**
  * Toggle Navigation item.

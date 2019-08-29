@@ -86,7 +86,6 @@ export default class NavItem extends NavItemAbstract {
   onKeydownTab(event, target) {
 
     const shifted = event.shiftKey;
-    const isSearch = this.nav.elem.classList.contains('su-main-nav--mobile-search');
     let node = null;
 
     if (shifted) {
@@ -97,16 +96,9 @@ export default class NavItem extends NavItemAbstract {
     }
 
     if (!node) {
-      if (this.options.toggle && this.getDepth() === 1) {
-        // If we are on the last item and there is a search, go focus on that.
-        if (shifted && isSearch) {
-          event.stopPropagation();
-          return;
-        }
-        // Else, close everything.
-        this.options.toggle.closeNav();
+      this.nav.closeThisSubNav();
+      if (this.getDepth() === 1) {
         this.nav.closeAllSubNavs();
-        this.nav.closeThisSubNav();
       }
     }
   }
@@ -165,7 +157,7 @@ export default class NavItem extends NavItemAbstract {
       }
     }
     // Otherwise just to to the previous sibling.
-    else {
+    else if (this.getDepth() == 1){
       this.onKeydownArrowUp(event, target);
     }
   }
@@ -189,7 +181,7 @@ export default class NavItem extends NavItemAbstract {
   }
 
   /**
-   * Event handler for key press: Home
+   * Event handler for key press: Right Arrow
    *
    * @param {KeyboardEvent} event - The keyboard event.
    * @param {HTMLElement} target  - The HTML element target.

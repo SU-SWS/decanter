@@ -157,11 +157,6 @@ export default class NavToggle {
    * initially.
    */
   closeNav() {
-
-    if (!this.isExpanded()) {
-      return;
-    }
-
     this.setExpanded('false');
     this.element.innerText = this.toggleText;
     // Alert others the  nav has closed.

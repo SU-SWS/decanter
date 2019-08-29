@@ -165,7 +165,11 @@ export default class NavItemAbstract {
         case 'prevElement':
           return this.item.previousElementSibling;
         case 'parentItem':
-          return this.item.parentNode.parentNode.querySelector('a');
+          var node = this.item.parentNode.parentNode;
+          if (node.tagName == "NAV") {
+            return false;
+          }
+          return node.querySelector('a');
         case 'parentButton':
           return this.item.parentNode.parentNode.querySelector('button');
         case 'parentNav':

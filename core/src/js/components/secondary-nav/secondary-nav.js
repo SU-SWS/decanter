@@ -1,6 +1,6 @@
 import '../../core/core';
-import Nav from '../main-nav/Nav';
-import ToggleNav from './ToggleNav';
+import SecondaryNav from './SecondaryNav';
+import ToggleNav from '../nav/ToggleNav';
 
 document.addEventListener('DOMContentLoaded', event => {
 
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', event => {
     // Create an instance of Nav, which in turn creates appropriate instances
     // of NavItem.
     else {
-      new Nav(nav, options);
+      new SecondaryNav(nav, options);
     }
   });
 

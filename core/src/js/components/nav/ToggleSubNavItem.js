@@ -1,4 +1,4 @@
-import SubNavItem from '../main-nav/SubNavItem';
+import SubNavItem from './SubNavItem';
 
 /**
  * Sub Navigation item.

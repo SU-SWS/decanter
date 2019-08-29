@@ -226,6 +226,10 @@ export default class NavAbstract {
         item.closeSubNav();
       }
     );
+
+    if (this.toggle) {
+      this.toggle.closeNav();
+    }
   }
 
   /**
@@ -243,6 +247,15 @@ export default class NavAbstract {
    */
   getDepth() {
     return this.depth;
+  }
+
+  /**
+   * Get the id attribute of the nav dom object.
+   *
+   * @return {String} The id attribute
+   */
+  getId() {
+    return this.id;
   }
 
 }

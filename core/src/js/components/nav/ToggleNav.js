@@ -1,6 +1,6 @@
 import ToggleNavItem from './ToggleNavItem';
 import ToggleSubNavItem from './ToggleSubNavItem';
-import Nav from '../main-nav/Nav';
+import Nav from './Nav';
 
 /**
  * A Navigation class for where the submenus have toggle buttons instead of

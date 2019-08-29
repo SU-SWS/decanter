@@ -1,6 +1,5 @@
 import '../../core/core';
-import Nav from './Nav';
-import {mainEvents} from './MainEvents';
+import MainNav from './MainNav';
 
 /**
  * Initiate the main nav elements on the page when the dom content is loaded.
@@ -13,10 +12,6 @@ document.addEventListener('DOMContentLoaded', event => {
   // All main navs.
   const navs = document.querySelectorAll('.' + navClass);
 
-  // Event Overrides. These custom functions are for the first level items on
-  // desktop only as they have different behaviour than all other items.
-  let customEvents = mainEvents();
-
   // Loop through each of the navs and create a new instance.
   navs.forEach((nav, index) => {
 
@@ -28,8 +23,7 @@ document.addEventListener('DOMContentLoaded', event => {
       itemExpandedClass: 'su-main-nav__item--expanded',
       itemActiveClass: 'su-main-nav__item--current',
       activePath: true,
-      expandActivePath: true,
-      itemEvents: customEvents
+      expandActivePath: true
     };
 
     // Manage z-indexes in case there are multiple navs near each other.
@@ -41,7 +35,7 @@ document.addEventListener('DOMContentLoaded', event => {
 
     // Create an instance of Nav,
     // which in turn creates appropriate instances of NavItem and SubNavItem.
-    new Nav(nav, options);
+    new MainNav(nav, options);
 
   });
 
