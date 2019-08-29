@@ -2,7 +2,7 @@
 
 Version 6.0                        2019-08-28
 ---------------------------------------------
-- Change card and quote components to use HTML5.
+- Change card and quote components to use HTML5 elements.
 - Update card component to allow a variant where the entire card is a link.
 
 Version 5.0.1                      2019-05-22
