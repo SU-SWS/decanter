@@ -70,21 +70,6 @@ export default class Nav extends NavAbstract {
   // -------------------------------------------------------------------------
 
   /**
-   * A subnav event was called. Handle it.
-   *
-   * @param {Event} event - The event object.
-   */
-  onPreOpenSubnav(event) {
-    // Somebody clicked a subnav trigger. Check to see if it is one of my
-    // subnavitems. If it is one of my subnav items, close all of the subnav
-    // items so that everything on the same level are shut.
-    let triggerId = event.detail.nav.id || null;
-    if (triggerId === this.id) {
-      this.closeAllSubNavs();
-    }
-  }
-
-  /**
    * Handle the key press events.
    *
    * @param {KeyboardEvent} event - The keyboard event.

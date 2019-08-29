@@ -37,12 +37,7 @@ export default class MainSubNavItem extends SubNavItem {
       return;
     }
 
-    // When the mobile menu is active do the secondary nav thing.
-    if (this.isMobileExpanded() && this.getDepth() === 1) {
-      super.onKeydownArrowRight(event, target);
-      return;
-    }
-
+    // Do the thing.
     super.onKeydownArrowRight(event, target);
   }
 

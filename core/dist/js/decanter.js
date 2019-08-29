@@ -418,13 +418,11 @@ function (_SubNavItem) {
 
         return;
       } // When the mobile menu is active do the secondary nav thing.
+      // if (this.isMobileExpanded() && this.getDepth() === 1) {
+      //   super.onKeydownArrowRight(event, target);
+      //   return;
+      // }
 
-
-      if (this.isMobileExpanded() && this.getDepth() === 1) {
-        _get(_getPrototypeOf(MainSubNavItem.prototype), "onKeydownArrowRight", this).call(this, event, target);
-
-        return;
-      }
 
       _get(_getPrototypeOf(MainSubNavItem.prototype), "onKeydownArrowRight", this).call(this, event, target);
     }
@@ -672,24 +670,6 @@ function (_NavAbstract) {
     // Event Handlers.
     // -------------------------------------------------------------------------
 
-    /**
-     * A subnav event was called. Handle it.
-     *
-     * @param {Event} event - The event object.
-     */
-
-  }, {
-    key: "onPreOpenSubnav",
-    value: function onPreOpenSubnav(event) {
-      // Somebody clicked a subnav trigger. Check to see if it is one of my
-      // subnavitems. If it is one of my subnav items, close all of the subnav
-      // items so that everything on the same level are shut.
-      var triggerId = event.detail.nav.id || null;
-
-      if (triggerId === this.id) {
-        this.closeAllSubNavs();
-      }
-    }
     /**
      * Handle the key press events.
      *
