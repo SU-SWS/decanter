@@ -13,11 +13,11 @@
 //
 
 //
-// $nav-colors
+// $su-nav-colors
 //
 // Color maps for the default Main Nav and Secondary Nav Components.
 //
-// Markup: $nav-colors: (
+// Markup: $su-nav-colors: (
 //    bg:                             $su-color-black,
 //    divider:                        $su-color-cool-grey,
 //    link:                           $su-color-white,
@@ -42,7 +42,7 @@
 // Styleguide: Variables.Components.nav-colors.default
 //
 
-$nav-colors: (
+$su-nav-colors: (
   bg:                             $su-color-black,
   divider:                        $su-color-cool-grey,
 
@@ -70,11 +70,19 @@ $nav-colors: (
 ) !default;
 
 //
-// $nav-colors--dark
+// <del>$nav-colors</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-nav-colors</code> instead.
+//
+$nav-colors: $su-nav-colors !default;
+
+//
+// $su-nav-colors--dark
 //
 // Color map for the desktop version of the Main Nav dark variant 1st level items.
 //
-// Markup: $nav-colors--dark: (
+// Markup: $su-nav-colors--dark: (
 //    h-link:                               $su-color-white,
 //    h-link--hover:                        $su-color-white,
 //    h-link--active:                       $su-color-white,
@@ -92,7 +100,7 @@ $nav-colors: (
 // Styleguide: Variables.Components.nav-colors.variant-dark
 //
 
-$nav-colors--dark: (
+$su-nav-colors--dark: (
   h-link:                               $su-color-white,
   h-link--hover:                        $su-color-white,
   h-link--active:                       $su-color-white,
@@ -109,11 +117,20 @@ $nav-colors--dark: (
 ) !default;
 
 //
-// $nav-colors--light
+// <del>$nav-colors--dark</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-nav-colors--dark</code> instead.
+//
+$nav-colors--dark: $su-nav-colors--dark !default;
+
+
+//
+// $su-nav-colors--light
 //
 // Color map for the Main Nav and Secondary Nav light variants.
 //
-// Markup: $nav-colors--light: (
+// Markup: $su-nav-colors--light: (
 //    bg:                          $su-color-white,
 //    divider:                     #d9d9d9,
 //    link:                        $su-color-black,
@@ -139,7 +156,7 @@ $nav-colors--dark: (
 // Styleguide: Variables.Components.nav-colors.variant-light
 //
 
-$nav-colors--light: (
+$su-nav-colors--light: (
   bg:                          $su-color-white,
   divider:                     #d9d9d9,
 
@@ -166,3 +183,11 @@ $nav-colors--light: (
   h-border--active-hover:      $su-color-bright-red,
   h-border--expanded:          $su-color-driftwood,
 ) !default;
+
+//
+// <del>$nav-colors--light</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-nav-colors--light</code> instead.
+//
+$nav-colors--light: $su-nav-colors--light !default;
