@@ -10,7 +10,7 @@
 @mixin modular-typography-base($grid: $su-grid-media) {
   @each $key, $breakpoint in $grid {
     @include grid-media($key) {
-      font-size: map-get($modular-typography-base, $key);
+      font-size: map-get($su-modular-typography-base, $key);
     }
   }
 }
