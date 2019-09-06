@@ -1,12 +1,12 @@
 @charset "UTF-8";
 
 //
-// $core-colors
+// $su-core-colors
 //
 // SASS map for the core Decanter colors.
 // Color maps for individual components are in their own respective directories within utilities/variables/components
 //
-// Markup: $core-colors: (
+// Markup: $su-core-colors: (
 //    brand:                        $su-color-cardinal-red,
 //    brand--bright:                $su-color-bright-red,
 //    brand--dark:                  $su-color-dark-red,
@@ -25,7 +25,7 @@
 //
 // Style guide: Variables.Core.colors-map
 //
-$core-colors: (
+$su-core-colors: (
   brand:                        $su-color-cardinal-red,
   brand--bright:                $su-color-bright-red,
   brand--dark:                  $su-color-dark-red,
@@ -44,3 +44,14 @@ $core-colors: (
   link--reverse:                $su-color-white,
   link--reverse-hover:          $su-color-vivid-red,
 ) !default;
+
+//
+// <del>$core-colors</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-core-colors</code> instead.
+//
+// Style guide: Variables.Core.colors-map
+//
+$core-colors: $su-core-colors !default;
+
