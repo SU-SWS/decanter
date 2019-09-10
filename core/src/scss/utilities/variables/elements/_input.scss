@@ -73,16 +73,26 @@ $su-input-padding-vertical: 1rem !default;
 $input-padding-vertical: $su-input-padding-vertical !default;
 
 //
-// $input-height-exact
+// $su-input-height-exact
 //
 // Input heights will vary by browser and type
 // if height not explicitly set.
 //
-// Markup: $input-height-exact: $su-base-font-size * $su-input-line-height + $su-input-padding-vertical * 2 + $su-input-border-width * 2;
+// Markup: $su-input-height-exact: $su-base-font-size * $su-input-line-height + $su-input-padding-vertical * 2 + $su-input-border-width * 2;
 //
-// Styleguide: Variables.Elements.Input.height-exact
+// Styleguide: Variables.Elements.Input.su-input-height-exact
 //
-$input-height-exact: $su-base-font-size * $su-input-line-height + $su-input-padding-vertical * 2 + $su-input-border-width * 2;
+$su-input-height-exact: $su-base-font-size * $su-input-line-height + $su-input-padding-vertical * 2 + $su-input-border-width * 2 !default;
+
+//
+// <del>$input-height-exact</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-input-height-exact</code> instead.
+//
+// Styleguide: Variables.Elements.Input.input-height-exact
+//
+$input-height-exact: $su-input-height-exact !default;
 
 //
 // $input-height
@@ -90,8 +100,8 @@ $input-height-exact: $su-base-font-size * $su-input-line-height + $su-input-padd
 // Truncated to 1 decimal place
 // (i.e., 1.21rem -> 1.2rem).
 //
-// Markup: $input-height: floor($input-height-exact * 10) / 10;
+// Markup: $input-height: floor($su-input-height-exact * 10) / 10;
 //
 // Styleguide: Variables.Elements.Input.input-height
 //
-$input-height: floor($input-height-exact * 10) / 10;
+$input-height: floor($su-input-height-exact * 10) / 10;
