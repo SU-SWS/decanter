@@ -18,4 +18,37 @@ export default class MainNav extends Nav {
     super.createNavItems();
   }
 
+  /**
+   * Expand open the active path.
+   */
+  expandActivePath() {
+    // Let super do its thing first.
+    super.expandActivePath();
+
+    // On Desktop with initial expanded menu items we need to
+    // collapse the first level only and leave the rest expanded.
+    if (this.toggle && window.innerWidth > 768) {
+      this.closeAllSubNavs();
+    }
+  }
+
+  /**
+   * Create new event listeners for the nav element and our custom events.
+   */
+  createEventListeners() {
+    super.createEventListeners()
+    // Listen to the close so we can act on it.
+    window.addEventListener('resize', this);
+  }
+
+  /**
+   * Handle window resize event.
+   * @return {[type]} [description]
+   */
+  onResize() {
+    if (this.toggle && window.innerWidth > 768) {
+      this.closeAllSubNavs();
+    }
+  }
+
 }

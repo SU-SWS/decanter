@@ -57,6 +57,17 @@
 
   // First level nav items.
   > ul > li {
+
+    &.su-main-nav__item--active-trail {
+      @include grid-media("lg") {
+        > a {
+          &::before {
+            background-color: color(h--border-hover, $nav-dark-colors);
+          }
+        }
+      }
+    }
+
     @include grid-media("lg") {
       // First level expanded items.
       // First level parent items.

@@ -169,6 +169,19 @@
   // First level nav items.
   > ul > li {
 
+    &.su-main-nav__item--active-trail {
+      @include grid-media("lg") {
+        > a {
+          &::before {
+            height: 6px;
+            transform: scaleX(1);
+            visibility: visible;
+            background-color: color(h--border-hover, $nav-colors);
+          }
+        }
+      }
+    }
+
     // First level current items.
     &.su-main-nav__item--current {
       > a {

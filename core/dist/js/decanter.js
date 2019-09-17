@@ -169,6 +169,46 @@ function (_Nav) {
 
       _get(_getPrototypeOf(MainNav.prototype), "createNavItems", this).call(this);
     }
+    /**
+     * Expand open the active path.
+     */
+
+  }, {
+    key: "expandActivePath",
+    value: function expandActivePath() {
+      // Let super do its thing first.
+      _get(_getPrototypeOf(MainNav.prototype), "expandActivePath", this).call(this); // On Desktop with initial expanded menu items we need to
+      // collapse the first level only and leave the rest expanded.
+
+
+      if (this.toggle && window.innerWidth > 768) {
+        this.closeAllSubNavs();
+      }
+    }
+    /**
+     * Create new event listeners for the nav element and our custom events.
+     */
+
+  }, {
+    key: "createEventListeners",
+    value: function createEventListeners() {
+      _get(_getPrototypeOf(MainNav.prototype), "createEventListeners", this).call(this); // Listen to the close so we can act on it.
+
+
+      window.addEventListener('resize', this);
+    }
+    /**
+     * Handle window resize event.
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "onResize",
+    value: function onResize() {
+      if (this.toggle && window.innerWidth > 768) {
+        this.closeAllSubNavs();
+      }
+    }
   }]);
 
   return MainNav;
@@ -410,7 +450,13 @@ function (_SubNavItem) {
     key: "onClick",
     value: function onClick(event, target) {
       if (!this.isMobileExpanded() && this.getDepth() === 1) {
-        this.nav.closeAllSubNavs();
+        // this.nav.closeAllSubNavs();
+        var subNavItems = this.nav.subNavItems;
+        subNavItems.forEach(function (item, event) {
+          if (item.link !== target) {
+            item.closeSubNav();
+          }
+        });
       }
 
       _get(_getPrototypeOf(MainSubNavItem.prototype), "onClick", this).call(this, event, target);
@@ -550,6 +596,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
       toggleClass: 'su-main-nav__toggle',
       itemExpandedClass: 'su-main-nav__item--expanded',
       itemActiveClass: 'su-main-nav__item--current',
+      itemActiveTrailClass: 'su-main-nav__item--active-trail',
       activePath: true,
       expandActivePath: true
     }; // Manage z-indexes in case there are multiple navs near each other.
@@ -592,10 +639,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
-
-function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
@@ -725,23 +768,6 @@ function (_NavAbstract) {
       };
       this.toggle = this.options.toggle = new _NavToggle__WEBPACK_IMPORTED_MODULE_2__["default"](toggleElement, toggleOptions);
     }
-    /**
-     * Expand open the active path.
-     */
-
-  }, {
-    key: "expandActivePath",
-    value: function expandActivePath() {
-      // Let super do its thing first.
-      _get(_getPrototypeOf(Nav.prototype), "expandActivePath", this).call(this); // This condition is specific for the main menu nav only.
-      // On Desktop with initial expanded menu items we need to
-      // collapse the first level only and leave the rest expanded.
-
-
-      if (this.toggle && window.innerWidth > 768) {
-        this.closeAllSubNavs();
-      }
-    }
   }]);
 
   return Nav;
@@ -836,6 +862,7 @@ function () {
     this.subNavItems = []; // Class properties.
 
     this.itemActiveClass = options.itemActiveClass || 'active';
+    this.itemActiveTrailClass = options.itemActiveTrailClass || 'active-trail';
     this.itemExpandedClass = options.itemExpandedClass || 'expanded'; // Set the active path on the menu tree.
 
     if (this.options.activePath === true) {
@@ -970,6 +997,7 @@ function () {
 
             if (item.tagName === 'LI') {
               item.classList.add(_this2.itemExpandedClass);
+              item.classList.add(_this2.itemActiveTrailClass);
               item.firstElementChild.setAttribute('aria-expanded', true);
             } // Always increment.
 
@@ -2900,6 +2928,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     var options = {
       itemExpandedClass: 'su-secondary-nav__item--expanded',
       itemActiveClass: 'su-secondary-nav__item--current',
+      itemActiveTrailClass: 'su-secondary-nav__item--active-trail',
       toggleClass: 'su-secondary-nav__toggle',
       activePath: true,
       expandActivePath: true

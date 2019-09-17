@@ -28,8 +28,17 @@ export default class MainSubNavItem extends SubNavItem {
    */
   onClick(event, target) {
     if (!this.isMobileExpanded() && this.getDepth() === 1) {
-      this.nav.closeAllSubNavs();
+      // this.nav.closeAllSubNavs();
+      let subNavItems = this.nav.subNavItems;
+      subNavItems.forEach(
+        (item, event) => {
+          if (item.link !== target) {
+            item.closeSubNav();
+          }
+        }
+      );
     }
+
     super.onClick(event, target);
   }
 

@@ -61,6 +61,7 @@ export default class NavAbstract {
     this.subNavItems = [];
     // Class properties.
     this.itemActiveClass = options.itemActiveClass || 'active';
+    this.itemActiveTrailClass = options.itemActiveTrailClass || 'active-trail';
     this.itemExpandedClass = options.itemExpandedClass || 'expanded';
     // Set the active path on the menu tree.
     if (this.options.activePath === true) {
@@ -206,6 +207,7 @@ export default class NavAbstract {
             // If we are on a LI element we need to add the active class.
             if (item.tagName === 'LI') {
               item.classList.add(this.itemExpandedClass);
+              item.classList.add(this.itemActiveTrailClass);
               item.firstElementChild.setAttribute('aria-expanded', true);
             }
 
