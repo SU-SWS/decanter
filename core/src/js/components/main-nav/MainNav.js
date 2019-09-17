@@ -27,7 +27,7 @@ export default class MainNav extends Nav {
 
     // On Desktop with initial expanded menu items we need to
     // collapse the first level only and leave the rest expanded.
-    if (this.toggle && window.innerWidth > 768) {
+    if (window.innerWidth > 768) {
       this.closeAllSubNavs();
     }
   }
@@ -43,10 +43,11 @@ export default class MainNav extends Nav {
 
   /**
    * Handle window resize event.
-   * @return {[type]} [description]
+   *
+   * Close all the nav when window resized so we don't have weird hangers.
    */
   onResize() {
-    if (this.toggle && window.innerWidth > 768) {
+    if (window.innerWidth > 768) {
       this.closeAllSubNavs();
     }
   }
