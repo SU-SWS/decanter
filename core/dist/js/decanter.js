@@ -450,7 +450,6 @@ function (_SubNavItem) {
     key: "onClick",
     value: function onClick(event, target) {
       if (!this.isMobileExpanded() && this.getDepth() === 1) {
-        // this.nav.closeAllSubNavs();
         var subNavItems = this.nav.subNavItems;
         subNavItems.forEach(function (item, event) {
           if (item.link !== target) {
