@@ -400,6 +400,22 @@ function (_SubNavItem) {
       return false;
     }
     /**
+     * Handle the click event on the toggle.
+     *
+     * @param {Event} event         - The event object.
+     * @param {HTMLElement} target  - The HTML element target.
+     */
+
+  }, {
+    key: "onClick",
+    value: function onClick(event, target) {
+      if (!this.isMobileExpanded() && this.getDepth() === 1) {
+        this.nav.closeAllSubNavs();
+      }
+
+      _get(_getPrototypeOf(MainSubNavItem.prototype), "onClick", this).call(this, event, target);
+    }
+    /**
      * Event handler for key press: Right Arrow
      *
      * Go and focus on the next sibling of this item.
@@ -417,11 +433,7 @@ function (_SubNavItem) {
         _get(_getPrototypeOf(MainSubNavItem.prototype), "onKeydownArrowDown", this).call(this, event, target);
 
         return;
-      } // When the mobile menu is active do the secondary nav thing.
-      // if (this.isMobileExpanded() && this.getDepth() === 1) {
-      //   super.onKeydownArrowRight(event, target);
-      //   return;
-      // }
+      } // Do the thing.
 
 
       _get(_getPrototypeOf(MainSubNavItem.prototype), "onKeydownArrowRight", this).call(this, event, target);

@@ -21,6 +21,19 @@ export default class MainSubNavItem extends SubNavItem {
   }
 
   /**
+   * Handle the click event on the toggle.
+   *
+   * @param {Event} event         - The event object.
+   * @param {HTMLElement} target  - The HTML element target.
+   */
+  onClick(event, target) {
+    if (!this.isMobileExpanded() && this.getDepth() === 1) {
+      this.nav.closeAllSubNavs();
+    }
+    super.onClick(event, target);
+  }
+
+  /**
    * Event handler for key press: Right Arrow
    *
    * Go and focus on the next sibling of this item.
