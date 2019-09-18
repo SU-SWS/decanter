@@ -181,7 +181,7 @@ function (_Nav) {
       // collapse the first level only and leave the rest expanded.
 
 
-      if (this.toggle && window.innerWidth > 768) {
+      if (window.innerWidth > 768) {
         this.closeAllSubNavs();
       }
     }
@@ -199,13 +199,14 @@ function (_Nav) {
     }
     /**
      * Handle window resize event.
-     * @return {[type]} [description]
+     *
+     * Close all the nav when window resized so we don't have weird hangers.
      */
 
   }, {
     key: "onResize",
     value: function onResize() {
-      if (this.toggle && window.innerWidth > 768) {
+      if (window.innerWidth > 768) {
         this.closeAllSubNavs();
       }
     }
