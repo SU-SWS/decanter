@@ -41,6 +41,18 @@
 // Style guide: Components.Main Navigation
 //
 
+.su-main-nav__item--parent {
+  @extend %nav-item--parent;
+
+  &.su-main-nav__item--expanded {
+    @extend %nav-item--expanded;
+  }
+}
+
+.su-main-nav__item--current {
+  @extend %nav-item--current;
+}
+
 .su-main-nav {
   @include font-smoothing;
   @include sans;
@@ -98,26 +110,10 @@
       }
     }
   }
-}
-
-
-.su-main-nav__item--parent {
-  @extend %nav-item--parent;
-
-  &.su-main-nav__item--expanded {
-    @extend %nav-item--expanded;
-  }
-}
-
-.su-main-nav__item--current {
-  @extend %nav-item--current;
-}
 
 // -----------------------------------------------------------------------------
 // TOP LEVEL STYLES
 // -----------------------------------------------------------------------------
-
-.su-main-nav {
 
   // First level deskop menu.
   > ul {
