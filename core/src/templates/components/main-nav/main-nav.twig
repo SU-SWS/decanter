@@ -14,9 +14,16 @@
 + *
 + */
 +#}
+{%- if template_path_macro is empty -%}
+  {%- set template_path_macro = "@decanter/utilities/macros/menu-loop.twig" -%}
+{%- endif -%}
+{%- if template_path_search is empty -%}
+  {%- set template_path_search = "@decanter/components/site-search/site-search.twig" -%}
+{%- endif -%}
+
 {% spaceless %}
 {# Macros #}
-{% import "@decanter/utilities/macros/menu-loop.twig" as menus %}
+{% import template_path_macro as menus %}
 
 {# BACKWARDS COMPATIBILITY WITH V5.0 #}
 {# TO BE REMOVED IN V7.0 #}
@@ -96,7 +103,7 @@
 <nav {{ attributes }} class="su-main-nav no-js {{ modifier_class }}" aria-label="{{ aria_label|default('main menu') }}">
   <button class="su-main-nav__toggle {{ toggle_modifier_class }}" aria-expanded="false">{{ toggle_text|default('Menu') }}</button>
   {% if "su-main-nav--mobile-search" in modifier_class %}
-    {% include "@decanter/components/site-search/site-search.twig" with
+    {% include template_path_search with
       {
         "action": mobile_search.action,
         "method": mobile_search.method,
