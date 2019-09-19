@@ -54,12 +54,6 @@
 }
 
 .su-main-nav {
-  @include font-smoothing;
-  @include sans;
-  display: block;
-  position: relative;
-  z-index: 100;
-
   // All ul contaiers.
   ul {
     @extend %nav-menu;
@@ -73,6 +67,14 @@
   a {
     @extend %nav-item-link;
   }
+}
+
+.su-main-nav {
+  @include font-smoothing;
+  @include sans;
+  display: block;
+  position: relative;
+  z-index: 100;
 
   // Second Level Drop Downs.
   > ul > li > ul {
@@ -111,12 +113,12 @@
     }
   }
 
-// -----------------------------------------------------------------------------
-// TOP LEVEL STYLES
-// -----------------------------------------------------------------------------
+  // -----------------------------------------------------------------------------
+  // TOP LEVEL STYLES
+  // -----------------------------------------------------------------------------
 
   // First level deskop menu.
-  > ul {
+  .su-main-nav__menu-lv1 {
     @include grid-media("lg") {
       @include padding(null null null 0);
       flex-direction: row;
@@ -126,7 +128,7 @@
   }
 
   // First Level Links.
-  > ul > li > a {
+  .su-main-nav__menu-lv1 > li > a {
     @include grid-media("lg") {
       color: color(h--link, $nav-colors);
       @include padding(null 0);
@@ -163,7 +165,7 @@
   }
 
   // First level nav items.
-  > ul > li {
+  .su-main-nav__menu-lv1 > li {
 
     &.su-main-nav__item--active-trail {
       @include grid-media("lg") {
