@@ -8,19 +8,6 @@ import SubNavItem from '../nav/SubNavItem';
 export default class MainSubNavItem extends SubNavItem {
 
   /**
-   * Wether or not the mobile option is active.
-   * @return {Boolean} [description]
-   */
-  isMobileExpanded() {
-    if (this.options.toggle) {
-      if (this.options.toggle.isExpanded()) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  /**
    * Handle the click event on the toggle.
    *
    * @param {Event} event         - The event object.

@@ -19,7 +19,4 @@ export default class SecondaryNavItem extends NavItem {
     return;
   }
 
-
-
-
 }

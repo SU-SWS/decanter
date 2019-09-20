@@ -115,6 +115,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nav_Nav_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../nav/Nav.js */ "./core/src/js/components/nav/Nav.js");
 /* harmony import */ var _MainNavItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MainNavItem */ "./core/src/js/components/main-nav/MainNavItem.js");
 /* harmony import */ var _MainSubNavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MainSubNavItem */ "./core/src/js/components/main-nav/MainSubNavItem.js");
+/* harmony import */ var _nav_ToggleNavItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../nav/ToggleNavItem */ "./core/src/js/components/nav/ToggleNavItem.js");
+/* harmony import */ var _nav_ToggleSubNavItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../nav/ToggleSubNavItem */ "./core/src/js/components/nav/ToggleSubNavItem.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -136,6 +138,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
 
 
 
@@ -164,8 +168,13 @@ function (_Nav) {
      * @see ../nav/NavAbstract.js
      */
     value: function createNavItems() {
-      this.itemClasses['sub'] = _MainSubNavItem__WEBPACK_IMPORTED_MODULE_2__["default"];
-      this.itemClasses['single'] = _MainNavItem__WEBPACK_IMPORTED_MODULE_1__["default"];
+      if (this.options.toggleClass !== undefined) {
+        this.itemClasses['sub'] = _nav_ToggleSubNavItem__WEBPACK_IMPORTED_MODULE_4__["default"];
+        this.itemClasses['single'] = _nav_ToggleNavItem__WEBPACK_IMPORTED_MODULE_3__["default"];
+      } else {
+        this.itemClasses['sub'] = _MainSubNavItem__WEBPACK_IMPORTED_MODULE_2__["default"];
+        this.itemClasses['single'] = _MainNavItem__WEBPACK_IMPORTED_MODULE_1__["default"];
+      }
 
       _get(_getPrototypeOf(MainNav.prototype), "createNavItems", this).call(this);
     }
@@ -271,30 +280,14 @@ function (_NavItem) {
   }
 
   _createClass(MainNavItem, [{
-    key: "isMobileExpanded",
+    key: "onKeydownArrowRight",
 
-    /**
-     * Wether or not the mobile option is active.
-     * @return {Boolean} [description]
-     */
-    value: function isMobileExpanded() {
-      if (this.options.toggle) {
-        if (this.options.toggle.isExpanded()) {
-          return true;
-        }
-      }
-
-      return false;
-    }
     /**
      * Event handler for key press: Right Arrow
      *
      * @param {KeyboardEvent} event - The keyboard event.
      * @param {HTMLElement} target  - The HTML element target.
      */
-
-  }, {
-    key: "onKeydownArrowRight",
     value: function onKeydownArrowRight(event, target) {
       // When on Desktop and greater than 2 deep don't do nothing.
       if (!this.isMobileExpanded() && this.getDepth() > 2) {
@@ -425,30 +418,14 @@ function (_SubNavItem) {
   }
 
   _createClass(MainSubNavItem, [{
-    key: "isMobileExpanded",
+    key: "onClick",
 
-    /**
-     * Wether or not the mobile option is active.
-     * @return {Boolean} [description]
-     */
-    value: function isMobileExpanded() {
-      if (this.options.toggle) {
-        if (this.options.toggle.isExpanded()) {
-          return true;
-        }
-      }
-
-      return false;
-    }
     /**
      * Handle the click event on the toggle.
      *
      * @param {Event} event         - The event object.
      * @param {HTMLElement} target  - The HTML element target.
      */
-
-  }, {
-    key: "onClick",
     value: function onClick(event, target) {
       if (!this.isMobileExpanded() && this.getDepth() === 1) {
         var subNavItems = this.nav.subNavItems;
@@ -593,7 +570,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
     var options = {
       zIndex: null,
       toggleSelector: ' > button',
-      toggleClass: 'su-main-nav__toggle',
       itemExpandedClass: 'su-main-nav__item--expanded',
       itemActiveClass: 'su-main-nav__item--current',
       itemActiveTrailClass: 'su-main-nav__item--active-trail',
@@ -605,6 +581,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
       var zndx = getComputedStyle(navs[index - 1], null).zIndex;
       zndx--;
       options.zIndex = zndx;
+    } // Create instances of toggle buttons instead of accordions.
+
+
+    if (nav.className.match(/--buttons/)) {
+      options.toggleClass = 'su-nav-toggle';
     } // Create an instance of Nav,
     // which in turn creates appropriate instances of NavItem and SubNavItem.
 
@@ -1324,6 +1305,22 @@ function (_NavItemAbstract) {
       } else {
         this.onKeydownArrowDown(event, target);
       }
+    }
+    /**
+     * Wether or not the mobile option is active.
+     * @return {Boolean} [description]
+     */
+
+  }, {
+    key: "isMobileExpanded",
+    value: function isMobileExpanded() {
+      if (this.options.toggle) {
+        if (this.options.toggle.isExpanded()) {
+          return true;
+        }
+      }
+
+      return false;
     }
   }]);
 
@@ -2929,7 +2926,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
       itemExpandedClass: 'su-secondary-nav__item--expanded',
       itemActiveClass: 'su-secondary-nav__item--current',
       itemActiveTrailClass: 'su-secondary-nav__item--active-trail',
-      toggleClass: 'su-secondary-nav__toggle',
+      toggleClass: 'su-nav-toggle',
       activePath: true,
       expandActivePath: true
     }; // Create an instance of ToggleNav, which in turn create appropriate

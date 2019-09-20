@@ -207,4 +207,17 @@ export default class NavItem extends NavItemAbstract {
     }
   }
 
+  /**
+   * Wether or not the mobile option is active.
+   * @return {Boolean} [description]
+   */
+  isMobileExpanded() {
+    if (this.options.toggle) {
+      if (this.options.toggle.isExpanded()) {
+        return true;
+      }
+    }
+    return false;
+  }
+
 }

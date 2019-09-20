@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+.su-main-nav--buttons {
+
+  .su-main-nav__item--parent {
+    position: relative;
+  }
+
+  .su-main-nav__menu-lv1 {
+    > li {
+      &.su-main-nav__item--parent {
+        @include grid-media('lg') {
+          @include padding(null 20px null null);
+          position: static;
+
+          > a {
+            @include margin(0 5px 0 0);
+            @include padding(null 0px null null);
+            display: inline-block;
+
+            &::after {
+              background: none;
+              height: 0;
+              width: 0;
+              position: static;
+              content: none;
+            }
+          }
+
+          > .su-nav-toggle {
+            @include padding(0);
+            position: relative;
+            height: 40px;
+            line-height: 40px;
+            width: 40px;
+            max-width: 40px;
+
+            &::before {
+              @include padding(0);
+              position: static;
+              background: $color-cloud url("#{$image-path}/caret-down-black.svg") no-repeat center / 50%;
+              background-size: 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

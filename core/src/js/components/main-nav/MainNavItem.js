@@ -8,19 +8,6 @@ import NavItem from '../nav/NavItem';
 export default class MainNavItem extends NavItem {
 
   /**
-   * Wether or not the mobile option is active.
-   * @return {Boolean} [description]
-   */
-  isMobileExpanded() {
-    if (this.options.toggle) {
-      if (this.options.toggle.isExpanded()) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  /**
    * Event handler for key press: Right Arrow
    *
    * @param {KeyboardEvent} event - The keyboard event.
