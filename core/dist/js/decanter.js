@@ -115,8 +115,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nav_Nav_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../nav/Nav.js */ "./core/src/js/components/nav/Nav.js");
 /* harmony import */ var _MainNavItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MainNavItem */ "./core/src/js/components/main-nav/MainNavItem.js");
 /* harmony import */ var _MainSubNavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MainSubNavItem */ "./core/src/js/components/main-nav/MainSubNavItem.js");
-/* harmony import */ var _nav_ToggleNavItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../nav/ToggleNavItem */ "./core/src/js/components/nav/ToggleNavItem.js");
-/* harmony import */ var _nav_ToggleSubNavItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../nav/ToggleSubNavItem */ "./core/src/js/components/nav/ToggleSubNavItem.js");
+/* harmony import */ var _MainNavToggleItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MainNavToggleItem */ "./core/src/js/components/main-nav/MainNavToggleItem.js");
+/* harmony import */ var _MainSubNavToggleItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MainSubNavToggleItem */ "./core/src/js/components/main-nav/MainSubNavToggleItem.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -169,8 +169,8 @@ function (_Nav) {
      */
     value: function createNavItems() {
       if (this.options.toggleClass !== undefined) {
-        this.itemClasses['sub'] = _nav_ToggleSubNavItem__WEBPACK_IMPORTED_MODULE_4__["default"];
-        this.itemClasses['single'] = _nav_ToggleNavItem__WEBPACK_IMPORTED_MODULE_3__["default"];
+        this.itemClasses['sub'] = _MainSubNavToggleItem__WEBPACK_IMPORTED_MODULE_4__["default"];
+        this.itemClasses['single'] = _MainNavToggleItem__WEBPACK_IMPORTED_MODULE_3__["default"];
       } else {
         this.itemClasses['sub'] = _MainSubNavItem__WEBPACK_IMPORTED_MODULE_2__["default"];
         this.itemClasses['single'] = _MainNavItem__WEBPACK_IMPORTED_MODULE_1__["default"];
@@ -366,6 +366,54 @@ function (_NavItem) {
 
 /***/ }),
 
+/***/ "./core/src/js/components/main-nav/MainNavToggleItem.js":
+/*!**************************************************************!*\
+  !*** ./core/src/js/components/main-nav/MainNavToggleItem.js ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MainNavToggleItem; });
+/* harmony import */ var _nav_ToggleNavItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../nav/ToggleNavItem */ "./core/src/js/components/nav/ToggleNavItem.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+/**
+ * Represent a toggle link
+ */
+
+var MainNavToggleItem =
+/*#__PURE__*/
+function (_ToggleNavItem) {
+  _inherits(MainNavToggleItem, _ToggleNavItem);
+
+  function MainNavToggleItem() {
+    _classCallCheck(this, MainNavToggleItem);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(MainNavToggleItem).apply(this, arguments));
+  }
+
+  return MainNavToggleItem;
+}(_nav_ToggleNavItem__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
 /***/ "./core/src/js/components/main-nav/MainSubNavItem.js":
 /*!***********************************************************!*\
   !*** ./core/src/js/components/main-nav/MainSubNavItem.js ***!
@@ -536,6 +584,85 @@ function (_SubNavItem) {
 
   return MainSubNavItem;
 }(_nav_SubNavItem__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/main-nav/MainSubNavToggleItem.js":
+/*!*****************************************************************!*\
+  !*** ./core/src/js/components/main-nav/MainSubNavToggleItem.js ***!
+  \*****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MainSubNavToggleItem; });
+/* harmony import */ var _nav_ToggleSubNavItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../nav/ToggleSubNavItem */ "./core/src/js/components/nav/ToggleSubNavItem.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+/**
+ * Represent a toggle link
+ */
+
+var MainSubNavToggleItem =
+/*#__PURE__*/
+function (_ToggleSubNavItem) {
+  _inherits(MainSubNavToggleItem, _ToggleSubNavItem);
+
+  function MainSubNavToggleItem() {
+    _classCallCheck(this, MainSubNavToggleItem);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(MainSubNavToggleItem).apply(this, arguments));
+  }
+
+  _createClass(MainSubNavToggleItem, [{
+    key: "onClick",
+
+    /**
+     * Handle the click event on the toggle.
+     *
+     * @param {Event} event         - The event object.
+     * @param {HTMLElement} target  - The HTML element target.
+     */
+    value: function onClick(event, target) {
+      if (!this.isMobileExpanded() && this.getDepth() === 1) {
+        var subNavItems = this.nav.subNavItems;
+        subNavItems.forEach(function (item, event) {
+          if (item.link !== target) {
+            item.closeSubNav();
+          }
+        });
+      }
+
+      _get(_getPrototypeOf(MainSubNavToggleItem.prototype), "onClick", this).call(this, event, target);
+    }
+  }]);
+
+  return MainSubNavToggleItem;
+}(_nav_ToggleSubNavItem__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 
 

@@ -38,13 +38,20 @@
             &::before {
               @include padding(0);
               position: static;
-              background: $color-cloud url("#{$image-path}/caret-down-black.svg") no-repeat center / 50%;
+              background: $color-fog url("#{$image-path}/caret-down-black.svg") no-repeat center / 50%;
               background-size: 15px;
             }
+
+            &:hover {
+              &::before {
+                background: $color-cardinal-red url("#{$image-path}/caret-down-white.svg") no-repeat center / 50%;
+                background-size: 15px;
+              }
+            }
+
           }
         }
       }
     }
   }
-
 }

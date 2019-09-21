@@ -1,8 +1,8 @@
 import Nav from '../nav/Nav.js';
 import MainNavItem from './MainNavItem';
 import MainSubNavItem from './MainSubNavItem';
-import ToggleNavItem from '../nav/ToggleNavItem';
-import ToggleSubNavItem from '../nav/ToggleSubNavItem';
+import MainNavToggleItem from './MainNavToggleItem';
+import MainSubNavToggleItem from './MainSubNavToggleItem';
 /**
  * Represent a main navigation menu
  */
@@ -15,8 +15,8 @@ export default class MainNav extends Nav {
    */
   createNavItems() {
     if (this.options.toggleClass !== undefined) {
-      this.itemClasses['sub'] = ToggleSubNavItem;
-      this.itemClasses['single'] = ToggleNavItem;
+      this.itemClasses['sub'] = MainSubNavToggleItem;
+      this.itemClasses['single'] = MainNavToggleItem;
     }
     else {
       this.itemClasses['sub'] = MainSubNavItem;
