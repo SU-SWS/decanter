@@ -14,6 +14,14 @@
 + *
 + */
 +#}
+{#
+  Template Include Paths
+  Override these if you want to include a different template.
+#}
+{%- if template_path_search is empty -%}
+  {%- set template_path_search = "@decanter/components/site-search/site-search.twig" -%}
+{%- endif -%}
+
 <nav {{ attributes }} class="su-main-nav no-js {{ modifier_class }}" aria-label="{{ aria_label|default('main menu') }}">
   <button class="su-main-nav__toggle {{ toggle_modifier_class }}" aria-expanded="false">{{ toggle_text|default('Menu') }}</button>
   <ul class="su-main-nav__menu-lv1">
@@ -52,7 +60,7 @@
       {% endif %}
   </ul>
   {% if "su-main-nav--mobile-search" in modifier_class %}
-    {% include "@decanter/components/site-search/site-search.twig" with
+    {% include template_path_search with
       {
         "action": mobile_search.action,
         "method": mobile_search.method,

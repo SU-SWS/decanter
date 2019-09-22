@@ -47,6 +47,26 @@
  * - masthead_nav_list_items: Structured data that is iterable or custom markup.
  */
 #}
+{#
+  Template Include Paths
+  Override these if you want to include a different template.
+#}
+{%- if template_path_skiplink is empty -%}
+  {%- set template_path_skiplink = "@decanter/components/skiplinks/link.twig" -%}
+{%- endif -%}
+{%- if template_path_brandbar is empty -%}
+  {%- set template_path_brandbar = "@decanter/components/brand-bar/brand-bar.twig" -%}
+{%- endif -%}
+{%- if template_path_lockup is empty -%}
+  {%- set template_path_lockup = "@decanter/components/lockup/lockup.twig" -%}
+{%- endif -%}
+{%- if template_path_search is empty -%}
+  {%- set template_path_search = "@decanter/components/site-search/site-search.twig" -%}
+{%- endif -%}
+{%- if template_path_menu is empty -%}
+  {%- set template_path_menu = "@decanter/components/main-nav/main-nav.twig" -%}
+{%- endif -%}
+
 <section {{ attributes }} class="su-masthead {{ modifier_class }}">
   {% if "su-masthead--light" in modifier_class %}
     {% set masthead_nav_modifier_class = "su-main-nav--light su-main-nav--mobile-search" %}
@@ -54,7 +74,7 @@
     {% set masthead_nav_modifier_class = "su-main-nav--dark su-main-nav--mobile-search" %}
   {% endif %}
 
-  {% include "@decanter/components/skiplinks/link.twig" with
+  {% include template_path_skiplink with
     {
       "attributes": masthead_skiplinks_attributes,
       "modifier_class": masthead_skiplinks_modifier_class,
@@ -64,7 +84,7 @@
   %}
 
   {% if "su-masthead--stroke" not in modifier_class %}
-    {% include "@decanter/components/brand-bar/brand-bar.twig" with
+    {% include template_path_brandbar with
       {
         "attributes": masthead_brandbar_attributes,
         "modifier_class": masthead_brandbar_modifier_class
@@ -73,7 +93,7 @@
   {% endif %}
 
   <section>
-  {% include "@decanter/components/lockup/lockup.twig" with
+  {% include template_path_lockup with
     {
       "modifier_class": masthead_lockup_modifier_class,
       "attributes": masthead_lockup_attributes,
@@ -87,7 +107,7 @@
     }
   %}
 
-  {% include "@decanter/components/site-search/site-search.twig" with
+  {% include template_path_search with
     {
       "modifier_class": masthead_search_modifier_class,
       "attributes": masthead_search_attributes,
@@ -104,7 +124,7 @@
     }
   %}
 
-  {% include "@decanter/components/main-nav/main-nav.twig" with
+  {% include template_path_menu with
     {
       "modifier_class": masthead_nav_modifier_class,
       "toggle_modifier_class": masthead_nav_toggle_modifier_class,
