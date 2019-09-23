@@ -113,10 +113,11 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MainNav; });
 /* harmony import */ var _nav_Nav_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../nav/Nav.js */ "./core/src/js/components/nav/Nav.js");
-/* harmony import */ var _MainNavItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MainNavItem */ "./core/src/js/components/main-nav/MainNavItem.js");
-/* harmony import */ var _MainSubNavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MainSubNavItem */ "./core/src/js/components/main-nav/MainSubNavItem.js");
-/* harmony import */ var _MainNavToggleItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MainNavToggleItem */ "./core/src/js/components/main-nav/MainNavToggleItem.js");
-/* harmony import */ var _MainSubNavToggleItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MainSubNavToggleItem */ "./core/src/js/components/main-nav/MainSubNavToggleItem.js");
+/* harmony import */ var _nav_ToggleNav_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../nav/ToggleNav.js */ "./core/src/js/components/nav/ToggleNav.js");
+/* harmony import */ var _MainNavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MainNavItem */ "./core/src/js/components/main-nav/MainNavItem.js");
+/* harmony import */ var _MainSubNavItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MainSubNavItem */ "./core/src/js/components/main-nav/MainSubNavItem.js");
+/* harmony import */ var _MainNavToggleItem__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MainNavToggleItem */ "./core/src/js/components/main-nav/MainNavToggleItem.js");
+/* harmony import */ var _MainSubNavToggleItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MainSubNavToggleItem */ "./core/src/js/components/main-nav/MainSubNavToggleItem.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -138,6 +139,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -169,11 +171,11 @@ function (_Nav) {
      */
     value: function createNavItems() {
       if (this.options.toggleClass !== undefined) {
-        this.itemClasses['sub'] = _MainSubNavToggleItem__WEBPACK_IMPORTED_MODULE_4__["default"];
-        this.itemClasses['single'] = _MainNavToggleItem__WEBPACK_IMPORTED_MODULE_3__["default"];
+        this.itemClasses['sub'] = _MainSubNavToggleItem__WEBPACK_IMPORTED_MODULE_5__["default"];
+        this.itemClasses['single'] = _MainNavToggleItem__WEBPACK_IMPORTED_MODULE_4__["default"];
       } else {
-        this.itemClasses['sub'] = _MainSubNavItem__WEBPACK_IMPORTED_MODULE_2__["default"];
-        this.itemClasses['single'] = _MainNavItem__WEBPACK_IMPORTED_MODULE_1__["default"];
+        this.itemClasses['sub'] = _MainSubNavItem__WEBPACK_IMPORTED_MODULE_3__["default"];
+        this.itemClasses['single'] = _MainNavItem__WEBPACK_IMPORTED_MODULE_2__["default"];
       }
 
       _get(_getPrototypeOf(MainNav.prototype), "createNavItems", this).call(this);
@@ -185,8 +187,40 @@ function (_Nav) {
   }, {
     key: "expandActivePath",
     value: function expandActivePath() {
-      // Let super do its thing first.
-      _get(_getPrototypeOf(MainNav.prototype), "expandActivePath", this).call(this); // On Desktop with initial expanded menu items we need to
+      var _this = this;
+
+      if (this.options.toggleClass !== undefined) {
+        var actives = this.elem.querySelectorAll('.' + this.itemActiveClass);
+
+        if (actives.length) {
+          actives.forEach(function (item) {
+            // While we have parents go up and add the active class.
+            while (item) {
+              // End when we get to the parent nav item stop.
+              if (item.getAttribute('id') === _this.id) {
+                // Stop at the top most level.
+                break;
+              } // If we are on a LI element we need to add the active class.
+
+
+              if (item.tagName === 'LI') {
+                item.classList.add(_this.itemExpandedClass);
+                var toggleButton = item.querySelector('.' + _this.options.toggleClass);
+
+                if (toggleButton) {
+                  toggleButton.setAttribute('aria-expanded', true);
+                }
+              } // Always increment.
+
+
+              item = item.parentNode;
+            }
+          });
+        }
+      } else {
+        // Let super do its thing.
+        _get(_getPrototypeOf(MainNav.prototype), "expandActivePath", this).call(this);
+      } // On Desktop with initial expanded menu items we need to
       // collapse the first level only and leave the rest expanded.
 
 
@@ -651,7 +685,7 @@ function (_ToggleSubNavItem) {
       if (!this.isMobileExpanded() && this.getDepth() === 1) {
         var subNavItems = this.nav.subNavItems;
         subNavItems.forEach(function (item, event) {
-          if (item.link !== target) {
+          if (item.toggle !== target) {
             item.closeSubNav();
           }
         });
@@ -696,7 +730,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     // Main nav default constructor options.
     var options = {
       zIndex: null,
-      toggleSelector: ' > button',
+      toggleSelector: '.su-main-nav__toggle',
       itemExpandedClass: 'su-main-nav__item--expanded',
       itemActiveClass: 'su-main-nav__item--current',
       itemActiveTrailClass: 'su-main-nav__item--active-trail',
@@ -863,7 +897,7 @@ function (_NavAbstract) {
     key: "createNavToggle",
     value: function createNavToggle() {
       // Find the element.
-      var toggleElement = this.elem.querySelector(this.elem.tagName + this.options.toggleSelector); // If we cannot find a toggle element return null.
+      var toggleElement = this.elem.querySelector(this.elem.tagName + ' ' + this.options.toggleSelector); // If we cannot find a toggle element return null.
 
       if (!toggleElement) {
         return;
@@ -1837,8 +1871,7 @@ function () {
 
       var isSearch = this.nav.elem.classList.contains('su-main-nav--mobile-search'); // Don't go nowhere.
 
-      event.preventDefault();
-      event.stopPropagation(); // Toggle open and close.
+      event.preventDefault(); // Toggle open and close.
 
       if (this.isExpanded()) {
         this.closeNav();

@@ -1,4 +1,5 @@
 import Nav from '../nav/Nav.js';
+import ToggleNav from '../nav/ToggleNav.js';
 import MainNavItem from './MainNavItem';
 import MainSubNavItem from './MainSubNavItem';
 import MainNavToggleItem from './MainNavToggleItem';
@@ -29,8 +30,41 @@ export default class MainNav extends Nav {
    * Expand open the active path.
    */
   expandActivePath() {
-    // Let super do its thing first.
-    super.expandActivePath();
+    if (this.options.toggleClass !== undefined) {
+      let actives = this.elem.querySelectorAll('.' + this.itemActiveClass);
+      if (actives.length) {
+        actives.forEach(
+          item => {
+
+            // While we have parents go up and add the active class.
+            while (item) {
+
+              // End when we get to the parent nav item stop.
+              if (item.getAttribute('id') === this.id) {
+                // Stop at the top most level.
+                break;
+              }
+
+              // If we are on a LI element we need to add the active class.
+              if (item.tagName === 'LI') {
+                item.classList.add(this.itemExpandedClass);
+                let toggleButton = item.querySelector('.' + this.options.toggleClass);
+                if (toggleButton) {
+                  toggleButton.setAttribute('aria-expanded', true);
+                }
+              }
+
+              // Always increment.
+              item = item.parentNode;
+            }
+          }
+        );
+      }
+    }
+    else {
+      // Let super do its thing.
+      super.expandActivePath();
+    }
 
     // On Desktop with initial expanded menu items we need to
     // collapse the first level only and leave the rest expanded.

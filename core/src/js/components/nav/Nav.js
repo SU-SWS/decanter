@@ -95,7 +95,7 @@ export default class Nav extends NavAbstract {
    */
   createNavToggle() {
     // Find the element.
-    let toggleElement = this.elem.querySelector(this.elem.tagName + this.options.toggleSelector);
+    let toggleElement = this.elem.querySelector(this.elem.tagName + ' ' + this.options.toggleSelector);
 
     // If we cannot find a toggle element return null.
     if (!toggleElement) {

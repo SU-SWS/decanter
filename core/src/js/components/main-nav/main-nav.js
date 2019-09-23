@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', event => {
     // Main nav default constructor options.
     let options = {
       zIndex: null,
-      toggleSelector: ' > button',
+      toggleSelector: '.su-main-nav__toggle',
       itemExpandedClass: 'su-main-nav__item--expanded',
       itemActiveClass: 'su-main-nav__item--current',
       itemActiveTrailClass: 'su-main-nav__item--active-trail',

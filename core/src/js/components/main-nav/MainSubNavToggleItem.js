@@ -16,7 +16,7 @@ export default class MainSubNavToggleItem extends ToggleSubNavItem {
       let subNavItems = this.nav.subNavItems;
       subNavItems.forEach(
         (item, event) => {
-          if (item.link !== target) {
+          if (item.toggle !== target) {
             item.closeSubNav();
           }
         }

@@ -105,7 +105,6 @@ export default class NavToggle {
 
     // Don't go nowhere.
     event.preventDefault();
-    event.stopPropagation();
 
     // Toggle open and close.
     if (this.isExpanded()) {
@@ -120,7 +119,6 @@ export default class NavToggle {
       else {
         this.nav.elem.querySelector('a').focus();
       }
-
     }
   }
 
