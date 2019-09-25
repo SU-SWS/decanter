@@ -7,59 +7,111 @@
 //
 
 //
-// $input-line-height
+// $su-input-line-height
 //
 // Default input line height.
 //
-// Markup: $input-line-height: 1.3;
+// Markup: $su-input-line-height: 1.3;
+//
+// Styleguide: Variables.Elements.Input.su-line-height
+//
+$su-input-line-height: 1.3 !default;
+
+//
+// <del>$input-line-height</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-input-line-height</code> instead.
 //
 // Styleguide: Variables.Elements.Input.line-height
 //
-$input-line-height: 1.3;
+$input-line-height: $su-input-line-height !default;
 
 //
-// $input-border-width
+// $su-input-border-width
 //
 // Default input border width.
 //
-// Markup: $input-border-width: 0.1rem;
+// Markup: $su-input-border-width: 0.1rem;
 //
-// Styleguide: Variables.Elements.Input.border-width
+// Styleguide: Variables.Elements.Input.su-input-border-width
 //
-$input-border-width: 0.1rem;
+$su-input-border-width: 0.1rem !default;
 
 //
-// $input-padding-vertical
+// <del>$input-border-width</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-input-border-width</code> instead.
+//
+// Styleguide: Variables.Elements.Input.input-border-width
+//
+$input-border-width: $su-input-border-width !default;
+
+//
+// $su-input-padding-vertical
 //
 // Default input border width.
 // Using rem instead of px so function uses same units.
 //
-// Markup: $input-padding-vertical: 1rem;
+// Markup: $su-input-padding-vertical: 1rem;
 //
-// Styleguide: Variables.Elements.Input.padding-vertical
+// Styleguide: Variables.Elements.Input.su-input-padding-vertical
 //
-$input-padding-vertical: 1rem;
+$su-input-padding-vertical: 1rem !default;
 
 //
-// $input-height-exact
+// <del>$input-padding-vertical</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-input-padding-vertical</code> instead.
+//
+// Markup: $su-input-padding-vertical: 1rem;
+//
+// Styleguide: Variables.Elements.Input.input-padding-vertical
+//
+$input-padding-vertical: $su-input-padding-vertical !default;
+
+//
+// $su-input-height-exact
 //
 // Input heights will vary by browser and type
 // if height not explicitly set.
 //
-// Markup: $input-height-exact: $base-font-size * $input-line-height + $input-padding-vertical * 2 + $input-border-width * 2;
+// Markup: $su-input-height-exact: $su-base-font-size * $su-input-line-height + $su-input-padding-vertical * 2 + $su-input-border-width * 2;
 //
-// Styleguide: Variables.Elements.Input.height-exact
+// Styleguide: Variables.Elements.Input.su-input-height-exact
 //
-$input-height-exact: $base-font-size * $input-line-height + $input-padding-vertical * 2 + $input-border-width * 2;
+$su-input-height-exact: $su-base-font-size * $su-input-line-height + $su-input-padding-vertical * 2 + $su-input-border-width * 2 !default;
 
 //
-// $input-height
+// <del>$input-height-exact</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-input-height-exact</code> instead.
+//
+// Styleguide: Variables.Elements.Input.input-height-exact
+//
+$su-input-height-exact: $su-input-height-exact !default;
+
+//
+// $su-input-height
 //
 // Truncated to 1 decimal place
 // (i.e., 1.21rem -> 1.2rem).
 //
-// Markup: $input-height: floor($input-height-exact * 10) / 10;
+// Markup: $su-input-height: floor($su-input-height-exact * 10) / 10;
+//
+// Styleguide: Variables.Elements.Input.su-input-height
+//
+$su-input-height: floor($su-input-height-exact * 10) / 10 !default;
+
+//
+// <del>$input-height</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-input-height</code> instead.
 //
 // Styleguide: Variables.Elements.Input.input-height
 //
-$input-height: floor($input-height-exact * 10) / 10;
+$input-height: $su-input-height !default;

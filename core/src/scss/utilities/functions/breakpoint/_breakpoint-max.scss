@@ -3,7 +3,7 @@
 //
 // breakpoint-max($name, $breakpoints;
 //
-// The $grid-screens map defined in the grid variables file is used as the
+// The $su-grid-screens map defined in the grid variables file is used as the
 // $breakpoints argument by default.
 //
 // Maximum breakpoint width. Null for the largest (2xl) breakpoint.
@@ -14,7 +14,7 @@
 // Returns "767px"
 //
 // Style guide: Functions.Breakpoint.beakpoint-max
-@function breakpoint-max($name, $breakpoints: $grid-screens) {
+@function breakpoint-max($name, $breakpoints: $su-grid-screens) {
   $next: breakpoint-next($name, map-keys($breakpoints));
   @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
 }
