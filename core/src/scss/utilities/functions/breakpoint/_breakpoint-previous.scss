@@ -3,7 +3,7 @@
 //
 // breakpoint-previous($name, $breakpoint-names)
 //
-// The $grid-screens map defined in the grid variables file is used as the
+// The $su-grid-screens map defined in the grid variables file is used as the
 // $breakpoints argument by default.
 //
 // Name of the previous breakpoint, or null if the breakpoint does not exist.
@@ -12,7 +12,7 @@
 // Returns "md"
 //
 // Style guide: Functions.Breakpoint.breakpoint-previous
-@function breakpoint-previous($name, $breakpoints: map-keys($grid-screens)) {
+@function breakpoint-previous($name, $breakpoints: map-keys($su-grid-screens)) {
   $n: index($breakpoints, $name);
   @if is-integer($n) and $n > 1 {
     @return if($n <= length($breakpoints), nth($breakpoints, $n - 1), null);
