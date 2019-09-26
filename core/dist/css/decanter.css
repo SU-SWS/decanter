@@ -8028,6 +8028,8 @@ button,
   color: #000; }
 
 .su-global-footer {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background-color: #8c1515;
   color: #ffffff; }
   @media only screen and (min-width: 0) {
@@ -8043,9 +8045,8 @@ button,
       padding-top: 2.74444436rem;
       padding-bottom: 2.74444436rem; } }
   .su-global-footer a {
-    color: rgba(255, 255, 255, 0.9);
-    text-decoration: none;
-    font-weight: 400; }
+    color: #ffffff;
+    text-decoration: none; }
     .su-global-footer a:hover, .su-global-footer a:focus {
       color: #ffffff;
       text-decoration: underline; }
@@ -8155,14 +8156,17 @@ button,
       margin: 0;
       padding: 0.25em 0;
       display: block; }
+      @media only screen and (min-width: 576px) and (max-width: 767px) {
+        .su-global-footer .su-global-footer__menu li {
+          margin-right: 1.1rem; } }
       @media only screen and (min-width: 576px) {
         .su-global-footer .su-global-footer__menu li {
-          margin-right: 1.3rem;
           display: inline-block;
           line-height: 1.1; } }
       @media only screen and (min-width: 768px) {
         .su-global-footer .su-global-footer__menu li {
           padding: 0;
+          margin-right: 1.2rem;
           text-align: left; } }
       @media only screen and (min-width: 992px) {
         .su-global-footer .su-global-footer__menu li {
@@ -8181,14 +8185,12 @@ button,
       .su-global-footer .su-global-footer__menu--global {
         font-size: 1.8rem; } }
   .su-global-footer .su-global-footer__menu--policy {
-    font-size: 1.5rem;
-    font-weight: 300; }
+    font-size: 1.5rem; }
     .su-global-footer .su-global-footer__menu--policy a {
-      font-weight: 300; }
+      font-weight: 400; }
     @media only screen and (min-width: 0) and (max-width: 575px) {
       .su-global-footer .su-global-footer__menu--policy {
-        padding-left: 2rem;
-        font-weight: 400; } }
+        padding-left: 2rem; } }
     @media only screen and (min-width: 576px) {
       .su-global-footer .su-global-footer__menu--policy {
         font-size: 1.4rem; } }
@@ -8200,13 +8202,18 @@ button,
         font-size: 1.6rem; } }
   .su-global-footer .su-global-footer__copyright {
     font-size: 1.4rem;
-    font-weight: 300;
     text-align: center; }
     .su-global-footer .su-global-footer__copyright span {
       white-space: nowrap; }
     @media only screen and (min-width: 768px) {
       .su-global-footer .su-global-footer__copyright {
         text-align: left; } }
+
+.su-global-footer--bright {
+  background-color: #b1040e; }
+
+.su-global-footer--dark {
+  background-color: #2e2d29; }
 
 .su-hero {
   position: relative; }

@@ -5,6 +5,9 @@
 //
 // Global footer element as specified by the Identity Guidelines.
 //
+// .su-global-footer--bright - Global Footer with bright red background color.
+// .su-global-footer--dark - Global Footer with soft black background color.
+//
 // Markup: ../../templates/components/global-footer/global-footer.twig
 //
 // Style guide: Components.Global Footer
@@ -12,14 +15,14 @@
 
 // Global styles for the global footer.
 .su-global-footer {
+  @include font-smoothing;
   @include modular-spacing('padding', 1 null);
   background-color: color(brand);
   color: color(link--reverse);
 
   a {
-    color: rgba($su-color-white, 0.9);
+    color: color(link--reverse);
     text-decoration: none;
-    font-weight: 400;
 
     &:hover,
     &:focus {
@@ -97,14 +100,18 @@
       @include padding(0.25em 0);
       display: block;
 
+      @include grid-media-only('sm') {
+        @include margin(null 1.1rem null null);
+      }
+
       @include grid-media('sm') {
-        @include margin(null 1.3rem null null);
         display: inline-block;
         line-height: 1.1;
       }
 
       @include grid-media('md') {
         @include padding(0);
+        @include margin(null 1.2rem null null);
         text-align: left;
       }
 
@@ -136,15 +143,13 @@
 
   .su-global-footer__menu--policy {
     font-size: 1.5rem;
-    font-weight: 300;
 
     a {
-      font-weight: 300;
+      font-weight: $su-font-regular;
     }
 
     @include grid-media-only('xs') {
       @include padding(null null null 2rem);
-      font-weight: 400;
     }
 
     @include grid-media('sm') {
@@ -162,7 +167,6 @@
 
   .su-global-footer__copyright {
     font-size: 1.4rem;
-    font-weight: 300;
     text-align: center;
 
     span {
