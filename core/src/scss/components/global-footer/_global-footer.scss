@@ -111,7 +111,7 @@
 
       @include grid-media('md') {
         @include padding(0);
-        @include margin(null 1.2rem null null);
+        @include margin(null 1.3rem null null);
         text-align: left;
       }
 
@@ -156,6 +156,12 @@
       font-size: 1.4rem;
     }
 
+    @include grid-media-only('md') {
+      li {
+        @include margin(null 0.9rem null null);
+      }
+    }
+
     @include grid-media-between('md', 'lg') {
       font-size: 1.5rem;
     }
@@ -168,6 +174,10 @@
   .su-global-footer__copyright {
     font-size: 1.4rem;
     text-align: center;
+
+    @include grid-media-only('xs') {
+      font-size: 1.34rem;
+    }
 
     span {
       white-space: nowrap;
