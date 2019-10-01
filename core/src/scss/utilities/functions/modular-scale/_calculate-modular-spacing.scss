@@ -9,16 +9,16 @@
 //
 // The default value for $step is 0, which returns a multiplier value of 1, i.e., calculate-modular-spacing(0, 'xs') = $su-modular-spacing-base at XS breakpoint
 //
-// $step - Integers from -4 to 5 including 0
+// $step - Integers from -4 to 9 including 0
 // $breakpoint - One of `xs`, `sm`, `md`, `lg`, `xl`, `2xl`
 //
 // Style guide: Functions.ModularScale.calculate-modular-spacing
 //
 @function calculate-modular-spacing($step: 0, $breakpoint: 'xl') {
-  @if ($step >= -4 and $step <= 5) {
-    @return get-modular-spacing-base($breakpoint) * get-modular-spacing-multiplier($step);
+  @if ($step >= -4 and $step <= 9) {
+    @return round(get-modular-spacing-base($breakpoint) * get-modular-spacing-multiplier($step) * 100) / 100;
   }
   @else {
-    @error '$step should be an integer between -4 and 5';
+    @error '$step should be an integer between -4 and 9';
   }
 }

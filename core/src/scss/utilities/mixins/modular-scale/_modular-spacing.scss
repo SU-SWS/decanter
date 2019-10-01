@@ -16,7 +16,8 @@
 // - `@include modular-spacing('margin', 0 -4 1 2)`
 //
 // $type - String: Spacing type, either 'padding' or 'margin'.
-// $steps - List (1 to 4 values): Either integer (from -4 to 5 including 0) or null. Follows the shorthand notation of padding/margin. Use null to skip a side.
+// $steps - List (1 to 4 values): Either integer (from -4 to 9 including 0) or null.
+// Follows the shorthand notation of padding/margin. Use null to skip a side.
 // A value of 0 returns the modular spacing base value for that breakpoint.
 //
 // Style guide: Mixins.Modular.modular-spacing
@@ -34,14 +35,12 @@
     // Initialize $previous_base.
     $previous-base: null;
 
-    // If $i is not 1, replace $previous_base with modular-spacing base value
-    // for previous breakpoint.
+    // If $i is not 1, replace $previous_base with modular-spacing base value for previous breakpoint.
     @if $i != 1 {
       $previous-base: get-modular-spacing-base(nth($bp-list, $i - 1));
     }
 
-    // Only write media query if $i = 1 or if $current_base is different from
-    // $previous_base.
+    // Only write media query if $i = 1 or if $current_base is different from $previous_base.
     @if $current-base != $previous-base {
       $key: nth($bp-list, $i);
 
