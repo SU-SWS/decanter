@@ -7,7 +7,7 @@
 }
 
 #kss-node.kss-home {
-  background: $color-black;
+  background: $su-color-black;
 
   .kss-section {
     @include margin(null null 0);
@@ -18,12 +18,12 @@
   }
 
   h2, h3, h4, h5, p, li {
-    color: $color-black;
+    color: $su-color-black;
   }
 
   h2 {
     @include modular-typography(3);
-    font-weight: $font-bold;
+    font-weight: $su-font-bold;
   }
 
   // --------------------------------
@@ -50,7 +50,7 @@
     h4,
     h5,
     p {
-      color: $color-white;
+      color: $su-color-white;
 
       @include grid-media('sm') {
         max-width: 65%;
@@ -69,7 +69,7 @@
 
   // UI Components Section.
   .section--ui-components {
-    background: $color-white;
+    background: $su-color-white;
 
     .su-card {
       @include centered-column;
@@ -85,7 +85,7 @@
 
   // Developer Resources Section
   .section--dev-resources {
-    background: $color-light-sandstone;
+    background: $su-color-light-sandstone;
 
     h2 {
       @include centered-column;
@@ -94,7 +94,7 @@
 
     .cards-container {
       @include centered-column;
-      @include responsive-grid-columns($responsive-columns-default);
+      @include responsive-grid-columns($su-responsive-columns-default);
 
       // Set to block for IE.
       @include grid-media-only('xs') {
@@ -108,7 +108,7 @@
 
       img {
         max-width: 100px;
-        margin: $gutter-md auto;
+        margin: $su-gutter-md auto;
         display: block;
       }
 
@@ -134,7 +134,7 @@
       @include centered-column;
     }
 
-    background: lighten($color-mint, 5%);
+    background: lighten($su-color-mint, 5%);
 
     h2 {
       text-align: center;
@@ -142,7 +142,7 @@
     }
 
     ul {
-      @include responsive-grid-columns($responsive-columns-three);
+      @include responsive-grid-columns($su-responsive-columns-three);
       @include margin(0);
       @include padding(0);
     }
@@ -173,15 +173,15 @@
     }
 
     a {
-      color: $color-black;
+      color: $su-color-black;
       text-decoration: underline;
 
       &:hover {
-        color: $color-white;
+        color: $su-color-white;
       }
 
       &::after {
-        text-decoration-color: $color-mint;
+        text-decoration-color: $su-color-mint;
       }
 
     }

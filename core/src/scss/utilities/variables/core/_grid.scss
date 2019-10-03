@@ -1,122 +1,222 @@
 @charset "UTF-8";
 
-// $grid-columns
+//
+// Grid
+//
+// Style guide: Variables.Core.Grid
+//
+
+// $su-grid-columns
 //
 // The number of columns used by default for the flex grid.
 //
-// Style guide: Variables.Core.grid-columns
+// Style guide: Variables.Core.Grid.su-grid-columns
 //
-$grid-columns: 12 !default;
+$su-grid-columns: 12 !default;
 
-// $grid-screens
+//
+// <del>$grid-columns</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-grid-columns</code> instead.
+//
+// Style guide: Variables.Core.Grid.grid-columns
+//
+$grid-columns: $su-grid-columns !default;
+
+
+// $su-grid-screens
 //
 // A sass map of screen sized keyed with the breakpoint shortcode.
 //
-// Style guide: Variables.Core.grid-screens
+// Style guide: Variables.Core.Grid.su-grid-screens
 //
-$grid-screens: (
-  'xs': $screen-xs,
-  'sm': $screen-sm,
-  'md': $screen-md,
-  'lg': $screen-lg,
-  'xl': $screen-xl,
-  '2xl': $screen-2xl
+$su-grid-screens: (
+  'xs': $su-screen-xs,
+  'sm': $su-screen-sm,
+  'md': $su-screen-md,
+  'lg': $su-screen-lg,
+  'xl': $su-screen-xl,
+  '2xl': $su-screen-2xl
 ) !default;
 
-// $grid-media
+//
+// <del>$grid-screens</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-grid-screens</code> instead.
+//
+// Style guide: Variables.Core.Grid.grid-screens
+//
+$grid-screens: $su-grid-screens !default;
+
+
+// $su-grid-media
 //
 // A sass map of breakpoints sized keyed with the breakpoint shortcode.
 //
-// Style guide: Variables.Core.grid-media
+// Style guide: Variables.Core.Grid.su-grid-media
 //
-$grid-media: (
-  'xs': $breakpoint-xs,
-  'sm': $breakpoint-sm,
-  'md': $breakpoint-md,
-  'lg': $breakpoint-lg,
-  'xl': $breakpoint-xl,
-  '2xl': $breakpoint-2xl
+$su-grid-media: (
+  'xs': $su-breakpoint-xs,
+  'sm': $su-breakpoint-sm,
+  'md': $su-breakpoint-md,
+  'lg': $su-breakpoint-lg,
+  'xl': $su-breakpoint-xl,
+  '2xl': $su-breakpoint-2xl
 ) !default;
 
-// $grid-media-only
+//
+// <del>$grid-media</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-grid-media</code> instead.
+//
+// Style guide: Variables.Core.Grid.grid-media
+//
+$grid-media: $su-grid-media !default;
+
+
+// $su-grid-media-only
 //
 // A sass map of single breakpoint spans keyed with the breakpoint shortcode.
 //
-// Style guide: Variables.Core.grid-screens-only
+// Style guide: Variables.Core.Grid.su-grid-screens-only
 //
-$grid-media-only: (
-  'xs': $breakpoint-xs-only,
-  'sm': $breakpoint-sm-only,
-  'md': $breakpoint-md-only,
-  'lg': $breakpoint-lg-only,
-  'xl': $breakpoint-xl-only,
-  '2xl': $breakpoint-2xl
+$su-grid-media-only: (
+  'xs': $su-breakpoint-xs-only,
+  'sm': $su-breakpoint-sm-only,
+  'md': $su-breakpoint-md-only,
+  'lg': $su-breakpoint-lg-only,
+  'xl': $su-breakpoint-xl-only,
+  '2xl': $su-breakpoint-2xl
 ) !default;
 
-// $responsive-columns-default
+//
+// <del>$grid-media-only</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-grid-media<-only</code> instead.
+//
+// Style guide: Variables.Core.Grid.grid-media-only
+//
+$grid-media-only: $su-grid-media-only !default;
+
+
+// $su-responsive-columns-default
 //
 // A sass map of css grid columns keyed with breakpoint media queries. 2 column.
 //
-// Style guide: Variables.Core.responsive-columns-default
+// Style guide: Variables.Core.Grid.su-responsive-columns-default
 //
-$responsive-columns-default: (
-  $breakpoint-xs: 1fr,
-  $breakpoint-sm: 1fr 1fr,
-  $breakpoint-md: 1fr 1fr,
-  $breakpoint-lg: 1fr 1fr,
-  $breakpoint-xl: 1fr 1fr,
-  $breakpoint-2xl: 1fr 1fr
+$su-responsive-columns-default: (
+  $su-breakpoint-xs: 1fr,
+  $su-breakpoint-sm: 1fr 1fr,
+  $su-breakpoint-md: 1fr 1fr,
+  $su-breakpoint-lg: 1fr 1fr,
+  $su-breakpoint-xl: 1fr 1fr,
+  $su-breakpoint-2xl: 1fr 1fr
 ) !default;
 
-// $responsive-columns-two
+//
+// <del>$responsive-columns-default</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-responsive-columns-default</code> instead.
+//
+// Style guide: Variables.Core.Grid.responsive-columns-default
+//
+$responsive-columns-default: $su-responsive-columns-default !default;
+
+// $su-responsive-columns-two
 //
 // A sass map of css grid columns keyed with breakpoint media queries. 2 column.
 //
-// Style guide: Variables.Core.responsive-columns-two
+// Style guide: Variables.Core.Grid.su-responsive-columns-two
 //
-$responsive-columns-two: $responsive-columns-default !default;
+$su-responsive-columns-two: $su-responsive-columns-default !default;
 
-// $responsive-columns-three
+//
+// <del>$responsive-columns-two</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-responsive-columns-two</code> instead.
+//
+// Style guide: Variables.Core.Grid.responsive-columns-two
+//
+$responsive-columns-two: $su-responsive-columns-two !default;
+
+// $su-responsive-columns-three
 //
 // A sass map of css grid columns keyed with breakpoint media queries. 3 column.
 //
-// Style guide: Variables.Core.responsive-columns-three
+// Style guide: Variables.Core.Grid.su-responsive-columns-three
 //
-$responsive-columns-three: (
-  $breakpoint-xs: 1fr,
-  $breakpoint-sm: 1fr 1fr,
-  $breakpoint-md: 1fr 1fr,
-  $breakpoint-lg: 1fr 1fr 1fr,
-  $breakpoint-xl: 1fr 1fr 1fr,
-  $breakpoint-2xl: 1fr 1fr 1fr
+$su-responsive-columns-three: (
+  $su-breakpoint-xs: 1fr,
+  $su-breakpoint-sm: 1fr 1fr,
+  $su-breakpoint-md: 1fr 1fr,
+  $su-breakpoint-lg: 1fr 1fr 1fr,
+  $su-breakpoint-xl: 1fr 1fr 1fr,
+  $su-breakpoint-2xl: 1fr 1fr 1fr
 ) !default;
 
-// $responsive-columns-four
+//
+// <del>$responsive-columns-three</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-responsive-columns-three</code> instead.
+//
+// Style guide: Variables.Core.Grid.responsive-columns-three
+//
+$responsive-columns-three: $su-responsive-columns-three !default;
+
+// $su-responsive-columns-four
 //
 // A sass map of css grid columns keyed with breakpoint media queries. 4 column.
 //
-// Style guide: Variables.Core.responsive-columns-four
+// Style guide: Variables.Core.Grid.su-responsive-columns-four
 //
-$responsive-columns-four: (
-  $breakpoint-xs: 1fr,
-  $breakpoint-sm: 1fr 1fr,
-  $breakpoint-md: 1fr 1fr,
-  $breakpoint-lg: 1fr 1fr 1fr 1fr,
-  $breakpoint-xl: 1fr 1fr 1fr 1fr,
-  $breakpoint-2xl: 1fr 1fr 1fr 1fr
+$su-responsive-columns-four: (
+  $su-breakpoint-xs: 1fr,
+  $su-breakpoint-sm: 1fr 1fr,
+  $su-breakpoint-md: 1fr 1fr,
+  $su-breakpoint-lg: 1fr 1fr 1fr 1fr,
+  $su-breakpoint-xl: 1fr 1fr 1fr 1fr,
+  $su-breakpoint-2xl: 1fr 1fr 1fr 1fr
 ) !default;
 
-// $responsive-columns-six
+//
+// <del>$responsive-columns-four</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-responsive-columns-four</code> instead.
+//
+// Style guide: Variables.Core.Grid.responsive-columns-four
+//
+$responsive-columns-four: $su-responsive-columns-four !default;
+
+// $su-responsive-columns-six
 //
 // A sass map of css grid columns keyed with breakpoint media queries. 6 column.
 //
-// Style guide: Variables.Core.responsive-columns-six
+// Style guide: Variables.Core.Grid.su-responsive-columns-six
 //
-$responsive-columns-six: (
-  $breakpoint-xs: 1fr,
-  $breakpoint-sm: 1fr 1fr 1fr,
-  $breakpoint-md: 1fr 1fr 1fr,
-  $breakpoint-lg: 1fr 1fr 1fr 1fr 1fr,
-  $breakpoint-xl: 1fr 1fr 1fr 1fr 1fr 1fr,
-  $breakpoint-2xl: 1fr 1fr 1fr 1fr 1fr 1fr
+$su-responsive-columns-six: (
+  $su-breakpoint-xs: 1fr,
+  $su-breakpoint-sm: 1fr 1fr 1fr,
+  $su-breakpoint-md: 1fr 1fr 1fr,
+  $su-breakpoint-lg: 1fr 1fr 1fr 1fr 1fr,
+  $su-breakpoint-xl: 1fr 1fr 1fr 1fr 1fr 1fr,
+  $su-breakpoint-2xl: 1fr 1fr 1fr 1fr 1fr 1fr
 ) !default;
+
+//
+// <del>$responsive-columns-six</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-responsive-columns-six</code> instead.
+//
+// Style guide: Variables.Core.Grid.responsive-columns-six
+//
+$responsive-columns-six: $su-responsive-columns-six !default;
