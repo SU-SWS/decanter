@@ -25,6 +25,14 @@
  */
 #}
 
+{#
+  Template Include Paths
+  Override these if you want to include a different template.
+#}
+{%- if template_path_link is empty -%}
+  {%- set template_path_link = "@decanter/components/link/link.twig" -%}
+{%- endif -%}
+
 {# For variant where whole card is a link, suppress all other links within the component #}
 {%- if "su-card--link" in modifier_class -%}
   {%- set allow_links = false -%}
@@ -72,7 +80,7 @@
 
     {# Card CTA Link #}
     {%- if card_cta_label is not empty and allow_links %}
-      {%- include "@decanter/components/link/link.twig" with
+      {%- include template_path_link with
         {
         "link_href": card_link,
         "link_content": card_cta_label,
@@ -86,7 +94,7 @@
     {# Big ol button. Adds a BEM class for targeting. #}
     {%- if card_button_label is not empty and allow_links %}
       <div class="su-card__button">
-      {%- include "@decanter/components/link/link.twig" with
+      {%- include template_path_link with
         {
         "link_href": card_link,
         "link_content": card_button_label,

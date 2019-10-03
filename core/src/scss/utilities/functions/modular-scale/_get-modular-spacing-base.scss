@@ -4,14 +4,14 @@
 // get-modular-spacing-base($breakpoint)
 //
 // Get a value out of the modular-spacing-base map
-// Returns the pixel value of the $modular-spacing-base variable at a breakpoint.
+// Returns the pixel value of the $su-modular-spacing-base variable at a breakpoint.
 //
 // $breakpoint - One of `xs`, `sm`, `md`, `lg`, `xl`, `2xl`
 //
 // Style guide: Functions.ModularScale.get-modular-spacing-base
 //
 @function get-modular-spacing-base($breakpoint: 'xs') {
-  $base: map-get($modular-spacing-base, $breakpoint);
+  $base: map-get($su-modular-spacing-base, $breakpoint);
   @if $base == null {
     @warn 'Non-existent key in get-modular-spacing-base: $breakpoint';
   }

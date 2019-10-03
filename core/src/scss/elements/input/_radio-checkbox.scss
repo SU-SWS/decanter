@@ -25,9 +25,9 @@
 
 [type='checkbox'] + label::before,
 [type='radio'] + label::before {
-  background: $color-white;
-  border-radius: $border-radius;
-  box-shadow: 0 0 0 1px $color-driftwood;
+  background: $su-color-white;
+  border-radius: $su-border-radius;
+  box-shadow: 0 0 0 1px $su-color-driftwood;
   content: '\a0';
   display: inline-block;
   height: 1.8rem;
@@ -41,7 +41,7 @@
 }
 
 [type='radio'] + label::before {
-  box-shadow: 0 0 0 2px $color-white, 0 0 0 3px $color-driftwood;
+  box-shadow: 0 0 0 2px $su-color-white, 0 0 0 3px $su-color-driftwood;
   height: 1.6rem;
   line-height: 1.6rem;
   width: 1.6rem;
@@ -50,36 +50,36 @@
 
 [type='checkbox']:checked + label::before,
 [type='radio']:checked + label::before {
-  background-color: $color-bright-red;
-  box-shadow: 0 0 0 1px $color-bright-red;
+  background-color: $su-color-bright-red;
+  box-shadow: 0 0 0 1px $su-color-bright-red;
 }
 
 [type='radio']:checked + label::before {
-  box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-bright-red;
+  box-shadow: 0 0 0 2px $su-color-white, 0 0 0 4px $su-color-bright-red;
 }
 
 [type='radio']:focus + label::before {
-  box-shadow: 0 0 0 2px $color-white, 0 0 0 4px $color-bright-red, 0 0 3px 4px $color-black, 0 0 7px 4px $color-black;
+  box-shadow: 0 0 0 2px $su-color-white, 0 0 0 4px $su-color-bright-red, 0 0 3px 4px $su-color-black, 0 0 7px 4px $su-color-black;
 }
 
 [type='checkbox']:checked + label::before,
 [type='checkbox']:checked:disabled + label::before {
-  background: url("#{$image-path}/check.png");
-  background-image: url("#{$image-path}/check.svg");
+  background: url("#{$su-image-path}/check.png");
+  background-image: url("#{$su-image-path}/check.svg");
   background-position: 50%;
   background-repeat: no-repeat;
 }
 
 [type='checkbox']:focus + label::before {
-  box-shadow: 0 0 0 1px $color-white, 0 0 0 3px $color-bright-red;
+  box-shadow: 0 0 0 1px $su-color-white, 0 0 0 3px $su-color-bright-red;
 }
 
 [type='checkbox']:disabled + label {
-  color: $color-driftwood;
+  color: $su-color-driftwood;
 }
 
 [type='checkbox']:disabled + label::before,
 [type='radio']:disabled + label::before {
-  background: $color-driftwood;
+  background: $su-color-driftwood;
   cursor: not-allowed;
 }
