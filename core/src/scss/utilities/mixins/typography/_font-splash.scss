@@ -8,11 +8,12 @@
 // Style guide: Mixins.Typography.font-splash
 //
 @mixin font-splash {
-  @include modular-typography(4);
+  @include types;
+  @include modular-typography(5);
   @include margin(null null 0);
-  @include font-smoothing;
+  letter-spacing: -0.016em;
 
-  @media #{$su-breakpoint-md} {
-    font-weight: $su-font-bold;
+  @include grid-media-max('sm') {
+    font-size: modular-scale(5) * $su-displays-mobile-factor;
   }
 }
