@@ -59,7 +59,7 @@
 
   &::before {
     content: "";
-    background: color(border--expanded, $nav-colors) url("#{$image-path}/caret-down-white.svg") no-repeat center / 50%;
+    background: color(border--expanded, $su-nav-colors) url("#{$su-image-path}/caret-down-white.svg") no-repeat center / 50%;
     background-size: 15px;
     border-radius: 20px;
     height: 40px;
@@ -72,13 +72,13 @@
 
   &:hover,
   &:focus {
-    font-weight: $font-bold;
+    font-weight: $su-font-bold;
     background: transparent;
     outline: none;
 
     &::before {
       animation: dropout 0.4s ease-out;
-      background: $color-fog url("#{$image-path}/caret-down-black.svg") no-repeat center / 50%;
+      background: $su-color-fog url("#{$su-image-path}/caret-down-black.svg") no-repeat center / 50%;
       background-size: 15px;
     }
   }

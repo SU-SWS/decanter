@@ -9,13 +9,13 @@
 //
 // Style guide: Mixins.Grid.grid-gap
 //
-@mixin grid-gap($gap: $gutter-xs) {
+@mixin grid-gap($gap: $su-gutter-xs) {
 
   // If the caller passes in a breakpoint shortcode eg: xs, sm, md, etc
   // return back the appropriate gap from the global map.
   @if is-length($gap) == false {
-    @if map-has-key($grid-gutters, $gap) {
-      $gap: map-get($grid-gutters, $gap);
+    @if map-has-key($su-grid-gutters, $gap) {
+      $gap: map-get($su-grid-gutters, $gap);
     }
   }
 

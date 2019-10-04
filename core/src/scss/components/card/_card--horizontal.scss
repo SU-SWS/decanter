@@ -11,7 +11,7 @@
     @include display-grid;
     @include modular-spacing('padding', 2);
 
-    @each $key, $breakpoint in $grid-media {
+    @each $key, $breakpoint in $su-grid-media {
       @include grid-media($key) {
         @include grid-column-gap(calculate-modular-spacing(1, $key));
       }

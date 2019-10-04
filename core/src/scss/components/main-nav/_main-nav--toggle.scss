@@ -5,7 +5,7 @@
   cursor: pointer;
 
   @include grid-media-max('md') {
-    @include fancy-hover(color(border--hover, $nav-colors), color(border--active, $nav-colors));
+    @include fancy-hover(color(border--hover, $su-nav-colors), color(border--active, $su-nav-colors));
     @include padding(0 0 2rem);
     @include margin(0);
     display: flex;
@@ -13,9 +13,9 @@
     align-items: center;
     width: 40px;
     background-color: transparent;
-    color: color(h--link, $nav-colors);
+    color: color(h--link, $su-nav-colors);
     font-size: 1.6rem;
-    font-weight: $font-regular;
+    font-weight: $su-font-regular;
     line-height: 0.7;
 
     &::after {
@@ -23,7 +23,7 @@
       display: inline-block;
       width: 30px;
       height: 26px;
-      background: url("#{$image-path}/hamburger-black.svg") no-repeat 3px 0;
+      background: url("#{$su-image-path}/hamburger-black.svg") no-repeat 3px 0;
       content: "";
     }
 
@@ -31,21 +31,21 @@
       &::before {
         visibility: visible;
         transform: scaleX(1);
-        background-color: color(border--expanded, $nav-colors);
+        background-color: color(border--expanded, $su-nav-colors);
       }
 
       &::after {
         width: 22px;
-        background: url("#{$image-path}/close-black.svg") no-repeat 3px 0;
+        background: url("#{$su-image-path}/close-black.svg") no-repeat 3px 0;
         background-size: 16px 16px;
       }
 
       &:hover::before {
-        background-color: color(border--hover, $nav-colors);
+        background-color: color(border--hover, $su-nav-colors);
       }
 
       &:active::before {
-        background-color: color(border--active, $nav-colors);
+        background-color: color(border--active, $su-nav-colors);
       }
     }
 
@@ -53,7 +53,7 @@
     &:active,
     &:focus {
       background-color: transparent;
-      color: color(h--link-hover, $nav-colors);
+      color: color(h--link-hover, $su-nav-colors);
       cursor: pointer;
     }
 

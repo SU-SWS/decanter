@@ -4,19 +4,19 @@
 
   // All ul contaiers.
   ul {
-    background-color: color(bg, $nav-light-colors);
+    background-color: color(bg, $su-nav-light-colors);
   }
 
   a {
-    color: color(link, $nav-light-colors);
-    border-bottom: solid 1px color(divider, $nav-light-colors);
+    color: color(link, $su-nav-light-colors);
+    border-bottom: solid 1px color(divider, $su-nav-light-colors);
 
     &:focus,
     &:hover {
-      color: color(link--hover, $nav-light-colors);
+      color: color(link--hover, $su-nav-light-colors);
 
       &::before {
-        background-color: color(border--hover, $nav-light-colors);
+        background-color: color(border--hover, $su-nav-light-colors);
       }
 
     }
@@ -26,14 +26,14 @@
   .su-main-nav__item--parent {
     > a {
       &::after {
-        background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
+        background: url("#{$su-image-path}/plus-black.svg") no-repeat 0 0;
       }
     }
 
     &.su-main-nav__item--expanded {
       > a {
         &::after {
-          background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
+          background: url("#{$su-image-path}/minus-black.svg") no-repeat 0 0;
         }
       }
     }
@@ -42,10 +42,10 @@
   // Active path.
   .su-main-nav__item--current {
     > a {
-      color: color(link--active, $nav-light-colors);
+      color: color(link--active, $su-nav-light-colors);
 
       &::before {
-        background-color: color(border--active, $nav-light-colors);
+        background-color: color(border--active, $su-nav-light-colors);
       }
     }
   }
@@ -53,10 +53,10 @@
   // First Level Links.
   .su-main-nav__menu-lv1 > li > a {
     @include grid-media("lg") {
-      color: color(h--link, $nav-light-colors);
+      color: color(h--link, $su-nav-light-colors);
 
       &::before {
-        background-color: color(h--border, $nav-light-colors);
+        background-color: color(h--border, $su-nav-light-colors);
       }
 
       // State styles for horizontal desktop.
@@ -64,10 +64,10 @@
       &:hover,
       &:active,
       &:focus {
-        color: color(h--link-hover, $nav-light-colors);
+        color: color(h--link-hover, $su-nav-light-colors);
 
         &::before {
-          background-color: color(h--border-hover, $nav-light-colors);
+          background-color: color(h--border-hover, $su-nav-light-colors);
         }
       }
     }
@@ -83,11 +83,11 @@
           @include grid-media("lg") {
             &::after {
               background-size: 100%;
-              background-image: url("#{$image-path}/caret-down-black.svg");
+              background-image: url("#{$su-image-path}/caret-down-black.svg");
             }
 
             &::before {
-              background-color: color(h--border-expanded, $nav-light-colors);
+              background-color: color(h--border-expanded, $su-nav-light-colors);
             }
           }
         }
@@ -98,18 +98,18 @@
     &.su-main-nav__item--current {
       @include grid-media("lg") {
         > a {
-          color: color(h--link, $nav-light-colors);
+          color: color(h--link, $su-nav-light-colors);
 
           &:hover {
-            color: color(h--link-hover, $nav-light-colors);
+            color: color(h--link-hover, $su-nav-light-colors);
 
             &::before {
-              background-color: color(h--border-hover, $nav-light-colors);
+              background-color: color(h--border-hover, $su-nav-light-colors);
             }
           }
 
           &::before {
-            background-color: color(h--border, $nav-light-colors);
+            background-color: color(h--border, $su-nav-light-colors);
           }
         }
       }
@@ -120,7 +120,7 @@
     .su-main-nav__toggle[aria-expanded="true"] {
       @include grid-media-max('md') {
         + .su-main-nav__menu-lv1 + .su-site-search {
-          background-color: color(bg, $nav-light-colors);
+          background-color: color(bg, $su-nav-light-colors);
         }
       }
     }

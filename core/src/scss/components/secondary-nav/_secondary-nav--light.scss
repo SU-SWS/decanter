@@ -4,30 +4,30 @@
 //
 
 .su-secondary-nav--light {
-  background-color: color(bg, $nav-light-colors);
+  background-color: color(bg, $su-nav-light-colors);
 
   ul {
-    background-color: color(bg, $nav-light-colors);
+    background-color: color(bg, $su-nav-light-colors);
   }
 
   a {
-    color: color(link, $nav-light-colors);
-    border-bottom: color(divider, $nav-light-colors) solid 1px;
+    color: color(link, $su-nav-light-colors);
+    border-bottom: color(divider, $su-nav-light-colors) solid 1px;
 
     &:focus,
     &:hover {
-      color: color(link--hover, $nav-light-colors);
+      color: color(link--hover, $su-nav-light-colors);
 
       &::before {
-        background-color: color(border--hover, $nav-light-colors);
+        background-color: color(border--hover, $su-nav-light-colors);
       }
     }
 
     &:active {
-      color: color(link--active, $nav-light-colors);
+      color: color(link--active, $su-nav-light-colors);
 
       &::before {
-        background-color: color(border--active, $nav-light-colors);
+        background-color: color(border--active, $su-nav-light-colors);
       }
     }
   }
@@ -37,14 +37,14 @@
   .su-secondary-nav__item--parent {
     > a {
       &::after {
-        background: url("#{$image-path}/plus-black.svg") no-repeat 0 0;
+        background: url("#{$su-image-path}/plus-black.svg") no-repeat 0 0;
       }
     }
 
     &.su-secondary-nav__item--expanded {
       > a {
         &::after {
-          background: url("#{$image-path}/minus-black.svg") no-repeat 0 0;
+          background: url("#{$su-image-path}/minus-black.svg") no-repeat 0 0;
         }
       }
     }
@@ -52,23 +52,23 @@
 
   .su-secondary-nav__item--current {
     > a {
-      color: color(link--active, $nav-light-colors);
+      color: color(link--active, $su-nav-light-colors);
 
       &::before {
-        background-color: color(border--active-hover, $nav-light-colors);
+        background-color: color(border--active-hover, $su-nav-light-colors);
       }
 
       &:focus,
       &:hover {
-        color: color(link--active-hover, $nav-light-colors);
+        color: color(link--active-hover, $su-nav-light-colors);
 
         &::before {
-          background-color: color(border--active-hover, $nav-light-colors);
+          background-color: color(border--active-hover, $su-nav-light-colors);
         }
       }
 
       &:active {
-        color: color(link--active, $nav-light-colors);
+        color: color(link--active, $su-nav-light-colors);
       }
     }
   }

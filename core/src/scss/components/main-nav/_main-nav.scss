@@ -85,7 +85,7 @@
     @include grid-media('lg') {
       @include padding(1px null null 1.2rem);
       @include margin(null null null -1.8rem);
-      @include box-shadow($depth: 'medium', $stroke: none);
+      @include box-shadow('medium', none);
       z-index: 11111; //When menu wrap to 2nd line make sure dropdown covers up top level links
       position: absolute;
       max-width: 30rem;
@@ -131,18 +131,18 @@
   // First Level Links.
   .su-main-nav__menu-lv1 > li > a {
     @include grid-media("lg") {
-      color: color(h--link, $nav-colors);
+      color: color(h--link, $su-nav-colors);
       @include padding(null 0);
       @include margin(0 1.2em 0 0);
       font-size: 2.1rem;
       border-bottom: 0;
-      font-weight: $font-semi-bold;
+      font-weight: $su-font-semi-bold;
 
       &::before {
         height: 6px;
         width: 100%;
         transition: transform 0.3s ease-out;
-        background-color: color(h--border, $nav-colors);
+        background-color: color(h--border, $su-nav-colors);
         transform: scaleX(0);
       }
 
@@ -151,15 +151,15 @@
       &:hover,
       &:active,
       &:focus {
-        font-weight: $font-semi-bold;
-        color: color(h--link-hover, $nav-colors);
+        font-weight: $su-font-semi-bold;
+        color: color(h--link-hover, $su-nav-colors);
         text-decoration: none;
 
         &::before {
           transform: scaleX(1);
           visibility: visible;
           left: 0;
-          background-color: color(h--border-hover, $nav-colors);
+          background-color: color(h--border-hover, $su-nav-colors);
         }
       }
     }
@@ -175,7 +175,7 @@
             height: 6px;
             transform: scaleX(1);
             visibility: visible;
-            background-color: color(h--border-hover, $nav-colors);
+            background-color: color(h--border-hover, $su-nav-colors);
           }
         }
       }
@@ -198,7 +198,7 @@
             height: 6px;
             transform: scaleX(1);
             visibility: visible;
-            background-color: color(h--border-hover, $nav-colors);
+            background-color: color(h--border-hover, $su-nav-colors);
           }
         }
       }
@@ -210,7 +210,7 @@
         > a {
           &::after {
             @include margin(null null 1px 6px);
-            background: url("#{$image-path}/caret-down-black.svg") no-repeat 0 0;
+            background: url("#{$su-image-path}/caret-down-black.svg") no-repeat 0 0;
             background-size: 100%;
             position: relative;
             height: 11px;

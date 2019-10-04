@@ -9,14 +9,14 @@
 //
 %nav-item--current {
   > a {
-    font-weight: $font-bold;
+    font-weight: $su-font-bold;
 
     &::before {
       visibility: visible;
       height: 100%;
       width: 6px;
       transform: scaleY(1);
-      background-color: color(border--active, $nav-colors);
+      background-color: color(border--active, $su-nav-colors);
     }
 
     &:hover,
@@ -24,7 +24,7 @@
       &::before {
         left: 6px;
         transition: left 0.1s ease-out;
-        background-color: color(border--active, $nav-colors);
+        background-color: color(border--active, $su-nav-colors);
       }
     }
   }

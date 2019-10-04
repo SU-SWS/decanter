@@ -4,19 +4,19 @@
 
   // All ul contaiers.
   ul {
-    background-color: color(bg, $nav-dark-colors);
+    background-color: color(bg, $su-nav-dark-colors);
   }
 
   a {
-    color: color(link, $nav-dark-colors);
-    border-bottom: solid 1px color(divider, $nav-dark-colors);
+    color: color(link, $su-nav-dark-colors);
+    border-bottom: solid 1px color(divider, $su-nav-dark-colors);
 
     &:focus,
     &:hover {
-      color: color(link--hover, $nav-dark-colors);
+      color: color(link--hover, $su-nav-dark-colors);
 
       &::before {
-        background-color: color(border--hover, $nav-dark-colors);
+        background-color: color(border--hover, $su-nav-dark-colors);
       }
     }
   }
@@ -24,10 +24,10 @@
   // Active path.
   .su-main-nav__item--current {
     > a {
-      color: color(link--active, $nav-dark-colors);
+      color: color(link--active, $su-nav-dark-colors);
 
       &::before {
-        background-color: color(border--active, $nav-dark-colors);
+        background-color: color(border--active, $su-nav-dark-colors);
       }
     }
   }
@@ -35,10 +35,10 @@
   // First Level Links.
   .su-main-nav__menu-lv1 > li > a {
     @include grid-media("lg") {
-      color: color(h--link, $nav-dark-colors);
+      color: color(h--link, $su-nav-dark-colors);
 
       &::before {
-        background-color: color(h--border, $nav-dark-colors);
+        background-color: color(h--border, $su-nav-dark-colors);
       }
 
       // State styles for horizontal desktop.
@@ -46,10 +46,10 @@
       &:hover,
       &:active,
       &:focus {
-        color: color(h--link-hover, $nav-dark-colors);
+        color: color(h--link-hover, $su-nav-dark-colors);
 
         &::before {
-          background-color: color(h--border-hover, $nav-dark-colors);
+          background-color: color(h--border-hover, $su-nav-dark-colors);
         }
       }
     }
@@ -62,7 +62,7 @@
       @include grid-media("lg") {
         > a {
           &::before {
-            background-color: color(h--border-hover, $nav-dark-colors);
+            background-color: color(h--border-hover, $su-nav-dark-colors);
           }
         }
       }
@@ -74,7 +74,7 @@
       &.su-main-nav__item--parent {
         > a {
           &::after {
-            background-image: url("#{$image-path}/caret-down-white.svg");
+            background-image: url("#{$su-image-path}/caret-down-white.svg");
           }
         }
       }
@@ -83,7 +83,7 @@
         > a {
           &::before {
             visibility: visible;
-            background-color: color(border--expanded, $nav-dark-colors);
+            background-color: color(border--expanded, $su-nav-dark-colors);
           }
         }
       }
@@ -93,61 +93,60 @@
     &.su-main-nav__item--current {
       @include grid-media("lg") {
         > a {
-          color: color(h--link, $nav-dark-colors);
+          color: color(h--link, $su-nav-dark-colors);
 
           &:focus,
           &:hover {
-            color: color(h--link-hover, $nav-dark-colors);
+            color: color(h--link-hover, $su-nav-dark-colors);
 
             &::before {
-              background-color: color(h--border-hover, $nav-dark-colors);
+              background-color: color(h--border-hover, $su-nav-dark-colors);
             }
           }
 
           &::before {
-            background-color: color(border--active, $nav-dark-colors);
+            background-color: color(border--active, $su-nav-dark-colors);
           }
         }
       }
     }
   }
 
-
   // TOGGLE STYLES.
   .su-main-nav__toggle {
-    color: color(link, $nav-dark-colors);
+    color: color(link, $su-nav-dark-colors);
 
     &:hover,
     &:focus {
-      color: color(h--link-hover, $nav-dark-colors);
+      color: color(h--link-hover, $su-nav-dark-colors);
 
       &::before {
-        background-color: color(border--hover, $nav-dark-colors);
+        background-color: color(border--hover, $su-nav-dark-colors);
       }
     }
 
     &:active {
       &::before {
-        background-color: color(border--active, $nav-dark-colors);
+        background-color: color(border--active, $su-nav-dark-colors);
       }
     }
 
     &::after {
-      background: url("#{$image-path}/hamburger-white.svg") no-repeat 3px 0;
+      background: url("#{$su-image-path}/hamburger-white.svg") no-repeat 3px 0;
     }
 
     &[aria-expanded="true"] {
       &::before {
-        background-color: color(border--expanded, $nav-dark-colors);
+        background-color: color(border--expanded, $su-nav-dark-colors);
       }
 
       &:hover::before,
       &:active::before {
-        background-color: color(border--active, $nav-dark-colors);
+        background-color: color(border--active, $su-nav-dark-colors);
       }
 
       &::after {
-        background: url("#{$image-path}/close-white.svg") no-repeat 3px 0;
+        background: url("#{$su-image-path}/close-white.svg") no-repeat 3px 0;
         background-size: 16px 16px;
       }
     }
