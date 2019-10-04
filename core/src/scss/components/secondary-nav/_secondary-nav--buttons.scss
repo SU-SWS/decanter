@@ -1,5 +1,32 @@
 @charset "UTF-8";
 
+@keyframes dropout {
+  0% {
+    background-position: 50% 50%;
+  }
+
+  5% {
+    background-position: 50% 40%;
+  }
+
+  25% {
+    background-position: 50% 200%;
+  }
+
+  50% {
+    background-position: 50% -50px;
+    background-image: none;
+  }
+
+  95% {
+    background-position: 50% 60%;
+  }
+
+  100% {
+    background-position: 50% 50%;
+  }
+}
+
 // Specific to me styles.
 .su-secondary-nav--buttons {
 
@@ -22,4 +49,11 @@
       }
     }
   }
+
+  .nav-toggle {
+    &:hover {
+      animation: dropout 0.4s ease-out;
+    }
+  }
+
 }

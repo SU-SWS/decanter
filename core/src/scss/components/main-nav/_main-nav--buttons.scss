@@ -6,11 +6,16 @@
     position: relative;
   }
 
+  .su-nav-toggle {
+    &::before {
+      background-color: transparent;
+    }
+  }
+
   .su-main-nav__menu-lv1 {
     > li {
       &.su-main-nav__item--parent {
         @include grid-media('lg') {
-          @include padding(null 20px null null);
           position: static;
 
           > a {
@@ -35,20 +40,35 @@
             width: 40px;
             max-width: 40px;
 
+            &[aria-expanded="true"] {
+              transform: rotate(180deg);
+              &::before {
+                background: transparent url("#{$su-image-path}/caret-down-black.svg") no-repeat right / 52%;
+                background-size: 15px;
+              }
+            }
+
             &::before {
               @include padding(0);
               position: static;
-              background: $su-color-fog url("#{$su-image-path}/caret-down-black.svg") no-repeat center / 50%;
+              background: transparent url("#{$su-image-path}/caret-down-black.svg") no-repeat left / 48%;
               background-size: 15px;
             }
 
             &:hover {
               &::before {
-                background: $su-color-cardinal-red url("#{$su-image-path}/caret-down-white.svg") no-repeat center / 50%;
-                background-size: 15px;
+                background-size: 18px;
               }
             }
 
+          }
+        }
+
+        a {
+          &::after {
+            content: "";
+            background: transparent;
+            background-image: none;
           }
         }
       }

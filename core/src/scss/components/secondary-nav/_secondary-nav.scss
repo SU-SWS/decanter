@@ -34,6 +34,27 @@
   > ul > li > a {
     font-weight: $su-font-bold;
   }
+
+  .su-secondary-nav__menu-lv2 {
+    li {
+      &:last-child {
+        @include padding(0.1rem null 0.6rem null);
+      }
+
+      a {
+        @include padding(.8rem 4.8rem .8rem 2.4rem);
+        border: none;
+      }
+    }
+  }
+
+  .su-secondary-nav__menu-lv2 {
+    .su-nav-toggle {
+      height: 39px;
+      max-height: 39px;
+      line-height: 39px;
+    }
+  }
 }
 
 // States.
