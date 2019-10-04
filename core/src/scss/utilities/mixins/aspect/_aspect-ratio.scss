@@ -1,33 +1,31 @@
-@charset "UTF-8";
-//
+@charset "UTF-8"; //
 // @aspect-ratio()
 //
 // $horizontal - The ratio of the container
-// $selector -
+//
 //
 //
 // // Markup: ../../../../../templates/example/aspect-ratio/aspect-ratio.twig
 //
 // Style guide: Mixins.Aspect.Ratio
 //
-@mixin aspect-ratio($ratio: 1 1, $selector: '> :first-child') {
+@mixin aspect-ratio($width, $height, $selectors) {
   position: relative;
-  display: block;
-  height: auto;
-  min-height: 1em;
-  overflow: hidden;
-  padding-bottom: percentage(nth($ratio, 2) / nth($ratio, 1));
-  width: 100%;
 
-  #{$selector} {
-    left: 0;
-    height: 100%;
-    position: absolute;
-    top: 0;
+  &:before {
+    display: block;
+    content: '';
     width: 100%;
+    padding-top: ($height / $width) * 100%;
   }
-}
 
-.aspect-ratio {
-  @include aspect-ratio;
+  > #{$selectors} {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
