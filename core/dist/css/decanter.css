@@ -8320,10 +8320,10 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: -webkit-transform 0.2s ease-in-out;
-      transition: -webkit-transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out; }
     .su-link--action:hover::after, .su-link--action:focus::after {
       background-color: #2e2d29;
       -webkit-transform: translateX(0.2em);
@@ -8344,14 +8344,14 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: -webkit-transform 0.2s ease-in-out;
-      transition: -webkit-transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out; }
     .su-link--download:hover::after, .su-link--download:focus::after {
       background-color: #2e2d29;
-      -webkit-transform: translateX(0.2em);
-              transform: translateX(0.2em); } }
+      -webkit-transform: translateY(0.2em);
+              transform: translateY(0.2em); } }
 
 .su-link--external {
   text-decoration: none; }
@@ -8369,14 +8369,14 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: -webkit-transform 0.2s ease-in-out;
-      transition: -webkit-transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out; }
     .su-link--external:hover::after, .su-link--external:focus::after {
       background-color: #2e2d29;
-      -webkit-transform: translateX(0.2em);
-              transform: translateX(0.2em); } }
+      -webkit-transform: translate3d(0.15em, -0.15em, 0);
+              transform: translate3d(0.15em, -0.15em, 0); } }
 
 .su-link--internal {
   text-decoration: none; }
@@ -8394,20 +8394,22 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: -webkit-transform 0.2s ease-in-out;
-      transition: -webkit-transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out; }
     .su-link--internal:hover::after, .su-link--internal:focus::after {
-      background-color: #2e2d29;
-      -webkit-transform: translateX(0.2em);
-              transform: translateX(0.2em); } }
+      background-color: #2e2d29; } }
+  .su-link--internal:hover::after, .su-link--internal:focus::after {
+    -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNC43IDE4LjEiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMmUyZDI5O308L3N0eWxlPjwvZGVmcz48dGl0bGU+bG9jay1zb2xpZDwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTEuOCw2LjVWNEE0LjE1LDQuMTUsMCwwLDAsNy41LDBINy4yQTQuMTUsNC4xNSwwLDAsMCwyLjksNFY2LjVBMi44LDIuOCwwLDAsMCwwLDkuMnY2LjJhMi44LDIuOCwwLDAsMCwyLjksMi43aDguOWEyLjgsMi44LDAsMCwwLDIuOS0yLjdWOS4yQTIuOTQsMi45NCwwLDAsMCwxMS44LDYuNVpNNC42LDRBMi40NywyLjQ3LDAsMCwxLDcuMiwxLjdoLjNBMi40NywyLjQ3LDAsMCwxLDEwLjEsNFY2LjVINC42WiIvPjwvc3ZnPg==);
+            mask-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNC43IDE4LjEiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMmUyZDI5O308L3N0eWxlPjwvZGVmcz48dGl0bGU+bG9jay1zb2xpZDwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTEuOCw2LjVWNEE0LjE1LDQuMTUsMCwwLDAsNy41LDBINy4yQTQuMTUsNC4xNSwwLDAsMCwyLjksNFY2LjVBMi44LDIuOCwwLDAsMCwwLDkuMnY2LjJhMi44LDIuOCwwLDAsMCwyLjksMi43aDguOWEyLjgsMi44LDAsMCwwLDIuOS0yLjdWOS4yQTIuOTQsMi45NCwwLDAsMCwxMS44LDYuNVpNNC42LDRBMi40NywyLjQ3LDAsMCwxLDcuMiwxLjdoLjNBMi40NywyLjQ3LDAsMCwxLDEwLjEsNFY2LjVINC42WiIvPjwvc3ZnPg==); }
 
 .su-link--jump {
   text-decoration: none; }
   @supports ((-webkit-mask-repeat: no-repeat) or (mask-repeat: no-repeat)) {
     .su-link--jump::after {
       margin-right: 0.3em;
+      margin-bottom: -0.04em;
       margin-left: 0.4em;
       height: 0.65em;
       width: 0.65em;
@@ -8418,14 +8420,14 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: -webkit-transform 0.2s ease-in-out;
-      transition: -webkit-transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out; }
     .su-link--jump:hover::after, .su-link--jump:focus::after {
       background-color: #2e2d29;
-      -webkit-transform: translateX(0.2em);
-              transform: translateX(0.2em); } }
+      -webkit-transform: translateY(0.2em);
+              transform: translateY(0.2em); } }
 
 .su-link--more {
   text-decoration: none; }
@@ -8459,10 +8461,10 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: -webkit-transform 0.2s ease-in-out;
-      transition: -webkit-transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out; }
     .su-link--video:hover::after, .su-link--video:focus::after {
       background-color: #2e2d29;
       -webkit-transform: translateX(0.2em);
