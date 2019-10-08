@@ -1,16 +1,17 @@
 @charset "UTF-8";
+
 //
-// @aspect-ratio()
+// @aspect-ratio($width: 16, $height: 9, $selectors)
 //
-// $horizontal - The ratio of the container
+// A container and element fill mixin.
 //
+// $width - The width of the aspect-ratio
+// $height - The hight of the aspect-ratio
+// $selector - The css selector for the element fill the container target.
 //
+// Style guide: Mixins.Display.Aspect Ratio
 //
-// // Markup: ../../../../../templates/example/aspect-ratio/aspect-ratio.twig
-//
-// Style guide: Mixins.Aspect.Ratio
-//
-@mixin aspect-ratio($width, $height, $selectors) {
+@mixin aspect-ratio($width: 16, $height: 9, $selector: null) {
   position: relative;
 
   &::before {
@@ -20,13 +21,21 @@
     padding-top: ($height / $width) * 100%;
   }
 
-  > #{$selectors} {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  // If a selector was passed in try to use it to set the contents.
+  @if ($selector) {
+    > * {
+      position: relative;
+      z-index: 5;
+    }
+
+    #{$selector} {
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      bottom: 0;
+    }
   }
+
 }

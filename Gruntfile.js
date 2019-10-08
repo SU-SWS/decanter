@@ -19,7 +19,6 @@ module.exports = function(grunt) {
           ]
         },
         options: {
-          watchTask: true,
           server: './styleguide'
         }
       }
@@ -83,7 +82,7 @@ module.exports = function(grunt) {
   // Register some new ones.
   grunt.registerTask('deploy', ['styleguide', 'deploy_site:styleguide', 'clean:postdeploy']);
   grunt.registerTask('webpack', ['run:webpack']);
-  grunt.registerTask('dev', ['styleguide', 'browserSync', 'run:watch']);
+  grunt.registerTask('dev', ['styleguide', 'browserSync']);
   grunt.registerTask('default', ['dev']);
 
   // Deprecated tasks.
