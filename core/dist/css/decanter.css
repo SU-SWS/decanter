@@ -406,9 +406,11 @@ button,
         .su-card .su-card__contents > span {
           margin-bottom: 0.95rem; } }
       .su-card .su-card__contents > span a {
-        text-decoration: none; }
+        text-decoration: none;
+        font-weight: 700; }
     .su-card .su-card__contents > h2 {
-      font-size: 1.5625em; }
+      font-size: 1.5625em;
+      letter-spacing: -0.012em; }
       @media only screen and (min-width: 0) {
         .su-card .su-card__contents > h2 {
           margin-bottom: 1.07rem; } }
@@ -485,6 +487,7 @@ button,
     background-color: #b1040e;
     color: #ffffff;
     font-size: 1.5625em;
+    letter-spacing: -0.012em;
     padding: 1.5rem 3rem 1.8rem;
     margin-bottom: 0;
     font-weight: 400; }
@@ -2677,7 +2680,11 @@ fieldset {
 
 legend {
   font-size: 1.953125em;
+  letter-spacing: -0.016em;
   font-weight: 700; }
+  @media (max-width: 767px) {
+    legend {
+      font-size: 1.66015625em; } }
 
 .su-fieldset-inputs label {
   margin-top: 0; }
@@ -2967,7 +2974,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+*[class^="su-type"] {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin-top: 0;
@@ -2979,25 +2987,45 @@ h6 {
   h3 a,
   h4 a,
   h5 a,
-  h6 a {
-    text-decoration: none; }
+  h6 a,
+  *[class^="su-type"] a {
+    text-decoration: none;
+    font-weight: 700; }
 
-h1 {
-  font-size: 2.44140625em; }
+h1,
+.su-type-a {
+  font-size: 2.44140625em;
+  letter-spacing: -0.016em; }
+  @media (max-width: 767px) {
+    h1,
+    .su-type-a {
+      font-size: 2.0751953125em; } }
 
-h2 {
-  font-size: 1.953125em; }
+h2,
+.su-type-b {
+  font-size: 1.953125em;
+  letter-spacing: -0.016em; }
+  @media (max-width: 767px) {
+    h2,
+    .su-type-b {
+      font-size: 1.66015625em; } }
 
-h3 {
-  font-size: 1.5625em; }
+h3,
+.su-type-c {
+  font-size: 1.5625em;
+  letter-spacing: -0.012em; }
 
-h4 {
-  font-size: 1.25em; }
+h4,
+.su-type-d {
+  font-size: 1.25em;
+  letter-spacing: -0.01em; }
 
-h5 {
+h5,
+.su-type-e {
   font-size: 1em; }
 
-h6 {
+h6,
+.su-type-f {
   font-size: 0.8em;
   text-transform: uppercase; }
 
@@ -3028,16 +3056,25 @@ dfn {
   -moz-osx-font-smoothing: grayscale;
   font-weight: 400;
   line-height: 1.5;
-  max-width: 85rem; }
+  max-width: 85rem;
+  letter-spacing: -0.012em; }
 
 .su-font-splash {
-  font-size: 2.44140625em;
-  margin-bottom: 0;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-  @media only screen and (min-width: 768px) {
+  -moz-osx-font-smoothing: grayscale;
+  margin-top: 0;
+  clear: both;
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: 3.0517578125em;
+  margin-bottom: 0;
+  letter-spacing: -0.016em; }
+  .su-font-splash a {
+    text-decoration: none;
+    font-weight: 700; }
+  @media (max-width: 767px) {
     .su-font-splash {
-      font-weight: 700; } }
+      font-size: 2.5939941406em; } }
 
 .su-caption {
   margin-top: 0;
@@ -7685,6 +7722,7 @@ button,
   background-color: #b1040e;
   color: #ffffff;
   font-size: 1.5625em;
+  letter-spacing: -0.012em;
   padding: 1.5rem 3rem 1.8rem; }
   .su-button--big:hover, .su-button--big:focus,
   .su-button--big.su-link:hover,
@@ -8018,9 +8056,14 @@ button,
     font-weight: 700;
     line-height: 1.2;
     font-size: 1.953125em;
+    letter-spacing: -0.016em;
     display: block; }
     .su-date-stacked .su-date-stacked__day a {
-      text-decoration: none; }
+      text-decoration: none;
+      font-weight: 700; }
+    @media (max-width: 767px) {
+      .su-date-stacked .su-date-stacked__day {
+        font-size: 1.66015625em; } }
 
 .su-date-stacked--no-background {
   padding: 0;
@@ -8323,7 +8366,6 @@ a {
   @supports ((-webkit-mask-repeat: no-repeat) or (mask-repeat: no-repeat)) {
     .su-link--action::after {
       margin-right: 0.3em;
-      margin-bottom: -1px;
       margin-left: 0.4em;
       height: 0.5em;
       width: 0.5em;
@@ -8334,10 +8376,10 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: -webkit-transform 0.2s ease-in-out;
-      transition: -webkit-transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out; }
     .su-link--action:hover::after, .su-link--action:focus::after {
       background-color: #2e2d29;
       -webkit-transform: translateX(0.2em);
@@ -8348,7 +8390,6 @@ a {
   @supports ((-webkit-mask-repeat: no-repeat) or (mask-repeat: no-repeat)) {
     .su-link--download::after {
       margin-right: 0.3em;
-      margin-bottom: -1px;
       margin-left: 0.4em;
       height: 0.75em;
       width: 0.75em;
@@ -8359,21 +8400,21 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: -webkit-transform 0.2s ease-in-out;
-      transition: -webkit-transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out; }
     .su-link--download:hover::after, .su-link--download:focus::after {
       background-color: #2e2d29;
-      -webkit-transform: translateX(0.2em);
-              transform: translateX(0.2em); } }
+      -webkit-transform: translateY(0.2em);
+              transform: translateY(0.2em); } }
 
 .su-link--external {
   text-decoration: none; }
   @supports ((-webkit-mask-repeat: no-repeat) or (mask-repeat: no-repeat)) {
     .su-link--external::after {
       margin-right: 0.3em;
-      margin-bottom: -1px;
+      margin-bottom: -0.06em;
       margin-left: 0.4em;
       height: 0.6em;
       width: 0.6em;
@@ -8384,21 +8425,21 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: -webkit-transform 0.2s ease-in-out;
-      transition: -webkit-transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out; }
     .su-link--external:hover::after, .su-link--external:focus::after {
       background-color: #2e2d29;
-      -webkit-transform: translateX(0.2em);
-              transform: translateX(0.2em); } }
+      -webkit-transform: translate3d(0.15em, -0.15em, 0);
+              transform: translate3d(0.15em, -0.15em, 0); } }
 
 .su-link--internal {
   text-decoration: none; }
   @supports ((-webkit-mask-repeat: no-repeat) or (mask-repeat: no-repeat)) {
     .su-link--internal::after {
       margin-right: 0.3em;
-      margin-bottom: -1px;
+      margin-bottom: -0.06em;
       margin-left: 0.4em;
       height: 0.75em;
       width: 0.75em;
@@ -8409,21 +8450,22 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: -webkit-transform 0.2s ease-in-out;
-      transition: -webkit-transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out; }
     .su-link--internal:hover::after, .su-link--internal:focus::after {
-      background-color: #2e2d29;
-      -webkit-transform: translateX(0.2em);
-              transform: translateX(0.2em); } }
+      background-color: #2e2d29; } }
+  .su-link--internal:hover::after, .su-link--internal:focus::after {
+    -webkit-mask-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNC43IDE4LjEiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMmUyZDI5O308L3N0eWxlPjwvZGVmcz48dGl0bGU+bG9jay1zb2xpZDwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTEuOCw2LjVWNEE0LjE1LDQuMTUsMCwwLDAsNy41LDBINy4yQTQuMTUsNC4xNSwwLDAsMCwyLjksNFY2LjVBMi44LDIuOCwwLDAsMCwwLDkuMnY2LjJhMi44LDIuOCwwLDAsMCwyLjksMi43aDguOWEyLjgsMi44LDAsMCwwLDIuOS0yLjdWOS4yQTIuOTQsMi45NCwwLDAsMCwxMS44LDYuNVpNNC42LDRBMi40NywyLjQ3LDAsMCwxLDcuMiwxLjdoLjNBMi40NywyLjQ3LDAsMCwxLDEwLjEsNFY2LjVINC42WiIvPjwvc3ZnPg==);
+            mask-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNC43IDE4LjEiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojMmUyZDI5O308L3N0eWxlPjwvZGVmcz48dGl0bGU+bG9jay1zb2xpZDwvdGl0bGU+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTEuOCw2LjVWNEE0LjE1LDQuMTUsMCwwLDAsNy41LDBINy4yQTQuMTUsNC4xNSwwLDAsMCwyLjksNFY2LjVBMi44LDIuOCwwLDAsMCwwLDkuMnY2LjJhMi44LDIuOCwwLDAsMCwyLjksMi43aDguOWEyLjgsMi44LDAsMCwwLDIuOS0yLjdWOS4yQTIuOTQsMi45NCwwLDAsMCwxMS44LDYuNVpNNC42LDRBMi40NywyLjQ3LDAsMCwxLDcuMiwxLjdoLjNBMi40NywyLjQ3LDAsMCwxLDEwLjEsNFY2LjVINC42WiIvPjwvc3ZnPg==); }
 
 .su-link--jump {
   text-decoration: none; }
   @supports ((-webkit-mask-repeat: no-repeat) or (mask-repeat: no-repeat)) {
     .su-link--jump::after {
       margin-right: 0.3em;
-      margin-bottom: -1px;
+      margin-bottom: -0.04em;
       margin-left: 0.4em;
       height: 0.65em;
       width: 0.65em;
@@ -8434,14 +8476,14 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: -webkit-transform 0.2s ease-in-out;
-      transition: -webkit-transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out; }
     .su-link--jump:hover::after, .su-link--jump:focus::after {
       background-color: #2e2d29;
-      -webkit-transform: translateX(0.2em);
-              transform: translateX(0.2em); } }
+      -webkit-transform: translateY(0.2em);
+              transform: translateY(0.2em); } }
 
 .su-link--more {
   text-decoration: none; }
@@ -8464,7 +8506,7 @@ a {
   @supports ((-webkit-mask-repeat: no-repeat) or (mask-repeat: no-repeat)) {
     .su-link--video::after {
       margin-right: 0.3em;
-      margin-bottom: -1px;
+      margin-bottom: -0.2em;
       margin-left: 0.4em;
       height: 0.8em;
       width: 0.8em;
@@ -8475,10 +8517,10 @@ a {
       -webkit-mask-size: contain;
               mask-size: contain;
       background-color: #006cb8;
-      -webkit-transition: -webkit-transform 0.2s ease-in-out;
-      transition: -webkit-transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out;
-      transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out; }
+      -webkit-transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out, -webkit-mask-image 0.2s ease-in-out; }
     .su-link--video:hover::after, .su-link--video:focus::after {
       background-color: #2e2d29;
       -webkit-transform: translateX(0.2em);

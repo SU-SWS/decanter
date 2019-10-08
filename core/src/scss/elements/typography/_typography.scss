@@ -7,8 +7,14 @@
 // paragraphs and headings. Also includes special type treatment classes such as
 // splash font and lead font.
 //
-// .su-intro-text         - Intro Text
 // .su-font-splash        - Splash Font
+// .su-type-a             - Display Type A (used for H1 heading)
+// .su-type-b             - Display Type B (used for H2 heading)
+// .su-type-c             - Display Type C (used for H3 heading)
+// .su-type-d             - Display Type D (used for H4 heading)
+// .su-type-e             - Display Type E (used for H5 heading)
+// .su-type-f             - Display Type F (used for H6 heading)
+// .su-intro-text         - Intro Text
 // .su-caption            - Caption Font
 // .su-credits            - Credits Font
 // .su-subheading         - Subheading Font
@@ -41,31 +47,38 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+*[class^="su-type"] {
   @include types;
 }
 
-h1 {
+h1,
+.su-type-a {
   @include type-a;
 }
 
-h2 {
+h2,
+.su-type-b {
   @include type-b;
 }
 
-h3 {
+h3,
+.su-type-c {
   @include type-c;
 }
 
-h4 {
+h4,
+.su-type-d {
   @include type-d;
 }
 
-h5 {
+h5,
+.su-type-e {
   @include type-e;
 }
 
-h6 {
+h6,
+.su-type-f {
   @include type-f;
 }
 
