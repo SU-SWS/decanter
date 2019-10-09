@@ -1,0 +1,159 @@
+@charset "UTF-8";
+
+//
+// Local Footer
+//
+// Local footer element to support the global footer.
+//
+// Markup: ../../templates/components/local-footer/local-footer.twig
+//
+// Style guide: Components.Local Footer
+//
+
+// Global styles for the local footer.
+.su-local-footer {
+  background-color: $su-color-fog;
+  ul {
+    @include list-unstyled;
+    > li {
+      @include margin(null null 7px null);
+    }
+  }
+}
+
+.su-local-footer__columns,
+.su-local-footer__header {
+  @include centered-column;
+  @include responsive-grid-gap;
+  @include modular-spacing('padding-top', 3);
+}
+
+.su-local-footer__columns {
+  @include modular-spacing('padding-bottom', 3);
+
+  @include grid-media('md') {
+    @include display-grid;
+    grid-template-rows: auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "A B"
+    "C D"
+    "E F";
+  }
+
+  @include grid-media('lg') {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+    "A B C"
+    "D B F";
+  }
+
+  @include grid-media('xl') {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+    "A B B C";
+  }
+}
+
+.su-local-footer__cell1 {
+  grid-area: A;
+}
+
+.su-local-footer__cell2 {
+  grid-area: B;
+  vertical-align: top;
+
+  @include grid-media-only('md') {
+    grid-area: C;
+  }
+
+  nav {
+    vertical-align: top;
+    @include grid-media('xl') {
+      width: 49%;
+      max-width: 49%;
+      display: inline-block;
+    }
+  }
+}
+
+.su-local-footer__cell3 {
+  grid-area: C;
+  @include grid-media-only('md') {
+    grid-area: B;
+  }
+}
+
+.su-local-footer__list-heading {
+  font-weight: $su-font-bold;
+}
+
+.su-local-footer__address,
+.su-local-footer__action-links {
+  @include modular-spacing('padding-bottom', 3);
+}
+
+.su-local-footer__address {
+  line-height: 140%;
+}
+
+.su-local-footer__action-links {
+  a {
+    @include link-icon(arrow-right, 0.8em, right, -0.18em);
+  }
+}
+
+.su-local-footer__social-links {
+  @include list-horizontal;
+
+  li {
+    @include padding(null 18px null null);
+    &:last-child {
+      @include padding(null 0 null null);
+    }
+  }
+
+  i {
+    font-size: 2.5rem;
+    &::before {
+      @include fa-icon;
+      font-family: 'Font Awesome 5 Brands';
+    }
+  }
+
+  a {
+    span {
+      @include sr-only;
+    }
+  }
+
+  .su-local-footer__social-facebook {
+    &::before {
+      content: fa-content($fa-var-facebook-f);
+    }
+  }
+
+  .su-local-footer__social-linkedin {
+    &::before {
+      content: fa-content($fa-var-linkedin-in);
+    }
+  }
+
+  .su-local-footer__social-twitter {
+    &::before {
+      content: fa-content($fa-var-twitter);
+    }
+  }
+
+  .su-local-footer__social-instagram {
+    &::before {
+      content: fa-content($fa-var-instagram);
+    }
+  }
+
+  .su-local-footer__social-youtube {
+    &::before {
+      content: fa-content($fa-var-youtube);
+    }
+  }
+}

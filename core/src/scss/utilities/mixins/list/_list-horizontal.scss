@@ -1,0 +1,23 @@
+//
+// @list-horizontal
+//
+// Standard horizontal list, using word-spacing trick to remove whitespace
+// between inline-block elements.
+//
+// Credit: http://snippetcentral.com/horizontal-navigation-lists/
+//
+// Style guide: Mixins.List.list-horizontal
+//
+@mixin list-horizontal {
+  list-style-type:none;
+   padding:0;
+   margin:0;
+   overflow:hidden;
+   > li{
+     display:block;
+     float:left;
+     &:last-child{
+        margin-right:0px;
+     }
+   }
+}

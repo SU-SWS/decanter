@@ -1,0 +1,81 @@
+{#
+/**
+ * @file
+ * Local Footer Component.
+ *
+ * Figma source: https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Stanford-Design-Library?node-id=2384%3A1177
+ *
+ * This local footer template is to support the global footer and provide
+ * site contextual links.
+ */
+#}
+{%- if template_path_lockup is empty -%}
+  {%- set template_path_lockup = "@decanter/components/lockup/lockup.twig" -%}
+{%- endif %}
+
+{% if lockup_options is empty -%}
+ {%- set lockup_options = { "modifier_class": 'su-lockup--option-a', "line1": lockup_title } -%}
+{%- endif -%}
+
+{%- if template_path_signup is empty -%}
+  {%- set template_path_signup = "@decanter/components/logo/logo.twig" -%}
+{%- endif %}
+
+<div {{- attributes }} class="su-local-footer {{ modifier_class }}">
+  <header class="su-local-footer__header">
+    {% include template_path_lockup with lockup_options %}
+  </header>
+  <section class="su-local-footer__columns">
+    <div class="su-local-footer__cell1">
+      <address class="su-local-footer__address">
+        <strong>Lorem Ipsum Dolar Sit Amet</strong><br />
+        555 Street Name | Room 555<br />
+        Stanford, CA 94305<br />
+        <a href="tel:+16505555555">650-555-5555</a><br />
+      </address>
+      <ul class="su-local-footer__action-links">
+        <li><a href="#">Visit</a></li>
+        <li><a href="#">Campus Map</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+      <ul class="su-local-footer__social-links">
+        <li><a href="#"><i aria-hidden="true" class="su-local-footer__social-facebook"></i><span>Facebook</span></a></li>
+        <li><a href="#"><i aria-hidden="true" class="su-local-footer__social-linkedin"></i><span>LinkedIn</span></a></li>
+        <li><a href="#"><i aria-hidden="true" class="su-local-footer__social-twitter"></i><span>Twitter</span></a></li>
+        <li><a href="#"><i aria-hidden="true" class="su-local-footer__social-instagram"></i><span>Instagram</span></a></li>
+        <li><a href="#"><i aria-hidden="true" class="su-local-footer__social-youtube"></i><span>Youtube</span></a></li>
+      </ul>
+    </div>
+    <div class="su-local-footer__cell2">
+      <nav aria-label="footer primary nav">
+        <p class="su-local-footer__list-heading">Links to</p>
+        <ul class="su-local-footer__primary-links">
+          <li><a href="#">lorem ipsum dolor sit amit</a></li>
+          <li><a href="#">Vestibellum ultices nueue</a></li>
+          <li><a href="#">Blendius tellus</a></li>
+          <li><a href="#">Arnen cowalls</a></li>
+          <li><a href="#">Finibus</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="footer secondary nav">
+        <p class="su-local-footer__list-heading">Resources for</p>
+        <ul class="su-local-footer__secondary-links">
+          <li><a href="#">Finibus</a></li>
+          <li><a href="#">Blendius tellus</a></li>
+          <li><a href="#">Vestibellum ultices nueue</a></li>
+          <li><a href="#">lorem ipsum dolor sit amit</a></li>
+          <li><a href="#">Arnen cowalls</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="su-local-footer__cell3 su-signup-form">
+      {# Todo: replace with component. #}
+      <p><strong>Sign up for our email.</strong></p>
+      <p>Your source for pellentesque leo accumsan ultrices</p>
+      <form class="su-signup-form__form" action="/" method="post">
+        <input type="email" id="" name="" placeholder="email address" required />
+        <input type="submit" id="" name="" value ="Sign-up" />
+      </form>
+    </div>
+  </section>
+</div>
