@@ -2615,21 +2615,17 @@ textarea, select {
   src: url("https://www-media.stanford.edu/assets/fonts/stanford.woff") format("woff"), url("https://www-media.stanford.edu/assets/fonts/stanford.ttf") format("truetype");
   font-weight: 300; }
 
-.su-aspect-ratio,
-.su-aspect-ratio-16x9 {
+.su-aspect-ratio {
   position: relative; }
-  .su-aspect-ratio::before,
-  .su-aspect-ratio-16x9::before {
+  .su-aspect-ratio::before {
     display: block;
     content: '';
     width: 100%;
     padding-top: 56.25%; }
-  .su-aspect-ratio > *,
-  .su-aspect-ratio-16x9 > * {
+  .su-aspect-ratio > * {
     position: relative;
     z-index: 5; }
-  .su-aspect-ratio img,
-  .su-aspect-ratio-16x9 img {
+  .su-aspect-ratio > *:first-child {
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -2647,7 +2643,25 @@ textarea, select {
   .su-aspect-ratio-4x3 > * {
     position: relative;
     z-index: 5; }
-  .su-aspect-ratio-4x3 img {
+  .su-aspect-ratio-4x3 > *:first-child {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0; }
+
+.su-aspect-ratio-1x1 {
+  position: relative; }
+  .su-aspect-ratio-1x1::before {
+    display: block;
+    content: '';
+    width: 100%;
+    padding-top: 100%; }
+  .su-aspect-ratio-1x1 > * {
+    position: relative;
+    z-index: 5; }
+  .su-aspect-ratio-1x1 > *:first-child {
     position: absolute;
     z-index: 1;
     width: 100%;
