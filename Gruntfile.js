@@ -19,7 +19,6 @@ module.exports = function(grunt) {
           ]
         },
         options: {
-          watchTask: true,
           server: './styleguide'
         }
       }
