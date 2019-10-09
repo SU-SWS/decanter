@@ -3,7 +3,7 @@
 //
 // @aspect-ratio($width: 16, $height: 9, $selector: null)
 //
-// A mixin that creates a fluid container with specified aspect ratio that accommodate various content types within.
+// A mixin that creates a fluid container with specified aspect ratio that accommodates various content types within.
 // Default aspect ratio is 16 by 9.
 //
 // $width - The width of the aspect-ratio
@@ -13,7 +13,7 @@
 // Style guide: Mixins.Display.Aspect Ratio
 //
 
-@mixin aspect-ratio($width: 16, $height: 9, $selector: "> *:first-child") {
+@mixin aspect-ratio($width: $su-aspect-width, $height: $su-aspect-height, $selector: "> *:first-child") {
   position: relative;
 
   &::before {
