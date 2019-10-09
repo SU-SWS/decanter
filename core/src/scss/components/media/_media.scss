@@ -5,8 +5,9 @@
 //
 // Masthead includes the Stanford brand bar (or a top stroke), skip link, logo lockup, site search and main navigation.
 //
+// .su-media--embed - Embedded iframes including YouTube and Vimeo videos
 // .su-media--video - HTML5 video
-// .su-media--video-embed - Embedded videos
+// .su-media--audio - HTML5 audio
 //
 // Markup: ../templates/components/media/media.twig
 //
@@ -15,4 +16,11 @@
 
 .su-media__caption {
   @include caption;
+}
+
+.su-media__wrapper {
+  > * {
+    max-width: 100%;
+    width: 100%;
+  }
 }
