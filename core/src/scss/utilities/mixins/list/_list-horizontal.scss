@@ -9,15 +9,17 @@
 // Style guide: Mixins.List.list-horizontal
 //
 @mixin list-horizontal {
-  list-style-type:none;
-   padding:0;
-   margin:0;
-   overflow:hidden;
-   > li{
-     display:block;
-     float:left;
-     &:last-child{
-        margin-right:0px;
+  @include padding(0);
+  @include margin(0);
+  list-style-type: none;
+  overflow: hidden;
+
+   > li {
+     display: block;
+     float: left;
+
+     &:last-child {
+       @include margin(null 0 null null);
      }
    }
 }
