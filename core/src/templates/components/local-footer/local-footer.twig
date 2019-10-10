@@ -17,10 +17,17 @@
  {%- set lockup_options = { "modifier_class": 'su-lockup--option-a', "line1": lockup_title } -%}
 {%- endif -%}
 
+{% if template_path_macro is empty %}
+  {% set template_path_macro = "@decanter/utilities/macros/link-list.twig" %}
+{% endif %}
+{% import template_path_macro as list_macro %}
+
 <div {{- attributes }} class="su-local-footer {{ modifier_class }}">
+  {% if lockup_title is not empty %}
   <header class="su-local-footer__header">
     {% include template_path_lockup with lockup_options %}
   </header>
+  {% endif %}
   <section class="su-local-footer__columns">
     <div class="su-local-footer__cell1">
       {% if address|render|striptags|trim is not empty %}
@@ -30,8 +37,8 @@
       {% endif %}
       {% if action_links is not empty%}
       <ul class="su-local-footer__action-links">
-        {% if actions_links is iterable %}
-          {# do macro. #}
+        {% if action_links is iterable %}
+          {{ list_macro.link_list(action_links) }}
         {% else %}
           {{ action_links }}
         {% endif %}
@@ -40,12 +47,14 @@
       {% if social_links is not empty%}
       <ul class="su-local-footer__social-links">
         {% if social_links is iterable %}
-          {# do macro. #}
+          {{ list_macro.link_list(social_links) }}
         {% else %}
           {{ social_links }}
         {% endif %}
       </ul>
       {% endif %}
+      {# Use this var if you would like to place your own content in to this cell. #}
+      {{ cell1 }}
     </div>
     <div class="su-local-footer__cell2">
       {% if primary_links is not empty%}
@@ -55,7 +64,7 @@
         {% endif %}
         <ul class="su-local-footer__primary-links">
           {% if primary_links is iterable %}
-            {# do macro. #}
+            {{ list_macro.link_list(primary_links) }}
           {% else %}
             {{ primary_links }}
           {% endif %}
@@ -69,13 +78,15 @@
         {% endif %}
         <ul class="su-local-footer__secondary-links">
           {% if secondary_links is iterable %}
-            {# do macro. #}
+            {{ list_macro.link_list(secondary_links) }}
           {% else %}
             {{ secondary_links }}
           {% endif %}
         </ul>
       </nav>
       {% endif %}
+      {# If you want to provide all of our own markup use the cell2 var. #}
+      {{ cell2 }}
     </div>
     <div class="su-local-footer__cell3">
       {% if signup_form_action is not empty %}
@@ -85,9 +96,9 @@
         {{ signup_form_fields }}
         <input type="submit" id="{{ signup_form_field_submit }}" name="{{ signup_form_field_submit }}" value ="{{ signup_form_field_submit_value|default('Sign-up') }}" />
       </form>
-      {% else %}
-        {{ cell3 }}
       {% endif %}
+      {# If you want to provide all of our own markup use the cell3 var. #}
+      {{ cell3 }}
     </div>
   </section>
 </div>
