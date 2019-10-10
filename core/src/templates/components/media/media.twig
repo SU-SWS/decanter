@@ -10,30 +10,30 @@
  * Available variables:
  * - attributes: For additional HTML attributes not already provided.
  * - modifier_class: Additional CSS classes to change look and behavior.
- * - media_wrapper_modifier_class: Additional CSS classes to change look and behavior of the media wrapper, e.g. provide aspect ratio constraint.
- * - media_embed: The full embedded HTML <iframe> element
+ * - media_wrapper_modifier_class: Additional CSS classes to change look and behavior of the media wrapper, e.g. "su-aspect-ratio" to provide aspect ratio constraint.
  * - media_image_src: The src link to the image file
  * - media_video_src: The src link to the video file
  * - media_video_poster: The preview image of the video
  * - media_audio_src: The src link to the audio file
+ * - media_custom: An open field for the full HTML element of the media content, e.g., an embedded YouTube iframe
  * - media_content_attributes: Additional HTML attributes for the media content, e.g., for <video> - controls, autoplay; for <img> - alt, width, height
  * - media_caption: Caption for the media.
  */
 #}
 <figure {{ attributes }} class="su-media {{ modifier_class }}">
     <div class="su-media__wrapper {{ media_wrapper_modifier_class }}">
-      {% if 'su-media--embed' in modifier_class %}
-        {{ media_embed }}
-      {% elseif 'su-media--video' in modifier_class %}
-        <video controls src="{{ media_video_src }}"
+      {% if 'su-media--video' in modifier_class %}
+        <video src="{{ media_video_src }}"
           {% if media_video_poster %}
             poster="{{ media_video_poster }}"
           {% endif %}
         {{ media_content_attributes }}></video>
       {% elseif 'su-media--audio' in modifier_class %}
         <audio src="{{ media_audio_src }}" {{ media_content_attributes }} controls></audio>
-      {% else %}
+      {% elseif 'su-media--image' in modifier_class %}
         <img src="{{ media_image_src }}" {{ media_content_attributes }}>
+      {% else %}
+        {{ media_custom }}
       {% endif %}
     </div>
 
