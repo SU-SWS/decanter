@@ -3,7 +3,7 @@
 //
 // Local Footer
 //
-// Local footer element to support the global footer.
+// Local footer element to support (above) the global footer.
 //
 // Markup: ../../templates/components/local-footer/local-footer.twig
 //
@@ -11,6 +11,7 @@
 //
 
 // Global styles for the local footer.
+// ------------------------------------------------
 .su-local-footer {
   background-color: $su-color-fog;
 
@@ -23,13 +24,59 @@
   }
 }
 
+// Header section for the lockup and weblogin link.
+// ------------------------------------------------
+.su-local-footer__header {
+  position: relative;
+
+  // Lockup placement.
+  .su-lockup {
+    @include grid-media-between('xs', 'md') {
+      @include modular-spacing('margin-bottom', 2);
+    }
+
+    @include grid-media('lg') {
+      float: left;
+    }
+  }
+
+  // Weblogin button.
+  .su-link--internal {
+    @include button-primary;
+    @include box-shadow('shallow');
+    border-radius: 7px;
+
+    @include grid-media-between('xs', 'md') {
+      @include modular-spacing('margin-bottom', 1);
+      width: auto;
+    }
+
+    @include grid-media('lg') {
+      float:right;
+    }
+
+    &::after {
+      background-color: $su-color-white;
+    }
+
+    &:hover {
+      @include box-shadow('shallow');
+    }
+  }
+}
+
+// Main container styles and spacing.
+// ------------------------------------------------
 .su-local-footer__columns,
 .su-local-footer__header {
   @include centered-column;
   @include responsive-grid-gap;
   @include modular-spacing('padding-top', 3);
+  clear: both;
 }
 
+// The resposive behaviour for all contents using grid-area
+// --------------------------------------------------------
 .su-local-footer__columns {
   @include modular-spacing('padding-bottom', 3);
 
@@ -39,8 +86,7 @@
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
     "A B"
-    "C D"
-    "E F";
+    "C D";
   }
 
   @include grid-media('lg') {
@@ -57,18 +103,28 @@
   }
 }
 
+// Specific to cell1 styles and structure.
+// ------------------------------------------------
 .su-local-footer__cell1 {
   grid-area: A;
 }
 
+// Specific to cell2 styles and structure.
+// ------------------------------------------------
 .su-local-footer__cell2 {
   grid-area: B;
   vertical-align: top;
+
+  @include grid-media-between('xs', 'md') {
+    @include modular-spacing('padding-bottom', 1);
+  }
 
   @include grid-media-only('md') {
     grid-area: C;
   }
 
+  // Handle the list of navs with a bit of padding and sizing
+  // to get faux columns.
   nav {
     vertical-align: top;
 
@@ -77,9 +133,16 @@
       max-width: 49%;
       display: inline-block;
     }
+
+    &:first-of-type {
+      @include modular-spacing('padding-bottom', 1);
+    }
+
   }
 }
 
+// Specific to cell3 styles and structure.
+// ------------------------------------------------
 .su-local-footer__cell3 {
   grid-area: C;
 
@@ -88,25 +151,35 @@
   }
 }
 
+// List heading element styles.
+// ------------------------------------------------
 .su-local-footer__list-heading {
   font-weight: $su-font-bold;
 }
 
+// Common styles for address and links.
+// ------------------------------------------------
 .su-local-footer__address,
 .su-local-footer__action-links {
   @include modular-spacing('padding-bottom', 3);
 }
 
+// Address tag formatting and styles.
+// ------------------------------------------------
 .su-local-footer__address {
   line-height: 140%;
 }
 
+// Styling for the action links section.
+// ------------------------------------------------
 .su-local-footer__action-links {
   a {
     @include link-icon(arrow-right, 0.8em, right, -0.18em);
   }
 }
 
+// Styles for the social links.
+// ------------------------------------------------
 .su-local-footer__social-links {
   @include list-horizontal;
 
@@ -120,7 +193,8 @@
 
   i {
     font-size: 2.5rem;
-
+    // FA is included as a vendor dependency but the class styles are not
+    // included so we have to use the mixins and font declarations here.
     &::before {
       @include fa-icon;
       font-family: 'Font Awesome 5 Brands';
@@ -133,6 +207,8 @@
     }
   }
 
+  // Font Awesome icons for specific selectors.
+  // ------------------------------------------------
   .su-local-footer__social-facebook {
     &::before {
       content: fa-content($fa-var-facebook-f);
@@ -160,6 +236,17 @@
   .su-local-footer__social-youtube {
     &::before {
       content: fa-content($fa-var-youtube);
+    }
+  }
+}
+
+// Styles specific to the signup form.
+// ------------------------------------------------
+.su-local-footer__form {
+  .su-submit,
+  [type='submit'] {
+    @include grid-media-only('xs') {
+      width: auto;
     }
   }
 }
