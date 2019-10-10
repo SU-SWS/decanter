@@ -15,6 +15,7 @@
  * - modifier_class: Additional CSS classes to change look and behavior.
  * - media_wrapper_modifier_class: Additional CSS classes to change look and behavior of the media wrapper, e.g. "su-aspect-ratio" to provide aspect ratio constraint.
  * - media_image_src: The src link to the image file
+ * - media_image_srcset: The srcset of the image if exists
  * - media_video_src: The src link to the video file
  * - media_video_poster: The preview image of the video
  * - media_audio_src: The src link to the audio file
@@ -34,7 +35,11 @@
       {% elseif 'su-media--audio' in modifier_class %}
         <audio src="{{ media_audio_src }}" {{ media_content_attributes }} controls></audio>
       {% elseif 'su-media--image' in modifier_class %}
-        <img src="{{ media_image_src }}" {{ media_content_attributes }}>
+        <img src="{{ media_image_src }}"
+            {% if media_image_srcset %}
+              srcset="{{ media_image_srcset }}"
+            {% endif %}
+        {{ media_content_attributes }}>
       {% else %}
         {{ media_custom }}
       {% endif %}
