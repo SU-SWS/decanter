@@ -144,7 +144,7 @@
       {% if primary_links is not empty%}
       <nav aria-label="footer primary nav">
         {% if primary_links_header is not empty %}
-        <p class="su-local-footer__list-heading">{{ primary_links_header|default("Primary Links") }}</p>
+        <h2 class="su-local-footer__list-heading">{{ primary_links_header|default("Primary Links") }}</h2>
         {% endif %}
         <ul class="su-local-footer__primary-links">
           {# Stylized links. See local-footer.json for structure for macro. #}
@@ -162,7 +162,7 @@
       {% if secondary_links is not empty%}
       <nav aria-label="footer secondary nav">
         {% if secondary_links_header is not empty %}
-        <p class="su-local-footer__list-heading">{{ secondary_links_header|default("Secondary Links") }}</p>
+        <h2 class="su-local-footer__list-heading">{{ secondary_links_header|default("Secondary Links") }}</h2>
         {% endif %}
         <ul class="su-local-footer__secondary-links">
           {# Stylized links. See local-footer.json for structure for macro. #}

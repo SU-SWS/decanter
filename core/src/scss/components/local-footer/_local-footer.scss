@@ -129,15 +129,35 @@
     vertical-align: top;
 
     @include grid-media('xl') {
-      width: 49%;
-      max-width: 49%;
+      $_gap: map-get($su-grid-gutters, 'xl') / 2;
+      min-width: calc(49% - #{$_gap});
+      max-width: calc(49% - #{$_gap});
       display: inline-block;
+
+      &:last-of-type {
+        @include margin(null null null $_gap);
+      }
+
+      &:first-of-type {
+        @include margin(null $_gap null null);
+      }
+    }
+
+    @include grid-media('2xl') {
+      $_gap: map-get($su-grid-gutters, '2xl') / 2;
+
+      &:last-of-type {
+        @include margin(null null null $_gap);
+      }
+
+      &:first-of-type {
+        @include margin(null $_gap null null);
+      }
     }
 
     &:first-of-type {
       @include modular-spacing('padding-bottom', 1);
     }
-
   }
 }
 
@@ -154,7 +174,7 @@
 // List heading element styles.
 // ------------------------------------------------
 .su-local-footer__list-heading {
-  font-weight: $su-font-bold;
+  @include type-e;
 }
 
 // Common styles for address and links.
@@ -198,7 +218,9 @@
     // included so we have to use the mixins and font declarations here.
     &::before {
       @include fa-icon;
+      color: $su-color-black;
       font-family: 'Font Awesome 5 Brands';
+      transition: color 0.25s ease-out;
     }
   }
 
@@ -214,11 +236,23 @@
     &::before {
       content: fa-content($fa-var-facebook-f);
     }
+
+    &:hover {
+      &::before {
+        color: color('Facebook', $su-social-brands);
+      }
+    }
   }
 
   .su-local-footer__social-linkedin {
     &::before {
       content: fa-content($fa-var-linkedin-in);
+    }
+
+    &:hover {
+      &::before {
+        color: color('LinkedIn', $su-social-brands);
+      }
     }
   }
 
@@ -226,17 +260,35 @@
     &::before {
       content: fa-content($fa-var-twitter);
     }
+
+    &:hover {
+      &::before {
+        color: color('Twitter', $su-social-brands);
+      }
+    }
   }
 
   .su-local-footer__social-instagram {
     &::before {
       content: fa-content($fa-var-instagram);
     }
+
+    &:hover {
+      &::before {
+        color: color('Instagram', $su-social-brands);
+      }
+    }
   }
 
   .su-local-footer__social-youtube {
     &::before {
       content: fa-content($fa-var-youtube);
+    }
+
+    &:hover {
+      &::before {
+        color: color('YouTube', $su-social-brands);
+      }
     }
   }
 }

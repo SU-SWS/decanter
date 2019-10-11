@@ -8909,9 +8909,18 @@ a {
     vertical-align: top; }
     @media only screen and (min-width: 1200px) {
       .su-local-footer__cell2 nav {
-        width: 49%;
-        max-width: 49%;
-        display: inline-block; } }
+        min-width: calc(49% - 20px);
+        max-width: calc(49% - 20px);
+        display: inline-block; }
+        .su-local-footer__cell2 nav:last-of-type {
+          margin-left: 20px; }
+        .su-local-footer__cell2 nav:first-of-type {
+          margin-right: 20px; } }
+    @media only screen and (min-width: 1500px) {
+      .su-local-footer__cell2 nav:last-of-type {
+        margin-left: 24px; }
+      .su-local-footer__cell2 nav:first-of-type {
+        margin-right: 24px; } }
     @media only screen and (min-width: 0) {
       .su-local-footer__cell2 nav:first-of-type {
         padding-bottom: 2.31rem; } }
@@ -9012,7 +9021,7 @@ a {
       -ms-grid-column-span: 2; } } }
 
 .su-local-footer__list-heading {
-  font-weight: 700; }
+  font-size: 1em; }
 
 @media only screen and (min-width: 0) {
   .su-local-footer__address,
@@ -9081,7 +9090,10 @@ a {
       font-variant: normal;
       font-weight: normal;
       line-height: 1;
-      font-family: 'Font Awesome 5 Brands'; }
+      color: #2e2d29;
+      font-family: 'Font Awesome 5 Brands';
+      -webkit-transition: color 0.25s ease-out;
+      transition: color 0.25s ease-out; }
   .su-local-footer__social-links a span {
     border: 0;
     clip: rect(0, 0, 0, 0);
@@ -9093,14 +9105,24 @@ a {
     width: 1px; }
   .su-local-footer__social-links .su-local-footer__social-facebook::before {
     content: "\f39e"; }
+  .su-local-footer__social-links .su-local-footer__social-facebook:hover::before {
+    color: #3b579d; }
   .su-local-footer__social-links .su-local-footer__social-linkedin::before {
     content: "\f0e1"; }
+  .su-local-footer__social-links .su-local-footer__social-linkedin:hover::before {
+    color: #0077b5; }
   .su-local-footer__social-links .su-local-footer__social-twitter::before {
     content: "\f099"; }
+  .su-local-footer__social-links .su-local-footer__social-twitter:hover::before {
+    color: #1da1f2; }
   .su-local-footer__social-links .su-local-footer__social-instagram::before {
     content: "\f16d"; }
+  .su-local-footer__social-links .su-local-footer__social-instagram:hover::before {
+    color: #d73676; }
   .su-local-footer__social-links .su-local-footer__social-youtube::before {
     content: "\f167"; }
+  .su-local-footer__social-links .su-local-footer__social-youtube:hover::before {
+    color: #cd201f; }
 
 @media only screen and (min-width: 0) and (max-width: 575px) {
   .su-local-footer__form .su-submit,
