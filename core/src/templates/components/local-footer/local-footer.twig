@@ -60,7 +60,7 @@
   {%- set template_path_lockup = "@decanter/components/lockup/lockup.twig" -%}
 {%- endif %}
 
-{% if lockup_options is empty -%}
+{%- if lockup_options is empty -%}
  {%- set lockup_options = { "modifier_class": 'su-lockup--option-a', "line1": lockup_title } -%}
 {%- endif -%}
 
@@ -68,12 +68,12 @@
   {%- set template_path_link = "@decanter/components/link/link.twig" -%}
 {%- endif %}
 
-{% if template_path_macro is empty %}
-  {% set template_path_macro = "@decanter/utilities/macros/link-list.twig" %}
-{% endif %}
-{% import template_path_macro as list_macro %}
+{%- if template_path_macro is empty -%}
+  {%- set template_path_macro = "@decanter/utilities/macros/link-list.twig" -%}
+{%- endif -%}
+{%- import template_path_macro as list_macro -%}
 
-<div {{- attributes }} class="su-local-footer {{ modifier_class }}">
+<div {{ attributes }} class="su-local-footer {{ modifier_class }}">
   {# The header is completely optional and won't render if there isn't any content #}
   {% if lockup_title is not empty or weblogin_url is not empty or headercontent is not empty %}
   <header class="su-local-footer__header">
