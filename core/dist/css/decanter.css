@@ -2631,6 +2631,72 @@ textarea, select {
   src: url("https://www-media.stanford.edu/assets/fonts/stanford.woff") format("woff"), url("https://www-media.stanford.edu/assets/fonts/stanford.ttf") format("truetype");
   font-weight: 300; }
 
+.su-aspect-ratio {
+  position: relative; }
+  .su-aspect-ratio::before {
+    display: block;
+    content: '';
+    width: 100%;
+    padding-top: 56.25%; }
+  .su-aspect-ratio > img,
+  .su-aspect-ratio > video {
+    -o-object-fit: cover;
+       object-fit: cover; }
+  .su-aspect-ratio > * {
+    position: relative;
+    z-index: 5; }
+  .su-aspect-ratio > *:first-child {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0; }
+
+.su-aspect-ratio-4x3 {
+  position: relative; }
+  .su-aspect-ratio-4x3::before {
+    display: block;
+    content: '';
+    width: 100%;
+    padding-top: 75%; }
+  .su-aspect-ratio-4x3 > img,
+  .su-aspect-ratio-4x3 > video {
+    -o-object-fit: cover;
+       object-fit: cover; }
+  .su-aspect-ratio-4x3 > * {
+    position: relative;
+    z-index: 5; }
+  .su-aspect-ratio-4x3 > *:first-child {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0; }
+
+.su-aspect-ratio-1x1 {
+  position: relative; }
+  .su-aspect-ratio-1x1::before {
+    display: block;
+    content: '';
+    width: 100%;
+    padding-top: 100%; }
+  .su-aspect-ratio-1x1 > img,
+  .su-aspect-ratio-1x1 > video {
+    -o-object-fit: cover;
+       object-fit: cover; }
+  .su-aspect-ratio-1x1 > * {
+    position: relative;
+    z-index: 5; }
+  .su-aspect-ratio-1x1 > *:first-child {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0; }
+
 .su-sr-only-element {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
