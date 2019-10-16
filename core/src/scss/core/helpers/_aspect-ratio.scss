@@ -1,0 +1,25 @@
+//
+// Aspect Ratio Container
+//
+// A fluid container with specified aspect ratio that accommodates various content types within.
+// Examples showing 3 different usages - embedded video, div with custom content and an image.
+// Default aspect ratio is 16 by 9.
+//
+// .su-aspect-ratio-4x3   - 4 x 3 Classic ratio
+// .su-aspect-ratio-1x1   - 1 x 1 Square
+//
+// Style guide: Core.Helpers.aspect-ratio
+//
+// Markup: ../../../../../templates/example/aspect-ratio/aspect-ratio.twig
+//
+.su-aspect-ratio {
+  @include aspect-ratio(16, 9);
+}
+
+.su-aspect-ratio-4x3 {
+  @include aspect-ratio(4, 3);
+}
+
+.su-aspect-ratio-1x1 {
+  @include aspect-ratio(1, 1);
+}

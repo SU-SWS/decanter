@@ -3246,10 +3246,8 @@ var normalizeKey = function normalizeKey(theKey) {
   }; // Loop through the key/val object and run the check function (val) in order
   // to return the normalized string (key)
 
-  var _arr = Object.entries(map);
-
-  for (var _i = 0; _i < _arr.length; _i++) {
-    var entry = _arr[_i];
+  for (var _i = 0, _Object$entries = Object.entries(map); _i < _Object$entries.length; _i++) {
+    var entry = _Object$entries[_i];
 
     if (entry[1](theKey)) {
       return entry[0];
