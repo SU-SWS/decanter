@@ -192,7 +192,7 @@
       {# Add any additional markup above the form with this variable. #}
       {{ signup_form_content }}
       <form class="su-local-footer__form" action="{{ signup_form_action }}" method="{{ signup_form_method|default('post') }}">
-        <input type="email" id="{{ signup_form_field_email }}" name="{{ signup_form_field_email }}" placeholder="{{ signup_form_field_email_placeholder|default('email address') }}" {{ signup_form_field_email_required|default('required') }} />
+        <input type="email" id="{{ signup_form_field_email }}" aria-label="{{ signup_form_field_email_aria_label|default('email address') }}" name="{{ signup_form_field_email }}" placeholder="{{ signup_form_field_email_placeholder|default('email address') }}" {{ signup_form_field_email_required|default('required') }} />
         {# Add any additional fields or markup to this form using this variable. #}
         {{ signup_form_fields }}
         <input type="submit" id="{{ signup_form_field_submit }}" name="{{ signup_form_field_submit }}" value ="{{ signup_form_field_submit_value|default('Sign-up') }}" />

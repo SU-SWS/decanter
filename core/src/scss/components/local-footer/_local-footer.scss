@@ -120,6 +120,7 @@
   vertical-align: top;
 
   @include grid-media-between('xs', 'md') {
+    @include modular-spacing('padding-top', 3);
     @include modular-spacing('padding-bottom', 1);
   }
 
@@ -242,7 +243,8 @@
       content: fa-content($fa-var-facebook-f);
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       &::before {
         color: color('Facebook', $su-social-brands);
       }
@@ -254,7 +256,8 @@
       content: fa-content($fa-var-linkedin-in);
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       &::before {
         color: color('LinkedIn', $su-social-brands);
       }
@@ -266,7 +269,8 @@
       content: fa-content($fa-var-twitter);
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       &::before {
         color: color('Twitter', $su-social-brands);
       }
@@ -278,7 +282,8 @@
       content: fa-content($fa-var-instagram);
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       &::before {
         color: color('Instagram', $su-social-brands);
       }
@@ -290,7 +295,8 @@
       content: fa-content($fa-var-youtube);
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       &::before {
         color: color('YouTube', $su-social-brands);
       }
