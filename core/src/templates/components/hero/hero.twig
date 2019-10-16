@@ -43,7 +43,14 @@
     {{ hero_image}}
     {% endif %}
   </div>
-
+  {# Only include the card template if there is content to render. #}
+  {%- if
+    hero_super_headline is not empty or
+    hero_headline is not empty or
+    hero_body is not empty or
+    hero_cta_label is not empty or
+    hero_button_label is not empty
+  -%}
   {# We reuse the card component here. #}
   {% include template_path_card with
     {
@@ -59,5 +66,5 @@
     }
     only
   %}
-
+  {%- endif -%}
 </div>
