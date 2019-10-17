@@ -1,0 +1,36 @@
+services:
+  # What to call the service hosting the site. Because there is only
+  # one service, it is automatically set as the default service, which
+  # does a few things
+  #   1. Clones the git repository into the service container
+  #   2. Exposes port 80 to the Tugboat HTTP proxy
+  #   3. Routes requests to the preview URL to this service
+  apache:
+
+    # Use the available version of Apache by not specifying a version
+    image: tugboatqa/httpd
+
+    # A set of commands to run while building this service
+    commands:
+
+      # Commands that set up the basic preview infrastructure
+      init:
+
+        # Link the document root to the expected path. Tugboat uses /docroot
+        # by default. So, if the root is located at any other path in your git
+        # repository, change that here. This example links /web to the docroot
+        - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+        - nvm install
+        - nvm use
+        - npm install
+        - npm run build
+        - npm run styleguide
+
+    # Collection of urls to compare visual results.
+    # visualdiffs:
+    #   - /
+    #   - /news
+    #   - /events
+    #   - /people
+    #   - /research
+    #   - /about
