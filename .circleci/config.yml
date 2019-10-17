@@ -1,0 +1,16 @@
+# CircleCI integration with Decanter
+version: 2
+
+## Defines images and working directory.
+defaults: &defaults
+  working_directory: /var/www/styleguide
+
+jobs:
+   build:
+     docker:
+       - image: circleci/node:latest
+     steps:
+       - checkout
+       - run: npm install
+       - run: npm run build
+       - run: npm run styleguide
