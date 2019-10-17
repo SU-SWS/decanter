@@ -1,16 +1,33 @@
 # CircleCI integration with Decanter
 version: 2
 
-## Defines images and working directory.
-defaults: &defaults
-  working_directory: /var/www/styleguide
-
 jobs:
-   build:
-     docker:
-       - image: circleci/node:latest
-     steps:
-       - checkout
-       - run: npm install
-       - run: npm run build
-       - run: npm run styleguide
+  build:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:10.15.1
+    working_directory: /var/www/styleguide
+
+    # What do.
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      # Gotta get em all.
+      - run: npm install
+
+      # Probably a good thing.
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # Run The Build!
+      - run: npm run build
+      - run: npm run styleguide
