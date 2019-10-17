@@ -20,10 +20,10 @@ services:
         # by default. So, if the root is located at any other path in your git
         # repository, change that here. This example links /web to the docroot
         - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
-        - export NVM_DIR="$HOME/.nvm"
-        - cd ~
-        - ls -al
-        - source ~/.bashrc
+        - |
+          set +e
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
         - nvm install
         - nvm use
         - npm install
