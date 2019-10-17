@@ -19,16 +19,16 @@ services:
         # Link the document root to the expected path. Tugboat uses /docroot
         # by default. So, if the root is located at any other path in your git
         # repository, change that here. This example links /web to the docroot
-        - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
-        - |
-          NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-        - nvm install 10.15.1
-        - nvm use
-        - npm install
-        - npm run build
-        - npm run styleguide
+        # - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+        # - |
+        #   NVM_DIR="$HOME/.nvm"
+        #   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+        #   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+        # - nvm install 10.15.1
+        # - nvm use
+        # - npm install
+        # - npm run build
+        # - npm run styleguide
 
     # Collection of urls to compare visual results.
     # visualdiffs:
