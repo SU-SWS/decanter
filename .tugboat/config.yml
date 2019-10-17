@@ -26,7 +26,8 @@ services:
           npm install
           npm run build
           npm run styleguide
-        - ln -snf ${TUGBOAT_ROOT} /var/lib/tugboat/styleguide
+          pwd
+        - ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
 
     # Collection of urls to compare visual results.
     # visualdiffs:
