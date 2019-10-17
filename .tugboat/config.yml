@@ -21,10 +21,13 @@ services:
         # repository, change that here. This example links /web to the docroot
         - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
         - cd core
+        - ls -al
         - |
           export NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+        - echo "$NVM_DIR"
+        - echo "$HOME"
         - cd ~
         - nvm install 10.15.1
         - nvm use
