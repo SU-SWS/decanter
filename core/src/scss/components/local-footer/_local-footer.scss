@@ -127,16 +127,21 @@
       grid-area: C;
     }
 
+    // Fun fix for ie and the autoprefixer. It gets confused sometimes.
+    @include grid-media('lg') {
+      -ms-grid-column-span: 2;
+    }
+
     // Handle the list of navs with a bit of padding and sizing
     // to get faux columns.
     nav {
       vertical-align: top;
+      display: inline-block;
 
       @include grid-media('xl') {
         $_gap: map-get($su-grid-gutters, 'xl') / 2;
         min-width: calc(49% - #{$_gap});
         max-width: calc(49% - #{$_gap});
-        display: inline-block;
 
         &:last-of-type {
           @include margin(null null null $_gap);
@@ -149,6 +154,8 @@
 
       @include grid-media('2xl') {
         $_gap: map-get($su-grid-gutters, '2xl') / 2;
+        min-width: calc(49% - #{$_gap});
+        max-width: calc(49% - #{$_gap});
 
         &:last-of-type {
           @include margin(null null null $_gap);
@@ -169,6 +176,9 @@
   // ------------------------------------------------
   > .su-local-footer__cell3 {
     grid-area: C;
+    // MS fixes because the autoprefixer doesn't get it right.
+    -ms-grid-row: 1;
+    -ms-grid-column: 4;
 
     @include grid-media-only('md') {
       grid-area: B;

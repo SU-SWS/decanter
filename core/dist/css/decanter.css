@@ -8962,22 +8962,28 @@ a {
         -ms-grid-row: 2;
         -ms-grid-column: 1;
         grid-area: C; } }
+    @media only screen and (min-width: 992px) {
+      .su-local-footer__columns > .su-local-footer__cell2 {
+        -ms-grid-column-span: 2; } }
     .su-local-footer__columns > .su-local-footer__cell2 nav {
-      vertical-align: top; }
+      vertical-align: top;
+      display: inline-block; }
       @media only screen and (min-width: 1200px) {
         .su-local-footer__columns > .su-local-footer__cell2 nav {
           min-width: calc(49% - 20px);
-          max-width: calc(49% - 20px);
-          display: inline-block; }
+          max-width: calc(49% - 20px); }
           .su-local-footer__columns > .su-local-footer__cell2 nav:last-of-type {
             margin-left: 20px; }
           .su-local-footer__columns > .su-local-footer__cell2 nav:first-of-type {
             margin-right: 20px; } }
       @media only screen and (min-width: 1500px) {
-        .su-local-footer__columns > .su-local-footer__cell2 nav:last-of-type {
-          margin-left: 24px; }
-        .su-local-footer__columns > .su-local-footer__cell2 nav:first-of-type {
-          margin-right: 24px; } }
+        .su-local-footer__columns > .su-local-footer__cell2 nav {
+          min-width: calc(49% - 24px);
+          max-width: calc(49% - 24px); }
+          .su-local-footer__columns > .su-local-footer__cell2 nav:last-of-type {
+            margin-left: 24px; }
+          .su-local-footer__columns > .su-local-footer__cell2 nav:first-of-type {
+            margin-right: 24px; } }
       @media only screen and (min-width: 0) {
         .su-local-footer__columns > .su-local-footer__cell2 nav:first-of-type {
           padding-bottom: 2.31rem; } }
@@ -8990,7 +8996,9 @@ a {
   .su-local-footer__columns > .su-local-footer__cell3 {
     -ms-grid-row: 2;
     -ms-grid-column: 1;
-    grid-area: C; }
+    grid-area: C;
+    -ms-grid-row: 1;
+    -ms-grid-column: 4; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .su-local-footer__columns > .su-local-footer__cell3 {
         -ms-grid-row: 1;
