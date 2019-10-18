@@ -6,6 +6,7 @@ services:
   #   2. Exposes port 80 to the Tugboat HTTP proxy
   #   3. Routes requests to the preview URL to this service
   apache:
+
     # Use the available version of Apache by not specifying a version
     image: pookmish/tugboat-nvm:latest
 
@@ -14,6 +15,7 @@ services:
 
       # Commands that set up the basic preview infrastructure
       init:
+        - source ~/.profile
         - nvm install 10.15.1
         - nvm use
         - npm install
