@@ -83,14 +83,14 @@
 // --------------------------------------------------------
 .su-local-footer__columns {
   @include modular-spacing('padding-bottom', 3);
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+  "A B"
+  "C D";
 
   @include grid-media('md') {
     @include display-grid;
-    grid-template-rows: auto;
-    grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-    "A B"
-    "C D";
   }
 
   @include grid-media('lg') {
@@ -105,76 +105,78 @@
     grid-template-areas:
     "A B B C";
   }
-}
 
-// Specific to cell1 styles and structure.
-// ------------------------------------------------
-.su-local-footer__cell1 {
-  grid-area: A;
-}
-
-// Specific to cell2 styles and structure.
-// ------------------------------------------------
-.su-local-footer__cell2 {
-  grid-area: B;
-  vertical-align: top;
-
-  @include grid-media-between('xs', 'md') {
-    @include modular-spacing('padding-top', 3);
-    @include modular-spacing('padding-bottom', 1);
+  // Specific to cell1 styles and structure.
+  // ------------------------------------------------
+  > .su-local-footer__cell1 {
+    grid-area: A;
   }
 
-  @include grid-media-only('md') {
-    grid-area: C;
-  }
-
-  // Handle the list of navs with a bit of padding and sizing
-  // to get faux columns.
-  nav {
+  // Specific to cell2 styles and structure.
+  // ------------------------------------------------
+  > .su-local-footer__cell2 {
+    grid-area: B;
     vertical-align: top;
 
-    @include grid-media('xl') {
-      $_gap: map-get($su-grid-gutters, 'xl') / 2;
-      min-width: calc(49% - #{$_gap});
-      max-width: calc(49% - #{$_gap});
-      display: inline-block;
-
-      &:last-of-type {
-        @include margin(null null null $_gap);
-      }
-
-      &:first-of-type {
-        @include margin(null $_gap null null);
-      }
-    }
-
-    @include grid-media('2xl') {
-      $_gap: map-get($su-grid-gutters, '2xl') / 2;
-
-      &:last-of-type {
-        @include margin(null null null $_gap);
-      }
-
-      &:first-of-type {
-        @include margin(null $_gap null null);
-      }
-    }
-
-    &:first-of-type {
+    @include grid-media-between('xs', 'md') {
+      @include modular-spacing('padding-top', 3);
       @include modular-spacing('padding-bottom', 1);
     }
+
+    @include grid-media-only('md') {
+      grid-area: C;
+    }
+
+    // Handle the list of navs with a bit of padding and sizing
+    // to get faux columns.
+    nav {
+      vertical-align: top;
+
+      @include grid-media('xl') {
+        $_gap: map-get($su-grid-gutters, 'xl') / 2;
+        min-width: calc(49% - #{$_gap});
+        max-width: calc(49% - #{$_gap});
+        display: inline-block;
+
+        &:last-of-type {
+          @include margin(null null null $_gap);
+        }
+
+        &:first-of-type {
+          @include margin(null $_gap null null);
+        }
+      }
+
+      @include grid-media('2xl') {
+        $_gap: map-get($su-grid-gutters, '2xl') / 2;
+
+        &:last-of-type {
+          @include margin(null null null $_gap);
+        }
+
+        &:first-of-type {
+          @include margin(null $_gap null null);
+        }
+      }
+
+      &:first-of-type {
+        @include modular-spacing('padding-bottom', 1);
+      }
+    }
   }
+
+  // Specific to cell3 styles and structure.
+  // ------------------------------------------------
+  > .su-local-footer__cell3 {
+    grid-area: C;
+
+    @include grid-media-only('md') {
+      grid-area: B;
+    }
+  }
+
 }
 
-// Specific to cell3 styles and structure.
-// ------------------------------------------------
-.su-local-footer__cell3 {
-  grid-area: C;
-
-  @include grid-media-only('md') {
-    grid-area: B;
-  }
-}
 
 // List heading element styles.
 // ------------------------------------------------
