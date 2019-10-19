@@ -15,11 +15,13 @@ services:
 
       # Commands that set up the basic preview infrastructure
       init:
-        - nvm install 10.15.1
-        - nvm use
-        - npm install
-        - npm run build
-        - npm run styleguide
+        - |
+          bash
+          nvm install 10.15.1
+          nvm use
+          npm install
+          npm run build
+          npm run styleguide
         - ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
 
     # Collection of urls to compare visual results.
