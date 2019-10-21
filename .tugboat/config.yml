@@ -15,7 +15,7 @@ services:
 
       # Commands that set up the basic preview infrastructure
       init:
-        - chmod +x ${TUGBOAT_ROOT}/.tugboat/build.sh &&  ${TUGBOAT_ROOT}/.tugboat/build.sh
+        - /bin/bash chmod +x ${TUGBOAT_ROOT}/.tugboat/build.sh &&  ${TUGBOAT_ROOT}/.tugboat/build.sh
 
     # Collection of urls to compare visual results.
     # visualdiffs:
