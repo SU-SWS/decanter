@@ -17,16 +17,15 @@ services:
       # Commands that set up the basic preview infrastructure
       init:
         - echo "Welcome Back Boss"
-        - /bin/bash source ~/.nvm/nvm.sh
-        - /bin/bash nvm install 10.15.1
+        - /root/.nvm/nvm.sh install 10.15.1
 
       build:
-        - /bin/bash nvm use
-        - /bin/bash npm install
-        - /bin/bash npm run build
-        - /bin/bash npm run styleguide
-        - /bin/bash rm -R node_modules
-        - /bin/bash ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
+        - /root/.nvm/nvm.sh nvm use
+        - npm install
+        - npm run build
+        - npm run styleguide
+        - rm -R node_modules
+        - ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
 
     # Collection of urls to compare visual results.
     # visualdiffs:
