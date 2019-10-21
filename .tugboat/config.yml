@@ -15,10 +15,8 @@ services:
 
       # Commands that set up the basic preview infrastructure
       init:
+        - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
         - |
-          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
-        - |
-          bash
           source ~/.bashrc
           nvm install 10.15.1
           nvm use
