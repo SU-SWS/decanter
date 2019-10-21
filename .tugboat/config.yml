@@ -18,7 +18,6 @@ services:
       init:
         - echo "Welcome Back Boss"
         - chmod -R 0755 /root/.nvm
-        - export NVM_DIR="/root/.nvm"
         - /root/.nvm/nvm.sh install 10.15.1
 
       build:
