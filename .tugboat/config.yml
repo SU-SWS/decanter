@@ -16,20 +16,16 @@ services:
 
       # Commands that set up the basic preview infrastructure
       init:
-        - touch ~/.bash_profile
-        - touch ~/.profile
-        - touch ~/.zshrc
-        - source ~/.nvm/nvm.sh
-        - echo "Hey - Im here."
-        - nvm install 10.15.1
+        - echo "Welcome Back Boss"
+        - /bin/bash nvm install 10.15.1
 
       build:
-        - nvm use
-        - npm install
-        - npm run build
-        - npm run styleguide
-        - rm -R node_modules
-        - ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
+        - /bin/bash nvm use
+        - /bin/bash npm install
+        - /bin/bash npm run build
+        - /bin/bash npm run styleguide
+        - /bin/bash rm -R node_modules
+        - /bin/bash ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
 
     # Collection of urls to compare visual results.
     # visualdiffs:
