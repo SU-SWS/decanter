@@ -9,4 +9,5 @@ source ~/.bashrc
 httpd
 
 nvm install 10.15.1
-
+npm config delete prefix
+npm config set prefix $NVM_DIR/versions/node/v10.15.1
