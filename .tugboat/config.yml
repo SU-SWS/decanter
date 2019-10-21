@@ -8,25 +8,14 @@ services:
   apache:
 
     # Use the available version of Apache by not specifying a version
-    image: tugboatqa/httpd
+    image: pookmish/tugboat-nvm:latest
 
     # A set of commands to run while building this service
     commands:
 
       # Commands that set up the basic preview infrastructure
       init:
-        - |
-          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
-          NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-          nvm install 10.15.1
-          nvm use
-          npm install
-          npm run build
-          npm run styleguide
-        - rm -R node_modules
-        - ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
+        - chmod +x ${TUGBOAT_ROOT}/.tugboat/build.sh &&  ${TUGBOAT_ROOT}/.tugboat/build.sh
 
     # Collection of urls to compare visual results.
     # visualdiffs:
