@@ -26,7 +26,7 @@ services:
 
       build:
         - echo "Beginning to build"
-        - nvm use
+        - nvm use --delete-prefix
         - npm install
         - npm run build
         - npm run styleguide
