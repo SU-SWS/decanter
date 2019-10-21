@@ -6,10 +6,10 @@ services:
   #   1. Clones the git repository into the service container
   #   2. Exposes port 80 to the Tugboat HTTP proxy
   #   3. Routes requests to the preview URL to this service
-  alpine:
+  apache:
 
     # Use the available version of Apache by not specifying a version
-    image: mhart/alpine-node:latest
+    image: tugboatqa/alpine:latest
 
     # A set of commands to run while building this service
     commands:
@@ -17,6 +17,8 @@ services:
       # Commands that set up the basic preview infrastructure
       init:
         - echo "Welcome Back Boss"
+        - apk add -U curl bash ca-certificates openssl ncurses coreutils python2 make gcc g++ libgcc linux-headers grep util-linux binutils findutils
+        - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
         - nvm install 10.15.1
 
       build:
