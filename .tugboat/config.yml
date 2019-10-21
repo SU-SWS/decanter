@@ -16,9 +16,11 @@ services:
 
       # Commands that set up the basic preview infrastructure
       init:
-        - set -ex
         - touch ~/.bash_profile
+        - touch ~/.profile
+        - touch ~/.zshrc
         - source ~/.nvm/nvm.sh
+        - echo "Hey - Im here."
         - nvm install 10.15.1
 
       build:
