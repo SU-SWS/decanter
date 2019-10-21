@@ -21,6 +21,7 @@ services:
         - |
           touch ~/.bashrc
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+          cp ~/.nvm/.npmrc ~/.npmrc
           sed -i '$ d' ~/.bashrc
           source ~/.bashrc
           nvm install 10.15.1
