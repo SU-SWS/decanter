@@ -9,7 +9,7 @@ services:
   apache:
 
     # Use the available version of Apache by not specifying a version
-    image: pookmish/tugboat-nvm:latest
+    image: mhart/alpine-node:latest
 
     # A set of commands to run while building this service
     commands:
@@ -17,9 +17,8 @@ services:
       # Commands that set up the basic preview infrastructure
       init:
         - echo "Welcome Back Boss"
-        - chmod -R 0777 /root/.nvm
         - command -v nvm
-        - /root/.nvm/nvm.sh install 10.15.1
+        - nvm install 10.15.1
 
       build:
         - /root/.nvm/nvm.sh nvm use
