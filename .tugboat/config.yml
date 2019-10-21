@@ -17,11 +17,10 @@ services:
       # Commands that set up the basic preview infrastructure
       init:
         - echo "Welcome Back Boss"
-        - command -v nvm
         - nvm install 10.15.1
 
       build:
-        - /root/.nvm/nvm.sh nvm use
+        - nvm use
         - npm install
         - npm run build
         - npm run styleguide
