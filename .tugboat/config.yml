@@ -16,7 +16,9 @@ services:
 
       # Commands that set up the basic preview infrastructure
       init:
-        - bash && nvm install 10.15.1
+        - rm /bin/sh
+        - ln -s /bin/bash /bin/sh
+        - nvm install 10.15.1
 
       build:
         - nvm use
