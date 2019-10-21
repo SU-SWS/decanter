@@ -8,14 +8,14 @@ services:
   apache:
 
     # Use the available version of Apache by not specifying a version
-    image: pookmish/tugboat-nvm:latest
+    image: tugboatqa/alpine:latest
 
     # A set of commands to run while building this service
     commands:
 
       # Commands that set up the basic preview infrastructure
       init:
-        - /bin/bash chmod +x ${TUGBOAT_ROOT}/.tugboat/build.sh &&  ${TUGBOAT_ROOT}/.tugboat/build.sh
+        - chmod +x ${TUGBOAT_ROOT}/.tugboat/init.sh &&  ${TUGBOAT_ROOT}/.tugboat/init.sh
 
     # Collection of urls to compare visual results.
     # visualdiffs:
