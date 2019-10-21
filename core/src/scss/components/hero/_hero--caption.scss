@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.su-hero--caption {
+
+  // Ensure no card shows up.
+  .su-hero__card {
+    display: none;
+  }
+
+  // The media element shall not be absolute in this option.
+  .su-hero__media {
+    @include grid-media('md') {
+      max-height: map-get($_su-hero-height, 'md');
+      position: relative;
+    }
+
+    @include grid-media('lg') {
+      max-height: map-get($_su-hero-height, 'lg');
+      position: relative;
+    }
+
+    @include grid-media('xl') {
+      max-height: map-get($_su-hero-height, 'xl');
+      position: relative;
+    }
+  }
+
+  .su-hero__content {
+    @include centered-column;
+    @include modular-spacing(padding-top, 0);
+    @include modular-spacing(padding-bottom, 2);
+    text-align: right;
+    p {
+      @include credits;
+    }
+  }
+}
