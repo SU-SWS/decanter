@@ -30,7 +30,8 @@ services:
         - echo "Beginning to build"
         - |
           bash
-          nvm use --delete-prefix v10.15.1
+          source ~/.nvm/nvm.sh
+          nvm use
           npm install
           npm run build
           npm run styleguide
