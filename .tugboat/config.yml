@@ -17,6 +17,7 @@ services:
       # Commands that set up the basic preview infrastructure
       init:
         - echo "Welcome Back Boss"
+        - /bin/bash source ~/.nvm/nvm.sh
         - /bin/bash nvm install 10.15.1
 
       build:
