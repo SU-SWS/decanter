@@ -9,7 +9,7 @@ services:
   apache:
 
     # Use the available version of Apache by not specifying a version
-    image: tugboatqa/httpd
+    image: pookmish/tugboat-nvm:latest
 
     # A set of commands to run while building this service
     commands:
@@ -21,11 +21,13 @@ services:
           NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-          nvm install 10.15.1
-          nvm use
-          npm install
-          npm run build
-          npm run styleguide
+
+      build:
+        - nvm install 10.15.1
+        - nvm use
+        - npm install
+        - npm run build
+        - npm run styleguide
         - rm -R node_modules
         - ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
 
