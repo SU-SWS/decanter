@@ -1,4 +1,3 @@
-
 services:
   # What to call the service hosting the site. Because there is only
   # one service, it is automatically set as the default service, which
@@ -9,28 +8,20 @@ services:
   apache:
 
     # Use the available version of Apache by not specifying a version
-    image: tugboatqa/alpine:latest
+    image: pookmish/tugboat-nvm:latest
 
     # A set of commands to run while building this service
     commands:
 
       # Commands that set up the basic preview infrastructure
       init:
-        - echo "Welcome Back Boss"
-        - apk add -U curl bash ca-certificates openssl ncurses coreutils python2 make gcc g++ libgcc linux-headers grep util-linux binutils findutils
         - |
-          touch ~/.bashrc
-          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
-        - source ~/.bashrc
-        - nvm install 10.15.1
-
-      build:
-        - echo "Beginning to build"
-        - nvm use
-        - npm install
-        - npm run build
-        - npm run styleguide
-        - rm -R node_modules
+          bash
+          nvm install 10.15.1
+          nvm use
+          npm install
+          npm run build
+          npm run styleguide
         - ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
 
     # Collection of urls to compare visual results.
