@@ -8970,9 +8970,6 @@ a {
         -ms-grid-column: 1;
         -ms-grid-column-span: 2;
         grid-area: C; } }
-    @media only screen and (min-width: 992px) {
-      .su-local-footer__columns .su-local-footer__cell2 {
-        -ms-grid-column-span: 2; } }
     .su-local-footer__columns .su-local-footer__cell2 nav {
       vertical-align: top; }
       @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -9010,13 +9007,14 @@ a {
       @media only screen and (min-width: 1500px) {
         .su-local-footer__columns .su-local-footer__cell2 nav:first-of-type {
           padding-bottom: 2.74rem; } }
+  @media only screen and (min-width: 992px) {
+    .su-local-footer__columns > .su-local-footer__cell2 {
+      -ms-grid-column-span: 2; } }
   .su-local-footer__columns .su-local-footer__cell3 {
     -ms-grid-row: 2;
     -ms-grid-column: 1;
     -ms-grid-column-span: 2;
-    grid-area: C;
-    -ms-grid-row: 1;
-    -ms-grid-column: 4; }
+    grid-area: C; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .su-local-footer__columns .su-local-footer__cell3 {
         -ms-grid-row: 1;
@@ -9094,6 +9092,14 @@ a {
       -ms-grid-row-span: 1;
       -ms-grid-column: 2;
       -ms-grid-column-span: 2; } } }
+  @media only screen and (min-width: 992px) {
+    .su-local-footer__columns > .su-local-footer__cell3 {
+      -ms-grid-row: 1;
+      -ms-grid-column: 3; } }
+  @media only screen and (min-width: 1200px) {
+    .su-local-footer__columns > .su-local-footer__cell3 {
+      -ms-grid-row: 1;
+      -ms-grid-column: 4; } }
 
 .su-local-footer__list-heading {
   font-size: 18px; }
@@ -9170,15 +9176,17 @@ a {
       font-family: 'Font Awesome 5 Brands';
       -webkit-transition: color 0.25s ease-out;
       transition: color 0.25s ease-out; }
-  .su-local-footer__social-links a span {
-    border: 0;
-    clip: rect(0, 0, 0, 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px; }
+  .su-local-footer__social-links a {
+    text-decoration: none; }
+    .su-local-footer__social-links a span {
+      border: 0;
+      clip: rect(0, 0, 0, 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px; }
   .su-local-footer__social-links .su-local-footer__social-facebook i::before {
     content: "\f39e"; }
   .su-local-footer__social-links .su-local-footer__social-facebook:hover i::before, .su-local-footer__social-links .su-local-footer__social-facebook:focus i::before {

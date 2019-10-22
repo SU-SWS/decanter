@@ -134,11 +134,6 @@
       grid-area: C;
     }
 
-    // Fun fix for ie and the autoprefixer. It gets confused sometimes.
-    @include grid-media('lg') {
-      -ms-grid-column-span: 2;
-    }
-
     // Handle the list of navs with a bit of padding and sizing
     // to get faux columns.
     nav {
@@ -195,19 +190,41 @@
     }
   }
 
+  // IE 11 FIXES FOR GRID
+  // ------------------------------------------------
+  > .su-local-footer__cell2 {
+    // Fun fix for ie and the autoprefixer.
+    // It gets confused sometimes.
+    @include grid-media('lg') {
+      -ms-grid-column-span: 2;
+    }
+  }
+
   // Specific to cell3 styles and structure.
   // ------------------------------------------------
   .su-local-footer__cell3 {
     grid-area: C;
-    // MS fixes because the autoprefixer doesn't get it right.
-    -ms-grid-row: 1;
-    -ms-grid-column: 4;
 
     @include grid-media-only('md') {
       grid-area: B;
     }
   }
 
+  // IE 11 FIXES FOR GRID
+  // ------------------------------------------------
+  > .su-local-footer__cell3 {
+    // Fun fix for ie and the autoprefixer.
+    // It gets confused sometimes.
+    @include grid-media("lg") {
+      -ms-grid-row: 1;
+      -ms-grid-column: 3;
+    }
+
+    @include grid-media("xl") {
+      -ms-grid-row: 1;
+      -ms-grid-column: 4;
+    }
+  }
 }
 
 
@@ -266,6 +283,8 @@
   }
 
   a {
+    text-decoration: none;
+
     span {
       @include sr-only;
     }
