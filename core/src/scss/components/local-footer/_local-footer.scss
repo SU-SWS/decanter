@@ -87,7 +87,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
   "A B"
-  "C D";
+  "C C";
 
   @include grid-media('md') {
     @include display-grid;
@@ -97,7 +97,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-areas:
     "A B C"
-    "D B F";
+    "A B C";
   }
 
   @include grid-media('xl') {
@@ -106,17 +106,24 @@
     "A B B C";
   }
 
+  // Styles for all the cells.
+  // ------------------------------------------------
+  .su-local-footer__cell1,
+  .su-local-footer__cell2,
+  .su-local-footer__cell3 {
+    vertical-align: top;
+  }
+
   // Specific to cell1 styles and structure.
   // ------------------------------------------------
-  > .su-local-footer__cell1 {
+  .su-local-footer__cell1 {
     grid-area: A;
   }
 
   // Specific to cell2 styles and structure.
   // ------------------------------------------------
-  > .su-local-footer__cell2 {
+  .su-local-footer__cell2 {
     grid-area: B;
-    vertical-align: top;
 
     @include grid-media-between('xs', 'md') {
       @include modular-spacing('padding-top', 3);
@@ -136,9 +143,25 @@
     // to get faux columns.
     nav {
       vertical-align: top;
-      display: inline-block;
+
+      @include grid-media-only('md') {
+        display: inline-block;
+
+        $_gap: map-get($su-grid-gutters, 'md') / 2;
+        min-width: calc(49% - #{$_gap});
+        max-width: calc(49% - #{$_gap});
+
+        &:last-of-type {
+          @include margin(null null null $_gap);
+        }
+
+        &:first-of-type {
+          @include margin(null $_gap null null);
+        }
+      }
 
       @include grid-media('xl') {
+        display: inline-block;
         $_gap: map-get($su-grid-gutters, 'xl') / 2;
         min-width: calc(49% - #{$_gap});
         max-width: calc(49% - #{$_gap});
@@ -174,7 +197,7 @@
 
   // Specific to cell3 styles and structure.
   // ------------------------------------------------
-  > .su-local-footer__cell3 {
+  .su-local-footer__cell3 {
     grid-area: C;
     // MS fixes because the autoprefixer doesn't get it right.
     -ms-grid-row: 1;
@@ -191,7 +214,7 @@
 // List heading element styles.
 // ------------------------------------------------
 .su-local-footer__list-heading {
-  @include type-e;
+  font-size: 18px;
 }
 
 // Common styles for address and links.
