@@ -14,6 +14,7 @@
  * - template_path_lockup: The relative file path to the lockup twig template.
  * - template_path_link:  The relative file path to the link twig template.
  * - template_path_macro: The relative file path to the macro twig template.
+ * - template_path_signup_form: The relative file path to the signup-form template.
  * - lockup_options:      Options to pass through to the lockup twig template.
  *                        See the lockup template variables for more information.
  * - lockup_title:        The text to use as line1 in the lockup unless
@@ -66,6 +67,10 @@
 
 {%- if template_path_link is empty -%}
   {%- set template_path_link = "@decanter/components/link/link.twig" -%}
+{%- endif %}
+
+{%- if template_path_signup_form is empty -%}
+  {%- set template_path_signup_form = "@decanter/components/signup-form/signup-form.twig" -%}
 {%- endif %}
 
 {%- if template_path_macro is empty -%}
@@ -189,14 +194,10 @@
         use the cell3 variable instead.
       #}
       {% if signup_form_action is not empty %}
-      {# Add any additional markup above the form with this variable. #}
-      {{ signup_form_content }}
-      <form class="su-local-footer__form" action="{{ signup_form_action }}" method="{{ signup_form_method|default('post') }}">
-        <input type="email" id="{{ signup_form_field_email }}" aria-label="{{ signup_form_field_email_aria_label|default('email address') }}" name="{{ signup_form_field_email }}" placeholder="{{ signup_form_field_email_placeholder|default('email address') }}" {{ signup_form_field_email_required|default('required') }} />
-        {# Add any additional fields or markup to this form using this variable. #}
-        {{ signup_form_fields }}
-        <input type="submit" id="{{ signup_form_field_submit }}" name="{{ signup_form_field_submit }}" value ="{{ signup_form_field_submit_value|default('Sign-up') }}" />
-      </form>
+        {# The template path is included with the `with` keyword on purpose.
+           See the template for what variables are expected and how they are named.
+        #}
+        {% include template_path_signup_form %}
       {% endif %}
       {% endblock %}
       {# If you want to provide all of our own markup use the cell3 var. #}
