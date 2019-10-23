@@ -9,6 +9,12 @@ services:
           NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           nvm install 10.15.1
+          nvm use
+          npm install
+          npm run build
+          npm run styleguide
+        - rm -R node_modules
+        - ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
       # Used in each of the preview builds.
       build:
         - |
@@ -19,7 +25,6 @@ services:
           npm run build
           npm run styleguide
         - rm -R node_modules
-        - ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
     # Collection of urls to compare visual results.
     visualdiffs:
       - /
