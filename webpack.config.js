@@ -49,6 +49,12 @@ var config = {
     compress: true,
     port: 9000
   },
+  // Relative output paths for css assets.
+  resolve: {
+    alias: {
+      '@fortawesome': path.resolve(npmPackage + '@fortawesome')
+    }
+  },
   // Define modules.
   module: {
     rules: [
@@ -95,7 +101,8 @@ var config = {
             options: {
               includePaths: [
                 path.resolve( __dirname, npmPackage, "bourbon/core" ),
-                path.resolve( __dirname, srcDir, "scss" )
+                path.resolve( __dirname, srcDir, "scss" ),
+                path.resolve( __dirname, npmPackage )
               ],
               sourceMap: true,
               lineNumbers: true,
@@ -104,6 +111,15 @@ var config = {
             }
           }
         ]
+      },
+      {
+        test: /\.(woff2?|ttf|otf|eot)$/,
+        loader: 'file-loader',
+        options: {
+          name: devMode ? "[name].[ext]" : "[hash:7].[ext]",
+          publicPath: "../assets",
+          outputPath: "../assets"
+        }
       },
       // Apply plugins to image assets.
       {
