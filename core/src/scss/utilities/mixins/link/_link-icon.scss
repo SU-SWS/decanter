@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+//
+// @link-icon($icon, $width: 0.65em, $animate: right, $vertical: null)
+//
+// Display an icon after a link.
+//
+// $icon {string} - Basename of link icon .svg file (without the .svg suffix).
+// $width {string} - Width of icon including unit, e.g. 0.75em, 24px.
+// $animate {string} - Type of animation for the icon on hover. Available options: right, down, up, topright, none. (deprecated true. Please use right)
+// $vertical {string] - Adjustment of vertical position of icon, e.g., '2px' moves icon up 2 pixels, '-0.3em' moves it down 0.3 em.
+//
+// Style guide: Mixins.Link.link-icon
+//
+@mixin link-icon($icon, $width: 0.65em, $animate: right, $vertical: null) {
+  text-decoration: none;
+  @supports (mask-repeat: no-repeat) {
+    &::after {
+      @include margin(null 0.3em $vertical 0.4em);
+      @include size($width);
+      display: inline-block;
+      content: '';
+      mask: url("#{$su-image-path}/#{$icon}.svg") no-repeat 0 0;
+      mask-size: contain;
+      background-color: color(link);
+      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
+    }
+
+    &:hover,
+    &:focus {
+      &::after {
+        background-color: color(link--hover);
+        @if $animate == 'right' or $animate == 'true' {
+          transform: translateX(0.2em);
+        }
+        @elseif $animate == 'down' {
+          transform: translateY(0.2em);
+        }
+        @elseif $animate == 'up' {
+          transform: translateY(-0.2em);
+        }
+        @elseif $animate == 'topright' {
+          transform: translate3d(0.15em, -0.15em, 0);
+        }
+      }
+    }
+  }
+}

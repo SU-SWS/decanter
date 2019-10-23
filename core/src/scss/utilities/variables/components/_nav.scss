@@ -1,0 +1,193 @@
+@charset "UTF-8";
+
+//
+// Nav Color Maps
+//
+// Color maps for the Main Nav and Secondary Nav Components.
+// "h-" prefix in the color names indicate horizontal orientation, which currently only applies to the top level items
+// of the desktop version of Main Nav component. Colors without the "h-" applies to the Secondary Nav (all items),
+// mobile version of the Main Nav, and the drop down menus of the desktop version of Main Nav.
+// Active color is also used to indicate "current" page.
+//
+// Styleguide: Variables.Components.nav-colors
+//
+
+//
+// $su-nav-colors
+//
+// Color maps for the default Main Nav and Secondary Nav Components.
+//
+// Markup: $su-nav-colors: (
+//    bg:                             $su-color-black,
+//    divider:                        $su-color-cool-grey,
+//    link:                           $su-color-white,
+//    link--hover:                    $su-color-white,
+//    link--active:                   $su-color-white,
+//    link--expanded:                 $su-color-white,
+//    border--hover:                  $su-color-white,
+//    border--active:                 $su-color-vivid-red,
+//    border--expanded:               transparent,
+//    border--active-expanded:        $su-color-white,
+//    h-link:                         $su-color-black,
+//    h-link--hover:                  $su-color-bright-red,
+//    h-link--active:                 $su-color-black,
+//    h-link--active-hover:           $su-color-bright-red,
+//    h-link--expanded:               $su-color-black,
+//    h-border--hover:                $su-color-bright-red,
+//    h-border--active:               $su-color-black,
+//    h-border--active-hover:         $su-color-bright-red,
+//    h-border--expanded:             $su-color-black,
+//) !default;
+//
+// Styleguide: Variables.Components.nav-colors.default
+//
+
+$su-nav-colors: (
+  bg:                             $su-color-black,
+  divider:                        $su-color-cool-grey,
+
+  link:                           $su-color-white,
+  link--hover:                    $su-color-white,
+  link--active:                   $su-color-white,
+  link--expanded:                 $su-color-white,
+
+  border--hover:                  $su-color-white,
+  border--active:                 $su-color-vivid-red,
+  border--expanded:               transparent,
+  border--active-expanded:        $su-color-white,
+
+  // Horizontal menu colors (desktop Main Nav 1st level)
+  h-link:                         $su-color-black,
+  h-link--hover:                  $su-color-bright-red,
+  h-link--active:                 $su-color-black,
+  h-link--active-hover:           $su-color-bright-red,
+  h-link--expanded:               $su-color-black,
+
+  h-border--hover:                $su-color-bright-red,
+  h-border--active:               $su-color-black,
+  h-border--active-hover:         $su-color-bright-red,
+  h-border--expanded:             $su-color-black,
+) !default;
+
+//
+// <del>$nav-colors</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-nav-colors</code> instead.
+//
+$nav-colors: $su-nav-colors !default;
+
+//
+// $su-nav-colors--dark
+//
+// Color map for the desktop version of the Main Nav dark variant 1st level items.
+//
+// Markup: $su-nav-colors--dark: (
+//    h-link:                               $su-color-white,
+//    h-link--hover:                        $su-color-white,
+//    h-link--active:                       $su-color-white,
+//    h-link--active-hover:                 $su-color-white,
+//    h-link--expanded:                     $su-color-white,
+//    h-link--expanded-hover:               $su-color-white,
+//    h-border--hover:                      $su-color-white,
+//    h-border--active:                     $su-color-vivid-red,
+//    h-border--active-hover:               $su-color-white,
+//    h-border--expanded:                   $su-color-white,
+//    h-border--expanded-hover:             $su-color-vivid-red,
+//    h-border--expanded-active:            $su-color-white,
+//) !default;
+//
+// Styleguide: Variables.Components.nav-colors.variant-dark
+//
+
+$su-nav-colors--dark: (
+  h-link:                               $su-color-white,
+  h-link--hover:                        $su-color-white,
+  h-link--active:                       $su-color-white,
+  h-link--active-hover:                 $su-color-white,
+  h-link--expanded:                     $su-color-white,
+  h-link--expanded-hover:               $su-color-white,
+
+  h-border--hover:                      $su-color-white,
+  h-border--active:                     $su-color-vivid-red,
+  h-border--active-hover:               $su-color-white,
+  h-border--expanded:                   $su-color-white,
+  h-border--expanded-hover:             $su-color-vivid-red,
+  h-border--expanded-active:            $su-color-white,
+) !default;
+
+//
+// <del>$nav-colors--dark</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-nav-colors--dark</code> instead.
+//
+$nav-colors--dark: $su-nav-colors--dark !default;
+
+
+//
+// $su-nav-colors--light
+//
+// Color map for the Main Nav and Secondary Nav light variants.
+//
+// Markup: $su-nav-colors--light: (
+//    bg:                          $su-color-white,
+//    divider:                     #d9d9d9,
+//    link:                        $su-color-black,
+//    link--hover:                 $su-color-black,
+//    link--active:                $su-color-bright-red,
+//    link--expanded:              $su-color-black,
+//    border--hover:               $su-color-black,
+//    border--active:              $su-color-bright-red,
+//    border--expanded:            transparent,
+//    border--active-expanded:     $su-color-black,
+//    h-link:                      $su-color-black,
+//    h-link--hover:               $su-color-bright-red,
+//    h-link--active:              $su-color-black,
+//    h-link--active-hover:        $su-color-bright-red,
+//    h-link--expanded:            $su-color-black,
+//    h-border--hover:             $su-color-bright-red,
+//    h-border--active:            $su-color-black,
+//    h-border--current:           $su-color-driftwood,
+//    h-border--active-hover:      $su-color-bright-red,
+//    h-border--expanded:          $su-color-driftwood,
+//) !default;
+//
+// Styleguide: Variables.Components.nav-colors.variant-light
+//
+
+$su-nav-colors--light: (
+  bg:                          $su-color-white,
+  divider:                     #d9d9d9,
+
+  link:                        $su-color-black,
+  link--hover:                 $su-color-black,
+  link--active:                $su-color-bright-red,
+  link--expanded:              $su-color-black,
+
+  border--hover:               $su-color-black,
+  border--active:              $su-color-bright-red,
+  border--expanded:            transparent,
+  border--active-expanded:     $su-color-black,
+
+  h-link:                      $su-color-black,
+  h-link--hover:               $su-color-bright-red,
+  h-link--active:              $su-color-black,
+  h-link--active-hover:        $su-color-bright-red,
+  h-link--expanded:            $su-color-black,
+
+  h-border--hover:             $su-color-bright-red,
+  h-border--active:            $su-color-black,
+  // In this variant current and active state have different border colors
+  h-border--current:           $su-color-driftwood,
+  h-border--active-hover:      $su-color-bright-red,
+  h-border--expanded:          $su-color-driftwood,
+) !default;
+
+//
+// <del>$nav-colors--light</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-nav-colors--light</code> instead.
+//
+$nav-colors--light: $su-nav-colors--light !default;

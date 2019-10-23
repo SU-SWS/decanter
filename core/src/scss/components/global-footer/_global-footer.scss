@@ -5,6 +5,9 @@
 //
 // Global footer element as specified by the Identity Guidelines.
 //
+// .su-global-footer--bright - Global Footer with bright red background color.
+// .su-global-footer--dark - Global Footer with soft black background color.
+//
 // Markup: ../../templates/components/global-footer/global-footer.twig
 //
 // Style guide: Components.Global Footer
@@ -12,65 +15,20 @@
 
 // Global styles for the global footer.
 .su-global-footer {
+  @include font-smoothing;
   @include modular-spacing('padding', 1 null);
   background-color: color(brand);
   color: color(link--reverse);
 
   a {
-    color: rgba($color-white, 0.9);
+    color: color(link--reverse);
     text-decoration: none;
-    font-weight: 400;
 
     &:hover,
     &:focus {
       color: color(link--reverse);
       text-decoration: underline;
     }
-  }
-
-  // Grid settings for footer container.
-  .su-global-footer__container {
-    @include centered-column;
-    @include grid-media('md') {
-      display: flex;
-    }
-  }
-
-  // The Logo.
-  .su-global-footer__brand {
-    @include padding(0.5rem null null);
-    @include modular-spacing('margin', null null -2);
-    text-align: center;
-
-    a {
-      @include logo;
-      color: color(link--reverse);
-      font-size: 3.4rem;
-
-      @include grid-media-only('xs') {
-        font-size: 3.2rem;
-      }
-    }
-  }
-
-  .su-global-footer__content {
-    @include grid-media-only('sm') {
-      text-align: center;
-    }
-
-    @include grid-media('md') {
-      padding-left: 3rem;
-    }
-
-    @include grid-media('lg') {
-      padding-left: 4.5rem;
-    }
-
-    @include grid-media('xl') {
-      padding-left: 5.2rem;
-    }
-
-    flex-grow: 1;
   }
 
   // Grid settings for footer nav region; passing 0 for no outer gutters.
@@ -86,92 +44,141 @@
       @include margin(null null 1.3rem);
     }
   }
+}
 
-  .su-global-footer__menu {
-    @include margin(0 0 1rem);
-    @include padding(0);
-    list-style-type: none;
+// Grid settings for footer container.
+.su-global-footer__container {
+  @include centered-column;
 
-    li {
-      @include margin(0);
-      @include padding(0.25em 0);
-      display: block;
-
-      @include grid-media('sm') {
-        @include margin(null 1.3rem null null);
-        display: inline-block;
-        line-height: 1.1;
-      }
-
-      @include grid-media('md') {
-        @include padding(0);
-        text-align: left;
-      }
-
-      @include grid-media('lg') {
-        @include margin(null 2rem null null);
-      }
-
-      &:last-child {
-        @include margin(null 0 null null);
-      }
-    }
+  @include grid-media('lg') {
+    display: flex;
   }
+}
 
-  .su-global-footer__menu--global {
-    font-size: 1.5rem;
+// The Logo.
+.su-global-footer__brand {
+  @include padding(0.5rem null null);
+  @include modular-spacing('margin', null null -2);
+  text-align: center;
 
-    @include grid-media-only('xs') {
-      @include padding(null 2rem null null);
-    }
+  a {
+    @include logo;
+    color: color(link--reverse);
+    font-size: 3.4rem;
 
-    @include grid-media-between('md', 'xl') {
-      font-size: 1.7rem;
-    }
-
-    @include grid-media('2xl') {
-      font-size: 1.8rem;
-    }
-  }
-
-  .su-global-footer__menu--policy {
-    font-size: 1.5rem;
-    font-weight: 300;
-
-    a {
-      font-weight: 300;
+    &:hover,
+    &:focus {
+      text-decoration: none;
     }
 
     @include grid-media-only('xs') {
-      @include padding(null null null 2rem);
-      font-weight: 400;
+      font-size: 3.2rem;
+    }
+  }
+}
+
+.su-global-footer__content {
+  @include grid-media-between('sm', 'md') {
+    text-align: center;
+  }
+
+  @include grid-media('lg') {
+    padding-left: 4.5rem;
+  }
+
+  @include grid-media('xl') {
+    padding-left: 5.2rem;
+  }
+
+  flex-grow: 1;
+}
+
+
+.su-global-footer__menu {
+  @include margin(0 0 1rem);
+  @include padding(0);
+  font-size: 1.5rem;
+  list-style-type: none;
+
+  li {
+    @include margin(0);
+    @include padding(0.25em 0);
+    display: block;
+
+    @include grid-media-only('sm') {
+      @include margin(null 1.1rem null null);
     }
 
     @include grid-media('sm') {
-      font-size: 1.4rem;
-    }
-
-    @include grid-media-between('md', 'lg') {
-      font-size: 1.5rem;
-    }
-
-    @include grid-media('xl') {
-      font-size: 1.6rem;
-    }
-  }
-
-  .su-global-footer__copyright {
-    font-size: 1.4rem;
-    font-weight: 300;
-    text-align: center;
-
-    span {
-      white-space: nowrap;
+      display: inline-block;
+      line-height: 1.1;
     }
 
     @include grid-media('md') {
+      @include margin(null 2rem null null);
+    }
+
+    @include grid-media('lg') {
+      @include margin(null 2.8rem null null);
+      @include padding(0);
       text-align: left;
     }
 
+    &:last-child {
+      @include margin(null 0 null null);
+    }
+  }
+}
+
+.su-global-footer__menu--global {
+  @include grid-media-only('xs') {
+    @include padding(null 2rem null null);
+  }
+
+  @include grid-media-between('md', 'xl') {
+    font-size: 1.7rem;
+  }
+
+  @include grid-media('2xl') {
+    font-size: 1.8rem;
+  }
+}
+
+.su-global-footer__menu--policy {
+  a {
+    font-weight: $su-font-regular;
+  }
+
+  @include grid-media-only('xs') {
+    @include padding(null null null 2rem);
+  }
+
+  @include grid-media-only('sm') {
+    font-size: 1.4rem;
+  }
+
+  @include grid-media-between('md', 'lg') {
+    font-size: 1.5rem;
+  }
+
+  @include grid-media('xl') {
+    font-size: 1.6rem;
+  }
+}
+
+.su-global-footer__copyright {
+  font-size: 1.4rem;
+  text-align: center;
+
+  @include grid-media-only('xs') {
+    font-size: 1.34rem;
+  }
+
+  span {
+    white-space: nowrap;
+  }
+
+  @include grid-media('lg') {
+    text-align: left;
   }
 }

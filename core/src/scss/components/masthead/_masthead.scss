@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+//
+// Masthead
+//
+// Masthead includes the Stanford brand bar (or a top stroke), skip link, logo lockup, site search and main navigation.
+//
+// .su-masthead--center - Center-aligned main nav
+// .su-masthead--right - Right-aligned main nav
+// .su-masthead--light - Masthead with the light variant of main nav
+// .su-masthead--dark - Masthead with a dark color theme
+//
+// Markup: ../templates/components/masthead/masthead.twig
+//
+// Style guide: Components.Masthead
+//
+
+.su-masthead {
+  @include box-shadow('shallow', 0);
+  position: relative;
+  background-color: color(bg);
+  max-width: 100%;
+
+  > section:last-of-type {
+    @include flex-container;
+    @include centered-column;
+    @include modular-spacing('padding', 1 null null);
+  }
+
+  .su-lockup {
+    @include modular-spacing('margin', null null 0);
+    max-width: fit-content;
+
+    @include grid-media-max('md') {
+      @include flex-column(10);
+      // On mobile, lockup needs a higher z-index than nav because the nav takes up 100% width including margin
+      z-index: 10010;
+    }
+
+    @include grid-media('lg') {
+      @include flex-column(8);
+    }
+  }
+
+  .su-site-search {
+    @include grid-media-max('md') {
+      display: none;
+    }
+
+    @include grid-media('lg') {
+      @include flex-column(4);
+    }
+
+    > form {
+      @include margin(null null null auto);
+      width: 30rem;
+      max-width: 100%;
+
+      @include grid-media-max("md") {
+        width: 100%;
+      }
+    }
+  }
+
+  @include grid-media-max('sm') {
+    .su-main-nav {
+      @include margin(-57px null null);
+    }
+  }
+
+  @include grid-media-only('md') {
+    .su-main-nav {
+      @include flex-column(2);
+      @include margin(auto null null);
+    }
+  }
+
+  .su-main-nav {
+    @include grid-media-max('md') {
+      > ul {
+        @include box-shadow('medium', 0);
+      }
+
+      > ul,
+      > .su-site-search {
+        right: 0;
+      }
+    }
+
+    @include grid-media('lg') {
+      width: 100%;
+    }
+
+    > ul,
+    .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 + .su-site-search {
+      @include grid-media-only('md') {
+        width: 40rem;
+      }
+
+      @include grid-media-only('xs') {
+        transform: translateX(map-get($su-screen-margins, 'xs'));
+      }
+
+      @include grid-media-only('sm') {
+        transform: translateX(map-get($su-screen-margins, 'sm'));
+      }
+
+      @include grid-media-only('md') {
+        transform: translateX(map-get($su-screen-margins, 'md'));
+      }
+    }
+  }
+
+  .su-main-nav,
+  .su-main-nav > ul,
+  .su-main-nav .su-main-nav__toggle[aria-expanded="true"] + .su-main-nav__menu-lv1 + .su-site-search {
+    @include grid-media-only('xs') {
+      // We can't use 100vw for this because it doesn't work with OSX system preference to always show scrollbar
+      width: calc(100% + #{map-get($su-screen-margins, 'xs') * 2});
+    }
+
+    @include grid-media-only('sm') {
+      width: calc(100% + #{map-get($su-screen-margins, 'sm') * 2});
+    }
+  }
+}

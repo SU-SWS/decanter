@@ -3,7 +3,7 @@
 //
 // breakpoint-next($name, $breakpoint-names)
 //
-// The $grid-screens map defined in the grid variables file is used as the
+// The $su-grid-screens map defined in the grid variables file is used as the
 // $breakpoints argument by default.
 //
 // Name of the next breakpoint, or null for the last breakpoint.
@@ -12,7 +12,7 @@
 // Returns "md"
 //
 // Style guide: Functions.Breakpoint.breakpoint-next
-@function breakpoint-next($name, $breakpoints: map-keys($grid-screens)) {
+@function breakpoint-next($name, $breakpoints: map-keys($su-grid-screens)) {
   $n: index($breakpoints, $name);
   @if is-integer($n) {
     @return if($n < length($breakpoints), nth($breakpoints, $n + 1), null);

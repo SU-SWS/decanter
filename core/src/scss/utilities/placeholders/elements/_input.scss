@@ -1,0 +1,26 @@
+//
+// %input-base
+//
+// Base input field styling
+//
+// Style guide: Placeholders.Elements.Input
+//
+
+%input-base {
+  @include margin(0.2em 0);
+  @include padding($su-input-padding-vertical 0.7em);
+  display: block;
+  box-sizing: border-box;
+  max-width: $su-input-max-width;
+  width: 100%;
+  border: $su-input-border-width solid $su-color-driftwood;
+  border-radius: 0;
+  color: color(text);
+  font-size: $su-base-font-size;
+  height: $su-input-height;
+  line-height: $su-input-line-height;
+
+  &:focus {
+    box-shadow: $su-focus-shadow;
+  }
+}

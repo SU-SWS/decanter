@@ -22,6 +22,15 @@
  * - hero_button_label: The text label of the button component.
  */
 #}
+
+{#
+  Template Include Paths
+  Override these if you want to include a different template.
+#}
+{%- if template_path_card is empty -%}
+  {%- set template_path_card = "@decanter/components/card/card.twig" -%}
+{%- endif -%}
+
 <div{{ attributes }} class="su-hero {{ modifier_class }}">
 
   {# Hero Image or Video #}
@@ -34,9 +43,16 @@
     {{ hero_image}}
     {% endif %}
   </div>
-
+  {# Only include the card template if there is content to render. #}
+  {%- if
+    hero_super_headline is not empty or
+    hero_headline is not empty or
+    hero_body is not empty or
+    hero_cta_label is not empty or
+    hero_button_label is not empty
+  -%}
   {# We reuse the card component here. #}
-  {% include "@decanter/components/card/card.twig" with
+  {% include template_path_card with
     {
       "modifier_class": "su-hero__card",
       "card_super_headline": hero_super_headline,
@@ -50,5 +66,5 @@
     }
     only
   %}
-
+  {%- endif -%}
 </div>

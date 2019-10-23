@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+// Custom checkboxes and radio buttons.
+[type='checkbox'],
+[type='radio'] {
+  // The actual input element is only visible to screen readers, because
+  // all visual styling is done via the label.
+  @include hide-visually;
+
+  .lt-ie9 & {
+    border: 0;
+    float: left;
+    margin: 0.4em 0.4em 0 0;
+    position: static;
+    width: auto;
+  }
+}
+
+[type='checkbox'] + label,
+[type='radio'] + label {
+  cursor: pointer;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
+
+[type='checkbox'] + label::before,
+[type='radio'] + label::before {
+  background: $su-color-white;
+  border-radius: $su-border-radius;
+  box-shadow: 0 0 0 1px $su-color-driftwood;
+  content: '\a0';
+  display: inline-block;
+  height: 1.8rem;
+  line-height: 1.8rem;
+  margin-right: 0.6em;
+  text-indent: 0.15em;
+  vertical-align: middle;
+
+  // Target IE 11 and below to vertically center inputs.
+  width: 1.8rem;
+}
+
+[type='radio'] + label::before {
+  box-shadow: 0 0 0 2px $su-color-white, 0 0 0 3px $su-color-driftwood;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 100%;
+}
+
+[type='checkbox']:checked + label::before,
+[type='radio']:checked + label::before {
+  background-color: $su-color-bright-red;
+  box-shadow: 0 0 0 1px $su-color-bright-red;
+}
+
+[type='radio']:checked + label::before {
+  box-shadow: 0 0 0 2px $su-color-white, 0 0 0 4px $su-color-bright-red;
+}
+
+[type='radio']:focus + label::before {
+  box-shadow: 0 0 0 2px $su-color-white, 0 0 0 4px $su-color-bright-red, 0 0 3px 4px $su-color-black, 0 0 7px 4px $su-color-black;
+}
+
+[type='checkbox']:checked + label::before,
+[type='checkbox']:checked:disabled + label::before {
+  background: url("#{$su-image-path}/check.png");
+  background-image: url("#{$su-image-path}/check.svg");
+  background-position: 50%;
+  background-repeat: no-repeat;
+}
+
+[type='checkbox']:focus + label::before {
+  box-shadow: 0 0 0 1px $su-color-white, 0 0 0 3px $su-color-bright-red;
+}
+
+[type='checkbox']:disabled + label {
+  color: $su-color-driftwood;
+}
+
+[type='checkbox']:disabled + label::before,
+[type='radio']:disabled + label::before {
+  background: $su-color-driftwood;
+  cursor: not-allowed;
+}

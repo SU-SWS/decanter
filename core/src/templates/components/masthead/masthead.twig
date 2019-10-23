@@ -1,0 +1,137 @@
+{#
+/**
+ * @file
+ * Masthead Component.
+ *
+ * Masthead includes the Stanford brand bar (or a top stroke), skiplink, logo lockup, site search and main navigation.
+ *
+ * .su-masthead--center - Center-aligned main nav
+ * .su-masthead--right - Right-aligned main nav
+ * .su-masthead--light - Masthead with the light variant of main nav
+ * .su-masthead--dark - Masthead with dark color theme
+ *
+ * Available variables:
+ * - attributes: For additional HTML attributes not already provided.
+ * - modifier_class: Additional CSS classes to change look and behaviour.
+ * - masthead_skiplinks_attributes: Additional HTML attributes for the skiplink.
+ * - masthead_skiplinks_modifier_class: Additional CSS classes to change look or behavior of the skiplink.
+ * - masthead_skiplinks_link_text: The text for the link when in focus - defaults to 'Skip to main content'
+ * - masthead_skiplinks_target_id: The id of the element in the page to skip to - defaults to 'su-main-content-1891'
+ * - masthead_brandbar_attributes: For additional HTML attributes for the brand bar.
+ * - masthead_brandbar_modifier_class: Additional CSS classes to change look and behaviour of the brand bar.
+ * - masthead_lockup_attributes: For additional HTML attributes not already provided.
+ * - masthead_lockup_modifier_class: Additional css classes to change look and behaviour.
+ * - masthead_lockup_link: The URL that the lockup links to.
+ * - masthead_lockup_line1: Line 1 of the unit/site name text (to the right of the wordmark).
+ * - masthead_lockup_line2: Line 2 of the unit/site name text (to the right of the wordmark).
+ * - masthead_lockup_line3: Line 3 of the unit/site name text (to the right of the wordmark).
+ * - masthead_lockup_line4: Line 4 of the unit/site name text (under the wordmark).
+ * - masthead_lockup_line5: Line 5 of the unit/site name text (at the bottom part of the lockup).
+ * - masthead_lockup_region_attributes: Attributes for each region variable.
+ * - masthead_search_attributes: For additional HTML attributes for the site search.
+ * - masthead_search_modifier_class: Additional css classes to change look and behaviour of the site search.
+ * - masthead_search_action: Action of the form.
+ * - masthead_search_method: Method of the form.
+ * - masthead_search_label: Custom screen reader label.
+ * - masthead_search_input_name: Name for the search input field. Also used as the ID of the search input field and the "for" attribute of the label.
+ * - masthead_search_input_attributes: Additional HTML attributes for the search input field.
+ * - masthead_search_placeholder: Placeholder text for the search input field.
+ * - masthead_search_button_attributes: Additional HTML attributes for the submit button.
+ * - masthead_search_button_name: The name for the form element. Defaults to 'search'.
+ * - masthead_search_button_text: The user facing text for the button. Defaults to 'Submit Search'.
+ * - masthead_search_additional_fields: Any additional fields for the search form, e.g., hidden input fields.
+ * - masthead_nav_attributes: For additional HTML attributes not already provided for the nav.
+ * - masthead_nav_modifier_class: Additional CSS classes to change look and behaviour of the nav.
+ * - masthead_nav_toggle_modifier_class: Additional CSS classes to change look and behaviour of the nav toggle.
+ * - masthead_nav_aria_label: Aria label for the <nav> element. Default is "main menu". If there are multiple instances of the component on the same page, use a different aria_label for each instance.
+ * - masthead_nav_list_items: Structured data that is iterable or custom markup.
+ */
+#}
+{#
+  Template Include Paths
+  Override these if you want to include a different template.
+#}
+{%- if template_path_skiplink is empty -%}
+  {%- set template_path_skiplink = "@decanter/components/skiplinks/link.twig" -%}
+{%- endif -%}
+{%- if template_path_brandbar is empty -%}
+  {%- set template_path_brandbar = "@decanter/components/brand-bar/brand-bar.twig" -%}
+{%- endif -%}
+{%- if template_path_lockup is empty -%}
+  {%- set template_path_lockup = "@decanter/components/lockup/lockup.twig" -%}
+{%- endif -%}
+{%- if template_path_search is empty -%}
+  {%- set template_path_search = "@decanter/components/site-search/site-search.twig" -%}
+{%- endif -%}
+{%- if template_path_menu is empty -%}
+  {%- set template_path_menu = "@decanter/components/main-nav/main-nav.twig" -%}
+{%- endif -%}
+
+<section {{ attributes }} class="su-masthead {{ modifier_class }}">
+  {% if "su-masthead--light" in modifier_class %}
+    {% set masthead_nav_modifier_class = "su-main-nav--light su-main-nav--mobile-search" %}
+  {% elseif "su-masthead--dark" in modifier_class %}
+    {% set masthead_nav_modifier_class = "su-main-nav--dark su-main-nav--mobile-search" %}
+  {% endif %}
+
+  {% include template_path_skiplink with
+    {
+      "attributes": masthead_skiplinks_attributes,
+      "modifier_class": masthead_skiplinks_modifier_class,
+      "target_id": masthead_skiplinks_target_id,
+      "link_text": masthead_skiplinks_link_text
+    }
+  %}
+
+  {% if "su-masthead--stroke" not in modifier_class %}
+    {% include template_path_brandbar with
+      {
+        "attributes": masthead_brandbar_attributes,
+        "modifier_class": masthead_brandbar_modifier_class
+      }
+    %}
+  {% endif %}
+
+  <section>
+  {% include template_path_lockup with
+    {
+      "modifier_class": masthead_lockup_modifier_class,
+      "attributes": masthead_lockup_attributes,
+      "link": masthead_lockup_link,
+      "line1": masthead_lockup_line1,
+      "line2": masthead_lockup_line2,
+      "line3": masthead_lockup_line3,
+      "line4": masthead_lockup_line4,
+      "line5": masthead_lockup_line5,
+      "region_attributes": masthead_lockup_region_attributes
+    }
+  %}
+
+  {% include template_path_search with
+    {
+      "modifier_class": masthead_search_modifier_class,
+      "attributes": masthead_search_attributes,
+      "action": masthead_search_action,
+      "method": masthead_search_method,
+      "search_label": masthead_search_label,
+      "search_input_name": masthead_search_input_name,
+      "search_input_attributes": masthead_search_input_attributes,
+      "placeholder": masthead_search_placeholder,
+      "search_button_attributes": masthead_search_button_attributes,
+      "search_button_name": masthead_search_button_name,
+      "search_button_text": masthead_search_button_text,
+      "search_additional_fields": masthead_search_additional_fields
+    }
+  %}
+
+  {% include template_path_menu with
+    {
+      "modifier_class": masthead_nav_modifier_class,
+      "toggle_modifier_class": masthead_nav_toggle_modifier_class,
+      "toggle_text": masthead_nav_toggle_text,
+      "list_items": masthead_nav_list_items,
+      "aria_label": masthead_nav_aria_label
+    }
+  %}
+  </section>
+</section>
