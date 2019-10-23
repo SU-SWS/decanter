@@ -25,6 +25,7 @@ services:
           npm run build
           npm run styleguide
         - rm -R node_modules
+        - ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
     # Collection of urls to compare visual results.
     visualdiffs:
       - /
