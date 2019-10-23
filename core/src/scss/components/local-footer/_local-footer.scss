@@ -26,6 +26,14 @@
       @include margin(null null 7px null);
     }
   }
+
+  // Signup form tweaks.
+  // ------------------------------------------------
+  .su-signup-form {
+    p {
+      font-size: 17px;
+    }
+  }
 }
 
 // Header section for the lockup and weblogin link.
@@ -240,6 +248,7 @@
 .su-local-footer__address,
 .su-local-footer__action-links {
   @include modular-spacing('padding-bottom', 3);
+  font-size: 16px;
 }
 
 // Address tag formatting and styles.
@@ -254,6 +263,18 @@
   a {
     @include link-icon(arrow-right, 0.8em, right, -0.18em);
     font-weight: $su-font-semi-bold;
+  }
+}
+
+// Styles for the nav list links.
+// ------------------------------------------------
+
+.su-local-footer__primary-links,
+.su-local-footer__secondary-links {
+  ul {
+    li {
+      font-size: 16px;
+    }
   }
 }
 
