@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {#
 /**
  * @file
@@ -14,20 +15,22 @@
  * - content: An unopinionated open field for all types of content.
  */
 #}
-<div {{ attributes }} class="su-quote {{ modifier_class }}">
+<figure {{ attributes }} class="su-quote {{ modifier_class }}">
   {%- if src is not empty -%}
   <img class="su-quote__img" src="{{ src }}" alt="{{ alt }}">
   {%- endif -%}
-  <div class="su-quote__body">
+  <section class="su-quote__body">
     {%- if name is not empty -%}
-    <p class="su-quote__heading">{{ name }}</p>
+    <h3 class="su-quote__heading">{{ name }}</h3>
     {%- endif -%}
     {%- if bio is not empty -%}
     <p class="su-quote__bio">{{ bio }}</p>
     {%- endif -%}
     {%- if text is not empty -%}
-    <p class="su-quote__quote">"{{ text }}"</p>
+    <blockquote>
+      <p class="su-quote__quote">"{{ text }}"</p>
+    </blockquote>
     {%- endif -%}
     {{ content }}
-  </div>
-</div>
+  </section>
+</figure>
