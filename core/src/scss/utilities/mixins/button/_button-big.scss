@@ -11,7 +11,15 @@
 
 @mixin button-big {
   @include button-primary;
+  @include padding(1.3rem 2.8rem 1.5rem);
+  font-size: 2.5rem;
 
-  @include type-c;
-  @include padding(1.5rem 3rem 1.8rem);
+  @include grid-media('md') {
+    @include padding(1.5rem 3rem 1.8rem);
+    font-size: 2.8rem;
+  }
+
+  @include grid-media('2xl') {
+    font-size: 3rem;
+  }
 }

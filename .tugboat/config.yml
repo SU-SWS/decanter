@@ -1,0 +1,55 @@
+services:
+  # What to call the service hosting the site. Because there is only
+  # one service, it is automatically set as the default service, which
+  # does a few things
+  #   1. Clones the git repository into the service container
+  #   2. Exposes port 80 to the Tugboat HTTP proxy
+  #   3. Routes requests to the preview URL to this service
+  apache:
+
+    # Use the available version of Apache by not specifying a version
+    image: tugboatqa/httpd
+
+    # A set of commands to run while building this service
+    commands:
+
+      # Commands that set up the basic preview infrastructure
+      init:
+        - |
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+          NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          nvm install 10.15.1
+
+      build:
+        - |
+          NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          nvm use
+          npm install
+          npm run build
+          npm run styleguide
+        - rm -R node_modules
+        - ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
+
+    # Collection of urls to compare visual results.
+    visualdiffs:
+      - /
+      - /section-core.html
+      - /section-elements.html
+      - /item-components-alert.html
+      - /item-components-brand-bar.html
+      - /item-components-button.html
+      - /item-components-card.html
+      - /item-components-cta.html
+      - /item-components-date-stacked.html
+      - /item-components-global-footer.html
+      - /item-components-hero.html
+      - /item-components-link.html
+      - /item-components-lockup.html
+      - /item-components-logo.html
+      - /item-components-main-navigation.html
+      - /item-components-masthead.html
+      - /item-components-quote.html
+      - /item-components-site-search.html
+      - /item-components-skiplinks.html
