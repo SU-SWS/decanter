@@ -20,6 +20,8 @@
  * - hero_cta_label: The clickable text for the CTA link
  * - hero_button_link: The href property of the button component.
  * - hero_button_label: The text label of the button component.
+ * - hero_content: An open area for content to go beneath the media when using
+ *                 the su-hero--caption variant.
  */
 #}
 
@@ -34,6 +36,8 @@
 <div{{ attributes }} class="su-hero {{ modifier_class }}">
 
   {# Hero Image or Video #}
+  {% block heromedia %}
+  {% if hero_media is not empty or hero_image is not empty %}
   <div class="su-hero__media">
     {% if 'su-hero--youtube' in modifier_class %}
     {# Support for: iframe #}
@@ -43,7 +47,11 @@
     {{ hero_image}}
     {% endif %}
   </div>
+  {% endif %}
+  {% endblock %}
+
   {# Only include the card template if there is content to render. #}
+  {%- block herocontent -%}
   {%- if
     hero_super_headline is not empty or
     hero_headline is not empty or
@@ -67,4 +75,12 @@
     only
   %}
   {%- endif -%}
+  {%- if hero_content is not empty -%}
+  <div class="su-hero__content">
+    <div class="su-hero__content-inner">
+      {{ hero_content }}
+    </div>
+  </div>
+  {%- endif -%}
+  {%- endblock -%}
 </div>

@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+.su-hero--caption {
+
+  // Ensure no card shows up.
+  .su-hero__card {
+    display: none;
+  }
+
+  // The media element shall not be absolute in this option.
+  .su-hero__media {
+    @include grid-media('md') {
+      max-height: map-get($_su-hero-height, 'md');
+      position: relative;
+    }
+
+    @include grid-media('lg') {
+      max-height: map-get($_su-hero-height, 'lg');
+      position: relative;
+    }
+
+    @include grid-media('xl') {
+      max-height: map-get($_su-hero-height, 'xl');
+      position: relative;
+    }
+  }
+
+  .su-hero__content {
+    @include centered-column;
+    @include modular-spacing(padding-top, 0);
+    @include modular-spacing(padding-bottom, 2);
+    text-align: right;
+    display: block;
+    clear: both;
+
+    p {
+      @include credits;
+    }
+  }
+
+  .su-hero__content-inner {
+    float: right;
+
+    @include grid-media("lg") {
+      width: ceil($su-screen-lg * 0.6);
+    }
+    @include grid-media("xl") {
+      width: ceil($su-screen-xl * 0.6);
+    }
+    @include grid-media("2xl") {
+      width: ceil($su-screen-2xl * 0.6);
+    }
+  }
+}
