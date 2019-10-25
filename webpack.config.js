@@ -84,8 +84,7 @@ var config = {
               sourceMap: true,
               plugins: () => [
                 autoprefixer( {
-                  grid: true,
-                  browsers: [ 'last 2 versions', 'ie 11' ]
+                  grid: true
                 } )
               ]
             }
