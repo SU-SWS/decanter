@@ -18,6 +18,7 @@
   @include font-smoothing;
   background-color: color(bg, $su-secondary-nav-colors);
 
+  // Expand everything when there is no javascript.
   &.no-js {
     .su-secondary-nav__menu {
       display: block;
@@ -107,7 +108,7 @@
   }
 }
 
-// States.
+// States. The expand and collapse states.
 // ---------------------------------------------------------------------------
 
 .su-secondary-nav__item--parent {
@@ -131,6 +132,7 @@
     }
   }
 
+  // Show the menu as expanded.
   &.su-secondary-nav__item--expanded {
     > .su-secondary-nav__menu {
       display: flex;
@@ -146,6 +148,8 @@
   }
 }
 
+// Currently active item.
+// ---------------------------------------------------------------------------
 .su-secondary-nav__item--current {
   > .su-secondary-nav__link {
     font-weight: $su-font-bold;
