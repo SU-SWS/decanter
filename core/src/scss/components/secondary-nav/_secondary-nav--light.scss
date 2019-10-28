@@ -1,0 +1,75 @@
+@charset "UTF-8";
+//
+// Secondary Navigation Light Theme
+//
+
+.su-secondary-nav--light {
+  background-color: color(bg, $su-secondary-nav-light-colors);
+
+  .su-secondary-nav__menu {
+    background-color: color(bg, $su-secondary-nav-light-colors);
+  }
+
+  .su-secondary-nav__link {
+    color: color(link, $su-secondary-nav-light-colors);
+    border-top: color(divider, $su-secondary-nav-light-colors) solid 1px;
+
+    &:focus,
+    &:hover {
+      color: color(link--hover, $su-secondary-nav-light-colors);
+
+      &::before {
+        background-color: color(border--hover, $su-secondary-nav-light-colors);
+      }
+    }
+
+    &:active {
+      color: color(link--active, $su-secondary-nav-light-colors);
+
+      &::before {
+        background-color: color(border--active, $su-secondary-nav-light-colors);
+      }
+    }
+  }
+
+  // States.
+  // ---------------------------------------------------------------------------
+  .su-secondary-nav__item--parent {
+    > .su-secondary-nav__link {
+      &::after {
+        background: url("#{$su-image-path}/plus-black.svg") no-repeat 0 0;
+      }
+    }
+
+    &.su-secondary-nav__item--expanded {
+      > .su-secondary-nav__link {
+        &::after {
+          background: url("#{$su-image-path}/minus-black.svg") no-repeat 0 0;
+        }
+      }
+    }
+  }
+
+  .su-secondary-nav__item--current {
+    > .su-secondary-nav__link {
+      color: color(link--active, $su-secondary-nav-light-colors);
+
+      &::before {
+        background-color: color(border--active-hover, $su-secondary-nav-light-colors);
+      }
+
+      &:focus,
+      &:hover {
+        color: color(link--active-hover, $su-secondary-nav-light-colors);
+
+        &::before {
+          background-color: color(border--active-hover, $su-secondary-nav-light-colors);
+        }
+      }
+
+      &:active {
+        color: color(link--active, $su-secondary-nav-light-colors);
+      }
+    }
+  }
+}

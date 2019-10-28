@@ -1,0 +1,19 @@
+@charset 'UTF-8';
+
+.su-secondary-nav--no-interactivity {
+  .su-secondary-nav__item--parent {
+
+    // Hide the interactivity toggles.
+    > .su-secondary-nav__link {
+      &::after {
+        content: "";
+        background: transparent;
+      }
+    }
+
+    // Expand all the nav.
+    > .su-secondary-nav__menu {
+      display: block;
+    }
+  }
+}

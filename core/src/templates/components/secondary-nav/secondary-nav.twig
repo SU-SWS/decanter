@@ -1,0 +1,26 @@
+{#
++/**
++ * @file
++ * Main Navigation Component
++ *
++ * A navigation menu for the website.
++ *
++ * Available variables:
++ * - attributes: For additional HTML attributes not already provided.
++ * - modifier_class: Additional css classes to change look and behaviour of the component.
++ * - toggle_modifier_class: Additional css classes to change look and behaviour of the toggle.
++ * - aria_label: Aria label for the <nav> element. Default is "main menu". If there are multiple instances of the component on the same page, use a different aria_label for each instance.
++ *
++ */
++#}
+{% import "@decanter/utilities/macros/menu-loop.twig" as menus %}
+<nav {{ attributes }} class="su-secondary-nav no-js {{ modifier_class }}" aria-label="{{ aria_label|default('secondary menu') }}">
+  {% spaceless %}
+  {% if list_items is iterable %}
+    {{ menus.nav_menu(list_items, 1, 'su-secondary-nav') }}
+  {% else %}
+    {# If custom markup is provided, emit it as is #}
+    {{ list_items }}
+  {% endif %}
+  {% endspaceless %}
+</nav>
