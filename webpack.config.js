@@ -6,7 +6,7 @@
  // Requires / Dependencies
 const path = require('path');
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
+const autoprefixer = require('autoprefixer')({ grid: true });
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -89,9 +89,7 @@ var config = {
             options: {
               sourceMap: true,
               plugins: () => [
-                autoprefixer( {
-                  grid: true
-                } )
+                autoprefixer
               ]
             }
           },
