@@ -9,8 +9,11 @@
 //
 @mixin caption {
   @include font-smoothing;
-
   color: $su-color-cool-grey;
-  font-size: 0.84em;
+  font-size: 1.4rem;
   line-height: 1.3;
+
+  @include grid-media('md') {
+    font-size: 1.6rem;
+  }
 }
