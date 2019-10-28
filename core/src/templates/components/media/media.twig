@@ -3,7 +3,7 @@
  * @file
  * Media Component
  *
- * A media element, e.g., image, video, audio, iframe etc. The default takes custom HTML for the media content.
+ * A media element, e.g., image, video, audio, iframe etc. The default .su-media component takes custom HTML for the media content.
  *
  * Available variants:
  * .su-media--image - Image
@@ -11,41 +11,60 @@
  * .su-media--audio - HTML5 audio
  *
  * Available variables:
- * - attributes: For additional HTML attributes not already provided.
+ * - attributes: Additional HTML attributes not already provided.
  * - modifier_class: Additional CSS classes to change look and behavior.
  * - media_wrapper_modifier_class: Additional CSS classes to change look and behavior of the media wrapper, e.g. "su-aspect-ratio" to provide aspect ratio constraint.
  * - media_link: Optional URL for the media element to link to (only works for images or <video> with no controls).
  * - media_image_src: The src link to the image file.
  * - media_image_srcset: The srcset of the image if exists.
  * - media_video_src: The src link to the video file.
- * - media_video_poster: The preview image of the video.
+ * - media_video_poster: Optional preview image of the video.
  * - media_audio_src: The src link to the audio file.
- * - media_custom: An open field for the full HTML element of the media content, e.g., an embedded YouTube iframe
+ * - media_type: Type of the media file, e.g. mp4, webm, wav (self-hosted video or audio only).
+ * - media_custom: An open field for the full HTML element of the media content, e.g., an embedded YouTube iframe.
  * - media_content_attributes: Additional HTML attributes for the media content, e.g., for <video> - controls, autoplay; for <img> - sizes (when srcset is provided), alt, width, height.
- * - media_caption: Caption for the media.
+ * - media_caption: Optional caption for the media.
  */
 #}
 <figure {{ attributes }} class="su-media {{ modifier_class }}">
+
+  {# Option to make the media element a clickable link #}
   {%- if media_link -%}
     <a href="{{ media_link }}">
   {%- endif -%}
 
+  {# Wrapper for the media element where aspect ratio mixin can be applied to #}
   <div class="su-media__wrapper {{ media_wrapper_modifier_class }}">
+
     {%- if 'su-media--video' in modifier_class %}
-      <video src="{{ media_video_src }}"
+      {# Find the video type from the src file extension #}
+      {% set media_type = media_video_src | split('.') | last %}
+
+      <video {{ media_content_attributes }}
         {% if media_video_poster %}
           poster="{{ media_video_poster }}"
-        {% endif %}
-      {{ media_content_attributes }}></video>
+        {% endif %}>
+        <source src="{{ media_video_src }}" type="video/{{ media_type }}">
+        <p>Sorry, your browser doesn't support HTML5 videos.</p>
+      </video>
+
     {% elseif 'su-media--audio' in modifier_class %}
-      <audio src="{{ media_audio_src }}" {{ media_content_attributes }} controls></audio>
+      {# Find the audio type from the src file extension #}
+      {% set media_type = media_audio_src | split('.') | last %}
+
+      <audio {{ media_content_attributes }} controls>
+        <source src="{{ media_audio_src }}" type="audio/{{ media_type }}">
+        <p>Sorry, your browser doesn't support HTML5 audio.</p>
+      </audio>
+
     {% elseif 'su-media--image' in modifier_class %}
       <img src="{{ media_image_src }}"
-          {% if media_image_srcset %}
-            srcset="{{ media_image_srcset }}"
-          {% endif %}
+        {% if media_image_srcset %}
+          srcset="{{ media_image_srcset }}"
+        {% endif %}
       {{ media_content_attributes }}>
     {% else %}
+      {# Open HTML field, e.g., YouTube embed iframe #}
       {{ media_custom }}
     {% endif -%}
   </div>
@@ -54,6 +73,7 @@
     </a>
   {%- endif -%}
 
+  {# Optional caption #}
   {% if media_caption %}
     <figcaption class="su-media__caption">{{ media_caption }}</figcaption>
   {% endif %}
