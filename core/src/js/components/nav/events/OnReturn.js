@@ -5,10 +5,11 @@ import EventAbstract from './EventAbstract';
  *
  * NEEDS DESCRIPTION.
  */
-export default class arrowUp extends EventAbstract {
+export default class OnReturn extends EventAbstract {
 
   constructor() {
-    this.message = "Arrow Up was called";
+    super();
+    this.hello = "return was called";
   }
 
 }

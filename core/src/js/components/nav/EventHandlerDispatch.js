@@ -1,3 +1,5 @@
+import { normalizeKey } from '../../utilities/keyboard';
+
 /**
  * EventHandlerDispatch Class
  *
@@ -24,6 +26,12 @@ export default class EventHandlerDispatch {
 
     // Listen to the click so we can act on it.
     this.elem.addEventListener('click', this);
+
+    // Listen to custom events so we can act on it.
+    this.elem.addEventListener('preOpenSubnav', this);
+
+    // Listen to custom events so we can act on it.
+    this.elem.addEventListener('postOpenSubnav', this);
   }
 
   /**
@@ -48,9 +56,62 @@ export default class EventHandlerDispatch {
     // What was clicked.
     const target = event.target || event.srcElement;
 
-    // Check to see if we have an event available.
-    if (typeof this.handler[eventMethod] === 'function') {
-      this.handler[eventMethod](event, target);
+    if (eventMethod == "onKeydown") {
+      this.onKeydown(event, target);
+    }
+    else if (eventMethod == "onClick") {
+      this.onClick(event, target);
+    }
+    else {
+      this.callEvent(eventMethod, event, target);
+    }
+  }
+
+  /**
+   * Handler for keydown events. keydown is bound to all NavItem's.
+   * Dispatched from this.handleEvent().
+   *
+   * @param {KeyboardEvent} event - The keyboard event object.
+   * @param {HTMLElement} target  - The HTML element target.
+   */
+  onKeydown(event, target) {
+    let theKey = event.key || event.keyCode;
+    let normalized = normalizeKey(theKey);
+
+    // We don't know or need to handle the key that was pressed.
+    if (!normalized) {
+      return;
+    }
+
+    // Prepare a dynamic handler.
+    let eventMethod = 'onKeydown'
+      + normalized.charAt(0).toUpperCase()
+      + normalized.slice(1);
+
+    // Do eet.
+    this.callEvent(eventMethod, event, target);
+  }
+
+  /**
+   * [onClick description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   * @return {[type]}        [description]
+   */
+  onClick(event, target) {
+    this.callEvent('onClick', event, target);
+  }
+
+  /**
+   * [callEvent description]
+   * @param  {[type]} event  [description]
+   * @param  {[type]} target [description]
+   * @return {[type]}        [description]
+   */
+  callEvent(eventMethod, event, target) {
+    if (typeof this.handler.eventRegistry[eventMethod] === 'function') {
+      var eventObj = new this.handler.eventRegistry[eventMethod](this.handler, event, target);
+      eventObj.init();
     }
   }
 

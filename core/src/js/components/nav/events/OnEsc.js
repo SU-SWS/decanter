@@ -5,10 +5,11 @@ import EventAbstract from './EventAbstract';
  *
  * NEEDS DESCRIPTION.
  */
-export default class space extends EventAbstract {
+export default class OnEsc extends EventAbstract {
 
   constructor() {
-    this.message = "Space was called";
+    super();
+    this.hello = "Esc was called";
   }
 
 }

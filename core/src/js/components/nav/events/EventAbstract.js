@@ -1,3 +1,5 @@
+import ElementFetcher from '../ElementFetcher';
+
 /**
  * ActivePath Class
  *
@@ -8,16 +10,33 @@ export default class EventAbstract {
   /**
    * [constructor description]
    */
-  constructor() {
-    this.message = "Hi you fancy pants.";
+  constructor(item, event, target) {
+    this.handler = item;
+    this.elem = item.elem;
+    this.nav = item.nav;
+    this.target = target;
+    this.event = event;
   }
 
   /**
-   * [init description]
+   * [validate description]
    * @return {[type]} [description]
    */
-  init() {
-    alert(this.message);
+  isOnTarget() {
+    if (this.target === this.elem) {
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * [getElement description]
+   * @param  {[type]} what [description]
+   * @return {[type]}      [description]
+   */
+  getElement(what) {
+    var fetcher = new ElementFetcher(this.elem.parentNode, what);
+    return fetcher.fetch();
   }
 
 }
