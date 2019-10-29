@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.su-nav-toggle--light {
+  background: transparent;
+
+  &::before {
+    content: "";
+    background: $su-color-cloud url("#{$su-image-path}/caret-down-black.svg") no-repeat center / 50%;
+    background-size: 15px;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background: transparent;
+
+    &::before {
+      content: "";
+      background: color(border--active, $su-secondary-nav-light-colors) url("#{$su-image-path}/caret-down-white.svg") no-repeat center / 50%;
+      background-size: 15px;
+    }
+  }
+}
