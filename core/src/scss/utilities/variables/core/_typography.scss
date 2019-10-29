@@ -7,177 +7,349 @@
 //
 
 //
-// $root-font-size
+// $su-root-font-size
 //
-// Font size.
+// HTML root font size (10px assuming browser default is 16px)
 //
-// Markup: $root-font-size: 10px;
+// Markup: $su-root-font-size: 62.5%;
+//
+// Style guide: Variables.Core.Typography.su-root-font-size
+//
+$su-root-font-size: 62.5%;
+
+//
+// <del>$root-font-size</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-root-font-size</code> instead.
 //
 // Style guide: Variables.Core.Typography.root-font-size
 //
-$root-font-size: 10px;
+$root-font-size: $su-root-font-size !default;
 
 //
-// $base-font-size
+// $su-base-font-size
 //
 // Font size.
 //
-// Markup: $base-font-size: 2rem !default;
+// Markup: $su-base-font-size: 2rem !default;
+//
+// Style guide: Variables.Core.Typography.su-base-font-size
+//
+$su-base-font-size: 2rem !default;
+
+//
+// <del>$base-font-size</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-base-font-size</code> instead.
 //
 // Style guide: Variables.Core.Typography.base-font-size
 //
-$base-font-size: 2rem !default;
+$base-font-size: $su-base-font-size !default;
 
 //
-// $base-line-height
+// $su-displays-mobile-factor
+//
+// A multiplier to scale down some of the larger display font sizes at XS and SM break points.
+//
+// Markup: $su-displays-mobile-factor: 0.85 !default;
+//
+// Style guide: Variables.Core.Typography.su-displays-mobile-factor
+//
+$su-displays-mobile-factor: 0.85 !default;
+
+//
+// $su-base-line-height
 //
 // Default line height.
 //
-// Markup: $base-line-height: 1.4 !default;
+// Markup: $su-base-line-height: 1.4 !default;
+//
+// Style guide: Variables.Core.Typography.su-base-line-height
+//
+$su-base-line-height: 1.4 !default;
+
+//
+// <del>$base-line-height</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-base-line-height</code> instead.
 //
 // Style guide: Variables.Core.Typography.base-line-height
 //
-$base-line-height: 1.4 !default;
+$base-line-height: $su-base-line-height !default;
 
 //
-// $displays-line-height
+// $su-displays-line-height
 //
 // Default line height.
 //
-// Markup: $displays-line-height: 1.2 !default;
+// Markup: $su-displays-line-height: 1.2 !default;
+//
+// Style guide: Variables.Core.Typography.su-displays-line-height
+//
+$su-displays-line-height: 1.2 !default;
+
+///
+// <del>$displays-line-height</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-displays-line-height</code> instead.
 //
 // Style guide: Variables.Core.Typography.displays-line-height
 //
-$displays-line-height: 1.2 !default;
+$displays-line-height: $su-displays-line-height !default;
 
 //
-// $lead-line-height
+// $su-intro-line-height
 //
 // Default line height.
 //
-// Markup: $lead-line-height: 1.5 !default;
+// Markup: $su-intro-line-height: 1.5 !default;
 //
-// Style guide: Variables.Core.Typography.lead-line-height
+// Style guide: Variables.Core.Typography.su-intro-line-height
 //
-$intro-line-height: 1.5 !default;
+$su-intro-line-height: 1.5 !default;
 
 //
-// $font-sans
+// <del>$intro-line-height</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-intro-line-height</code> instead.
+//
+// Style guide: Variables.Core.Typography.intro-line-height
+//
+$intro-line-height: $su-intro-line-height !default;
+
+//
+// $su-font-sans
 //
 // font-sans font family.
 //
-// Markup: $font-sans: 'Source Sans Pro', $font-stack-helvetica !default;
+// Markup: $su-font-sans: 'Source Sans Pro', $font-stack-helvetica !default;
+//
+// Style guide: Variables.Core.Typography.su-font-sans
+//
+$su-font-sans: 'Source Sans Pro', $font-stack-helvetica !default;
+
+//
+// <del>$font-sans</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-font-sans</code> instead.
 //
 // Style guide: Variables.Core.Typography.font-sans
 //
-$font-sans: 'Source Sans Pro', $font-stack-helvetica !default;
+$font-sans: $su-font-sans !default;
+
 
 //
-// $font-serif
+// $su-font-serif
 //
 // font-serif font family.
 //
-// Markup: $font-serif: 'Source Serif Pro', $font-stack-georgia !default;
+// Markup: $su-font-serif: 'Source Serif Pro', $font-stack-georgia !default;
+//
+// Style guide: Variables.Core.Typography.su-font-serif
+//
+$su-font-serif: 'Source Serif Pro', $font-stack-georgia !default;
+
+//
+// <del>$font-serif</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-font-serif</code> instead.
 //
 // Style guide: Variables.Core.Typography.font-serif
 //
-$font-serif: 'Source Serif Pro', $font-stack-georgia !default;
+$font-serif: $su-font-serif !default;
 
 //
-// $font-slab
+// $su-font-slab
 //
 // font-slab font family.
 //
-// Markup: $font-slab: 'Roboto Slab', $font-stack-georgia !default;
+// Markup: $su-font-slab: 'Roboto Slab', $font-stack-georgia !default;
+//
+// Style guide: Variables.Core.Typography.su-font-slab
+//
+$su-font-slab: 'Roboto Slab', $font-stack-georgia !default;
+
+//
+// <del>$font-slab</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-font-slab</code> instead.
 //
 // Style guide: Variables.Core.Typography.font-slab
 //
-$font-slab: 'Roboto Slab', $font-stack-georgia !default;
+$font-slab: $su-font-slab !default;
 
 //
-// $font-handwriting
+// $su-font-handwriting
 //
 // font-script font family.
 //
-// Markup: $font-handwriting: 'Kalam', $font-stack-helvetica !default;
+// Markup: $su-font-handwriting: 'Kalam', $font-stack-helvetica !default;
 //
-// Style guide: Variables.Core.Typography.font-script
+// Style guide: Variables.Core.Typography.su-font-handwriting
 //
-$font-handwriting: 'Kalam', $font-stack-helvetica !default;
+$su-font-handwriting: 'Kalam', $font-stack-helvetica !default;
 
 //
-// $font-sanskrit
+// <del>$font-handwriting</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-font-handwriting</code> instead.
+//
+// Style guide: Variables.Core.Typography.font-handwriting
+//
+$font-handwriting: $su-font-handwriting !default;
+
+//
+// $su-font-sanskrit
 //
 // font-sanskrit font family.
 //
-// Markup: $font-sanskrit: 'Noto Sans', $font-stack-helvetica !default;
+// Markup: $su-font-sanskrit: 'Noto Sans', $font-stack-helvetica !default;
+//
+// Style guide: Variables.Core.Typography.su-font-sanskrit
+//
+$su-font-sanskrit: 'Noto Sans', $font-stack-helvetica !default;
+
+//
+// <del>$font-sanskrit</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-font-sanskrit</code> instead.
 //
 // Style guide: Variables.Core.Typography.font-sanskrit
 //
-$font-sanskrit: 'Noto Sans', $font-stack-helvetica !default;
+$font-sanskrit: $su-font-sanskrit !default;
 
 //
-// $font-x-light
+// $su-font-x-light
 //
 // font-x-light font weight.
 //
-// Markup: $font-x-light: 100 !default;
+// Markup: $su-font-x-light: 100 !default;
+//
+// Style guide: Variables.Core.Typography.su-font-x-light
+//
+$su-font-x-light: 100 !default;
+
+//
+// <del>$font-x-light</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-font-x-light</code> instead.
 //
 // Style guide: Variables.Core.Typography.font-x-light
 //
-$font-x-light: 100 !default;
+$font-x-light: $su-font-x-light !default;
 
 //
-// $font-light
+// $su-font-light
 //
 // font-light font weight.
 //
-// Markup: $font-light: 200 !default;
+// Markup: $su-font-light: 200 !default;
+//
+// Style guide: Variables.Core.Typography.su-font-light
+//
+$su-font-light: 200 !default;
+
+///
+// <del>$font-light</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-font-light</code> instead.
 //
 // Style guide: Variables.Core.Typography.font-light
 //
-$font-light: 200 !default;
+$font-light: $su-font-light !default;
 
 //
-// $font-regular
+// $su-font-regular
 //
 // font-regular font weight.
 //
-// Markup: $font-regular: 400 !default;
+// Markup: $su-font-regular: 400 !default;
+//
+// Style guide: Variables.Core.Typography.su-font-regular
+//
+$su-font-regular: 400 !default;
+
+//
+// <del>$font-regular</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-font-regular</code> instead.
 //
 // Style guide: Variables.Core.Typography.font-regular
 //
-$font-regular: 400 !default;
+$font-regular: $su-font-regular !default;
 
 //
-// $font-semi-bold
+// $su-font-semi-bold
 //
 // font-semi-bold font weight.
 //
-// Markup: $font-semi-bold: 600 !default;
+// Markup: $su-font-semi-bold: 600 !default;
+//
+// Style guide: Variables.Core.Typography.su-font-semi-bold
+//
+$su-font-semi-bold: 600 !default;
+
+//
+// <del>$font-semi-bold</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-font-semi-bold</code> instead.
 //
 // Style guide: Variables.Core.Typography.font-semi-bold
 //
-$font-semi-bold: 600 !default;
+$font-semi-bold: $su-font-semi-bold !default;
 
 //
-// $font-bold
+// $su-font-bold
 //
 // font-bold font weight.
 //
-// Markup: $font-bold: 700 !default;
+// Markup: $su-font-bold: 700 !default;
+//
+// Style guide: Variables.Core.Typography.su-font-bold
+//
+$su-font-bold: 700 !default;
+
+//
+// <del>$font-bold</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-font-bold</code> instead.
 //
 // Style guide: Variables.Core.Typography.font-bold
 //
-$font-bold: 700 !default;
+$font-bold: $su-font-bold !default;
 
 //
-// $font-black
+// $su-font-black
 //
 // font-black font weight.
 //
-// Markup: $font-black: 900 !default;
+// Markup: $su-font-black: 900 !default;
+//
+// Style guide: Variables.Core.Typography.su-font-black
+//
+$su-font-black: 900 !default;
+
+//
+// <del>$font-black</del>
+//
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use <code>$su-font-black</code> instead.
 //
 // Style guide: Variables.Core.Typography.font-black
 //
-$font-black: 900 !default;
+$font-black: $su-font-black !default;

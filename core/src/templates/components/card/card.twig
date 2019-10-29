@@ -1,20 +1,28 @@
 {#
 /**
  * @file
- * Card Component.
+ * Card Component. Default is a vertical card with an image above text content.
  *
- * Basic building block component the following variants
- *   - Horizontal: An image beside text content
- *   - Vertical (default): An image above text content
- *   - Minimal: No background, drop shadow and space around
- *   - Icon image: An image icon above text content
- *   - Icon font: An icon font above text content
- *   - Video: A video above text content
+ * Available variants:
+ *   - .su-card--horizontal: Media field and text content are side by side.
+ *   - .su-card--link: Whole card is a link with no button or call to action link.
+ *   - .su-card--minimal: No background, drop shadow and space around. Do not use with the .su-card--link class.
+ *   - .su-card--icon: An image icon above text content.
+ *   - .su-card--icon-font: An icon font above text content.
+ *   - .su-card--video: A video above text content.
  *
  * Available variables:
- * - attributes: For additional HTML attributes not already provided.
- * - modifier_class: Additional css classes to change look and behaviour.
+ * - attributes: Additional HTML attributes not already provided.
+ * - modifier_class: Additional css classes to change look and behavior.
+ * - card_headline: Main headind text for the card.
+ * - card_headline_link: Boolean. Set to true if headline acts as a link.
+ * - card_super_headline: Text super headline. Often used for metadata such as category.
+ * - card_body: An open variable for anything including HTML. Generally this would be for WYSIWYG editor contents.
  * - card_link: The href value for the card. A single card is only allowed to link to one URL.
+ * - card_cta_attributes: Any html attributes on the link that need to be added. For example: rel='noopener', target='_blank'.
+ *     This acts as the attributes for the link button and headline link as well.
+ * - card_cta_label: The clickable text for the CTA link
+ * - card_button_label: The text label of the button component.
  * - card_image: A full HTML <img> element for the image including attributes.
  * - card_icon_image: A full HTML <img> element for the icon including attributes.
  * - card_icon_font_class: If using icon font, e.g., FontAwesome, the class(es) of the icon including modifier classes,
@@ -22,19 +30,31 @@
  * - card_video: Provide whole <iframe> element if embedding from streaming sites such as YouTube and Vimeo.
   Provide only the file path if embedding your own video file.
  * - card_video_attributes: If providing your own video file, attributes for the <video> element, e.g., autoplay, muted, loop, etc.
- * - card_super_headline: Text super headline. Usually used for metadata such as category.
- * - card_headline: Text heading
- * - card_body: An open variable for anything. Generally this would be for
- *     WYSIWYG editor contents.
- * - card_cta_attributes: Any html attributes on the cta link that need to be
- *     added. For example: _target.
- * - card_cta_label: The clickable text for the CTA link
- * - card_button_label: The text label of the button component.
  */
 #}
+
+{#
+  Template Include Paths
+  Override these if you want to include a different template.
+#}
+{%- if template_path_link is empty -%}
+  {%- set template_path_link = "@decanter/components/link/link.twig" -%}
+{%- endif -%}
+
+{# For variant where whole card is a link, suppress all other links within the component #}
+{%- if "su-card--link" in modifier_class -%}
+  {%- set allow_links = false -%}
+{%- else -%}
+  {%- set allow_links = true -%}
+{%- endif -%}
+
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css' type='text/css' media='' />
 
 <div {{ attributes }} class="su-card {{ modifier_class }}">
+  {# For variant where whole card is a link, add an <a> within the outer wrapper <div> #}
+  {%- if allow_links == false %}
+    <a href="{{ card_link }}" {{ card_cta_attributes }}>
+  {%- endif -%}
 
   {# Media field - Image, image icon, icon font or video #}
   {%- if 'su-card--video' in modifier_class -%}
@@ -69,12 +89,9 @@
     {# Support for: icon image; use card_icon_image if exists, if not, use card_Image #}
     {%- if card_icon_image is not empty %}
       {{ card_icon_image }}
-    {% else %}
-      {{ card_image }}
     {% endif -%}
 
   {%- else %}
-
     {# Support for: image if exists; <figure> wrapper allows for fixed aspect ratio #}
     {%- if card_image is not empty %}
       <figure>{{ card_image }}</figure>
@@ -84,50 +101,62 @@
 
   <div class="su-card__contents">
 
-  {# Card Super Headline #}
-  {%- block block_card_super_headline %}
-    {% if card_super_headline is not empty %}
-      <h4>{{ card_super_headline }}</h4>
+    {# Card Super Headline #}
+    {%- block block_card_super_headline %}
+      {% if card_super_headline is not empty %}
+        <span>{{ card_super_headline }}</span>
+      {% endif -%}
+    {% endblock -%}
+
+    {# Card Headline #}
+    {%- block block_card_headline  %}
+      {%- if card_headline is not empty %}
+        <h2>
+          {%- if card_headline_link and allow_links -%}
+            <a href="{{ card_link }}" {{ card_cta_attributes }}>
+          {%- endif -%}
+            {{- card_headline -}}
+          {% if card_headline_link and allow_links -%}
+            </a>
+          {%- endif -%}
+        </h2>
+      {% endif -%}
+    {% endblock -%}
+
+    {# An open field for body content #}
+    {{ card_body }}
+
+    {# Card CTA Link #}
+    {%- if card_cta_label is not empty and allow_links %}
+      {%- include template_path_link with
+        {
+        "link_href": card_link,
+        "link_content": card_cta_label,
+        "attributes": card_cta_attributes,
+        "modifier_class": "su-card__link su-link--action"
+        }
+        only
+      -%}
     {% endif -%}
-  {% endblock -%}
 
-  {# Card Headline #}
-  {%- block block_card_headline  %}
-    {%- if card_headline is not empty %}
-      <h3>{{ card_headline }}</h3>
+    {# Big ol button. Adds a BEM class for targeting. #}
+    {%- if card_button_label is not empty and allow_links %}
+      <div class="su-card__button">
+      {%- include template_path_link with
+        {
+        "link_href": card_link,
+        "link_content": card_button_label,
+        "attributes": card_cta_attributes,
+        "modifier_class": "su-button"
+        }
+        only
+      -%}
+      </div>
     {% endif -%}
-  {% endblock -%}
 
-  {# An open field for body content #}
-  {{ card_body }}
+  </div>{# end of .su-card__contents #}
 
-  {# Card CTA Link #}
-  {%- if card_cta_label is not empty %}
-    {%- include "@decanter/components/link/link.twig" with
-      {
-      "link_href": card_link,
-      "link_content": card_cta_label,
-      "attributes": card_cta_attributes,
-      "modifier_class": "su-card--link su-link--action",
-      }
-      only
-    -%}
-  {% endif -%}
-
-  {# Big ol button. Adds a BEM class for targeting. #}
-  {%- if card_button_label is not empty %}
-    <div class="su-card__button">
-    {%- include "@decanter/components/link/link.twig" with
-      {
-      "link_href": card_link,
-      "link_content": card_button_label,
-      "attributes": card_cta_attributes,
-      "modifier_class": "su-button",
-      }
-      only
-    -%}
-    </div>
-  {% endif -%}
-
-  </div> {# /su-card__contents #}
-</div> {# /su-card #}
+  {%- if allow_links == false %}
+    </a>
+  {%- endif -%}
+</div>

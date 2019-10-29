@@ -1,0 +1,59 @@
+services:
+  apache:
+    image: tugboatqa/httpd
+    commands:
+      # Used in the base image as setup.
+      init:
+        - |
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+          NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          nvm install 11.14.0
+          nvm use
+          npm install
+          npm run build
+          npm run styleguide
+        - rm -R node_modules
+        - ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
+      # Used in each of the preview builds.
+      build:
+        - |
+          NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          nvm use
+          npm install
+          npm run build
+          npm run styleguide
+        - rm -R node_modules
+    # Collection of urls to compare visual results.
+    visualdiffs:
+      - /
+      # Core
+      - /item-core-colors.html
+      - /item-core-flexgrid.html
+      - /item-core-fonts.html
+      - /item-core-helpers-aspect-ratio.html
+      # Elements
+      - /item-elements-embedcontainer.html
+      - /item-elements-image.html
+      - /item-elements-list.html
+      - /item-elements-typography.html
+      # Components
+      - /item-components-alert.html
+      - /item-components-brand-bar.html
+      - /item-components-button.html
+      - /item-components-card.html
+      - /item-components-cta.html
+      - /item-components-date-stacked.html
+      - /item-components-global-footer.html
+      - /item-components-hero.html
+      - /item-components-link.html
+      - /item-components-local-footer.html
+      - /item-components-lockup.html
+      - /item-components-logo.html
+      - /item-components-main-navigation.html
+      - /item-components-masthead.html
+      - /item-components-quote.html
+      - /item-components-signup-form.html
+      - /item-components-site-search.html
+      - /item-components-skiplinks.html

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 //
-// @responsive-flex-column($columns, $grid: $grid-media, $gutters: $grid-gutters)
+// @responsive-flex-column($columns, $grid: $su-grid-media, $gutters: $su-grid-gutters)
 //
 // Loops through the breakpoints and dynamically calculates the width for each
 // breakpoint based on the number of columns passed in.
@@ -12,7 +12,7 @@
 //
 // Style guide: Mixins.Flex.responsive-flex-column
 //
-@mixin responsive-flex-column($columns, $grid: $grid-media, $gutters: $grid-gutters) {
+@mixin responsive-flex-column($columns, $grid: $su-grid-media, $gutters: $su-grid-gutters) {
   @each $key, $breakpoint in $grid {
     @include grid-media($key) {
       @include flex-column($columns, map-get($gutters, $key));

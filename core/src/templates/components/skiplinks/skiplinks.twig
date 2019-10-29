@@ -20,8 +20,19 @@
  * - target_text: The text to be read by the screenreader when the user clicks the skiplink - defaults to 'Main Content'
  */
 #}
+{#
+  Template Include Paths
+  Override these if you want to include a different template.
+#}
+{%- if template_path_skiplink is empty -%}
+  {%- set template_path_skiplink = "@decanter/components/skiplinks/link.twig" -%}
+{%- endif -%}
+{%- if template_path_skiptarget is empty -%}
+  {%- set template_path_skiptarget = "@decanter/components/skiplinks/target.twig" -%}
+{%- endif -%}
+
 <header>
-  {% include "@decanter/components/skiplinks/link.twig" with
+  {% include template_path_skiplink with
     {
       "target_id": target_id,
       "link_text": link_text,
@@ -32,7 +43,7 @@
   %}
 </header>
 <main>
-  {% include "@decanter/components/skiplinks/target.twig" with
+  {% include template_path_skiptarget with
     {
       "target_id": target_id,
       "target_text": target_text

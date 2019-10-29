@@ -3,7 +3,7 @@
 //
 // breakpoint-min($name, $breakpoints);
 //
-// The $grid-screens map defined in the grid variables file is used as the
+// The $su-grid-screens map defined in the grid variables file is used as the
 // $breakpoints argument by default.
 //
 // Minimum breakpoint width. Null for the smallest (xs) breakpoint.
@@ -12,7 +12,7 @@
 // Returns "576px"
 //
 // Style guide: Functions.Breakpoint.beakpoint-min
-@function breakpoint-min($name, $breakpoints: $grid-screens) {
+@function breakpoint-min($name, $breakpoints: $su-grid-screens) {
   $min: map-get($breakpoints, $name);
   @return if($min != 0, $min, null);
 }

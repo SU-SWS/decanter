@@ -302,7 +302,7 @@ template {
   display: none; }
 
 :root {
-  --max_width: $site-max-width;
+  --max_width: $su-site-max-width;
   --baseline: 3rem;
   --baseline-shift: 2rem;
   --repeating-width: calc(100% / var(--columns));
@@ -405,6 +405,13 @@ sup {
 
 sub {
   bottom: -0.25em; }
+
+#kssref-core-helpers-aspect-ratio .kss-modifier__wrapper {
+  max-width: 600px; }
+  #kssref-core-helpers-aspect-ratio .kss-modifier__wrapper .su-aspect-ratio {
+    margin: 0 0 3rem; }
+  #kssref-core-helpers-aspect-ratio .kss-modifier__wrapper div.su-aspect-ratio {
+    background: #dad7cb; }
 
 #kss-node {
   padding-top: 30px; }
@@ -785,6 +792,10 @@ sub {
 
 .kss-modifier__example-footer {
   clear: both; }
+
+.kss-description,
+.kss-modifier__description {
+  max-width: 1000px; }
 
 #kssref-components-cta .kss-modifier__example {
   max-width: 600px; }

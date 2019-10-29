@@ -8,7 +8,7 @@ $_su-hero-height: (
   'lg': 409px,
   'xl': 520px,
   '2xl': 520px
-);
+) !default;
 
 //
 // Hero
@@ -17,6 +17,7 @@ $_su-hero-height: (
 //
 // Experimental: The YouTube player has not been finished.
 //
+// .su-hero--caption - An under banner caption option.
 // .su-hero--youtube - A YouTube video in the background.
 //
 // Markup: ../templates/components/hero/hero.twig
@@ -40,14 +41,40 @@ $_su-hero-height: (
   @include grid-media('xl') {
     min-height: map-get($_su-hero-height, 'xl');
   }
+
+  // The content
+  .su-hero__card {
+    background: $su-color-white;
+    position: relative;
+    z-index: 10;
+
+    @include grid-media('md') {
+      @include margin(45px null);
+      left: 45px;
+      max-width: 400px;
+    }
+
+    @include grid-media('lg') {
+      max-width: 450px;
+    }
+
+    @include grid-media('xl') {
+      @include margin(96px null 0 null);
+      bottom: 48px;
+      left: 48px;
+      max-width: 450px;
+      top: auto;
+    }
+  }
 }
 
 // The media element.
 // Big tall wide and in a little bid of a shade.
 .su-hero__media {
-  background: $color-black;
+  background: $su-color-black;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 
   @include grid-media('md') {
     min-height: map-get($_su-hero-height, 'md');
@@ -71,31 +98,9 @@ $_su-hero-height: (
     object-position: 50% 50%;
     width: 100%;
   }
-
 }
 
-// The content
-.su-hero__card {
-  background: $color-white;
-  position: relative;
-  z-index: 10;
-
-  @include grid-media('md') {
-    @include margin(45px null);
-    left: 45px;
-    max-width: 400px;
-  }
-
-  @include grid-media('lg') {
-    max-width: 450px;
-  }
-
-  @include grid-media('xl') {
-    @include margin(96px null 0 null);
-    bottom: 48px;
-    left: 48px;
-    max-width: 450px;
-    top: auto;
-  }
-
+// Mostly for the demo. You really shouldn't put content in both the card and the content variables.
+.su-hero__content {
+  display: none;
 }

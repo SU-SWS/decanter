@@ -9,4 +9,9 @@
 //
 @mixin type-b {
   @include modular-typography(3);
+  letter-spacing: -0.016em;
+
+  @include grid-media-max('sm') {
+    font-size: modular-scale(3) * $su-displays-mobile-factor;
+  }
 }

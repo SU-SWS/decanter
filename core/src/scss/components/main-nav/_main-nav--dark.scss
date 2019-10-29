@@ -1,44 +1,42 @@
 @charset "UTF-8";
 
 .su-main-nav--dark {
-  $_su-main-nav-color-map: $main-nav-dark-colors;
-
   @include grid-media-max('md') {
     .su-main-nav__toggle {
-      color: color(link, $_su-main-nav-color-map);
+      color: color(h-link, $su-nav-colors--dark);
 
       &:hover,
       &:focus {
         &::before {
-          background-color: color(border--hover, $_su-main-nav-color-map);
+          background-color: color(h-border--hover, $su-nav-colors--dark);
         }
       }
 
       &:active {
         &::before {
-          background-color: color(border--active, $_su-main-nav-color-map);
+          background-color: color(h-border--active, $su-nav-colors--dark);
         }
       }
 
       &::after {
-        background: url("#{$image-path}/hamburger-white.svg") no-repeat 3px 0;
+        background: url("#{$su-image-path}/hamburger-white.svg") no-repeat 3px 0;
       }
 
       &[aria-expanded="true"] {
         &::before {
-          background-color: color(border--expanded, $_su-main-nav-color-map);
+          background-color: color(h-border--expanded, $su-nav-colors--dark);
         }
 
         &:hover::before {
-          background-color: color(border--expanded-hover, $_su-main-nav-color-map);
+          background-color: color(h-border--expanded-hover, $su-nav-colors--dark);
         }
 
         &:active::before {
-          background-color: color(border--expanded-active, $_su-main-nav-color-map);
+          background-color: color(h-border--expanded-active, $su-nav-colors--dark);
         }
 
         &::after {
-          background: url("#{$image-path}/close-white.svg") no-repeat 3px 0;
+          background: url("#{$su-image-path}/close-white.svg") no-repeat 3px 0;
           background-size: 16px 16px;
         }
       }
@@ -50,34 +48,34 @@
     > ul {
       > li {
         > a {
-          color: color(link, $_su-main-nav-color-map);
+          color: color(h-link, $su-nav-colors--dark);
 
           &:hover,
           &:focus {
-            color: color(link--hover, $_su-main-nav-color-map);
+            color: color(h-link--hover, $su-nav-colors--dark);
 
             &::before {
-              background-color: color(border--hover, $_su-main-nav-color-map);
+              background-color: color(h-border--hover, $su-nav-colors--dark);
             }
           }
 
           &:active {
-            color: color(link--active, $_su-main-nav-color-map);
+            color: color(h-link--active, $su-nav-colors--dark);
 
             &::before {
-              background-color: color(border--active, $_su-main-nav-color-map);
+              background-color: color(h-border--active, $su-nav-colors--dark);
             }
           }
 
           &[aria-expanded="true"] {
-            color: color(link--expanded, $_su-main-nav-color-map);
+            color: color(h-link--expanded, $su-nav-colors--dark);
 
             &::before {
-              background-color: color(border--expanded, $_su-main-nav-color-map);
+              background-color: color(h-border--expanded, $su-nav-colors--dark);
             }
 
             &:hover {
-              color: color(link--hover, $_su-main-nav-color-map);
+              color: color(h-link--hover, $su-nav-colors--dark);
             }
           }
         }
@@ -87,7 +85,7 @@
         &,
         &.su-main-nav__item--expanded {
           > a::after {
-            background: url("#{$image-path}/caret-down-white.svg") no-repeat 0 0;
+            background: url("#{$su-image-path}/caret-down-white.svg") no-repeat 0 0;
             background-size: 100%;
           }
         }
@@ -95,23 +93,23 @@
 
       > .su-main-nav__item--current {
         > a {
-          color: color(link--active, $_su-main-nav-color-map);
+          color: color(h-link--active, $su-nav-colors--dark);
 
           &::before {
-            background-color: color(border--active, $_su-main-nav-color-map);
+            background-color: color(h-border--active, $su-nav-colors--dark);
           }
 
           &:hover,
           &:focus {
-            color: color(link--active-hover, $_su-main-nav-color-map);
+            color: color(h-link--active-hover, $su-nav-colors--dark);
 
             &::before {
-              background-color: color(border--active-hover, $_su-main-nav-color-map);
+              background-color: color(h-border--active-hover, $su-nav-colors--dark);
             }
           }
 
           &:active::before {
-            background-color: color(border--active, $_su-main-nav-color-map);
+            background-color: color(h-border--active, $su-nav-colors--dark);
           }
         }
       }
@@ -122,18 +120,28 @@
           > a,
           > a:focus {
             &::before {
-              background-color: color(border--expanded, $_su-main-nav-color-map);
+              background-color: color(h-border--expanded, $su-nav-colors--dark);
+            }
+          }
+        }
+
+        &.su-main-nav__item--current {
+          > a {
+            &[aria-expanded="true"] {
+              &:active::before {
+                background-color: color(h-border--expanded-active, $su-nav-colors--dark);
+              }
             }
           }
         }
 
         > a[aria-expanded="true"] {
           &:hover::before {
-            background-color: color(border--expanded-hover, $_su-main-nav-color-map);
+            background-color: color(h-border--expanded-hover, $su-nav-colors--dark);
           }
 
           &:active::before {
-            background-color: color(border--expanded-active, $_su-main-nav-color-map);
+            background-color: color(h-border--expanded-active, $su-nav-colors--dark);
           }
         }
       }
