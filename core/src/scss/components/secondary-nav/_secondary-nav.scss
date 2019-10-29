@@ -56,7 +56,7 @@
   display: block;
   color: color(link, $su-secondary-nav-colors);
   font-weight: $su-font-semi-bold;
-  font-size: 1.8rem;
+  font-size: 2rem;
   border-top: color(divider, $su-secondary-nav-colors) solid 1px;
   outline: 0;
 
@@ -70,11 +70,7 @@
 // First level items
 // ---------------------------------------------------------------------------
 .su-secondary-nav__menu-lv1 {
-  > .su-secondary-nav__item {
-    .su-secondary-nav__link {
-      font-weight: $su-font-bold;
-    }
-  }
+
 }
 
 // Secondary Level Items
@@ -82,7 +78,7 @@
 .su-secondary-nav__menu-lv2 {
   .su-secondary-nav__item {
     &:last-child {
-      @include padding(0.1rem null 0.6rem null);
+      @include padding(0.1rem null 0 null);
     }
 
     .su-secondary-nav__link {
@@ -113,7 +109,6 @@
 // ---------------------------------------------------------------------------
 .su-secondary-nav__item--current {
   > .su-secondary-nav__link {
-    font-weight: $su-font-bold;
 
     &::before {
       visibility: visible;
