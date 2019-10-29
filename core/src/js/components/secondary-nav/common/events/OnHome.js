@@ -8,15 +8,10 @@ import EventAbstract from './EventAbstract';
 export default class OnHome extends EventAbstract {
 
   /**
-   * [init description]
+   * [exec description]
    * @return {[type]} [description]
    */
-  init() {
-    // Only fire if the event is targeting my assigned target.
-    if (!this.isOnTarget()) {
-      return;
-    }
-
+  exec() {
     this.event.preventDefault();
     var node = this.getElement('first');
     if (node) {

@@ -92,27 +92,28 @@ export default class SecondaryNavAbstract {
    * @param  {[type]} items [description]
    * @return {[type]}       [description]
    */
-  createParentItems(items, depth = 1) {
+  createParentItems(items, depth = 1, parentMenu = null) {
     items.forEach(
       item => {
         var itemLink = item.querySelector("a");
         var parentItems = item.querySelectorAll(this.parentItemSelector);
         var leafItems = item.querySelectorAll(this.navItemSelector);
         var nextDepth = depth + 1;
+        var parentNav = null;
 
         // If we have a link add to it.
         if (itemLink) {
-          this.newParentItem(itemLink, depth);
+          parentNav = this.newParentItem(itemLink, depth, parentMenu);
         }
 
         // Nested Sub Nav Items.
         if (parentItems.length >= 1) {
-          this.createParentItems(parentItems, nextDepth);
+          this.createParentItems(parentItems, nextDepth, parentNav);
         }
 
         // Nested Nav Items.
         if (leafItems.length >= 1) {
-          this.createNavItems(leafItems, nextDepth);
+          this.createNavItems(leafItems, nextDepth, parentNav);
         }
       }
     );
@@ -123,12 +124,12 @@ export default class SecondaryNavAbstract {
    * @param  {[type]} items [description]
    * @return {[type]}       [description]
    */
-  createNavItems(items, depth) {
+  createNavItems(items, depth = 1, parentMenu = null) {
     items.forEach(
       item => {
         var itemLink = item.querySelector("a");
         if (itemLink) {
-          this.newNavItem(itemLink, depth);
+          this.newNavItem(itemLink, depth, parentMenu);
         }
       }
     );
@@ -143,6 +144,14 @@ export default class SecondaryNavAbstract {
         item.closeSubNav();
       }
     );
+  }
+
+  /**
+   * [closeSubNav description]
+   * @return {[type]} [description]
+   */
+  closeSubNav() {
+    this.closeAllSubNavs();
   }
 
 }

@@ -1,4 +1,5 @@
 import EventAbstract from './EventAbstract';
+import OnArrowUp from './OnArrowUp';
 
 /**
  * ActivePath Class
@@ -11,25 +12,39 @@ export default class OnArrowLeft extends EventAbstract {
    * [init description]
    * @return {[type]} [description]
    */
-  init() {
-    if (!this.isOnTarget()) {
-      return;
-    }
+  exec() {
+    this.event.preventDefault();
 
-    // Get parent item.
-    let node = this.getElement('parentItem');
-
-    // Go to parent's end.
-    if (!node) {
-      node = this.getElement('parentNavLast');
+    // If this is a nested item. Go back up a level.
+    if (this.item.getDepth() > 1) {
+      this.nestedLeft();
     }
+    // Otherwise just to to the previous sibling.
+    else if (this.item.getDepth() === 1) {
+      this.firstLevelLeft();
+    }
+  }
+
+  /**
+   * [topLeft description]
+   * @return {[type]} [description]
+   */
+  firstLevelLeft() {
+    var upevent = new OnArrowUp(this.item, this.event, this.target);
+    upevent.init();
+  }
+
+  /**
+   * [nestedLeft description]
+   * @return {[type]} [description]
+   */
+  nestedLeft() {
+    let node = this.getElement('parentItem') || this.getElement('parentNavLast');
+    this.parentNav.closeSubNav();
 
     if (node) {
-      // this.nav.closeAllSubNavs();
-      // this.nav.closeThisSubNav();
       node.focus();
     }
-
   }
 
 }

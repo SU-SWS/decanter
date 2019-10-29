@@ -5,7 +5,7 @@ import EventAbstract from './EventAbstract';
  *
  * NEEDS DESCRIPTION.
  */
-export default class OnSpace extends EventAbstract {
+export default class OnEnter extends EventAbstract {
 
   /**
    * Prevent the spacebar from jumping to anywhere.

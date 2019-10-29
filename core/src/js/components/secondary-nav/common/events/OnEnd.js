@@ -11,12 +11,7 @@ export default class OnEnd extends EventAbstract {
    * [init description]
    * @return {[type]} [description]
    */
-  init() {
-    // Only fire if the event is targeting my assigned target.
-    if (!this.isOnTarget()) {
-      return;
-    }
-
+  exec() {
     this.event.preventDefault();
     var node = this.getElement('last');
     if (node) {

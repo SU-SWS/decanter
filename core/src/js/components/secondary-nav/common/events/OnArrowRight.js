@@ -1,4 +1,5 @@
 import EventAbstract from './EventAbstract';
+import OnArrowDown from './OnArrowDown';
 
 /**
  * ActivePath Class
@@ -11,32 +12,25 @@ export default class OnArrowRight extends EventAbstract {
    * [init description]
    * @return {[type]} [description]
    */
-  init() {
-    if (!this.isOnTarget()) {
-      return;
-    }
-
+  exec() {
     // If we are in the second level or more we check about traversing
     // the parent.
-    // if (this.getDepth() > 1) {
+    if (this.item.getDepth() > 1) {
       let node = this.getElement('parentNavNext');
-      // this.nav.closeAllSubNavs();
-      // this.nav.closeThisSubNav();
+      this.parentNav.closeSubNav();
 
       if (node) {
         node.querySelector('a').focus();
       }
       // Go back to start.
       else {
-        node = this.getElement('parentNavFirst');
-        if (node) {
-          node.focus();
-        }
+        this.getElement('parentNavFirst').focus();
       }
-    // }
-    // else {
-    //   this.onKeydownArrowDown(event, target);
-    // }
+    }
+    else {
+      var eventDown = new OnArrowDown(this.item, this.event, this.target);
+      eventDown.init();
+    }
   }
 
 }

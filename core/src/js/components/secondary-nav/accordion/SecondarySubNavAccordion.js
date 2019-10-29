@@ -1,12 +1,16 @@
-import OnClickAccordion from './events/OnClickAccordion';
 import EventHandlerDispatch from '../../nav/EventHandlerDispatch';
+// Click handler.
+import OnClick from './events/OnClick';
+// Keyboard events.
 import OnHome from '../common/events/OnHome';
 import OnEnd from '../common/events/OnEnd';
 import OnTab from '../common/events/OnTab';
+import OnEsc from '../common/events/OnEsc';
+import OnSpace from './events/OnSpace';
 import OnArrowUp from '../common/events/OnArrowUp';
-import OnArrowRight from '../common/events/OnArrowRight';
+import OnArrowRight from './events/OnArrowRight';
 import OnArrowDown from '../common/events/OnArrowDown';
-import OnArrowLeft from '../common/events/OnArrowLeft';
+import OnArrowLeft from './events/OnArrowLeft';
 
 /**
  * SecondarySubNav Class
@@ -18,11 +22,12 @@ export default class SecondarySubNavAccordion {
    * @param {[type]} element      [description]
    * @param {Object} [options={}] [description]
    */
-  constructor(element, nav, options = {}) {
+  constructor(element, masterNav, parentNav = null, options = {}) {
     // Vars.
     this.elem = element;
     this.item = element.parentNode;
-    this.nav = nav;
+    this.masterNav = masterNav;
+    this.parentNav = parentNav;
     this.depth = options.depth || 1;
 
     // Merge in defaults.
@@ -42,10 +47,13 @@ export default class SecondarySubNavAccordion {
   createEventRegistry(options) {
 
     var registryDefaults = {
-      onClick: OnClickAccordion,
+      onClick: OnClick,
+      onKeydownSpace: OnSpace,
+      onKeydownEnter: OnSpace,
       onKeydownHome: OnHome,
       onKeydownEnd: OnEnd,
       onKeydownTab: OnTab,
+      onKeydownEscape: OnEsc,
       onKeydownArrowUp: OnArrowUp,
       onKeydownArrowRight: OnArrowRight,
       onKeydownArrowDown: OnArrowDown,

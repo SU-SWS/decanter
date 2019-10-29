@@ -25,17 +25,18 @@ export default class SecondaryNavAccordion extends SecondaryNavAbstract {
    * @param  {[type]} depth [description]
    * @return {[type]}       [description]
    */
-  newParentItem(item, depth) {
-    this.subNavItems.push(
-      new SecondarySubNavAccordion(
-        item,
-        this,
-        {
-          itemExpandedClass: this.options.itemExpandedClass,
-          depth: depth,
-        }
-      )
+  newParentItem(item, depth, parent) {
+    var nav = new SecondarySubNavAccordion(
+      item,
+      this,
+      parent,
+      {
+        itemExpandedClass: this.options.itemExpandedClass,
+        depth: depth,
+      }
     );
+    this.subNavItems.push(nav);
+    return nav;
   }
 
   /**
@@ -44,9 +45,14 @@ export default class SecondaryNavAccordion extends SecondaryNavAbstract {
    * @param  {[type]} depth [description]
    * @return {[type]}       [description]
    */
-  newNavItem(item, depth) {
-    this.navItems.push(
-      new SecondaryNavItem(item, this, { depth: depth })
+  newNavItem(item, depth, parent) {
+    var nav = new SecondaryNavItem(
+      item,
+      this,
+      parent,
+      { depth: depth }
     );
+    this.navItems.push(nav);
+    return nav;
   }
 }

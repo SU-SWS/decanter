@@ -1,12 +1,17 @@
 import EventHandlerDispatch from '../../nav/EventHandlerDispatch';
-import OnHome from './events/OnHome';
-import OnEnd from './events/OnEnd';
-import OnTab from './events/OnTab';
-import OnSpace from './events/OnSpace';
-import OnArrowUp from './events/OnArrowUp';
-import OnArrowRight from './events/OnArrowRight';
+
+// Keyboard control events.
 import OnArrowDown from './events/OnArrowDown';
 import OnArrowLeft from './events/OnArrowLeft';
+import OnArrowRight from './events/OnArrowRight';
+import OnArrowUp from './events/OnArrowUp';
+import OnEnd from './events/OnEnd';
+import OnEsc from './events/OnEsc';
+import OnHome from './events/OnHome';
+import OnEnter from './events/OnEnter';
+import OnSpace from './events/OnSpace';
+import OnTab from './events/OnTab';
+
 /**
  * SecondaryNav Class
  */
@@ -17,10 +22,11 @@ export default class SecondaryNavItem {
     * @param {[type]} element      [description]
     * @param {Object} [options={}] [description]
     */
-   constructor(element, nav, options = {}) {
+   constructor(element, masterNav, parentNav = null, options = {}) {
      this.elem = element;
      this.item = element.parentNode;
-     this.nav = nav;
+     this.masterNav = masterNav;
+     this.parentNav = parentNav;
      this.depth = options.depth || 1;
 
      // Assign the event dispatcher and event registry.
@@ -39,6 +45,8 @@ export default class SecondaryNavItem {
        onKeydownEnd: OnEnd,
        onKeydownTab: OnTab,
        onKeydownSpace: OnSpace,
+       onKeydownEnter: OnEnter,
+       onKeydownEscape: OnEsc,
        onKeydownArrowUp: OnArrowUp,
        onKeydownArrowRight: OnArrowRight,
        onKeydownArrowDown: OnArrowDown,

@@ -1,4 +1,5 @@
 import EventAbstract from './EventAbstract';
+import OnHome from './OnHome';
 
 /**
  * ActivePath Class
@@ -11,12 +12,7 @@ export default class OnArrowDown extends EventAbstract {
    * [init description]
    * @return {[type]} [description]
    */
-  init() {
-    if (!this.isOnTarget()) {
-      return;
-    }
-
-    // Prevent the browser from doing funny stuff.
+  exec() {
     this.event.preventDefault();
 
     // Go to the next item.
@@ -26,11 +22,9 @@ export default class OnArrowDown extends EventAbstract {
       return;
     }
 
-    // No node yet, try home.
-    node = this.getElement('first');
-    if (node) {
-      node.focus();
-    }
+    // If a node is not found go to home.
+    var eventHome = new OnHome(this.item, this.event, this.target);
+    eventHome.init();
   }
 
 }

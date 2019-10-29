@@ -10,12 +10,8 @@ export default class OnTab extends EventAbstract {
   /**
    * Prevent the spacebar from jumping to anywhere.
    */
-  init() {
-  if (!this.isOnTarget()) {
-      return;
-    }
-
-    const shifted = this.event.shiftKey;
+  exec() {
+    const shifted = event.shiftKey;
     let node = null;
 
     if (shifted) {
@@ -25,12 +21,14 @@ export default class OnTab extends EventAbstract {
       node = this.getElement('next');
     }
 
-    // if (!node) {
-    //   this.nav.closeThisSubNav();
-    //   if (this.getDepth() === 1) {
-    //     this.nav.closeAllSubNavs();
-    //   }
-    // }
+    if (!node) {
+      if (this.item.getDepth() === 1) {
+        this.masterNav.closeAllSubNavs();
+      }
+      else {
+        this.parentNav.closeSubNav();
+      }
+    }
   }
 
 }
