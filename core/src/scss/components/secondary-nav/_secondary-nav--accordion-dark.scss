@@ -1,0 +1,49 @@
+@charset 'UTF-8';
+
+// Secondary Nav Accordion Styles - Dark Style.
+// ---------------------------------------------------------------------------
+
+.su-secondary-nav--accordion-dark {
+  .su-secondary-nav__item--parent {
+
+    > .su-secondary-nav__menu {
+      display: none;
+    }
+
+    > .su-secondary-nav__link {
+      &::after {
+        transition: transform 0.3s ease-out;
+        background: url("#{$su-image-path}/plus-white.svg") no-repeat 0 0;
+        background-size: 100%;
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: 2rem;
+        top: calc(50% - 8px);
+        height: 1.8rem;
+        width: 1.8rem;
+      }
+    }
+
+    // Show the menu as expanded.
+    &.su-secondary-nav__item--expanded {
+      > .su-secondary-nav__menu {
+        display: flex;
+      }
+
+      > .su-secondary-nav__link {
+        &::after {
+          background: url("#{$su-image-path}/minus-white.svg") no-repeat 0 0;
+          transform: rotate(180deg);
+          transition: transform 0.3s ease-out;
+        }
+      }
+    }
+  }
+
+  &.no-js {
+    .su-secondary-nav__menu {
+      display: block;
+    }
+  }
+}
