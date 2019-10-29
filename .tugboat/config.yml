@@ -8,7 +8,7 @@ services:
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
           NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          nvm install 10.15.1
+          nvm install 11.14.0
           nvm use
           npm install
           npm run build
@@ -25,7 +25,6 @@ services:
           npm run build
           npm run styleguide
         - rm -R node_modules
-        - ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
     # Collection of urls to compare visual results.
     visualdiffs:
       - /
@@ -54,9 +53,7 @@ services:
       - /item-components-logo.html
       - /item-components-main-navigation.html
       - /item-components-masthead.html
-      - /item-components-nav-toggle.html
       - /item-components-quote.html
-      - /item-components-secondary-navigation.html
       - /item-components-signup-form.html
       - /item-components-site-search.html
       - /item-components-skiplinks.html
