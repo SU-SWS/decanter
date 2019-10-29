@@ -1,4 +1,4 @@
-import EventAbstract from '../../nav/events/EventAbstract';
+import EventAbstract from '../../common/events/EventAbstract';
 
 /**
  * ActivePath Class

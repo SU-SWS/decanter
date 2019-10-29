@@ -1,4 +1,4 @@
-import ElementFetcher from '../ElementFetcher';
+import ElementFetcher from '../../../nav/ElementFetcher';
 
 /**
  * ActivePath Class

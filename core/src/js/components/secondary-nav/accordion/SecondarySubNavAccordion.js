@@ -1,12 +1,12 @@
-import OnClickAccordion from '../events/OnClickAccordion';
+import OnClickAccordion from './events/OnClickAccordion';
 import EventHandlerDispatch from '../../nav/EventHandlerDispatch';
-import OnHome from '../../nav/events/OnHome';
-import OnEnd from '../../nav/events/OnEnd';
-import OnTab from '../../nav/events/OnTab';
-import OnArrowUp from '../../nav/events/OnArrowUp';
-import OnArrowRight from '../../nav/events/OnArrowRight';
-import OnArrowDown from '../../nav/events/OnArrowDown';
-import OnArrowLeft from '../../nav/events/OnArrowLeft';
+import OnHome from '../common/events/OnHome';
+import OnEnd from '../common/events/OnEnd';
+import OnTab from '../common/events/OnTab';
+import OnArrowUp from '../common/events/OnArrowUp';
+import OnArrowRight from '../common/events/OnArrowRight';
+import OnArrowDown from '../common/events/OnArrowDown';
+import OnArrowLeft from '../common/events/OnArrowLeft';
 
 /**
  * SecondarySubNav Class
@@ -19,12 +19,17 @@ export default class SecondarySubNavAccordion {
    * @param {Object} [options={}] [description]
    */
   constructor(element, nav, options = {}) {
+    // Vars.
     this.elem = element;
     this.item = element.parentNode;
     this.nav = nav;
+    this.depth = options.depth || 1;
+
+    // Merge in defaults.
     this.options = Object.assign({
       'itemExpandedClass': 'expanded',
     }, options);
+
     // Assign the event dispatcher and event registry.
     this.eventRegistry = this.createEventRegistry(options);
     this.dispatch = new EventHandlerDispatch(element, this);
@@ -81,6 +86,14 @@ export default class SecondarySubNavAccordion {
   closeSubNav() {
     this.elem.setAttribute('aria-expanded', false);
     this.item.classList.remove(this.options.itemExpandedClass);
+  }
+
+  /**
+   * [getDepth description]
+   * @return {[type]} [description]
+   */
+  getDepth() {
+    return this.depth;
   }
 
 }

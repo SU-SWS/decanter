@@ -1,9 +1,9 @@
-import SecondaryNav from './SecondaryNav';
+import SecondaryNavAbstract from '../common/SecondaryNavAbstract';
 
 /**
  * A secondary menu with toggle buttons.
  */
-export default class SecondaryNavButtons extends SecondaryNav {
+export default class SecondaryNavButtons extends SecondaryNavAbstract {
   /**
    * [constructor description]
    * @param {[type]} elem         [description]

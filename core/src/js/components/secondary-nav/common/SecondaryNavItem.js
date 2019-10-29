@@ -1,12 +1,12 @@
 import EventHandlerDispatch from '../../nav/EventHandlerDispatch';
-import OnHome from '../../nav/events/OnHome';
-import OnEnd from '../../nav/events/OnEnd';
-import OnTab from '../../nav/events/OnTab';
-import OnSpace from '../../nav/events/OnSpace';
-import OnArrowUp from '../../nav/events/OnArrowUp';
-import OnArrowRight from '../../nav/events/OnArrowRight';
-import OnArrowDown from '../../nav/events/OnArrowDown';
-import OnArrowLeft from '../../nav/events/OnArrowLeft';
+import OnHome from './events/OnHome';
+import OnEnd from './events/OnEnd';
+import OnTab from './events/OnTab';
+import OnSpace from './events/OnSpace';
+import OnArrowUp from './events/OnArrowUp';
+import OnArrowRight from './events/OnArrowRight';
+import OnArrowDown from './events/OnArrowDown';
+import OnArrowLeft from './events/OnArrowLeft';
 /**
  * SecondaryNav Class
  */
@@ -21,6 +21,7 @@ export default class SecondaryNavItem {
      this.elem = element;
      this.item = element.parentNode;
      this.nav = nav;
+     this.depth = options.depth || 1;
 
      // Assign the event dispatcher and event registry.
      this.eventRegistry = this.createEventRegistry(options);
@@ -45,6 +46,14 @@ export default class SecondaryNavItem {
      };
 
      return Object.assign(registryDefaults, options.eventRegistry);
+   }
+
+   /**
+    * [getDepth description]
+    * @return {[type]} [description]
+    */
+   getDepth() {
+     return this.depth;
    }
 
 }

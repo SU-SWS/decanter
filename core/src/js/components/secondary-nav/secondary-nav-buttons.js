@@ -1,6 +1,6 @@
 import '../../core/core';
-import { secondaryNavs } from './globals';
-import SecondaryNavButtons from './elements/SecondaryNavButtons';
+import { secondaryNavs } from './common/globals';
+import SecondaryNavButtons from './buttons/SecondaryNavButtons';
 
 document.addEventListener('DOMContentLoaded', event => {
 

@@ -1,6 +1,6 @@
 import '../../core/core';
-import { secondaryNavs } from './globals';
-import SecondaryNavAccordion from './elements/SecondaryNavAccordion';
+import { secondaryNavs } from './common/globals';
+import SecondaryNavAccordion from './accordion/SecondaryNavAccordion';
 
 document.addEventListener('DOMContentLoaded', event => {
 
