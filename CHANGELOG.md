@@ -1,5 +1,54 @@
 # Changelog
 
+Version 5.1.0                      2019-10-31
+---------------------------------------------
+
+- Updated codeclimate linting settings
+- Updated nvmrc to version 11.14.0
+- Removed line length lint requirement for sass
+- Added tugboat builds
+- Fixed bug with grunt browsersync and Webpack
+- Added terms of use policy statement
+- Changed all variables to have the prefix `$su-`
+- Added new color function to support color maps with named colors
+- New Component: Date Stacked
+- New Component: Masthead
+- New Variant: `su-card--link`
+- New Variant: `su-card--minimal`
+- New Variant: `su-global-footer--bright`
+- New Variant: `su-global-footer--dark`
+- New Variant: `su-hero--caption`
+- New Variant: `su-link--download`
+- New Variant: `su-link--internal`
+- New Variant: `su-link--jump`
+- New Variant: `su-link--video`
+- New Mixin: `aspect-ratio()`
+- New Mixin: `ie-only()`
+- New Mixin: `link-glyph()`
+- New Mixin: `link-icon()`
+- New Function: `breakpoint-previous`
+- New Typography styles: 	
+  -- `.su-type-a`: Display Type A (used for H1 heading)
+  -- `.su-type-b`: Display Type B (used for H2 heading)
+  -- `.su-type-c`: Display Type C (used for H3 heading)
+  -- `.su-type-d`: Display Type D (used for H4 heading)
+  -- `.su-type-e`: Display Type E (used for H5 heading)
+  -- `.su-type-f`: Display Type F (used for H6 heading)
+- Template Update: `card.twig` has new regions and variables
+- Template Update: `hero.twig` has new regions and variables
+- Bugfix: Main Menu CSS
+- Bugfix: Flex grid where grid classes now populate up breakpoints
+- Bugfix: whitespace issues in `brand-bar.twig`, `global-footer.twig`, `link.twig`, `lockup.twig`, `logo.twig`, `main-nav.twig`, `site-search.twig`
+- Deprecated: all variables that didn't start with `$su-`
+- Deprecated: mixin `action-link`
+- Deprecated: mixin `external-link`
+- Deprecated: mixin `more-link`
+- `grid-media-only` mixin now does ALL
+- Modular scale now goes to 9!
+- Added fort-awesome and fonts
+- Updated npm package dependency versions
+- Updated webpack config
+
 Version 5.0.1                      2019-05-22
 ---------------------------------------------
 - Fix CSS grid gaps not displaying on Edge issue and other minor grid related issue
