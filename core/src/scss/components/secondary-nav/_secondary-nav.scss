@@ -78,11 +78,12 @@
 .su-secondary-nav__menu-lv2 {
   .su-secondary-nav__item {
     &:last-child {
-      @include padding(0.1rem null 0 null);
-
-      .su-secondary-nav__link {
-        @include padding(null null 1.4rem null);
+      a {
+        &:last-child {
+          @include padding(null null 1.4rem null);
+        }
       }
+      @include padding(0.1rem null 0 null);
     }
   }
 
