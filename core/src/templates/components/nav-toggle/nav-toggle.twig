@@ -1,0 +1,18 @@
+{#
+/**
+ * @file
+ * Nav Toggle
+ *
+ * A navigation button element.
+ *
+ * Available variants:
+ *
+ * Available variables:
+ * - attributes: A collection of html properties for button
+ * - modifier_class: CSS class variants
+ * - aria_expanded: ToggleSubNavItem's state property
+ * - aria_label: Toggle's name property
+ * - toggle_label: The text to display as the button
+ */
+#}
+<button {{ attributes }} class="su-nav-toggle {{ modifier_class }}" aria-expanded="{{ aria_expanded|default(false) }}" aria-label="{{ aria_label|default('expand menu') }}" >{{ toggle_label|default('+') }}</button>

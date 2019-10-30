@@ -21,7 +21,7 @@
       $color: map-get($su-core-colors, $color);
     }
     @else {
-      @error "Color does not exist in color map $su-core-colors."
+      @error "Color does not exist in color map $su-core-colors.";
     }
   }
   @else {
@@ -29,7 +29,7 @@
       $color: map-get($colormap, $color);
     }
     @else {
-      @error "Color does not exist in color map."
+      @error "#{$color} color does not exist in color map";
     }
   }
   @return $color;
