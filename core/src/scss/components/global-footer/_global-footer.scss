@@ -106,7 +106,7 @@
     display: block;
 
     @include grid-media-only('sm') {
-      @include margin(null 1.1rem null null);
+      @include margin(null 1rem null null);
     }
 
     @include grid-media('sm') {
@@ -132,7 +132,7 @@
 
 .su-global-footer__menu--global {
   @include grid-media-only('xs') {
-    @include padding(null 2rem null null);
+    @include padding(null 1.9rem null null);
   }
 
   @include grid-media-between('md', 'xl') {
@@ -145,16 +145,18 @@
 }
 
 .su-global-footer__menu--policy {
-  a {
-    font-weight: $su-font-regular;
-  }
-
   @include grid-media-only('xs') {
-    @include padding(null null null 2rem);
+    @include padding(null null null 1.9rem);
   }
 
   @include grid-media-only('sm') {
     font-size: 1.4rem;
+  }
+
+  @include grid-media('sm') {
+    a {
+      font-weight: $su-font-regular;
+    }
   }
 
   @include grid-media-between('md', 'lg') {
