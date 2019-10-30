@@ -1,9 +1,9 @@
 # Changelog
 
-Version 6.0                        2019-08-28
+Version 6.0.0-alpha.1              2019-10-31
 ---------------------------------------------
-- Change card and quote components to use HTML5 elements.
-- Update card component to allow a variant where the entire card is a link.
+- Removed deprecated code
+- LOTS of wonderful new changes
 
 Version 5.0.1                      2019-05-22
 ---------------------------------------------
