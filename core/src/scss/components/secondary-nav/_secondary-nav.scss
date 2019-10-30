@@ -18,6 +18,15 @@
   @include font-smoothing;
   background-color: color(bg, $su-secondary-nav-colors);
 
+  .su-nav-toggle {
+    &::before {
+      border-radius: 16px;
+      height: 33px;
+      width: 33px;
+      top: calc(50% - 16px);
+      right: calc(50% - 16px)
+    }
+  }
 
   // Expand everything when there is no javascript.
   &.no-js {
@@ -91,12 +100,6 @@
     @include padding(.8rem 4.8rem .8rem 2.4rem);
     border: none;
     font-size: 1.8rem;
-  }
-
-  .su-nav-toggle {
-    height: 39px;
-    max-height: 39px;
-    line-height: 39px;
   }
 }
 
