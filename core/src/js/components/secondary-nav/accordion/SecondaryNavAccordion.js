@@ -6,10 +6,12 @@ import SecondarySubNavAccordion from './SecondarySubNavAccordion';
  * A secondary menu with toggle buttons.
  */
 export default class SecondaryNavAccordion extends SecondaryNavAbstract {
+
   /**
-   * [constructor description]
-   * @param {[type]} elem         [description]
-   * @param {Object} [options={}] [description]
+   * Initialize.
+   *
+   * @param {HTMLElement} elem  The outermost wrapper for the Navigation.
+   * @param {Object} options    An object of metadata.
    */
   constructor(elem, options = {}) {
     // Let super do what super does.
@@ -24,16 +26,21 @@ export default class SecondaryNavAccordion extends SecondaryNavAbstract {
 
   /**
    * Add the additional state handling after the abstract option has run.
+   *
+   * @param  {HTMLElement} item The HTMLElement being acted upon.
    */
   expandActivePathItem(item) {
     item.firstElementChild.setAttribute('aria-expanded', 'true');
   }
 
   /**
-   * [newParentItem description]
-   * @param  {[type]} item  [description]
-   * @param  {[type]} depth [description]
-   * @return {[type]}       [description]
+   * Function for creating a new nested navigation item.
+   *
+   * @param  {HTMLElement} item     The HTMLElement to attach a new subnav to.
+   * @param  {Integer} depth        The level of nesting. (starts at 1)
+   * @param  {Object|Mixed} parent  The parent subnav instance.
+   *
+   * @return {SecondarySubNavAccordion} A brand new instance.
    */
   newParentItem(item, depth, parent) {
     var opts = this.options;
@@ -50,10 +57,13 @@ export default class SecondaryNavAccordion extends SecondaryNavAbstract {
   }
 
   /**
-   * [newNavItem description]
-   * @param  {[type]} item  [description]
-   * @param  {[type]} depth [description]
-   * @return {[type]}       [description]
+   * Function for creating a new single tier navigation item.
+   *
+   * @param  {HTMLElement} item     The HTMLElement to attach a new subnav to.
+   * @param  {Integer} depth        The level of nesting. (starts at 1)
+   * @param  {Object|Mixed} parent  The parent subnav instance.
+   *
+   * @return {SecondaryNavItem} A brand new instance.
    */
   newNavItem(item, depth, parent) {
     var opts = this.options;

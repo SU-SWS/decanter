@@ -13,14 +13,20 @@ import OnArrowDown from '../common/events/OnArrowDown';
 import OnArrowLeft from './events/OnArrowLeft';
 
 /**
- * SecondarySubNav Class
+ * SecondarySubNavAccordion Class
+ *
+ * A sub menu class for creating a menu with accordion functionality.
  */
 export default class SecondarySubNavAccordion {
 
   /**
-   * [constructor description]
-   * @param {[type]} element      [description]
-   * @param {Object} [options={}] [description]
+   * Initialize.
+   *
+   * @param {HTMLElement} element     The container wrapper for the nav.
+   * @param {Object|Mixed} masterNav  The top most level navigation.
+   * @param {Object|Mixed} parentNav  The parent navigation instance if this
+   *                                  instance is nested.
+   * @param {Object} options          A meta object of information and options.
    */
   constructor(element, masterNav, parentNav = null, options = {}) {
     // Vars.
@@ -42,7 +48,13 @@ export default class SecondarySubNavAccordion {
 
   /**
    * Creates an event registry for handling types of events.
-   * @return {[type]} [description]
+   *
+   * This registry is used by the EventHandlerDispatch class to bind and
+   * execute the events in the created property key.
+   *
+   * @param  {Object} options Options to merge in with the defaults.
+   *
+   * @return {Object} A key/value registry of events and handlers.
    */
   createEventRegistry(options) {
 
@@ -97,8 +109,9 @@ export default class SecondarySubNavAccordion {
   }
 
   /**
-   * [getDepth description]
-   * @return {[type]} [description]
+   * Get the level of nesting for this nav.
+   *
+   * @return {Integer} The integer of depth starting at 1.
    */
   getDepth() {
     return this.depth;

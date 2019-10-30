@@ -1,14 +1,14 @@
 import EventAbstract from '../../common/events/EventAbstract';
 
 /**
- * ActivePath Class
+ * OnClick
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 export default class OnClick extends EventAbstract {
 
   /**
-   * [init description]
+   * Execute the action to the event.
    */
   exec() {
     this.event.stopPropagation();

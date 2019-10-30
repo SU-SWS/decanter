@@ -1,14 +1,16 @@
 /**
- * ActivePath Class
+ * ElementFetcher Class
  *
- * NEEDS DESCRIPTION.
+ * Provides a relative named DOM navigator for quickly getting elements relative
+ * to the provided context.
  */
 export default class ElementFetcher {
 
   /**
-   * [constructor description]
-   * @param {[type]} element [description]
-   * @param {[type]} what    [description]
+   * Initialize.
+   *
+   * @param {HTMLElement} element   The DOM object to use.
+   * @param {String} what           A named string.
    */
   constructor(element, what) {
     this.item = element;
@@ -16,8 +18,9 @@ export default class ElementFetcher {
   }
 
   /**
-   * [fetch description]
-   * @return {[type]} [description]
+   * Attempt to retrieve an item.
+   *
+   * @return {Boolean|HTMLElement} An element or false if `what` is not found.
    */
   fetch() {
     try {
