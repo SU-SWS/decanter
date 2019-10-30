@@ -47,7 +47,7 @@ export default class SubNavToggle {
       onKeydownEnd: OnEnd,
       onKeydownEscape: OnEsc,
       onKeydownArrowUp: SubNavToggleArrowUp,
-      onKeydownArrowRight: SubNavToggleArrowDown,
+      onKeydownArrowRight: SubNavToggleSpace,
       onKeydownArrowDown: SubNavToggleArrowDown,
       onKeydownArrowLeft: SubNavToggleArrowLeft,
     };

@@ -2394,7 +2394,7 @@ function () {
         onKeydownEnd: _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_7__["default"],
         onKeydownEscape: _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_8__["default"],
         onKeydownArrowUp: _events_SubNavToggleArrowUp__WEBPACK_IMPORTED_MODULE_5__["default"],
-        onKeydownArrowRight: _events_SubNavToggleArrowDown__WEBPACK_IMPORTED_MODULE_3__["default"],
+        onKeydownArrowRight: _events_SubNavToggleSpace__WEBPACK_IMPORTED_MODULE_2__["default"],
         onKeydownArrowDown: _events_SubNavToggleArrowDown__WEBPACK_IMPORTED_MODULE_3__["default"],
         onKeydownArrowLeft: _events_SubNavToggleArrowLeft__WEBPACK_IMPORTED_MODULE_4__["default"]
       };
