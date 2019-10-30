@@ -79,17 +79,19 @@
   .su-secondary-nav__item {
     &:last-child {
       @include padding(0.1rem null 0 null);
-    }
 
-    .su-secondary-nav__link {
-      @include padding(.8rem 4.8rem .8rem 2.4rem);
-      border: none;
-      font-size: 1.8rem;
+      .su-secondary-nav__link {
+        @include padding(null null 1.4rem null);
+      }
     }
   }
-}
 
-.su-secondary-nav__menu-lv2 {
+  .su-secondary-nav__link {
+    @include padding(.8rem 4.8rem .8rem 2.4rem);
+    border: none;
+    font-size: 1.8rem;
+  }
+
   .su-nav-toggle {
     height: 39px;
     max-height: 39px;
