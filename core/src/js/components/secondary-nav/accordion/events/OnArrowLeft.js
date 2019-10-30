@@ -1,5 +1,5 @@
 import EventAbstract from '../../common/events/EventAbstract';
-import { OnArrowLeft as NavItemOnArrowLeft } from '../../common/events/OnArrowLeft';
+import NavItemOnArrowLeft from '../../common/events/OnArrowLeft';
 
 /**
  * ActivePath Class

@@ -52,6 +52,8 @@ export default class ElementFetcher {
           return this.item.parentNode.parentNode.parentNode.firstElementChild.querySelector('a');
         case 'parentNavNext':
           return this.item.parentNode.parentNode.nextElementSibling;
+        case 'parentNavNextItem':
+          return this.item.parentNode.parentNode.nextElementSibling.querySelector('a');
         case 'parentNavPrev':
           return this.item.parentNode.parentNode.previousElementSibling;
         case 'parentNavPrevItem':

@@ -1062,12 +1062,13 @@ function () {
    * [constructor description]
    * @param {[type]} element [description]
    */
-  function ActivePath(element) {
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+  function ActivePath(element, item) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
     _classCallCheck(this, ActivePath);
 
-    this.elem = element; // Class properties.
+    this.elem = element;
+    this.item = item; // Class properties.
 
     this.itemActiveClass = options.itemActiveClass || 'active';
     this.itemActiveTrailClass = options.itemActiveTrailClass || 'active-trail';
@@ -1130,24 +1131,27 @@ function () {
       var actives = this.elem.querySelectorAll('.' + this.itemActiveClass);
 
       if (actives.length) {
-        actives.forEach(function (item) {
+        actives.forEach(function (element) {
           // While we have parents go up and add the active class.
-          while (item) {
+          while (element) {
             // End when we get to the parent nav item stop.
-            if (item === _this.elem) {
+            if (element === _this.elem) {
               // Stop at the top most level.
               break;
             } // If we are on a LI element we need to add the active class.
 
 
-            if (item.tagName === 'LI') {
-              item.classList.add(_this.itemExpandedClass);
-              item.classList.add(_this.itemActiveTrailClass);
-              item.firstElementChild.setAttribute('aria-expanded', true);
+            if (element.tagName === 'LI') {
+              element.classList.add(_this.itemExpandedClass);
+              element.classList.add(_this.itemActiveTrailClass); // "Hook" of sorts.
+
+              if (typeof _this.item.expandActivePathItem == "function") {
+                _this.item.expandActivePathItem(element);
+              }
             } // Always increment.
 
 
-            item = item.parentNode;
+            element = element.parentNode;
           }
         });
       }
@@ -1254,6 +1258,9 @@ function () {
 
           case 'parentNavNext':
             return this.item.parentNode.parentNode.nextElementSibling;
+
+          case 'parentNavNextItem':
+            return this.item.parentNode.parentNode.nextElementSibling.querySelector('a');
 
           case 'parentNavPrev':
             return this.item.parentNode.parentNode.previousElementSibling;
@@ -1487,25 +1494,36 @@ function (_SecondaryNavAbstract) {
     // Let super do what super does.
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SecondaryNavAccordion).call(this, elem, options)); // Ok do the creation.
 
-    _this.createSubNavItems();
+    _this.createSubNavItems(); // Expand the active path.
+
+
+    _this.activePath.expandActivePath();
 
     return _this;
   }
   /**
-   * [newParentItem description]
-   * @param  {[type]} item  [description]
-   * @param  {[type]} depth [description]
-   * @return {[type]}       [description]
+   * Add the additional state handling after the abstract option has run.
    */
 
 
   _createClass(SecondaryNavAccordion, [{
+    key: "expandActivePathItem",
+    value: function expandActivePathItem(item) {
+      item.firstElementChild.setAttribute('aria-expanded', 'true');
+    }
+    /**
+     * [newParentItem description]
+     * @param  {[type]} item  [description]
+     * @param  {[type]} depth [description]
+     * @return {[type]}       [description]
+     */
+
+  }, {
     key: "newParentItem",
     value: function newParentItem(item, depth, parent) {
-      var nav = new _SecondarySubNavAccordion__WEBPACK_IMPORTED_MODULE_2__["default"](item, this, parent, {
-        itemExpandedClass: this.options.itemExpandedClass,
-        depth: depth
-      });
+      var opts = this.options;
+      opts.depth = depth;
+      var nav = new _SecondarySubNavAccordion__WEBPACK_IMPORTED_MODULE_2__["default"](item, this, parent, opts);
       this.subNavItems.push(nav);
       return nav;
     }
@@ -1519,9 +1537,9 @@ function (_SecondaryNavAbstract) {
   }, {
     key: "newNavItem",
     value: function newNavItem(item, depth, parent) {
-      var nav = new _common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_1__["default"](item, this, parent, {
-        depth: depth
-      });
+      var opts = this.options;
+      opts.depth = depth;
+      var nav = new _common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_1__["default"](item, this, parent, opts);
       this.navItems.push(nav);
       return nav;
     }
@@ -1600,7 +1618,7 @@ function () {
     this.depth = options.depth || 1; // Merge in defaults.
 
     this.options = Object.assign({
-      'itemExpandedClass': 'expanded'
+      'itemExpandedClass': 'su-secondary-nav__item--expanded'
     }, options); // Assign the event dispatcher and event registry.
 
     this.eventRegistry = this.createEventRegistry(options);
@@ -1653,7 +1671,7 @@ function () {
   }, {
     key: "openSubNav",
     value: function openSubNav() {
-      this.elem.setAttribute('aria-expanded', true);
+      this.elem.setAttribute('aria-expanded', 'true');
       this.item.classList.add(this.options.itemExpandedClass);
     }
     /**
@@ -1666,7 +1684,7 @@ function () {
   }, {
     key: "closeSubNav",
     value: function closeSubNav() {
-      this.elem.setAttribute('aria-expanded', false);
+      this.elem.setAttribute('aria-expanded', 'false');
       this.item.classList.remove(this.options.itemExpandedClass);
     }
     /**
@@ -1754,7 +1772,7 @@ function (_EventAbstract) {
       if (node) {
         node.focus();
       } else {
-        var otherLeft = new _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_1__["OnArrowLeft"](this.item, this.event, this.target);
+        var otherLeft = new _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
         otherLeft.init();
       }
     }
@@ -1890,6 +1908,7 @@ function (_EventAbstract) {
      * [init description]
      */
     value: function exec() {
+      this.event.stopPropagation();
       this.event.preventDefault();
 
       if (this.item.isExpanded()) {
@@ -1967,7 +1986,8 @@ function (_EventAbstract) {
      * Prevent the spacebar from jumping to anywhere.
      */
     value: function exec() {
-      // Do the rest of the stuff click does.
+      this.event.preventDefault(); // Do the rest of the stuff click does.
+
       var eventClick = new _OnClick__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
       eventClick.init(); // Focus on the first element for keyboard but not clicks.
 
@@ -1995,9 +2015,15 @@ function (_EventAbstract) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SecondaryNavButtons; });
 /* harmony import */ var _common_SecondaryNavAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common/SecondaryNavAbstract */ "./core/src/js/components/secondary-nav/common/SecondaryNavAbstract.js");
+/* harmony import */ var _common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/SecondaryNavItem */ "./core/src/js/components/secondary-nav/common/SecondaryNavItem.js");
+/* harmony import */ var _SecondarySubNavButtons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SecondarySubNavButtons */ "./core/src/js/components/secondary-nav/buttons/SecondarySubNavButtons.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
@@ -2008,6 +2034,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
 
 
 /**
@@ -2025,15 +2053,889 @@ function (_SecondaryNavAbstract) {
    * @param {Object} [options={}] [description]
    */
   function SecondaryNavButtons(elem) {
+    var _this;
+
     var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
     _classCallCheck(this, SecondaryNavButtons);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(SecondaryNavButtons).call(this, elem, options));
+    // Merge with the default options.
+    options = Object.assign({
+      'itemExpandedClass': 'su-secondary-nav__item--expanded',
+      'toggleClass': 'su-nav-toggle',
+      'toggleLabel': 'expand menu',
+      'subNavToggleText': "+"
+    }, options); // Call the super.
+
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(SecondaryNavButtons).call(this, elem, options)); // Ok do the creation.
+
+    _this.createSubNavItems(); // Expand the path.
+
+
+    _this.activePath.expandActivePath();
+
+    return _this;
   }
+  /**
+   * Add the additional state handling after the abstract option has run.
+   */
+
+
+  _createClass(SecondaryNavButtons, [{
+    key: "expandActivePathItem",
+    value: function expandActivePathItem(item) {
+      var node = item.querySelector("." + this.options.toggleClass);
+
+      if (node) {
+        node.setAttribute('aria-expanded', 'true');
+      }
+    }
+    /**
+     * [newParentItem description]
+     * @param  {[type]} item  [description]
+     * @param  {[type]} depth [description]
+     * @return {[type]}       [description]
+     */
+
+  }, {
+    key: "newParentItem",
+    value: function newParentItem(item, depth, parent) {
+      var nav = new _SecondarySubNavButtons__WEBPACK_IMPORTED_MODULE_2__["default"](item, this, parent, {
+        itemExpandedClass: this.options.itemExpandedClass,
+        depth: depth
+      });
+      this.subNavItems.push(nav);
+      return nav;
+    }
+    /**
+     * [newNavItem description]
+     * @param  {[type]} item  [description]
+     * @param  {[type]} depth [description]
+     * @return {[type]}       [description]
+     */
+
+  }, {
+    key: "newNavItem",
+    value: function newNavItem(item, depth, parent) {
+      var nav = new _common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_1__["default"](item, this, parent, {
+        depth: depth
+      });
+      this.navItems.push(nav);
+      return nav;
+    }
+  }]);
 
   return SecondaryNavButtons;
 }(_common_SecondaryNavAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/SecondarySubNavButtons.js":
+/*!********************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/SecondarySubNavButtons.js ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SecondarySubNavButtons; });
+/* harmony import */ var _SubNavToggle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SubNavToggle */ "./core/src/js/components/secondary-nav/buttons/SubNavToggle.js");
+/* harmony import */ var _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../nav/EventHandlerDispatch */ "./core/src/js/components/nav/EventHandlerDispatch.js");
+/* harmony import */ var _common_events_OnHome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/events/OnHome */ "./core/src/js/components/secondary-nav/common/events/OnHome.js");
+/* harmony import */ var _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/events/OnEnd */ "./core/src/js/components/secondary-nav/common/events/OnEnd.js");
+/* harmony import */ var _events_OnTab__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./events/OnTab */ "./core/src/js/components/secondary-nav/buttons/events/OnTab.js");
+/* harmony import */ var _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/events/OnEsc */ "./core/src/js/components/secondary-nav/common/events/OnEsc.js");
+/* harmony import */ var _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/events/OnSpace */ "./core/src/js/components/secondary-nav/common/events/OnSpace.js");
+/* harmony import */ var _common_events_OnArrowUp__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/events/OnArrowUp */ "./core/src/js/components/secondary-nav/common/events/OnArrowUp.js");
+/* harmony import */ var _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./events/OnArrowRight */ "./core/src/js/components/secondary-nav/buttons/events/OnArrowRight.js");
+/* harmony import */ var _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../common/events/OnArrowDown */ "./core/src/js/components/secondary-nav/common/events/OnArrowDown.js");
+/* harmony import */ var _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../common/events/OnArrowLeft */ "./core/src/js/components/secondary-nav/common/events/OnArrowLeft.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+ // Events
+
+ // Click handler.
+// import OnClick from '../common/events/OnClick';
+// Keyboard events.
+
+
+
+
+
+
+
+
+
+
+/**
+ * SecondarySubNav Class
+ */
+
+var SecondarySubNavButtons =
+/*#__PURE__*/
+function () {
+  /**
+   * [constructor description]
+   * @param {[type]} element      [description]
+   * @param {Object} [options={}] [description]
+   */
+  function SecondarySubNavButtons(element, masterNav) {
+    var parentNav = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+    var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
+
+    _classCallCheck(this, SecondarySubNavButtons);
+
+    // Vars.
+    this.elem = element;
+    this.item = element.parentNode;
+    this.masterNav = masterNav;
+    this.parentNav = parentNav;
+    this.depth = options.depth || 1; // Merge in defaults.
+
+    this.options = Object.assign({
+      'itemExpandedClass': 'su-secondary-nav__item--expanded',
+      'toggleClass': 'su-nav-toggle',
+      'toggleLabel': 'expand menu',
+      'subNavToggleText': "+"
+    }, options); // Assign the event dispatcher and event registry.
+
+    this.eventRegistry = this.createEventRegistry(options);
+    this.dispatch = new _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_1__["default"](element, this); // Create the toggle buttons.
+
+    this.toggleElement = this.createToggleButton();
+    this.item.insertBefore(this.toggleElement, this.item.querySelector('ul'));
+    this.toggle = new _SubNavToggle__WEBPACK_IMPORTED_MODULE_0__["default"](this.toggleElement, this, options);
+  }
+  /**
+   * Creates an event registry for handling types of events.
+   * @return {[type]} [description]
+   */
+
+
+  _createClass(SecondarySubNavButtons, [{
+    key: "createEventRegistry",
+    value: function createEventRegistry(options) {
+      var registryDefaults = {
+        // onClick: OnClick,
+        onKeydownSpace: _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_6__["default"],
+        onKeydownEnter: _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_6__["default"],
+        onKeydownHome: _common_events_OnHome__WEBPACK_IMPORTED_MODULE_2__["default"],
+        onKeydownEnd: _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_3__["default"],
+        onKeydownTab: _events_OnTab__WEBPACK_IMPORTED_MODULE_4__["default"],
+        onKeydownEscape: _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_5__["default"],
+        onKeydownArrowUp: _common_events_OnArrowUp__WEBPACK_IMPORTED_MODULE_7__["default"],
+        onKeydownArrowRight: _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_8__["default"],
+        onKeydownArrowDown: _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_9__["default"],
+        onKeydownArrowLeft: _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_10__["default"]
+      };
+      return Object.assign(registryDefaults, options.eventRegistry);
+    }
+    /**
+     * Create and a button for the expand/collapse actions.
+     *
+     * @return {HTMLElement} The button toggle.
+     */
+
+  }, {
+    key: "createToggleButton",
+    value: function createToggleButton() {
+      var element = document.createElement('button');
+      var label = document.createTextNode(this.options.toggleText); // Give this instance a unique ID.
+
+      var id = 'toggle-' + Math.random().toString(36).substr(2, 9);
+      element.setAttribute('class', this.options.toggleClass);
+      element.setAttribute('aria-expanded', 'false'); // element.setAttribute('aria-controls', this.subNav.id);
+
+      element.setAttribute('aria-label', this.options.toggleLabel);
+      element.setAttribute('id', id);
+      element.appendChild(label);
+      return element;
+    }
+    /**
+     * Is this expanded? Can only return TRUE if this is a subnav trigger.
+     *
+     * @return {Boolean}
+     *  Wether or not the item is expanded.
+     */
+
+  }, {
+    key: "isExpanded",
+    value: function isExpanded() {
+      return this.toggleElement.getAttribute('aria-expanded') === 'true';
+    }
+    /**
+     * Handles the opening of a sub-nav.
+     *
+     * If this is a subnav trigger, open the corresponding subnav.
+     * Optionally force focus on the first element in the subnav
+     * (for keyboard nav).
+     */
+
+  }, {
+    key: "openSubNav",
+    value: function openSubNav() {
+      this.toggleElement.setAttribute('aria-expanded', true);
+      this.item.classList.add(this.options.itemExpandedClass);
+    }
+    /**
+     * Handles the closing of a subnav.
+     *
+     * If this is a subnav trigger or an item in a subnav, close the
+     * corresponding subnav. Optionally force focus on the trigger.
+     */
+
+  }, {
+    key: "closeSubNav",
+    value: function closeSubNav() {
+      this.toggleElement.setAttribute('aria-expanded', false);
+      this.item.classList.remove(this.options.itemExpandedClass);
+    }
+    /**
+     * [getDepth description]
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "getDepth",
+    value: function getDepth() {
+      return this.depth;
+    }
+  }]);
+
+  return SecondarySubNavButtons;
+}();
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/SubNavToggle.js":
+/*!**********************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/SubNavToggle.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SubNavToggle; });
+/* harmony import */ var _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../nav/EventHandlerDispatch */ "./core/src/js/components/nav/EventHandlerDispatch.js");
+/* harmony import */ var _events_SubNavToggleClick__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events/SubNavToggleClick */ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleClick.js");
+/* harmony import */ var _events_SubNavToggleSpace__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./events/SubNavToggleSpace */ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleSpace.js");
+/* harmony import */ var _events_SubNavToggleArrowDown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./events/SubNavToggleArrowDown */ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowDown.js");
+/* harmony import */ var _events_SubNavToggleArrowLeft__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./events/SubNavToggleArrowLeft */ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowLeft.js");
+/* harmony import */ var _events_SubNavToggleArrowUp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./events/SubNavToggleArrowUp */ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowUp.js");
+/* harmony import */ var _common_events_OnHome__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/events/OnHome */ "./core/src/js/components/secondary-nav/common/events/OnHome.js");
+/* harmony import */ var _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/events/OnEnd */ "./core/src/js/components/secondary-nav/common/events/OnEnd.js");
+/* harmony import */ var _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/events/OnEsc */ "./core/src/js/components/secondary-nav/common/events/OnEsc.js");
+/* harmony import */ var _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./events/OnArrowRight */ "./core/src/js/components/secondary-nav/buttons/events/OnArrowRight.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+ // Events
+
+
+
+
+
+
+
+
+
+
+/**
+ * A stoggle button.
+ */
+
+var SubNavToggle =
+/*#__PURE__*/
+function () {
+  /**
+   * [constructor description]
+   * @param {[type]} element [description]
+   * @param {[type]} item    [description]
+   */
+  function SubNavToggle(element, item, options) {
+    _classCallCheck(this, SubNavToggle);
+
+    this.parentNav = item;
+    this.masterNav = item.masterNav;
+    this.toggle = element;
+    this.elem = element;
+    this.options = options; // Assign the event dispatcher and event registry.
+
+    this.eventRegistry = this.createEventRegistry(options);
+    this.dispatch = new _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_0__["default"](element, this);
+  }
+  /**
+   * Creates an event registry for handling types of events.
+   * @return {[type]} [description]
+   */
+
+
+  _createClass(SubNavToggle, [{
+    key: "createEventRegistry",
+    value: function createEventRegistry(options) {
+      var registryDefaults = {
+        onClick: _events_SubNavToggleClick__WEBPACK_IMPORTED_MODULE_1__["default"],
+        onKeydownSpace: _events_SubNavToggleSpace__WEBPACK_IMPORTED_MODULE_2__["default"],
+        onKeydownEnter: _events_SubNavToggleSpace__WEBPACK_IMPORTED_MODULE_2__["default"],
+        onKeydownHome: _common_events_OnHome__WEBPACK_IMPORTED_MODULE_6__["default"],
+        onKeydownEnd: _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_7__["default"],
+        onKeydownEscape: _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_8__["default"],
+        onKeydownArrowUp: _events_SubNavToggleArrowUp__WEBPACK_IMPORTED_MODULE_5__["default"],
+        onKeydownArrowRight: _events_SubNavToggleArrowDown__WEBPACK_IMPORTED_MODULE_3__["default"],
+        onKeydownArrowDown: _events_SubNavToggleArrowDown__WEBPACK_IMPORTED_MODULE_3__["default"],
+        onKeydownArrowLeft: _events_SubNavToggleArrowLeft__WEBPACK_IMPORTED_MODULE_4__["default"]
+      };
+      return Object.assign(registryDefaults, options.eventRegistry);
+    }
+  }]);
+
+  return SubNavToggle;
+}();
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/events/OnArrowRight.js":
+/*!*****************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/events/OnArrowRight.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowRight; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+/**
+ * ActivePath Class
+ *
+ * NEEDS DESCRIPTION.
+ */
+
+var OnArrowRight =
+/*#__PURE__*/
+function (_EventAbstract) {
+  _inherits(OnArrowRight, _EventAbstract);
+
+  function OnArrowRight() {
+    _classCallCheck(this, OnArrowRight);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(OnArrowRight).apply(this, arguments));
+  }
+
+  _createClass(OnArrowRight, [{
+    key: "exec",
+
+    /**
+     * [exec description]
+     * @return {[type]} [description]
+     */
+    value: function exec() {
+      this.item.toggleElement.focus();
+    }
+  }]);
+
+  return OnArrowRight;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/events/OnTab.js":
+/*!**********************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/events/OnTab.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnTab; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+/**
+ * ActivePath Class
+ *
+ * NEEDS DESCRIPTION.
+ */
+
+var OnTab =
+/*#__PURE__*/
+function (_EventAbstract) {
+  _inherits(OnTab, _EventAbstract);
+
+  function OnTab() {
+    _classCallCheck(this, OnTab);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(OnTab).apply(this, arguments));
+  }
+
+  _createClass(OnTab, [{
+    key: "exec",
+
+    /**
+     * [exec description]
+     * @return {[type]} [description]
+     */
+    value: function exec() {
+      // Only act on backwards options as we want to allow the tab to go
+      // to the toggle.
+      var shifted = event.shiftKey;
+
+      if (!shifted) {
+        if (!this.getElement('nextElement') && this.item.getDepth() === 1) {
+          this.masterNav.closeAllSubNavs();
+        }
+
+        return;
+      } // If no previous element we are going up a level and should close
+      // up behind us.
+
+
+      var node = this.getElement('prev');
+
+      if (!node) {
+        this.parentNav.closeSubNav();
+      }
+    }
+  }]);
+
+  return OnTab;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowDown.js":
+/*!**************************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowDown.js ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SubNavToggleArrowDown; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+/**
+ * ActivePath Class
+ *
+ * NEEDS DESCRIPTION.
+ */
+
+var SubNavToggleArrowDown =
+/*#__PURE__*/
+function (_EventAbstract) {
+  _inherits(SubNavToggleArrowDown, _EventAbstract);
+
+  function SubNavToggleArrowDown() {
+    _classCallCheck(this, SubNavToggleArrowDown);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(SubNavToggleArrowDown).apply(this, arguments));
+  }
+
+  _createClass(SubNavToggleArrowDown, [{
+    key: "exec",
+
+    /**
+     * [exec description]
+     * @return {[type]} [description]
+     */
+    value: function exec() {
+      this.event.preventDefault(); // If on the toggle item and the menu is expanded go down in to the first
+      // menu item link as the focus.
+
+      if (this.parentNav.isExpanded()) {
+        event.stopPropagation();
+        event.preventDefault();
+        this.getElement('firstSubnavLink').focus();
+      } // If current focus is on the toggle and the menu is not open, go to the
+      // next sibling menu item.
+      else {
+          var node = this.getElement('next') || this.getElement('parentNavNext') || this.getElement('last');
+
+          if (node) {
+            node.focus();
+          }
+        }
+    }
+  }]);
+
+  return SubNavToggleArrowDown;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowLeft.js":
+/*!**************************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowLeft.js ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SubNavToggleArrowLeft; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+/**
+ * ActivePath Class
+ *
+ * NEEDS DESCRIPTION.
+ */
+
+var SubNavToggleArrowLeft =
+/*#__PURE__*/
+function (_EventAbstract) {
+  _inherits(SubNavToggleArrowLeft, _EventAbstract);
+
+  function SubNavToggleArrowLeft() {
+    _classCallCheck(this, SubNavToggleArrowLeft);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(SubNavToggleArrowLeft).apply(this, arguments));
+  }
+
+  _createClass(SubNavToggleArrowLeft, [{
+    key: "exec",
+
+    /**
+     * [exec description]
+     * @return {[type]} [description]
+     */
+    value: function exec() {
+      event.stopPropagation();
+      event.preventDefault();
+      this.parentNav.elem.focus();
+    }
+  }]);
+
+  return SubNavToggleArrowLeft;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowUp.js":
+/*!************************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowUp.js ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SubNavToggleArrowUp; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+/**
+ * ActivePath Class
+ *
+ * NEEDS DESCRIPTION.
+ */
+
+var SubNavToggleArrowUp =
+/*#__PURE__*/
+function (_EventAbstract) {
+  _inherits(SubNavToggleArrowUp, _EventAbstract);
+
+  function SubNavToggleArrowUp() {
+    _classCallCheck(this, SubNavToggleArrowUp);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(SubNavToggleArrowUp).apply(this, arguments));
+  }
+
+  _createClass(SubNavToggleArrowUp, [{
+    key: "exec",
+
+    /**
+     * [exec description]
+     * @return {[type]} [description]
+     */
+    value: function exec() {
+      this.event.preventDefault(); // If the current focus is on the toggle and the menu is expanded, close
+      // this nav menu and go to the parent list item.
+
+      if (this.parentNav.isExpanded()) {
+        event.stopPropagation();
+        event.preventDefault();
+        this.parentNav.closeSubNav();
+        this.getElement('parentItem').focus();
+      } // If the focus is on the toggle and the menu is not expanded, go to the
+      // previous sibling item by calling the super method.
+      else {
+          var node = this.getElement('prev') || this.getElement('parentNavPrev') || this.getElement('first');
+
+          if (node) {
+            node.focus();
+          }
+        }
+    }
+  }]);
+
+  return SubNavToggleArrowUp;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleClick.js":
+/*!**********************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/events/SubNavToggleClick.js ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SubNavToggleClick; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+/**
+ * ActivePath Class
+ *
+ * NEEDS DESCRIPTION.
+ */
+
+var SubNavToggleClick =
+/*#__PURE__*/
+function (_EventAbstract) {
+  _inherits(SubNavToggleClick, _EventAbstract);
+
+  function SubNavToggleClick() {
+    _classCallCheck(this, SubNavToggleClick);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(SubNavToggleClick).apply(this, arguments));
+  }
+
+  _createClass(SubNavToggleClick, [{
+    key: "exec",
+
+    /**
+     * [init description]
+     */
+    value: function exec() {
+      if (this.parentNav.isExpanded()) {
+        this.parentNav.closeSubNav();
+        this.elem.blur();
+        this.elem.focus();
+      } else {
+        this.parentNav.openSubNav();
+      }
+    }
+  }]);
+
+  return SubNavToggleClick;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleSpace.js":
+/*!**********************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/events/SubNavToggleSpace.js ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SubNavToggleSpace; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+/* harmony import */ var _SubNavToggleClick__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SubNavToggleClick */ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleClick.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+/**
+ * ActivePath Class
+ *
+ * NEEDS DESCRIPTION.
+ */
+
+var SubNavToggleSpace =
+/*#__PURE__*/
+function (_EventAbstract) {
+  _inherits(SubNavToggleSpace, _EventAbstract);
+
+  function SubNavToggleSpace() {
+    _classCallCheck(this, SubNavToggleSpace);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(SubNavToggleSpace).apply(this, arguments));
+  }
+
+  _createClass(SubNavToggleSpace, [{
+    key: "exec",
+
+    /**
+     * [exec description]
+     * @return {[type]} [description]
+     */
+    value: function exec() {
+      // No jumping around.
+      this.event.preventDefault(); // Call the click because it is pretty much the same thing.
+
+      var eventClick = new _SubNavToggleClick__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
+      eventClick.init(); // Only focus on keyboard nav not on click.
+
+      if (this.parentNav.isExpanded()) {
+        var node = this.getElement('firstSubnavLink');
+
+        if (node) {
+          node.focus();
+        }
+      }
+    }
+  }]);
+
+  return SubNavToggleSpace;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 
 
@@ -2103,9 +3005,8 @@ function () {
     this.eventRegistry = this.createEventRegistry(options);
     this.dispatch = new _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_1__["default"](element, this); // Handle the active state.
 
-    this.activePath = new _nav_ActivePath__WEBPACK_IMPORTED_MODULE_0__["default"](element, this.options);
-    this.activePath.setActivePath();
-    this.activePath.expandActivePath(); // Helper Item Variables.
+    this.activePath = new _nav_ActivePath__WEBPACK_IMPORTED_MODULE_0__["default"](element, this, this.options);
+    this.activePath.setActivePath(); // Helper Item Variables.
 
     this.navItems = [];
     this.subNavItems = [];
@@ -2113,12 +3014,21 @@ function () {
     this.navItemSelector = ':scope > ul > .' + this.options.itemClass + ":not(." + this.options.itemParentClass + ")";
   }
   /**
-   * Creates an event registry for handling types of events.
+   * [expandActivePath description]
    * @return {[type]} [description]
    */
 
 
   _createClass(SecondaryNavAbstract, [{
+    key: "expandActivePath",
+    value: function expandActivePath() {} // For any additional items outside of the core functions.
+
+    /**
+     * Creates an event registry for handling types of events.
+     * @return {[type]} [description]
+     */
+
+  }, {
     key: "createEventRegistry",
     value: function createEventRegistry(options) {
       var registryDefaults = {
@@ -2993,7 +3903,6 @@ function (_EventAbstract) {
       }
 
       if (node) {
-        console.log(node);
         node.focus();
       }
     }
@@ -3200,17 +4109,29 @@ function (_EventAbstract) {
     value: function exec() {
       var shifted = event.shiftKey;
       var node = null;
+      var firstItem = this.masterNav.elem.querySelector("a");
+      var lastItem = this.masterNav.elem.firstElementChild.lastElementChild.querySelector("li:last-child"); // If shift key is held.
 
       if (shifted) {
         node = this.getElement('prev');
-      } else {
-        node = this.getElement('next');
-      }
+
+        if (this.target == firstItem) {
+          this.masterNav.closeAllSubNavs();
+          return;
+        }
+      } // No shift key, just regular ol tab.
+      else {
+          node = this.getElement('next');
+
+          if (this.target.parentNode == lastItem) {
+            this.masterNav.closeAllSubNavs();
+            return;
+          }
+        } // No nodes were found. Close up behind us.
+
 
       if (!node) {
-        if (this.item.getDepth() === 1) {
-          this.masterNav.closeAllSubNavs();
-        } else {
+        if (this.item.getDepth() > 1) {
           this.parentNav.closeSubNav();
         }
       }

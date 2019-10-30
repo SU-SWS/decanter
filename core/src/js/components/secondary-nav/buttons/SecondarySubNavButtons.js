@@ -1,21 +1,23 @@
+import SubNavToggle from './SubNavToggle';
+// Events
 import EventHandlerDispatch from '../../nav/EventHandlerDispatch';
 // Click handler.
-import OnClick from './events/OnClick';
+// import OnClick from '../common/events/OnClick';
 // Keyboard events.
 import OnHome from '../common/events/OnHome';
 import OnEnd from '../common/events/OnEnd';
-import OnTab from '../common/events/OnTab';
+import OnTab from './events/OnTab';
 import OnEsc from '../common/events/OnEsc';
-import OnSpace from './events/OnSpace';
+import OnSpace from '../common/events/OnSpace';
 import OnArrowUp from '../common/events/OnArrowUp';
 import OnArrowRight from './events/OnArrowRight';
 import OnArrowDown from '../common/events/OnArrowDown';
-import OnArrowLeft from './events/OnArrowLeft';
+import OnArrowLeft from '../common/events/OnArrowLeft';
 
 /**
  * SecondarySubNav Class
  */
-export default class SecondarySubNavAccordion {
+export default class SecondarySubNavButtons {
 
   /**
    * [constructor description]
@@ -33,11 +35,19 @@ export default class SecondarySubNavAccordion {
     // Merge in defaults.
     this.options = Object.assign({
       'itemExpandedClass': 'su-secondary-nav__item--expanded',
+      'toggleClass': 'su-nav-toggle',
+      'toggleLabel': 'expand menu',
+      'subNavToggleText': "+",
     }, options);
 
     // Assign the event dispatcher and event registry.
     this.eventRegistry = this.createEventRegistry(options);
     this.dispatch = new EventHandlerDispatch(element, this);
+
+    // Create the toggle buttons.
+    this.toggleElement = this.createToggleButton();
+    this.item.insertBefore(this.toggleElement, this.item.querySelector('ul'));
+    this.toggle = new SubNavToggle(this.toggleElement, this, options);
   }
 
   /**
@@ -47,7 +57,7 @@ export default class SecondarySubNavAccordion {
   createEventRegistry(options) {
 
     var registryDefaults = {
-      onClick: OnClick,
+      // onClick: OnClick,
       onKeydownSpace: OnSpace,
       onKeydownEnter: OnSpace,
       onKeydownHome: OnHome,
@@ -64,13 +74,35 @@ export default class SecondarySubNavAccordion {
   }
 
   /**
+   * Create and a button for the expand/collapse actions.
+   *
+   * @return {HTMLElement} The button toggle.
+   */
+  createToggleButton() {
+    let element = document.createElement('button');
+    let label = document.createTextNode(this.options.toggleText);
+
+    // Give this instance a unique ID.
+    let id = 'toggle-' + Math.random().toString(36).substr(2, 9);
+
+    element.setAttribute('class', this.options.toggleClass);
+    element.setAttribute('aria-expanded', 'false');
+    // element.setAttribute('aria-controls', this.subNav.id);
+    element.setAttribute('aria-label', this.options.toggleLabel);
+    element.setAttribute('id', id);
+    element.appendChild(label);
+
+    return element;
+  }
+
+  /**
    * Is this expanded? Can only return TRUE if this is a subnav trigger.
    *
    * @return {Boolean}
    *  Wether or not the item is expanded.
    */
   isExpanded() {
-    return this.elem.getAttribute('aria-expanded') === 'true';
+    return this.toggleElement.getAttribute('aria-expanded') === 'true';
   }
 
   /**
@@ -81,7 +113,7 @@ export default class SecondarySubNavAccordion {
    * (for keyboard nav).
    */
   openSubNav() {
-    this.elem.setAttribute('aria-expanded', 'true');
+    this.toggleElement.setAttribute('aria-expanded', true);
     this.item.classList.add(this.options.itemExpandedClass);
   }
 
@@ -92,7 +124,7 @@ export default class SecondarySubNavAccordion {
    * corresponding subnav. Optionally force focus on the trigger.
    */
   closeSubNav() {
-    this.elem.setAttribute('aria-expanded', 'false');
+    this.toggleElement.setAttribute('aria-expanded', false);
     this.item.classList.remove(this.options.itemExpandedClass);
   }
 

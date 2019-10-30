@@ -9,8 +9,9 @@ export default class ActivePath {
    * [constructor description]
    * @param {[type]} element [description]
    */
-  constructor(element, options = {}) {
+  constructor(element, item, options = {}) {
     this.elem = element;
+    this.item = item;
     // Class properties.
     this.itemActiveClass = options.itemActiveClass || 'active';
     this.itemActiveTrailClass = options.itemActiveTrailClass || 'active-trail';
@@ -75,25 +76,28 @@ export default class ActivePath {
     let actives = this.elem.querySelectorAll('.' + this.itemActiveClass);
     if (actives.length) {
       actives.forEach(
-        item => {
+        element => {
 
           // While we have parents go up and add the active class.
-          while (item) {
+          while (element) {
             // End when we get to the parent nav item stop.
-            if (item === this.elem) {
+            if (element === this.elem) {
               // Stop at the top most level.
               break;
             }
 
             // If we are on a LI element we need to add the active class.
-            if (item.tagName === 'LI') {
-              item.classList.add(this.itemExpandedClass);
-              item.classList.add(this.itemActiveTrailClass);
-              item.firstElementChild.setAttribute('aria-expanded', true);
+            if (element.tagName === 'LI') {
+              element.classList.add(this.itemExpandedClass);
+              element.classList.add(this.itemActiveTrailClass);
+              // "Hook" of sorts.
+              if (typeof this.item.expandActivePathItem == "function") {
+                this.item.expandActivePathItem(element);
+              }
             }
 
             // Always increment.
-            item = item.parentNode;
+            element = element.parentNode;
           }
         }
       );

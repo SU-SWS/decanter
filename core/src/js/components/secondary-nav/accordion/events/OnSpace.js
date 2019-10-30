@@ -12,6 +12,8 @@ export default class OnSpace extends EventAbstract {
    * Prevent the spacebar from jumping to anywhere.
    */
   exec() {
+    this.event.preventDefault();
+
     // Do the rest of the stuff click does.
     var eventClick = new OnClick(this.item, this.event, this.target);
     eventClick.init();

@@ -42,15 +42,22 @@ export default class SecondaryNavAbstract {
     this.dispatch = new EventHandlerDispatch(element, this);
 
     // Handle the active state.
-    this.activePath = new ActivePath(element, this.options);
+    this.activePath = new ActivePath(element, this, this.options);
     this.activePath.setActivePath();
-    this.activePath.expandActivePath();
 
     // Helper Item Variables.
     this.navItems = [];
     this.subNavItems = [];
     this.parentItemSelector = ':scope > ul > .' + this.options.itemParentClass;
     this.navItemSelector = ':scope > ul > .' + this.options.itemClass + ":not(." + this.options.itemParentClass + ")";
+  }
+
+  /**
+   * [expandActivePath description]
+   * @return {[type]} [description]
+   */
+  expandActivePath() {
+    // For any additional items outside of the core functions.
   }
 
   /**

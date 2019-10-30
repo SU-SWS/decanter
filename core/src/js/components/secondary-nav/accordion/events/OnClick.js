@@ -11,6 +11,7 @@ export default class OnClick extends EventAbstract {
    * [init description]
    */
   exec() {
+    this.event.stopPropagation();
     this.event.preventDefault();
 
     if (this.item.isExpanded()) {

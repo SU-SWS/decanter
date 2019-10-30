@@ -17,6 +17,16 @@ export default class SecondaryNavAccordion extends SecondaryNavAbstract {
 
     // Ok do the creation.
     this.createSubNavItems();
+
+    // Expand the active path.
+    this.activePath.expandActivePath();
+  }
+
+  /**
+   * Add the additional state handling after the abstract option has run.
+   */
+  expandActivePathItem(item) {
+    item.firstElementChild.setAttribute('aria-expanded', 'true');
   }
 
   /**
@@ -26,14 +36,14 @@ export default class SecondaryNavAccordion extends SecondaryNavAbstract {
    * @return {[type]}       [description]
    */
   newParentItem(item, depth, parent) {
+    var opts = this.options;
+    opts.depth = depth;
+
     var nav = new SecondarySubNavAccordion(
       item,
       this,
       parent,
-      {
-        itemExpandedClass: this.options.itemExpandedClass,
-        depth: depth,
-      }
+      opts
     );
     this.subNavItems.push(nav);
     return nav;
@@ -46,11 +56,14 @@ export default class SecondaryNavAccordion extends SecondaryNavAbstract {
    * @return {[type]}       [description]
    */
   newNavItem(item, depth, parent) {
+    var opts = this.options;
+    opts.depth = depth;
+
     var nav = new SecondaryNavItem(
       item,
       this,
       parent,
-      { depth: depth }
+      opts
     );
     this.navItems.push(nav);
     return nav;
