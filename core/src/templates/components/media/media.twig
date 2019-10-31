@@ -38,7 +38,7 @@
 
     {%- if 'su-media--video' in modifier_class %}
       {# Find the video type from the src file extension #}
-      {% set media_type = media_video_src | split('.') | last %}
+      {% set media_type = media_video_src|split('.')|last %}
 
       <video {{ media_content_attributes }}
         {% if media_video_poster %}
