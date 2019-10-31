@@ -11,10 +11,10 @@
 // <a href="https://github.com/SU-SWS/decanter/wiki/About-the-Main-Nav-Component">About the Main Nav Component</a>
 // on Decanter's wiki.
 //
-// - .su-multi-menu--accordion      - A multiple tier menu with accordion nested menus
-// - .su-multi-menu--accordion-dark - Accordion style with a dark twist.
-// - .su-multi-menu--buttons        - A multiple tier (split) menu that expand with button toggles.
-// - .su-multi-menu--buttons-dark   - Button style with a dark twist.
+// .su-multi-menu--accordion      - A multiple tier menu with accordion nested menus
+// .su-multi-menu--accordion-dark - Accordion style with a dark twist.
+// .su-multi-menu--buttons        - A multiple tier (split) menu that expand with button toggles.
+// .su-multi-menu--buttons-dark   - Button style with a dark twist.
 //
 // Markup: ../templates/components/multi-menu/multi-menu.twig
 //
@@ -172,66 +172,33 @@
   } // End of media-lg.
 } // End of .su-multi-menu__menu-lv1
 
-// Second level styles - Mobile.
+// Second level styles
 // -----------------------------------------------------------------------
 .su-multi-menu__menu-lv2 {
-  .su-multi-menu__item {
-    .su-multi-menu__link {
-      font-size: 1.8rem;
-    }
-  }
+// Nothing to see here.
 }
 
 // Third level styles.
 // -----------------------------------------------------------------------
 .su-multi-menu__menu-lv3 {
-  .su-multi-menu__item {
-    .su-multi-menu__link {
-      font-size: 1.6rem;
-    }
-  }
+  // Nothing to see here.
 }
 
 // Items with children
 // -----------------------------------------------------------------------
 .su-multi-menu__item--parent {
-
   // Hide the drop downs by default.
   > .su-multi-menu__menu {
     display: none;
-  }
-
-  // Create something to indicate an action.
-  > .su-multi-menu__link::after {
-    transition: transform 0.3s ease-out;
-    background: url("#{$su-image-path}/plus-white.svg") no-repeat 0 0;
-    background-size: 100%;
-    content: "";
-    display: inline-block;
-    position: absolute;
-    right: 2rem;
-    top: calc(50% - 8px);
-    height: 1.8rem;
-    width: 1.8rem;
   }
 }
 
 // Expanded items state.
 // -----------------------------------------------------------------------
 .su-multi-menu__item--expanded {
-
   // This shows the open children.
   > .su-multi-menu__menu {
     display: flex;
-  }
-
-  // This changes the icon to prompt closing.
-  > .su-multi-menu__link {
-    &::after {
-      background: url("#{$su-image-path}/minus-white.svg") no-repeat 0 0;
-      transform: rotate(180deg);
-      transition: transform 0.3s ease-out;
-    }
   }
 }
 

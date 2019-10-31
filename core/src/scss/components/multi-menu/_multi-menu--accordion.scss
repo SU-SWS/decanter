@@ -1,127 +1,34 @@
 @charset "UTF-8";
 
-.su-multi-menu--light {
+.su-multi-menu--accordion {
 
-  // All ul contaiers.
-  ul {
-    background-color: color(bg, $su-multi-menu-light-colors);
-  }
-
-  a {
-    color: color(link, $su-multi-menu-light-colors);
-    border-bottom: solid 1px color(divider, $su-multi-menu-light-colors);
-
-    &:focus,
-    &:hover {
-      color: color(link--hover, $su-multi-menu-light-colors);
-
-      &::before {
-        background-color: color(border--hover, $su-multi-menu-light-colors);
-      }
-
-    }
-
-  }
-
+  // All Parent Items.
+  // ---------------------------------------------------------------------------
   .su-multi-menu__item--parent {
-    > a {
+    > .su-multi-menu__link {
       &::after {
-        background: url("#{$su-image-path}/plus-black.svg") no-repeat 0 0;
-      }
-    }
-
-    &.su-multi-menu__item--expanded {
-      > a {
-        &::after {
-          background: url("#{$su-image-path}/minus-black.svg") no-repeat 0 0;
-        }
-      }
-    }
-  }
-
-  // Active path.
-  .su-multi-menu__item--current {
-    > a {
-      color: color(link--active, $su-multi-menu-light-colors);
-
-      &::before {
-        background-color: color(border--active, $su-multi-menu-light-colors);
+        transition: transform 0.3s ease-out;
+        background: url("#{$su-image-path}/plus-white.svg") no-repeat 0 0;
+        background-size: 100%;
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: 2rem;
+        top: calc(50% - 8px);
+        height: 1.8rem;
+        width: 1.8rem;
       }
     }
   }
 
-  // First Level Links.
-  .su-multi-menu__menu-lv1 > li > a {
-    @include grid-media("lg") {
-      color: color(h--link, $su-multi-menu-light-colors);
-
-      &::before {
-        background-color: color(h--border, $su-multi-menu-light-colors);
-      }
-
-      // State styles for horizontal desktop.
-      // -----------------------------------------------------------------------
-      &:hover,
-      &:active,
-      &:focus {
-        color: color(h--link-hover, $su-multi-menu-light-colors);
-
-        &::before {
-          background-color: color(h--border-hover, $su-multi-menu-light-colors);
-        }
-      }
-    }
-  }
-
-  // First level nav items.
-  .su-multi-menu__menu-lv1 > li {
-    // First level expanded items.
-    // First level parent items.
-    &.su-multi-menu__item--expanded {
-      &.su-multi-menu__item--parent {
-        > a {
-          @include grid-media("lg") {
-            &::after {
-              background-size: 100%;
-              background-image: url("#{$su-image-path}/caret-down-black.svg");
-            }
-
-            &::before {
-              background-color: color(h--border-expanded, $su-multi-menu-light-colors);
-            }
-          }
-        }
-      }
-    }
-
-    // Current path items.
-    &.su-multi-menu__item--current {
-      @include grid-media("lg") {
-        > a {
-          color: color(h--link, $su-multi-menu-light-colors);
-
-          &:hover {
-            color: color(h--link-hover, $su-multi-menu-light-colors);
-
-            &::before {
-              background-color: color(h--border-hover, $su-multi-menu-light-colors);
-            }
-          }
-
-          &::before {
-            background-color: color(h--border, $su-multi-menu-light-colors);
-          }
-        }
-      }
-    }
-  }
-
-  &.su-multi-menu--mobile-search {
-    .su-multi-menu__toggle[aria-expanded="true"] {
-      @include grid-media-max('md') {
-        + .su-multi-menu__menu-lv1 + .su-site-search {
-          background-color: color(bg, $su-multi-menu-light-colors);
-        }
+  // All Expanded items.
+  // ---------------------------------------------------------------------------
+  .su-multi-menu__item--expanded {
+    > .su-multi-menu__link {
+      &::after {
+        background: url("#{$su-image-path}/minus-white.svg") no-repeat 0 0;
+        transform: rotate(180deg);
+        transition: transform 0.3s ease-out;
       }
     }
   }
