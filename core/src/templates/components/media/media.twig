@@ -15,11 +15,13 @@
  * - modifier_class: Additional CSS classes to change look and behavior.
  * - media_wrapper_modifier_class: Additional CSS classes to change look and behavior of the media wrapper, e.g. "su-aspect-ratio" to provide aspect ratio constraint.
  * - media_link: Optional URL for the media element to link to (only works for images or <video> with no controls).
+ * - media_link_attributes: Optional attributes for the media_link, e.g., rel='noopener', target='_blank'.
  * - media_image_src: The src link to the image file.
  * - media_image_srcset: The srcset of the image if exists.
  * - media_video_src: The src link to the video file.
  * - media_video_poster: Optional preview image of the video.
  * - media_audio_src: The src link to the audio file.
+ * - media_fallback_content: Fallback content to display when browser doesn't support video or audio format.
  * - media_type: Type of the media file, e.g. mp4, webm, wav (self-hosted video or audio only).
  * - media_custom: An open field for the full HTML element of the media content, e.g., an embedded YouTube iframe.
  * - media_content_attributes: Additional HTML attributes for the media content, e.g., for <video> - controls, autoplay; for <img> - sizes (when srcset is provided), alt, width, height.
@@ -29,35 +31,41 @@
 <figure {{ attributes }} class="su-media {{ modifier_class }}">
 
   {# Option to make the media element a clickable link #}
-  {%- if media_link -%}
+  {%- if media_link %}
     <a {{ media_link_attributes }} href="{{ media_link }}">
-  {%- endif -%}
+  {% endif -%}
 
   {# Wrapper for the media element where aspect ratio mixin can be applied to #}
   <div class="su-media__wrapper {{ media_wrapper_modifier_class }}">
 
     {%- if 'su-media--video' in modifier_class %}
-      {# Find the video type from the src file extension #}
-      {% set media_type = media_video_src|split('.')|last %}
+      {# Video block #}
+      {%- block block_media_video -%}
+        {# Find the video type from the src file extension #}
+        {% set media_type = media_video_src|split('.')|last %}
 
-      <video {{ media_content_attributes }}
-        {% if media_video_poster %}
-          poster="{{ media_video_poster }}"
-        {% endif %}>
-        <source src="{{ media_video_src }}" type="video/{{ media_type }}">
-        {{ media_video_content|default("</p>Sorry, your browser doesn't support HTML5 videos.</p>") }}
-      </video>
+        <video {{ media_content_attributes }}
+          {% if media_video_poster %}
+            poster="{{ media_video_poster }}"
+          {% endif %}>
+          <source src="{{ media_video_src }}" type="video/{{ media_type }}">
+          {{ media_fallback_content|default("<p>Sorry, your browser doesn't support HTML5 videos.</p>") }}
+        </video>
+      {%- endblock -%}
 
-    {% elseif 'su-media--audio' in modifier_class %}
-      {# Find the audio type from the src file extension #}
-      {% set media_type = media_audio_src | split('.') | last %}
+    {%- elseif 'su-media--audio' in modifier_class %}
+      {# Audio block #}
+      {%- block block_media_audio -%}
+        {# Find the audio type from the src file extension #}
+        {% set media_type = media_audio_src|split('.')|last %}
 
-      <audio {{ media_content_attributes }} controls>
-        <source src="{{ media_audio_src }}" type="audio/{{ media_type }}">
-        <p>Sorry, your browser doesn't support HTML5 audio.</p>
-      </audio>
+        <audio {{ media_content_attributes }} controls>
+          <source src="{{ media_audio_src }}" type="audio/{{ media_type }}">
+          {{ media_fallback_content|default("<p>Sorry, your browser doesn't support HTML5 audio.</p>") }}
+        </audio>
+      {%- endblock -%}
 
-    {% elseif 'su-media--image' in modifier_class %}
+    {%- elseif 'su-media--image' in modifier_class %}
       <img src="{{ media_image_src }}"
         {% if media_image_srcset %}
           srcset="{{ media_image_srcset }}"
@@ -66,7 +74,7 @@
     {% else %}
       {# Open HTML field, e.g., YouTube embed iframe #}
       {{ media_custom }}
-    {% endif -%}
+    {%- endif -%}
   </div>
 
   {%- if media_link -%}
@@ -74,7 +82,7 @@
   {%- endif -%}
 
   {# Optional caption #}
-  {% if media_caption %}
+  {%- if media_caption -%}
     <figcaption class="su-media__caption">{{ media_caption }}</figcaption>
-  {% endif %}
+  {%- endif -%}
 </figure>
