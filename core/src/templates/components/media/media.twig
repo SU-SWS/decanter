@@ -1,0 +1,120 @@
+{#
+/**
+ * @file
+ * Media Component
+ *
+ * A media element, e.g., image, video, audio, iframe etc. The default .su-media component takes custom HTML for the media content.
+ *
+ * Available variants:
+ * .su-media--image - Image
+ * .su-media--video - HTML5 video
+ * .su-media--audio - HTML5 audio
+ *
+ * Available variables:
+ * - attributes: Additional HTML attributes not already provided.
+ * - modifier_class: Additional CSS classes to change look and behavior.
+ * - media_wrapper_modifier_class: Additional CSS classes to change look and behavior of the media wrapper, e.g. "su-aspect-ratio" to provide aspect ratio constraint.
+ * - media_link: Optional URL for the media element to link to (only works for images or <video> with no controls).
+ * - media_link_attributes: Optional attributes for the media_link, e.g., rel='noopener', target='_blank'.
+ * - media_image_src: The src link to the image file.
+ * - media_image_srcset: The srcset of the image if exists.
+ * - media_video_src: The src link to the video file.
+ * - media_video_poster: Optional preview image of the video.
+ * - media_audio_src: The src link to the audio file.
+ * - media_fallback_content: Fallback content to display when browser doesn't support video or audio format.
+ * - media_type: Type of the media file, e.g. mp4, webm, wav (self-hosted video or audio only).
+ * - media_custom: An open field for the full HTML element of the media content, e.g., an embedded YouTube iframe.
+ * - media_content_attributes: Additional HTML attributes for the media content, e.g., for <video> - controls, autoplay; for <img> - sizes (when srcset is provided), alt, width, height.
+ * - media_caption: Optional caption for the media.
+ */
+#}
+<figure {{ attributes }} class="su-media {{ modifier_class }}">
+  {# Option to make the media element a clickable link #}
+  {%- if media_link %}
+    <a {{ media_link_attributes }} href="{{ media_link }}">
+  {% endif -%}
+
+  {# Wrapper for the media element where aspect ratio mixin can be applied to #}
+  <div class="su-media__wrapper {{ media_wrapper_modifier_class }}">
+    {%- if ('su-media--video' in modifier_class) or ('su-media--audio' in modifier_class) -%}
+      {# When media_type isn't provided, try to look for file extension and find MIME type from extension #}
+      {%- if media_type is empty %}
+        {% if 'su-media--video' in modifier_class %}
+          {# Find the video file extension #}
+          {% set media_extension = media_video_src|split('.')|last %}
+        {% elseif 'su-media--audio' in modifier_class %}
+          {# Find the audio file extension #}
+          {% set media_extension = media_audio_src|split('.')|last %}
+        {% endif -%}
+
+        {# Determine MIME type based on video or audio file extension, if can't find valid matching type, leave it empty #}
+        {# Supported media type from https://developer.mozilla.org/en-US/docs/Web/Media/Formats/Containers #}
+        {%- if media_extension in ['mp3', 'acc', 'flac', 'wav', 'webm'] %}
+          {% set media_type = media_extension %}
+        {% elseif media_extension in ['mp4', 'm4a', 'm4v', 'm4p'] %}
+          {% set media_type = 'mp4' %}
+        {% elseif media_extension in ['ogg', 'oga', 'ogv'] %}
+          {% set media_type = 'ogg' %}
+        {% elseif media_extension in ['mpg', 'mpeg'] %}
+          {% set media_type = 'mpeg' %}
+        {% elseif media_extension == '3gp' %}
+          {% set media_type = '3gpp' %}
+        {% elseif media_extension == 'mov' %}
+          {% set media_type = 'quicktime' %}
+        {% endif %}
+      {% endif -%}
+
+      {%- if 'su-media--video' in modifier_class %}
+        {# Video block #}
+        {%- block block_media_video %}
+          <video {{ media_content_attributes }}
+          {%- if media_video_poster %}
+            poster="{{ media_video_poster }}"
+          {%- endif -%}
+          >
+          <source src="{{ media_video_src }}"
+          {% if media_type %}
+            type="video/{{ media_type }}"
+          {%- endif -%}
+          >
+          {{ media_fallback_content|default("<p>Sorry, your browser doesn't support HTML5 videos.</p>") }}
+          </video>
+        {%- endblock -%}
+
+      {%- elseif 'su-media--audio' in modifier_class %}
+        {# Audio block #}
+        {%- block block_media_audio %}
+          <audio {{ media_content_attributes }} controls>
+            <source src="{{ media_audio_src }}"
+            {%- if media_type %}
+              type="audio/{{ media_type }}"
+            {%- endif -%}
+            >
+            {{ media_fallback_content|default("<p>Sorry, your browser doesn't support HTML5 audio.</p>") }}
+          </audio>
+        {%- endblock -%}
+      {% endif %}
+
+    {%- elseif 'su-media--image' in modifier_class %}
+      {# Image block - can be replaced by e.g. a <picture> element with multiple <source> #}
+      {%- block block_media_image %}
+        <img src="{{ media_image_src }}"
+          {% if media_image_srcset %}
+            srcset="{{ media_image_srcset }}"
+          {% endif %}
+        {{ media_content_attributes }}>
+      {%- endblock -%}
+    {% else %}
+      {# Open HTML field, e.g., YouTube embed iframe #}
+      {{ media_custom }}
+    {%- endif -%}
+  </div>
+  {%- if media_link -%}
+    </a>
+  {%- endif -%}
+
+  {# Optional caption #}
+  {%- if media_caption -%}
+    <figcaption class="su-media__caption">{{ media_caption }}</figcaption>
+  {%- endif -%}
+</figure>
