@@ -37,7 +37,7 @@
   flex-direction: column;
   width: 100%;
   list-style: none;
-  background-color: color(bg, $su-nav-colors);
+  background-color: color(bg, $su-multi-menu-colors);
 }
 
 // All li elements.
@@ -50,21 +50,21 @@
 // -----------------------------------------------------------------------
 .su-multi-menu__link {
   @include fancy-hover(
-    color(border--hover, $su-nav-colors),
-    color(border--active, $su-nav-colors),
+    color(border--hover, $su-multi-menu-colors),
+    color(border--active, $su-multi-menu-colors),
     'left'
   );
   @include padding(1.6rem 4.8rem 1.6rem 2.4rem);
   display: block;
-  color: color(link, $su-nav-colors);
+  color: color(link, $su-multi-menu-colors);
   font-weight: $su-font-semi-bold;
   font-size: 1.8rem;
-  border-bottom: color(divider, $su-nav-colors) solid 1px;
+  border-bottom: color(divider, $su-multi-menu-colors) solid 1px;
   outline: 0;
 
   &:focus,
   &:hover {
-    color: color(link, $su-nav-colors);
+    color: color(link, $su-multi-menu-colors);
     text-decoration: underline;
   }
 }
@@ -99,7 +99,7 @@
     // --------------------------
     > .su-multi-menu__item {
       > .su-multi-menu__link {
-        color: color(h--link, $su-nav-colors);
+        color: color(h--link, $su-multi-menu-colors);
         @include padding(null 0);
         @include margin(0 1.2em 0 0);
         font-size: 2.1rem;
@@ -110,7 +110,7 @@
           height: 6px;
           width: 100%;
           transition: transform 0.3s ease-out;
-          background-color: color(h--border, $su-nav-colors);
+          background-color: color(h--border, $su-multi-menu-colors);
           transform: scaleX(0);
         }
 
@@ -120,14 +120,14 @@
         &:active,
         &:focus {
           font-weight: $su-font-semi-bold;
-          color: color(h--link-hover, $su-nav-colors);
+          color: color(h--link-hover, $su-multi-menu-colors);
           text-decoration: none;
 
           &::before {
             transform: scaleX(1);
             visibility: visible;
             left: 0;
-            background-color: color(h--border-hover, $su-nav-colors);
+            background-color: color(h--border-hover, $su-multi-menu-colors);
           }
         }
       }
@@ -143,7 +143,7 @@
             height: 6px;
             transform: scaleX(1);
             visibility: visible;
-            background-color: color(h--border-hover, $su-nav-colors);
+            background-color: color(h--border-hover, $su-multi-menu-colors);
           }
         }
       }
@@ -164,7 +164,7 @@
             height: 6px;
             transform: scaleX(1);
             visibility: visible;
-            background-color: color(h--border-hover, $su-nav-colors);
+            background-color: color(h--border-hover, $su-multi-menu-colors);
           }
         }
       }
@@ -246,7 +246,7 @@
       height: 100%;
       width: 6px;
       transform: scaleY(1);
-      background-color: color(border--active, $su-nav-colors);
+      background-color: color(border--active, $su-multi-menu-colors);
     }
 
     &:hover,
@@ -254,7 +254,7 @@
       &::before {
         left: 6px;
         transition: left 0.1s ease-out;
-        background-color: color(border--active, $su-nav-colors);
+        background-color: color(border--active, $su-multi-menu-colors);
       }
     }
   }

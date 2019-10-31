@@ -4,19 +4,19 @@
 
   // All ul contaiers.
   ul {
-    background-color: color(bg, $su-nav-light-colors);
+    background-color: color(bg, $su-multi-menu-light-colors);
   }
 
   a {
-    color: color(link, $su-nav-light-colors);
-    border-bottom: solid 1px color(divider, $su-nav-light-colors);
+    color: color(link, $su-multi-menu-light-colors);
+    border-bottom: solid 1px color(divider, $su-multi-menu-light-colors);
 
     &:focus,
     &:hover {
-      color: color(link--hover, $su-nav-light-colors);
+      color: color(link--hover, $su-multi-menu-light-colors);
 
       &::before {
-        background-color: color(border--hover, $su-nav-light-colors);
+        background-color: color(border--hover, $su-multi-menu-light-colors);
       }
 
     }
@@ -42,10 +42,10 @@
   // Active path.
   .su-multi-menu__item--current {
     > a {
-      color: color(link--active, $su-nav-light-colors);
+      color: color(link--active, $su-multi-menu-light-colors);
 
       &::before {
-        background-color: color(border--active, $su-nav-light-colors);
+        background-color: color(border--active, $su-multi-menu-light-colors);
       }
     }
   }
@@ -53,10 +53,10 @@
   // First Level Links.
   .su-multi-menu__menu-lv1 > li > a {
     @include grid-media("lg") {
-      color: color(h--link, $su-nav-light-colors);
+      color: color(h--link, $su-multi-menu-light-colors);
 
       &::before {
-        background-color: color(h--border, $su-nav-light-colors);
+        background-color: color(h--border, $su-multi-menu-light-colors);
       }
 
       // State styles for horizontal desktop.
@@ -64,10 +64,10 @@
       &:hover,
       &:active,
       &:focus {
-        color: color(h--link-hover, $su-nav-light-colors);
+        color: color(h--link-hover, $su-multi-menu-light-colors);
 
         &::before {
-          background-color: color(h--border-hover, $su-nav-light-colors);
+          background-color: color(h--border-hover, $su-multi-menu-light-colors);
         }
       }
     }
@@ -87,7 +87,7 @@
             }
 
             &::before {
-              background-color: color(h--border-expanded, $su-nav-light-colors);
+              background-color: color(h--border-expanded, $su-multi-menu-light-colors);
             }
           }
         }
@@ -98,18 +98,18 @@
     &.su-multi-menu__item--current {
       @include grid-media("lg") {
         > a {
-          color: color(h--link, $su-nav-light-colors);
+          color: color(h--link, $su-multi-menu-light-colors);
 
           &:hover {
-            color: color(h--link-hover, $su-nav-light-colors);
+            color: color(h--link-hover, $su-multi-menu-light-colors);
 
             &::before {
-              background-color: color(h--border-hover, $su-nav-light-colors);
+              background-color: color(h--border-hover, $su-multi-menu-light-colors);
             }
           }
 
           &::before {
-            background-color: color(h--border, $su-nav-light-colors);
+            background-color: color(h--border, $su-multi-menu-light-colors);
           }
         }
       }
@@ -120,7 +120,7 @@
     .su-multi-menu__toggle[aria-expanded="true"] {
       @include grid-media-max('md') {
         + .su-multi-menu__menu-lv1 + .su-site-search {
-          background-color: color(bg, $su-nav-light-colors);
+          background-color: color(bg, $su-multi-menu-light-colors);
         }
       }
     }

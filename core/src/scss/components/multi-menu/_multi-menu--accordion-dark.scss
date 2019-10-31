@@ -4,19 +4,19 @@
 
   // All ul contaiers.
   ul {
-    background-color: color(bg, $su-nav-dark-colors);
+    background-color: color(bg, $su-multi-menu-dark-colors);
   }
 
   a {
-    color: color(link, $su-nav-dark-colors);
-    border-bottom: solid 1px color(divider, $su-nav-dark-colors);
+    color: color(link, $su-multi-menu-dark-colors);
+    border-bottom: solid 1px color(divider, $su-multi-menu-dark-colors);
 
     &:focus,
     &:hover {
-      color: color(link--hover, $su-nav-dark-colors);
+      color: color(link--hover, $su-multi-menu-dark-colors);
 
       &::before {
-        background-color: color(border--hover, $su-nav-dark-colors);
+        background-color: color(border--hover, $su-multi-menu-dark-colors);
       }
     }
   }
@@ -24,10 +24,10 @@
   // Active path.
   .su-multi-menu__item--current {
     > a {
-      color: color(link--active, $su-nav-dark-colors);
+      color: color(link--active, $su-multi-menu-dark-colors);
 
       &::before {
-        background-color: color(border--active, $su-nav-dark-colors);
+        background-color: color(border--active, $su-multi-menu-dark-colors);
       }
     }
   }
@@ -35,10 +35,10 @@
   // First Level Links.
   .su-multi-menu__menu-lv1 > li > a {
     @include grid-media("lg") {
-      color: color(h--link, $su-nav-dark-colors);
+      color: color(h--link, $su-multi-menu-dark-colors);
 
       &::before {
-        background-color: color(h--border, $su-nav-dark-colors);
+        background-color: color(h--border, $su-multi-menu-dark-colors);
       }
 
       // State styles for horizontal desktop.
@@ -46,10 +46,10 @@
       &:hover,
       &:active,
       &:focus {
-        color: color(h--link-hover, $su-nav-dark-colors);
+        color: color(h--link-hover, $su-multi-menu-dark-colors);
 
         &::before {
-          background-color: color(h--border-hover, $su-nav-dark-colors);
+          background-color: color(h--border-hover, $su-multi-menu-dark-colors);
         }
       }
     }
@@ -62,7 +62,7 @@
       @include grid-media("lg") {
         > a {
           &::before {
-            background-color: color(h--border-hover, $su-nav-dark-colors);
+            background-color: color(h--border-hover, $su-multi-menu-dark-colors);
           }
         }
       }
@@ -83,7 +83,7 @@
         > a {
           &::before {
             visibility: visible;
-            background-color: color(border--expanded, $su-nav-dark-colors);
+            background-color: color(border--expanded, $su-multi-menu-dark-colors);
           }
         }
       }
@@ -93,19 +93,19 @@
     &.su-multi-menu__item--current {
       @include grid-media("lg") {
         > a {
-          color: color(h--link, $su-nav-dark-colors);
+          color: color(h--link, $su-multi-menu-dark-colors);
 
           &:focus,
           &:hover {
-            color: color(h--link-hover, $su-nav-dark-colors);
+            color: color(h--link-hover, $su-multi-menu-dark-colors);
 
             &::before {
-              background-color: color(h--border-hover, $su-nav-dark-colors);
+              background-color: color(h--border-hover, $su-multi-menu-dark-colors);
             }
           }
 
           &::before {
-            background-color: color(border--active, $su-nav-dark-colors);
+            background-color: color(border--active, $su-multi-menu-dark-colors);
           }
         }
       }
@@ -114,20 +114,20 @@
 
   // TOGGLE STYLES.
   .su-multi-menu__toggle {
-    color: color(link, $su-nav-dark-colors);
+    color: color(link, $su-multi-menu-dark-colors);
 
     &:hover,
     &:focus {
-      color: color(h--link-hover, $su-nav-dark-colors);
+      color: color(h--link-hover, $su-multi-menu-dark-colors);
 
       &::before {
-        background-color: color(border--hover, $su-nav-dark-colors);
+        background-color: color(border--hover, $su-multi-menu-dark-colors);
       }
     }
 
     &:active {
       &::before {
-        background-color: color(border--active, $su-nav-dark-colors);
+        background-color: color(border--active, $su-multi-menu-dark-colors);
       }
     }
 
@@ -137,12 +137,12 @@
 
     &[aria-expanded="true"] {
       &::before {
-        background-color: color(border--expanded, $su-nav-dark-colors);
+        background-color: color(border--expanded, $su-multi-menu-dark-colors);
       }
 
       &:hover::before,
       &:active::before {
-        background-color: color(border--active, $su-nav-dark-colors);
+        background-color: color(border--active, $su-multi-menu-dark-colors);
       }
 
       &::after {

@@ -22,25 +22,13 @@
   {%- set template_path_macro = "@decanter/utilities/macros/menu-loop.twig" -%}
 {%- endif -%}
 
-{% spaceless %}
 {# Macros #}
-{% import template_path_macro as menus %}
+{%- import template_path_macro as menus -%}
 
 <nav {{ attributes }} class="su-multi-menu no-js {{ modifier_class }}" aria-label="{{ aria_label|default('main menu') }}">
+  {% block multimenubutton %}
   <button class="su-multi-menu__toggle {{ toggle_modifier_class }}" aria-expanded="false">{{ toggle_text|default('Menu') }}</button>
-  {% if "su-multi-menu--mobile-search" in modifier_class %}
-    {% include template_path_search with
-      {
-        "action": mobile_search.action,
-        "method": mobile_search.method,
-        "search_label": mobile_search.search_label,
-        "placeholder": mobile_search.placeholder,
-        "search_input_name": mobile_search.search_input_name,
-        "search_icon_src": mobile_search.search_icon_src
-      }
-      only
-    %}
-  {% endif %}
+  {% endblock %}
   {% spaceless %}
   {% if list_items is iterable %}
     {{ menus.nav_menu(list_items, 1, 'su-multi-menu') }}

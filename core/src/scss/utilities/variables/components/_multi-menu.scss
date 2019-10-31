@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+//
+// Multi Menu Color Maps
+//
+// Color maps for the Multi Menu component. Active color is also used to
+// indicate "current" page. The mobile colors apply also to desktop drop
+// down menus.
+//
+// Styleguide: Variables.Components.multi-menu-colors
+//
+
+//
+// $su-multi-menu-colors
+//
+// Color map for the default Main Nav component .su-main-nav.
+//
+// Markup: $su-multi-menu-colors: (
+// bg:                             $su-color-black,
+// divider:                        $su-color-cool-grey,
+//
+// link:                           $su-color-white,
+// link--active-hover:             $su-color-bright-red,
+// link--hover:                    $su-color-white,
+// link--active:                   $su-color-white,
+// link--expanded:                 $su-color-white,
+//
+// border:                         $su-color-black,
+// border--active-hover:           $su-color-bright-red,
+// border--hover:                  $su-color-white,
+// border--active:                 $su-color-vivid-red,
+// border--expanded:               $su-color-bright-red,
+// border--active-expanded:        $su-color-white,
+//
+// h--link:                        $su-color-black,
+// h--link-hover:                  $su-color-bright-red,
+// h--border:                      $su-color-black,
+// h--border-hover:                $su-color-bright-red,
+// h--border-expanded:             $su-color-driftwood,
+//) !default;
+//
+// Styleguide: Variables.Components.su-nav-colors.default
+//
+
+$su-multi-menu-colors: (
+  bg:                             $su-color-black,
+  divider:                        $su-color-cool-grey,
+
+  link:                           $su-color-white,
+  link--active-hover:             $su-color-bright-red,
+  link--hover:                    $su-color-white,
+  link--active:                   $su-color-white,
+  link--expanded:                 $su-color-white,
+
+  border:                         $su-color-black,
+  border--active-hover:           $su-color-bright-red,
+  border--hover:                  $su-color-white,
+  border--active:                 $su-color-vivid-red,
+  border--expanded:               $su-color-bright-red,
+  border--active-expanded:        $su-color-white,
+
+  h--link:                        $su-color-black,
+  h--link-hover:                  $su-color-bright-red,
+  h--border:                      $su-color-black,
+  h--border-hover:                $su-color-bright-red,
+  h--border-expanded:             $su-color-driftwood,
+) !default;
+
+//
+// $su-multi-menu-dark-colors
+//
+// Color map for the Main Nav component dark variant .su-main-nav--dark.
+//
+// Markup: $su-multi-menu-dark-colors: map-merge($su-multi-menu-colors, (
+//    link--active-hover:                 $su-color-white,
+//
+//    border--active-hover:               $su-color-white,
+//    border--expanded:                   $su-color-white,
+//
+//    h--link:                            $su-color-white,
+//    h--link-hover:                      $su-color-white,
+//    h--border:                          $su-color-white,
+//    h--border-hover:                    $su-color-white,
+//  )
+//) !default;
+//
+// Styleguide: Variables.Components.main-nav-colors.variant-dark
+//
+$su-multi-menu-dark-colors: map-merge($su-multi-menu-colors, (
+    link--active-hover:                 $su-color-white,
+
+    border--active-hover:               $su-color-white,
+    border--expanded:                   $su-color-white,
+
+    h--link:                            $su-color-white,
+    h--link-hover:                      $su-color-white,
+    h--border:                          $su-color-white,
+    h--border-hover:                    $su-color-white,
+  )
+) !default;
+
+//
+// $su-multi-menu-light-colors
+//
+// Color map for the Main Nav component light variant .su-main-nav--light.
+//
+// Markup: $su-multi-menu-light-colors: map-merge($su-multi-menu-colors, (
+//    bg:                                 $su-color-white,
+//    divider:                            #d9d9d9,
+//
+//    link:                               $su-color-black,
+//    link--hover:                        $su-color-black,
+//    link--active:                       $su-color-bright-red,
+//    link--active-hover:                 $su-color-bright-red,
+//    link--expanded:                     $su-color-black,
+//
+//    border--hover:                      $su-color-black,
+//    border--active:                     $su-color-bright-red,
+//    border--expanded:                   $su-color-black,
+//    border--active-expanded:            $su-color-black,
+//
+//    h--border:                          $su-color-driftwood,
+//  )
+//) !default;
+//
+// Styleguide: Variables.Components.main-nav-colors.variant-light
+//
+
+$su-multi-menu-light-colors: map-merge($su-multi-menu-colors, (
+    bg:                                 $su-color-white,
+    divider:                            #d9d9d9,
+
+    link:                               $su-color-black,
+    link--hover:                        $su-color-black,
+    link--active:                       $su-color-bright-red,
+    link--active-hover:                 $su-color-bright-red,
+    link--expanded:                     $su-color-black,
+
+    border--hover:                      $su-color-black,
+    border--active:                     $su-color-bright-red,
+    border--expanded:                   $su-color-black,
+    border--active-expanded:            $su-color-black,
+
+    h--border:                          $su-color-driftwood,
+  )
+) !default;
