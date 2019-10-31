@@ -30,7 +30,7 @@
 
   {# Option to make the media element a clickable link #}
   {%- if media_link -%}
-    <a href="{{ media_link }}">
+    <a {{ media_link_attributes }} href="{{ media_link }}">
   {%- endif -%}
 
   {# Wrapper for the media element where aspect ratio mixin can be applied to #}
