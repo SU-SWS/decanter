@@ -34,6 +34,7 @@ Version 5.1.0                      2019-10-31
   -- `.su-type-d`: Display Type D (used for H4 heading)
   -- `.su-type-e`: Display Type E (used for H5 heading)
   -- `.su-type-f`: Display Type F (used for H6 heading)
+- Change to @type-a and @type-b sizes at xs and sm breakpoints
 - Template Update: `card.twig` has new regions and variables
 - Template Update: `hero.twig` has new regions and variables
 - Bugfix: Main Menu CSS
