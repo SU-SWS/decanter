@@ -45,7 +45,7 @@
           poster="{{ media_video_poster }}"
         {% endif %}>
         <source src="{{ media_video_src }}" type="video/{{ media_type }}">
-        <p>Sorry, your browser doesn't support HTML5 videos.</p>
+        {{ media_video_content|default("</p>Sorry, your browser doesn't support HTML5 videos.</p>") }}
       </video>
 
     {% elseif 'su-media--audio' in modifier_class %}
