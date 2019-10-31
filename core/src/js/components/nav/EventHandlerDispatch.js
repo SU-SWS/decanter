@@ -1,4 +1,4 @@
-import { normalizeKey } from '../../utilities/keyboard';
+import {normalizeKey} from '../../utilities/keyboard';
 
 /**
  * EventHandlerDispatch Class
@@ -60,10 +60,10 @@ export default class EventHandlerDispatch {
     // What was clicked.
     const target = event.target || event.srcElement;
 
-    if (eventMethod == "onKeydown") {
+    if (eventMethod === 'onKeydown') {
       this.onKeydown(event, target);
     }
-    else if (eventMethod == "onClick") {
+    else if (eventMethod === 'onClick') {
       this.onClick(event, target);
     }
     else {

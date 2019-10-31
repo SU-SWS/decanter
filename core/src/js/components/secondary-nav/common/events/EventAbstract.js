@@ -1,14 +1,20 @@
 import ElementFetcher from '../../../nav/ElementFetcher';
 
 /**
- * ActivePath Class
+ * EventAbstract
  *
- * NEEDS DESCRIPTION.
+ * An abstract class for creating an interface for working with the
+ * EventHandlerDispatch class. This is the signature for all instances
+ * that are evoked through the eventRegistry.
  */
 export default class EventAbstract {
 
   /**
-   * [constructor description]
+   * Initialize.
+   *
+   * @param {Object|Mixed} item The javascript object instance that this is bound to.
+   * @param {KeyboardEvent|MouseEvent} event - The event object.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   constructor(item, event, target) {
     this.item = item;
@@ -20,10 +26,12 @@ export default class EventAbstract {
   }
 
   /**
-   * [validate description]
-   * @return {[type]} [description]
+   * A validation shorcut that should pass before running exec().
+   *
+   * @return {Boolean} Wether or not the event target is what this instance is bound to.
    */
   isOnTarget() {
+    // Check to see if the event target is what this instance is bound to.
     if (this.target === this.elem) {
       return true;
     }
@@ -31,8 +39,9 @@ export default class EventAbstract {
   }
 
   /**
-   * [validate description]
-   * @return {[type]} [description]
+   * A validation method that should pass before running exec().
+   *
+   * @return {Boolean} Wether or not validation passes.
    */
   validate() {
     // Only act on me.
@@ -43,8 +52,10 @@ export default class EventAbstract {
   }
 
   /**
-   * [init description]
-   * @return {[type]} [description]
+   * Interface method.
+   *
+   * When evoking this abstract instance you should use this method as your
+   * iterface for calling the action.
    */
   init() {
     if (this.validate()) {
@@ -53,9 +64,14 @@ export default class EventAbstract {
   }
 
   /**
-   * [getElement description]
-   * @param  {[type]} what [description]
-   * @return {[type]}      [description]
+   * Shortcut function to find a DOM element.
+   *
+   * This is a helper function that uses a ElementFetcher instance to navigate
+   * and traverse the DOM relative to the current context.
+   *
+   * @param  {String} what A keyword for what we are trying to find.
+   * @param  {HTMLElement} context The relative starting location for the finder.
+   * @return {Boolean|HTMLElement} False if not found or an HTMLElement.
    */
   getElement(what, context = this.elem.parentNode) {
     var fetcher = new ElementFetcher(context, what);

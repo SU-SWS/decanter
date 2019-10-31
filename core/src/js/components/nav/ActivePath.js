@@ -95,7 +95,7 @@ export default class ActivePath {
               element.classList.add(this.itemExpandedClass);
               element.classList.add(this.itemActiveTrailClass);
               // "Hook" of sorts.
-              if (typeof this.item.expandActivePathItem == "function") {
+              if (typeof this.item.expandActivePathItem == 'function') {
                 this.item.expandActivePathItem(element);
               }
             }

@@ -38,7 +38,7 @@ export default class SecondarySubNavAccordion {
 
     // Merge in defaults.
     this.options = Object.assign({
-      'itemExpandedClass': 'su-secondary-nav__item--expanded',
+      itemExpandedClass: 'su-secondary-nav__item--expanded'
     }, options);
 
     // Assign the event dispatcher and event registry.
@@ -69,7 +69,7 @@ export default class SecondarySubNavAccordion {
       onKeydownArrowUp: OnArrowUp,
       onKeydownArrowRight: OnArrowRight,
       onKeydownArrowDown: OnArrowDown,
-      onKeydownArrowLeft: OnArrowLeft,
+      onKeydownArrowLeft: OnArrowLeft
     };
 
     return Object.assign(registryDefaults, options.eventRegistry);

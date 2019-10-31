@@ -2,15 +2,14 @@ import EventAbstract from './EventAbstract';
 import OnArrowDown from './OnArrowDown';
 
 /**
- * ActivePath Class
+ * OnArrowRight
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 export default class OnArrowRight extends EventAbstract {
 
   /**
-   * [init description]
-   * @return {[type]} [description]
+   * Execute the action to the event.
    */
   exec() {
     // If we are in the second level or more we check about traversing

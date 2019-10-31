@@ -1,14 +1,14 @@
 import EventAbstract from '../../common/events/EventAbstract';
 
 /**
- * ActivePath Class
+ * SubNavToggleClick
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 export default class SubNavToggleClick extends EventAbstract {
 
   /**
-   * [init description]
+   * Execute the action to the event.
    */
   exec() {
     if (this.parentNav.isExpanded()) {

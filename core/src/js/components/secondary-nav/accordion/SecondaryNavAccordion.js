@@ -3,7 +3,7 @@ import SecondaryNavItem from '../common/SecondaryNavItem';
 import SecondarySubNavAccordion from './SecondarySubNavAccordion';
 
 /**
- * A secondary menu with toggle buttons.
+ * A secondary menu with accordion buttons.
  */
 export default class SecondaryNavAccordion extends SecondaryNavAbstract {
 

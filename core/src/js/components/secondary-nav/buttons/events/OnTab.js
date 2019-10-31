@@ -1,15 +1,14 @@
 import EventAbstract from '../../common/events/EventAbstract';
 
 /**
- * ActivePath Class
+ * OnTab
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 export default class OnTab extends EventAbstract {
 
   /**
-   * [exec description]
-   * @return {[type]} [description]
+   * Execute the action to the event.
    */
   exec() {
     // Only act on backwards options as we want to allow the tab to go

@@ -2,15 +2,14 @@ import EventAbstract from './EventAbstract';
 import OnHome from './OnHome';
 
 /**
- * ActivePath Class
+ * OnArrowDown
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 export default class OnArrowDown extends EventAbstract {
 
   /**
-   * [init description]
-   * @return {[type]} [description]
+   * Execute the action to the event.
    */
   exec() {
     this.event.preventDefault();
