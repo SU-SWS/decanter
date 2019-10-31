@@ -1,6 +1,6 @@
-import { closeAllMobileNavs } from './globals';
-import { isEsc, isSpace, isEnter } from "../../utilities/keyboard";
-import { createEvent } from '../../utilities/events';
+import {closeAllMobileNavs} from './globals';
+import {isEsc, isSpace, isEnter} from '../../utilities/keyboard';
+import {createEvent} from '../../utilities/events';
 import NavItem from './NavItem';
 
 /**

@@ -1,5 +1,5 @@
 import '../../core/core';
-import { theNavs, theSubNavs, closeAllSubNavs, closeAllMobileNavs } from './globals';
+import {theNavs, closeAllSubNavs, closeAllMobileNavs} from './globals';
 import Nav from './Nav';
 
 document.addEventListener('DOMContentLoaded', event => {
