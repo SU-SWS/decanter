@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+.su-multi-menu--light {
+
+  // All ul contaiers.
+  ul {
+    background-color: color(bg, $su-nav-light-colors);
+  }
+
+  a {
+    color: color(link, $su-nav-light-colors);
+    border-bottom: solid 1px color(divider, $su-nav-light-colors);
+
+    &:focus,
+    &:hover {
+      color: color(link--hover, $su-nav-light-colors);
+
+      &::before {
+        background-color: color(border--hover, $su-nav-light-colors);
+      }
+
+    }
+
+  }
+
+  .su-multi-menu__item--parent {
+    > a {
+      &::after {
+        background: url("#{$su-image-path}/plus-black.svg") no-repeat 0 0;
+      }
+    }
+
+    &.su-multi-menu__item--expanded {
+      > a {
+        &::after {
+          background: url("#{$su-image-path}/minus-black.svg") no-repeat 0 0;
+        }
+      }
+    }
+  }
+
+  // Active path.
+  .su-multi-menu__item--current {
+    > a {
+      color: color(link--active, $su-nav-light-colors);
+
+      &::before {
+        background-color: color(border--active, $su-nav-light-colors);
+      }
+    }
+  }
+
+  // First Level Links.
+  .su-multi-menu__menu-lv1 > li > a {
+    @include grid-media("lg") {
+      color: color(h--link, $su-nav-light-colors);
+
+      &::before {
+        background-color: color(h--border, $su-nav-light-colors);
+      }
+
+      // State styles for horizontal desktop.
+      // -----------------------------------------------------------------------
+      &:hover,
+      &:active,
+      &:focus {
+        color: color(h--link-hover, $su-nav-light-colors);
+
+        &::before {
+          background-color: color(h--border-hover, $su-nav-light-colors);
+        }
+      }
+    }
+  }
+
+  // First level nav items.
+  .su-multi-menu__menu-lv1 > li {
+    // First level expanded items.
+    // First level parent items.
+    &.su-multi-menu__item--expanded {
+      &.su-multi-menu__item--parent {
+        > a {
+          @include grid-media("lg") {
+            &::after {
+              background-size: 100%;
+              background-image: url("#{$su-image-path}/caret-down-black.svg");
+            }
+
+            &::before {
+              background-color: color(h--border-expanded, $su-nav-light-colors);
+            }
+          }
+        }
+      }
+    }
+
+    // Current path items.
+    &.su-multi-menu__item--current {
+      @include grid-media("lg") {
+        > a {
+          color: color(h--link, $su-nav-light-colors);
+
+          &:hover {
+            color: color(h--link-hover, $su-nav-light-colors);
+
+            &::before {
+              background-color: color(h--border-hover, $su-nav-light-colors);
+            }
+          }
+
+          &::before {
+            background-color: color(h--border, $su-nav-light-colors);
+          }
+        }
+      }
+    }
+  }
+
+  &.su-multi-menu--mobile-search {
+    .su-multi-menu__toggle[aria-expanded="true"] {
+      @include grid-media-max('md') {
+        + .su-multi-menu__menu-lv1 + .su-site-search {
+          background-color: color(bg, $su-nav-light-colors);
+        }
+      }
+    }
+  }
+}

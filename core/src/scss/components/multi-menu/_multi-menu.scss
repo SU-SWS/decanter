@@ -1,0 +1,261 @@
+@charset "UTF-8";
+//
+// Multi Menu
+//
+// The multiple level primary site navigation alternative that is usually in the header region of a website.
+// It is a horizontal menu bar on larger breakpoints, while on smaller breakpoints,
+// it changes into a vertical menu and can be expanded or collapsed.
+//
+// The Multi Navigation component is implemented to be accessible. For more information on building
+// accessible site navigation, please see
+// <a href="https://github.com/SU-SWS/decanter/wiki/About-the-Main-Nav-Component">About the Main Nav Component</a>
+// on Decanter's wiki.
+//
+// - .su-multi-menu--accordion      - A multiple tier menu with accordion nested menus
+// - .su-multi-menu--accordion-dark - Accordion style with a dark twist.
+// - .su-multi-menu--buttons        - A multiple tier (split) menu that expand with button toggles.
+// - .su-multi-menu--buttons-dark   - Button style with a dark twist.
+//
+// Markup: ../templates/components/multi-menu/multi-menu.twig
+//
+// Style guide: Components.Multi Menu
+//
+
+.su-multi-menu {
+  @include font-smoothing;
+  @include sans;
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+
+// All ul containers.
+// -----------------------------------------------------------------------
+.su-multi-menu__menu {
+  @include margin(0 null);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  list-style: none;
+  background-color: color(bg, $su-nav-colors);
+}
+
+// All li elements.
+// -----------------------------------------------------------------------
+.su-multi-menu__item {
+  @include margin(null null 0);
+}
+
+// All link elements.
+// -----------------------------------------------------------------------
+.su-multi-menu__link {
+  @include fancy-hover(
+    color(border--hover, $su-nav-colors),
+    color(border--active, $su-nav-colors),
+    'left'
+  );
+  @include padding(1.6rem 4.8rem 1.6rem 2.4rem);
+  display: block;
+  color: color(link, $su-nav-colors);
+  font-weight: $su-font-semi-bold;
+  font-size: 1.8rem;
+  border-bottom: color(divider, $su-nav-colors) solid 1px;
+  outline: 0;
+
+  &:focus,
+  &:hover {
+    color: color(link, $su-nav-colors);
+    text-decoration: underline;
+  }
+}
+
+// First level styles - Vertical - Mobile.
+// -----------------------------------------------------------------------
+.su-multi-menu__menu-lv1 {
+  // All the defaults seem to do.
+}
+
+// First level styles - Horizontal - Desktop.
+// -----------------------------------------------------------------------
+.su-multi-menu__menu-lv1 {
+  @include grid-media("lg") {
+    @include padding(null null null 0);
+    flex-direction: row;
+    flex-wrap: wrap;
+    background: transparent;
+
+    // Drop down menu containers.
+    // --------------------------
+    .su-multi-menu__menu {
+      @include padding(1px null null 1.2rem);
+      @include margin(null null null -1.7rem);
+      @include box-shadow('medium', none);
+      z-index: 11111; //When menu wrap to 2nd line make sure dropdown covers up top level links
+      position: absolute;
+      max-width: 30rem;
+    }
+
+    // Top level horizonal links.
+    // --------------------------
+    > .su-multi-menu__item {
+      > .su-multi-menu__link {
+        color: color(h--link, $su-nav-colors);
+        @include padding(null 0);
+        @include margin(0 1.2em 0 0);
+        font-size: 2.1rem;
+        border-bottom: 0;
+        font-weight: $su-font-semi-bold;
+
+        &::before {
+          height: 6px;
+          width: 100%;
+          transition: transform 0.3s ease-out;
+          background-color: color(h--border, $su-nav-colors);
+          transform: scaleX(0);
+        }
+
+        // State styles for horizontal desktop.
+        // -----------------------------------------------------------------------
+        &:hover,
+        &:active,
+        &:focus {
+          font-weight: $su-font-semi-bold;
+          color: color(h--link-hover, $su-nav-colors);
+          text-decoration: none;
+
+          &::before {
+            transform: scaleX(1);
+            visibility: visible;
+            left: 0;
+            background-color: color(h--border-hover, $su-nav-colors);
+          }
+        }
+      }
+    }
+
+    // Top level list items.
+    // --------------------------
+    > .su-multi-menu__item {
+      // Items in the active trail should be highlighted.
+      &.su-multi-menu__item--active-trail {
+        > a {
+          &::before {
+            height: 6px;
+            transform: scaleX(1);
+            visibility: visible;
+            background-color: color(h--border-hover, $su-nav-colors);
+          }
+        }
+      }
+
+      // First level current items.
+      &.su-multi-menu__item--current {
+        > a {
+          &::before {
+            transform: scaleX(1);
+          }
+        }
+      }
+
+      // First level expanded items.
+      &.su-multi-menu__item--expanded {
+        > a {
+          &::before {
+            height: 6px;
+            transform: scaleX(1);
+            visibility: visible;
+            background-color: color(h--border-hover, $su-nav-colors);
+          }
+        }
+      }
+    }
+  } // End of media-lg.
+} // End of .su-multi-menu__menu-lv1
+
+// Second level styles - Mobile.
+// -----------------------------------------------------------------------
+.su-multi-menu__menu-lv2 {
+  .su-multi-menu__item {
+    .su-multi-menu__link {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+// Third level styles.
+// -----------------------------------------------------------------------
+.su-multi-menu__menu-lv3 {
+  .su-multi-menu__item {
+    .su-multi-menu__link {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+// Items with children
+// -----------------------------------------------------------------------
+.su-multi-menu__item--parent {
+
+  // Hide the drop downs by default.
+  > .su-multi-menu__menu {
+    display: none;
+  }
+
+  // Create something to indicate an action.
+  > .su-multi-menu__link::after {
+    transition: transform 0.3s ease-out;
+    background: url("#{$su-image-path}/plus-white.svg") no-repeat 0 0;
+    background-size: 100%;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: 2rem;
+    top: calc(50% - 8px);
+    height: 1.8rem;
+    width: 1.8rem;
+  }
+}
+
+// Expanded items state.
+// -----------------------------------------------------------------------
+.su-multi-menu__item--expanded {
+
+  // This shows the open children.
+  > .su-multi-menu__menu {
+    display: flex;
+  }
+
+  // This changes the icon to prompt closing.
+  > .su-multi-menu__link {
+    &::after {
+      background: url("#{$su-image-path}/minus-white.svg") no-repeat 0 0;
+      transform: rotate(180deg);
+      transition: transform 0.3s ease-out;
+    }
+  }
+}
+
+// Active or Current items.
+// -----------------------------------------------------------------------
+.su-multi-menu__item--current {
+  > .su-multi-menu__link {
+    font-weight: $su-font-bold;
+
+    &::before {
+      visibility: visible;
+      height: 100%;
+      width: 6px;
+      transform: scaleY(1);
+      background-color: color(border--active, $su-nav-colors);
+    }
+
+    &:hover,
+    &:focus {
+      &::before {
+        left: 6px;
+        transition: left 0.1s ease-out;
+        background-color: color(border--active, $su-nav-colors);
+      }
+    }
+  }
+}

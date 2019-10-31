@@ -1,0 +1,52 @@
+{#
+/**
+ * @file
+ * Multi Menu Navigation Component
+ *
+ * A navigation menu for the website.
+ *
+ * Available variables:
+ * - attributes: For additional HTML attributes not already provided.
+ * - modifier_class: Additional css classes to change look and behaviour of the component.
+ * - toggle_modifier_class: Additional css classes to change look and behaviour of the toggle.
+ * - aria_label: Aria label for the <nav> element. Default is "main menu". If there are multiple instances of the component on the same page, use a different aria_label for each instance.
+ * - list_items: Structured data that is iterable or custom markup
+ */
+#}
+
+{#
+  Template Include Paths
+  Override these if you want to include a different template.
+#}
+{%- if template_path_macro is empty -%}
+  {%- set template_path_macro = "@decanter/utilities/macros/menu-loop.twig" -%}
+{%- endif -%}
+
+{% spaceless %}
+{# Macros #}
+{% import template_path_macro as menus %}
+
+<nav {{ attributes }} class="su-multi-menu no-js {{ modifier_class }}" aria-label="{{ aria_label|default('main menu') }}">
+  <button class="su-multi-menu__toggle {{ toggle_modifier_class }}" aria-expanded="false">{{ toggle_text|default('Menu') }}</button>
+  {% if "su-multi-menu--mobile-search" in modifier_class %}
+    {% include template_path_search with
+      {
+        "action": mobile_search.action,
+        "method": mobile_search.method,
+        "search_label": mobile_search.search_label,
+        "placeholder": mobile_search.placeholder,
+        "search_input_name": mobile_search.search_input_name,
+        "search_icon_src": mobile_search.search_icon_src
+      }
+      only
+    %}
+  {% endif %}
+  {% spaceless %}
+  {% if list_items is iterable %}
+    {{ menus.nav_menu(list_items, 1, 'su-multi-menu') }}
+  {% else %}
+    {# If custom markup is provided, emit it as is #}
+    {{ list_items }}
+  {% endif %}
+  {% endspaceless %}
+</nav>
