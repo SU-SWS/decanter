@@ -8,8 +8,13 @@
 // Style guide: Mixins.Typography.credits
 //
 @mixin credits {
-  @include margin(0 null null);
-  @include modular-typography(0);
-
+  @include font-smoothing;
   color: $su-color-cool-grey;
+  font-size: 1.4rem;
+  line-height: 1.3;
+  font-style: italic;
+
+  @include grid-media('md') {
+    font-size: 1.6rem;
+  }
 }
