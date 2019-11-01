@@ -23,8 +23,32 @@
     position: relative;
   }
 
+  // Expanded Items.
   .su-multi-menu__item--expanded {
 
+  }
+
+  // Toggles.
+  .su-nav-toggle {
+    background-color: transparent;
+    &::before {
+      background-color: transparent;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      &::before {
+        background-color: transparent;
+        background-image: url("#{$su-image-path}/caret-down-white.svg");
+      }
+    }
+
+    &[aria-expanded="true"] {
+      &::before {
+        background-image: url("#{$su-image-path}/caret-down-white.svg");
+      }
+    }
   }
 
   // Menu Level 1 (top)
@@ -51,7 +75,6 @@
           max-width: 28px;
 
           &::before {
-            background-color: transparent;
             background-image: url("#{$su-image-path}/caret-down-black.svg");
             transition: transform 0.3s ease-out, left 0.3s ease-out, right 0.3s ease-out;
           }
@@ -62,9 +85,6 @@
         }
       }
     } // end top level parent items.
-
-
-
   }
 
   // Menu Level 2 (first level drops)
