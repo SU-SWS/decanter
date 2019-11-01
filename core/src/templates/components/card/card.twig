@@ -29,6 +29,7 @@
   e.g. 'fas fa-globe fa-2x', 'far fa-thumbs-up fa-rotate-90'
  * - card_media_image_src: The src link to the image file.
  * - card_media_image_srcset: The srcset of the image if exists.
+ * - card_media_icon_image_src: The src link to the icon image file.
  * - card_media_video_src: The src link to the video file.
  * - card_media_video_poster: Optional preview image of the video.
  * - card_media_fallback_content: Fallback content to display when browser doesn't support video or audio format.
@@ -93,13 +94,19 @@
         only
       %}
     {%- elseif 'su-card--icon-font' in modifier_class -%}
-      {# Support for: icon font #}
-      <span class="{{ card_icon_font_class }}" aria-hidden="true"></span>
-    {%- elseif 'su-card--icon' in modifier_class %}
-      {# Support for: icon image; use card_icon_image if exists, if not, use card_Image #}
-      {%- if card_icon_image is not empty %}
+      {# Support for: icon font, e.g., FontAwesome #}
+      <span {{ card_media_attributes }} class="{{ card_icon_font_class }}" aria-hidden="true"></span>
+    {%- elseif 'su-card--icon' in modifier_class -%}
+      {# Support for: icon image; use card_media_icon_image_src if provided, if not, use card_media_image_src. #}
+      {%- if card_media_icon_image_src -%}
+        <img {{ card_media_attributes }} src="{{ card_media_icon_image_src }}" aria-hidden="true" alt="">
+      {%- elseif card_media_image_src -%}
+        <img {{ card_media_attributes }} src="{{ card_media_image_src }}" aria-hidden="true" alt="">
+      {%- elseif card_icon_image -%}
         {{ card_icon_image }}
-      {% endif -%}
+      {%- else -%}
+        {{ card_image }}
+      {%- endif -%}
     {% else %}
       {% include template_path_media with
         {

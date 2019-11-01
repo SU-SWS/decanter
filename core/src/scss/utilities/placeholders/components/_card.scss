@@ -14,20 +14,20 @@
   background-color: color(bg);
 
   img,
-  > figure {
-    // Hide the image on the smallest screen sizes.
+  figure {
+    // Hide the media element on the smallest screen sizes.
     @include grid-media-only('xs') {
       display: none;
     }
   }
 
-  figure {
-    @include margin(0);
-  }
-
   .su-card__contents {
     @include modular-spacing('padding', 2);
     @include sans;
+
+    p {
+      @include small-paragraph;
+    }
 
     // Ensure no top padding or margin on first item.
     > *:first-child {
@@ -36,7 +36,7 @@
     }
 
     // Ensure no bottom padding or margin on last item.
-    > *:last-child {
+    > *:last-child:not(.su-card__button) {
       @include padding(null null 0);
       @include margin(null null 0);
     }
@@ -90,7 +90,7 @@
 
   // Button to click on.
   .su-card__button {
-    @include modular-spacing('margin', 1 null null);
+    @include modular-spacing('margin', 1 null -3);
 
     @include grid-media-only('xs') {
       .su-button {

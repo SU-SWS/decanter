@@ -361,10 +361,8 @@ button,
   background-color: #ffffff; }
   @media only screen and (min-width: 0) and (max-width: 575px) {
     .su-card img,
-    .su-card > figure {
+    .su-card figure {
       display: none; } }
-  .su-card figure {
-    margin: 0; }
   .su-card .su-card__contents {
     font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
     @media only screen and (min-width: 0) {
@@ -376,10 +374,15 @@ button,
     @media only screen and (min-width: 1500px) {
       .su-card .su-card__contents {
         padding: 3.8rem; } }
+    .su-card .su-card__contents p {
+      font-size: 1.8rem; }
+      @media (max-width: 767px) {
+        .su-card .su-card__contents p {
+          font-size: 1.5rem; } }
     .su-card .su-card__contents > *:first-child {
       padding-top: 0;
       margin-top: -0.2em; }
-    .su-card .su-card__contents > *:last-child {
+    .su-card .su-card__contents > *:last-child:not(.su-card__button) {
       padding-bottom: 0;
       margin-bottom: 0; }
     .su-card .su-card__contents > h2,
@@ -452,13 +455,16 @@ button,
           margin-top: 1.27rem; } }
   @media only screen and (min-width: 0) {
     .su-card .su-card__button {
-      margin-top: 2.31rem; } }
+      margin-top: 2.31rem;
+      margin-bottom: 0.53rem; } }
   @media only screen and (min-width: 768px) {
     .su-card .su-card__button {
-      margin-top: 2.6rem; } }
+      margin-top: 2.6rem;
+      margin-bottom: 0.6rem; } }
   @media only screen and (min-width: 1500px) {
     .su-card .su-card__button {
-      margin-top: 2.74rem; } }
+      margin-top: 2.74rem;
+      margin-bottom: 0.63rem; } }
   @media only screen and (min-width: 0) and (max-width: 575px) {
     .su-card .su-card__button .su-button {
       width: auto; } }
