@@ -86,17 +86,6 @@
     flex-wrap: wrap;
     background: transparent;
 
-    // Drop down menu containers.
-    // --------------------------
-    .su-multi-menu__menu {
-      @include padding(1px null null 1.2rem);
-      @include margin(null null null -1.7rem);
-      @include box-shadow('medium', none);
-      z-index: 11111; //When menu wrap to 2nd line make sure dropdown covers up top level links
-      position: absolute;
-      max-width: 30rem;
-    }
-
     // Top level horizonal links.
     // --------------------------
     > .su-multi-menu__item {
@@ -177,7 +166,16 @@
 // Second level styles
 // -----------------------------------------------------------------------
 .su-multi-menu__menu-lv2 {
-// Nothing to see here.
+  // Drop down menu containers.
+  // --------------------------
+  @include grid-media('lg') {
+    @include padding(1px null null 1.2rem);
+    @include margin(null null null -1.7rem);
+    @include box-shadow('medium', none);
+    z-index: 101;
+    position: absolute;
+    max-width: 30rem;
+  }
 }
 
 // Third level styles.

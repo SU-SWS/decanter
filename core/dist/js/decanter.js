@@ -1095,7 +1095,8 @@ function (_SecondaryNavAccordio) {
       itemExpandedClass: 'su-multi-menu__item--expanded',
       itemActiveClass: 'su-multi-menu__item--current',
       itemActiveTrailClass: 'su-multi-menu__item--active-trail',
-      itemParentClass: 'su-multi-menu__item--parent'
+      itemParentClass: 'su-multi-menu__item--parent',
+      expand: false
     }; // Merge in defaults.
 
     options = Object.assign(defaultOptions, options); // Kick it.
@@ -1168,7 +1169,8 @@ function (_SecondaryNavButtons) {
       itemExpandedClass: 'su-multi-menu__item--expanded',
       itemActiveClass: 'su-multi-menu__item--current',
       itemActiveTrailClass: 'su-multi-menu__item--active-trail',
-      itemParentClass: 'su-multi-menu__item--parent'
+      itemParentClass: 'su-multi-menu__item--parent',
+      expand: false
     }; // Merge in defaults.
 
     options = Object.assign(defaultOptions, options); // Kick it.
@@ -1355,16 +1357,16 @@ function () {
       }
     }
     /**
-     * Expand all menus in the active path.
+     * Set active trail.
      *
      * After this.setActivePath() has been run or the itemActiveClass has been set
-     * on all the appropriate menu items go through the nav and expand the
+     * on all the appropriate menu items go through the nav and set the trail on
      * subNavItems that contain activeClass items.
      */
 
   }, {
-    key: "expandActivePath",
-    value: function expandActivePath() {
+    key: "setActiveTrail",
+    value: function setActiveTrail() {
       var _this = this;
 
       var actives = this.elem.querySelectorAll('.' + this.itemActiveClass);
@@ -1381,11 +1383,50 @@ function () {
 
 
             if (element.tagName === 'LI') {
-              element.classList.add(_this.itemExpandedClass);
               element.classList.add(_this.itemActiveTrailClass); // "Hook" of sorts.
 
-              if (typeof _this.item.expandActivePathItem == 'function') {
-                _this.item.expandActivePathItem(element);
+              if (typeof _this.item.setActiveTrialItem == 'function') {
+                _this.item.setActiveTrialItem(element);
+              }
+            } // Always increment.
+
+
+            element = element.parentNode;
+          }
+        });
+      }
+    }
+    /**
+     * Expand all menus in the active path.
+     *
+     * After this.setActivePath() has been run or the itemActiveClass has been set
+     * on all the appropriate menu items go through the nav and expand the
+     * subNavItems that contain activeClass items.
+     */
+
+  }, {
+    key: "expandActivePath",
+    value: function expandActivePath() {
+      var _this2 = this;
+
+      var actives = this.elem.querySelectorAll('.' + this.itemActiveClass);
+
+      if (actives.length) {
+        actives.forEach(function (element) {
+          // While we have parents go up and add the active class.
+          while (element) {
+            // End when we get to the parent nav item stop.
+            if (element === _this2.elem) {
+              // Stop at the top most level.
+              break;
+            } // If we are on a LI element we need to add the active class.
+
+
+            if (element.tagName === 'LI') {
+              element.classList.add(_this2.itemExpandedClass); // "Hook" of sorts.
+
+              if (typeof _this2.item.expandActivePathItem == 'function') {
+                _this2.item.expandActivePathItem(element);
               }
             } // Always increment.
 
@@ -1747,7 +1788,9 @@ function (_SecondaryNavAbstract) {
     _this.createSubNavItems(); // Expand the active path.
 
 
-    _this.activePath.expandActivePath();
+    if (_this.options.expand) {
+      _this.activePath.expandActivePath();
+    }
 
     return _this;
   }
@@ -2341,9 +2384,12 @@ function (_SecondaryNavAbstract) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SecondaryNavButtons).call(this, elem, options)); // Ok do the creation.
 
     _this.createSubNavItems(); // Expand the path.
+    // Expand the active path.
 
 
-    _this.activePath.expandActivePath();
+    if (_this.options.expand) {
+      _this.activePath.expandActivePath();
+    }
 
     return _this;
   }
@@ -3284,7 +3330,9 @@ function () {
       itemActiveClass: 'su-secondary-nav__item--current',
       itemActiveTrailClass: 'su-secondary-nav__item--active-trail',
       itemParentClass: 'su-secondary-nav__item--parent',
-      eventRegistry: {}
+      eventRegistry: {},
+      activeTrail: true,
+      expand: true
     }; // Merge with passed in options.
 
     this.options = Object.assign(defaultOptions, options); // Remove the no-js class.
@@ -3295,7 +3343,12 @@ function () {
     this.dispatch = new _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_1__["default"](element, this); // Handle the active state.
 
     this.activePath = new _nav_ActivePath__WEBPACK_IMPORTED_MODULE_0__["default"](element, this, this.options);
-    this.activePath.setActivePath(); // Helper Item Variables.
+    this.activePath.setActivePath(); // Optionally set the trail.
+
+    if (this.options.activeTrail) {
+      this.activePath.setActiveTrail();
+    } // Helper Item Variables.
+
 
     this.navItems = [];
     this.subNavItems = [];
@@ -3312,6 +3365,16 @@ function () {
   _createClass(SecondaryNavAbstract, [{
     key: "expandActivePathItem",
     value: function expandActivePathItem(item) {} // For any additional items outside of the core functions.
+
+    /**
+     * Add anything additional after the abstract option has run.
+     *
+     * @param  {HTMLElement} item The HTMLElement being acted upon.
+     */
+
+  }, {
+    key: "setActivePathItem",
+    value: function setActivePathItem(item) {} // For any additional items outside of the core functions.
 
     /**
      * Creates an event registry for handling types of events.

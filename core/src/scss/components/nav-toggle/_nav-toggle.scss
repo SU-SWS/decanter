@@ -63,5 +63,11 @@
 
   &[aria-expanded="true"] {
     transform: rotate(180deg);
+    transition: transform 0.3s ease-out;
+  }
+
+  &[aria-expanded="false"] {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease-out;
   }
 }

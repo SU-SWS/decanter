@@ -70,6 +70,44 @@ export default class ActivePath {
   }
 
   /**
+   * Set active trail.
+   *
+   * After this.setActivePath() has been run or the itemActiveClass has been set
+   * on all the appropriate menu items go through the nav and set the trail on
+   * subNavItems that contain activeClass items.
+   */
+  setActiveTrail() {
+    let actives = this.elem.querySelectorAll('.' + this.itemActiveClass);
+    if (actives.length) {
+      actives.forEach(
+        element => {
+
+          // While we have parents go up and add the active class.
+          while (element) {
+            // End when we get to the parent nav item stop.
+            if (element === this.elem) {
+              // Stop at the top most level.
+              break;
+            }
+
+            // If we are on a LI element we need to add the active class.
+            if (element.tagName === 'LI') {
+              element.classList.add(this.itemActiveTrailClass);
+              // "Hook" of sorts.
+              if (typeof this.item.setActiveTrialItem == 'function') {
+                this.item.setActiveTrialItem(element);
+              }
+            }
+
+            // Always increment.
+            element = element.parentNode;
+          }
+        }
+      );
+    }
+  }
+
+  /**
    * Expand all menus in the active path.
    *
    * After this.setActivePath() has been run or the itemActiveClass has been set
@@ -93,7 +131,6 @@ export default class ActivePath {
             // If we are on a LI element we need to add the active class.
             if (element.tagName === 'LI') {
               element.classList.add(this.itemExpandedClass);
-              element.classList.add(this.itemActiveTrailClass);
               // "Hook" of sorts.
               if (typeof this.item.expandActivePathItem == 'function') {
                 this.item.expandActivePathItem(element);

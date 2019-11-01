@@ -19,12 +19,19 @@
   }
 
   // Parent Items
+  // Parent Items
   .su-multi-menu__item--parent {
 
   }
 
+  // Expanded items.
   .su-multi-menu__item--expanded {
-
+    > .su-multi-menu__link {
+      &::after {
+        background: url("#{$su-image-path}/minus-white.svg") no-repeat 0 0;
+        background-size: 100%;
+      }
+    }
   }
 
   // Menu Level 1 (top)
@@ -50,7 +57,17 @@
           }
         }
       }
-    } // end top level parent items.
+    }
+
+    // Expanded items.
+    .su-multi-menu__item--expanded {
+      > .su-multi-menu__link {
+        &::after {
+          background: url("#{$su-image-path}/minus-white.svg") no-repeat 0 0;
+          background-size: 100%;
+        }
+      }
+    }
   }
 
   // Menu Level 2 (first level drops)

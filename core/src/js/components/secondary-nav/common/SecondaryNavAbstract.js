@@ -28,7 +28,9 @@ export default class SecondaryNavAbstract {
       itemActiveClass: 'su-secondary-nav__item--current',
       itemActiveTrailClass: 'su-secondary-nav__item--active-trail',
       itemParentClass: 'su-secondary-nav__item--parent',
-      eventRegistry: {}
+      eventRegistry: {},
+      activeTrail: true,
+      expand: true
     };
 
     // Merge with passed in options.
@@ -45,6 +47,11 @@ export default class SecondaryNavAbstract {
     this.activePath = new ActivePath(element, this, this.options);
     this.activePath.setActivePath();
 
+    // Optionally set the trail.
+    if (this.options.activeTrail) {
+      this.activePath.setActiveTrail();
+    }
+
     // Helper Item Variables.
     this.navItems = [];
     this.subNavItems = [];
@@ -58,6 +65,15 @@ export default class SecondaryNavAbstract {
    * @param  {HTMLElement} item The HTMLElement being acted upon.
    */
   expandActivePathItem(item) {
+    // For any additional items outside of the core functions.
+  }
+
+  /**
+   * Add anything additional after the abstract option has run.
+   *
+   * @param  {HTMLElement} item The HTMLElement being acted upon.
+   */
+  setActivePathItem(item) {
     // For any additional items outside of the core functions.
   }
 

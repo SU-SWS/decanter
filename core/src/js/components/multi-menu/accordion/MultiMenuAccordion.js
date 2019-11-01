@@ -21,7 +21,8 @@ export default class MultiMenuAccordion extends SecondaryNavAccordion {
       itemExpandedClass: 'su-multi-menu__item--expanded',
       itemActiveClass: 'su-multi-menu__item--current',
       itemActiveTrailClass: 'su-multi-menu__item--active-trail',
-      itemParentClass: 'su-multi-menu__item--parent'
+      itemParentClass: 'su-multi-menu__item--parent',
+      expand: false
     };
 
     // Merge in defaults.

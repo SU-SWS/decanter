@@ -20,11 +20,30 @@
 
   // Parent Items
   .su-multi-menu__item--parent {
-
+    > .su-multi-menu__link {
+      &::after {
+        background: url("#{$su-image-path}/plus-white.svg") no-repeat 0 0;
+        background-size: 100%;
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: 2rem;
+        top: 2.06rem;
+        height: 1.8rem;
+        width: 1.8rem;
+      }
+    }
   }
 
+  // Expanded Items.
   .su-multi-menu__item--expanded {
-
+    > .su-multi-menu__link {
+      &::after {
+        background: url("#{$su-image-path}/minus-white.svg") no-repeat 0 0;
+        transform: rotate(180deg);
+        transition: transform 0.3s ease-out;
+      }
+    }
   }
 
   // Menu Level 1 (top)
@@ -33,16 +52,6 @@
     > .su-multi-menu__item--parent {
       > .su-multi-menu__link {
         &::after {
-          background: url("#{$su-image-path}/plus-white.svg") no-repeat 0 0;
-          background-size: 100%;
-          content: "";
-          display: inline-block;
-          position: absolute;
-          right: 2rem;
-          top: 2.06rem;
-          height: 1.8rem;
-          width: 1.8rem;
-
           // Desktop Styles.
           @include grid-media('lg') {
             @include margin(null null 1px 6px);
@@ -50,14 +59,27 @@
             background-size: 100%;
             position: relative;
             right: 0;
-            top: 0;
-            height: 11px; // Small svg gets chopped off if use em instead of px
-            width: 11px;
+            top: 2px;
+            height: 13px; // Small svg gets chopped off if use em instead of px
+            width: 13px;
             transition: transform 0.3s ease-out;
           }
         }
       }
     } // end top level parent items.
+
+    // Top level expanded.
+    > .su-multi-menu__item--expanded {
+      > .su-multi-menu__link {
+        &::after {
+          @include grid-media('lg') {
+            background: url("#{$su-image-path}/minus-black.svg") no-repeat 0 0;
+            transform: rotate(180deg);
+            transition: transform 0.3s ease-out;
+          }
+        }
+      }
+    }
   }
 
   // Menu Level 2 (first level drops)

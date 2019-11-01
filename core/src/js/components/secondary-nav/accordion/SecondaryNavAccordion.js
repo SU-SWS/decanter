@@ -21,7 +21,9 @@ export default class SecondaryNavAccordion extends SecondaryNavAbstract {
     this.createSubNavItems();
 
     // Expand the active path.
-    this.activePath.expandActivePath();
+    if (this.options.expand) {
+      this.activePath.expandActivePath();
+    }
   }
 
   /**

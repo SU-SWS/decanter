@@ -32,7 +32,6 @@
   .su-multi-menu__menu-lv1 {
     // Top level items.
     > .su-multi-menu__item {
-
       // Top level links.
       > .su-multi-menu__link {
         color: $su-color-white;
@@ -41,15 +40,20 @@
 
     // Top Level Parent Items.
     > .su-multi-menu__item--parent {
+
+      // First level link.
       > .su-multi-menu__link {
-        &::after {
-          // Desktop Styles.
-          @include grid-media('lg') {
-            background: url("#{$su-image-path}/caret-down-white.svg") no-repeat 0 0;
-            background-size: 100%;
+      }
+
+      // First level nav toggle.
+      > .su-nav-toggle {
+        // Desktop Styles.
+        @include grid-media('lg') {
+          &::before {
+            background-image: url("#{$su-image-path}/caret-down-white.svg");
           }
         }
-      }
+      } // End su-nav-toggle.
     } // end top level parent items.
   }
 

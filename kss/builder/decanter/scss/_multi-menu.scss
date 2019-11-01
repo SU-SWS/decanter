@@ -1,0 +1,12 @@
+@charset 'UTF-8';
+
+#kssref-components-multi-menu {
+  .kss-modifier__wrapper {
+    @for $i from 50 through 1 {
+      .kss-modifier__example:nth-child(#{$i}) {
+        position: relative;
+        z-index: 1000 - $i;
+      }
+    }
+  }
+}

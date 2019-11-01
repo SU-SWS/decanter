@@ -30,7 +30,10 @@ export default class SecondaryNavButtons extends SecondaryNavAbstract {
     this.createSubNavItems();
 
     // Expand the path.
-    this.activePath.expandActivePath();
+    // Expand the active path.
+    if (this.options.expand) {
+      this.activePath.expandActivePath();
+    }
   }
 
   /**
