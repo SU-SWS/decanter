@@ -27,9 +27,17 @@
  * - card_icon_image: A full HTML <img> element for the icon including attributes.
  * - card_icon_font_class: If using icon font, e.g., FontAwesome, the class(es) of the icon including modifier classes,
   e.g. 'fas fa-globe fa-2x', 'far fa-thumbs-up fa-rotate-90'
- * - card_video: Provide whole <iframe> element if embedding from streaming sites such as YouTube and Vimeo.
-  Provide only the file path if embedding your own video file.
- * - card_video_attributes: If providing your own video file, attributes for the <video> element, e.g., autoplay, muted, loop, etc.
+ * - card_media_image_src: The src link to the image file.
+ * - card_media_image_srcset: The srcset of the image if exists.
+ * - card_media_video_src: The src link to the video file.
+ * - card_media_video_poster: Optional preview image of the video.
+ * - card_media_fallback_content: Fallback content to display when browser doesn't support video or audio format.
+ * - card_media_type: Type of the media file, e.g. mp4, webm, quicktime (self-hosted video only).
+ * - card_media_custom: An open field for the full HTML element of the media content, e.g., an embedded YouTube iframe.
+ * - card_media_modifier_class: Additional CSS classes to change look and behavior of the media media element.
+ * - card_media_attributes: Additional HTML attributes for the media element not already provided.
+ * - card_media_wrapper_modifier_class: Additional CSS classes to change look and behavior of the media wrapper, e.g. "su-aspect-ratio" to provide aspect ratio constraint.
+ * - card_media_content_attributes: Additional HTML attributes for the media content, e.g., for <video> - controls, autoplay; for <img> - sizes (when srcset is provided), alt, width, height.
  */
 #}
 
@@ -39,6 +47,10 @@
 #}
 {%- if template_path_link is empty -%}
   {%- set template_path_link = "@decanter/components/link/link.twig" -%}
+{%- endif -%}
+
+{%- if template_path_media is empty -%}
+  {%- set template_path_media = "@decanter/components/media/media.twig" -%}
 {%- endif -%}
 
 {# For variant where whole card is a link, suppress all other links within the component #}
@@ -56,106 +68,108 @@
     <a href="{{ card_link }}" {{ card_cta_attributes }}>
   {%- endif -%}
 
-  {# Media field - Image, image icon, icon font or video #}
-  {%- if 'su-card--video' in modifier_class -%}
-    {# Support for: YouTube and Vimeo iframe or video file #}
-    <div class="su-card__embed">
-    {%- if 'iframe' in card_video -%}
-      {{ card_video }}
-    {%- else -%}
-      <video controls {{ card_video_attributes }}>
-        {%- if 'mp4' in card_video -%}
-          {% set card_video_type = '/mp4' %}
-        {%- elseif 'webm' in card_video -%}
-          {% set card_video_type = '/webm' %}
-        {%- elseif 'mov' in card_video -%}
-          {% set card_video_type = '/mov' %}
-        {%- elseif 'ogg' in card_video -%}
-          {% set card_video_type = '/ogg' %}
-        {%- elseif 'avi' in card_video -%}
-          {% set card_video_type = '/avi' %}
+  {% block block_card_media %}
+    {# We use the media component here except for the two variants with icons in the media field. #}
+
+    {% if 'su-card--video' in modifier_class %}
+      {% include template_path_media with
+        {
+          "modifier_class": 'su-media--video',
+          "attributes": card_media_attributes,
+          "media_video_src": card_media_video_src,
+          "media_wrapper_modifier_class": card_media_wrapper_modifier_class,
+          "media_type": card_media_type,
+          "media_content_attributes": card_media_content_attributes
+        }
+        only
+      %}
+    {% elseif 'su-card--embed' in modifier_class %}
+      {% include template_path_media with
+        {
+          "attributes": card_media_attributes,
+          "media_wrapper_modifier_class": card_media_wrapper_modifier_class,
+          "media_custom": card_media_custom
+        }
+        only
+      %}
+    {%- elseif 'su-card--icon-font' in modifier_class -%}
+      {# Support for: icon font #}
+      <span class="{{ card_icon_font_class }}" aria-hidden="true"></span>
+    {%- elseif 'su-card--icon' in modifier_class %}
+      {# Support for: icon image; use card_icon_image if exists, if not, use card_Image #}
+      {%- if card_icon_image is not empty %}
+        {{ card_icon_image }}
+      {% endif -%}
+    {% else %}
+      {% include template_path_media with
+        {
+          "modifier_class": 'su-media--image',
+          "attributes": card_media_attributes,
+          "media_wrapper_modifier_class": card_media_wrapper_modifier_class,
+          "media_image_src": card_media_image_src,
+          "media_image_srcset": card_media_image_srcset,
+          "media_content_attributes": card_media_content_attributes
+        }
+        only
+      %}
+    {% endif %}
+  {% endblock block_card_media %}
+
+    <div class="su-card__contents">
+      {# Card Super Headline #}
+      {%- block block_card_super_headline %}
+        {% if card_super_headline is not empty %}
+          <span>{{ card_super_headline }}</span>
         {% endif -%}
-        <source src="{{ card_video }}" type="video{{ card_video_type }}">
-        <p>Sorry, your browser doesn't support embedded videos.</p>
-      </video>
-    {% endif -%}
-    </div>{# end su-card__embed #}
+      {% endblock -%}
 
-  {%- elseif 'su-card--icon-font' in modifier_class -%}
-    {# Support for: icon font #}
-    <span class="{{ card_icon_font_class }}" aria-hidden="true"></span>
-
-  {%- elseif 'su-card--icon' in modifier_class %}
-    {# Support for: icon image; use card_icon_image if exists, if not, use card_Image #}
-    {%- if card_icon_image is not empty %}
-      {{ card_icon_image }}
-    {% endif -%}
-
-  {%- else %}
-    {# Support for: image if exists; <figure> wrapper allows for fixed aspect ratio #}
-    {%- if card_image is not empty %}
-      <figure>{{ card_image }}</figure>
-    {% endif -%}
-
-  {% endif -%}
-
-  <div class="su-card__contents">
-
-    {# Card Super Headline #}
-    {%- block block_card_super_headline %}
-      {% if card_super_headline is not empty %}
-        <span>{{ card_super_headline }}</span>
-      {% endif -%}
-    {% endblock -%}
-
-    {# Card Headline #}
-    {%- block block_card_headline  %}
-      {%- if card_headline is not empty %}
-        <h2>
-          {%- if card_headline_link and allow_links -%}
+      {# Card Headline #}
+      {%- block block_card_headline  %}
+        {%- if card_headline is not empty %}
+          <h2>
+            {%- if card_headline_link and allow_links -%}
             <a href="{{ card_link }}" {{ card_cta_attributes }}>
-          {%- endif -%}
-            {{- card_headline -}}
-          {% if card_headline_link and allow_links -%}
+              {%- endif -%}
+              {{- card_headline -}}
+              {% if card_headline_link and allow_links -%}
             </a>
-          {%- endif -%}
-        </h2>
+            {%- endif -%}
+          </h2>
+        {% endif -%}
+      {% endblock -%}
+
+      {# An open field for body content #}
+      {{ card_body }}
+
+      {# Card CTA Link #}
+      {%- if card_cta_label is not empty and allow_links %}
+        {%- include template_path_link with
+          {
+            "link_href": card_link,
+            "link_content": card_cta_label,
+            "attributes": card_cta_attributes,
+            "modifier_class": "su-card__link su-link--action"
+          }
+          only
+        -%}
       {% endif -%}
-    {% endblock -%}
 
-    {# An open field for body content #}
-    {{ card_body }}
+      {# Big ol button. Adds a BEM class for targeting. #}
+      {%- if card_button_label is not empty and allow_links %}
+        <div class="su-card__button">
+          {%- include template_path_link with
+            {
+              "link_href": card_link,
+              "link_content": card_button_label,
+              "attributes": card_cta_attributes,
+              "modifier_class": "su-button"
+            }
+            only
+          -%}
+        </div>
+      {% endif -%}
 
-    {# Card CTA Link #}
-    {%- if card_cta_label is not empty and allow_links %}
-      {%- include template_path_link with
-        {
-        "link_href": card_link,
-        "link_content": card_cta_label,
-        "attributes": card_cta_attributes,
-        "modifier_class": "su-card__link su-link--action"
-        }
-        only
-      -%}
-    {% endif -%}
-
-    {# Big ol button. Adds a BEM class for targeting. #}
-    {%- if card_button_label is not empty and allow_links %}
-      <div class="su-card__button">
-      {%- include template_path_link with
-        {
-        "link_href": card_link,
-        "link_content": card_button_label,
-        "attributes": card_cta_attributes,
-        "modifier_class": "su-button"
-        }
-        only
-      -%}
-      </div>
-    {% endif -%}
-
-  </div>{# end of .su-card__contents #}
-
+    </div>{# end of .su-card__contents #}
   {%- if allow_links == false %}
     </a>
   {%- endif -%}
