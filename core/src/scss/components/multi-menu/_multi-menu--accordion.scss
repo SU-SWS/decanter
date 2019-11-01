@@ -1,35 +1,73 @@
 @charset "UTF-8";
 
-.su-multi-menu--accordion {
+.su-multi-menu--accordion,
+.su-multi-menu--accordion-dark {
 
-  // All Parent Items.
-  // ---------------------------------------------------------------------------
+  // Nested Menus (ul)
+  .su-multi-menu__menu {
+
+  }
+
+  // Nested Items (li)
+  .su-multi-menu__item {
+
+  }
+
+  // Nested links (li > a)
+  .su-multi-menu__link {
+
+  }
+
+  // Parent Items
   .su-multi-menu__item--parent {
-    > .su-multi-menu__link {
-      &::after {
-        transition: transform 0.3s ease-out;
-        background: url("#{$su-image-path}/plus-white.svg") no-repeat 0 0;
-        background-size: 100%;
-        content: "";
-        display: inline-block;
-        position: absolute;
-        right: 2rem;
-        top: calc(50% - 8px);
-        height: 1.8rem;
-        width: 1.8rem;
-      }
-    }
+
   }
 
-  // All Expanded items.
-  // ---------------------------------------------------------------------------
   .su-multi-menu__item--expanded {
-    > .su-multi-menu__link {
-      &::after {
-        background: url("#{$su-image-path}/minus-white.svg") no-repeat 0 0;
-        transform: rotate(180deg);
-        transition: transform 0.3s ease-out;
-      }
-    }
+
   }
+
+  // Menu Level 1 (top)
+  .su-multi-menu__menu-lv1 {
+    // Top Level Parent Items.
+    > .su-multi-menu__item--parent {
+      > .su-multi-menu__link {
+        &::after {
+          background: url("#{$su-image-path}/plus-white.svg") no-repeat 0 0;
+          background-size: 100%;
+          content: "";
+          display: inline-block;
+          position: absolute;
+          right: 2rem;
+          top: 2.06rem;
+          height: 1.8rem;
+          width: 1.8rem;
+
+          // Desktop Styles.
+          @include grid-media('lg') {
+            @include margin(null null 1px 6px);
+            background: url("#{$su-image-path}/plus-black.svg") no-repeat 0 0;
+            background-size: 100%;
+            position: relative;
+            right: 0;
+            top: 0;
+            height: 11px; // Small svg gets chopped off if use em instead of px
+            width: 11px;
+            transition: transform 0.3s ease-out;
+          }
+        }
+      }
+    } // end top level parent items.
+  }
+
+  // Menu Level 2 (first level drops)
+  .su-multi-menu__menu-lv2 {
+
+  }
+
+  // Menu Level 3 (flyout)
+  .su-multi-menu__menu-lv3 {
+
+  }
+
 }

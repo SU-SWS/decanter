@@ -6,3 +6,5 @@
 import './main-nav/main-nav.js';
 // The Secondary Navigation Component.
 import './secondary-nav/secondary-nav.js';
+// The Mulit Menu Component.
+import './multi-menu/multi-menu.js';

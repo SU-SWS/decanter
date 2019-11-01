@@ -97,11 +97,14 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _main_nav_main_nav_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./main-nav/main-nav.js */ "./core/src/js/components/main-nav/main-nav.js");
 /* harmony import */ var _secondary_nav_secondary_nav_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./secondary-nav/secondary-nav.js */ "./core/src/js/components/secondary-nav/secondary-nav.js");
+/* harmony import */ var _multi_menu_multi_menu_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./multi-menu/multi-menu.js */ "./core/src/js/components/multi-menu/multi-menu.js");
 /**
  * Primary roll up file for all javascript components.
  */
 // The Primary Navigation Component.
  // The Secondary Navigation Component.
+
+ // The Mulit Menu Component.
 
 
 
@@ -1031,6 +1034,238 @@ document.addEventListener('DOMContentLoaded', function (event) {
     }
   }, false);
 }); // on DOMContentLoaded.
+
+/***/ }),
+
+/***/ "./core/src/js/components/multi-menu/accordion/MultiMenuAccordion.js":
+/*!***************************************************************************!*\
+  !*** ./core/src/js/components/multi-menu/accordion/MultiMenuAccordion.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MultiMenuAccordion; });
+/* harmony import */ var _secondary_nav_common_SecondaryNavAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../secondary-nav/common/SecondaryNavAbstract */ "./core/src/js/components/secondary-nav/common/SecondaryNavAbstract.js");
+/* harmony import */ var _secondary_nav_common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../secondary-nav/common/SecondaryNavItem */ "./core/src/js/components/secondary-nav/common/SecondaryNavItem.js");
+/* harmony import */ var _secondary_nav_accordion_SecondaryNavAccordion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../secondary-nav/accordion/SecondaryNavAccordion */ "./core/src/js/components/secondary-nav/accordion/SecondaryNavAccordion.js");
+/* harmony import */ var _secondary_nav_accordion_SecondarySubNavAccordion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../secondary-nav/accordion/SecondarySubNavAccordion */ "./core/src/js/components/secondary-nav/accordion/SecondarySubNavAccordion.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+/**
+ * A secondary menu with accordion buttons.
+ */
+
+var MultiMenuAccordion =
+/*#__PURE__*/
+function (_SecondaryNavAccordio) {
+  _inherits(MultiMenuAccordion, _SecondaryNavAccordio);
+
+  /**
+   * Initialize.
+   *
+   * @param {HTMLElement} elem  The outermost wrapper for the Navigation.
+   * @param {Object} options    An object of metadata.
+   */
+  function MultiMenuAccordion(elem) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    _classCallCheck(this, MultiMenuAccordion);
+
+    // Set some default options.
+    var defaultOptions = {
+      itemClass: 'su-multi-menu__item',
+      itemExpandedClass: 'su-multi-menu__item--expanded',
+      itemActiveClass: 'su-multi-menu__item--current',
+      itemActiveTrailClass: 'su-multi-menu__item--active-trail',
+      itemParentClass: 'su-multi-menu__item--parent'
+    }; // Merge in defaults.
+
+    options = Object.assign(defaultOptions, options); // Kick it.
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(MultiMenuAccordion).call(this, elem, options));
+  }
+
+  return MultiMenuAccordion;
+}(_secondary_nav_accordion_SecondaryNavAccordion__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/multi-menu/buttons/MultiMenuButtons.js":
+/*!***********************************************************************!*\
+  !*** ./core/src/js/components/multi-menu/buttons/MultiMenuButtons.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MultiMenuButtons; });
+/* harmony import */ var _secondary_nav_common_SecondaryNavAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../secondary-nav/common/SecondaryNavAbstract */ "./core/src/js/components/secondary-nav/common/SecondaryNavAbstract.js");
+/* harmony import */ var _secondary_nav_common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../secondary-nav/common/SecondaryNavItem */ "./core/src/js/components/secondary-nav/common/SecondaryNavItem.js");
+/* harmony import */ var _secondary_nav_buttons_SecondaryNavButtons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../secondary-nav/buttons/SecondaryNavButtons */ "./core/src/js/components/secondary-nav/buttons/SecondaryNavButtons.js");
+/* harmony import */ var _secondary_nav_buttons_SecondarySubNavButtons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../secondary-nav/buttons/SecondarySubNavButtons */ "./core/src/js/components/secondary-nav/buttons/SecondarySubNavButtons.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+
+
+/**
+ * A secondary menu with toggle buttons.
+ */
+
+var MultiMenuButtons =
+/*#__PURE__*/
+function (_SecondaryNavButtons) {
+  _inherits(MultiMenuButtons, _SecondaryNavButtons);
+
+  /**
+   * Initialize.
+   *
+   * @param {HTMLElement} elem  The outermost wrapper for the Navigation.
+   * @param {Object} options    An object of metadata.
+   */
+  function MultiMenuButtons(elem) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    _classCallCheck(this, MultiMenuButtons);
+
+    // Set some default options.
+    var defaultOptions = {
+      itemClass: 'su-multi-menu__item',
+      itemExpandedClass: 'su-multi-menu__item--expanded',
+      itemActiveClass: 'su-multi-menu__item--current',
+      itemActiveTrailClass: 'su-multi-menu__item--active-trail',
+      itemParentClass: 'su-multi-menu__item--parent'
+    }; // Merge in defaults.
+
+    options = Object.assign(defaultOptions, options); // Kick it.
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(MultiMenuButtons).call(this, elem, options));
+  }
+
+  return MultiMenuButtons;
+}(_secondary_nav_buttons_SecondaryNavButtons__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/multi-menu/common/globals.js":
+/*!*************************************************************!*\
+  !*** ./core/src/js/components/multi-menu/common/globals.js ***!
+  \*************************************************************/
+/*! exports provided: multiMenus */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "multiMenus", function() { return multiMenus; });
+// The css class that this following behaviour is applied to.
+var multiMenuClass = 'su-multi-menu'; // All Secondary navs.
+
+var multiMenus = document.querySelectorAll('.' + multiMenuClass);
+
+/***/ }),
+
+/***/ "./core/src/js/components/multi-menu/multi-menu-accordion.js":
+/*!*******************************************************************!*\
+  !*** ./core/src/js/components/multi-menu/multi-menu-accordion.js ***!
+  \*******************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ "./core/src/js/core/core.js");
+/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _common_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/globals */ "./core/src/js/components/multi-menu/common/globals.js");
+/* harmony import */ var _accordion_MultiMenuAccordion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./accordion/MultiMenuAccordion */ "./core/src/js/components/multi-menu/accordion/MultiMenuAccordion.js");
+
+
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  _common_globals__WEBPACK_IMPORTED_MODULE_1__["multiMenus"].forEach(function (nav, index) {
+    if (nav.className.match(/su-multi-menu--accordion/)) {
+      new _accordion_MultiMenuAccordion__WEBPACK_IMPORTED_MODULE_2__["default"](nav);
+    }
+  });
+});
+
+/***/ }),
+
+/***/ "./core/src/js/components/multi-menu/multi-menu-buttons.js":
+/*!*****************************************************************!*\
+  !*** ./core/src/js/components/multi-menu/multi-menu-buttons.js ***!
+  \*****************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ "./core/src/js/core/core.js");
+/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _common_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/globals */ "./core/src/js/components/multi-menu/common/globals.js");
+/* harmony import */ var _buttons_MultiMenuButtons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./buttons/MultiMenuButtons */ "./core/src/js/components/multi-menu/buttons/MultiMenuButtons.js");
+
+
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  _common_globals__WEBPACK_IMPORTED_MODULE_1__["multiMenus"].forEach(function (nav, index) {
+    if (nav.className.match(/su-multi-menu--buttons/)) {
+      new _buttons_MultiMenuButtons__WEBPACK_IMPORTED_MODULE_2__["default"](nav);
+    }
+  });
+});
+
+/***/ }),
+
+/***/ "./core/src/js/components/multi-menu/multi-menu.js":
+/*!*********************************************************!*\
+  !*** ./core/src/js/components/multi-menu/multi-menu.js ***!
+  \*********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _multi_menu_accordion_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./multi-menu-accordion.js */ "./core/src/js/components/multi-menu/multi-menu-accordion.js");
+/* harmony import */ var _multi_menu_buttons_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./multi-menu-buttons.js */ "./core/src/js/components/multi-menu/multi-menu-buttons.js");
+// Get'm
+
+
 
 /***/ }),
 

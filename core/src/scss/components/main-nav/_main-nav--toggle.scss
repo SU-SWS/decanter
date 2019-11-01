@@ -1,21 +1,20 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
-.su-multi-menu__toggle {
-
-  cursor: pointer;
+.su-main-nav__toggle {
+  $_su-main-nav-color-map: $su-nav-colors;
 
   @include grid-media-max('md') {
-    @include fancy-hover(color(border--hover, $su-multi-menu-colors), color(border--active, $su-multi-menu-colors));
+    @include fancy-hover(color(h-border--hover, $su-nav-colors), color(h-border--active, $su-nav-colors));
     @include padding(0 0 2rem);
     @include margin(0);
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    outline: none;
     width: 40px;
     background-color: transparent;
-    color: color(h--link, $su-multi-menu-colors);
+    color: color(h-link, $su-nav-colors);
     font-size: 1.6rem;
-    font-weight: $su-font-regular;
     line-height: 0.7;
 
     &::after {
@@ -31,7 +30,7 @@
       &::before {
         visibility: visible;
         transform: scaleX(1);
-        background-color: color(border--expanded, $su-multi-menu-colors);
+        background-color: color(h-border--expanded, $su-nav-colors);
       }
 
       &::after {
@@ -41,11 +40,11 @@
       }
 
       &:hover::before {
-        background-color: color(border--hover, $su-multi-menu-colors);
+        background-color: color(h-border--hover, $su-nav-colors);
       }
 
       &:active::before {
-        background-color: color(border--active, $su-multi-menu-colors);
+        background-color: color(h-border--active, $su-nav-colors);
       }
     }
 
@@ -53,15 +52,15 @@
     &:active,
     &:focus {
       background-color: transparent;
-      color: color(h--link-hover, $su-multi-menu-colors);
-      cursor: pointer;
+      color: color(h-link, $su-nav-colors);
+      box-shadow: none;
     }
 
-    &[aria-expanded="false"] ~ .su-multi-menu__menu-lv1 {
+    &[aria-expanded="false"] + .su-main-nav__menu-lv1 {
       display: none;
     }
 
-    &[aria-expanded="true"] ~ .su-multi-menu__menu-lv1 {
+    &[aria-expanded="true"] + .su-main-nav__menu-lv1 {
       position: absolute;
     }
 
@@ -76,7 +75,7 @@
   }
 
   @include grid-media-only('md') {
-    &[aria-expanded="true"]  ~ .su-multi-menu__menu-lv1 {
+    &[aria-expanded="true"]  + .su-main-nav__menu-lv1 {
       max-width: 24em;
     }
   }
