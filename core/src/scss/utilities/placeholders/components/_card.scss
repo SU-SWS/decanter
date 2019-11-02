@@ -9,7 +9,7 @@
 //
 
 %card-base {
-  @include box-shadow($depth: 'shallow');
+  @include box-shadow(shallow, 1px solid color(card-border));
   display: block;
   background-color: color(bg);
 
@@ -32,18 +32,13 @@
     // Ensure no top padding or margin on first item.
     > *:first-child {
       @include padding(0 null null);
-      @include margin(-0.2em null null);
+      @include margin(-0.3em null null);
     }
 
-    // Ensure no bottom padding or margin on last item.
+    // Ensure no bottom padding or margin on last item unless it is a button.
     > *:last-child:not(.su-card__button) {
       @include padding(null null 0);
       @include margin(null null 0);
-    }
-
-    > h2,
-    > span {
-      @include sans;
     }
 
     // Super Headline.
@@ -81,10 +76,12 @@
       @include margin(null null 0);
     }
 
-    .su-link--action,
+    > .su-link--action,
     > a {
-      @include modular-spacing('margin', -1 null null);
-      display: inline-block;
+      &:not(:first-child) {
+        @include modular-spacing('margin', -1 null null);
+        display: inline-block;
+      }
     }
   }
 

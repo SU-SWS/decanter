@@ -59,6 +59,7 @@
   {%- set allow_links = false -%}
 {%- else -%}
   {%- set allow_links = true -%}
+  {%- set card_media_link = card_link -%}
 {%- endif -%}
 
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css' type='text/css' media='' />
@@ -75,8 +76,10 @@
     {% if 'su-card--video' in modifier_class %}
       {% include template_path_media with
         {
-          "modifier_class": 'su-media--video',
+          "modifier_class": 'su-media--video su-card__media',
           "attributes": card_media_attributes,
+          "media_link": card_media_link,
+          "media_link_attributes": card_cta_attributes,
           "media_video_src": card_media_video_src,
           "media_wrapper_modifier_class": card_media_wrapper_modifier_class,
           "media_type": card_media_type,
@@ -87,6 +90,7 @@
     {% elseif 'su-card--embed' in modifier_class %}
       {% include template_path_media with
         {
+          "modifier_class": 'su-card__media',
           "attributes": card_media_attributes,
           "media_wrapper_modifier_class": card_media_wrapper_modifier_class,
           "media_custom": card_media_custom
@@ -110,9 +114,11 @@
     {% else %}
       {% include template_path_media with
         {
-          "modifier_class": 'su-media--image',
+          "modifier_class": 'su-media--image su-card__media',
           "attributes": card_media_attributes,
           "media_wrapper_modifier_class": card_media_wrapper_modifier_class,
+          "media_link": card_media_link,
+          "media_link_attributes": card_cta_attributes,
           "media_image_src": card_media_image_src,
           "media_image_srcset": card_media_image_srcset,
           "media_content_attributes": card_media_content_attributes
