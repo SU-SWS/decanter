@@ -1,15 +1,14 @@
 import EventAbstract from './EventAbstract';
 
 /**
- * ActivePath Class
+ * OnEnd
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 export default class OnEnd extends EventAbstract {
 
   /**
-   * [init description]
-   * @return {[type]} [description]
+   * Execute the action to the event.
    */
   exec() {
     this.event.preventDefault();

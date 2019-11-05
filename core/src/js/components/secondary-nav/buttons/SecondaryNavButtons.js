@@ -6,19 +6,21 @@ import SecondarySubNavButtons from './SecondarySubNavButtons';
  * A secondary menu with toggle buttons.
  */
 export default class SecondaryNavButtons extends SecondaryNavAbstract {
+
   /**
-   * [constructor description]
-   * @param {[type]} elem         [description]
-   * @param {Object} [options={}] [description]
+   * Initialize.
+   *
+   * @param {HTMLElement} elem  The outermost wrapper for the Navigation.
+   * @param {Object} options    An object of metadata.
    */
   constructor(elem, options = {}) {
 
     // Merge with the default options.
     options = Object.assign({
-      'itemExpandedClass': 'su-secondary-nav__item--expanded',
-      'toggleClass': 'su-nav-toggle',
-      'toggleLabel': 'expand menu',
-      'subNavToggleText': "+",
+      itemExpandedClass: 'su-secondary-nav__item--expanded',
+      toggleClass: 'su-nav-toggle',
+      toggleLabel: 'expand menu',
+      subNavToggleText: '+'
     }, options);
 
     // Call the super.
@@ -33,19 +35,24 @@ export default class SecondaryNavButtons extends SecondaryNavAbstract {
 
   /**
    * Add the additional state handling after the abstract option has run.
+   *
+   * @param  {HTMLElement} item The HTMLElement being acted upon.
    */
   expandActivePathItem(item) {
-    var node = item.querySelector("." + this.options.toggleClass);
+    var node = item.querySelector('.' + this.options.toggleClass);
     if (node) {
       node.setAttribute('aria-expanded', 'true');
     }
   }
 
   /**
-   * [newParentItem description]
-   * @param  {[type]} item  [description]
-   * @param  {[type]} depth [description]
-   * @return {[type]}       [description]
+   * Function for creating a new nested navigation item.
+   *
+   * @param  {HTMLElement} item     The HTMLElement to attach a new subnav to.
+   * @param  {Integer} depth        The level of nesting. (starts at 1)
+   * @param  {Object|Mixed} parent  The parent subnav instance.
+   *
+   * @return {SecondarySubNavButtons} A brand new instance.
    */
   newParentItem(item, depth, parent) {
     var nav = new SecondarySubNavButtons(
@@ -54,7 +61,7 @@ export default class SecondaryNavButtons extends SecondaryNavAbstract {
       parent,
       {
         itemExpandedClass: this.options.itemExpandedClass,
-        depth: depth,
+        depth: depth
       }
     );
     this.subNavItems.push(nav);
@@ -62,17 +69,20 @@ export default class SecondaryNavButtons extends SecondaryNavAbstract {
   }
 
   /**
-   * [newNavItem description]
-   * @param  {[type]} item  [description]
-   * @param  {[type]} depth [description]
-   * @return {[type]}       [description]
+   * Function for creating a new single tier navigation item.
+   *
+   * @param  {HTMLElement} item     The HTMLElement to attach a new subnav to.
+   * @param  {Integer} depth        The level of nesting. (starts at 1)
+   * @param  {Object|Mixed} parent  The parent subnav instance.
+   *
+   * @return {SecondaryNavItem} A brand new instance.
    */
   newNavItem(item, depth, parent) {
     var nav = new SecondaryNavItem(
       item,
       this,
       parent,
-      { depth: depth }
+      {depth: depth}
     );
     this.navItems.push(nav);
     return nav;

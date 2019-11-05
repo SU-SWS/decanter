@@ -1,14 +1,14 @@
 import EventAbstract from './EventAbstract';
 
 /**
- * ActivePath Class
+ * OnEnter
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 export default class OnEnter extends EventAbstract {
 
   /**
-   * Prevent the spacebar from jumping to anywhere.
+   * Execute the action to the event.
    */
   exec() {
     this.event.stopPropagation();

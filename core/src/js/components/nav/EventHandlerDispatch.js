@@ -1,15 +1,19 @@
-import { normalizeKey } from '../../utilities/keyboard';
+import {normalizeKey} from '../../utilities/keyboard';
 
 /**
  * EventHandlerDispatch Class
  *
- * NEEDS DESCRIPTION.
+ * This class provides dynamic handling of click and keyboard events and can be
+ * attached to any class/HTMLElement.
  */
 export default class EventHandlerDispatch {
 
   /**
-   * [constructor description]
-   * @param {[type]} element [description]
+   * Initialize.
+   *
+   * @param {HTMLElement} element   The HTMLElement to bind listeners to.
+   * @param {[type]}      handler   The Javascript Class instance with the
+   *                                eventRegistry property.
    */
   constructor(element, handler) {
     this.elem = element;
@@ -56,10 +60,10 @@ export default class EventHandlerDispatch {
     // What was clicked.
     const target = event.target || event.srcElement;
 
-    if (eventMethod == "onKeydown") {
+    if (eventMethod === 'onKeydown') {
       this.onKeydown(event, target);
     }
-    else if (eventMethod == "onClick") {
+    else if (eventMethod === 'onClick') {
       this.onClick(event, target);
     }
     else {
@@ -68,8 +72,7 @@ export default class EventHandlerDispatch {
   }
 
   /**
-   * Handler for keydown events. keydown is bound to all NavItem's.
-   * Dispatched from this.handleEvent().
+   * Handler for keydown events.
    *
    * @param {KeyboardEvent} event - The keyboard event object.
    * @param {HTMLElement} target  - The HTML element target.
@@ -93,20 +96,24 @@ export default class EventHandlerDispatch {
   }
 
   /**
-   * [onClick description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
-   * @return {[type]}        [description]
+   * Handler for click events.
+   *
+   * @param  {Event} event  A Javascript event.
+   * @param  {HTMLElement} target The target of the event.
    */
   onClick(event, target) {
     this.callEvent('onClick', event, target);
   }
 
   /**
-   * [callEvent description]
-   * @param  {[type]} event  [description]
-   * @param  {[type]} target [description]
-   * @return {[type]}        [description]
+   * The event handler
+   *
+   * Initializes and executes an object to handle the Javascript Event as
+   * defined by the handlers eventRegistry.
+   *
+   * @param  {String} eventMethod A string key for the eventRegistry;
+   * @param  {Event} event        The Javascript event.
+   * @param  {HTMLElement} target The DOM object that the event is triggered on.
    */
   callEvent(eventMethod, event, target) {
     if (typeof this.handler.eventRegistry[eventMethod] === 'function') {

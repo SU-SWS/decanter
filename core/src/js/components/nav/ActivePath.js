@@ -1,18 +1,22 @@
 /**
- * ActivePath Class
+ * ActivePath
  *
- * NEEDS DESCRIPTION.
+ * This class contains features and functionality for handling the finding and
+ * setting of the active trail of a menu.
  */
 export default class ActivePath {
 
   /**
-   * [constructor description]
-   * @param {[type]} element [description]
+   * Initialize.
+   *
+   * @param {HTMLElement} element The DOM object of the navigation menu.
+   * @param {Mixed} item          The Navigation Class.
+   * @param {Object} options      An optional object of meta information.
    */
   constructor(element, item, options = {}) {
     this.elem = element;
     this.item = item;
-    // Class properties.
+    // CSS Class properties.
     this.itemActiveClass = options.itemActiveClass || 'active';
     this.itemActiveTrailClass = options.itemActiveTrailClass || 'active-trail';
     this.itemExpandedClass = options.itemExpandedClass || 'expanded';
@@ -91,7 +95,7 @@ export default class ActivePath {
               element.classList.add(this.itemExpandedClass);
               element.classList.add(this.itemActiveTrailClass);
               // "Hook" of sorts.
-              if (typeof this.item.expandActivePathItem == "function") {
+              if (typeof this.item.expandActivePathItem == 'function') {
                 this.item.expandActivePathItem(element);
               }
             }

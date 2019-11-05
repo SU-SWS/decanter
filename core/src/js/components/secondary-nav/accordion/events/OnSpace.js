@@ -2,14 +2,14 @@ import EventAbstract from '../../common/events/EventAbstract';
 import OnClick from './OnClick';
 
 /**
- * ActivePath Class
+ * OnSpace
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 export default class OnSpace extends EventAbstract {
 
   /**
-   * Prevent the spacebar from jumping to anywhere.
+   * Execute the action to the event.
    */
   exec() {
     this.event.preventDefault();

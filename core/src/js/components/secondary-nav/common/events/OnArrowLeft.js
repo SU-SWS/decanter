@@ -2,15 +2,14 @@ import EventAbstract from './EventAbstract';
 import OnArrowUp from './OnArrowUp';
 
 /**
- * ActivePath Class
+ * OnArrowLeft
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 export default class OnArrowLeft extends EventAbstract {
 
   /**
-   * [init description]
-   * @return {[type]} [description]
+   * Execute the action to the event.
    */
   exec() {
     this.event.preventDefault();
@@ -26,8 +25,7 @@ export default class OnArrowLeft extends EventAbstract {
   }
 
   /**
-   * [topLeft description]
-   * @return {[type]} [description]
+   * Action to take on a first level left key press.
    */
   firstLevelLeft() {
     var upevent = new OnArrowUp(this.item, this.event, this.target);
@@ -35,8 +33,7 @@ export default class OnArrowLeft extends EventAbstract {
   }
 
   /**
-   * [nestedLeft description]
-   * @return {[type]} [description]
+   * Action to take on a nested level left key press
    */
   nestedLeft() {
     let node = this.getElement('parentItem') || this.getElement('parentNavLast');

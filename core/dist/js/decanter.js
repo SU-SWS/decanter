@@ -1051,16 +1051,20 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 /**
- * ActivePath Class
+ * ActivePath
  *
- * NEEDS DESCRIPTION.
+ * This class contains features and functionality for handling the finding and
+ * setting of the active trail of a menu.
  */
 var ActivePath =
 /*#__PURE__*/
 function () {
   /**
-   * [constructor description]
-   * @param {[type]} element [description]
+   * Initialize.
+   *
+   * @param {HTMLElement} element The DOM object of the navigation menu.
+   * @param {Mixed} item          The Navigation Class.
+   * @param {Object} options      An optional object of meta information.
    */
   function ActivePath(element, item) {
     var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
@@ -1068,7 +1072,7 @@ function () {
     _classCallCheck(this, ActivePath);
 
     this.elem = element;
-    this.item = item; // Class properties.
+    this.item = item; // CSS Class properties.
 
     this.itemActiveClass = options.itemActiveClass || 'active';
     this.itemActiveTrailClass = options.itemActiveTrailClass || 'active-trail';
@@ -1145,7 +1149,7 @@ function () {
               element.classList.add(_this.itemExpandedClass);
               element.classList.add(_this.itemActiveTrailClass); // "Hook" of sorts.
 
-              if (typeof _this.item.expandActivePathItem == "function") {
+              if (typeof _this.item.expandActivePathItem == 'function') {
                 _this.item.expandActivePathItem(element);
               }
             } // Always increment.
@@ -1182,17 +1186,19 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 /**
- * ActivePath Class
+ * ElementFetcher Class
  *
- * NEEDS DESCRIPTION.
+ * Provides a relative named DOM navigator for quickly getting elements relative
+ * to the provided context.
  */
 var ElementFetcher =
 /*#__PURE__*/
 function () {
   /**
-   * [constructor description]
-   * @param {[type]} element [description]
-   * @param {[type]} what    [description]
+   * Initialize.
+   *
+   * @param {HTMLElement} element   The DOM object to use.
+   * @param {String} what           A named string.
    */
   function ElementFetcher(element, what) {
     _classCallCheck(this, ElementFetcher);
@@ -1201,8 +1207,9 @@ function () {
     this.what = what;
   }
   /**
-   * [fetch description]
-   * @return {[type]} [description]
+   * Attempt to retrieve an item.
+   *
+   * @return {Boolean|HTMLElement} An element or false if `what` is not found.
    */
 
 
@@ -1314,15 +1321,19 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 /**
  * EventHandlerDispatch Class
  *
- * NEEDS DESCRIPTION.
+ * This class provides dynamic handling of click and keyboard events and can be
+ * attached to any class/HTMLElement.
  */
 
 var EventHandlerDispatch =
 /*#__PURE__*/
 function () {
   /**
-   * [constructor description]
-   * @param {[type]} element [description]
+   * Initialize.
+   *
+   * @param {HTMLElement} element   The HTMLElement to bind listeners to.
+   * @param {[type]}      handler   The Javascript Class instance with the
+   *                                eventRegistry property.
    */
   function EventHandlerDispatch(element, handler) {
     _classCallCheck(this, EventHandlerDispatch);
@@ -1369,17 +1380,16 @@ function () {
 
       var target = event.target || event.srcElement;
 
-      if (eventMethod == "onKeydown") {
+      if (eventMethod === 'onKeydown') {
         this.onKeydown(event, target);
-      } else if (eventMethod == "onClick") {
+      } else if (eventMethod === 'onClick') {
         this.onClick(event, target);
       } else {
         this.callEvent(eventMethod, event, target);
       }
     }
     /**
-     * Handler for keydown events. keydown is bound to all NavItem's.
-     * Dispatched from this.handleEvent().
+     * Handler for keydown events.
      *
      * @param {KeyboardEvent} event - The keyboard event object.
      * @param {HTMLElement} target  - The HTML element target.
@@ -1401,10 +1411,10 @@ function () {
       this.callEvent(eventMethod, event, target);
     }
     /**
-     * [onClick description]
-     * @param  {[type]} event  [description]
-     * @param  {[type]} target [description]
-     * @return {[type]}        [description]
+     * Handler for click events.
+     *
+     * @param  {Event} event  A Javascript event.
+     * @param  {HTMLElement} target The target of the event.
      */
 
   }, {
@@ -1413,10 +1423,14 @@ function () {
       this.callEvent('onClick', event, target);
     }
     /**
-     * [callEvent description]
-     * @param  {[type]} event  [description]
-     * @param  {[type]} target [description]
-     * @return {[type]}        [description]
+     * The event handler
+     *
+     * Initializes and executes an object to handle the Javascript Event as
+     * defined by the handlers eventRegistry.
+     *
+     * @param  {String} eventMethod A string key for the eventRegistry;
+     * @param  {Event} event        The Javascript event.
+     * @param  {HTMLElement} target The DOM object that the event is triggered on.
      */
 
   }, {
@@ -1471,7 +1485,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * A secondary menu with toggle buttons.
+ * A secondary menu with accordion buttons.
  */
 
 var SecondaryNavAccordion =
@@ -1480,9 +1494,10 @@ function (_SecondaryNavAbstract) {
   _inherits(SecondaryNavAccordion, _SecondaryNavAbstract);
 
   /**
-   * [constructor description]
-   * @param {[type]} elem         [description]
-   * @param {Object} [options={}] [description]
+   * Initialize.
+   *
+   * @param {HTMLElement} elem  The outermost wrapper for the Navigation.
+   * @param {Object} options    An object of metadata.
    */
   function SecondaryNavAccordion(elem) {
     var _this;
@@ -1503,6 +1518,8 @@ function (_SecondaryNavAbstract) {
   }
   /**
    * Add the additional state handling after the abstract option has run.
+   *
+   * @param  {HTMLElement} item The HTMLElement being acted upon.
    */
 
 
@@ -1512,10 +1529,13 @@ function (_SecondaryNavAbstract) {
       item.firstElementChild.setAttribute('aria-expanded', 'true');
     }
     /**
-     * [newParentItem description]
-     * @param  {[type]} item  [description]
-     * @param  {[type]} depth [description]
-     * @return {[type]}       [description]
+     * Function for creating a new nested navigation item.
+     *
+     * @param  {HTMLElement} item     The HTMLElement to attach a new subnav to.
+     * @param  {Integer} depth        The level of nesting. (starts at 1)
+     * @param  {Object|Mixed} parent  The parent subnav instance.
+     *
+     * @return {SecondarySubNavAccordion} A brand new instance.
      */
 
   }, {
@@ -1528,10 +1548,13 @@ function (_SecondaryNavAbstract) {
       return nav;
     }
     /**
-     * [newNavItem description]
-     * @param  {[type]} item  [description]
-     * @param  {[type]} depth [description]
-     * @return {[type]}       [description]
+     * Function for creating a new single tier navigation item.
+     *
+     * @param  {HTMLElement} item     The HTMLElement to attach a new subnav to.
+     * @param  {Integer} depth        The level of nesting. (starts at 1)
+     * @param  {Object|Mixed} parent  The parent subnav instance.
+     *
+     * @return {SecondaryNavItem} A brand new instance.
      */
 
   }, {
@@ -1593,16 +1616,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 /**
- * SecondarySubNav Class
+ * SecondarySubNavAccordion Class
+ *
+ * A sub menu class for creating a menu with accordion functionality.
  */
 
 var SecondarySubNavAccordion =
 /*#__PURE__*/
 function () {
   /**
-   * [constructor description]
-   * @param {[type]} element      [description]
-   * @param {Object} [options={}] [description]
+   * Initialize.
+   *
+   * @param {HTMLElement} element     The container wrapper for the nav.
+   * @param {Object|Mixed} masterNav  The top most level navigation.
+   * @param {Object|Mixed} parentNav  The parent navigation instance if this
+   *                                  instance is nested.
+   * @param {Object} options          A meta object of information and options.
    */
   function SecondarySubNavAccordion(element, masterNav) {
     var parentNav = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
@@ -1618,7 +1647,7 @@ function () {
     this.depth = options.depth || 1; // Merge in defaults.
 
     this.options = Object.assign({
-      'itemExpandedClass': 'su-secondary-nav__item--expanded'
+      itemExpandedClass: 'su-secondary-nav__item--expanded'
     }, options); // Assign the event dispatcher and event registry.
 
     this.eventRegistry = this.createEventRegistry(options);
@@ -1626,7 +1655,13 @@ function () {
   }
   /**
    * Creates an event registry for handling types of events.
-   * @return {[type]} [description]
+   *
+   * This registry is used by the EventHandlerDispatch class to bind and
+   * execute the events in the created property key.
+   *
+   * @param  {Object} options Options to merge in with the defaults.
+   *
+   * @return {Object} A key/value registry of events and handlers.
    */
 
 
@@ -1688,8 +1723,9 @@ function () {
       this.item.classList.remove(this.options.itemExpandedClass);
     }
     /**
-     * [getDepth description]
-     * @return {[type]} [description]
+     * Get the level of nesting for this nav.
+     *
+     * @return {Integer} The integer of depth starting at 1.
      */
 
   }, {
@@ -1739,9 +1775,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * OnArrowLeft
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var OnArrowLeft =
@@ -1759,22 +1795,22 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * [init description]
-     * @return {[type]} [description]
+     * Execute the action to the event.
      */
     value: function exec() {
       // Go up a level and close the nav.
       this.event.preventDefault(); // Previous nav parents link item to focus on.
 
       var node = this.getElement('parentItem');
-      this.parentNav.closeSubNav();
+      this.parentNav.closeSubNav(); // If we found a previous item focus on it.
 
       if (node) {
         node.focus();
-      } else {
-        var otherLeft = new _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
-        otherLeft.init();
-      }
+      } // Overwise do what the navigate left option does.
+      else {
+          var otherLeft = new _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
+          otherLeft.init();
+        }
     }
   }]);
 
@@ -1816,9 +1852,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * OnArrowRight
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var OnArrowRight =
@@ -1836,8 +1872,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * [init description]
-     * @return {[type]} [description]
+     * Execute the action to the event.
      */
     value: function exec() {
       // Go down a level and open the SubNav.
@@ -1885,9 +1920,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * OnClick
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var OnClick =
@@ -1905,7 +1940,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * [init description]
+     * Execute the action to the event.
      */
     value: function exec() {
       this.event.stopPropagation();
@@ -1963,9 +1998,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * OnSpace
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var OnSpace =
@@ -1983,7 +2018,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * Prevent the spacebar from jumping to anywhere.
+     * Execute the action to the event.
      */
     value: function exec() {
       this.event.preventDefault(); // Do the rest of the stuff click does.
@@ -2048,9 +2083,10 @@ function (_SecondaryNavAbstract) {
   _inherits(SecondaryNavButtons, _SecondaryNavAbstract);
 
   /**
-   * [constructor description]
-   * @param {[type]} elem         [description]
-   * @param {Object} [options={}] [description]
+   * Initialize.
+   *
+   * @param {HTMLElement} elem  The outermost wrapper for the Navigation.
+   * @param {Object} options    An object of metadata.
    */
   function SecondaryNavButtons(elem) {
     var _this;
@@ -2061,10 +2097,10 @@ function (_SecondaryNavAbstract) {
 
     // Merge with the default options.
     options = Object.assign({
-      'itemExpandedClass': 'su-secondary-nav__item--expanded',
-      'toggleClass': 'su-nav-toggle',
-      'toggleLabel': 'expand menu',
-      'subNavToggleText': "+"
+      itemExpandedClass: 'su-secondary-nav__item--expanded',
+      toggleClass: 'su-nav-toggle',
+      toggleLabel: 'expand menu',
+      subNavToggleText: '+'
     }, options); // Call the super.
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SecondaryNavButtons).call(this, elem, options)); // Ok do the creation.
@@ -2078,23 +2114,28 @@ function (_SecondaryNavAbstract) {
   }
   /**
    * Add the additional state handling after the abstract option has run.
+   *
+   * @param  {HTMLElement} item The HTMLElement being acted upon.
    */
 
 
   _createClass(SecondaryNavButtons, [{
     key: "expandActivePathItem",
     value: function expandActivePathItem(item) {
-      var node = item.querySelector("." + this.options.toggleClass);
+      var node = item.querySelector('.' + this.options.toggleClass);
 
       if (node) {
         node.setAttribute('aria-expanded', 'true');
       }
     }
     /**
-     * [newParentItem description]
-     * @param  {[type]} item  [description]
-     * @param  {[type]} depth [description]
-     * @return {[type]}       [description]
+     * Function for creating a new nested navigation item.
+     *
+     * @param  {HTMLElement} item     The HTMLElement to attach a new subnav to.
+     * @param  {Integer} depth        The level of nesting. (starts at 1)
+     * @param  {Object|Mixed} parent  The parent subnav instance.
+     *
+     * @return {SecondarySubNavButtons} A brand new instance.
      */
 
   }, {
@@ -2108,10 +2149,13 @@ function (_SecondaryNavAbstract) {
       return nav;
     }
     /**
-     * [newNavItem description]
-     * @param  {[type]} item  [description]
-     * @param  {[type]} depth [description]
-     * @return {[type]}       [description]
+     * Function for creating a new single tier navigation item.
+     *
+     * @param  {HTMLElement} item     The HTMLElement to attach a new subnav to.
+     * @param  {Integer} depth        The level of nesting. (starts at 1)
+     * @param  {Object|Mixed} parent  The parent subnav instance.
+     *
+     * @return {SecondaryNavItem} A brand new instance.
      */
 
   }, {
@@ -2161,9 +2205,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
  // Events
 
- // Click handler.
-// import OnClick from '../common/events/OnClick';
-// Keyboard events.
+ // Keyboard events.
 
 
 
@@ -2175,16 +2217,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 /**
- * SecondarySubNav Class
+ * SecondarySubNavButtons Class
+ *
+ * A sub menu class for creating a menu with toggle button functionality.
  */
 
 var SecondarySubNavButtons =
 /*#__PURE__*/
 function () {
   /**
-   * [constructor description]
-   * @param {[type]} element      [description]
-   * @param {Object} [options={}] [description]
+   * Initialize.
+   *
+   * @param {HTMLElement} element     The container wrapper for the nav.
+   * @param {Object|Mixed} masterNav  The top most level navigation.
+   * @param {Object|Mixed} parentNav  The parent navigation instance if this
+   *                                  instance is nested.
+   * @param {Object} options          A meta object of information and options.
    */
   function SecondarySubNavButtons(element, masterNav) {
     var parentNav = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
@@ -2200,10 +2248,10 @@ function () {
     this.depth = options.depth || 1; // Merge in defaults.
 
     this.options = Object.assign({
-      'itemExpandedClass': 'su-secondary-nav__item--expanded',
-      'toggleClass': 'su-nav-toggle',
-      'toggleLabel': 'expand menu',
-      'subNavToggleText': "+"
+      itemExpandedClass: 'su-secondary-nav__item--expanded',
+      toggleClass: 'su-nav-toggle',
+      toggleLabel: 'expand menu',
+      subNavToggleText: '+'
     }, options); // Assign the event dispatcher and event registry.
 
     this.eventRegistry = this.createEventRegistry(options);
@@ -2215,7 +2263,13 @@ function () {
   }
   /**
    * Creates an event registry for handling types of events.
-   * @return {[type]} [description]
+   *
+   * This registry is used by the EventHandlerDispatch class to bind and
+   * execute the events in the created property key.
+   *
+   * @param  {Object} options Options to merge in with the defaults.
+   *
+   * @return {Object} A key/value registry of events and handlers.
    */
 
 
@@ -2223,7 +2277,6 @@ function () {
     key: "createEventRegistry",
     value: function createEventRegistry(options) {
       var registryDefaults = {
-        // onClick: OnClick,
         onKeydownSpace: _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_6__["default"],
         onKeydownEnter: _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_6__["default"],
         onKeydownHome: _common_events_OnHome__WEBPACK_IMPORTED_MODULE_2__["default"],
@@ -2298,8 +2351,9 @@ function () {
       this.item.classList.remove(this.options.itemExpandedClass);
     }
     /**
-     * [getDepth description]
-     * @return {[type]} [description]
+     * Get the level of nesting for this nav.
+     *
+     * @return {Integer} The integer of depth starting at 1.
      */
 
   }, {
@@ -2335,7 +2389,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_events_OnHome__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/events/OnHome */ "./core/src/js/components/secondary-nav/common/events/OnHome.js");
 /* harmony import */ var _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/events/OnEnd */ "./core/src/js/components/secondary-nav/common/events/OnEnd.js");
 /* harmony import */ var _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/events/OnEsc */ "./core/src/js/components/secondary-nav/common/events/OnEsc.js");
-/* harmony import */ var _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./events/OnArrowRight */ "./core/src/js/components/secondary-nav/buttons/events/OnArrowRight.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -2343,7 +2396,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
  // Events
-
 
 
 
@@ -2361,9 +2413,11 @@ var SubNavToggle =
 /*#__PURE__*/
 function () {
   /**
-   * [constructor description]
-   * @param {[type]} element [description]
-   * @param {[type]} item    [description]
+   * Initialize.
+   *
+   * @param {HTMLElement} element   The element to bind to.
+   * @param {Object|Mixed} item     The parent nav instance.
+   * @param {Object} options        Mixed meta information.
    */
   function SubNavToggle(element, item, options) {
     _classCallCheck(this, SubNavToggle);
@@ -2379,7 +2433,13 @@ function () {
   }
   /**
    * Creates an event registry for handling types of events.
-   * @return {[type]} [description]
+   *
+   * This registry is used by the EventHandlerDispatch class to bind and
+   * execute the events in the created property key.
+   *
+   * @param  {Object} options Options to merge in with the defaults.
+   *
+   * @return {Object} A key/value registry of events and handlers.
    */
 
 
@@ -2440,9 +2500,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * OnArrowRight
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var OnArrowRight =
@@ -2460,8 +2520,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * [exec description]
-     * @return {[type]} [description]
+     * Execute the action to the event.
      */
     value: function exec() {
       this.item.toggleElement.focus();
@@ -2506,9 +2565,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * OnTab
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var OnTab =
@@ -2526,8 +2585,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * [exec description]
-     * @return {[type]} [description]
+     * Execute the action to the event.
      */
     value: function exec() {
       // Only act on backwards options as we want to allow the tab to go
@@ -2590,9 +2648,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * SubNavToggleArrowDown
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var SubNavToggleArrowDown =
@@ -2610,8 +2668,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * [exec description]
-     * @return {[type]} [description]
+     * Execute the action to the event.
      */
     value: function exec() {
       this.event.preventDefault(); // If on the toggle item and the menu is expanded go down in to the first
@@ -2671,9 +2728,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * SubNavToggleArrowLeft
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var SubNavToggleArrowLeft =
@@ -2691,8 +2748,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * [exec description]
-     * @return {[type]} [description]
+     * Execute the action to the event.
      */
     value: function exec() {
       event.stopPropagation();
@@ -2739,9 +2795,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * SubNavToggleArrowUp
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var SubNavToggleArrowUp =
@@ -2759,8 +2815,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * [exec description]
-     * @return {[type]} [description]
+     * Execute the action to the event.
      */
     value: function exec() {
       this.event.preventDefault(); // If the current focus is on the toggle and the menu is expanded, close
@@ -2821,9 +2876,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * SubNavToggleClick
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var SubNavToggleClick =
@@ -2841,7 +2896,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * [init description]
+     * Execute the action to the event.
      */
     value: function exec() {
       if (this.parentNav.isExpanded()) {
@@ -2894,9 +2949,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * SubNavToggleSpace
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var SubNavToggleSpace =
@@ -2914,8 +2969,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * [exec description]
-     * @return {[type]} [description]
+     * Execute the action to the event.
      */
     value: function exec() {
       // No jumping around.
@@ -3011,21 +3065,28 @@ function () {
     this.navItems = [];
     this.subNavItems = [];
     this.parentItemSelector = ':scope > ul > .' + this.options.itemParentClass;
-    this.navItemSelector = ':scope > ul > .' + this.options.itemClass + ":not(." + this.options.itemParentClass + ")";
+    this.navItemSelector = ':scope > ul > .' + this.options.itemClass + ':not(.' + this.options.itemParentClass + ')';
   }
   /**
-   * [expandActivePath description]
-   * @return {[type]} [description]
+   * Add the additional state handling after the abstract option has run.
+   *
+   * @param  {HTMLElement} item The HTMLElement being acted upon.
    */
 
 
   _createClass(SecondaryNavAbstract, [{
-    key: "expandActivePath",
-    value: function expandActivePath() {} // For any additional items outside of the core functions.
+    key: "expandActivePathItem",
+    value: function expandActivePathItem(item) {} // For any additional items outside of the core functions.
 
     /**
      * Creates an event registry for handling types of events.
-     * @return {[type]} [description]
+     *
+     * This registry is used by the EventHandlerDispatch class to bind and
+     * execute the events in the created property key.
+     *
+     * @param  {Object} options Options to merge in with the defaults.
+     *
+     * @return {Object} A key/value registry of events and handlers.
      */
 
   }, {
@@ -3038,13 +3099,13 @@ function () {
       return Object.assign(registryDefaults, options.eventRegistry);
     }
     /**
-     * [createSubNavItems description]
-     * @return {[type]} [description]
+     * Kickoff method for generating single and multi-tier nav instances.
      */
 
   }, {
     key: "createSubNavItems",
     value: function createSubNavItems() {
+      // Find all the single and multi-tier items.
       var parentItems = this.elem.querySelectorAll(this.parentItemSelector);
       var leafItems = this.elem.querySelectorAll(this.navItemSelector); // Sub Nav Items.
 
@@ -3058,9 +3119,11 @@ function () {
       }
     }
     /**
-     * [createParentItems description]
-     * @param  {[type]} items [description]
-     * @return {[type]}       [description]
+     * Recursive loop for creating nested navigation instances.
+     *
+     * @param  {NodeList} items A set of sibling parent menu items.
+     * @param  {Number} depth The current depth of recursion.
+     * @param  {Object|Mixed} parentMenu The instance of the parent menu.
      */
 
   }, {
@@ -3071,7 +3134,7 @@ function () {
       var depth = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
       var parentMenu = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
       items.forEach(function (item) {
-        var itemLink = item.querySelector("a");
+        var itemLink = item.querySelector('a');
         var parentItems = item.querySelectorAll(_this.parentItemSelector);
         var leafItems = item.querySelectorAll(_this.navItemSelector);
         var nextDepth = depth + 1;
@@ -3093,9 +3156,11 @@ function () {
       });
     }
     /**
-     * [createNavItems description]
-     * @param  {[type]} items [description]
-     * @return {[type]}       [description]
+     * Recursive loop for creating single level navigation instances.
+     *
+     * @param  {NodeList} items A set of sibling parent menu items.
+     * @param  {Number} depth The current depth of recursion.
+     * @param  {Object|Mixed} parentMenu The instance of the parent menu.
      */
 
   }, {
@@ -3106,7 +3171,7 @@ function () {
       var depth = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
       var parentMenu = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
       items.forEach(function (item) {
-        var itemLink = item.querySelector("a");
+        var itemLink = item.querySelector('a');
 
         if (itemLink) {
           _this2.newNavItem(itemLink, depth, parentMenu);
@@ -3125,8 +3190,7 @@ function () {
       });
     }
     /**
-     * [closeSubNav description]
-     * @return {[type]} [description]
+     * Close only this subnav.
      */
 
   }, {
@@ -3190,9 +3254,12 @@ var SecondaryNavItem =
 /*#__PURE__*/
 function () {
   /**
-   * [constructor description]
-   * @param {[type]} element      [description]
-   * @param {Object} [options={}] [description]
+   * Initialize.
+   *
+   * @param {HTMLElement} element      The HTMLElement to bind to.
+   * @param {Object|Mixed} masterNav   The top most navigation instance.
+   * @param {Object|Mixed} parentNav   The parent nav instance if available.
+   * @param {Object} options           An object of metadata.
    */
   function SecondaryNavItem(element, masterNav) {
     var parentNav = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
@@ -3211,7 +3278,13 @@ function () {
   }
   /**
    * Creates an event registry for handling types of events.
-   * @return {[type]} [description]
+   *
+   * This registry is used by the EventHandlerDispatch class to bind and
+   * execute the events in the created property key.
+   *
+   * @param  {Object} options Options to merge in with the defaults.
+   *
+   * @return {Object} A key/value registry of events and handlers.
    */
 
 
@@ -3233,8 +3306,9 @@ function () {
       return Object.assign(registryDefaults, options.eventRegistry);
     }
     /**
-     * [getDepth description]
-     * @return {[type]} [description]
+     * Get the level of nesting for this nav.
+     *
+     * @return {Integer} The integer of depth starting at 1.
      */
 
   }, {
@@ -3270,16 +3344,22 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 
 /**
- * ActivePath Class
+ * EventAbstract
  *
- * NEEDS DESCRIPTION.
+ * An abstract class for creating an interface for working with the
+ * EventHandlerDispatch class. This is the signature for all instances
+ * that are evoked through the eventRegistry.
  */
 
 var EventAbstract =
 /*#__PURE__*/
 function () {
   /**
-   * [constructor description]
+   * Initialize.
+   *
+   * @param {Object|Mixed} item The javascript object instance that this is bound to.
+   * @param {KeyboardEvent|MouseEvent} event - The event object.
+   * @param {HTMLElement} target  - The HTML element target.
    */
   function EventAbstract(item, event, target) {
     _classCallCheck(this, EventAbstract);
@@ -3292,14 +3372,16 @@ function () {
     this.event = event;
   }
   /**
-   * [validate description]
-   * @return {[type]} [description]
+   * A validation shorcut that should pass before running exec().
+   *
+   * @return {Boolean} Wether or not the event target is what this instance is bound to.
    */
 
 
   _createClass(EventAbstract, [{
     key: "isOnTarget",
     value: function isOnTarget() {
+      // Check to see if the event target is what this instance is bound to.
       if (this.target === this.elem) {
         return true;
       }
@@ -3307,8 +3389,9 @@ function () {
       return false;
     }
     /**
-     * [validate description]
-     * @return {[type]} [description]
+     * A validation method that should pass before running exec().
+     *
+     * @return {Boolean} Wether or not validation passes.
      */
 
   }, {
@@ -3322,8 +3405,10 @@ function () {
       return true;
     }
     /**
-     * [init description]
-     * @return {[type]} [description]
+     * Interface method.
+     *
+     * When evoking this abstract instance you should use this method as your
+     * iterface for calling the action.
      */
 
   }, {
@@ -3334,9 +3419,14 @@ function () {
       }
     }
     /**
-     * [getElement description]
-     * @param  {[type]} what [description]
-     * @return {[type]}      [description]
+     * Shortcut function to find a DOM element.
+     *
+     * This is a helper function that uses a ElementFetcher instance to navigate
+     * and traverse the DOM relative to the current context.
+     *
+     * @param  {String} what A keyword for what we are trying to find.
+     * @param  {HTMLElement} context The relative starting location for the finder.
+     * @return {Boolean|HTMLElement} False if not found or an HTMLElement.
      */
 
   }, {
@@ -3388,9 +3478,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * OnArrowDown
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var OnArrowDown =
@@ -3408,8 +3498,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * [init description]
-     * @return {[type]} [description]
+     * Execute the action to the event.
      */
     value: function exec() {
       this.event.preventDefault(); // Go to the next item.
@@ -3467,9 +3556,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * OnArrowLeft
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var OnArrowLeft =
@@ -3487,8 +3576,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * [init description]
-     * @return {[type]} [description]
+     * Execute the action to the event.
      */
     value: function exec() {
       this.event.preventDefault(); // If this is a nested item. Go back up a level.
@@ -3501,8 +3589,7 @@ function (_EventAbstract) {
         }
     }
     /**
-     * [topLeft description]
-     * @return {[type]} [description]
+     * Action to take on a first level left key press.
      */
 
   }, {
@@ -3512,8 +3599,7 @@ function (_EventAbstract) {
       upevent.init();
     }
     /**
-     * [nestedLeft description]
-     * @return {[type]} [description]
+     * Action to take on a nested level left key press
      */
 
   }, {
@@ -3568,9 +3654,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * OnArrowRight
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var OnArrowRight =
@@ -3588,8 +3674,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * [init description]
-     * @return {[type]} [description]
+     * Execute the action to the event.
      */
     value: function exec() {
       // If we are in the second level or more we check about traversing
@@ -3651,9 +3736,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * OnArrowUp
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var OnArrowUp =
@@ -3671,8 +3756,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * [exec description]
-     * @return {[type]} [description]
+     * Execute the action to the event.
      */
     value: function exec() {
       this.event.preventDefault(); // Go to the previous item.
@@ -3728,9 +3812,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * OnEnd
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var OnEnd =
@@ -3748,8 +3832,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * [init description]
-     * @return {[type]} [description]
+     * Execute the action to the event.
      */
     value: function exec() {
       this.event.preventDefault();
@@ -3799,9 +3882,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * OnEnter
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var OnEnter =
@@ -3819,7 +3902,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * Prevent the spacebar from jumping to anywhere.
+     * Execute the action to the event.
      */
     value: function exec() {
       this.event.stopPropagation();
@@ -3866,9 +3949,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * OnEsc
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var OnEsc =
@@ -3886,8 +3969,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * [exec description]
-     * @return {[type]} [description]
+     * Execute the action to the event.
      */
     value: function exec() {
       this.event.preventDefault();
@@ -3946,9 +4028,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * OnHome
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var OnHome =
@@ -3966,8 +4048,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * [exec description]
-     * @return {[type]} [description]
+     * Execute the action to the event.
      */
     value: function exec() {
       this.event.preventDefault();
@@ -4017,9 +4098,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * OnSpace
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var OnSpace =
@@ -4037,7 +4118,7 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * Prevent the spacebar from jumping to anywhere.
+     * Execute the action to the event.
      */
     value: function exec() {
       this.event.stopPropagation();
@@ -4084,9 +4165,9 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 /**
- * ActivePath Class
+ * OnTab
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 
 var OnTab =
@@ -4104,18 +4185,18 @@ function (_EventAbstract) {
     key: "exec",
 
     /**
-     * Prevent the spacebar from jumping to anywhere.
+     * Execute the action to the event.
      */
     value: function exec() {
       var shifted = event.shiftKey;
       var node = null;
-      var firstItem = this.masterNav.elem.querySelector("a");
-      var lastItem = this.masterNav.elem.firstElementChild.lastElementChild.querySelector("li:last-child"); // If shift key is held.
+      var firstItem = this.masterNav.elem.querySelector('a');
+      var lastItem = this.masterNav.elem.firstElementChild.lastElementChild.querySelector('li:last-child'); // If shift key is held.
 
       if (shifted) {
         node = this.getElement('prev');
 
-        if (this.target == firstItem) {
+        if (this.target === firstItem) {
           this.masterNav.closeAllSubNavs();
           return;
         }
@@ -4123,7 +4204,7 @@ function (_EventAbstract) {
       else {
           node = this.getElement('next');
 
-          if (this.target.parentNode == lastItem) {
+          if (this.target.parentNode === lastItem) {
             this.masterNav.closeAllSubNavs();
             return;
           }

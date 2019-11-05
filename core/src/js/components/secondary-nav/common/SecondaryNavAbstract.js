@@ -28,7 +28,7 @@ export default class SecondaryNavAbstract {
       itemActiveClass: 'su-secondary-nav__item--current',
       itemActiveTrailClass: 'su-secondary-nav__item--active-trail',
       itemParentClass: 'su-secondary-nav__item--parent',
-      eventRegistry: {},
+      eventRegistry: {}
     };
 
     // Merge with passed in options.
@@ -49,37 +49,44 @@ export default class SecondaryNavAbstract {
     this.navItems = [];
     this.subNavItems = [];
     this.parentItemSelector = ':scope > ul > .' + this.options.itemParentClass;
-    this.navItemSelector = ':scope > ul > .' + this.options.itemClass + ":not(." + this.options.itemParentClass + ")";
+    this.navItemSelector = ':scope > ul > .' + this.options.itemClass + ':not(.' + this.options.itemParentClass + ')';
   }
 
   /**
-   * [expandActivePath description]
-   * @return {[type]} [description]
+   * Add the additional state handling after the abstract option has run.
+   *
+   * @param  {HTMLElement} item The HTMLElement being acted upon.
    */
-  expandActivePath() {
+  expandActivePathItem(item) {
     // For any additional items outside of the core functions.
   }
 
   /**
    * Creates an event registry for handling types of events.
-   * @return {[type]} [description]
+   *
+   * This registry is used by the EventHandlerDispatch class to bind and
+   * execute the events in the created property key.
+   *
+   * @param  {Object} options Options to merge in with the defaults.
+   *
+   * @return {Object} A key/value registry of events and handlers.
    */
   createEventRegistry(options) {
 
     var registryDefaults = {
       onKeydownEscape: OnEsc,
-      onKeydownSpace: OnSpace,
+      onKeydownSpace: OnSpace
     };
 
     return Object.assign(registryDefaults, options.eventRegistry);
   }
 
   /**
-   * [createSubNavItems description]
-   * @return {[type]} [description]
+   * Kickoff method for generating single and multi-tier nav instances.
    */
   createSubNavItems() {
 
+    // Find all the single and multi-tier items.
     var parentItems = this.elem.querySelectorAll(this.parentItemSelector);
     var leafItems = this.elem.querySelectorAll(this.navItemSelector);
 
@@ -95,14 +102,16 @@ export default class SecondaryNavAbstract {
   }
 
   /**
-   * [createParentItems description]
-   * @param  {[type]} items [description]
-   * @return {[type]}       [description]
+   * Recursive loop for creating nested navigation instances.
+   *
+   * @param  {NodeList} items A set of sibling parent menu items.
+   * @param  {Number} depth The current depth of recursion.
+   * @param  {Object|Mixed} parentMenu The instance of the parent menu.
    */
   createParentItems(items, depth = 1, parentMenu = null) {
     items.forEach(
       item => {
-        var itemLink = item.querySelector("a");
+        var itemLink = item.querySelector('a');
         var parentItems = item.querySelectorAll(this.parentItemSelector);
         var leafItems = item.querySelectorAll(this.navItemSelector);
         var nextDepth = depth + 1;
@@ -127,14 +136,16 @@ export default class SecondaryNavAbstract {
   }
 
   /**
-   * [createNavItems description]
-   * @param  {[type]} items [description]
-   * @return {[type]}       [description]
+   * Recursive loop for creating single level navigation instances.
+   *
+   * @param  {NodeList} items A set of sibling parent menu items.
+   * @param  {Number} depth The current depth of recursion.
+   * @param  {Object|Mixed} parentMenu The instance of the parent menu.
    */
   createNavItems(items, depth = 1, parentMenu = null) {
     items.forEach(
       item => {
-        var itemLink = item.querySelector("a");
+        var itemLink = item.querySelector('a');
         if (itemLink) {
           this.newNavItem(itemLink, depth, parentMenu);
         }
@@ -154,11 +165,9 @@ export default class SecondaryNavAbstract {
   }
 
   /**
-   * [closeSubNav description]
-   * @return {[type]} [description]
+   * Close only this subnav.
    */
   closeSubNav() {
     this.closeAllSubNavs();
   }
-
 }

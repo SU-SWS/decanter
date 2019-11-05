@@ -1,25 +1,25 @@
 import EventAbstract from './EventAbstract';
 
 /**
- * ActivePath Class
+ * OnTab
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 export default class OnTab extends EventAbstract {
 
   /**
-   * Prevent the spacebar from jumping to anywhere.
+   * Execute the action to the event.
    */
   exec() {
     const shifted = event.shiftKey;
     let node = null;
-    let firstItem = this.masterNav.elem.querySelector("a");
-    let lastItem = this.masterNav.elem.firstElementChild.lastElementChild.querySelector("li:last-child");
+    let firstItem = this.masterNav.elem.querySelector('a');
+    let lastItem = this.masterNav.elem.firstElementChild.lastElementChild.querySelector('li:last-child');
 
     // If shift key is held.
     if (shifted) {
       node = this.getElement('prev');
-      if (this.target == firstItem) {
+      if (this.target === firstItem) {
         this.masterNav.closeAllSubNavs();
         return;
       }
@@ -27,7 +27,7 @@ export default class OnTab extends EventAbstract {
     // No shift key, just regular ol tab.
     else {
       node = this.getElement('next');
-      if (this.target.parentNode == lastItem) {
+      if (this.target.parentNode === lastItem) {
         this.masterNav.closeAllSubNavs();
         return;
       }
@@ -39,7 +39,5 @@ export default class OnTab extends EventAbstract {
         this.parentNav.closeSubNav();
       }
     }
-
   }
-
 }

@@ -1,15 +1,14 @@
 import EventAbstract from '../../common/events/EventAbstract';
 
 /**
- * ActivePath Class
+ * OnArrowRight
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 export default class OnArrowRight extends EventAbstract {
 
   /**
-   * [exec description]
-   * @return {[type]} [description]
+   * Execute the action to the event.
    */
   exec() {
     this.item.toggleElement.focus();

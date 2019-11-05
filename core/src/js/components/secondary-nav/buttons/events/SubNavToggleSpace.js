@@ -2,14 +2,14 @@ import EventAbstract from '../../common/events/EventAbstract';
 import SubNavToggleClick from './SubNavToggleClick';
 
 /**
- * ActivePath Class
+ * SubNavToggleSpace
  *
- * NEEDS DESCRIPTION.
+ * Event action handler class.
  */
 export default class SubNavToggleSpace extends EventAbstract {
+
   /**
-   * [exec description]
-   * @return {[type]} [description]
+   * Execute the action to the event.
    */
   exec() {
     // No jumping around.

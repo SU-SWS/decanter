@@ -9,7 +9,6 @@ import SubNavToggleArrowUp from './events/SubNavToggleArrowUp';
 import OnHome from '../common/events/OnHome';
 import OnEnd from '../common/events/OnEnd';
 import OnEsc from '../common/events/OnEsc';
-import OnArrowRight from './events/OnArrowRight';
 
 /**
  * A stoggle button.
@@ -17,9 +16,11 @@ import OnArrowRight from './events/OnArrowRight';
 export default class SubNavToggle {
 
   /**
-   * [constructor description]
-   * @param {[type]} element [description]
-   * @param {[type]} item    [description]
+   * Initialize.
+   *
+   * @param {HTMLElement} element   The element to bind to.
+   * @param {Object|Mixed} item     The parent nav instance.
+   * @param {Object} options        Mixed meta information.
    */
   constructor(element, item, options) {
     this.parentNav = item;
@@ -35,7 +36,13 @@ export default class SubNavToggle {
 
   /**
    * Creates an event registry for handling types of events.
-   * @return {[type]} [description]
+   *
+   * This registry is used by the EventHandlerDispatch class to bind and
+   * execute the events in the created property key.
+   *
+   * @param  {Object} options Options to merge in with the defaults.
+   *
+   * @return {Object} A key/value registry of events and handlers.
    */
   createEventRegistry(options) {
 
@@ -49,10 +56,9 @@ export default class SubNavToggle {
       onKeydownArrowUp: SubNavToggleArrowUp,
       onKeydownArrowRight: SubNavToggleSpace,
       onKeydownArrowDown: SubNavToggleArrowDown,
-      onKeydownArrowLeft: SubNavToggleArrowLeft,
+      onKeydownArrowLeft: SubNavToggleArrowLeft
     };
 
     return Object.assign(registryDefaults, options.eventRegistry);
   }
-
 }
