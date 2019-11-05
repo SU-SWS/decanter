@@ -1449,7 +1449,7 @@ function (_EventAbstract) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowLeftLV2; });
 /* harmony import */ var _secondary_nav_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../secondary-nav/common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
-/* harmony import */ var _secondary_nav_common_events_onArrowLeft__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../secondary-nav/common/events/onArrowLeft */ "./core/src/js/components/secondary-nav/common/events/onArrowLeft.js");
+/* harmony import */ var _secondary_nav_common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../secondary-nav/common/events/OnArrowLeft */ "./core/src/js/components/secondary-nav/common/events/OnArrowLeft.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1524,7 +1524,7 @@ function (_EventAbstract) {
   }, {
     key: "handleMobile",
     value: function handleMobile() {
-      var classicEvent = new _secondary_nav_common_events_onArrowLeft__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
+      var classicEvent = new _secondary_nav_common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
       classicEvent.init();
     }
   }]);
@@ -1547,7 +1547,7 @@ function (_EventAbstract) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowRightLV1; });
 /* harmony import */ var _secondary_nav_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../secondary-nav/common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
-/* harmony import */ var _secondary_nav_accordion_events_onArrowRight__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../secondary-nav/accordion/events/onArrowRight */ "./core/src/js/components/secondary-nav/accordion/events/onArrowRight.js");
+/* harmony import */ var _secondary_nav_accordion_events_OnArrowRight__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../secondary-nav/accordion/events/OnArrowRight */ "./core/src/js/components/secondary-nav/accordion/events/OnArrowRight.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1620,7 +1620,7 @@ function (_EventAbstract) {
   }, {
     key: "handleMobile",
     value: function handleMobile() {
-      var classicEvent = new _secondary_nav_accordion_events_onArrowRight__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
+      var classicEvent = new _secondary_nav_accordion_events_OnArrowRight__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
       classicEvent.init();
     }
   }]);
@@ -2345,11 +2345,13 @@ function () {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EventHandlerDispatch; });
 /* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
+/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
 
 /**
@@ -2474,6 +2476,18 @@ function () {
   }, {
     key: "callEvent",
     value: function callEvent(eventMethod, event, target) {
+      // Let everyone know.
+      if (this.handler.elem) {
+        var dynamicEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_1__["createEvent"])(eventMethod, {
+          bubbles: true,
+          data: {
+            item: this.handler
+          }
+        });
+        this.handler.elem.dispatchEvent(dynamicEvent);
+      } // Call the specific handler.
+
+
       if (typeof this.handler.eventRegistry[eventMethod] === 'function') {
         var eventObj = new this.handler.eventRegistry[eventMethod](this.handler, event, target);
         eventObj.init();
@@ -3127,74 +3141,6 @@ function (_EventAbstract) {
   }]);
 
   return OnSpace;
-}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
-
-
-
-/***/ }),
-
-/***/ "./core/src/js/components/secondary-nav/accordion/events/onArrowRight.js":
-/*!*******************************************************************************!*\
-  !*** ./core/src/js/components/secondary-nav/accordion/events/onArrowRight.js ***!
-  \*******************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowRight; });
-/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-/**
- * OnArrowRight
- *
- * Event action handler class.
- */
-
-var OnArrowRight =
-/*#__PURE__*/
-function (_EventAbstract) {
-  _inherits(OnArrowRight, _EventAbstract);
-
-  function OnArrowRight() {
-    _classCallCheck(this, OnArrowRight);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(OnArrowRight).apply(this, arguments));
-  }
-
-  _createClass(OnArrowRight, [{
-    key: "exec",
-
-    /**
-     * Execute the action to the event.
-     */
-    value: function exec() {
-      // Go down a level and open the SubNav.
-      this.event.preventDefault();
-      this.item.openSubNav();
-      this.getElement('firstSubnavLink').focus();
-    }
-  }]);
-
-  return OnArrowRight;
 }(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 
@@ -5493,104 +5439,6 @@ function (_EventAbstract) {
   }]);
 
   return OnTab;
-}(_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
-
-
-
-/***/ }),
-
-/***/ "./core/src/js/components/secondary-nav/common/events/onArrowLeft.js":
-/*!***************************************************************************!*\
-  !*** ./core/src/js/components/secondary-nav/common/events/onArrowLeft.js ***!
-  \***************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowLeft; });
-/* harmony import */ var _EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
-/* harmony import */ var _OnArrowUp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OnArrowUp */ "./core/src/js/components/secondary-nav/common/events/OnArrowUp.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-/**
- * OnArrowLeft
- *
- * Event action handler class.
- */
-
-var OnArrowLeft =
-/*#__PURE__*/
-function (_EventAbstract) {
-  _inherits(OnArrowLeft, _EventAbstract);
-
-  function OnArrowLeft() {
-    _classCallCheck(this, OnArrowLeft);
-
-    return _possibleConstructorReturn(this, _getPrototypeOf(OnArrowLeft).apply(this, arguments));
-  }
-
-  _createClass(OnArrowLeft, [{
-    key: "exec",
-
-    /**
-     * Execute the action to the event.
-     */
-    value: function exec() {
-      this.event.preventDefault(); // If this is a nested item. Go back up a level.
-
-      if (this.item.getDepth() > 1) {
-        this.nestedLeft();
-      } // Otherwise just to to the previous sibling.
-      else if (this.item.getDepth() === 1) {
-          this.firstLevelLeft();
-        }
-    }
-    /**
-     * Action to take on a first level left key press.
-     */
-
-  }, {
-    key: "firstLevelLeft",
-    value: function firstLevelLeft() {
-      var upevent = new _OnArrowUp__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
-      upevent.init();
-    }
-    /**
-     * Action to take on a nested level left key press
-     */
-
-  }, {
-    key: "nestedLeft",
-    value: function nestedLeft() {
-      var node = this.getElement('parentItem') || this.getElement('parentNavLast');
-      this.parentNav.closeSubNav();
-
-      if (node) {
-        node.focus();
-      }
-    }
-  }]);
-
-  return OnArrowLeft;
 }(_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 

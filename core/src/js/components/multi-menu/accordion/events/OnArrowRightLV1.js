@@ -1,5 +1,5 @@
 import EventAbstract from '../../../secondary-nav/common/events/EventAbstract';
-import OnArrowRight from '../../../secondary-nav/accordion/events/onArrowRight';
+import OnArrowRight from '../../../secondary-nav/accordion/events/OnArrowRight';
 
 /**
  * OnArrowLeft

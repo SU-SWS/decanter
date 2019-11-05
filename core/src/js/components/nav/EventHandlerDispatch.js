@@ -1,4 +1,5 @@
 import {normalizeKey} from '../../utilities/keyboard';
+import {createEvent} from '../../utilities/events';
 
 /**
  * EventHandlerDispatch Class
@@ -122,6 +123,13 @@ export default class EventHandlerDispatch {
    * @param  {HTMLElement} target The DOM object that the event is triggered on.
    */
   callEvent(eventMethod, event, target) {
+    // Let everyone know.
+    if (this.handler.elem) {
+      var dynamicEvent = createEvent(eventMethod, {bubbles: true, data: {item: this.handler}});
+      this.handler.elem.dispatchEvent(dynamicEvent);
+    }
+
+    // Call the specific handler.
     if (typeof this.handler.eventRegistry[eventMethod] === 'function') {
       var eventObj = new this.handler.eventRegistry[eventMethod](this.handler, event, target);
       eventObj.init();
