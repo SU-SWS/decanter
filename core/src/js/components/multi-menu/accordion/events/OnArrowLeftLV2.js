@@ -1,5 +1,5 @@
 import EventAbstract from '../../../secondary-nav/common/events/EventAbstract';
-import OnArrowLeft from '../../../secondary-nav/common/events/onArrowLeft';
+import OnArrowLeft from '../../../secondary-nav/common/events/OnArrowLeft';
 
 /**
  * OnArrowLeft
@@ -31,6 +31,7 @@ export default class OnArrowLeftLV2 extends EventAbstract {
     else {
       this.getElement('parentNavLast').focus();
     }
+
     this.parentNav.closeSubNav();
   }
 

@@ -3,6 +3,7 @@ import SecondaryNavItem from '../../secondary-nav/common/SecondaryNavItem';
 import SecondaryNavAccordion from '../../secondary-nav/accordion/SecondaryNavAccordion';
 import SecondarySubNavAccordion from '../../secondary-nav/accordion/SecondarySubNavAccordion';
 import MultiSubNavAccordion from './MultiSubNavAccordion';
+import MultiNavItem from './MultiNavItem';
 
 /**
  * A secondary menu with accordion buttons.
@@ -51,6 +52,27 @@ export default class MultiMenuAccordion extends SecondaryNavAccordion {
       opts
     );
     this.subNavItems.push(nav);
+    return nav;
+  }
+
+  /**
+   * Function for creating a new nested navigation item.
+   *
+   * @param  {HTMLElement} item     The HTMLElement to attach a new subnav to.
+   * @param  {Integer} depth        The level of nesting. (starts at 1)
+   * @param  {Object|Mixed} parent  The parent subnav instance.
+   *
+   * @return {SecondarySubNavAccordion} A brand new instance.
+   */
+  newNavItem(item, depth, parent) {
+    var opts = Object.assign(this.options, {depth: depth});
+    var nav = new MultiNavItem(
+      item,
+      this,
+      parent,
+      opts
+    );
+    this.navItems.push(nav);
     return nav;
   }
 
