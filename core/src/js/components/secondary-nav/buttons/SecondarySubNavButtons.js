@@ -2,6 +2,7 @@ import SubNavToggle from './SubNavToggle';
 // Events
 import EventHandlerDispatch from '../../nav/EventHandlerDispatch';
 import {createEvent} from '../../../utilities/events';
+
 // Keyboard events.
 import OnHome from '../common/events/OnHome';
 import OnEnd from '../common/events/OnEnd';
