@@ -166,8 +166,10 @@
       {% endif -%}
     {% endblock -%}
 
-    {# An open field for body content #}
-    {{ card_body }}
+    {%- block block_card_body %}
+      {# An open field for body content #}
+      {{ card_body }}
+    {% endblock -%}
 
     {# Card CTA Link #}
     {%- if card_cta_label is not empty and allow_links %}
