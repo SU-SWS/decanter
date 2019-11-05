@@ -4,19 +4,19 @@
 // Card (Single Link)
 //
 // Card component that allows linking to one single URL per card. It comes with several fields to ensure flexibility -
-// a media element, headline, super headline, body content, call-to-action (CTA) link and button.
-// For a better user experience, use either the CTA link or link button but not both together.
+// a media element, headline, super headline, body content, call-to-action (CTA) link and button. The default <code>.su-card</code>
+// has an image (optional) as its media element. For a better user experience, use either the CTA link or link button but not both together.
 //
 //**Modifier classes for Card (single link) component:**
-// - .su-card--horizontal - Postcard with image on the side.
-// - .su-card--link - Whole card is a clickable link. No separate link buttons or CTA links allowed inside the card.
-// - .su-card--minimal - No border, drop shadow or background color. Do not use this with the .su-card--link variant.
-// - .su-card--icon - Card with an icon image or smaller image (e.g., an avatar) that doesn't fill the full width of the card.
+// - <code>.su-card--horizontal</code> - Postcard with image on the side.
+// - <code>.su-card--link</code> - Whole card is a clickable link. No separate link buttons or CTA links allowed inside the card.
+// - <code>.su-card--minimal</code> - No border, drop shadow or background color. Do not use this with the .su-card--link variant.
+// - <code>.su-card--icon</code> - Card with an icon image or smaller image (e.g., an avatar) that doesn't fill the full width of the card.
 // Text and button are always center-aligned for this variant.
-// - .su-card--icon-font - Card with an icon font (e.g., <a href="https://fontawesome.com/icons">FontAwesome</a>, <a href="https://google.github.io/material-design-icons/#icon-font-for-the-web">Google Material Icons</a>)
+// - <code>.su-card--icon-font</code> - Card with an icon font (e.g., <a href="https://fontawesome.com/icons">FontAwesome</a>, <a href="https://google.github.io/material-design-icons/#icon-font-for-the-web">Google Material Icons</a>)
 // Text and button are always center-aligned for this variant.
-// - .su-card--video - Card with a self-hosted video.
-// - .su-card--embed - Card with an embedded media element, e.g., a YouTube or Vimeo video.
+// - <code>.su-card--video</code> - Card with a self-hosted video.
+// - <code>.su-card--embed</code> - Card with an embedded media element, e.g., a YouTube or Vimeo video.
 //
 // .su-card--horizontal - Postcard with image on the side.
 // .su-card--link - Whole card is a clickable link. No separate link buttons or CTA links allowed inside the card.
@@ -35,4 +35,22 @@
 
 .su-card {
   @extend %card-base;
+
+  a {
+    .su-media__wrapper {
+      img {
+        transition: transform 0.3s ease-in-out;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      .su-media__wrapper {
+        img {
+          transform: scale(1.03);
+        }
+      }
+    }
+  }
+
 }

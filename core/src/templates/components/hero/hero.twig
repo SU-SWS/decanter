@@ -17,8 +17,7 @@
  * - hero_cta_link: The href value for the cta field link
  * - hero_cta_attributes: Any html attributes on the cta link that need to be
  *     added. For example: _target.
- * - hero_cta_label: The clickable text for the CTA link
- * - hero_button_link: The href property of the button component.
+ * - hero_cta_label: The clickable text for the CTA link.
  * - hero_button_label: The text label of the button component.
  * - hero_content: An open area for content to go beneath the media when using
  *                 the su-hero--caption variant.
@@ -60,6 +59,7 @@
     hero_button_label is not empty
   -%}
   {# We reuse the card component here. #}
+  {# The variable hero_button_link is deprecated, use hero_cta_link instead. #}
   {% include template_path_card with
     {
       "modifier_class": "su-hero__card",
@@ -69,7 +69,6 @@
       "card_cta_link": hero_cta_link,
       "card_cta_attributes": hero_cta_attributes,
       "card_cta_label": hero_cta_label,
-      "card_button_link": hero_button_link,
       "card_button_label": hero_button_label,
     }
     only

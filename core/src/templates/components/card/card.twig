@@ -117,7 +117,7 @@
       {%- elseif card_media_image_src is not empty %}
         <img {{ card_media_attributes|default("aria-hidden='true'") }} src="{{ card_media_image_src }}">
       {%- elseif card_image is not empty -%}
-        {# "The variable card_image is deprecated and will be removed in v6, use card_media_image_src instead." #}
+        {# The variable card_image is deprecated and will be removed in v6, use card_media_image_src instead. #}
         {{ card_image }}
       {%- endif -%}
     {% else %}
@@ -137,6 +137,7 @@
           only
         %}
       {% elseif card_image is not empty %}
+        {# The variable card_image is deprecated and will be removed in v6, use card_media_image_src instead. #}
         {{ card_image }}
       {%- endif -%}
     {% endif %}

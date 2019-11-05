@@ -7862,6 +7862,16 @@ button,
     -webkit-box-shadow: inset 0 0 0 2px #2e2d29, 0 0 3px #4d4f53, 0 0 7px #4d4f53;
             box-shadow: inset 0 0 0 2px #2e2d29, 0 0 3px #4d4f53, 0 0 7px #4d4f53; }
 
+.su-card a .su-media__wrapper img {
+  -webkit-transition: -webkit-transform 0.3s ease-in-out;
+  transition: -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out; }
+
+.su-card a:hover .su-media__wrapper img, .su-card a:focus .su-media__wrapper img {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03); }
+
 .su-card--horizontal:not(.su-card--link),
 .su-card--horizontal.su-card--link > a {
   display: -ms-grid;
