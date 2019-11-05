@@ -1,5 +1,4 @@
 @charset "UTF-8";
-@import "../main-nav/main-nav--toggle";
 
 //
 // Multi Menu
@@ -29,6 +28,13 @@
   display: block;
   position: relative;
   z-index: 100;
+
+  // Hide stuff.
+  .mobile-hidden {
+    @include grid-media-max('md') {
+      @include hide-visually;
+    }
+  }
 }
 
 // All ul containers.
@@ -74,7 +80,29 @@
 // First level styles - Vertical - Mobile.
 // -----------------------------------------------------------------------
 .su-multi-menu__menu-lv1 {
-  // All the defaults seem to do.
+
+  // Hide the drop downs by default.
+  > .su-multi-menu__item--parent {
+    > .su-multi-menu__menu {
+      display: none;
+      min-width: 300px;
+    }
+  }
+
+  // Show em.
+  > .su-multi-menu__item--expanded {
+    > .su-multi-menu__menu {
+      display: flex;
+    }
+  }
+
+  > li {
+    &:last-child {
+      > .su-multi-menu__menu-lv2 {
+        right: 0px;
+      }
+    }
+  }
 }
 
 // First level styles - Horizontal - Desktop.
@@ -189,7 +217,10 @@
 .su-multi-menu__item--parent {
   // Hide the drop downs by default.
   > .su-multi-menu__menu {
-    display: none;
+    overflow: hidden;
+    opacity: 0;
+    max-height: 0;
+    transition: max-height 0.25s ease-out, opacity 0.25s ease-out;
   }
 }
 
@@ -198,7 +229,9 @@
 .su-multi-menu__item--expanded {
   // This shows the open children.
   > .su-multi-menu__menu {
-    display: flex;
+    max-height: 1000px;
+    opacity: 1;
+    transition: max-height 0.75s ease-out, opacity 0.75s ease-out;
   }
 }
 

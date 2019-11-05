@@ -36,6 +36,12 @@ export default class EventHandlerDispatch {
 
     // Listen to custom events so we can act on it.
     this.elem.addEventListener('postOpenSubnav', this);
+
+    // Listen to custom events so we can act on it.
+    this.elem.addEventListener('preCloseSubnav', this);
+
+    // Listen to custom events so we can act on it.
+    this.elem.addEventListener('postCloseSubnav', this);
   }
 
   /**

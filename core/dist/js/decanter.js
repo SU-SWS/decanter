@@ -1185,6 +1185,206 @@ function (_SecondaryNavButtons) {
 
 /***/ }),
 
+/***/ "./core/src/js/components/multi-menu/common/MobileToggle.js":
+/*!******************************************************************!*\
+  !*** ./core/src/js/components/multi-menu/common/MobileToggle.js ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MobileToggle; });
+/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../utilities/events */ "./core/src/js/utilities/events.js");
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+
+
+/**
+ * Nav Toggle for the mobile/desktop button. Opens and closes the navigation
+ */
+
+var MobileToggle =
+/*#__PURE__*/
+function () {
+  /**
+   * Create a new toggle.
+   *
+   * @param {HTMLLIElement} element  - The <li> that is the NavItem in the DOM.
+   * @param {Object} options         - A simple object of key values used as
+   *                                   configuration options for each instance.
+   */
+  function MobileToggle(element, nav, options) {
+    var _this = this;
+
+    _classCallCheck(this, MobileToggle);
+
+    // Params.
+    this.elem = element;
+    this.nav = nav; // Merge options with defualts.
+
+    this.options = Object.assign({
+      toggleText: element.innerText || 'Open',
+      closeText: 'Close',
+      firstLevelSelector: ':scope > .su-multi-menu__menu'
+    }, options);
+    this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_0__["createEvent"])('openNav');
+    this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_0__["createEvent"])('closeNav');
+    this.firstLevel = this.nav.elem.querySelector(this.options.firstLevelSelector); // Event listeners.
+
+    this.elem.addEventListener('click', this);
+    this.elem.addEventListener('keydown', this); // Hide mobile menu by default.
+
+    this.closeNav(); // Clicking anywhere outside of attached nav closes all the children.
+
+    document.addEventListener('click', function (event) {
+      // The element that was clicked.
+      var target = event.target || event.srcElement; // If the clicked element was not in my nav wrapper, close me.
+
+      var found = target.closest('#' + _this.nav.id);
+
+      if (!found) {
+        _this.closeNav();
+
+        _this.nav.closeAllSubNavs();
+      }
+    });
+  }
+  /**
+   * Handler for all events attached to an instance of this class. This method
+   * must exist when events are bound to an instance of a class
+   * (vs a function). This method is called for all events bound to an
+   * instance. It inspects the instance (this) for an appropriate handler
+   * based on the event type. If found, it dispatches the event to the
+   * appropriate handler.
+   *
+   * @param {KeyboardEvent} event - The keyboard event object.
+   *
+   * @return {*}
+   *  Whatever the dispatched handler returns (in our case nothing)
+   */
+
+
+  _createClass(MobileToggle, [{
+    key: "handleEvent",
+    value: function handleEvent(event) {
+      event = event || window.event; // If this class has an onEvent method, e.g. onClick, onKeydown,
+      // invoke it.
+
+      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);
+
+      if (typeof this[handler] === 'function') {
+        // The element that was clicked.
+        var target = event.target || event.srcElement;
+        return this[handler](event, target);
+      }
+    }
+    /**
+     * Handle the click event on the toggle.
+     *
+     * @param {Event} event         - The event object.
+     * @param {HTMLElement} target  - The HTML element target.
+     */
+
+  }, {
+    key: "onClick",
+    value: function onClick(event, target) {
+      // Only act if the target is my element.
+      if (target !== this.elem) {
+        return;
+      } // Don't go nowhere.
+
+
+      event.preventDefault(); // Toggle open and close.
+
+      if (this.isExpanded()) {
+        this.closeNav();
+      } else {
+        this.openNav();
+        this.nav.elem.querySelector('a').focus();
+      }
+    }
+    /**
+     * Event handler for key: Down Arrow.
+     *
+     * @param {KeyboardEvent} event - The keyboard event object.
+     * @param {HTMLElement} target  - The HTML element target.
+     */
+
+  }, {
+    key: "onKeydown",
+    value: function onKeydown(event, target) {
+      var theKey = event.key || event.keyCode; // Do the click toggle for enter and space keys.
+
+      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isEnter"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isSpace"])(theKey)) {
+        this.onClick(event, this.elem);
+      }
+    }
+    /**
+     * Close any  navs that might be open, then mark this  nav open.
+     * Optionally force focus on the first element in the nav (for keyboard nav)
+     */
+
+  }, {
+    key: "openNav",
+    value: function openNav() {
+      this.setExpanded('true');
+      this.elem.innerText = this.options.closeText;
+      this.firstLevel.classList.remove('mobile-hidden'); // Alert others the nav has opened.
+
+      this.elem.dispatchEvent(this.openEvent);
+    }
+    /**
+     * Mark this  closed, and restore the button text to what it was
+     * initially.
+     */
+
+  }, {
+    key: "closeNav",
+    value: function closeNav() {
+      this.setExpanded('false');
+      this.elem.innerText = this.options.toggleText;
+      this.firstLevel.classList.add('mobile-hidden'); // Alert others the  nav has closed.
+
+      this.elem.dispatchEvent(this.closeEvent);
+    }
+    /**
+     * Set whether or not this is expanded.
+     *
+     * @param {Boolean} val true for an expanded menu.
+     */
+
+  }, {
+    key: "setExpanded",
+    value: function setExpanded(val) {
+      this.elem.setAttribute('aria-expanded', val);
+    }
+    /**
+     * Is this expanded?
+     *
+     * @return {Boolean}
+     *   Returns wether or not the item is expanded.
+     */
+
+  }, {
+    key: "isExpanded",
+    value: function isExpanded() {
+      return this.elem.getAttribute('aria-expanded') === 'true';
+    }
+  }]);
+
+  return MobileToggle;
+}();
+
+
+
+/***/ }),
+
 /***/ "./core/src/js/components/multi-menu/common/globals.js":
 /*!*************************************************************!*\
   !*** ./core/src/js/components/multi-menu/common/globals.js ***!
@@ -1215,13 +1415,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _common_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/globals */ "./core/src/js/components/multi-menu/common/globals.js");
 /* harmony import */ var _accordion_MultiMenuAccordion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./accordion/MultiMenuAccordion */ "./core/src/js/components/multi-menu/accordion/MultiMenuAccordion.js");
+/* harmony import */ var _common_MobileToggle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./common/MobileToggle */ "./core/src/js/components/multi-menu/common/MobileToggle.js");
+
 
 
 
 document.addEventListener('DOMContentLoaded', function (event) {
   _common_globals__WEBPACK_IMPORTED_MODULE_1__["multiMenus"].forEach(function (nav, index) {
     if (nav.className.match(/su-multi-menu--accordion/)) {
-      new _accordion_MultiMenuAccordion__WEBPACK_IMPORTED_MODULE_2__["default"](nav);
+      var theNav = new _accordion_MultiMenuAccordion__WEBPACK_IMPORTED_MODULE_2__["default"](nav);
+      var toggleElem = nav.querySelector(':scope .su-multi-menu__nav-toggle');
+
+      if (toggleElem) {
+        var theToggle = new _common_MobileToggle__WEBPACK_IMPORTED_MODULE_3__["default"](toggleElem, theNav);
+      }
     }
   });
 });
@@ -1241,13 +1448,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _common_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/globals */ "./core/src/js/components/multi-menu/common/globals.js");
 /* harmony import */ var _buttons_MultiMenuButtons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./buttons/MultiMenuButtons */ "./core/src/js/components/multi-menu/buttons/MultiMenuButtons.js");
+/* harmony import */ var _common_MobileToggle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./common/MobileToggle */ "./core/src/js/components/multi-menu/common/MobileToggle.js");
+
 
 
 
 document.addEventListener('DOMContentLoaded', function (event) {
   _common_globals__WEBPACK_IMPORTED_MODULE_1__["multiMenus"].forEach(function (nav, index) {
     if (nav.className.match(/su-multi-menu--buttons/)) {
-      new _buttons_MultiMenuButtons__WEBPACK_IMPORTED_MODULE_2__["default"](nav);
+      var theNav = new _buttons_MultiMenuButtons__WEBPACK_IMPORTED_MODULE_2__["default"](nav);
+      var toggleElem = nav.querySelector(':scope .su-multi-menu__nav-toggle');
+
+      if (toggleElem) {
+        var theToggle = new _common_MobileToggle__WEBPACK_IMPORTED_MODULE_3__["default"](toggleElem, theNav);
+      }
     }
   });
 });
@@ -1633,7 +1847,11 @@ function () {
 
       this.elem.addEventListener('preOpenSubnav', this); // Listen to custom events so we can act on it.
 
-      this.elem.addEventListener('postOpenSubnav', this);
+      this.elem.addEventListener('postOpenSubnav', this); // Listen to custom events so we can act on it.
+
+      this.elem.addEventListener('preCloseSubnav', this); // Listen to custom events so we can act on it.
+
+      this.elem.addEventListener('postCloseSubnav', this);
     }
     /**
      * Handler for all events attached to an instance of this class.
@@ -1785,7 +2003,10 @@ function (_SecondaryNavAbstract) {
     // Let super do what super does.
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SecondaryNavAccordion).call(this, elem, options)); // Ok do the creation.
 
-    _this.createSubNavItems(); // Expand the active path.
+    _this.createSubNavItems(); // Add eventListeners
+
+
+    _this.addEventListeners(); // Expand the active path.
 
 
     if (_this.options.expand) {
@@ -1844,6 +2065,30 @@ function (_SecondaryNavAbstract) {
       this.navItems.push(nav);
       return nav;
     }
+    /**
+     * Adds additional event listeners.
+     */
+
+  }, {
+    key: "addEventListeners",
+    value: function addEventListeners() {
+      var _this2 = this;
+
+      // Clicking anywhere outside of attached nav closes all the children.
+      document.addEventListener('preOpenSubnav', function (event) {
+        _this2.subNavItems.forEach(function (subnav, index) {
+          if (_typeof(subnav.item) == undefined) {
+            return;
+          }
+
+          if (subnav.item.contains(event.target)) {
+            return;
+          }
+
+          subnav.closeSubNav();
+        });
+      });
+    }
   }]);
 
   return SecondaryNavAccordion;
@@ -1864,21 +2109,23 @@ function (_SecondaryNavAbstract) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SecondarySubNavAccordion; });
 /* harmony import */ var _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../nav/EventHandlerDispatch */ "./core/src/js/components/nav/EventHandlerDispatch.js");
-/* harmony import */ var _events_OnClick__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events/OnClick */ "./core/src/js/components/secondary-nav/accordion/events/OnClick.js");
-/* harmony import */ var _common_events_OnHome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/events/OnHome */ "./core/src/js/components/secondary-nav/common/events/OnHome.js");
-/* harmony import */ var _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/events/OnEnd */ "./core/src/js/components/secondary-nav/common/events/OnEnd.js");
-/* harmony import */ var _common_events_OnTab__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/events/OnTab */ "./core/src/js/components/secondary-nav/common/events/OnTab.js");
-/* harmony import */ var _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/events/OnEsc */ "./core/src/js/components/secondary-nav/common/events/OnEsc.js");
-/* harmony import */ var _events_OnSpace__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./events/OnSpace */ "./core/src/js/components/secondary-nav/accordion/events/OnSpace.js");
-/* harmony import */ var _common_events_OnArrowUp__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/events/OnArrowUp */ "./core/src/js/components/secondary-nav/common/events/OnArrowUp.js");
-/* harmony import */ var _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./events/OnArrowRight */ "./core/src/js/components/secondary-nav/accordion/events/OnArrowRight.js");
-/* harmony import */ var _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../common/events/OnArrowDown */ "./core/src/js/components/secondary-nav/common/events/OnArrowDown.js");
-/* harmony import */ var _events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./events/OnArrowLeft */ "./core/src/js/components/secondary-nav/accordion/events/OnArrowLeft.js");
+/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utilities/events */ "./core/src/js/utilities/events.js");
+/* harmony import */ var _events_OnClick__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./events/OnClick */ "./core/src/js/components/secondary-nav/accordion/events/OnClick.js");
+/* harmony import */ var _common_events_OnHome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/events/OnHome */ "./core/src/js/components/secondary-nav/common/events/OnHome.js");
+/* harmony import */ var _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/events/OnEnd */ "./core/src/js/components/secondary-nav/common/events/OnEnd.js");
+/* harmony import */ var _common_events_OnTab__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/events/OnTab */ "./core/src/js/components/secondary-nav/common/events/OnTab.js");
+/* harmony import */ var _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/events/OnEsc */ "./core/src/js/components/secondary-nav/common/events/OnEsc.js");
+/* harmony import */ var _events_OnSpace__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./events/OnSpace */ "./core/src/js/components/secondary-nav/accordion/events/OnSpace.js");
+/* harmony import */ var _common_events_OnArrowUp__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/events/OnArrowUp */ "./core/src/js/components/secondary-nav/common/events/OnArrowUp.js");
+/* harmony import */ var _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./events/OnArrowRight */ "./core/src/js/components/secondary-nav/accordion/events/OnArrowRight.js");
+/* harmony import */ var _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../common/events/OnArrowDown */ "./core/src/js/components/secondary-nav/common/events/OnArrowDown.js");
+/* harmony import */ var _events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./events/OnArrowLeft */ "./core/src/js/components/secondary-nav/accordion/events/OnArrowLeft.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 
  // Click handler.
 
@@ -1922,7 +2169,23 @@ function () {
     this.item = element.parentNode;
     this.masterNav = masterNav;
     this.parentNav = parentNav;
-    this.depth = options.depth || 1; // Merge in defaults.
+    this.depth = options.depth || 1;
+    this.preOpenSubnav = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_1__["createEvent"])('preOpenSubnav', {
+      bubbles: true,
+      data: this.item
+    });
+    this.postOpenSubnav = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_1__["createEvent"])('postOpenSubnav', {
+      bubbles: true,
+      data: this.item
+    });
+    this.preCloseSubnav = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_1__["createEvent"])('preCloseSubnav', {
+      bubbles: true,
+      data: this.item
+    });
+    this.postCloseSubnav = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_1__["createEvent"])('postCloseSubnav', {
+      bubbles: true,
+      data: this.item
+    }); // Merge in defaults.
 
     this.options = Object.assign({
       itemExpandedClass: 'su-secondary-nav__item--expanded'
@@ -1947,17 +2210,17 @@ function () {
     key: "createEventRegistry",
     value: function createEventRegistry(options) {
       var registryDefaults = {
-        onClick: _events_OnClick__WEBPACK_IMPORTED_MODULE_1__["default"],
-        onKeydownSpace: _events_OnSpace__WEBPACK_IMPORTED_MODULE_6__["default"],
-        onKeydownEnter: _events_OnSpace__WEBPACK_IMPORTED_MODULE_6__["default"],
-        onKeydownHome: _common_events_OnHome__WEBPACK_IMPORTED_MODULE_2__["default"],
-        onKeydownEnd: _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_3__["default"],
-        onKeydownTab: _common_events_OnTab__WEBPACK_IMPORTED_MODULE_4__["default"],
-        onKeydownEscape: _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_5__["default"],
-        onKeydownArrowUp: _common_events_OnArrowUp__WEBPACK_IMPORTED_MODULE_7__["default"],
-        onKeydownArrowRight: _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_8__["default"],
-        onKeydownArrowDown: _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_9__["default"],
-        onKeydownArrowLeft: _events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_10__["default"]
+        onClick: _events_OnClick__WEBPACK_IMPORTED_MODULE_2__["default"],
+        onKeydownSpace: _events_OnSpace__WEBPACK_IMPORTED_MODULE_7__["default"],
+        onKeydownEnter: _events_OnSpace__WEBPACK_IMPORTED_MODULE_7__["default"],
+        onKeydownHome: _common_events_OnHome__WEBPACK_IMPORTED_MODULE_3__["default"],
+        onKeydownEnd: _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_4__["default"],
+        onKeydownTab: _common_events_OnTab__WEBPACK_IMPORTED_MODULE_5__["default"],
+        onKeydownEscape: _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_6__["default"],
+        onKeydownArrowUp: _common_events_OnArrowUp__WEBPACK_IMPORTED_MODULE_8__["default"],
+        onKeydownArrowRight: _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_9__["default"],
+        onKeydownArrowDown: _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_10__["default"],
+        onKeydownArrowLeft: _events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_11__["default"]
       };
       return Object.assign(registryDefaults, options.eventRegistry);
     }
@@ -1984,8 +2247,10 @@ function () {
   }, {
     key: "openSubNav",
     value: function openSubNav() {
+      this.elem.dispatchEvent(this.preOpenSubnav);
       this.elem.setAttribute('aria-expanded', 'true');
       this.item.classList.add(this.options.itemExpandedClass);
+      this.elem.dispatchEvent(this.postOpenSubnav);
     }
     /**
      * Handles the closing of a subnav.
@@ -1997,8 +2262,10 @@ function () {
   }, {
     key: "closeSubNav",
     value: function closeSubNav() {
+      this.elem.dispatchEvent(this.preCloseSubnav);
       this.elem.setAttribute('aria-expanded', 'false');
       this.item.classList.remove(this.options.itemExpandedClass);
+      this.elem.dispatchEvent(this.postCloseSubnav);
     }
     /**
      * Get the level of nesting for this nav.
@@ -2221,7 +2488,6 @@ function (_EventAbstract) {
      * Execute the action to the event.
      */
     value: function exec() {
-      this.event.stopPropagation();
       this.event.preventDefault();
 
       if (this.item.isExpanded()) {
@@ -2383,7 +2649,10 @@ function (_SecondaryNavAbstract) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SecondaryNavButtons).call(this, elem, options)); // Ok do the creation.
 
-    _this.createSubNavItems(); // Expand the path.
+    _this.createSubNavItems(); // Add additional eventListeners.
+
+
+    _this.addEventListeners(); // Expand the path.
     // Expand the active path.
 
 
@@ -2448,6 +2717,30 @@ function (_SecondaryNavAbstract) {
       this.navItems.push(nav);
       return nav;
     }
+    /**
+     * Adds additional event listeners.
+     */
+
+  }, {
+    key: "addEventListeners",
+    value: function addEventListeners() {
+      var _this2 = this;
+
+      // Clicking anywhere outside of attached nav closes all the children.
+      document.addEventListener('preOpenSubnav', function (event) {
+        _this2.subNavItems.forEach(function (subnav, index) {
+          if (_typeof(subnav.item) == undefined) {
+            return;
+          }
+
+          if (subnav.item.contains(event.target)) {
+            return;
+          }
+
+          subnav.closeSubNav();
+        });
+      });
+    }
   }]);
 
   return SecondaryNavButtons;
@@ -2469,15 +2762,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SecondarySubNavButtons; });
 /* harmony import */ var _SubNavToggle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SubNavToggle */ "./core/src/js/components/secondary-nav/buttons/SubNavToggle.js");
 /* harmony import */ var _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../nav/EventHandlerDispatch */ "./core/src/js/components/nav/EventHandlerDispatch.js");
-/* harmony import */ var _common_events_OnHome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/events/OnHome */ "./core/src/js/components/secondary-nav/common/events/OnHome.js");
-/* harmony import */ var _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/events/OnEnd */ "./core/src/js/components/secondary-nav/common/events/OnEnd.js");
-/* harmony import */ var _events_OnTab__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./events/OnTab */ "./core/src/js/components/secondary-nav/buttons/events/OnTab.js");
-/* harmony import */ var _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/events/OnEsc */ "./core/src/js/components/secondary-nav/common/events/OnEsc.js");
-/* harmony import */ var _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/events/OnSpace */ "./core/src/js/components/secondary-nav/common/events/OnSpace.js");
-/* harmony import */ var _common_events_OnArrowUp__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/events/OnArrowUp */ "./core/src/js/components/secondary-nav/common/events/OnArrowUp.js");
-/* harmony import */ var _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./events/OnArrowRight */ "./core/src/js/components/secondary-nav/buttons/events/OnArrowRight.js");
-/* harmony import */ var _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../common/events/OnArrowDown */ "./core/src/js/components/secondary-nav/common/events/OnArrowDown.js");
-/* harmony import */ var _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../common/events/OnArrowLeft */ "./core/src/js/components/secondary-nav/common/events/OnArrowLeft.js");
+/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../utilities/events */ "./core/src/js/utilities/events.js");
+/* harmony import */ var _common_events_OnHome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/events/OnHome */ "./core/src/js/components/secondary-nav/common/events/OnHome.js");
+/* harmony import */ var _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/events/OnEnd */ "./core/src/js/components/secondary-nav/common/events/OnEnd.js");
+/* harmony import */ var _events_OnTab__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./events/OnTab */ "./core/src/js/components/secondary-nav/buttons/events/OnTab.js");
+/* harmony import */ var _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/events/OnEsc */ "./core/src/js/components/secondary-nav/common/events/OnEsc.js");
+/* harmony import */ var _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/events/OnSpace */ "./core/src/js/components/secondary-nav/common/events/OnSpace.js");
+/* harmony import */ var _common_events_OnArrowUp__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/events/OnArrowUp */ "./core/src/js/components/secondary-nav/common/events/OnArrowUp.js");
+/* harmony import */ var _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./events/OnArrowRight */ "./core/src/js/components/secondary-nav/buttons/events/OnArrowRight.js");
+/* harmony import */ var _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../common/events/OnArrowDown */ "./core/src/js/components/secondary-nav/common/events/OnArrowDown.js");
+/* harmony import */ var _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../common/events/OnArrowLeft */ "./core/src/js/components/secondary-nav/common/events/OnArrowLeft.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -2485,6 +2779,7 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
  // Events
+
 
  // Keyboard events.
 
@@ -2526,7 +2821,23 @@ function () {
     this.item = element.parentNode;
     this.masterNav = masterNav;
     this.parentNav = parentNav;
-    this.depth = options.depth || 1; // Merge in defaults.
+    this.depth = options.depth || 1;
+    this.preOpenSubnav = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('preOpenSubnav', {
+      bubbles: true,
+      data: this.item
+    });
+    this.postOpenSubnav = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('postOpenSubnav', {
+      bubbles: true,
+      data: this.item
+    });
+    this.preCloseSubnav = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('preCloseSubnav', {
+      bubbles: true,
+      data: this.item
+    });
+    this.postCloseSubnav = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('postCloseSubnav', {
+      bubbles: true,
+      data: this.item
+    }); // Merge in defaults.
 
     this.options = Object.assign({
       itemExpandedClass: 'su-secondary-nav__item--expanded',
@@ -2558,16 +2869,16 @@ function () {
     key: "createEventRegistry",
     value: function createEventRegistry(options) {
       var registryDefaults = {
-        onKeydownSpace: _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_6__["default"],
-        onKeydownEnter: _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_6__["default"],
-        onKeydownHome: _common_events_OnHome__WEBPACK_IMPORTED_MODULE_2__["default"],
-        onKeydownEnd: _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_3__["default"],
-        onKeydownTab: _events_OnTab__WEBPACK_IMPORTED_MODULE_4__["default"],
-        onKeydownEscape: _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_5__["default"],
-        onKeydownArrowUp: _common_events_OnArrowUp__WEBPACK_IMPORTED_MODULE_7__["default"],
-        onKeydownArrowRight: _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_8__["default"],
-        onKeydownArrowDown: _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_9__["default"],
-        onKeydownArrowLeft: _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_10__["default"]
+        onKeydownSpace: _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_7__["default"],
+        onKeydownEnter: _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_7__["default"],
+        onKeydownHome: _common_events_OnHome__WEBPACK_IMPORTED_MODULE_3__["default"],
+        onKeydownEnd: _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_4__["default"],
+        onKeydownTab: _events_OnTab__WEBPACK_IMPORTED_MODULE_5__["default"],
+        onKeydownEscape: _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_6__["default"],
+        onKeydownArrowUp: _common_events_OnArrowUp__WEBPACK_IMPORTED_MODULE_8__["default"],
+        onKeydownArrowRight: _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_9__["default"],
+        onKeydownArrowDown: _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_10__["default"],
+        onKeydownArrowLeft: _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_11__["default"]
       };
       return Object.assign(registryDefaults, options.eventRegistry);
     }
@@ -2615,8 +2926,10 @@ function () {
   }, {
     key: "openSubNav",
     value: function openSubNav() {
+      this.elem.dispatchEvent(this.preOpenSubnav);
       this.toggleElement.setAttribute('aria-expanded', true);
       this.item.classList.add(this.options.itemExpandedClass);
+      this.elem.dispatchEvent(this.postOpenSubnav);
     }
     /**
      * Handles the closing of a subnav.
@@ -2628,8 +2941,10 @@ function () {
   }, {
     key: "closeSubNav",
     value: function closeSubNav() {
+      this.elem.dispatchEvent(this.preCloseSubnav);
       this.toggleElement.setAttribute('aria-expanded', false);
       this.item.classList.remove(this.options.itemExpandedClass);
+      this.elem.dispatchEvent(this.postCloseSubnav);
     }
     /**
      * Get the level of nesting for this nav.
@@ -2740,6 +3055,16 @@ function () {
         onKeydownArrowLeft: _events_SubNavToggleArrowLeft__WEBPACK_IMPORTED_MODULE_4__["default"]
       };
       return Object.assign(registryDefaults, options.eventRegistry);
+    }
+    /**
+     * [getDepth description]
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "getDepth",
+    value: function getDepth() {
+      return item.getDepth();
     }
   }]);
 
@@ -3335,9 +3660,15 @@ function () {
       expand: true
     }; // Merge with passed in options.
 
-    this.options = Object.assign(defaultOptions, options); // Remove the no-js class.
+    this.options = Object.assign(defaultOptions, options); // Remove the no-js class and add an ID.
 
-    this.elem.classList.remove('no-js'); // Assign the event dispatcher and event registry.
+    this.elem.classList.remove('no-js');
+
+    if (!this.elem.getAttribute('id')) {
+      this.id = 'su-nav-id-' + Math.random().toString(36).substr(2, 9);
+      this.elem.setAttribute('id', this.id);
+    } // Assign the event dispatcher and event registry.
+
 
     this.eventRegistry = this.createEventRegistry(options);
     this.dispatch = new _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_1__["default"](element, this); // Handle the active state.
@@ -4273,7 +4604,7 @@ function (_EventAbstract) {
       this.event.preventDefault();
       var node = false;
 
-      if (this.item.getDepth() > 1) {
+      if (this.elem.getDepth() > 1) {
         this.event.stopPropagation();
         this.parentNav.closeSubNav();
         node = this.getElement('parentItem');
@@ -4489,7 +4820,7 @@ function (_EventAbstract) {
       var shifted = event.shiftKey;
       var node = null;
       var firstItem = this.masterNav.elem.querySelector('a');
-      var lastItem = this.masterNav.elem.firstElementChild.lastElementChild.querySelector('li:last-child'); // If shift key is held.
+      var lastItem = this.masterNav.elem.querySelector(':scope > ul > li:last-child'); // If shift key is held.
 
       if (shifted) {
         node = this.getElement('prev');

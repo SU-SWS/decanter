@@ -61,4 +61,12 @@ export default class SubNavToggle {
 
     return Object.assign(registryDefaults, options.eventRegistry);
   }
+
+  /**
+   * [getDepth description]
+   * @return {[type]} [description]
+   */
+  getDepth() {
+    return item.getDepth();
+  }
 }

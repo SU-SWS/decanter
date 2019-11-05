@@ -55,7 +55,9 @@
   .su-multi-menu__menu-lv1 {
     // Top Level Parent Items.
     > .su-multi-menu__item--parent {
-      @include padding(null 1.6rem null null);
+      @include grid-media('lg') {
+        @include padding(null 1.6rem null null);
+      }
 
       > .su-multi-menu__link {
         // Desktop Styles.

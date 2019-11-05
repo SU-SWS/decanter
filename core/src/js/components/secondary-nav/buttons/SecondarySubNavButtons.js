@@ -1,6 +1,7 @@
 import SubNavToggle from './SubNavToggle';
 // Events
 import EventHandlerDispatch from '../../nav/EventHandlerDispatch';
+import {createEvent} from '../../../utilities/events';
 // Keyboard events.
 import OnHome from '../common/events/OnHome';
 import OnEnd from '../common/events/OnEnd';
@@ -35,6 +36,10 @@ export default class SecondarySubNavButtons {
     this.masterNav = masterNav;
     this.parentNav = parentNav;
     this.depth = options.depth || 1;
+    this.preOpenSubnav = createEvent('preOpenSubnav', { bubbles: true, data: this.item});
+    this.postOpenSubnav = createEvent('postOpenSubnav', {bubbles: true, data: this.item});
+    this.preCloseSubnav = createEvent('preCloseSubnav', {bubbles: true, data: this.item});
+    this.postCloseSubnav = createEvent('postCloseSubnav', {bubbles: true, data: this.item});
 
     // Merge in defaults.
     this.options = Object.assign({
@@ -122,8 +127,10 @@ export default class SecondarySubNavButtons {
    * (for keyboard nav).
    */
   openSubNav() {
+    this.elem.dispatchEvent(this.preOpenSubnav);
     this.toggleElement.setAttribute('aria-expanded', true);
     this.item.classList.add(this.options.itemExpandedClass);
+    this.elem.dispatchEvent(this.postOpenSubnav);
   }
 
   /**
@@ -133,8 +140,10 @@ export default class SecondarySubNavButtons {
    * corresponding subnav. Optionally force focus on the trigger.
    */
   closeSubNav() {
+    this.elem.dispatchEvent(this.preCloseSubnav);
     this.toggleElement.setAttribute('aria-expanded', false);
     this.item.classList.remove(this.options.itemExpandedClass);
+    this.elem.dispatchEvent(this.postCloseSubnav);
   }
 
   /**

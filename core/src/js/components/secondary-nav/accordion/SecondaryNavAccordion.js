@@ -20,6 +20,9 @@ export default class SecondaryNavAccordion extends SecondaryNavAbstract {
     // Ok do the creation.
     this.createSubNavItems();
 
+    // Add eventListeners
+    this.addEventListeners();
+
     // Expand the active path.
     if (this.options.expand) {
       this.activePath.expandActivePath();
@@ -79,5 +82,26 @@ export default class SecondaryNavAccordion extends SecondaryNavAbstract {
     );
     this.navItems.push(nav);
     return nav;
+  }
+
+  /**
+   * Adds additional event listeners.
+   */
+  addEventListeners() {
+    // Clicking anywhere outside of attached nav closes all the children.
+    document.addEventListener('preOpenSubnav', event => {
+      this.subNavItems.forEach(
+        (subnav, index) => {
+          if (typeof subnav.item == undefined) {
+            return;
+          }
+
+          if (subnav.item.contains(event.target)) {
+            return;
+          }
+          subnav.closeSubNav();
+        }
+      );
+    });
   }
 }

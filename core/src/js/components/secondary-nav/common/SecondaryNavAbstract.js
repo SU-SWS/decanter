@@ -36,8 +36,12 @@ export default class SecondaryNavAbstract {
     // Merge with passed in options.
     this.options = Object.assign(defaultOptions, options);
 
-    // Remove the no-js class.
+    // Remove the no-js class and add an ID.
     this.elem.classList.remove('no-js');
+    if (!this.elem.getAttribute('id')) {
+      this.id = 'su-nav-id-' + Math.random().toString(36).substr(2, 9);
+      this.elem.setAttribute('id', this.id);
+    }
 
     // Assign the event dispatcher and event registry.
     this.eventRegistry = this.createEventRegistry(options);

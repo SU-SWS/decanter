@@ -14,7 +14,7 @@ export default class OnTab extends EventAbstract {
     const shifted = event.shiftKey;
     let node = null;
     let firstItem = this.masterNav.elem.querySelector('a');
-    let lastItem = this.masterNav.elem.firstElementChild.lastElementChild.querySelector('li:last-child');
+    let lastItem = this.masterNav.elem.querySelector(':scope > ul > li:last-child');
 
     // If shift key is held.
     if (shifted) {

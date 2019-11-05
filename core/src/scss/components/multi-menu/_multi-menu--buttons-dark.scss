@@ -3,6 +3,23 @@
 .su-multi-menu--buttons-dark {
   background: $su-color-black;
 
+  // Make bright.
+  .su-multi-menu__nav-toggle {
+    color: $su-color-white;
+
+    @include grid-media-max('md') {
+      &::after {
+        background: url("#{$su-image-path}/hamburger-white.svg") no-repeat 3px 0;
+      }
+
+      &[aria-expanded="true"] {
+        &::after {
+          background: url("#{$su-image-path}/close-white.svg") no-repeat 3px 0;
+        }
+      }
+    }
+  }
+
   // Nested Menus (ul)
   .su-multi-menu__menu {
 
