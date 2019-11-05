@@ -1638,9 +1638,9 @@ function () {
 
             if (element.tagName === 'LI') {
               element.classList.add(_this2.itemExpandedClass); // "Hook" of sorts.
-
               if (typeof _this2.item.expandActivePathItem == 'function') {
                 _this2.item.expandActivePathItem(element);
+
               }
             } // Always increment.
 
@@ -2779,8 +2779,6 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
  // Events
-
-
  // Keyboard events.
 
 
@@ -2869,16 +2867,17 @@ function () {
     key: "createEventRegistry",
     value: function createEventRegistry(options) {
       var registryDefaults = {
-        onKeydownSpace: _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_7__["default"],
-        onKeydownEnter: _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_7__["default"],
-        onKeydownHome: _common_events_OnHome__WEBPACK_IMPORTED_MODULE_3__["default"],
-        onKeydownEnd: _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_4__["default"],
-        onKeydownTab: _events_OnTab__WEBPACK_IMPORTED_MODULE_5__["default"],
-        onKeydownEscape: _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_6__["default"],
-        onKeydownArrowUp: _common_events_OnArrowUp__WEBPACK_IMPORTED_MODULE_8__["default"],
-        onKeydownArrowRight: _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_9__["default"],
-        onKeydownArrowDown: _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_10__["default"],
-        onKeydownArrowLeft: _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_11__["default"]
+
+        onKeydownSpace: _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_6__["default"],
+        onKeydownEnter: _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_6__["default"],
+        onKeydownHome: _common_events_OnHome__WEBPACK_IMPORTED_MODULE_2__["default"],
+        onKeydownEnd: _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_3__["default"],
+        onKeydownTab: _events_OnTab__WEBPACK_IMPORTED_MODULE_4__["default"],
+        onKeydownEscape: _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_5__["default"],
+        onKeydownArrowUp: _common_events_OnArrowUp__WEBPACK_IMPORTED_MODULE_7__["default"],
+        onKeydownArrowRight: _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_8__["default"],
+        onKeydownArrowDown: _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_9__["default"],
+        onKeydownArrowLeft: _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_10__["default"]
       };
       return Object.assign(registryDefaults, options.eventRegistry);
     }
@@ -3706,6 +3705,7 @@ function () {
   }, {
     key: "setActivePathItem",
     value: function setActivePathItem(item) {} // For any additional items outside of the core functions.
+
 
     /**
      * Creates an event registry for handling types of events.
@@ -4821,6 +4821,7 @@ function (_EventAbstract) {
       var node = null;
       var firstItem = this.masterNav.elem.querySelector('a');
       var lastItem = this.masterNav.elem.querySelector(':scope > ul > li:last-child'); // If shift key is held.
+
 
       if (shifted) {
         node = this.getElement('prev');

@@ -69,4 +69,5 @@ export default class SubNavToggle {
   getDepth() {
     return item.getDepth();
   }
+
 }
