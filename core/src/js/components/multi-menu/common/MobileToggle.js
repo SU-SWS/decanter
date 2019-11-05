@@ -45,6 +45,13 @@ export default class MobileToggle {
       this.outOfBounds(event);
     });
 
+    document.addEventListener('closeAllMobileNavs', event => {
+      this.closeNav();
+      if (this.nav.elem.contains(event.target)) {
+        this.elem.focus();
+      }
+    });
+
   }
 
  /**

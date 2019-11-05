@@ -6,7 +6,7 @@ import OnArrowRight from '../../../secondary-nav/accordion/events/onArrowRight';
  *
  * Event action handler class.
  */
-export default class OnArrowRightHorizontal extends EventAbstract {
+export default class OnArrowRightLV1 extends EventAbstract {
 
   /**
    * Execute the action to the event.
@@ -25,13 +25,6 @@ export default class OnArrowRightHorizontal extends EventAbstract {
    * @return {[type]} [description]
    */
   handleDesktop() {
-
-    // Handle like a mobile page if deeper than the top most.
-    if (this.item.getDepth() > 1) {
-      this.handleMobile();
-      return;
-    }
-
     if (this.getElement('next')) {
       this.getElement('next').focus();
     }
@@ -41,7 +34,7 @@ export default class OnArrowRightHorizontal extends EventAbstract {
   }
 
   /**
-   * [handleDesktop description]
+   * handleMobile
    * @return {[type]} [description]
    */
   handleMobile() {

@@ -1,5 +1,7 @@
 import SecondarySubNavAccordion from '../../secondary-nav/accordion/SecondarySubNavAccordion';
-import OnArrowRightHorizontal from './events/OnArrowRightHorizontal';
+import OnArrowRightLV1 from './events/OnArrowRightLV1';
+import OnArrowDownLV1 from './events/OnArrowDownLV1';
+import OnArrowLeftLV2 from './events/OnArrowLeftLV2';
 
 /**
  * SecondarySubNavAccordion Class
@@ -21,9 +23,20 @@ export default class MultiSubNavAccordion extends SecondarySubNavAccordion {
   createEventRegistry(options) {
 
     var registryDefaults = super.createEventRegistry(options);
-    var registryDefaults = Object.assign(registryDefaults, {
-      onKeydownArrowRight: OnArrowRightHorizontal
-    });
+
+    // If we are the first level (top) we need to adjust for mobile vs desktop.
+    if (this.getDepth() == 1) {
+      registryDefaults = Object.assign(registryDefaults, {
+        onKeydownArrowRight: OnArrowRightLV1,
+        onKeydownArrowDown: OnArrowDownLV1
+      });
+    }
+
+    if (this.getDepth() == 2) {
+      registryDefaults = Object.assign(registryDefaults, {
+        onKeydownArrowLeft: OnArrowLeftLV2
+      });
+    }
 
     return registryDefaults;
   }

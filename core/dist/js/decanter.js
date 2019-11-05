@@ -1150,7 +1150,9 @@ function (_SecondaryNavAccordio) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MultiSubNavAccordion; });
 /* harmony import */ var _secondary_nav_accordion_SecondarySubNavAccordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../secondary-nav/accordion/SecondarySubNavAccordion */ "./core/src/js/components/secondary-nav/accordion/SecondarySubNavAccordion.js");
-/* harmony import */ var _events_OnArrowRightHorizontal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events/OnArrowRightHorizontal */ "./core/src/js/components/multi-menu/accordion/events/OnArrowRightHorizontal.js");
+/* harmony import */ var _events_OnArrowRightLV1__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events/OnArrowRightLV1 */ "./core/src/js/components/multi-menu/accordion/events/OnArrowRightLV1.js");
+/* harmony import */ var _events_OnArrowDownLV1__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./events/OnArrowDownLV1 */ "./core/src/js/components/multi-menu/accordion/events/OnArrowDownLV1.js");
+/* harmony import */ var _events_OnArrowLeftLV2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./events/OnArrowLeftLV2 */ "./core/src/js/components/multi-menu/accordion/events/OnArrowLeftLV2.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1172,6 +1174,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
 
 
 
@@ -1206,11 +1210,22 @@ function (_SecondarySubNavAccor) {
      * @return {Object} A key/value registry of events and handlers.
      */
     value: function createEventRegistry(options) {
-      var registryDefaults = _get(_getPrototypeOf(MultiSubNavAccordion.prototype), "createEventRegistry", this).call(this, options);
+      var registryDefaults = _get(_getPrototypeOf(MultiSubNavAccordion.prototype), "createEventRegistry", this).call(this, options); // If we are the first level (top) we need to adjust for mobile vs desktop.
 
-      var registryDefaults = Object.assign(registryDefaults, {
-        onKeydownArrowRight: _events_OnArrowRightHorizontal__WEBPACK_IMPORTED_MODULE_1__["default"]
-      });
+
+      if (this.getDepth() == 1) {
+        registryDefaults = Object.assign(registryDefaults, {
+          onKeydownArrowRight: _events_OnArrowRightLV1__WEBPACK_IMPORTED_MODULE_1__["default"],
+          onKeydownArrowDown: _events_OnArrowDownLV1__WEBPACK_IMPORTED_MODULE_2__["default"]
+        });
+      }
+
+      if (this.getDepth() == 2) {
+        registryDefaults = Object.assign(registryDefaults, {
+          onKeydownArrowLeft: _events_OnArrowLeftLV2__WEBPACK_IMPORTED_MODULE_3__["default"]
+        });
+      }
+
       return registryDefaults;
     }
   }]);
@@ -1222,16 +1237,207 @@ function (_SecondarySubNavAccor) {
 
 /***/ }),
 
-/***/ "./core/src/js/components/multi-menu/accordion/events/OnArrowRightHorizontal.js":
-/*!**************************************************************************************!*\
-  !*** ./core/src/js/components/multi-menu/accordion/events/OnArrowRightHorizontal.js ***!
-  \**************************************************************************************/
+/***/ "./core/src/js/components/multi-menu/accordion/events/OnArrowDownLV1.js":
+/*!******************************************************************************!*\
+  !*** ./core/src/js/components/multi-menu/accordion/events/OnArrowDownLV1.js ***!
+  \******************************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowRightHorizontal; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowDownLV1; });
+/* harmony import */ var _secondary_nav_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../secondary-nav/common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+/* harmony import */ var _secondary_nav_common_events_onArrowDown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../secondary-nav/common/events/onArrowDown */ "./core/src/js/components/secondary-nav/common/events/onArrowDown.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+/**
+ * OnArrowLeft
+ *
+ * Event action handler class.
+ */
+
+var OnArrowDownLV1 =
+/*#__PURE__*/
+function (_EventAbstract) {
+  _inherits(OnArrowDownLV1, _EventAbstract);
+
+  function OnArrowDownLV1() {
+    _classCallCheck(this, OnArrowDownLV1);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(OnArrowDownLV1).apply(this, arguments));
+  }
+
+  _createClass(OnArrowDownLV1, [{
+    key: "exec",
+
+    /**
+     * Execute the action to the event.
+     */
+    value: function exec() {
+      if (this.isDesktop()) {
+        this.handleDesktop();
+      } else {
+        this.handleMobile();
+      }
+    }
+    /**
+     * [handleDesktop description]
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "handleDesktop",
+    value: function handleDesktop() {
+      this.item.openSubNav();
+      this.getElement('firstSubnavLink').focus();
+    }
+    /**
+     * handleMobile
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "handleMobile",
+    value: function handleMobile() {
+      var classicEvent = new _secondary_nav_common_events_onArrowDown__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
+      classicEvent.init();
+    }
+  }]);
+
+  return OnArrowDownLV1;
+}(_secondary_nav_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/multi-menu/accordion/events/OnArrowLeftLV2.js":
+/*!******************************************************************************!*\
+  !*** ./core/src/js/components/multi-menu/accordion/events/OnArrowLeftLV2.js ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowLeftLV2; });
+/* harmony import */ var _secondary_nav_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../secondary-nav/common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+/* harmony import */ var _secondary_nav_common_events_onArrowLeft__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../secondary-nav/common/events/onArrowLeft */ "./core/src/js/components/secondary-nav/common/events/onArrowLeft.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+/**
+ * OnArrowLeft
+ *
+ * Event action handler class.
+ */
+
+var OnArrowLeftLV2 =
+/*#__PURE__*/
+function (_EventAbstract) {
+  _inherits(OnArrowLeftLV2, _EventAbstract);
+
+  function OnArrowLeftLV2() {
+    _classCallCheck(this, OnArrowLeftLV2);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(OnArrowLeftLV2).apply(this, arguments));
+  }
+
+  _createClass(OnArrowLeftLV2, [{
+    key: "exec",
+
+    /**
+     * Execute the action to the event.
+     */
+    value: function exec() {
+      if (this.isDesktop()) {
+        this.handleDesktop();
+      } else {
+        this.handleMobile();
+      }
+    }
+    /**
+     * [handleDesktop description]
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "handleDesktop",
+    value: function handleDesktop() {
+      if (this.getElement('parentNavPrevItem')) {
+        this.getElement('parentNavPrevItem').focus();
+      } else {
+        this.getElement('parentNavLast').focus();
+      }
+
+      this.parentNav.closeSubNav();
+    }
+    /**
+     * [handleDesktop description]
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "handleMobile",
+    value: function handleMobile() {
+      var classicEvent = new _secondary_nav_common_events_onArrowLeft__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
+      classicEvent.init();
+    }
+  }]);
+
+  return OnArrowLeftLV2;
+}(_secondary_nav_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/multi-menu/accordion/events/OnArrowRightLV1.js":
+/*!*******************************************************************************!*\
+  !*** ./core/src/js/components/multi-menu/accordion/events/OnArrowRightLV1.js ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowRightLV1; });
 /* harmony import */ var _secondary_nav_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../secondary-nav/common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
 /* harmony import */ var _secondary_nav_accordion_events_onArrowRight__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../secondary-nav/accordion/events/onArrowRight */ "./core/src/js/components/secondary-nav/accordion/events/onArrowRight.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
@@ -1260,18 +1466,18 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
  * Event action handler class.
  */
 
-var OnArrowRightHorizontal =
+var OnArrowRightLV1 =
 /*#__PURE__*/
 function (_EventAbstract) {
-  _inherits(OnArrowRightHorizontal, _EventAbstract);
+  _inherits(OnArrowRightLV1, _EventAbstract);
 
-  function OnArrowRightHorizontal() {
-    _classCallCheck(this, OnArrowRightHorizontal);
+  function OnArrowRightLV1() {
+    _classCallCheck(this, OnArrowRightLV1);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(OnArrowRightHorizontal).apply(this, arguments));
+    return _possibleConstructorReturn(this, _getPrototypeOf(OnArrowRightLV1).apply(this, arguments));
   }
 
-  _createClass(OnArrowRightHorizontal, [{
+  _createClass(OnArrowRightLV1, [{
     key: "exec",
 
     /**
@@ -1292,12 +1498,6 @@ function (_EventAbstract) {
   }, {
     key: "handleDesktop",
     value: function handleDesktop() {
-      // Handle like a mobile page if deeper than the top most.
-      if (this.item.getDepth() > 1) {
-        this.handleMobile();
-        return;
-      }
-
       if (this.getElement('next')) {
         this.getElement('next').focus();
       } else {
@@ -1305,7 +1505,7 @@ function (_EventAbstract) {
       }
     }
     /**
-     * [handleDesktop description]
+     * handleMobile
      * @return {[type]} [description]
      */
 
@@ -1317,7 +1517,7 @@ function (_EventAbstract) {
     }
   }]);
 
-  return OnArrowRightHorizontal;
+  return OnArrowRightLV1;
 }(_secondary_nav_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 
@@ -1460,6 +1660,13 @@ function () {
     });
     document.addEventListener('keyup', function (event) {
       _this.outOfBounds(event);
+    });
+    document.addEventListener('closeAllMobileNavs', function (event) {
+      _this.closeNav();
+
+      if (_this.nav.elem.contains(event.target)) {
+        _this.elem.focus();
+      }
     });
   }
   /**
@@ -4877,6 +5084,7 @@ function (_EventAbstract) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnEsc; });
 /* harmony import */ var _EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../utilities/events */ "./core/src/js/utilities/events.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -4894,6 +5102,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 /**
@@ -4923,13 +5132,21 @@ function (_EventAbstract) {
       this.event.preventDefault();
       var node = false;
 
-      if (this.elem.getDepth() > 1) {
+      if (this.item.getDepth() > 1) {
         this.event.stopPropagation();
         this.parentNav.closeSubNav();
         node = this.getElement('parentItem');
       } else {
-        this.masterNav.closeAllSubNavs();
-        node = this.getElement('first', this.item.parentNode);
+        if (this.isDesktop()) {
+          this.masterNav.closeAllSubNavs();
+          node = this.getElement('first', this.item.parentNode);
+        } else {
+          var closeAllEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_1__["createEvent"])('closeAllMobileNavs', {
+            bubbles: true,
+            data: this.item
+          });
+          this.elem.dispatchEvent(closeAllEvent);
+        }
       }
 
       if (node) {
@@ -5168,6 +5385,182 @@ function (_EventAbstract) {
   }]);
 
   return OnTab;
+}(_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/common/events/onArrowDown.js":
+/*!***************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/common/events/onArrowDown.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowDown; });
+/* harmony import */ var _EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+/* harmony import */ var _OnHome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OnHome */ "./core/src/js/components/secondary-nav/common/events/OnHome.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+/**
+ * OnArrowDown
+ *
+ * Event action handler class.
+ */
+
+var OnArrowDown =
+/*#__PURE__*/
+function (_EventAbstract) {
+  _inherits(OnArrowDown, _EventAbstract);
+
+  function OnArrowDown() {
+    _classCallCheck(this, OnArrowDown);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(OnArrowDown).apply(this, arguments));
+  }
+
+  _createClass(OnArrowDown, [{
+    key: "exec",
+
+    /**
+     * Execute the action to the event.
+     */
+    value: function exec() {
+      this.event.preventDefault(); // Go to the next item.
+
+      var node = this.getElement('next');
+
+      if (node) {
+        node.focus();
+        return;
+      } // If a node is not found go to home.
+
+
+      var eventHome = new _OnHome__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
+      eventHome.init();
+    }
+  }]);
+
+  return OnArrowDown;
+}(_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/common/events/onArrowLeft.js":
+/*!***************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/common/events/onArrowLeft.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowLeft; });
+/* harmony import */ var _EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+/* harmony import */ var _OnArrowUp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OnArrowUp */ "./core/src/js/components/secondary-nav/common/events/OnArrowUp.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+/**
+ * OnArrowLeft
+ *
+ * Event action handler class.
+ */
+
+var OnArrowLeft =
+/*#__PURE__*/
+function (_EventAbstract) {
+  _inherits(OnArrowLeft, _EventAbstract);
+
+  function OnArrowLeft() {
+    _classCallCheck(this, OnArrowLeft);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(OnArrowLeft).apply(this, arguments));
+  }
+
+  _createClass(OnArrowLeft, [{
+    key: "exec",
+
+    /**
+     * Execute the action to the event.
+     */
+    value: function exec() {
+      this.event.preventDefault(); // If this is a nested item. Go back up a level.
+
+      if (this.item.getDepth() > 1) {
+        this.nestedLeft();
+      } // Otherwise just to to the previous sibling.
+      else if (this.item.getDepth() === 1) {
+          this.firstLevelLeft();
+        }
+    }
+    /**
+     * Action to take on a first level left key press.
+     */
+
+  }, {
+    key: "firstLevelLeft",
+    value: function firstLevelLeft() {
+      var upevent = new _OnArrowUp__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
+      upevent.init();
+    }
+    /**
+     * Action to take on a nested level left key press
+     */
+
+  }, {
+    key: "nestedLeft",
+    value: function nestedLeft() {
+      var node = this.getElement('parentItem') || this.getElement('parentNavLast');
+      this.parentNav.closeSubNav();
+
+      if (node) {
+        node.focus();
+      }
+    }
+  }]);
+
+  return OnArrowLeft;
 }(_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 

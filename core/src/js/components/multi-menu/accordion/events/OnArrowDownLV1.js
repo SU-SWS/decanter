@@ -1,12 +1,12 @@
 import EventAbstract from '../../../secondary-nav/common/events/EventAbstract';
-import OnArrowLeft from '../../../secondary-nav/common/events/onArrowLeft';
+import OnArrowDown from '../../../secondary-nav/common/events/onArrowDown';
 
 /**
  * OnArrowLeft
  *
  * Event action handler class.
  */
-export default class OnArrowLeftLV2 extends EventAbstract {
+export default class OnArrowDownLV1 extends EventAbstract {
 
   /**
    * Execute the action to the event.
@@ -25,21 +25,16 @@ export default class OnArrowLeftLV2 extends EventAbstract {
    * @return {[type]} [description]
    */
   handleDesktop() {
-    if (this.getElement('parentNavPrevItem')) {
-      this.getElement('parentNavPrevItem').focus();
-    }
-    else {
-      this.getElement('parentNavLast').focus();
-    }
-    this.parentNav.closeSubNav();
+    this.item.openSubNav();
+    this.getElement('firstSubnavLink').focus();
   }
 
   /**
-   * [handleDesktop description]
+   * handleMobile
    * @return {[type]} [description]
    */
   handleMobile() {
-    var classicEvent = new OnArrowLeft(this.item, this.event, this.target);
+    var classicEvent = new OnArrowDown(this.item, this.event, this.target);
     classicEvent.init();
   }
 
