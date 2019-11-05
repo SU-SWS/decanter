@@ -3,7 +3,7 @@
 //
 // Media
 //
-// A media element, e.g., image, video (self-hosted or embedded, e.g., YouTube), audio, iframe etc., with the option of including a caption and a link.
+// A media element, e.g., image, videos, embedded videos (eg., YouTube and Vimeo), audio, etc., with the option of including a caption and a link.
 // To constrain the aspect ratio of the media element, add classes e.g.,
 // <a href="/section-core.html#kssref-core-helpers-aspect-ratio">su-aspect-ratio--1x1</a> to the .su-media__wrapper container, or
 // use the <a href="/section-mixins.html#kssref-mixins-display-aspect-ratio">mixin @aspect-ratio</a> to set custom
@@ -26,6 +26,7 @@
 
 .su-media__wrapper {
   line-height: 0;
+  overflow: hidden;
 
   > * {
     width: 100%;

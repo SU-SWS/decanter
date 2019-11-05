@@ -15,7 +15,7 @@
  * - attributes: Additional HTML attributes not already provided.
  * - modifier_class: Additional css classes to change look and behavior.
  * - card_headline: Main headind text for the card.
- * - card_headline_link: Boolean. Set to true if headline acts as a link.
+ * - card_allow_headline_link: Boolean. If set to true, headline links to card_link.
  * - card_super_headline: Text super headline. Often used for metadata such as category.
  * - card_body: An open variable for anything including HTML. Generally this would be for WYSIWYG editor contents.
  * - card_link: The href value for the card. A single card is only allowed to link to one URL.
@@ -33,6 +33,7 @@
  * - card_media_video_src: The src link to the video file.
  * - card_media_video_poster: Optional preview image of the video.
  * - card_media_fallback_content: Fallback content to display when browser doesn't support video or audio format.
+ * - card_allow_media_link: Boolean. If set to true, media element (image or self-hosted video) links to card_link.
  * - card_media_type: Type of the media file, e.g. mp4, webm, quicktime (self-hosted video only).
  * - card_media_custom: An open field for the full HTML element of the media content, e.g., an embedded YouTube iframe.
  * - card_media_modifier_class: Additional CSS classes to change look and behavior of the media media element.
@@ -59,7 +60,9 @@
   {%- set allow_links = false -%}
 {%- else -%}
   {%- set allow_links = true -%}
-  {%- set card_media_link = card_link -%}
+  {% if card_allow_media_link == true %}
+    {%- set card_media_link = card_link -%}
+  {%- endif -%}
 {%- endif -%}
 
 <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.8.2/css/all.css' type='text/css' media='' />
@@ -79,7 +82,7 @@
           "modifier_class": 'su-media--video su-card__media',
           "attributes": card_media_attributes,
           "media_link": card_media_link,
-          "media_link_attributes": card_cta_attributes,
+          "media_link_attributes": card_cta_attributes ~ "tabindex='-1'",
           "media_video_src": card_media_video_src,
           "media_wrapper_modifier_class": card_media_wrapper_modifier_class,
           "media_type": card_media_type,
@@ -118,7 +121,7 @@
           "attributes": card_media_attributes,
           "media_wrapper_modifier_class": card_media_wrapper_modifier_class,
           "media_link": card_media_link,
-          "media_link_attributes": card_cta_attributes,
+          "media_link_attributes": card_cta_attributes ~ "tabindex='-1'",
           "media_image_src": card_media_image_src,
           "media_image_srcset": card_media_image_srcset,
           "media_content_attributes": card_media_content_attributes
@@ -140,12 +143,12 @@
       {%- block block_card_headline  %}
         {%- if card_headline is not empty %}
           <h2>
-            {%- if card_headline_link and allow_links -%}
-            <a href="{{ card_link }}" {{ card_cta_attributes }}>
-              {%- endif -%}
-              {{- card_headline -}}
-              {% if card_headline_link and allow_links -%}
-            </a>
+            {%- if card_allow_headline_link and allow_links -%}
+              <a href="{{ card_link }}" {{ card_cta_attributes }}>
+            {%- endif -%}
+            {{- card_headline -}}
+            {% if card_allow_headline_link and allow_links -%}
+              </a>
             {%- endif -%}
           </h2>
         {% endif -%}
