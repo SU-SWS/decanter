@@ -2288,10 +2288,9 @@ function (_SecondaryNavAbstract) {
   }, {
     key: "newNavItem",
     value: function newNavItem(item, depth, parent) {
-      var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
-      var opts = Object.assign({
+      var opts = Object.assign(this.options, {
         depth: depth
-      }, options);
+      });
       var nav = new _common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_1__["default"](item, this, parent, opts);
       this.navItems.push(nav);
       return nav;
@@ -2995,8 +2994,7 @@ function (_SecondaryNavAbstract) {
   }, {
     key: "newParentItem",
     value: function newParentItem(item, depth, parent) {
-      var opts = Object.assign(this.options, options);
-      opts = Object.assign(opts, {
+      var opts = Object.assign(this.options, {
         itemExpandedClass: this.options.itemExpandedClass,
         depth: depth
       });

@@ -61,8 +61,7 @@ export default class SecondaryNavButtons extends SecondaryNavAbstract {
    * @return {SecondarySubNavButtons} A brand new instance.
    */
   newParentItem(item, depth, parent) {
-    var opts = Object.assign(this.options, options);
-    opts = Object.assign(opts, {
+    var opts = Object.assign(this.options, {
       itemExpandedClass: this.options.itemExpandedClass,
       depth: depth
     });
