@@ -78,4 +78,16 @@ export default class EventAbstract {
     return fetcher.fetch();
   }
 
+  /**
+   * Check the screen width to determine if mobile or not.
+   * @return {Boolean} [description]
+   */
+  isDesktop() {
+    // 992 is the LG breakpoint.
+    if (window.innerWidth >= 992) {
+      return true;
+    }
+    return false;
+  }
+
 }

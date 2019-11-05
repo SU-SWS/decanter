@@ -81,18 +81,9 @@
 // -----------------------------------------------------------------------
 .su-multi-menu__menu-lv1 {
 
-  // Hide the drop downs by default.
   > .su-multi-menu__item--parent {
     > .su-multi-menu__menu {
-      display: none;
       min-width: 300px;
-    }
-  }
-
-  // Show em.
-  > .su-multi-menu__item--expanded {
-    > .su-multi-menu__menu {
-      display: flex;
     }
   }
 
@@ -223,11 +214,7 @@
 .su-multi-menu__item--parent {
   // Hide the drop downs by default.
   > .su-multi-menu__menu {
-    overflow: hidden;
-    opacity: 0;
     display: none;
-    max-height: 0;
-    transition: max-height 0.25s ease-out, opacity 0.25s ease-out;
   }
 }
 
@@ -236,10 +223,7 @@
 .su-multi-menu__item--expanded {
   // This shows the open children.
   > .su-multi-menu__menu {
-    max-height: 1000px;
     display: flex;
-    opacity: 1;
-    transition: max-height 0.75s ease-out, opacity 0.75s ease-out;
   }
 }
 

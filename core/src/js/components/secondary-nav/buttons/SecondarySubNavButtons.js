@@ -37,7 +37,7 @@ export default class SecondarySubNavButtons {
     this.masterNav = masterNav;
     this.parentNav = parentNav;
     this.depth = options.depth || 1;
-    this.preOpenSubnav = createEvent('preOpenSubnav', { bubbles: true, data: this.item});
+    this.preOpenSubnav = createEvent('preOpenSubnav', {bubbles: true, data: this.item});
     this.postOpenSubnav = createEvent('postOpenSubnav', {bubbles: true, data: this.item});
     this.preCloseSubnav = createEvent('preCloseSubnav', {bubbles: true, data: this.item});
     this.postCloseSubnav = createEvent('postCloseSubnav', {bubbles: true, data: this.item});

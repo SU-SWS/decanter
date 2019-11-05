@@ -17,7 +17,9 @@ export default class OnArrowLeft extends EventAbstract {
 
     // Previous nav parents link item to focus on.
     var node = this.getElement('parentItem');
-    this.parentNav.closeSubNav();
+    if (this.parentNav) {
+      this.parentNav.closeSubNav();
+    }
 
     // If we found a previous item focus on it.
     if (node) {

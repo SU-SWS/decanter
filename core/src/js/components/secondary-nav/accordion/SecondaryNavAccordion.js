@@ -50,7 +50,6 @@ export default class SecondaryNavAccordion extends SecondaryNavAbstract {
   newParentItem(item, depth, parent) {
     var opts = this.options;
     opts.depth = depth;
-
     var nav = new SecondarySubNavAccordion(
       item,
       this,
@@ -70,10 +69,8 @@ export default class SecondaryNavAccordion extends SecondaryNavAbstract {
    *
    * @return {SecondaryNavItem} A brand new instance.
    */
-  newNavItem(item, depth, parent) {
-    var opts = this.options;
-    opts.depth = depth;
-
+  newNavItem(item, depth, parent, options = {}) {
+    var opts = Object.assign({depth: depth}, options);
     var nav = new SecondaryNavItem(
       item,
       this,

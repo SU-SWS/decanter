@@ -1051,9 +1051,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _secondary_nav_common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../secondary-nav/common/SecondaryNavItem */ "./core/src/js/components/secondary-nav/common/SecondaryNavItem.js");
 /* harmony import */ var _secondary_nav_accordion_SecondaryNavAccordion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../secondary-nav/accordion/SecondaryNavAccordion */ "./core/src/js/components/secondary-nav/accordion/SecondaryNavAccordion.js");
 /* harmony import */ var _secondary_nav_accordion_SecondarySubNavAccordion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../secondary-nav/accordion/SecondarySubNavAccordion */ "./core/src/js/components/secondary-nav/accordion/SecondarySubNavAccordion.js");
+/* harmony import */ var _MultiSubNavAccordion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MultiSubNavAccordion */ "./core/src/js/components/multi-menu/accordion/MultiSubNavAccordion.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
@@ -1064,6 +1069,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1103,9 +1109,216 @@ function (_SecondaryNavAccordio) {
 
     return _possibleConstructorReturn(this, _getPrototypeOf(MultiMenuAccordion).call(this, elem, options));
   }
+  /**
+   * Function for creating a new nested navigation item.
+   *
+   * @param  {HTMLElement} item     The HTMLElement to attach a new subnav to.
+   * @param  {Integer} depth        The level of nesting. (starts at 1)
+   * @param  {Object|Mixed} parent  The parent subnav instance.
+   *
+   * @return {SecondarySubNavAccordion} A brand new instance.
+   */
+
+
+  _createClass(MultiMenuAccordion, [{
+    key: "newParentItem",
+    value: function newParentItem(item, depth, parent) {
+      var opts = Object.assign(this.options, {
+        depth: depth
+      });
+      var nav = new _MultiSubNavAccordion__WEBPACK_IMPORTED_MODULE_4__["default"](item, this, parent, opts);
+      this.subNavItems.push(nav);
+      return nav;
+    }
+  }]);
 
   return MultiMenuAccordion;
 }(_secondary_nav_accordion_SecondaryNavAccordion__WEBPACK_IMPORTED_MODULE_2__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/multi-menu/accordion/MultiSubNavAccordion.js":
+/*!*****************************************************************************!*\
+  !*** ./core/src/js/components/multi-menu/accordion/MultiSubNavAccordion.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MultiSubNavAccordion; });
+/* harmony import */ var _secondary_nav_accordion_SecondarySubNavAccordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../secondary-nav/accordion/SecondarySubNavAccordion */ "./core/src/js/components/secondary-nav/accordion/SecondarySubNavAccordion.js");
+/* harmony import */ var _events_OnArrowRightHorizontal__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events/OnArrowRightHorizontal */ "./core/src/js/components/multi-menu/accordion/events/OnArrowRightHorizontal.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _get(target, property, receiver) { if (typeof Reflect !== "undefined" && Reflect.get) { _get = Reflect.get; } else { _get = function _get(target, property, receiver) { var base = _superPropBase(target, property); if (!base) return; var desc = Object.getOwnPropertyDescriptor(base, property); if (desc.get) { return desc.get.call(receiver); } return desc.value; }; } return _get(target, property, receiver || target); }
+
+function _superPropBase(object, property) { while (!Object.prototype.hasOwnProperty.call(object, property)) { object = _getPrototypeOf(object); if (object === null) break; } return object; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+/**
+ * SecondarySubNavAccordion Class
+ *
+ * A sub menu class for creating a menu with accordion functionality.
+ */
+
+var MultiSubNavAccordion =
+/*#__PURE__*/
+function (_SecondarySubNavAccor) {
+  _inherits(MultiSubNavAccordion, _SecondarySubNavAccor);
+
+  function MultiSubNavAccordion() {
+    _classCallCheck(this, MultiSubNavAccordion);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(MultiSubNavAccordion).apply(this, arguments));
+  }
+
+  _createClass(MultiSubNavAccordion, [{
+    key: "createEventRegistry",
+
+    /**
+     * Creates an event registry for handling types of events.
+     *
+     * This registry is used by the EventHandlerDispatch class to bind and
+     * execute the events in the created property key.
+     *
+     * @param  {Object} options Options to merge in with the defaults.
+     *
+     * @return {Object} A key/value registry of events and handlers.
+     */
+    value: function createEventRegistry(options) {
+      var registryDefaults = _get(_getPrototypeOf(MultiSubNavAccordion.prototype), "createEventRegistry", this).call(this, options);
+
+      var registryDefaults = Object.assign(registryDefaults, {
+        onKeydownArrowRight: _events_OnArrowRightHorizontal__WEBPACK_IMPORTED_MODULE_1__["default"]
+      });
+      return registryDefaults;
+    }
+  }]);
+
+  return MultiSubNavAccordion;
+}(_secondary_nav_accordion_SecondarySubNavAccordion__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/multi-menu/accordion/events/OnArrowRightHorizontal.js":
+/*!**************************************************************************************!*\
+  !*** ./core/src/js/components/multi-menu/accordion/events/OnArrowRightHorizontal.js ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowRightHorizontal; });
+/* harmony import */ var _secondary_nav_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../secondary-nav/common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+/* harmony import */ var _secondary_nav_accordion_events_onArrowRight__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../secondary-nav/accordion/events/onArrowRight */ "./core/src/js/components/secondary-nav/accordion/events/onArrowRight.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+
+/**
+ * OnArrowLeft
+ *
+ * Event action handler class.
+ */
+
+var OnArrowRightHorizontal =
+/*#__PURE__*/
+function (_EventAbstract) {
+  _inherits(OnArrowRightHorizontal, _EventAbstract);
+
+  function OnArrowRightHorizontal() {
+    _classCallCheck(this, OnArrowRightHorizontal);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(OnArrowRightHorizontal).apply(this, arguments));
+  }
+
+  _createClass(OnArrowRightHorizontal, [{
+    key: "exec",
+
+    /**
+     * Execute the action to the event.
+     */
+    value: function exec() {
+      if (this.isDesktop()) {
+        this.handleDesktop();
+      } else {
+        this.handleMobile();
+      }
+    }
+    /**
+     * [handleDesktop description]
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "handleDesktop",
+    value: function handleDesktop() {
+      // Handle like a mobile page if deeper than the top most.
+      if (this.item.getDepth() > 1) {
+        this.handleMobile();
+        return;
+      }
+
+      if (this.getElement('next')) {
+        this.getElement('next').focus();
+      } else {
+        this.getElement('first').focus();
+      }
+    }
+    /**
+     * [handleDesktop description]
+     * @return {[type]} [description]
+     */
+
+  }, {
+    key: "handleMobile",
+    value: function handleMobile() {
+      var classicEvent = new _secondary_nav_accordion_events_onArrowRight__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
+      classicEvent.init();
+    }
+  }]);
+
+  return OnArrowRightHorizontal;
+}(_secondary_nav_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 
 
@@ -2075,8 +2288,10 @@ function (_SecondaryNavAbstract) {
   }, {
     key: "newNavItem",
     value: function newNavItem(item, depth, parent) {
-      var opts = this.options;
-      opts.depth = depth;
+      var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
+      var opts = Object.assign({
+        depth: depth
+      }, options);
       var nav = new _common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_1__["default"](item, this, parent, opts);
       this.navItems.push(nav);
       return nav;
@@ -2363,7 +2578,11 @@ function (_EventAbstract) {
       this.event.preventDefault(); // Previous nav parents link item to focus on.
 
       var node = this.getElement('parentItem');
-      this.parentNav.closeSubNav(); // If we found a previous item focus on it.
+
+      if (this.parentNav) {
+        this.parentNav.closeSubNav();
+      } // If we found a previous item focus on it.
+
 
       if (node) {
         node.focus();
@@ -2600,6 +2819,74 @@ function (_EventAbstract) {
 
 /***/ }),
 
+/***/ "./core/src/js/components/secondary-nav/accordion/events/onArrowRight.js":
+/*!*******************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/accordion/events/onArrowRight.js ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowRight; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+/**
+ * OnArrowRight
+ *
+ * Event action handler class.
+ */
+
+var OnArrowRight =
+/*#__PURE__*/
+function (_EventAbstract) {
+  _inherits(OnArrowRight, _EventAbstract);
+
+  function OnArrowRight() {
+    _classCallCheck(this, OnArrowRight);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(OnArrowRight).apply(this, arguments));
+  }
+
+  _createClass(OnArrowRight, [{
+    key: "exec",
+
+    /**
+     * Execute the action to the event.
+     */
+    value: function exec() {
+      // Go down a level and open the SubNav.
+      this.event.preventDefault();
+      this.item.openSubNav();
+      this.getElement('firstSubnavLink').focus();
+    }
+  }]);
+
+  return OnArrowRight;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
 /***/ "./core/src/js/components/secondary-nav/buttons/SecondaryNavButtons.js":
 /*!*****************************************************************************!*\
   !*** ./core/src/js/components/secondary-nav/buttons/SecondaryNavButtons.js ***!
@@ -2708,10 +2995,12 @@ function (_SecondaryNavAbstract) {
   }, {
     key: "newParentItem",
     value: function newParentItem(item, depth, parent) {
-      var nav = new _SecondarySubNavButtons__WEBPACK_IMPORTED_MODULE_2__["default"](item, this, parent, {
+      var opts = Object.assign(this.options, options);
+      opts = Object.assign(opts, {
         itemExpandedClass: this.options.itemExpandedClass,
         depth: depth
       });
+      var nav = new _SecondarySubNavButtons__WEBPACK_IMPORTED_MODULE_2__["default"](item, this, parent, opts);
       this.subNavItems.push(nav);
       return nav;
     }
@@ -4081,6 +4370,21 @@ function () {
       var context = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.elem.parentNode;
       var fetcher = new _nav_ElementFetcher__WEBPACK_IMPORTED_MODULE_0__["default"](context, what);
       return fetcher.fetch();
+    }
+    /**
+     * Check the screen width to determine if mobile or not.
+     * @return {Boolean} [description]
+     */
+
+  }, {
+    key: "isDesktop",
+    value: function isDesktop() {
+      // 992 is the LG breakpoint.
+      if (window.innerWidth >= 992) {
+        return true;
+      }
+
+      return false;
     }
   }]);
 
