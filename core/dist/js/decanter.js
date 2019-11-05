@@ -1243,16 +1243,10 @@ function () {
     this.closeNav(); // Clicking anywhere outside of attached nav closes all the children.
 
     document.addEventListener('click', function (event) {
-      // The element that was clicked.
-      var target = event.target || event.srcElement; // If the clicked element was not in my nav wrapper, close me.
-
-      var found = target.closest('#' + _this.nav.id);
-
-      if (!found) {
-        _this.closeNav();
-
-        _this.nav.closeAllSubNavs();
-      }
+      _this.outOfBounds(event);
+    });
+    document.addEventListener('keyup', function (event) {
+      _this.outOfBounds(event);
     });
   }
   /**
@@ -1323,6 +1317,25 @@ function () {
 
       if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isEnter"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isSpace"])(theKey)) {
         this.onClick(event, this.elem);
+      }
+    }
+    /**
+     * Checks to see if an event happened outside of the navigation context.
+     *
+     * @param  {*|KeyboardEvent|MouseEvent} event Some sort of event.
+     */
+
+  }, {
+    key: "outOfBounds",
+    value: function outOfBounds(event) {
+      // The element that was clicked.
+      var target = event.target || event.srcElement; // If the clicked element was not in my nav wrapper, close me.
+
+      var found = target.closest('#' + this.nav.id);
+
+      if (!found) {
+        this.closeNav();
+        this.nav.closeAllSubNavs();
       }
     }
     /**
@@ -1721,16 +1734,19 @@ function () {
             return this.item.parentNode.lastElementChild;
 
           case 'next':
-            return this.item.nextElementSibling.querySelector('a');
+            return this.item.nextElementSibling.querySelector(':scope a');
 
           case 'prev':
-            return this.item.previousElementSibling.querySelector('a');
+            return this.item.previousElementSibling.querySelector(':scope a');
 
           case 'nextElement':
             return this.item.nextElementSibling;
 
           case 'prevElement':
             return this.item.previousElementSibling;
+
+          case 'prevElementSiblingSubnavLast':
+            return this.item.previousElementSibling.querySelector(':scope > ul li a:last-child');
 
           case 'parentItem':
             var node = this.item.parentNode.parentNode;
@@ -2571,7 +2587,8 @@ function (_EventAbstract) {
       eventClick.init(); // Focus on the first element for keyboard but not clicks.
 
       if (this.item.isExpanded()) {
-        this.getElement('firstSubnavLink').focus();
+        var elem = this.getElement('firstSubnavLink');
+        elem.focus();
       }
     }
   }]);

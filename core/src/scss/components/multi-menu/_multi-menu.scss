@@ -157,19 +157,25 @@
     > .su-multi-menu__item {
       // Items in the active trail should be highlighted.
       &.su-multi-menu__item--active-trail {
-        > a {
+        > .su-multi-menu__link {
           &::before {
             height: 6px;
             transform: scaleX(1);
             visibility: visible;
-            background-color: color(h--border-hover, $su-multi-menu-colors);
+            background-color: color(h--border, $su-multi-menu-colors);
+          }
+          &:hover,
+          &:focus {
+            &::before {
+              background-color: color(h--border-hover, $su-multi-menu-colors);
+            }
           }
         }
       }
 
       // First level current items.
       &.su-multi-menu__item--current {
-        > a {
+        > .su-multi-menu__link {
           &::before {
             transform: scaleX(1);
           }
@@ -219,6 +225,7 @@
   > .su-multi-menu__menu {
     overflow: hidden;
     opacity: 0;
+    display: none;
     max-height: 0;
     transition: max-height 0.25s ease-out, opacity 0.25s ease-out;
   }
@@ -230,6 +237,7 @@
   // This shows the open children.
   > .su-multi-menu__menu {
     max-height: 1000px;
+    display: flex;
     opacity: 1;
     transition: max-height 0.75s ease-out, opacity 0.75s ease-out;
   }

@@ -38,14 +38,11 @@ export default class MobileToggle {
 
     // Clicking anywhere outside of attached nav closes all the children.
     document.addEventListener('click', event => {
-      // The element that was clicked.
-      const target = event.target || event.srcElement;
-      // If the clicked element was not in my nav wrapper, close me.
-      let found = target.closest('#' + this.nav.id);
-      if (!found) {
-        this.closeNav();
-        this.nav.closeAllSubNavs();
-      }
+      this.outOfBounds(event);
+    });
+
+    document.addEventListener('keyup', event => {
+      this.outOfBounds(event);
     });
 
   }
@@ -112,9 +109,26 @@ export default class MobileToggle {
    */
   onKeydown(event, target) {
     const theKey = event.key || event.keyCode;
+
     // Do the click toggle for enter and space keys.
     if (isEnter(theKey) || isSpace(theKey)) {
       this.onClick(event, this.elem);
+    }
+  }
+
+  /**
+   * Checks to see if an event happened outside of the navigation context.
+   *
+   * @param  {*|KeyboardEvent|MouseEvent} event Some sort of event.
+   */
+  outOfBounds(event) {
+    // The element that was clicked.
+    const target = event.target || event.srcElement;
+    // If the clicked element was not in my nav wrapper, close me.
+    let found = target.closest('#' + this.nav.id);
+    if (!found) {
+      this.closeNav();
+      this.nav.closeAllSubNavs();
     }
   }
 

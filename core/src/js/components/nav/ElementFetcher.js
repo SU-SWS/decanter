@@ -34,13 +34,15 @@ export default class ElementFetcher {
         case 'lastElement':
           return this.item.parentNode.lastElementChild;
         case 'next':
-          return this.item.nextElementSibling.querySelector('a');
+          return this.item.nextElementSibling.querySelector(':scope a');
         case 'prev':
-          return this.item.previousElementSibling.querySelector('a');
+          return this.item.previousElementSibling.querySelector(':scope a');
         case 'nextElement':
           return this.item.nextElementSibling;
         case 'prevElement':
           return this.item.previousElementSibling;
+        case 'prevElementSiblingSubnavLast':
+          return this.item.previousElementSibling.querySelector(':scope > ul li a:last-child');
         case 'parentItem':
           var node = this.item.parentNode.parentNode;
           if (node.tagName === 'NAV') { return false; }

@@ -20,7 +20,8 @@ export default class OnSpace extends EventAbstract {
 
     // Focus on the first element for keyboard but not clicks.
     if (this.item.isExpanded()) {
-      this.getElement('firstSubnavLink').focus();
+      var elem = this.getElement('firstSubnavLink');
+      elem.focus();
     }
   }
 

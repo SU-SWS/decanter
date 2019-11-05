@@ -87,6 +87,31 @@
     }
   }
 
+  // First Level Desktop Only.
+  .su-multi-menu__menu-lv1 {
+    @include grid-media('lg') {
+      > .su-multi-menu__item {
+        // Items in the active trail should be highlighted.
+        &.su-multi-menu__item--active-trail {
+          > .su-multi-menu__link {
+            &::before {
+              background-color: color(h--border-hover, $su-multi-menu-colors);
+            }
+          }
+        }
+        // Links in the active trail should have hovers.
+        > .su-multi-menu__link {
+          &:hover,
+          &:focus {
+            &::before {
+              background-color: color(border--hover, $su-multi-menu-colors);
+            }
+          }
+        }
+      }
+    }
+  }
+
   // Menu Level 2 (first level drops)
   // ---------------------------------------------------------------------------
   .su-multi-menu__menu-lv2 {
