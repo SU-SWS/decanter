@@ -7,15 +7,7 @@ document.addEventListener('DOMContentLoaded', event => {
   multiMenus.forEach((nav, index) => {
     if (nav.className.match(/su-multi-menu--buttons/)) {
       var theNav = new MultiMenuButtons(nav);
-      var toggleElem = false;
-
-      try {
-        toggleElem = nav.querySelector(':scope .su-multi-menu__nav-toggle');
-      }
-      catch(err) {
-        toggleElem = false;
-      }
-
+      var toggleElem = nav.querySelector(':scope .su-multi-menu__nav-toggle');
       if (toggleElem) {
         new MobileToggle(toggleElem, theNav);
       }

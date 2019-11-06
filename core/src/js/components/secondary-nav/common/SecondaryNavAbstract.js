@@ -107,19 +107,8 @@ export default class SecondaryNavAbstract {
   createSubNavItems() {
 
     // Find all the single and multi-tier items.
-    try {
-      var parentItems = this.elem.querySelectorAll(this.parentItemSelector);
-    }
-    catch(err) {
-      parentItems = {};
-    }
-
-    try {
-      var leafItems = this.elem.querySelectorAll(this.navItemSelector);
-    }
-    catch(err) {
-      leafItems = {};
-    }
+    var parentItems = this.elem.querySelectorAll(this.parentItemSelector);
+    var leafItems = this.elem.querySelectorAll(this.navItemSelector);
 
     // Sub Nav Items.
     if (parentItems.length >= 1) {

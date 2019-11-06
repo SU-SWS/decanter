@@ -2493,13 +2493,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   _common_globals__WEBPACK_IMPORTED_MODULE_1__["multiMenus"].forEach(function (nav, index) {
     if (nav.className.match(/su-multi-menu--accordion/)) {
       var theNav = new _accordion_MultiMenuAccordion__WEBPACK_IMPORTED_MODULE_2__["default"](nav);
-      var toggleElem = false;
-
-      try {
-        toggleElem = nav.querySelector(':scope .su-multi-menu__nav-toggle');
-      } catch (err) {
-        toggleElem = false;
-      }
+      var toggleElem = nav.querySelector(':scope .su-multi-menu__nav-toggle');
 
       if (toggleElem) {
         new _common_MobileToggle__WEBPACK_IMPORTED_MODULE_3__["default"](toggleElem, theNav);
@@ -2532,13 +2526,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   _common_globals__WEBPACK_IMPORTED_MODULE_1__["multiMenus"].forEach(function (nav, index) {
     if (nav.className.match(/su-multi-menu--buttons/)) {
       var theNav = new _buttons_MultiMenuButtons__WEBPACK_IMPORTED_MODULE_2__["default"](nav);
-      var toggleElem = false;
-
-      try {
-        toggleElem = nav.querySelector(':scope .su-multi-menu__nav-toggle');
-      } catch (err) {
-        toggleElem = false;
-      }
+      var toggleElem = nav.querySelector(':scope .su-multi-menu__nav-toggle');
 
       if (toggleElem) {
         new _common_MobileToggle__WEBPACK_IMPORTED_MODULE_3__["default"](toggleElem, theNav);
@@ -4940,18 +4928,8 @@ function () {
     key: "createSubNavItems",
     value: function createSubNavItems() {
       // Find all the single and multi-tier items.
-      try {
-        var parentItems = this.elem.querySelectorAll(this.parentItemSelector);
-      } catch (err) {
-        parentItems = {};
-      }
-
-      try {
-        var leafItems = this.elem.querySelectorAll(this.navItemSelector);
-      } catch (err) {
-        leafItems = {};
-      } // Sub Nav Items.
-
+      var parentItems = this.elem.querySelectorAll(this.parentItemSelector);
+      var leafItems = this.elem.querySelectorAll(this.navItemSelector); // Sub Nav Items.
 
       if (parentItems.length >= 1) {
         this.createParentItems(parentItems);
