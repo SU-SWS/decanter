@@ -35,7 +35,7 @@ export default class SecondaryNavAccordion extends SecondaryNavAbstract {
    * @param  {HTMLElement} item The HTMLElement being acted upon.
    */
   expandActivePathItem(item) {
-    item.firstElementChild.setAttribute('aria-expanded', 'true');
+    item.querySelector(":scope > a").setAttribute('aria-expanded', 'true');
   }
 
   /**

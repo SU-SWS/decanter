@@ -3122,7 +3122,7 @@ function (_SecondaryNavAbstract) {
   _createClass(SecondaryNavAccordion, [{
     key: "expandActivePathItem",
     value: function expandActivePathItem(item) {
-      item.firstElementChild.setAttribute('aria-expanded', 'true');
+      item.querySelector(":scope > a").setAttribute('aria-expanded', 'true');
     }
     /**
      * Function for creating a new nested navigation item.
@@ -3290,7 +3290,9 @@ function () {
     }, options); // Assign the event dispatcher and event registry.
 
     this.eventRegistry = this.createEventRegistry(options);
-    this.dispatch = new _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_0__["default"](element, this);
+    this.dispatch = new _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_0__["default"](element, this); // Generate the Aria labels.
+
+    this.initAccessibility();
   }
   /**
    * Creates an event registry for handling types of events.
@@ -3375,6 +3377,33 @@ function () {
     key: "getDepth",
     value: function getDepth() {
       return this.depth;
+    }
+    /**
+     * Adds ids, labels, and other meta-information.
+     */
+
+  }, {
+    key: "initAccessibility",
+    value: function initAccessibility() {
+      var elementIndex = Array.from(this.item.parentNode.children).indexOf(this.item);
+      var elemID = this.elem.getAttribute('id');
+      var section = this.item.querySelector(":scope > ul");
+      var sectionID = section.getAttribute('id'); // If there isnt an ID on the element add one.
+
+      if (!elemID) {
+        elemID = "su-acc-" + this.getDepth() + "-" + elementIndex;
+        this.elem.setAttribute('id', elemID);
+      } // If there isnt an ID on the section add one.
+
+
+      if (!sectionID) {
+        sectionID = "su-acs-" + this.getDepth() + "-" + elementIndex;
+        section.setAttribute('id', sectionID);
+      } // Add the aria stuff.
+
+
+      this.elem.setAttribute('aria-controls', sectionID);
+      section.setAttribute('aria-labelledby', elemID);
     }
   }]);
 
@@ -3953,7 +3982,9 @@ function () {
     this.eventRegistry = this.createEventRegistry(options);
     this.dispatch = new _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_1__["default"](element, this); // Create the toggle buttons.
 
-    this.initToggleButton(options);
+    this.initToggleButton(options); // Add the accessibility meta-information.
+
+    this.initAccessibility();
   }
   /**
    * Initialize the toggle button.
@@ -4070,6 +4101,33 @@ function () {
     key: "getDepth",
     value: function getDepth() {
       return this.depth;
+    }
+    /**
+     * Adds ids, labels, and other meta-information.
+     */
+
+  }, {
+    key: "initAccessibility",
+    value: function initAccessibility() {
+      var elementIndex = Array.from(this.item.parentNode.children).indexOf(this.item);
+      var elemID = this.toggleElement.getAttribute('id');
+      var section = this.item.querySelector(":scope > ul");
+      var sectionID = section.getAttribute('id'); // If there isnt an ID on the element add one.
+
+      if (!elemID) {
+        elemID = "su-acc-" + this.getDepth() + "-" + elementIndex;
+        this.toggleElement.setAttribute('id', elemID);
+      } // If there isnt an ID on the section add one.
+
+
+      if (!sectionID) {
+        sectionID = "su-acs-" + this.getDepth() + "-" + elementIndex;
+        section.setAttribute('id', sectionID);
+      } // Add the aria stuff.
+
+
+      this.toggleElement.setAttribute('aria-controls', sectionID);
+      section.setAttribute('aria-labelledby', elemID);
     }
   }]);
 

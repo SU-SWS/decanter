@@ -49,6 +49,9 @@ export default class SecondarySubNavAccordion {
     // Assign the event dispatcher and event registry.
     this.eventRegistry = this.createEventRegistry(options);
     this.dispatch = new EventHandlerDispatch(element, this);
+
+    // Generate the Aria labels.
+    this.initAccessibility();
   }
 
   /**
@@ -126,4 +129,29 @@ export default class SecondarySubNavAccordion {
     return this.depth;
   }
 
+  /**
+   * Adds ids, labels, and other meta-information.
+   */
+  initAccessibility() {
+    var elementIndex = Array.from(this.item.parentNode.children).indexOf(this.item);
+    var elemID = this.elem.getAttribute('id');
+    var section = this.item.querySelector(":scope > ul");
+    var sectionID = section.getAttribute('id');
+
+    // If there isnt an ID on the element add one.
+    if (!elemID) {
+      elemID = "su-acc-" + this.getDepth() + "-" + elementIndex;
+      this.elem.setAttribute('id', elemID);
+    }
+
+    // If there isnt an ID on the section add one.
+    if (!sectionID) {
+      sectionID = "su-acs-" + this.getDepth() + "-" + elementIndex;
+      section.setAttribute('id', sectionID);
+    }
+
+    // Add the aria stuff.
+    this.elem.setAttribute('aria-controls', sectionID);
+    section.setAttribute('aria-labelledby', elemID);
+  }
 }

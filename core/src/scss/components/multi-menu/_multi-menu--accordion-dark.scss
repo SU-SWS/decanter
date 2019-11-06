@@ -91,14 +91,29 @@
   .su-multi-menu__menu-lv1 {
     @include grid-media('lg') {
       > .su-multi-menu__item {
+
         // Items in the active trail should be highlighted.
         &.su-multi-menu__item--active-trail {
           > .su-multi-menu__link {
             &::before {
-              background-color: color(h--border-hover, $su-multi-menu-colors);
+              background-color: color(border--active, $su-multi-menu-colors);
             }
           }
         }
+
+        &.su-multi-menu__item--expanded {
+          > .su-multi-menu__link {
+            &::before {
+              background-color: color(border--expanded, $su-multi-menu-colors);
+            }
+            &:hover {
+              &::before {
+                background-color: color(border--expanded-hover, $su-multi-menu-colors);
+              }
+            }
+          }
+        }
+
         // Links in the active trail should have hovers.
         > .su-multi-menu__link {
           &:hover,

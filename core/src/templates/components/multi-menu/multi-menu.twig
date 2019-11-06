@@ -25,7 +25,7 @@
 {# Macros #}
 {%- import template_path_macro as menus -%}
 
-<nav {{ attributes }} class="su-multi-menu no-js {{ modifier_class }}" aria-label="{{ aria_label|default('main menu') }}">
+<nav {{ attributes }} class="su-multi-menu no-js {{ modifier_class }}" aria-label="{{ aria_label|default('primary menu') }}">
   {% block multimenubutton %}
   <button class="su-multi-menu__nav-toggle {{ toggle_modifier_class }}" aria-expanded="false">{{ toggle_text|default('Menu') }}</button>
   {% endblock %}
