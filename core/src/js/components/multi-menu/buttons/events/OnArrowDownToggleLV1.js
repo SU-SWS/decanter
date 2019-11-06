@@ -6,7 +6,7 @@ import SubNavToggleSpace from '../../../secondary-nav/buttons/events/SubNavToggl
  *
  * Event action handler class.
  */
-export default class OnArrowRightToggleLV1 extends EventAbstract {
+export default class OnArrowDownToggleLV1 extends EventAbstract {
 
   /**
    * Execute the action to the event.
@@ -25,12 +25,8 @@ export default class OnArrowRightToggleLV1 extends EventAbstract {
    * @return {[type]} [description]
    */
   handleDesktop() {
-    if (this.getElement('next')) {
-      this.getElement('next').focus();
-    }
-    else {
-      this.getElement('parentNavFirst').focus();
-    }
+    this.parentNav.openSubNav();
+    this.getElement('firstSubnavLink').focus();
   }
 
   /**

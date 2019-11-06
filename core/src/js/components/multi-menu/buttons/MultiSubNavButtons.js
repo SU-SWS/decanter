@@ -1,5 +1,7 @@
 import SecondarySubNavButtons from '../../secondary-nav/buttons/SecondarySubNavButtons';
 import OnArrowRightToggleLV1 from './events/OnArrowRightToggleLV1';
+import OnArrowLeftLV1 from './events/OnArrowLeftLV1';
+import OnArrowDownToggleLV1 from './events/OnArrowDownToggleLV1';
 
 /**
  * SecondarySubNavAccordion Class
@@ -20,16 +22,15 @@ export default class MultiSubNavButtons extends SecondarySubNavButtons {
    */
   createEventRegistry(options) {
 
-    var registryDefaults = super.createEventRegistry(options);
+    var registryDefaults = super.createEventRegistry({});
 
     // If we are the first level (top) we need to adjust for mobile vs desktop.
-    // if (this.getDepth() == 1) {
-    //   registryDefaults = Object.assign(registryDefaults, {
-    //     onKeydownArrowRight: OnArrowRightLV1,
-    //     onKeydownArrowDown: OnArrowDownLV1
-    //   });
-    // }
-    //
+    if (this.getDepth() == 1) {
+      registryDefaults = Object.assign(registryDefaults, {
+        onKeydownArrowLeft: OnArrowLeftLV1
+      });
+    }
+
     // if (this.getDepth() == 2) {
     //   registryDefaults = Object.assign(registryDefaults, {
     //     onKeydownArrowLeft: OnArrowLeftLV2
@@ -49,6 +50,7 @@ export default class MultiSubNavButtons extends SecondarySubNavButtons {
     if (this.getDepth() === 1) {
       options.eventRegistry = Object.assign(options.eventRegistry, {
         onKeydownArrowRight: OnArrowRightToggleLV1,
+        onKeydownArrowDown: OnArrowDownToggleLV1,
       });
     }
 

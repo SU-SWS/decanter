@@ -33,6 +33,8 @@ export default class ElementFetcher {
           return this.item.parentNode.firstElementChild;
         case 'lastElement':
           return this.item.parentNode.lastElementChild;
+        case 'lastToggle':
+          return this.item.parentNode.lastElementChild.querySelector(':scope .su-nav-toggle');
         case 'next':
           return this.item.nextElementSibling.querySelector(':scope a');
         case 'prev':
@@ -41,6 +43,8 @@ export default class ElementFetcher {
           return this.item.nextElementSibling;
         case 'prevElement':
           return this.item.previousElementSibling;
+        case 'prevToggle':
+          return this.item.previousElementSibling.querySelector(':scope .su-nav-toggle');
         case 'prevElementSiblingSubnavLast':
           return this.item.previousElementSibling.querySelector(':scope > ul li a:last-child');
         case 'parentItem':

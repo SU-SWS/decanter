@@ -61,7 +61,7 @@ export default class SecondarySubNavButtons {
   /**
    * Initialize the toggle button.
    */
-  initToggleButton(options = this.options) {
+  initToggleButton(options = {}) {
     this.toggleElement = this.createToggleButton();
     this.item.insertBefore(this.toggleElement, this.item.querySelector('ul'));
     this.toggle = new SubNavToggle(this.toggleElement, this, options);

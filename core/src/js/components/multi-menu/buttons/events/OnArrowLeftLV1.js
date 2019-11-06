@@ -1,12 +1,12 @@
 import EventAbstract from '../../../secondary-nav/common/events/EventAbstract';
-import SubNavToggleSpace from '../../../secondary-nav/buttons/events/SubNavToggleSpace';
+import OnArrowLeft from '../../../secondary-nav/common/events/OnArrowLeft';
 
 /**
  * OnArrowLeft
  *
  * Event action handler class.
  */
-export default class OnArrowRightToggleLV1 extends EventAbstract {
+export default class OnArrowLeftLV1 extends EventAbstract {
 
   /**
    * Execute the action to the event.
@@ -25,12 +25,13 @@ export default class OnArrowRightToggleLV1 extends EventAbstract {
    * @return {[type]} [description]
    */
   handleDesktop() {
-    if (this.getElement('next')) {
-      this.getElement('next').focus();
-    }
-    else {
-      this.getElement('parentNavFirst').focus();
-    }
+    var element =
+      this.getElement('prevToggle') ||
+      this.getElement('prev') ||
+      this.getElement('lastToggle') ||
+      this.getElement('last') ;
+
+    element.focus()
   }
 
   /**
@@ -38,8 +39,8 @@ export default class OnArrowRightToggleLV1 extends EventAbstract {
    * @return {[type]} [description]
    */
   handleMobile() {
-    var expandEvent = new SubNavToggleSpace(this.item, this.event, this.target);
-    expandEvent.init();
+    var classicEvent = new OnArrowLeft(this.item, this.event, this.target);
+    classicEvent.init();
   }
 
 }
