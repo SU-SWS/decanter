@@ -64,10 +64,10 @@ export default class SubNavToggle {
 
   /**
    * Gets the current depth.
-   * @return {[type]} [description]
+   * @return {Number} The depth of this nav item starting at 1.
    */
   getDepth() {
-    return item.getDepth();
+    return this.parentNav.getDepth();
   }
 
 }

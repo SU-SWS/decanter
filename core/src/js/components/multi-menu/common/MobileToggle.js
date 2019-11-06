@@ -10,6 +10,7 @@ export default class MobileToggle {
    * Create a new toggle.
    *
    * @param {HTMLLIElement} element  - The <li> that is the NavItem in the DOM.
+   * @param {*|Object} nav           - The main nav object that this toggle controls.
    * @param {Object} options         - A simple object of key values used as
    *                                   configuration options for each instance.
    */
@@ -54,19 +55,19 @@ export default class MobileToggle {
 
   }
 
- /**
-  * Handler for all events attached to an instance of this class. This method
-  * must exist when events are bound to an instance of a class
-  * (vs a function). This method is called for all events bound to an
-  * instance. It inspects the instance (this) for an appropriate handler
-  * based on the event type. If found, it dispatches the event to the
-  * appropriate handler.
-  *
-  * @param {KeyboardEvent} event - The keyboard event object.
-  *
-  * @return {*}
-  *  Whatever the dispatched handler returns (in our case nothing)
-  */
+  /**
+   * Handler for all events attached to an instance of this class. This method
+   * must exist when events are bound to an instance of a class
+   * (vs a function). This method is called for all events bound to an
+   * instance. It inspects the instance (this) for an appropriate handler
+   * based on the event type. If found, it dispatches the event to the
+   * appropriate handler.
+   *
+   * @param {KeyboardEvent} event - The keyboard event object.
+   *
+   * @return {*}
+   *  Whatever the dispatched handler returns (in our case nothing)
+   */
   handleEvent(event) {
     event = event || window.event;
     // If this class has an onEvent method, e.g. onClick, onKeydown,

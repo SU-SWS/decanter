@@ -1,7 +1,4 @@
-import SecondaryNavAbstract from '../../secondary-nav/common/SecondaryNavAbstract';
-import SecondaryNavItem from '../../secondary-nav/common/SecondaryNavItem';
 import SecondaryNavAccordion from '../../secondary-nav/accordion/SecondaryNavAccordion';
-import SecondarySubNavAccordion from '../../secondary-nav/accordion/SecondarySubNavAccordion';
 import MultiSubNavAccordion from './MultiSubNavAccordion';
 import MultiNavItem from './MultiNavItem';
 

@@ -25,14 +25,14 @@ export default class MultiSubNavAccordion extends SecondarySubNavAccordion {
     var registryDefaults = super.createEventRegistry(options);
 
     // If we are the first level (top) we need to adjust for mobile vs desktop.
-    if (this.getDepth() == 1) {
+    if (this.getDepth() === 1) {
       registryDefaults = Object.assign(registryDefaults, {
         onKeydownArrowRight: OnArrowRightLV1,
         onKeydownArrowDown: OnArrowDownLV1
       });
     }
 
-    if (this.getDepth() == 2) {
+    if (this.getDepth() === 2) {
       registryDefaults = Object.assign(registryDefaults, {
         onKeydownArrowLeft: OnArrowLeftLV2
       });

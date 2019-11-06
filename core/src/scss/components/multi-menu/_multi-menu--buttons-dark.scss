@@ -20,28 +20,9 @@
     }
   }
 
-  // Nested Menus (ul)
-  .su-multi-menu__menu {
-
-  }
-
-  // Nested Items (li)
-  .su-multi-menu__item {
-
-  }
-
   // Nested links (li > a)
   .su-multi-menu__link {
     color: $su-color-white;
-  }
-
-  // Parent Items
-  .su-multi-menu__item--parent {
-
-  }
-
-  .su-multi-menu__item--expanded {
-
   }
 
   // Menu Level 1 (top)
@@ -57,10 +38,6 @@
 
     // Top Level Parent Items.
     > .su-multi-menu__item--parent {
-
-      // First level link.
-      > .su-multi-menu__link {
-      }
 
       // First level nav toggle.
       > .su-nav-toggle {
@@ -90,9 +67,11 @@
 
         &.su-multi-menu__item--expanded {
           > .su-multi-menu__link {
+
             &::before {
               background-color: color(border--expanded, $su-multi-menu-dark-colors);
             }
+
             &:hover {
               &::before {
                 background-color: color(border--expanded-hover, $su-multi-menu-dark-colors);
@@ -113,17 +92,4 @@
       }
     }
   } // End level 1 destop only.
-
-  // Menu Level 2 (first level drops)
-  // ---------------------------------------------------------------------------
-  .su-multi-menu__menu-lv2 {
-
-  }
-
-  // Menu Level 3 (flyout)
-  // ---------------------------------------------------------------------------
-  .su-multi-menu__menu-lv3 {
-
-  }
-
 }

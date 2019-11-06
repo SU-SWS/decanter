@@ -21,22 +21,20 @@ export default class OnArrowLeftLV1 extends EventAbstract {
   }
 
   /**
-   * [handleDesktop description]
-   * @return {[type]} [description]
+   * Handle the events for desktop sized screens.
    */
   handleDesktop() {
     var element =
       this.getElement('prevToggle') ||
       this.getElement('prev') ||
       this.getElement('lastToggle') ||
-      this.getElement('last') ;
+      this.getElement('last');
 
-    element.focus()
+    element.focus();
   }
 
   /**
-   * handleMobile
-   * @return {[type]} [description]
+   * Handle the events for mobile sized screens.
    */
   handleMobile() {
     var classicEvent = new OnArrowLeft(this.item, this.event, this.target);

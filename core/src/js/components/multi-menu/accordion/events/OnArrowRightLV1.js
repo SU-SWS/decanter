@@ -21,8 +21,7 @@ export default class OnArrowRightLV1 extends EventAbstract {
   }
 
   /**
-   * [handleDesktop description]
-   * @return {[type]} [description]
+   * Handle the events for desktop sized screens.
    */
   handleDesktop() {
     if (this.getElement('next')) {
@@ -34,8 +33,7 @@ export default class OnArrowRightLV1 extends EventAbstract {
   }
 
   /**
-   * handleMobile
-   * @return {[type]} [description]
+   * Handle the events for mobile sized screens.
    */
   handleMobile() {
     var classicEvent = new OnArrowRight(this.item, this.event, this.target);

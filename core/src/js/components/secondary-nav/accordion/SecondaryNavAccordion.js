@@ -35,7 +35,7 @@ export default class SecondaryNavAccordion extends SecondaryNavAbstract {
    * @param  {HTMLElement} item The HTMLElement being acted upon.
    */
   expandActivePathItem(item) {
-    item.querySelector(":scope > a").setAttribute('aria-expanded', 'true');
+    item.querySelector(':scope > a').setAttribute('aria-expanded', 'true');
   }
 
   /**
@@ -89,7 +89,7 @@ export default class SecondaryNavAccordion extends SecondaryNavAbstract {
     document.addEventListener('preOpenSubnav', event => {
       this.subNavItems.forEach(
         (subnav, index) => {
-          if (typeof subnav.item == undefined) {
+          if (!subnav.hasOwnPropery('item')) {
             return;
           }
 

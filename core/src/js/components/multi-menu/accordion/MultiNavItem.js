@@ -21,7 +21,7 @@ export default class MultiNavItem extends SecondaryNavItem {
   createEventRegistry(options) {
     var registryDefaults = super.createEventRegistry(options);
 
-    if (this.getDepth() == 2) {
+    if (this.getDepth() === 2) {
       registryDefaults = Object.assign(registryDefaults, {
         onKeydownArrowLeft: OnArrowLeftLV2
       });

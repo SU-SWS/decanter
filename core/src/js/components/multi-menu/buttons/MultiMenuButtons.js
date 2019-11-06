@@ -1,7 +1,4 @@
-import SecondaryNavAbstract from '../../secondary-nav/common/SecondaryNavAbstract';
-import SecondaryNavItem from '../../secondary-nav/common/SecondaryNavItem';
 import SecondaryNavButtons from '../../secondary-nav/buttons/SecondaryNavButtons';
-import SecondarySubNavButtons from '../../secondary-nav/buttons/SecondarySubNavButtons';
 import MultiSubNavButtons from './MultiSubNavButtons';
 import MultiNavItem from './MultiNavItem';
 
@@ -33,6 +30,7 @@ export default class MultiMenuButtons extends SecondaryNavButtons {
     // Kick it.
     super(elem, options);
   }
+
   /**
    * Function for creating a new nested navigation item.
    *

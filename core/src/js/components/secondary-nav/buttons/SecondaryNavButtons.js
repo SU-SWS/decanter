@@ -103,7 +103,7 @@ export default class SecondaryNavButtons extends SecondaryNavAbstract {
     document.addEventListener('preOpenSubnav', event => {
       this.subNavItems.forEach(
         (subnav, index) => {
-          if (typeof subnav.item == undefined) {
+          if (!subnav.hasOwnPropery('item')) {
             return;
           }
 

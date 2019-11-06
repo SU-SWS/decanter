@@ -90,7 +90,7 @@
   > li {
     &:last-child {
       > .su-multi-menu__menu-lv2 {
-        right: 0px;
+        right: 0;
       }
     }
   }
@@ -148,6 +148,7 @@
     > .su-multi-menu__item {
       // Items in the active trail should be highlighted.
       &.su-multi-menu__item--active-trail {
+
         > .su-multi-menu__link {
           &::before {
             height: 6px;
@@ -155,6 +156,7 @@
             visibility: visible;
             background-color: color(h--border, $su-multi-menu-colors);
           }
+
           &:hover,
           &:focus {
             &::before {
@@ -205,9 +207,9 @@
 
 // Third level styles.
 // -----------------------------------------------------------------------
-.su-multi-menu__menu-lv3 {
-  // Nothing to see here.
-}
+// .su-multi-menu__menu-lv3 {
+// Nothing to see here.
+// }
 
 // Items with children
 // -----------------------------------------------------------------------

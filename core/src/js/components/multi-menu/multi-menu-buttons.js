@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', event => {
       var theNav = new MultiMenuButtons(nav);
       var toggleElem = nav.querySelector(':scope .su-multi-menu__nav-toggle');
       if (toggleElem) {
-        var theToggle = new MobileToggle(toggleElem, theNav);
+        new MobileToggle(toggleElem, theNav);
       }
     }
   });

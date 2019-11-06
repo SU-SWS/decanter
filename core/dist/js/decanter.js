@@ -1047,12 +1047,9 @@ document.addEventListener('DOMContentLoaded', function (event) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MultiMenuAccordion; });
-/* harmony import */ var _secondary_nav_common_SecondaryNavAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../secondary-nav/common/SecondaryNavAbstract */ "./core/src/js/components/secondary-nav/common/SecondaryNavAbstract.js");
-/* harmony import */ var _secondary_nav_common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../secondary-nav/common/SecondaryNavItem */ "./core/src/js/components/secondary-nav/common/SecondaryNavItem.js");
-/* harmony import */ var _secondary_nav_accordion_SecondaryNavAccordion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../secondary-nav/accordion/SecondaryNavAccordion */ "./core/src/js/components/secondary-nav/accordion/SecondaryNavAccordion.js");
-/* harmony import */ var _secondary_nav_accordion_SecondarySubNavAccordion__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../secondary-nav/accordion/SecondarySubNavAccordion */ "./core/src/js/components/secondary-nav/accordion/SecondarySubNavAccordion.js");
-/* harmony import */ var _MultiSubNavAccordion__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MultiSubNavAccordion */ "./core/src/js/components/multi-menu/accordion/MultiSubNavAccordion.js");
-/* harmony import */ var _MultiNavItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MultiNavItem */ "./core/src/js/components/multi-menu/accordion/MultiNavItem.js");
+/* harmony import */ var _secondary_nav_accordion_SecondaryNavAccordion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../secondary-nav/accordion/SecondaryNavAccordion */ "./core/src/js/components/secondary-nav/accordion/SecondaryNavAccordion.js");
+/* harmony import */ var _MultiSubNavAccordion__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MultiSubNavAccordion */ "./core/src/js/components/multi-menu/accordion/MultiSubNavAccordion.js");
+/* harmony import */ var _MultiNavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MultiNavItem */ "./core/src/js/components/multi-menu/accordion/MultiNavItem.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1070,9 +1067,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
 
 
 
@@ -1128,7 +1122,7 @@ function (_SecondaryNavAccordio) {
       var opts = Object.assign(this.options, {
         depth: depth
       });
-      var nav = new _MultiSubNavAccordion__WEBPACK_IMPORTED_MODULE_4__["default"](item, this, parent, opts);
+      var nav = new _MultiSubNavAccordion__WEBPACK_IMPORTED_MODULE_1__["default"](item, this, parent, opts);
       this.subNavItems.push(nav);
       return nav;
     }
@@ -1148,14 +1142,14 @@ function (_SecondaryNavAccordio) {
       var opts = Object.assign(this.options, {
         depth: depth
       });
-      var nav = new _MultiNavItem__WEBPACK_IMPORTED_MODULE_5__["default"](item, this, parent, opts);
+      var nav = new _MultiNavItem__WEBPACK_IMPORTED_MODULE_2__["default"](item, this, parent, opts);
       this.navItems.push(nav);
       return nav;
     }
   }]);
 
   return MultiMenuAccordion;
-}(_secondary_nav_accordion_SecondaryNavAccordion__WEBPACK_IMPORTED_MODULE_2__["default"]);
+}(_secondary_nav_accordion_SecondaryNavAccordion__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 
 
@@ -1230,7 +1224,7 @@ function (_SecondaryNavItem) {
     value: function createEventRegistry(options) {
       var registryDefaults = _get(_getPrototypeOf(MultiNavItem.prototype), "createEventRegistry", this).call(this, options);
 
-      if (this.getDepth() == 2) {
+      if (this.getDepth() === 2) {
         registryDefaults = Object.assign(registryDefaults, {
           onKeydownArrowLeft: _events_OnArrowLeftLV2__WEBPACK_IMPORTED_MODULE_1__["default"]
         });
@@ -1321,14 +1315,14 @@ function (_SecondarySubNavAccor) {
       var registryDefaults = _get(_getPrototypeOf(MultiSubNavAccordion.prototype), "createEventRegistry", this).call(this, options); // If we are the first level (top) we need to adjust for mobile vs desktop.
 
 
-      if (this.getDepth() == 1) {
+      if (this.getDepth() === 1) {
         registryDefaults = Object.assign(registryDefaults, {
           onKeydownArrowRight: _events_OnArrowRightLV1__WEBPACK_IMPORTED_MODULE_1__["default"],
           onKeydownArrowDown: _events_OnArrowDownLV1__WEBPACK_IMPORTED_MODULE_2__["default"]
         });
       }
 
-      if (this.getDepth() == 2) {
+      if (this.getDepth() === 2) {
         registryDefaults = Object.assign(registryDefaults, {
           onKeydownArrowLeft: _events_OnArrowLeftLV2__WEBPACK_IMPORTED_MODULE_3__["default"]
         });
@@ -1408,8 +1402,7 @@ function (_EventAbstract) {
       }
     }
     /**
-     * [handleDesktop description]
-     * @return {[type]} [description]
+     * Handle the events for desktop sized screens.
      */
 
   }, {
@@ -1419,8 +1412,7 @@ function (_EventAbstract) {
       this.getElement('firstSubnavLink').focus();
     }
     /**
-     * handleMobile
-     * @return {[type]} [description]
+     * Handle the events for mobile sized screens.
      */
 
   }, {
@@ -1501,8 +1493,7 @@ function (_EventAbstract) {
       }
     }
     /**
-     * [handleDesktop description]
-     * @return {[type]} [description]
+     * Handle the events for desktop sized screens.
      */
 
   }, {
@@ -1517,8 +1508,7 @@ function (_EventAbstract) {
       this.parentNav.closeSubNav();
     }
     /**
-     * [handleDesktop description]
-     * @return {[type]} [description]
+     * Handle the events for mobile sized screens.
      */
 
   }, {
@@ -1599,8 +1589,7 @@ function (_EventAbstract) {
       }
     }
     /**
-     * [handleDesktop description]
-     * @return {[type]} [description]
+     * Handle the events for desktop sized screens.
      */
 
   }, {
@@ -1613,8 +1602,7 @@ function (_EventAbstract) {
       }
     }
     /**
-     * handleMobile
-     * @return {[type]} [description]
+     * Handle the events for mobile sized screens.
      */
 
   }, {
@@ -1642,12 +1630,9 @@ function (_EventAbstract) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MultiMenuButtons; });
-/* harmony import */ var _secondary_nav_common_SecondaryNavAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../secondary-nav/common/SecondaryNavAbstract */ "./core/src/js/components/secondary-nav/common/SecondaryNavAbstract.js");
-/* harmony import */ var _secondary_nav_common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../secondary-nav/common/SecondaryNavItem */ "./core/src/js/components/secondary-nav/common/SecondaryNavItem.js");
-/* harmony import */ var _secondary_nav_buttons_SecondaryNavButtons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../secondary-nav/buttons/SecondaryNavButtons */ "./core/src/js/components/secondary-nav/buttons/SecondaryNavButtons.js");
-/* harmony import */ var _secondary_nav_buttons_SecondarySubNavButtons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../secondary-nav/buttons/SecondarySubNavButtons */ "./core/src/js/components/secondary-nav/buttons/SecondarySubNavButtons.js");
-/* harmony import */ var _MultiSubNavButtons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MultiSubNavButtons */ "./core/src/js/components/multi-menu/buttons/MultiSubNavButtons.js");
-/* harmony import */ var _MultiNavItem__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MultiNavItem */ "./core/src/js/components/multi-menu/buttons/MultiNavItem.js");
+/* harmony import */ var _secondary_nav_buttons_SecondaryNavButtons__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../secondary-nav/buttons/SecondaryNavButtons */ "./core/src/js/components/secondary-nav/buttons/SecondaryNavButtons.js");
+/* harmony import */ var _MultiSubNavButtons__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MultiSubNavButtons */ "./core/src/js/components/multi-menu/buttons/MultiSubNavButtons.js");
+/* harmony import */ var _MultiNavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MultiNavItem */ "./core/src/js/components/multi-menu/buttons/MultiNavItem.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1665,9 +1650,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
 
 
 
@@ -1723,7 +1705,7 @@ function (_SecondaryNavButtons) {
       var opts = Object.assign(this.options, {
         depth: depth
       });
-      var nav = new _MultiSubNavButtons__WEBPACK_IMPORTED_MODULE_4__["default"](item, this, parent, opts);
+      var nav = new _MultiSubNavButtons__WEBPACK_IMPORTED_MODULE_1__["default"](item, this, parent, opts);
       this.subNavItems.push(nav);
       return nav;
     }
@@ -1743,14 +1725,14 @@ function (_SecondaryNavButtons) {
       var opts = Object.assign(this.options, {
         depth: depth
       });
-      var nav = new _MultiNavItem__WEBPACK_IMPORTED_MODULE_5__["default"](item, this, parent, opts);
+      var nav = new _MultiNavItem__WEBPACK_IMPORTED_MODULE_2__["default"](item, this, parent, opts);
       this.navItems.push(nav);
       return nav;
     }
   }]);
 
   return MultiMenuButtons;
-}(_secondary_nav_buttons_SecondaryNavButtons__WEBPACK_IMPORTED_MODULE_2__["default"]);
+}(_secondary_nav_buttons_SecondaryNavButtons__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 
 
@@ -1825,7 +1807,7 @@ function (_SecondaryNavItem) {
     value: function createEventRegistry(options) {
       var registryDefaults = _get(_getPrototypeOf(MultiNavItem.prototype), "createEventRegistry", this).call(this, {});
 
-      if (this.getDepth() == 1) {
+      if (this.getDepth() === 1) {
         registryDefaults = Object.assign(registryDefaults, {
           onKeydownArrowLeft: _events_OnArrowLeftLV1__WEBPACK_IMPORTED_MODULE_1__["default"]
         });
@@ -1916,7 +1898,7 @@ function (_SecondarySubNavButto) {
       var registryDefaults = _get(_getPrototypeOf(MultiSubNavButtons.prototype), "createEventRegistry", this).call(this, {}); // If we are the first level (top) we need to adjust for mobile vs desktop.
 
 
-      if (this.getDepth() == 1) {
+      if (this.getDepth() === 1) {
         registryDefaults = Object.assign(registryDefaults, {
           onKeydownArrowLeft: _events_OnArrowLeftLV1__WEBPACK_IMPORTED_MODULE_2__["default"]
         });
@@ -2020,8 +2002,7 @@ function (_EventAbstract) {
       }
     }
     /**
-     * [handleDesktop description]
-     * @return {[type]} [description]
+     * Handle the events for desktop sized screens.
      */
 
   }, {
@@ -2031,8 +2012,7 @@ function (_EventAbstract) {
       this.getElement('firstSubnavLink').focus();
     }
     /**
-     * handleMobile
-     * @return {[type]} [description]
+     * Handle the events for mobile sized screens.
      */
 
   }, {
@@ -2113,8 +2093,7 @@ function (_EventAbstract) {
       }
     }
     /**
-     * [handleDesktop description]
-     * @return {[type]} [description]
+     * Handle the events for desktop sized screens.
      */
 
   }, {
@@ -2124,8 +2103,7 @@ function (_EventAbstract) {
       element.focus();
     }
     /**
-     * handleMobile
-     * @return {[type]} [description]
+     * Handle the events for mobile sized screens.
      */
 
   }, {
@@ -2206,8 +2184,7 @@ function (_EventAbstract) {
       }
     }
     /**
-     * [handleDesktop description]
-     * @return {[type]} [description]
+     * Handle the events for desktop sized screens.
      */
 
   }, {
@@ -2220,8 +2197,7 @@ function (_EventAbstract) {
       }
     }
     /**
-     * handleMobile
-     * @return {[type]} [description]
+     * Handle the events for mobile sized screens.
      */
 
   }, {
@@ -2270,6 +2246,7 @@ function () {
    * Create a new toggle.
    *
    * @param {HTMLLIElement} element  - The <li> that is the NavItem in the DOM.
+   * @param {*|Object} nav           - The main nav object that this toggle controls.
    * @param {Object} options         - A simple object of key values used as
    *                                   configuration options for each instance.
    */
@@ -2501,7 +2478,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
       var toggleElem = nav.querySelector(':scope .su-multi-menu__nav-toggle');
 
       if (toggleElem) {
-        var theToggle = new _common_MobileToggle__WEBPACK_IMPORTED_MODULE_3__["default"](toggleElem, theNav);
+        new _common_MobileToggle__WEBPACK_IMPORTED_MODULE_3__["default"](toggleElem, theNav);
       }
     }
   });
@@ -2534,7 +2511,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
       var toggleElem = nav.querySelector(':scope .su-multi-menu__nav-toggle');
 
       if (toggleElem) {
-        var theToggle = new _common_MobileToggle__WEBPACK_IMPORTED_MODULE_3__["default"](toggleElem, theNav);
+        new _common_MobileToggle__WEBPACK_IMPORTED_MODULE_3__["default"](toggleElem, theNav);
       }
     }
   });
@@ -3122,7 +3099,7 @@ function (_SecondaryNavAbstract) {
   _createClass(SecondaryNavAccordion, [{
     key: "expandActivePathItem",
     value: function expandActivePathItem(item) {
-      item.querySelector(":scope > a").setAttribute('aria-expanded', 'true');
+      item.querySelector(':scope > a').setAttribute('aria-expanded', 'true');
     }
     /**
      * Function for creating a new nested navigation item.
@@ -3175,7 +3152,7 @@ function (_SecondaryNavAbstract) {
       // Clicking anywhere outside of attached nav closes all the children.
       document.addEventListener('preOpenSubnav', function (event) {
         _this2.subNavItems.forEach(function (subnav, index) {
-          if (_typeof(subnav.item) == undefined) {
+          if (!subnav.hasOwnPropery('item')) {
             return;
           }
 
@@ -3387,17 +3364,17 @@ function () {
     value: function initAccessibility() {
       var elementIndex = Array.from(this.item.parentNode.children).indexOf(this.item);
       var elemID = this.elem.getAttribute('id');
-      var section = this.item.querySelector(":scope > ul");
+      var section = this.item.querySelector(':scope > ul');
       var sectionID = section.getAttribute('id'); // If there isnt an ID on the element add one.
 
       if (!elemID) {
-        elemID = "su-acc-" + this.getDepth() + "-" + elementIndex;
+        elemID = 'su-acc-' + this.getDepth() + '-' + elementIndex;
         this.elem.setAttribute('id', elemID);
       } // If there isnt an ID on the section add one.
 
 
       if (!sectionID) {
-        sectionID = "su-acs-" + this.getDepth() + "-" + elementIndex;
+        sectionID = 'su-acs-' + this.getDepth() + '-' + elementIndex;
         section.setAttribute('id', sectionID);
       } // Add the aria stuff.
 
@@ -3862,7 +3839,7 @@ function (_SecondaryNavAbstract) {
       // Clicking anywhere outside of attached nav closes all the children.
       document.addEventListener('preOpenSubnav', function (event) {
         _this2.subNavItems.forEach(function (subnav, index) {
-          if (_typeof(subnav.item) == undefined) {
+          if (!subnav.hasOwnPropery('item')) {
             return;
           }
 
@@ -3988,6 +3965,7 @@ function () {
   }
   /**
    * Initialize the toggle button.
+   * @param {Object} options a meta object of information to pass along.
    */
 
 
@@ -4111,17 +4089,17 @@ function () {
     value: function initAccessibility() {
       var elementIndex = Array.from(this.item.parentNode.children).indexOf(this.item);
       var elemID = this.toggleElement.getAttribute('id');
-      var section = this.item.querySelector(":scope > ul");
+      var section = this.item.querySelector(':scope > ul');
       var sectionID = section.getAttribute('id'); // If there isnt an ID on the element add one.
 
       if (!elemID) {
-        elemID = "su-acc-" + this.getDepth() + "-" + elementIndex;
+        elemID = 'su-acc-' + this.getDepth() + '-' + elementIndex;
         this.toggleElement.setAttribute('id', elemID);
       } // If there isnt an ID on the section add one.
 
 
       if (!sectionID) {
-        sectionID = "su-acs-" + this.getDepth() + "-" + elementIndex;
+        sectionID = 'su-acs-' + this.getDepth() + '-' + elementIndex;
         section.setAttribute('id', sectionID);
       } // Add the aria stuff.
 
@@ -4230,13 +4208,13 @@ function () {
     }
     /**
      * Gets the current depth.
-     * @return {[type]} [description]
+     * @return {Number} The depth of this nav item starting at 1.
      */
 
   }, {
     key: "getDepth",
     value: function getDepth() {
-      return item.getDepth();
+      return this.parentNav.getDepth();
     }
   }]);
 

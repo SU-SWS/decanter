@@ -135,18 +135,18 @@ export default class SecondarySubNavAccordion {
   initAccessibility() {
     var elementIndex = Array.from(this.item.parentNode.children).indexOf(this.item);
     var elemID = this.elem.getAttribute('id');
-    var section = this.item.querySelector(":scope > ul");
+    var section = this.item.querySelector(':scope > ul');
     var sectionID = section.getAttribute('id');
 
     // If there isnt an ID on the element add one.
     if (!elemID) {
-      elemID = "su-acc-" + this.getDepth() + "-" + elementIndex;
+      elemID = 'su-acc-' + this.getDepth() + '-' + elementIndex;
       this.elem.setAttribute('id', elemID);
     }
 
     // If there isnt an ID on the section add one.
     if (!sectionID) {
-      sectionID = "su-acs-" + this.getDepth() + "-" + elementIndex;
+      sectionID = 'su-acs-' + this.getDepth() + '-' + elementIndex;
       section.setAttribute('id', sectionID);
     }
 

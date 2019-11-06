@@ -21,8 +21,7 @@ export default class OnArrowLeftLV2 extends EventAbstract {
   }
 
   /**
-   * [handleDesktop description]
-   * @return {[type]} [description]
+   * Handle the events for desktop sized screens.
    */
   handleDesktop() {
     if (this.getElement('parentNavPrevItem')) {
@@ -36,8 +35,7 @@ export default class OnArrowLeftLV2 extends EventAbstract {
   }
 
   /**
-   * [handleDesktop description]
-   * @return {[type]} [description]
+   * Handle the events for mobile sized screens.
    */
   handleMobile() {
     var classicEvent = new OnArrowLeft(this.item, this.event, this.target);

@@ -21,8 +21,7 @@ export default class OnArrowRightToggleLV1 extends EventAbstract {
   }
 
   /**
-   * [handleDesktop description]
-   * @return {[type]} [description]
+   * Handle the events for desktop sized screens.
    */
   handleDesktop() {
     if (this.getElement('next')) {
@@ -34,8 +33,7 @@ export default class OnArrowRightToggleLV1 extends EventAbstract {
   }
 
   /**
-   * handleMobile
-   * @return {[type]} [description]
+   * Handle the events for mobile sized screens.
    */
   handleMobile() {
     var expandEvent = new SubNavToggleSpace(this.item, this.event, this.target);

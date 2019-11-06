@@ -63,6 +63,7 @@ export default class SecondarySubNavButtons {
 
   /**
    * Initialize the toggle button.
+   * @param {Object} options a meta object of information to pass along.
    */
   initToggleButton(options = {}) {
     this.toggleElement = this.createToggleButton();
@@ -172,18 +173,18 @@ export default class SecondarySubNavButtons {
   initAccessibility() {
     var elementIndex = Array.from(this.item.parentNode.children).indexOf(this.item);
     var elemID = this.toggleElement.getAttribute('id');
-    var section = this.item.querySelector(":scope > ul");
+    var section = this.item.querySelector(':scope > ul');
     var sectionID = section.getAttribute('id');
 
     // If there isnt an ID on the element add one.
     if (!elemID) {
-      elemID = "su-acc-" + this.getDepth() + "-" + elementIndex;
+      elemID = 'su-acc-' + this.getDepth() + '-' + elementIndex;
       this.toggleElement.setAttribute('id', elemID);
     }
 
     // If there isnt an ID on the section add one.
     if (!sectionID) {
-      sectionID = "su-acs-" + this.getDepth() + "-" + elementIndex;
+      sectionID = 'su-acs-' + this.getDepth() + '-' + elementIndex;
       section.setAttribute('id', sectionID);
     }
 
