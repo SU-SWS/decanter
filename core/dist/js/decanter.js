@@ -2493,7 +2493,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
   _common_globals__WEBPACK_IMPORTED_MODULE_1__["multiMenus"].forEach(function (nav, index) {
     if (nav.className.match(/su-multi-menu--accordion/)) {
       var theNav = new _accordion_MultiMenuAccordion__WEBPACK_IMPORTED_MODULE_2__["default"](nav);
-      var toggleElem = nav.querySelector(':scope .su-multi-menu__nav-toggle');
+      var toggleElem = false;
+
+      try {
+        toggleElem = nav.querySelector(':scope .su-multi-menu__nav-toggle');
+      } catch (err) {
+        toggleElem = false;
+      }
 
       if (toggleElem) {
         new _common_MobileToggle__WEBPACK_IMPORTED_MODULE_3__["default"](toggleElem, theNav);
@@ -2526,7 +2532,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
   _common_globals__WEBPACK_IMPORTED_MODULE_1__["multiMenus"].forEach(function (nav, index) {
     if (nav.className.match(/su-multi-menu--buttons/)) {
       var theNav = new _buttons_MultiMenuButtons__WEBPACK_IMPORTED_MODULE_2__["default"](nav);
-      var toggleElem = nav.querySelector(':scope .su-multi-menu__nav-toggle');
+      var toggleElem = false;
+
+      try {
+        toggleElem = nav.querySelector(':scope .su-multi-menu__nav-toggle');
+      } catch (err) {
+        toggleElem = false;
+      }
 
       if (toggleElem) {
         new _common_MobileToggle__WEBPACK_IMPORTED_MODULE_3__["default"](toggleElem, theNav);
@@ -3119,7 +3131,11 @@ function (_SecondaryNavAbstract) {
   _createClass(SecondaryNavAccordion, [{
     key: "expandActivePathItem",
     value: function expandActivePathItem(item) {
-      item.querySelector(':scope > a').setAttribute('aria-expanded', 'true');
+      try {
+        item.querySelector(':scope > a').setAttribute('aria-expanded', 'true');
+      } catch (err) {
+        item.firstElementChild.setAttribute('aria-expanded', 'true');
+      }
     }
     /**
      * Function for creating a new nested navigation item.
@@ -3387,7 +3403,14 @@ function () {
     value: function initAccessibility() {
       var elementIndex = Array.from(this.item.parentNode.children).indexOf(this.item);
       var elemID = this.elem.getAttribute('id');
-      var section = this.item.querySelector(':scope > ul');
+      var section = false;
+
+      try {
+        section = this.item.querySelector(':scope > ul');
+      } catch (err) {
+        section = this.item.lastElementChild;
+      }
+
       var sectionID = section.getAttribute('id'); // If there isnt an ID on the element add one.
 
       if (!elemID) {
@@ -6038,8 +6061,21 @@ function (_EventAbstract) {
     value: function exec() {
       var shifted = event.shiftKey;
       var node = null;
-      var firstItem = this.masterNav.elem.querySelector('a');
-      var lastItem = this.masterNav.elem.querySelector(':scope > ul > li:last-child'); // If shift key is held.
+      var firstItem = false;
+      var lastItem = false;
+
+      try {
+        firstItem = this.masterNav.elem.querySelector('a');
+      } catch (err) {
+        firstItem = this.masterNav.elem.firstElementChild;
+      }
+
+      try {
+        lastItem = this.masterNav.elem.querySelector(':scope > ul > li:last-child');
+      } catch (err) {
+        lastItem = this.masterNav.elem.lastElementChild.lastElementChild;
+      } // If shift key is held.
+
 
       if (shifted) {
         node = this.getElement('prev');

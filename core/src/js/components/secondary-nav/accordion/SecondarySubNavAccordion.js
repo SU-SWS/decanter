@@ -135,7 +135,15 @@ export default class SecondarySubNavAccordion {
   initAccessibility() {
     var elementIndex = Array.from(this.item.parentNode.children).indexOf(this.item);
     var elemID = this.elem.getAttribute('id');
-    var section = this.item.querySelector(':scope > ul');
+    var section = false;
+
+    try {
+      section = this.item.querySelector(':scope > ul');
+    }
+    catch(err) {
+      section = this.item.lastElementChild;
+    }
+
     var sectionID = section.getAttribute('id');
 
     // If there isnt an ID on the element add one.
