@@ -94,7 +94,7 @@ export default class SecondaryNavAccordion extends SecondaryNavAbstract {
     document.addEventListener('preOpenSubnav', event => {
       this.subNavItems.forEach(
         (subnav, index) => {
-          if (!subnav.hasOwnPropery('item')) {
+          if (typeof subnav.item == undefined) {
             return;
           }
 

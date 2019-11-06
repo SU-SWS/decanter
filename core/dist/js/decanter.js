@@ -3176,7 +3176,7 @@ function (_SecondaryNavAbstract) {
       // Clicking anywhere outside of attached nav closes all the children.
       document.addEventListener('preOpenSubnav', function (event) {
         _this2.subNavItems.forEach(function (subnav, index) {
-          if (!subnav.hasOwnPropery('item')) {
+          if (_typeof(subnav.item) == undefined) {
             return;
           }
 
@@ -3875,7 +3875,7 @@ function (_SecondaryNavAbstract) {
       // Clicking anywhere outside of attached nav closes all the children.
       document.addEventListener('preOpenSubnav', function (event) {
         _this2.subNavItems.forEach(function (subnav, index) {
-          if (!subnav.hasOwnPropery('item')) {
+          if (_typeof(subnav.item) == undefined) {
             return;
           }
 
