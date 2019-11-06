@@ -63,7 +63,7 @@ export default class SubNavToggle {
   }
 
   /**
-   * [getDepth description]
+   * Gets the current depth.
    * @return {[type]} [description]
    */
   getDepth() {

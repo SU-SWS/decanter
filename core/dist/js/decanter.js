@@ -1907,9 +1907,7 @@ function (_SecondarySubNavButto) {
      * @return {Object} A key/value registry of events and handlers.
      */
     value: function createEventRegistry(options) {
-      var registryDefaults = _get(_getPrototypeOf(MultiSubNavButtons.prototype), "createEventRegistry", this).call(this, options);
-
-      console.log(options); // If we are the first level (top) we need to adjust for mobile vs desktop.
+      var registryDefaults = _get(_getPrototypeOf(MultiSubNavButtons.prototype), "createEventRegistry", this).call(this, options); // If we are the first level (top) we need to adjust for mobile vs desktop.
       // if (this.getDepth() == 1) {
       //   registryDefaults = Object.assign(registryDefaults, {
       //     onKeydownArrowRight: OnArrowRightLV1,
@@ -1922,6 +1920,7 @@ function (_SecondarySubNavButto) {
       //     onKeydownArrowLeft: OnArrowLeftLV2
       //   });
       // }
+
 
       return registryDefaults;
     }
@@ -3972,7 +3971,7 @@ function () {
       return Object.assign(registryDefaults, options.eventRegistry);
     }
     /**
-     * [getDepth description]
+     * Gets the current depth.
      * @return {[type]} [description]
      */
 
