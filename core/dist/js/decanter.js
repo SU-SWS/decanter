@@ -1052,6 +1052,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MultiNavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MultiNavItem */ "./core/src/js/components/multi-menu/accordion/MultiNavItem.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1101,7 +1103,7 @@ function (_SecondaryNavAccordio) {
       expand: false
     }; // Merge in defaults.
 
-    options = Object.assign(defaultOptions, options); // Kick it.
+    options = _extends(defaultOptions, options); // Kick it.
 
     return _possibleConstructorReturn(this, _getPrototypeOf(MultiMenuAccordion).call(this, elem, options));
   }
@@ -1119,9 +1121,10 @@ function (_SecondaryNavAccordio) {
   _createClass(MultiMenuAccordion, [{
     key: "newParentItem",
     value: function newParentItem(item, depth, parent) {
-      var opts = Object.assign(this.options, {
+      var opts = _extends(this.options, {
         depth: depth
       });
+
       var nav = new _MultiSubNavAccordion__WEBPACK_IMPORTED_MODULE_1__["default"](item, this, parent, opts);
       this.subNavItems.push(nav);
       return nav;
@@ -1139,9 +1142,10 @@ function (_SecondaryNavAccordio) {
   }, {
     key: "newNavItem",
     value: function newNavItem(item, depth, parent) {
-      var opts = Object.assign(this.options, {
+      var opts = _extends(this.options, {
         depth: depth
       });
+
       var nav = new _MultiNavItem__WEBPACK_IMPORTED_MODULE_2__["default"](item, this, parent, opts);
       this.navItems.push(nav);
       return nav;
@@ -1168,6 +1172,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _secondary_nav_common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../secondary-nav/common/SecondaryNavItem */ "./core/src/js/components/secondary-nav/common/SecondaryNavItem.js");
 /* harmony import */ var _events_OnArrowLeftLV2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events/OnArrowLeftLV2 */ "./core/src/js/components/multi-menu/accordion/events/OnArrowLeftLV2.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1225,7 +1231,7 @@ function (_SecondaryNavItem) {
       var registryDefaults = _get(_getPrototypeOf(MultiNavItem.prototype), "createEventRegistry", this).call(this, options);
 
       if (this.getDepth() === 2) {
-        registryDefaults = Object.assign(registryDefaults, {
+        registryDefaults = _extends(registryDefaults, {
           onKeydownArrowLeft: _events_OnArrowLeftLV2__WEBPACK_IMPORTED_MODULE_1__["default"]
         });
       }
@@ -1256,6 +1262,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _events_OnArrowDownLV1__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./events/OnArrowDownLV1 */ "./core/src/js/components/multi-menu/accordion/events/OnArrowDownLV1.js");
 /* harmony import */ var _events_OnArrowLeftLV2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./events/OnArrowLeftLV2 */ "./core/src/js/components/multi-menu/accordion/events/OnArrowLeftLV2.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1316,14 +1324,14 @@ function (_SecondarySubNavAccor) {
 
 
       if (this.getDepth() === 1) {
-        registryDefaults = Object.assign(registryDefaults, {
+        registryDefaults = _extends(registryDefaults, {
           onKeydownArrowRight: _events_OnArrowRightLV1__WEBPACK_IMPORTED_MODULE_1__["default"],
           onKeydownArrowDown: _events_OnArrowDownLV1__WEBPACK_IMPORTED_MODULE_2__["default"]
         });
       }
 
       if (this.getDepth() === 2) {
-        registryDefaults = Object.assign(registryDefaults, {
+        registryDefaults = _extends(registryDefaults, {
           onKeydownArrowLeft: _events_OnArrowLeftLV2__WEBPACK_IMPORTED_MODULE_3__["default"]
         });
       }
@@ -1635,6 +1643,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MultiNavItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MultiNavItem */ "./core/src/js/components/multi-menu/buttons/MultiNavItem.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1684,7 +1694,7 @@ function (_SecondaryNavButtons) {
       expand: false
     }; // Merge in defaults.
 
-    options = Object.assign(defaultOptions, options); // Kick it.
+    options = _extends(defaultOptions, options); // Kick it.
 
     return _possibleConstructorReturn(this, _getPrototypeOf(MultiMenuButtons).call(this, elem, options));
   }
@@ -1702,9 +1712,10 @@ function (_SecondaryNavButtons) {
   _createClass(MultiMenuButtons, [{
     key: "newParentItem",
     value: function newParentItem(item, depth, parent) {
-      var opts = Object.assign(this.options, {
+      var opts = _extends(this.options, {
         depth: depth
       });
+
       var nav = new _MultiSubNavButtons__WEBPACK_IMPORTED_MODULE_1__["default"](item, this, parent, opts);
       this.subNavItems.push(nav);
       return nav;
@@ -1722,9 +1733,10 @@ function (_SecondaryNavButtons) {
   }, {
     key: "newNavItem",
     value: function newNavItem(item, depth, parent) {
-      var opts = Object.assign(this.options, {
+      var opts = _extends(this.options, {
         depth: depth
       });
+
       var nav = new _MultiNavItem__WEBPACK_IMPORTED_MODULE_2__["default"](item, this, parent, opts);
       this.navItems.push(nav);
       return nav;
@@ -1751,6 +1763,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _secondary_nav_common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../secondary-nav/common/SecondaryNavItem */ "./core/src/js/components/secondary-nav/common/SecondaryNavItem.js");
 /* harmony import */ var _events_OnArrowLeftLV1__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events/OnArrowLeftLV1 */ "./core/src/js/components/multi-menu/buttons/events/OnArrowLeftLV1.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1808,7 +1822,7 @@ function (_SecondaryNavItem) {
       var registryDefaults = _get(_getPrototypeOf(MultiNavItem.prototype), "createEventRegistry", this).call(this, {});
 
       if (this.getDepth() === 1) {
-        registryDefaults = Object.assign(registryDefaults, {
+        registryDefaults = _extends(registryDefaults, {
           onKeydownArrowLeft: _events_OnArrowLeftLV1__WEBPACK_IMPORTED_MODULE_1__["default"]
         });
       }
@@ -1839,6 +1853,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _events_OnArrowLeftLV1__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./events/OnArrowLeftLV1 */ "./core/src/js/components/multi-menu/buttons/events/OnArrowLeftLV1.js");
 /* harmony import */ var _events_OnArrowDownToggleLV1__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./events/OnArrowDownToggleLV1 */ "./core/src/js/components/multi-menu/buttons/events/OnArrowDownToggleLV1.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1899,7 +1915,7 @@ function (_SecondarySubNavButto) {
 
 
       if (this.getDepth() === 1) {
-        registryDefaults = Object.assign(registryDefaults, {
+        registryDefaults = _extends(registryDefaults, {
           onKeydownArrowLeft: _events_OnArrowLeftLV1__WEBPACK_IMPORTED_MODULE_2__["default"]
         });
       } // if (this.getDepth() == 2) {
@@ -1921,7 +1937,7 @@ function (_SecondarySubNavButto) {
       var options = this.options; // Overrides for level 1 desktop.
 
       if (this.getDepth() === 1) {
-        options.eventRegistry = Object.assign(options.eventRegistry, {
+        options.eventRegistry = _extends(options.eventRegistry, {
           onKeydownArrowRight: _events_OnArrowRightToggleLV1__WEBPACK_IMPORTED_MODULE_1__["default"],
           onKeydownArrowDown: _events_OnArrowDownToggleLV1__WEBPACK_IMPORTED_MODULE_3__["default"]
         });
@@ -2227,6 +2243,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return MobileToggle; });
 /* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../utilities/events */ "./core/src/js/utilities/events.js");
 /* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -2259,7 +2277,7 @@ function () {
     this.elem = element;
     this.nav = nav; // Merge options with defualts.
 
-    this.options = Object.assign({
+    this.options = _extends({
       toggleText: element.innerText || 'Open',
       closeText: 'Close',
       firstLevelSelector: ':scope > .su-multi-menu__menu'
@@ -3033,6 +3051,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SecondarySubNavAccordion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SecondarySubNavAccordion */ "./core/src/js/components/secondary-nav/accordion/SecondarySubNavAccordion.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -3133,9 +3153,10 @@ function (_SecondaryNavAbstract) {
   }, {
     key: "newNavItem",
     value: function newNavItem(item, depth, parent) {
-      var opts = Object.assign(this.options, {
+      var opts = _extends(this.options, {
         depth: depth
       });
+
       var nav = new _common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_1__["default"](item, this, parent, opts);
       this.navItems.push(nav);
       return nav;
@@ -3195,6 +3216,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./events/OnArrowRight */ "./core/src/js/components/secondary-nav/accordion/events/OnArrowRight.js");
 /* harmony import */ var _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../common/events/OnArrowDown */ "./core/src/js/components/secondary-nav/common/events/OnArrowDown.js");
 /* harmony import */ var _events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./events/OnArrowLeft */ "./core/src/js/components/secondary-nav/accordion/events/OnArrowLeft.js");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -3262,7 +3285,7 @@ function () {
       data: this.item
     }); // Merge in defaults.
 
-    this.options = Object.assign({
+    this.options = _extends({
       itemExpandedClass: 'su-secondary-nav__item--expanded'
     }, options); // Assign the event dispatcher and event registry.
 
@@ -3299,7 +3322,7 @@ function () {
         onKeydownArrowDown: _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_10__["default"],
         onKeydownArrowLeft: _events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_11__["default"]
       };
-      return Object.assign(registryDefaults, options.eventRegistry);
+      return _extends(registryDefaults, options.eventRegistry);
     }
     /**
      * Is this expanded? Can only return TRUE if this is a subnav trigger.
@@ -3707,6 +3730,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _SecondarySubNavButtons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SecondarySubNavButtons */ "./core/src/js/components/secondary-nav/buttons/SecondarySubNavButtons.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -3749,7 +3774,7 @@ function (_SecondaryNavAbstract) {
     _classCallCheck(this, SecondaryNavButtons);
 
     // Merge with the default options.
-    options = Object.assign({
+    options = _extends({
       itemExpandedClass: 'su-secondary-nav__item--expanded',
       toggleClass: 'su-nav-toggle',
       toggleLabel: 'expand menu',
@@ -3800,10 +3825,11 @@ function (_SecondaryNavAbstract) {
   }, {
     key: "newParentItem",
     value: function newParentItem(item, depth, parent) {
-      var opts = Object.assign(this.options, {
+      var opts = _extends(this.options, {
         itemExpandedClass: this.options.itemExpandedClass,
         depth: depth
       });
+
       var nav = new _SecondarySubNavButtons__WEBPACK_IMPORTED_MODULE_2__["default"](item, this, parent, opts);
       this.subNavItems.push(nav);
       return nav;
@@ -3882,6 +3908,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./events/OnArrowRight */ "./core/src/js/components/secondary-nav/buttons/events/OnArrowRight.js");
 /* harmony import */ var _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../common/events/OnArrowDown */ "./core/src/js/components/secondary-nav/common/events/OnArrowDown.js");
 /* harmony import */ var _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../common/events/OnArrowLeft */ "./core/src/js/components/secondary-nav/common/events/OnArrowLeft.js");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -3949,7 +3977,7 @@ function () {
       data: this.item
     }); // Merge in defaults.
 
-    this.options = Object.assign({
+    this.options = _extends({
       itemExpandedClass: 'su-secondary-nav__item--expanded',
       toggleClass: 'su-nav-toggle',
       toggleLabel: 'expand menu',
@@ -4003,7 +4031,7 @@ function () {
         onKeydownArrowDown: _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_10__["default"],
         onKeydownArrowLeft: _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_11__["default"]
       };
-      return Object.assign(registryDefaults, options.eventRegistry);
+      return _extends(registryDefaults, options.eventRegistry);
     }
     /**
      * Create and a button for the expand/collapse actions.
@@ -4135,6 +4163,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _common_events_OnHome__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/events/OnHome */ "./core/src/js/components/secondary-nav/common/events/OnHome.js");
 /* harmony import */ var _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/events/OnEnd */ "./core/src/js/components/secondary-nav/common/events/OnEnd.js");
 /* harmony import */ var _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/events/OnEsc */ "./core/src/js/components/secondary-nav/common/events/OnEsc.js");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -4204,7 +4234,7 @@ function () {
         onKeydownArrowDown: _events_SubNavToggleArrowDown__WEBPACK_IMPORTED_MODULE_3__["default"],
         onKeydownArrowLeft: _events_SubNavToggleArrowLeft__WEBPACK_IMPORTED_MODULE_4__["default"]
       };
-      return Object.assign(registryDefaults, options.eventRegistry);
+      return _extends(registryDefaults, options.eventRegistry);
     }
     /**
      * Gets the current depth.
@@ -4765,6 +4795,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../nav/EventHandlerDispatch */ "./core/src/js/components/nav/EventHandlerDispatch.js");
 /* harmony import */ var _events_OnEsc__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./events/OnEsc */ "./core/src/js/components/secondary-nav/common/events/OnEsc.js");
 /* harmony import */ var _events_OnSpace__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./events/OnSpace */ "./core/src/js/components/secondary-nav/common/events/OnSpace.js");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -4810,7 +4842,7 @@ function () {
       expand: true
     }; // Merge with passed in options.
 
-    this.options = Object.assign(defaultOptions, options); // Remove the no-js class and add an ID.
+    this.options = _extends(defaultOptions, options); // Remove the no-js class and add an ID.
 
     this.elem.classList.remove('no-js');
 
@@ -4875,7 +4907,7 @@ function () {
         onKeydownEscape: _events_OnEsc__WEBPACK_IMPORTED_MODULE_2__["default"],
         onKeydownSpace: _events_OnSpace__WEBPACK_IMPORTED_MODULE_3__["default"]
       };
-      return Object.assign(registryDefaults, options.eventRegistry);
+      return _extends(registryDefaults, options.eventRegistry);
     }
     /**
      * Kickoff method for generating single and multi-tier nav instances.
@@ -5007,6 +5039,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _events_OnEnter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./events/OnEnter */ "./core/src/js/components/secondary-nav/common/events/OnEnter.js");
 /* harmony import */ var _events_OnSpace__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./events/OnSpace */ "./core/src/js/components/secondary-nav/common/events/OnSpace.js");
 /* harmony import */ var _events_OnTab__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./events/OnTab */ "./core/src/js/components/secondary-nav/common/events/OnTab.js");
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -5082,7 +5116,7 @@ function () {
         onKeydownArrowDown: _events_OnArrowDown__WEBPACK_IMPORTED_MODULE_1__["default"],
         onKeydownArrowLeft: _events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_2__["default"]
       };
-      return Object.assign(registryDefaults, options.eventRegistry);
+      return _extends(registryDefaults, options.eventRegistry);
     }
     /**
      * Get the level of nesting for this nav.
