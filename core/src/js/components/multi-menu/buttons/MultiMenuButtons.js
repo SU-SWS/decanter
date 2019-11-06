@@ -2,6 +2,8 @@ import SecondaryNavAbstract from '../../secondary-nav/common/SecondaryNavAbstrac
 import SecondaryNavItem from '../../secondary-nav/common/SecondaryNavItem';
 import SecondaryNavButtons from '../../secondary-nav/buttons/SecondaryNavButtons';
 import SecondarySubNavButtons from '../../secondary-nav/buttons/SecondarySubNavButtons';
+import MultiSubNavButtons from './MultiSubNavButtons';
+import MultiNavItem from './MultiNavItem';
 
 /**
  * A secondary menu with toggle buttons.
@@ -31,4 +33,46 @@ export default class MultiMenuButtons extends SecondaryNavButtons {
     // Kick it.
     super(elem, options);
   }
+  /**
+   * Function for creating a new nested navigation item.
+   *
+   * @param  {HTMLElement} item     The HTMLElement to attach a new subnav to.
+   * @param  {Integer} depth        The level of nesting. (starts at 1)
+   * @param  {Object|Mixed} parent  The parent subnav instance.
+   *
+   * @return {SecondarySubNavAccordion} A brand new instance.
+   */
+  newParentItem(item, depth, parent) {
+    var opts = Object.assign(this.options, {depth: depth});
+    var nav = new MultiSubNavButtons(
+      item,
+      this,
+      parent,
+      opts
+    );
+    this.subNavItems.push(nav);
+    return nav;
+  }
+
+  /**
+   * Function for creating a new nested navigation item.
+   *
+   * @param  {HTMLElement} item     The HTMLElement to attach a new subnav to.
+   * @param  {Integer} depth        The level of nesting. (starts at 1)
+   * @param  {Object|Mixed} parent  The parent subnav instance.
+   *
+   * @return {SecondarySubNavAccordion} A brand new instance.
+   */
+  newNavItem(item, depth, parent) {
+    var opts = Object.assign(this.options, {depth: depth});
+    var nav = new MultiNavItem(
+      item,
+      this,
+      parent,
+      opts
+    );
+    this.navItems.push(nav);
+    return nav;
+  }
+
 }
