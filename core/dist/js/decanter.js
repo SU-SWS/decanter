@@ -994,7 +994,6 @@ var closeAllMobileNavs = function closeAllMobileNavs() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ "./core/src/js/core/core.js");
-/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globals */ "./core/src/js/components/main-nav/globals.js");
 /* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
 
@@ -2481,7 +2480,6 @@ var multiMenus = document.querySelectorAll('.' + multiMenuClass);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ "./core/src/js/core/core.js");
-/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _common_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/globals */ "./core/src/js/components/multi-menu/common/globals.js");
 /* harmony import */ var _accordion_MultiMenuAccordion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./accordion/MultiMenuAccordion */ "./core/src/js/components/multi-menu/accordion/MultiMenuAccordion.js");
 /* harmony import */ var _common_MobileToggle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./common/MobileToggle */ "./core/src/js/components/multi-menu/common/MobileToggle.js");
@@ -2514,7 +2512,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ "./core/src/js/core/core.js");
-/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _common_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/globals */ "./core/src/js/components/multi-menu/common/globals.js");
 /* harmony import */ var _buttons_MultiMenuButtons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./buttons/MultiMenuButtons */ "./core/src/js/components/multi-menu/buttons/MultiMenuButtons.js");
 /* harmony import */ var _common_MobileToggle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./common/MobileToggle */ "./core/src/js/components/multi-menu/common/MobileToggle.js");
@@ -2546,9 +2543,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _multi_menu_accordion_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./multi-menu-accordion.js */ "./core/src/js/components/multi-menu/multi-menu-accordion.js");
-/* harmony import */ var _multi_menu_buttons_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./multi-menu-buttons.js */ "./core/src/js/components/multi-menu/multi-menu-buttons.js");
+/* harmony import */ var _core_core_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core.js */ "./core/src/js/core/core.js");
+/* harmony import */ var _multi_menu_accordion_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./multi-menu-accordion.js */ "./core/src/js/components/multi-menu/multi-menu-accordion.js");
+/* harmony import */ var _multi_menu_buttons_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./multi-menu-buttons.js */ "./core/src/js/components/multi-menu/multi-menu-buttons.js");
 // Get'm
+
 
 
 
@@ -6115,7 +6114,6 @@ var secondaryNavs = document.querySelectorAll('.' + secondaryNavClass);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ "./core/src/js/core/core.js");
-/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _common_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/globals */ "./core/src/js/components/secondary-nav/common/globals.js");
 /* harmony import */ var _accordion_SecondaryNavAccordion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./accordion/SecondaryNavAccordion */ "./core/src/js/components/secondary-nav/accordion/SecondaryNavAccordion.js");
 
@@ -6142,7 +6140,6 @@ document.addEventListener('DOMContentLoaded', function (event) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ "./core/src/js/core/core.js");
-/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _common_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/globals */ "./core/src/js/components/secondary-nav/common/globals.js");
 /* harmony import */ var _buttons_SecondaryNavButtons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./buttons/SecondaryNavButtons */ "./core/src/js/components/secondary-nav/buttons/SecondaryNavButtons.js");
 
@@ -6167,9 +6164,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _secondary_nav_accordion_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./secondary-nav-accordion.js */ "./core/src/js/components/secondary-nav/secondary-nav-accordion.js");
-/* harmony import */ var _secondary_nav_buttons_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./secondary-nav-buttons.js */ "./core/src/js/components/secondary-nav/secondary-nav-buttons.js");
+/* harmony import */ var _core_core_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core.js */ "./core/src/js/core/core.js");
+/* harmony import */ var _secondary_nav_accordion_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./secondary-nav-accordion.js */ "./core/src/js/components/secondary-nav/secondary-nav-accordion.js");
+/* harmony import */ var _secondary_nav_buttons_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./secondary-nav-buttons.js */ "./core/src/js/components/secondary-nav/secondary-nav-buttons.js");
 // Get'm
+
 
 
 
@@ -6179,11 +6178,17 @@ __webpack_require__.r(__webpack_exports__);
 /*!**********************************!*\
   !*** ./core/src/js/core/core.js ***!
   \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var element_qsa_scope__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! element-qsa-scope */ "./node_modules/element-qsa-scope/index.js");
+/* harmony import */ var element_qsa_scope__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(element_qsa_scope__WEBPACK_IMPORTED_MODULE_0__);
 // if NodeList doesn't support forEach, use Array's forEach()
-NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEach;
+NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEach; // Polyfill - :scope in IE/Edge.
+
+
 
 /***/ }),
 
@@ -6338,6 +6343,88 @@ var normalizeKey = function normalizeKey(theKey) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./node_modules/element-qsa-scope/index.js":
+/*!*************************************************!*\
+  !*** ./node_modules/element-qsa-scope/index.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+try {
+	// test for scope support
+	document.querySelector(':scope *');
+} catch (error) {
+	(function (ElementPrototype) {
+		// scope regex
+		var scope = /:scope(?![\w-])/gi;
+
+		// polyfill Element#querySelector
+		var querySelectorWithScope = polyfill(ElementPrototype.querySelector);
+
+		ElementPrototype.querySelector = function querySelector(selectors) {
+			return querySelectorWithScope.apply(this, arguments);
+		};
+
+		// polyfill Element#querySelectorAll
+		var querySelectorAllWithScope = polyfill(ElementPrototype.querySelectorAll);
+
+		ElementPrototype.querySelectorAll = function querySelectorAll(selectors) {
+			return querySelectorAllWithScope.apply(this, arguments);
+		};
+
+		// polyfill Element#matches
+		if (ElementPrototype.matches) {
+			var matchesWithScope = polyfill(ElementPrototype.matches);
+
+			ElementPrototype.matches = function matches(selectors) {
+				return matchesWithScope.apply(this, arguments);
+			};
+		}
+
+		// polyfill Element#closest
+		if (ElementPrototype.closest) {
+			var closestWithScope = polyfill(ElementPrototype.closest);
+
+			ElementPrototype.closest = function closest(selectors) {
+				return closestWithScope.apply(this, arguments);
+			};
+		}
+
+		function polyfill(qsa) {
+			return function (selectors) {
+				// whether the selectors contain :scope
+				var hasScope = selectors && scope.test(selectors);
+
+				if (hasScope) {
+					// fallback attribute
+					var attr = 'q' + Math.floor(Math.random() * 9000000) + 1000000;
+
+					// replace :scope with the fallback attribute
+					arguments[0] = selectors.replace(scope, '[' + attr + ']');
+
+					// add the fallback attribute
+					this.setAttribute(attr, '');
+
+					// results of the qsa
+					var elementOrNodeList = qsa.apply(this, arguments);
+
+					// remove the fallback attribute
+					this.removeAttribute(attr);
+
+					// return the results of the qsa
+					return elementOrNodeList;
+				} else {
+					// return the results of the qsa
+					return qsa.apply(this, arguments);
+				}
+			};
+		}
+	})(Element.prototype);
+}
+
 
 /***/ })
 
