@@ -47,6 +47,14 @@
   .su-multi-menu__menu-lv1 {
     // Top Level Parent Items.
     > .su-multi-menu__item--parent {
+      @include grid-media('lg') {
+        &:hover {
+          > .su-multi-menu__menu {
+            display: none;
+          }
+        }
+      }
+
       > .su-multi-menu__link {
         &::after {
           // Desktop Styles.
@@ -67,6 +75,15 @@
 
     // Top level expanded.
     > .su-multi-menu__item--expanded {
+
+      @include grid-media('lg') {
+        &:hover {
+          > .su-multi-menu__menu {
+            display: flex;
+          }
+        }
+      }
+
       > .su-multi-menu__link {
         &::after {
           @include grid-media('lg') {

@@ -11107,7 +11107,11 @@ a {
       -webkit-transform: scaleX(1);
               transform: scaleX(1);
       visibility: visible;
-      background-color: #b1040e; } }
+      background-color: #b1040e; }
+    .su-multi-menu__menu-lv1 > .su-multi-menu__item:hover > .su-multi-menu__menu {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex; } }
 
 @media only screen and (min-width: 992px) {
   .su-multi-menu__menu-lv2 {
@@ -11120,8 +11124,10 @@ a {
     position: absolute;
     max-width: 30rem; } }
 
-.su-multi-menu__item--parent > .su-multi-menu__menu {
-  display: none; }
+.su-multi-menu__item--parent {
+  position: relative; }
+  .su-multi-menu__item--parent > .su-multi-menu__menu {
+    display: none; }
 
 .su-multi-menu__item--expanded > .su-multi-menu__menu {
   display: -webkit-box;
@@ -11177,6 +11183,11 @@ a {
   transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out; }
 
 @media only screen and (min-width: 992px) {
+  .su-multi-menu--accordion .su-multi-menu__menu-lv1 > .su-multi-menu__item--parent:hover > .su-multi-menu__menu,
+  .su-multi-menu--accordion-dark .su-multi-menu__menu-lv1 > .su-multi-menu__item--parent:hover > .su-multi-menu__menu {
+    display: none; } }
+
+@media only screen and (min-width: 992px) {
   .su-multi-menu--accordion .su-multi-menu__menu-lv1 > .su-multi-menu__item--parent > .su-multi-menu__link::after,
   .su-multi-menu--accordion-dark .su-multi-menu__menu-lv1 > .su-multi-menu__item--parent > .su-multi-menu__link::after {
     margin-bottom: 1px;
@@ -11192,6 +11203,13 @@ a {
     transition: -webkit-transform 0.3s ease-out;
     transition: transform 0.3s ease-out;
     transition: transform 0.3s ease-out, -webkit-transform 0.3s ease-out; } }
+
+@media only screen and (min-width: 992px) {
+  .su-multi-menu--accordion .su-multi-menu__menu-lv1 > .su-multi-menu__item--expanded:hover > .su-multi-menu__menu,
+  .su-multi-menu--accordion-dark .su-multi-menu__menu-lv1 > .su-multi-menu__item--expanded:hover > .su-multi-menu__menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; } }
 
 @media only screen and (min-width: 992px) {
   .su-multi-menu--accordion .su-multi-menu__menu-lv1 > .su-multi-menu__item--expanded > .su-multi-menu__link::after,

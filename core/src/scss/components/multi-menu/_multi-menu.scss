@@ -186,6 +186,12 @@
           }
         }
       }
+
+      &:hover {
+        > .su-multi-menu__menu {
+          display: flex;
+        }
+      }
     }
   } // End of media-lg.
 } // End of .su-multi-menu__menu-lv1
@@ -214,6 +220,7 @@
 // Items with children
 // -----------------------------------------------------------------------
 .su-multi-menu__item--parent {
+  position: relative;
   // Hide the drop downs by default.
   > .su-multi-menu__menu {
     display: none;
