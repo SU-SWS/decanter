@@ -1,4 +1,5 @@
 import EventAbstract from '../../../secondary-nav/common/events/EventAbstract';
+import SubNavToggleClick from '../../../secondary-nav/buttons/events/SubNavToggleClick';
 
 /**
  * OnArrowLeft
@@ -23,21 +24,16 @@ export default class OnClickToggleLV1 extends EventAbstract {
    * Handle the events for desktop sized screens.
    */
   handleDesktop() {
-    try {
-      this.event.preventDefault();
-      var node = this.elem.parentElement.querySelector(":scope > a");
-      node.click();
-    }
-    catch (err) {
-      this.handleMobile();
-    }
+    this.event.preventDefault();
+    var node = this.parentNav.elem.click();
   }
 
   /**
    * Handle the events for mobile sized screens.
    */
   handleMobile() {
-    console.log();
+    var clickEvent = new SubNavToggleClick(this.item, this.event, this.target);
+    clickEvent.init();
   }
 
 }

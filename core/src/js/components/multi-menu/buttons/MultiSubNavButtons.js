@@ -39,14 +39,15 @@ export default class MultiSubNavButtons extends SecondarySubNavButtons {
    * Initialize the toggle button.
    */
   initToggleButton() {
-    var options = this.options;
+    var options = {};
 
     // Overrides for level 1 desktop.
     if (this.getDepth() === 1) {
-      options.eventRegistry = Object.assign(options.eventRegistry, {
+      options.eventRegistry = {
         onKeydownArrowRight: OnArrowRightToggleLV1,
-        onKeydownArrowDown: OnArrowDownToggleLV1
-      });
+        onKeydownArrowDown: OnArrowDownToggleLV1,
+        onClick: OnClickToggleLV1
+      };
     }
 
     // Do eet.
