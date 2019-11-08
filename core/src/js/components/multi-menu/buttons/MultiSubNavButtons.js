@@ -2,6 +2,7 @@ import SecondarySubNavButtons from '../../secondary-nav/buttons/SecondarySubNavB
 import OnArrowRightToggleLV1 from './events/OnArrowRightToggleLV1';
 import OnArrowLeftLV1 from './events/OnArrowLeftLV1';
 import OnArrowDownToggleLV1 from './events/OnArrowDownToggleLV1';
+import OnClickToggleLV1 from './events/OnClickToggleLV1';
 
 /**
  * SecondarySubNavAccordion Class
@@ -50,7 +51,8 @@ export default class MultiSubNavButtons extends SecondarySubNavButtons {
     if (this.getDepth() === 1) {
       options.eventRegistry = Object.assign(options.eventRegistry, {
         onKeydownArrowRight: OnArrowRightToggleLV1,
-        onKeydownArrowDown: OnArrowDownToggleLV1
+        onKeydownArrowDown: OnArrowDownToggleLV1,
+        onClick: OnClickToggleLV1
       });
     }
 

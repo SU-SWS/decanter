@@ -1851,6 +1851,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _events_OnArrowRightToggleLV1__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events/OnArrowRightToggleLV1 */ "./core/src/js/components/multi-menu/buttons/events/OnArrowRightToggleLV1.js");
 /* harmony import */ var _events_OnArrowLeftLV1__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./events/OnArrowLeftLV1 */ "./core/src/js/components/multi-menu/buttons/events/OnArrowLeftLV1.js");
 /* harmony import */ var _events_OnArrowDownToggleLV1__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./events/OnArrowDownToggleLV1 */ "./core/src/js/components/multi-menu/buttons/events/OnArrowDownToggleLV1.js");
+/* harmony import */ var _events_OnClickToggleLV1__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./events/OnClickToggleLV1 */ "./core/src/js/components/multi-menu/buttons/events/OnClickToggleLV1.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
@@ -1874,6 +1875,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -1938,7 +1940,8 @@ function (_SecondarySubNavButto) {
       if (this.getDepth() === 1) {
         options.eventRegistry = _extends(options.eventRegistry, {
           onKeydownArrowRight: _events_OnArrowRightToggleLV1__WEBPACK_IMPORTED_MODULE_1__["default"],
-          onKeydownArrowDown: _events_OnArrowDownToggleLV1__WEBPACK_IMPORTED_MODULE_3__["default"]
+          onKeydownArrowDown: _events_OnArrowDownToggleLV1__WEBPACK_IMPORTED_MODULE_3__["default"],
+          onClick: _events_OnClickToggleLV1__WEBPACK_IMPORTED_MODULE_4__["default"]
         });
       } // Do eet.
 
@@ -2224,6 +2227,99 @@ function (_EventAbstract) {
   }]);
 
   return OnArrowRightToggleLV1;
+}(_secondary_nav_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/multi-menu/buttons/events/OnClickToggleLV1.js":
+/*!******************************************************************************!*\
+  !*** ./core/src/js/components/multi-menu/buttons/events/OnClickToggleLV1.js ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnClickToggleLV1; });
+/* harmony import */ var _secondary_nav_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../secondary-nav/common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+
+/**
+ * OnArrowLeft
+ *
+ * Event action handler class.
+ */
+
+var OnClickToggleLV1 =
+/*#__PURE__*/
+function (_EventAbstract) {
+  _inherits(OnClickToggleLV1, _EventAbstract);
+
+  function OnClickToggleLV1() {
+    _classCallCheck(this, OnClickToggleLV1);
+
+    return _possibleConstructorReturn(this, _getPrototypeOf(OnClickToggleLV1).apply(this, arguments));
+  }
+
+  _createClass(OnClickToggleLV1, [{
+    key: "exec",
+
+    /**
+     * Execute the action to the event.
+     */
+    value: function exec() {
+      if (this.isDesktop()) {
+        this.handleDesktop();
+      } else {
+        this.handleMobile();
+      }
+    }
+    /**
+     * Handle the events for desktop sized screens.
+     */
+
+  }, {
+    key: "handleDesktop",
+    value: function handleDesktop() {
+      try {
+        var node = this.elem.parentElement.querySelector(":scope > a");
+        node.click();
+      } catch (err) {
+        this.handleMobile();
+      }
+    }
+    /**
+     * Handle the events for mobile sized screens.
+     */
+
+  }, {
+    key: "handleMobile",
+    value: function handleMobile() {
+      var expandEvent = new SubNavToggleSpace(this.item, this.event, this.target);
+      expandEvent.init();
+    }
+  }]);
+
+  return OnClickToggleLV1;
 }(_secondary_nav_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
 
 
