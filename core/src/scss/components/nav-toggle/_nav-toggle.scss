@@ -11,18 +11,21 @@
 // Style guide: Components.Nav Toggle
 //
 
+$_toggle_width: 49px;
+$_toggle_height: 56px;
+$_circle_diameter: 36px;
+
 .su-nav-toggle {
   @include margin(0);
-  @include padding(15px 28px);
   vertical-align: middle;
   text-align: center;
   font-size: 0;
   text-indent: -9999px;
   overflow: hidden;
-  width: 49px;
-  max-width: 49px;
-  height: 61px;
-  line-height: 61px;
+  width: $_toggle_width;
+  max-width: $_toggle_width;
+  height: $_toggle_height;
+  line-height: $_toggle_height;
   position: absolute;
   right: 0;
   top: 0;
@@ -36,12 +39,12 @@
     background: color(border--expanded, $su-secondary-nav-colors) url("#{$su-image-path}/caret-down-white.svg") no-repeat center / 50%;
     background-size: 15px;
     border-radius: 19px;
-    height: 38px;
-    width: 38px;
+    height: $_circle_diameter;
+    width: $_circle_diameter;
     display: block;
     position: absolute;
-    top: calc(50% - 19px);
-    right: calc(50% - 19px);
+    top: percentage(((1 - ($_circle_diameter/$_toggle_height)) / 2));
+    right: percentage(((1 - ($_circle_diameter/$_toggle_width)) / 2));
   }
 
   &:focus,
