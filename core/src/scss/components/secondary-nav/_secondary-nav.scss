@@ -78,9 +78,15 @@
 
 // First level items
 // ---------------------------------------------------------------------------
-// .su-secondary-nav__menu-lv1 {
-// // Nothing to see here.
-// }
+.su-secondary-nav__menu-lv1 {
+  > .su-secondary-nav__item {
+    &:first-child {
+      > .su-secondary-nav__link {
+        border-top: 0;
+      }
+    }
+  }
+}
 
 // Secondary Level Items
 // ---------------------------------------------------------------------------
