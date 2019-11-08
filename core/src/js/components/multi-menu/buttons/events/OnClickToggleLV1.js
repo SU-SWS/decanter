@@ -37,8 +37,7 @@ export default class OnClickToggleLV1 extends EventAbstract {
    * Handle the events for mobile sized screens.
    */
   handleMobile() {
-    var expandEvent = new SubNavToggleSpace(this.item, this.event, this.target);
-    expandEvent.init();
+    console.log();
   }
 
 }

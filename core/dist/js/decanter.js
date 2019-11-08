@@ -1935,8 +1935,7 @@ function (_SecondarySubNavButto) {
       if (this.getDepth() === 1) {
         options.eventRegistry = _extends(options.eventRegistry, {
           onKeydownArrowRight: _events_OnArrowRightToggleLV1__WEBPACK_IMPORTED_MODULE_1__["default"],
-          onKeydownArrowDown: _events_OnArrowDownToggleLV1__WEBPACK_IMPORTED_MODULE_3__["default"],
-          onClick: _events_OnClickToggleLV1__WEBPACK_IMPORTED_MODULE_4__["default"]
+          onKeydownArrowDown: _events_OnArrowDownToggleLV1__WEBPACK_IMPORTED_MODULE_3__["default"]
         });
       } // Do eet.
 
@@ -2310,8 +2309,7 @@ function (_EventAbstract) {
   }, {
     key: "handleMobile",
     value: function handleMobile() {
-      var expandEvent = new SubNavToggleSpace(this.item, this.event, this.target);
-      expandEvent.init();
+      console.log();
     }
   }]);
 

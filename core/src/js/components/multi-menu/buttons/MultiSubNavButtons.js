@@ -45,8 +45,7 @@ export default class MultiSubNavButtons extends SecondarySubNavButtons {
     if (this.getDepth() === 1) {
       options.eventRegistry = Object.assign(options.eventRegistry, {
         onKeydownArrowRight: OnArrowRightToggleLV1,
-        onKeydownArrowDown: OnArrowDownToggleLV1,
-        onClick: OnClickToggleLV1
+        onKeydownArrowDown: OnArrowDownToggleLV1
       });
     }
 
