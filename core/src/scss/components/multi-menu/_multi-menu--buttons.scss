@@ -8,32 +8,6 @@
     position: relative;
   }
 
-  // Toggles.
-  .su-nav-toggle {
-    background-color: transparent;
-
-    &::before {
-      background-color: transparent;
-    }
-
-    &:hover,
-    &:focus {
-      background-color: transparent;
-
-      &::before {
-        animation: hoverboard 0.75s infinite;
-        background-color: transparent;
-        background-image: url("#{$su-image-path}/caret-down-white.svg");
-      }
-    }
-
-    &[aria-expanded="true"] {
-      &::before {
-        background-image: url("#{$su-image-path}/caret-down-white.svg");
-      }
-    }
-  }
-
   // Menu Level 1 (top)
   .su-multi-menu__menu-lv1 {
     // Top Level Parent Items.
@@ -62,6 +36,7 @@
           max-height: 55px;
 
           &::before {
+            background-color: transparent;
             background-image: url("#{$su-image-path}/caret-down-black.svg");
             transition: transform 0.3s ease-out, left 0.3s ease-out, right 0.3s ease-out;
           }
