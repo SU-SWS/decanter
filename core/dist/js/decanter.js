@@ -1919,12 +1919,7 @@ function (_SecondarySubNavButto) {
         registryDefaults = _extends(registryDefaults, {
           onKeydownArrowLeft: _events_OnArrowLeftLV1__WEBPACK_IMPORTED_MODULE_2__["default"]
         });
-      } // if (this.getDepth() == 2) {
-      //   registryDefaults = Object.assign(registryDefaults, {
-      //     onKeydownArrowLeft: OnArrowLeftLV2
-      //   });
-      // }
-
+      }
 
       return registryDefaults;
     }
@@ -2301,6 +2296,7 @@ function (_EventAbstract) {
     key: "handleDesktop",
     value: function handleDesktop() {
       try {
+        this.event.preventDefault();
         var node = this.elem.parentElement.querySelector(":scope > a");
         node.click();
       } catch (err) {

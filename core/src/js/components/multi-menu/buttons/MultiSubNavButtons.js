@@ -32,12 +32,6 @@ export default class MultiSubNavButtons extends SecondarySubNavButtons {
       });
     }
 
-    // if (this.getDepth() == 2) {
-    //   registryDefaults = Object.assign(registryDefaults, {
-    //     onKeydownArrowLeft: OnArrowLeftLV2
-    //   });
-    // }
-
     return registryDefaults;
   }
 

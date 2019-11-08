@@ -24,6 +24,7 @@ export default class OnClickToggleLV1 extends EventAbstract {
    */
   handleDesktop() {
     try {
+      this.event.preventDefault();
       var node = this.elem.parentElement.querySelector(":scope > a");
       node.click();
     }
