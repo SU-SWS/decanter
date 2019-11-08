@@ -140,7 +140,7 @@ export default class SecondarySubNavAccordion {
     try {
       section = this.item.querySelector(':scope > ul');
     }
-    catch(err) {
+    catch (err) {
       section = this.item.lastElementChild;
     }
 
