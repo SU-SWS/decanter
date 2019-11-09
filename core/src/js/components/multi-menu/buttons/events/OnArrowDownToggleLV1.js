@@ -24,6 +24,7 @@ export default class OnArrowDownToggleLV1 extends EventAbstract {
    * Handle the events for desktop sized screens.
    */
   handleDesktop() {
+    this.event.preventDefault();
     this.parentNav.openSubNav();
     this.getElement('firstSubnavLink').focus();
   }

@@ -2021,6 +2021,7 @@ function (_EventAbstract) {
   }, {
     key: "handleDesktop",
     value: function handleDesktop() {
+      this.event.preventDefault();
       this.parentNav.openSubNav();
       this.getElement('firstSubnavLink').focus();
     }
@@ -2112,6 +2113,7 @@ function (_EventAbstract) {
   }, {
     key: "handleDesktop",
     value: function handleDesktop() {
+      this.event.preventDefault();
       var element = this.getElement('prevToggle') || this.getElement('prev') || this.getElement('lastToggle') || this.getElement('last');
       element.focus();
     }
@@ -2203,6 +2205,8 @@ function (_EventAbstract) {
   }, {
     key: "handleDesktop",
     value: function handleDesktop() {
+      this.event.preventDefault();
+
       if (this.getElement('next')) {
         this.getElement('next').focus();
       } else {
@@ -2298,7 +2302,9 @@ function (_EventAbstract) {
     key: "handleDesktop",
     value: function handleDesktop() {
       this.event.preventDefault();
-      var node = this.parentNav.elem.click();
+      var node = this.parentNav.elem;
+      node.focus();
+      node.click();
     }
     /**
      * Handle the events for mobile sized screens.

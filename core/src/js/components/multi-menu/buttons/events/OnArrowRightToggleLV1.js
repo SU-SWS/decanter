@@ -24,6 +24,7 @@ export default class OnArrowRightToggleLV1 extends EventAbstract {
    * Handle the events for desktop sized screens.
    */
   handleDesktop() {
+    this.event.preventDefault();
     if (this.getElement('next')) {
       this.getElement('next').focus();
     }

@@ -24,6 +24,7 @@ export default class OnArrowLeftLV1 extends EventAbstract {
    * Handle the events for desktop sized screens.
    */
   handleDesktop() {
+    this.event.preventDefault();
     var element =
       this.getElement('prevToggle') ||
       this.getElement('prev') ||

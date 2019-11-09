@@ -25,7 +25,9 @@ export default class OnClickToggleLV1 extends EventAbstract {
    */
   handleDesktop() {
     this.event.preventDefault();
-    var node = this.parentNav.elem.click();
+    var node = this.parentNav.elem;
+    node.focus();
+    node.click();
   }
 
   /**
