@@ -50,6 +50,18 @@
           &[aria-expanded="true"] {
             transition: transform 0.3s ease-out, left 0.3s ease-out, right 0.3s ease-out;
           }
+
+          &:focus {
+            &:before {
+              top: 12px;
+              background-image: url("#{$su-image-path}/caret-down-white.svg");
+              background-color: $su-color-vivid-red;
+              height: 28px;
+              width: 24px;
+              left: 3px;
+              border-radius: 18px;
+            }
+          }
         }
       }
     } // end top level parent items.
