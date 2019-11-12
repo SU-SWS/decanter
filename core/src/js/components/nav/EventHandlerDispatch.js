@@ -12,7 +12,7 @@ export default class EventHandlerDispatch {
    * Initialize.
    *
    * @param {HTMLElement} element   The HTMLElement to bind listeners to.
-   * @param {[type]}      handler   The Javascript Class instance with the
+   * @param {type}      handler   The Javascript Class instance with the
    *                                eventRegistry property.
    */
   constructor(element, handler) {

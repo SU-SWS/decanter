@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/secondary-nav/common/SecondaryNavAbstract.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/secondary-nav/common/SecondaryNavAbstract.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import ActivePath from '../../nav/ActivePath';
+import EventHandlerDispatch from '../../nav/EventHandlerDispatch';
+import OnEsc from './events/OnEsc';
+import OnSpace from './events/OnSpace';
+
+/**
+ * SecondaryNav Class
+ *
+ * The most abstract version of a SecondaryNav. All Nav types should extend
+ * this class in order to have a psuedo interface and default methods.
+ */
+export default class SecondaryNavAbstract {
+
+  /**
+   * Nav Abstract Constructor class.
+   *
+   * @param {HTMLElement} element    The html element to use as the parent for the nav list.
+   * @param {Object} options      An object with key value pairs of configuration options.
+   */
+  constructor(element, options = {}) {
+    // What HTML element this is bound to.
+    this.elem = element;
+
+    // Set some default options.
+    var defaultOptions = {
+      itemClass: 'su-secondary-nav__item',
+      itemExpandedClass: 'su-secondary-nav__item--expanded',
+      itemActiveClass: 'su-secondary-nav__item--current',
+      itemActiveTrailClass: 'su-secondary-nav__item--active-trail',
+      itemParentClass: 'su-secondary-nav__item--parent',
+      eventRegistry: {}
+    };
+
+    // Merge with passed in options.
+    this.options = Object.assign(defaultOptions, options);
+
+    // Remove the no-js class.
+    this.elem.classList.remove('no-js');
+
+    // Assign the event dispatcher and event registry.
+    this.eventRegistry = this.createEventRegistry(options);
+    this.dispatch = new EventHandlerDispatch(element, this);
+
+    // Handle the active state.
+    this.activePath = new ActivePath(element, this, this.options);
+    this.activePath.setActivePath();
+
+    // Helper Item Variables.
+    this.navItems = [];
+    this.subNavItems = [];
+    this.parentItemSelector = ':scope > ul > .' + this.options.itemParentClass;
+    this.navItemSelector = ':scope > ul > .' + this.options.itemClass + ':not(.' + this.options.itemParentClass + ')';
+  }
+
+  /**
+   * Add the additional state handling after the abstract option has run.
+   *
+   * @param  {HTMLElement} item The HTMLElement being acted upon.
+   */
+  expandActivePathItem(item) {
+    // For any additional items outside of the core functions.
+  }
+
+  /**
+   * Creates an event registry for handling types of events.
+   *
+   * This registry is used by the EventHandlerDispatch class to bind and
+   * execute the events in the created property key.
+   *
+   * @param  {Object} options Options to merge in with the defaults.
+   *
+   * @return {Object} A key/value registry of events and handlers.
+   */
+  createEventRegistry(options) {
+
+    var registryDefaults = {
+      onKeydownEscape: OnEsc,
+      onKeydownSpace: OnSpace
+    };
+
+    return Object.assign(registryDefaults, options.eventRegistry);
+  }
+
+  /**
+   * Kickoff method for generating single and multi-tier nav instances.
+   */
+  createSubNavItems() {
+
+    // Find all the single and multi-tier items.
+    var parentItems = this.elem.querySelectorAll(this.parentItemSelector);
+    var leafItems = this.elem.querySelectorAll(this.navItemSelector);
+
+    // Sub Nav Items.
+    if (parentItems.length >= 1) {
+      this.createParentItems(parentItems);
+    }
+
+    // Regular Ol Items.
+    if (leafItems.length >= 1) {
+      this.createNavItems(leafItems);
+    }
+  }
+
+  /**
+   * Recursive loop for creating nested navigation instances.
+   *
+   * @param  {NodeList} items A set of sibling parent menu items.
+   * @param  {Number} depth The current depth of recursion.
+   * @param  {Object|Mixed} parentMenu The instance of the parent menu.
+   */
+  createParentItems(items, depth = 1, parentMenu = null) {
+    items.forEach(
+      item => {
+        var itemLink = item.querySelector('a');
+        var parentItems = item.querySelectorAll(this.parentItemSelector);
+        var leafItems = item.querySelectorAll(this.navItemSelector);
+        var nextDepth = depth + 1;
+        var parentNav = null;
+
+        // If we have a link add to it.
+        if (itemLink) {
+          parentNav = this.newParentItem(itemLink, depth, parentMenu);
+        }
+
+        // Nested Sub Nav Items.
+        if (parentItems.length >= 1) {
+          this.createParentItems(parentItems, nextDepth, parentNav);
+        }
+
+        // Nested Nav Items.
+        if (leafItems.length >= 1) {
+          this.createNavItems(leafItems, nextDepth, parentNav);
+        }
+      }
+    );
+  }
+
+  /**
+   * Recursive loop for creating single level navigation instances.
+   *
+   * @param  {NodeList} items A set of sibling parent menu items.
+   * @param  {Number} depth The current depth of recursion.
+   * @param  {Object|Mixed} parentMenu The instance of the parent menu.
+   */
+  createNavItems(items, depth = 1, parentMenu = null) {
+    items.forEach(
+      item => {
+        var itemLink = item.querySelector('a');
+        if (itemLink) {
+          this.newNavItem(itemLink, depth, parentMenu);
+        }
+      }
+    );
+  }
+
+  /**
+   * Close all subNavItems in this Nav.
+   */
+  closeAllSubNavs() {
+    this.subNavItems.forEach(
+      (item, event) => {
+        item.closeSubNav();
+      }
+    );
+  }
+
+  /**
+   * Close only this subnav.
+   */
+  closeSubNav() {
+    this.closeAllSubNavs();
+  }
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#callEvent">callEvent</a></li><li><a href="global.html#closeAllMobileNavs">closeAllMobileNavs</a></li><li><a href="global.html#closeAllSubNavs">closeAllSubNavs</a></li><li><a href="global.html#closeMobileNav">closeMobileNav</a></li><li><a href="global.html#closeSubNav">closeSubNav</a></li><li><a href="global.html#createEvent">createEvent</a></li><li><a href="global.html#createEventListeners">createEventListeners</a></li><li><a href="global.html#createEventRegistry">createEventRegistry</a></li><li><a href="global.html#createNavItems">createNavItems</a></li><li><a href="global.html#createParentItems">createParentItems</a></li><li><a href="global.html#createSubNavItems">createSubNavItems</a></li><li><a href="global.html#createToggleButton">createToggleButton</a></li><li><a href="global.html#exec">exec</a></li><li><a href="global.html#expandActivePath">expandActivePath</a></li><li><a href="global.html#expandActivePathItem">expandActivePathItem</a></li><li><a href="global.html#fetch">fetch</a></li><li><a href="global.html#firstLevelLeft">firstLevelLeft</a></li><li><a href="global.html#focusOn">focusOn</a></li><li><a href="global.html#getDepth">getDepth</a></li><li><a href="global.html#getElement">getElement</a></li><li><a href="global.html#getFirstItem">getFirstItem</a></li><li><a href="global.html#getFirstLink">getFirstLink</a></li><li><a href="global.html#getLastItem">getLastItem</a></li><li><a href="global.html#getLastLink">getLastLink</a></li><li><a href="global.html#getParentNav">getParentNav</a></li><li><a href="global.html#getTopNav">getTopNav</a></li><li><a href="global.html#handleEvent">handleEvent</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#isDesktopNav">isDesktopNav</a></li><li><a href="global.html#isExpanded">isExpanded</a></li><li><a href="global.html#isFirstItem">isFirstItem</a></li><li><a href="global.html#isLastItem">isLastItem</a></li><li><a href="global.html#isOnTarget">isOnTarget</a></li><li><a href="global.html#isSubNav">isSubNav</a></li><li><a href="global.html#isSubNavItem">isSubNavItem</a></li><li><a href="global.html#isSubNavTrigger">isSubNavTrigger</a></li><li><a href="global.html#isTopNav">isTopNav</a></li><li><a href="global.html#nestedLeft">nestedLeft</a></li><li><a href="global.html#newNavItem">newNavItem</a></li><li><a href="global.html#newParentItem">newParentItem</a></li><li><a href="global.html#normalizeKey">normalizeKey</a></li><li><a href="global.html#onClick">onClick</a></li><li><a href="global.html#onKeydown">onKeydown</a></li><li><a href="global.html#openMobileNav">openMobileNav</a></li><li><a href="global.html#openSubNav">openSubNav</a></li><li><a href="global.html#setActivePath">setActivePath</a></li><li><a href="global.html#setExpanded">setExpanded</a></li><li><a href="global.html#theNavs">theNavs</a></li><li><a href="global.html#theSubNavs">theSubNavs</a></li><li><a href="global.html#validate">validate</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Tue Nov 12 2019 00:10:48 GMT-0800 (Pacific Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

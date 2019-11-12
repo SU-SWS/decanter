@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/nav/EventHandlerDispatch.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/nav/EventHandlerDispatch.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {normalizeKey} from '../../utilities/keyboard';
+
+/**
+ * EventHandlerDispatch Class
+ *
+ * This class provides dynamic handling of click and keyboard events and can be
+ * attached to any class/HTMLElement.
+ */
+export default class EventHandlerDispatch {
+
+  /**
+   * Initialize.
+   *
+   * @param {HTMLElement} element   The HTMLElement to bind listeners to.
+   * @param {type}      handler   The Javascript Class instance with the
+   *                                eventRegistry property.
+   */
+  constructor(element, handler) {
+    this.elem = element;
+    this.handler = handler;
+    this.createEventListeners();
+  }
+
+  /**
+   * Create new event listeners.
+   */
+  createEventListeners() {
+    // What to do when a key is down?
+    this.elem.addEventListener('keydown', this);
+
+    // Listen to the click so we can act on it.
+    this.elem.addEventListener('click', this);
+
+    // Listen to custom events so we can act on it.
+    this.elem.addEventListener('preOpenSubnav', this);
+
+    // Listen to custom events so we can act on it.
+    this.elem.addEventListener('postOpenSubnav', this);
+  }
+
+  /**
+   * Handler for all events attached to an instance of this class.
+   *
+   * This method must exist when events are bound to an instance of a class
+   * (vs a function). This method is called for all events bound to an
+   * instance. It inspects the instance (this) for an appropriate handler
+   * based on the event type. If found, it dispatches the event to the
+   * appropriate handler.
+   *
+   * @param {Event} event - The triggering event.
+   */
+  handleEvent(event) {
+    event = event || window.event;
+
+    // Create an event signature.
+    const eventMethod = 'on'
+      + event.type.charAt(0).toUpperCase()
+      + event.type.slice(1);
+
+    // What was clicked.
+    const target = event.target || event.srcElement;
+
+    if (eventMethod === 'onKeydown') {
+      this.onKeydown(event, target);
+    }
+    else if (eventMethod === 'onClick') {
+      this.onClick(event, target);
+    }
+    else {
+      this.callEvent(eventMethod, event, target);
+    }
+  }
+
+  /**
+   * Handler for keydown events.
+   *
+   * @param {KeyboardEvent} event - The keyboard event object.
+   * @param {HTMLElement} target  - The HTML element target.
+   */
+  onKeydown(event, target) {
+    let theKey = event.key || event.keyCode;
+    let normalized = normalizeKey(theKey);
+
+    // We don't know or need to handle the key that was pressed.
+    if (!normalized) {
+      return;
+    }
+
+    // Prepare a dynamic handler.
+    let eventMethod = 'onKeydown'
+      + normalized.charAt(0).toUpperCase()
+      + normalized.slice(1);
+
+    // Do eet.
+    this.callEvent(eventMethod, event, target);
+  }
+
+  /**
+   * Handler for click events.
+   *
+   * @param  {Event} event  A Javascript event.
+   * @param  {HTMLElement} target The target of the event.
+   */
+  onClick(event, target) {
+    this.callEvent('onClick', event, target);
+  }
+
+  /**
+   * The event handler
+   *
+   * Initializes and executes an object to handle the Javascript Event as
+   * defined by the handlers eventRegistry.
+   *
+   * @param  {String} eventMethod A string key for the eventRegistry;
+   * @param  {Event} event        The Javascript event.
+   * @param  {HTMLElement} target The DOM object that the event is triggered on.
+   */
+  callEvent(eventMethod, event, target) {
+    if (typeof this.handler.eventRegistry[eventMethod] === 'function') {
+      var eventObj = new this.handler.eventRegistry[eventMethod](this.handler, event, target);
+      eventObj.init();
+    }
+  }
+
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#callEvent">callEvent</a></li><li><a href="global.html#closeAllMobileNavs">closeAllMobileNavs</a></li><li><a href="global.html#closeAllSubNavs">closeAllSubNavs</a></li><li><a href="global.html#closeMobileNav">closeMobileNav</a></li><li><a href="global.html#closeSubNav">closeSubNav</a></li><li><a href="global.html#createEvent">createEvent</a></li><li><a href="global.html#createEventListeners">createEventListeners</a></li><li><a href="global.html#createEventRegistry">createEventRegistry</a></li><li><a href="global.html#createNavItems">createNavItems</a></li><li><a href="global.html#createParentItems">createParentItems</a></li><li><a href="global.html#createSubNavItems">createSubNavItems</a></li><li><a href="global.html#createToggleButton">createToggleButton</a></li><li><a href="global.html#exec">exec</a></li><li><a href="global.html#expandActivePath">expandActivePath</a></li><li><a href="global.html#expandActivePathItem">expandActivePathItem</a></li><li><a href="global.html#fetch">fetch</a></li><li><a href="global.html#firstLevelLeft">firstLevelLeft</a></li><li><a href="global.html#focusOn">focusOn</a></li><li><a href="global.html#getDepth">getDepth</a></li><li><a href="global.html#getElement">getElement</a></li><li><a href="global.html#getFirstItem">getFirstItem</a></li><li><a href="global.html#getFirstLink">getFirstLink</a></li><li><a href="global.html#getLastItem">getLastItem</a></li><li><a href="global.html#getLastLink">getLastLink</a></li><li><a href="global.html#getParentNav">getParentNav</a></li><li><a href="global.html#getTopNav">getTopNav</a></li><li><a href="global.html#handleEvent">handleEvent</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#isDesktopNav">isDesktopNav</a></li><li><a href="global.html#isExpanded">isExpanded</a></li><li><a href="global.html#isFirstItem">isFirstItem</a></li><li><a href="global.html#isLastItem">isLastItem</a></li><li><a href="global.html#isOnTarget">isOnTarget</a></li><li><a href="global.html#isSubNav">isSubNav</a></li><li><a href="global.html#isSubNavItem">isSubNavItem</a></li><li><a href="global.html#isSubNavTrigger">isSubNavTrigger</a></li><li><a href="global.html#isTopNav">isTopNav</a></li><li><a href="global.html#nestedLeft">nestedLeft</a></li><li><a href="global.html#newNavItem">newNavItem</a></li><li><a href="global.html#newParentItem">newParentItem</a></li><li><a href="global.html#normalizeKey">normalizeKey</a></li><li><a href="global.html#onClick">onClick</a></li><li><a href="global.html#onKeydown">onKeydown</a></li><li><a href="global.html#openMobileNav">openMobileNav</a></li><li><a href="global.html#openSubNav">openSubNav</a></li><li><a href="global.html#setActivePath">setActivePath</a></li><li><a href="global.html#setExpanded">setExpanded</a></li><li><a href="global.html#theNavs">theNavs</a></li><li><a href="global.html#theSubNavs">theSubNavs</a></li><li><a href="global.html#validate">validate</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Tue Nov 12 2019 00:10:48 GMT-0800 (Pacific Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

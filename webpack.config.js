@@ -55,7 +55,7 @@ module.exports = {
   devtool: 'source-map',
   // Live dev server!
   devServer: {
-    contentBase: path.join(__dirname, 'styleguide/dist'),
+    contentBase: path.join(__dirname, 'styleguide'),
     compress: true,
     port: 9000
   },

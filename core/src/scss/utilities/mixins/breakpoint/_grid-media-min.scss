@@ -1,16 +1,16 @@
 @charset "UTF-8";
 
 //
-// @su-grid-media-max($name, $breakpoints: $su-grid-screens)
+/// @su-grid-media-max($name, $breakpoints: $su-grid-screens)
 //
-// Media query of at least the minimum breakpoint width.
-// No query for the smallest breakpoint.
-// Applies to the passed through breakpoint and above.
+/// Media query of at least the minimum breakpoint width.
+/// No query for the smallest breakpoint.
+/// Applies to the passed through breakpoint and above.
 //
-// $name - The breakpoint key code eg: 'sm'
-// $breakpoints - A map of each of the screen breakpoint sizes.
+/// $name - The breakpoint key code eg: 'sm'
+/// $breakpoints - A map of each of the screen breakpoint sizes.
 //
-// Style guide: Mixins.Breakpoint.su-grid-media-min
+/// Style guide: Mixins.Breakpoint.su-grid-media-min
 @mixin grid-media-min($name, $breakpoints: $su-grid-screens) {
   $min: breakpoint-min($name, $breakpoints);
   @if $min {

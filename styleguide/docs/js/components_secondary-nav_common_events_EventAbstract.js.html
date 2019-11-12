@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/secondary-nav/common/events/EventAbstract.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/secondary-nav/common/events/EventAbstract.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import ElementFetcher from '../../../nav/ElementFetcher';
+
+/**
+ * EventAbstract
+ *
+ * An abstract class for creating an interface for working with the
+ * EventHandlerDispatch class. This is the signature for all instances
+ * that are evoked through the eventRegistry.
+ */
+export default class EventAbstract {
+
+  /**
+   * Initialize.
+   *
+   * @param {Object|Mixed} item The javascript object instance that this is bound to.
+   * @param {KeyboardEvent|MouseEvent} event - The event object.
+   * @param {HTMLElement} target  - The HTML element target.
+   */
+  constructor(item, event, target) {
+    this.item = item;
+    this.elem = item.elem;
+    this.masterNav = item.masterNav;
+    this.parentNav = item.parentNav;
+    this.target = target;
+    this.event = event;
+  }
+
+  /**
+   * A validation shorcut that should pass before running exec().
+   *
+   * @return {Boolean} Wether or not the event target is what this instance is bound to.
+   */
+  isOnTarget() {
+    // Check to see if the event target is what this instance is bound to.
+    if (this.target === this.elem) {
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * A validation method that should pass before running exec().
+   *
+   * @return {Boolean} Wether or not validation passes.
+   */
+  validate() {
+    // Only act on me.
+    if (!this.isOnTarget()) {
+      return false;
+    }
+    return true;
+  }
+
+  /**
+   * Interface method.
+   *
+   * When evoking this abstract instance you should use this method as your
+   * iterface for calling the action.
+   */
+  init() {
+    if (this.validate()) {
+      this.exec();
+    }
+  }
+
+  /**
+   * Shortcut function to find a DOM element.
+   *
+   * This is a helper function that uses a ElementFetcher instance to navigate
+   * and traverse the DOM relative to the current context.
+   *
+   * @param  {String} what A keyword for what we are trying to find.
+   * @param  {HTMLElement} context The relative starting location for the finder.
+   * @return {Boolean|HTMLElement} False if not found or an HTMLElement.
+   */
+  getElement(what, context = this.elem.parentNode) {
+    var fetcher = new ElementFetcher(context, what);
+    return fetcher.fetch();
+  }
+
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module.exports.html">exports</a></li></ul><h3>Global</h3><ul><li><a href="global.html#callEvent">callEvent</a></li><li><a href="global.html#closeAllMobileNavs">closeAllMobileNavs</a></li><li><a href="global.html#closeAllSubNavs">closeAllSubNavs</a></li><li><a href="global.html#closeMobileNav">closeMobileNav</a></li><li><a href="global.html#closeSubNav">closeSubNav</a></li><li><a href="global.html#createEvent">createEvent</a></li><li><a href="global.html#createEventListeners">createEventListeners</a></li><li><a href="global.html#createEventRegistry">createEventRegistry</a></li><li><a href="global.html#createNavItems">createNavItems</a></li><li><a href="global.html#createParentItems">createParentItems</a></li><li><a href="global.html#createSubNavItems">createSubNavItems</a></li><li><a href="global.html#createToggleButton">createToggleButton</a></li><li><a href="global.html#exec">exec</a></li><li><a href="global.html#expandActivePath">expandActivePath</a></li><li><a href="global.html#expandActivePathItem">expandActivePathItem</a></li><li><a href="global.html#fetch">fetch</a></li><li><a href="global.html#firstLevelLeft">firstLevelLeft</a></li><li><a href="global.html#focusOn">focusOn</a></li><li><a href="global.html#getDepth">getDepth</a></li><li><a href="global.html#getElement">getElement</a></li><li><a href="global.html#getFirstItem">getFirstItem</a></li><li><a href="global.html#getFirstLink">getFirstLink</a></li><li><a href="global.html#getLastItem">getLastItem</a></li><li><a href="global.html#getLastLink">getLastLink</a></li><li><a href="global.html#getParentNav">getParentNav</a></li><li><a href="global.html#getTopNav">getTopNav</a></li><li><a href="global.html#handleEvent">handleEvent</a></li><li><a href="global.html#init">init</a></li><li><a href="global.html#isDesktopNav">isDesktopNav</a></li><li><a href="global.html#isExpanded">isExpanded</a></li><li><a href="global.html#isFirstItem">isFirstItem</a></li><li><a href="global.html#isLastItem">isLastItem</a></li><li><a href="global.html#isOnTarget">isOnTarget</a></li><li><a href="global.html#isSubNav">isSubNav</a></li><li><a href="global.html#isSubNavItem">isSubNavItem</a></li><li><a href="global.html#isSubNavTrigger">isSubNavTrigger</a></li><li><a href="global.html#isTopNav">isTopNav</a></li><li><a href="global.html#nestedLeft">nestedLeft</a></li><li><a href="global.html#newNavItem">newNavItem</a></li><li><a href="global.html#newParentItem">newParentItem</a></li><li><a href="global.html#normalizeKey">normalizeKey</a></li><li><a href="global.html#onClick">onClick</a></li><li><a href="global.html#onKeydown">onKeydown</a></li><li><a href="global.html#openMobileNav">openMobileNav</a></li><li><a href="global.html#openSubNav">openSubNav</a></li><li><a href="global.html#setActivePath">setActivePath</a></li><li><a href="global.html#setExpanded">setExpanded</a></li><li><a href="global.html#theNavs">theNavs</a></li><li><a href="global.html#theSubNavs">theSubNavs</a></li><li><a href="global.html#validate">validate</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Tue Nov 12 2019 00:10:48 GMT-0800 (Pacific Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
