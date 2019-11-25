@@ -1,15 +1,14 @@
 @charset "UTF-8";
 
 //
-// <del>%card-base</del>
+// @card
 //
-// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
-// Use mixin <code>@card</code> instead.
+// Mixin for base card styling
 //
-// Styleguide: Placeholders.Components.Card
+// Style guide: Mixins.Card.card
 //
 
-%card-base {
+@mixin card {
   @include box-shadow(shallow, 1px solid color(card-border));
   display: block;
   background-color: color(bg);
