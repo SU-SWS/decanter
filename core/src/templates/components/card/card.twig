@@ -90,7 +90,7 @@
         %}
       {% endif %}
     {% elseif 'su-card--embed' in modifier_class %}
-      {# Support for cards with en embedded media element, e.g., YouTube or Vimeo videos #}
+      {# Support for cards with an embedded media element, e.g., YouTube or Vimeo videos #}
       {% if card_media_custom is not empty %}
         {% include template_path_media with
           {
@@ -152,11 +152,12 @@
     {%- block block_card_headline  %}
       {%- if card_headline is not empty %}
         <h2>
-          {%- if card_allow_headline_link and allow_links -%}
+          {# The variable card_headline_link is deprecated and will be removed in v6, use card_allow_headline_link instead. #}
+          {%- if (card_allow_headline_link and allow_links) or (card_headline_link and allow_links) -%}
             <a href="{{ card_link }}" {{ card_cta_attributes }}>
           {%- endif -%}
           {{- card_headline -}}
-          {% if card_allow_headline_link and allow_links -%}
+          {% if (card_allow_headline_link and allow_links) or (card_headline_link and allow_links) -%}
             </a>
           {%- endif -%}
         </h2>

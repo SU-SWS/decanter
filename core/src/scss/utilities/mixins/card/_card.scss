@@ -8,7 +8,7 @@
 // Style guide: Mixins.Card.card
 //
 
-@mixin card {
+@mixin card($image-hover: 'zoom') {
   @include box-shadow(shallow, 1px solid color(card-border));
   display: block;
   background-color: color(bg);
@@ -93,6 +93,42 @@
       .su-button {
         // Overriding default button 100% width in xs.
         width: auto;
+      }
+    }
+  }
+
+  // Image hover effects
+  a {
+    @if ($image-hover == 'zoom') {
+      .su-media__wrapper {
+        img {
+          transition: transform 0.3s ease-in-out;
+        }
+      }
+
+      &:hover,
+      &:focus {
+        .su-media__wrapper {
+          img {
+            transform: scale(1.03);
+          }
+        }
+      }
+    }
+    @elseif ($image-hover == 'opacity') {
+      .su-media__wrapper {
+        img {
+          transition: opacity 0.3s ease-in-out;
+        }
+      }
+
+      &:hover,
+      &:focus {
+        .su-media__wrapper {
+          img {
+            opacity: 0.8;
+          }
+        }
       }
     }
   }
