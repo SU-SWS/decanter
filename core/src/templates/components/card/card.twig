@@ -169,33 +169,36 @@
       {{ card_body }}
     {% endblock -%}
 
-    {# Card CTA Link #}
-    {%- if card_cta_label is not empty and allow_links %}
-      {%- include template_path_link with
-        {
-          "link_href": card_link,
-          "link_content": card_cta_label,
-          "attributes": card_cta_attributes,
-          "modifier_class": "su-card__link su-link--action"
-        }
-        only
-      -%}
-    {% endif -%}
-
-    {# Big ol button. Adds a BEM class for targeting. #}
-    {%- if card_button_label is not empty and allow_links %}
-      <div class="su-card__button">
+    {# Block for CTA elements, e.g., link, button #}
+    {%- block block_card_cta %}
+      {# Card CTA Link #}
+      {%- if card_cta_label is not empty and allow_links %}
         {%- include template_path_link with
           {
             "link_href": card_link,
-            "link_content": card_button_label,
+            "link_content": card_cta_label,
             "attributes": card_cta_attributes,
-            "modifier_class": "su-button"
+            "modifier_class": "su-card__link su-link--action"
           }
           only
         -%}
-      </div>
-    {% endif -%}
+      {% endif -%}
+
+      {# Big ol link button. Adds a BEM class for targeting. #}
+      {%- if card_button_label is not empty and allow_links %}
+        <div class="su-card__button">
+          {%- include template_path_link with
+            {
+              "link_href": card_link,
+              "link_content": card_button_label,
+              "attributes": card_cta_attributes,
+              "modifier_class": "su-button"
+            }
+            only
+          -%}
+        </div>
+      {% endif -%}
+    {% endblock -%}
   </div>{# end of .su-card__contents #}
   {%- if allow_links == false %}
     </a>
