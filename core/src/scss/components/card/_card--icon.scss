@@ -18,11 +18,8 @@
       text-align: left;
 
       @include grid-media-only("xs") {
-        @include grid-column-gap($su-gutter-xs);
-        grid-template-columns: 64px 1fr;
-
         > img {
-          max-width: 60px;
+          display: none;
         }
       }
 
@@ -38,7 +35,7 @@
 
   img {
     @include margin(null auto);
-    max-width: 5em;
+    max-width: 10rem;
 
     @include grid-media-only("xs") {
       display: block;
