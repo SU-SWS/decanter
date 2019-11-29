@@ -8,11 +8,6 @@
   "scripts": {
     "build": "webpack --mode=development",
     "publish": "webpack --mode=production",
-    "jsdoc": "node build/scripts/jsdoc.js",
-    "sassdoc": "node build/scripts/sassdoc.js",
-    "kss": "node build/scripts/kss.js",
-    "gen": "node build/scripts/hexo.js",
-    "styleguide": "npm run build && npm run jsdoc && npm run sassdoc && npm run kss",
     "watch": "webpack --mode=development --watch",
     "start": "webpack-dev-server --mode=development --open",
     "eslint": "eslint -c .eslintrc 'core/src/'",
@@ -33,20 +28,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.11.2",
-    "bourbon": "^5.1",
-    "hexo": "^4.0.0",
-    "hexo-generator-archive": "^1.0.0",
-    "hexo-generator-category": "^1.0.0",
-    "hexo-generator-index": "^1.0.0",
-    "hexo-generator-tag": "^1.0.0",
-    "hexo-renderer-ejs": "^1.0.0",
-    "hexo-renderer-stylus": "^1.1.0",
-    "hexo-renderer-marked": "^2.0.0",
-    "hexo-server": "^1.0.0",
-    "jsdoc-api": "^5.0.4",
-    "kss": "^3.0.0-beta.25",
-    "sassdoc": "^2.7.1",
-    "twig": "^1.14.0"
+    "bourbon": "^5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",
