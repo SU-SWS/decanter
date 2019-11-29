@@ -1,3 +1,8 @@
-// Like Pokemon, you gotta get em all.
-import './core/src/js/decanter.js';
-import './core/src/scss/decanter.scss';
+var path = require("path");
+
+module.exports = {
+  includePaths: [
+    path.join(__dirname, "core/src/js"),
+    path.join(__dirname, "core/src/scss"),
+  ]
+};
