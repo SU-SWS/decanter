@@ -276,15 +276,16 @@
     @include fancy-hover(color(h-border--hover, $su-nav-colors), color(h-border--active, $su-nav-colors));
     @include padding(0 0 2rem);
     @include margin(0);
-    display: flex;
-    flex-direction: column-reverse;
     align-items: center;
-    outline: none;
-    width: 40px;
     background-color: transparent;
     color: color(h-link, $su-nav-colors);
+    display: flex;
+    flex-direction: column-reverse;
     font-size: 1.6rem;
+    font-weight: $su-font-regular;
     line-height: 0.7;
+    outline: none;
+    width: 40px;
 
     &::after {
       @include margin(0 auto);
