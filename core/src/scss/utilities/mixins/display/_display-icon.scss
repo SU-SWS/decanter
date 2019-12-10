@@ -1,21 +1,21 @@
 @charset "UTF-8";
 
-//
+///
 /// @display-icon($icon, $direction, $size, $margin, $hover)
-//
+///
 /// @TODO Needs to be documented. Should this be reworked for asset
 /// management purposes?
-//
+///
 ///  Usage: `@include display-icon($icon, $direction, $size, $margin, $hover);`
-//
+///
 ///  $icon       - todo
 ///  $direction  - todo
 ///  $size       - todo
 ///  $margin     - todo
 ///  $hover      - todo
-//
+///
 /// Style guide: Mixins.Display.display-icon
-//
+///
 @mixin display-icon($icon, $direction, $size, $margin, $hover) {
   &::#{$direction} {
     background-image: url('#{$su-image-path}/#{$icon}.png');

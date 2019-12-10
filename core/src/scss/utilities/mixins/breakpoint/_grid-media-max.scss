@@ -1,14 +1,14 @@
 @charset "UTF-8";
 
-//
+///
 /// @su-grid-media-max($name, $breakpoints: $su-grid-screens)
-//
+///
 /// Media query of at most the maximum breakpoint width. No query for the largest breakpoint.
 /// Applies to the passed through breakpoint and below.
-//
+///
 /// $name - The breakpoint key code eg: 'sm'
 /// $breakpoints - A map of each of the screen breakpoint sizes.
-//
+///
 /// Style guide: Mixins.Breakpoint.su-grid-media-max
 @mixin grid-media-max($name: 'xs', $breakpoints: $su-grid-screens) {
   $max: breakpoint-max($name, $breakpoints);
