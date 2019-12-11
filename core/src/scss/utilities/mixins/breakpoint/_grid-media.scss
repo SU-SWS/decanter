@@ -1,13 +1,12 @@
 @charset "UTF-8";
 
-///
-/// @su-grid-media($breakpoint: 'xs')
-///
 /// A helper to quickly generate a media query
 ///
-/// $breakpoint - The breakpoint shortcode. Eg: xs
+/// @name su-grid-media
 ///
-/// Style guide: Mixins.Breakpoint.su-grid-media
+/// @param {key code} $breakpoint - The breakpoint shortcode. Eg: xs
+///
+/// @group grids
 ///
 @mixin grid-media($breakpoint: 'xs') {
   @media #{map-get($su-grid-media, $breakpoint)} {
