@@ -1,8 +1,5 @@
 @charset "UTF-8";
 
-///
-/// @centering($horizontal, $vertical)
-///
 /// Mixin that uses absolute positioning and translate to center an element
 /// within a parent container no matter what the width of height of either are.
 ///
@@ -11,12 +8,13 @@
 /// There might be other ways to center elements, e.g., by using Flexbox and CSS grid.
 /// Please use the most appropriate method for your project.
 ///
-/// $horizontal - Boolean: Center horizontally if `true`. Default is `true`.
-/// $vertical - Boolean: Center vertically if `true`. Default is `true`.
+/// @name centering
 ///
-/// Style guide: Mixins.Layout.Centering
+/// @param {boolean} $horizontal - Center horizontally if `true`. Default is `true`.
+/// @param {boolean} $vertical - Center vertically if `true`. Default is `true`.
 ///
-
+/// @group layout
+///
 @mixin centering($horizontal: true, $vertical: true) {
   position: absolute;
 
