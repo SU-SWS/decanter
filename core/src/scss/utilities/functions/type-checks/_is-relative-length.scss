@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
-/// is-relative-length($value)
-//
+///
 /// Validates wether something is a relative length unit
-//
-/// $value - the value to type check
-//
-/// Style guide: Functions.Type Checks.is-relative-length
-//
+/// 
+/// @name is-relative-length
+///
+/// @param {Integer} $value - the value to type check
+///
+/// @group Type-checks
 @function is-relative-length($value) {
   @return is-number($value) and index('em' 'ex' 'ch' 'rem' 'vw' 'vh' 'vmin' 'vmax', unit($value)) != null;
 }
