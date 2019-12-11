@@ -1,14 +1,13 @@
 @charset "UTF-8";
 
-///
-/// @flex-grid-push($size: 1, $columns: $su-grid-columns)
-///
 /// Pushes a grid column by changing its left margin.
 ///
-/// $size - integer: The number of columns to 'push'
-/// $columns - integer: The number of columns in the grid.
+/// @name flex-grid-push
 ///
-/// Style guide: Mixins.Flex.flex-grid-push
+/// @param {integer} $size - The number of columns to 'push'
+/// @param {integer} $columns - The number of columns in the grid.
+///
+/// @group flexbox
 ///
 @mixin flex-grid-push($size: 1, $columns: $su-grid-columns) {
   $number: $size / $columns;
