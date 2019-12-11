@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
 ///
-/// breakpoint-insert
-///
 /// The $su-grid-screens map defined in the grid variables file is used as the
 /// $breakpoints argument by default.
 ///
 /// Returns the breakpoint name with a dash in front. If the smallest breakpoint
 /// (xs) is passed through, a blank string is returned.
+///
+/// @name breakpoint-insert
 ///
 /// @param {String} $name the key in the breakpoint map. eg: sm
 /// @param {Map} $breakpoints [$su-grid-screens] The breakpoint map
@@ -19,6 +19,7 @@
 /// breakpoint-insert(sm)
 /// Returns "-sm"
 ///
+/// @group breakpoint
 @function breakpoint-insert($name, $breakpoints: $su-grid-screens) {
   @return "-#{$name}";
 }

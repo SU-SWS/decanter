@@ -1,15 +1,14 @@
 @charset "UTF-8";
 
 ///
-/// flex-parse-columns($span)
-///
 /// Parse a column count like `3 of 5` and return the total column count.
 /// This is to allow a shorthand for custom grids without using a settings map.
 ///
-/// $span - list: something like `2 of 12`
+/// @name flex-parse-columns
 ///
-/// Style guide: Functions.Flex.flex-column-ratio
+/// @param {List} $span - something like `2 of 12`
 ///
+/// @group flex
 @function flex-parse-columns($span) {
   @if length($span) == 3 {
     $_total-columns: nth($span, 3);
