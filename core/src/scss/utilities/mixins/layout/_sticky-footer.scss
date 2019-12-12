@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+///
 /// Apply this mixin to the `<body>` tag only. It will set the body tag height to
 /// 100% and set it to `display: grid`. It will also set whatever element you specify
 /// with $selector to css grid's `align-self: flex-end;`. This will keep the footer
@@ -13,8 +14,6 @@
 /// @param {selector} $selector - ['> .site-footer'] the CSS selector used to target the footer
 ///
 /// @group layout
-///
-
 @mixin sticky-footer($selector: '> .site-footer') {
   @include padding(0);
   @include margin(0);

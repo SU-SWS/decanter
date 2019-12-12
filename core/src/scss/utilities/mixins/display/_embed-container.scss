@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+///
 /// Responsive embed container to ensure that contents scale to the
 /// width of parent element while retaining an aspect ratio of 16:9.
 ///
@@ -9,8 +10,6 @@
 /// @param {number} $width   - width in pixel integers
 ///
 /// @group display
-///
-
 @mixin embed-container($height, $width) {
   @include padding(null null percentage($height / $width));
   position: relative;

@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+///
 /// A helper to quickly generate a media query for single breakpoints.
 ///
 /// @name su-grid-media-only
@@ -7,8 +8,6 @@
 /// @param {key code} $breakpoint - The breakpoint key code eg: 'sm', or 'all' for all breakpoints.
 ///
 /// @group grids
-///
-
 @mixin grid-media-only($breakpoint: 'xs') {
   @if $breakpoint == 'all' {
     @each $id, $query in $su-grid-media-only {

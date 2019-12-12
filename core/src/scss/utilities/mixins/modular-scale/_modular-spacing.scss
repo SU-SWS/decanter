@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+///
 /// Modular Scale
 /// Mixins for modular scaling, a unitless system for returning font sizes or spacing (padding or margin) values.
 /// Our modular spacing system does not use the Bourbon modular-scale mixin. Instead we use a manual scale defined in variables/core/_modular-spacing.scss for finetuning.
@@ -20,8 +21,6 @@
 /// @param {list} $steps - List (1 to 4 values): Either integer (from -4 to 9 including 0) or null. Follows the shorthand notation of padding/margin. Use null to skip a side. A value of 0 returns the modular spacing base value for that breakpoint.
 ///
 /// @group modular-scale
-///
-
 @mixin modular-spacing($type: 'padding', $steps: 0, $grid: $su-grid-media) {
   /// Get a list of all breakpoint keys in $grid.
   $bp-list: map-keys($grid);

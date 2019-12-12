@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+///
 /// Media query that spans multiple breakpoint widths (between the min and max breakpoints).
 ///
 /// @name su-grid-media-between
@@ -9,8 +10,6 @@
 /// @param {map} $breakpoints - A map of each of the screen breakpoint sizes.
 ///
 /// @group grids
-///
-
 @mixin grid-media-between($lower: 'xs', $upper: 'sm', $breakpoints: $su-grid-screens) {
   $min: breakpoint-min($lower, $breakpoints);
   $max: breakpoint-max($upper, $breakpoints);

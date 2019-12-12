@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+///
 /// Centers a single cellin a container based on max width in breakpoints.
 ///
 /// @name centered-column
@@ -9,8 +10,6 @@
 /// @param {map} $margin - A sass map of screen size breakpoint screen edge margin sizes
 ///
 /// @group grids
-///
-
 @mixin centered-column($grid: $su-grid-media, $screens: $su-grid-screens, $margin: $su-screen-margins) {
   @include margin(0 auto);
   @each $code, $breakpoint in $grid {

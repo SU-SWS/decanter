@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+///
 /// Pushes a grid column by changing its left margin.
 ///
 /// @name flex-grid-push
@@ -8,8 +9,6 @@
 /// @param {integer} $columns - The number of columns in the grid.
 ///
 /// @group flexbox
-///
-
 @mixin flex-grid-push($size: 1, $columns: $su-grid-columns) {
   $number: $size / $columns;
   margin-left: if($number == 0, 0, percentage($number));
