@@ -1,12 +1,13 @@
 @charset "UTF-8";
 
-//
-/// @modular-typography-base
-//
+///
+/// Modular typography uses the Bourbon modular-scale mixin with base font sizes for each breakpoint
+/// and a modular-scale-ratio defined in variables/pre-vendor/_bourbon-overrides.scss.
 /// Set base font-size for <body> at each breakpoint to use with modular typography.
-//
-/// Style guide: Mixins.Modular.modular-typography-base
-//
+///
+/// @name modular-typography-base
+///
+/// @group modular-scale
 @mixin modular-typography-base($grid: $su-grid-media) {
   @each $key, $breakpoint in $grid {
     @include grid-media($key) {

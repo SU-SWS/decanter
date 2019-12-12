@@ -1,16 +1,14 @@
 @charset "UTF-8";
 
-//
-/// @su-grid-columns($columns)
-//
+///
 /// Mixin to render cssGrid template columns in all modern browsers, including IE11.
-//
-/// $columns - list: A value for grid-template-columns.
-/// $ie-autocolumn - boolean: True or False for wether to include the autocolumn
-/// mixin for IE rows.
-//
-/// Style guide: Mixins.Grid.su-grid-columns
-//
+///
+/// @name su-grid-columns
+///
+/// @param {list} $columns -  A value for grid-template-columns.
+/// @param {boolean} $ie-autocolumn - True or False for wether to include the autocolumn mixin for IE rows.
+///
+/// @group grids
 @mixin grid-columns($columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr, $ie-autocolumn: true) {
   -ms-grid-columns: $columns;
   grid-template-columns: $columns;

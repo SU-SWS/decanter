@@ -1,16 +1,15 @@
 @charset "UTF-8";
 
-//
-/// @responsive-su-grid-columns($grid-map, $gutters-map)
-//
+///
 /// A mixin to create a responsive grid layout.
-//
-/// $grid-map: A sass map with the columns per breakpoint.
-/// $gutters-map: A complimentary map to the $grid-map.
-/// $ie-fix-mobile: Set the mobile breakpoint to block for IE 11.
-//
-/// Styleguide: Mixins.Grid.responsive-su-grid-columns
-//
+///
+/// @name responsive-su-grid-columns
+///
+/// @param {map} $grid-map - A sass map with the columns per breakpoint.
+/// @param {map} $gutters-map - A complimentary map to the $grid-map.
+/// @param {bool} $ie-fix-mobile - Set the mobile breakpoint to block for IE 11.
+///
+/// @group grids
 @mixin responsive-grid-columns($grid-map: $su-responsive-columns-default, $gutters-map: $su-responsive-gutters-default, $ie-fix-mobile: true) {
   @include display-grid;
 

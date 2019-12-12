@@ -1,28 +1,26 @@
 @charset "UTF-8";
 
-//
-/// @modular-spacing
-//
+///
+/// Modular Scale
+/// Mixins for modular scaling, a unitless system for returning font sizes or spacing (padding or margin) values.
+/// Our modular spacing system does not use the Bourbon modular-scale mixin. Instead we use a manual scale defined in variables/core/_modular-spacing.scss for finetuning.
 /// A mixin for adding spacing (margin or padding) between elements or between an
 /// element and the edge of its container. The amount of spacing is returned
 /// using a unitless scaling system with a curated scale.
-//
 /// Please see core/scss/utilities/variables/core/_modular-spacing.scss for
 /// variable maps.
-//
-/// **Examples:**
-/// - `@include modular-spacing(3);`
-/// - `@include modular-spacing('padding', 2 null)`
-/// - `@include modular-spacing('margin', 0 -4 1 2)`
-//
-/// $type - String: Spacing type, either 'padding' or 'margin'.
-/// $steps - List (1 to 4 values): Either integer (from -4 to 9 including 0) or null.
-/// Follows the shorthand notation of padding/margin. Use null to skip a side.
-/// A value of 0 returns the modular spacing base value for that breakpoint.
-//
-/// Style guide: Mixins.Modular.modular-spacing
-//
-
+///
+/// @name modular-spacing
+///
+/// @example scss
+///   @include modular-spacing(3);
+///   @include modular-spacing('padding', 2 null);
+///   @include modular-spacing('margin', 0 -4 1 2);
+///
+/// @param {string} $type  Spacing type, either 'padding' or 'margin'.
+/// @param {list} $steps - List (1 to 4 values): Either integer (from -4 to 9 including 0) or null. Follows the shorthand notation of padding/margin. Use null to skip a side. A value of 0 returns the modular spacing base value for that breakpoint.
+///
+/// @group modular-scale
 @mixin modular-spacing($type: 'padding', $steps: 0, $grid: $su-grid-media) {
   /// Get a list of all breakpoint keys in $grid.
   $bp-list: map-keys($grid);
