@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+// Specific to me styles.
+.su-secondary-nav--buttons {
+  background-color: color(bg, $su-secondary-nav-light-colors);
+
+  .su-secondary-nav__menu {
+    background-color: color(bg, $su-secondary-nav-light-colors);
+  }
+
+  .su-secondary-nav__link {
+    color: color(link, $su-secondary-nav-light-colors);
+    border-top: color(divider, $su-secondary-nav-light-colors) solid 1px;
+
+    &:focus,
+    &:hover {
+      color: color(link--hover, $su-secondary-nav-light-colors);
+
+      &::before {
+        background-color: color(border--hover, $su-secondary-nav-light-colors);
+      }
+    }
+
+    &:active {
+      color: color(link--active, $su-secondary-nav-light-colors);
+
+      &::before {
+        background-color: color(border--active, $su-secondary-nav-light-colors);
+      }
+    }
+  }
+
+  // States.
+  // ---------------------------------------------------------------------------
+  .su-secondary-nav__item--parent {
+    position: relative;
+
+    .su-secondary-nav__menu {
+      display: none;
+    }
+
+    > .su-secondary-nav__link {
+      @include padding(null 60px null null);
+
+      &::after {
+        background: transparent;
+      }
+    }
+
+    &.su-secondary-nav__item--expanded {
+      > .su-secondary-nav__menu {
+        display: flex;
+      }
+
+      > .su-secondary-nav__link {
+        &::after {
+          background: transparent;
+        }
+      }
+    }
+  }
+
+  .su-secondary-nav__item--current {
+    > .su-secondary-nav__link {
+      color: color(link--active, $su-secondary-nav-light-colors);
+
+      &::before {
+        background-color: color(border--active-hover, $su-secondary-nav-light-colors);
+      }
+
+      &:focus,
+      &:hover {
+        color: color(link--active-hover, $su-secondary-nav-light-colors);
+
+        &::before {
+          background-color: color(border--active-hover, $su-secondary-nav-light-colors);
+        }
+      }
+
+      &:active {
+        color: color(link--active, $su-secondary-nav-light-colors);
+      }
+    }
+  }
+
+  .su-nav-toggle {
+    background: transparent;
+
+    &::before {
+      content: "";
+      background: $su-color-cloud url("#{$su-image-path}/caret-down-black.svg") no-repeat center / 50%;
+      background-size: 15px;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background: transparent;
+
+      &::before {
+        content: "";
+        background: color(border--active, $su-secondary-nav-light-colors) url("#{$su-image-path}/caret-down-white.svg") no-repeat center / 50%;
+        background-size: 15px;
+      }
+    }
+  }
+
+  .su-secondary-nav__menu-lv2 {
+    .su-secondary-nav__link {
+      border: 0;
+    }
+  }
+
+  &.no-js {
+    .su-secondary-nav__menu {
+      display: block;
+    }
+  }
+}

@@ -15,7 +15,6 @@
  * - modifier_class: Additional CSS classes to change look and behavior.
  * - card_headline: Main headind text for the card.
  * - card_allow_headline_link: Boolean. If set to true, headline links to card_link.
- * - card_headline_link: Deprecated and will be removed in v.6. Please use card_allow_headline_link instead.
  * - card_super_headline: Text super headline. Often used for metadata such as category.
  * - card_body: An open variable for anything including HTML. Generally this would be for WYSIWYG editor contents.
  * - card_link: The href value for the card. A single card is only allowed to link to one URL.
@@ -23,7 +22,6 @@
  *     This acts as the attributes for the link button and headline link as well.
  * - card_cta_label: The clickable text for the CTA link
  * - card_button_label: The text label of the button component.
- * - card_image: A full HTML <img> element for the image including attributes. Deprecated and will be removed in v.6. Please use card_media_image_src instead.
  * - card_icon_font_class: If using icon font, e.g., FontAwesome, the class(es) of the icon including modifier classes,
   e.g. 'fas fa-globe fa-2x', 'far fa-thumbs-up fa-rotate-90'
  * - card_media_image_src: The src link to the image file.
@@ -64,7 +62,7 @@
   {%- endif -%}
 {%- endif -%}
 
-<div {{ attributes }} class="su-card {{ modifier_class }}">
+<article {{ attributes }} class="su-card {{ modifier_class }}">
   {# For variant where whole card is a link, add an <a> within the outer wrapper <div> #}
   {%- if allow_links == false %}
     <a href="{{ card_link }}" {{ card_cta_attributes }}>
@@ -114,9 +112,6 @@
         <img {{ card_media_attributes|default("aria-hidden='true'") }} src="{{ card_media_icon_image_src }}">
       {%- elseif card_media_image_src is not empty %}
         <img {{ card_media_attributes|default("aria-hidden='true'") }} src="{{ card_media_image_src }}">
-      {%- elseif card_image is not empty -%}
-        {# The variable card_image is deprecated and will be removed in v6, use card_media_image_src instead. #}
-        {{ card_image }}
       {%- endif -%}
     {% else %}
       {# Default card with optional image in media field #}
@@ -134,14 +129,11 @@
           }
           only
         %}
-      {% elseif card_image is not empty %}
-        {# The variable card_image is deprecated and will be removed in v6, use card_media_image_src instead. #}
-        {{ card_image }}
       {%- endif -%}
     {% endif %}
   {% endblock block_card_media -%}
 
-  <div class="su-card__contents">
+  <section class="su-card__contents">
     {# Card Super Headline #}
     {%- block block_card_super_headline %}
       {% if card_super_headline is not empty %}
@@ -153,12 +145,11 @@
     {%- block block_card_headline  %}
       {%- if card_headline is not empty %}
         <h2>
-          {# The variable card_headline_link is deprecated and will be removed in v6, use card_allow_headline_link instead. #}
-          {%- if (card_allow_headline_link and allow_links) or (card_headline_link and allow_links) -%}
+          {%- if card_allow_headline_link and allow_links -%}
             <a href="{{ card_link }}" {{ card_cta_attributes }}>
           {%- endif -%}
           {{- card_headline -}}
-          {% if (card_allow_headline_link and allow_links) or (card_headline_link and allow_links) -%}
+          {% if card_allow_headline_link and allow_links -%}
             </a>
           {%- endif -%}
         </h2>
@@ -200,8 +191,8 @@
         </div>
       {% endif -%}
     {% endblock -%}
-  </div>{# end of .su-card__contents #}
+  </section>{# end of .su-card__contents #}
   {%- if allow_links == false %}
     </a>
   {%- endif -%}
-</div>
+</article>

@@ -1,0 +1,207 @@
+{#
+/**
+ * @file
+ * Local Footer Component.
+ *
+ * Figma source: https://www.figma.com/file/Kmd4utmJFPRMVeCFEEBQhLtx/Stanford-Design-Library?node-id=2384%3A1177
+ *
+ * This local footer template is to support the global footer and provide
+ * site contextual links.
+ *
+ * Available variables:
+ * - attributes:          For additional HTML attributes not already provided.
+ * - modifier_class:      Additional css classes to change look and behaviour.
+ * - template_path_lockup: The relative file path to the lockup twig template.
+ * - template_path_link:  The relative file path to the link twig template.
+ * - template_path_macro: The relative file path to the macro twig template.
+ * - template_path_signup_form: The relative file path to the signup-form template.
+ * - lockup_options:      Options to pass through to the lockup twig template.
+ *                        See the lockup template variables for more information.
+ * - lockup_title:        The text to use as line1 in the lockup unless
+ *                        lockup_options is overridden.
+ * - contentcell1:        Twig block area so you can override just this section
+ *                        when extending.
+ * - contentcell2:        Twig block area so you can override just this section
+ *                        when extending.
+ * - contentcell3:        Twig block area so you can override just this section
+ *                        when extending.
+ * - headercontent:       Optional open variable for placing arbitrary content
+ *                        in the header portion of the template.
+ * - cell1:               Optional open variable for placing arbitrary content
+ *                        in cell 1 of the template.
+ * - cell2:               Optional open variable for placing arbitrary content
+ *                        in cell 1 of the template.
+ * - cell3:               Optional open variable for placing arbitrary content
+ *                        in cell 1 of the template.
+ * - address:             Optional open variable for address content.
+ * - action_links:        Either a structured array of links that get rendered
+ *                        by a common macro or arbitrary html markup. The Links
+ *                        in this field get padding and arrows applied.
+ * - social_links:        Either a structured array of links that get rendered
+ *                        by a common macro or arbitrary html markup.
+ * - primary_links:       Either a structured array of links that get rendered
+ *                        by a common macro or arbitrary html markup.
+ * - secondary_links:     Either a structured array of links that get rendered
+ *                        by a common macro or arbitrary html markup.
+ * - signup_form_content: An open variable for placing content above the form.
+ * - signup_form_action:  The url that the form should submit to.
+ * - signup_form_method:  The http method in which the form should use (get|post)
+ * - signup_form_field_email: The name and id of the email field.
+ * - signup_form_field_email_placeholder: The placeholder text for the field.
+ * - signup_form_field_submit: The name and id of the submit button.
+ * - signup_form_field_submit_value: The value of the submit button.
+ * - signup_form_fields:  Option variable that allows you to put any additional
+ *                        markup in to the signup form. This could be content or
+ *                        additional fields.
+ * - weblogin_url:        Optional - The url in which a user goes to login with.
+ * - weblogin_text:       The text to display for the weblogin button link.
+ */
+#}
+{%- if template_path_lockup is empty -%}
+  {%- set template_path_lockup = "@decanter/components/lockup/lockup.twig" -%}
+{%- endif %}
+
+{%- if lockup_options is empty -%}
+ {%- set lockup_options = { "modifier_class": 'su-lockup--option-a', "line1": lockup_title } -%}
+{%- endif -%}
+
+{%- if template_path_link is empty -%}
+  {%- set template_path_link = "@decanter/components/link/link.twig" -%}
+{%- endif %}
+
+{%- if template_path_signup_form is empty -%}
+  {%- set template_path_signup_form = "@decanter/components/signup-form/signup-form.twig" -%}
+{%- endif %}
+
+{%- if template_path_macro is empty -%}
+  {%- set template_path_macro = "@decanter/utilities/macros/link-list.twig" -%}
+{%- endif -%}
+{%- import template_path_macro as list_macro -%}
+
+<div {{ attributes }} class="su-local-footer {{ modifier_class }}">
+  {# The header is completely optional and won't render if there isn't any content #}
+  {% if lockup_title is not empty or weblogin_url is not empty or headercontent is not empty %}
+  <header class="su-local-footer__header">
+    {# Lockup template. Set usually to option-a #}
+    {% include template_path_lockup with lockup_options %}
+    {# Web login button #}
+    {% if weblogin_url is not empty %}
+      {% include template_path_link with {
+        "modifier_class": "su-link--internal",
+        "link_href": weblogin_url,
+        "link_content": weblogin_text|default('Web Login')
+      } only %}
+    {% endif %}
+    {# Optional content area for the header. #}
+    {{ headercontent }}
+  </header>
+  {% endif %}
+  {#
+    Container for the content cells. These cells have a specific and rigid
+    responsive behaviour so they are not optional. Empty cells will still
+    render and create whitespace.
+  #}
+  <section class="su-local-footer__columns">
+    {# Content Cell 1 - For action and social media links. #}
+    <div class="su-local-footer__cell1">
+      {# Twig block for you to extend with #}
+      {% block contentcell1 %}
+      {#
+        The address is optional so don't put non-address content in it.
+        Use the `cell1` variable instead.
+      #}
+      {% if address|render|striptags|trim is not empty %}
+      <address class="su-local-footer__address">
+        {{ address }}
+      </address>
+      {% endif %}
+      {# Stylized links. See local-footer.json for structure for macro. #}
+      {% if action_links is not empty%}
+      <ul class="su-local-footer__action-links">
+        {% if action_links is iterable %}
+          {{ list_macro.link_list(action_links) }}
+        {% else %}
+          {{ action_links }}
+        {% endif %}
+      </ul>
+      {% endif %}
+      {# Stylized links. See local-footer.json for structure for macro. #}
+      {% if social_links is not empty%}
+      <ul class="su-local-footer__social-links">
+        {% if social_links is iterable %}
+          {{ list_macro.link_list(social_links) }}
+        {% else %}
+          {{ social_links }}
+        {% endif %}
+      </ul>
+      {% endif %}
+      {% endblock %}
+      {# Use this var if you would like to place your own content in to this cell. #}
+      {{ cell1 }}
+    </div>
+    {# Content Cell 2 - For primary and secondary link lists. #}
+    <div class="su-local-footer__cell2">
+      {# Twig block for you to extend with #}
+      {% block contentcell2 %}
+      {#
+        Primary Links - left or top list.
+      #}
+      {% if primary_links is not empty%}
+      <nav aria-label="footer primary nav">
+        {% if primary_links_header is not empty %}
+        <h2 class="su-local-footer__list-heading">{{ primary_links_header|default("Primary Links") }}</h2>
+        {% endif %}
+        <ul class="su-local-footer__primary-links">
+          {# Stylized links. See local-footer.json for structure for macro. #}
+          {% if primary_links is iterable %}
+            {{ list_macro.link_list(primary_links) }}
+          {% else %}
+            {{ primary_links }}
+          {% endif %}
+        </ul>
+      </nav>
+      {% endif %}
+      {#
+        Secondary Links - Right or bottom list.
+      #}
+      {% if secondary_links is not empty%}
+      <nav aria-label="footer secondary nav">
+        {% if secondary_links_header is not empty %}
+        <h2 class="su-local-footer__list-heading">{{ secondary_links_header|default("Secondary Links") }}</h2>
+        {% endif %}
+        <ul class="su-local-footer__secondary-links">
+          {# Stylized links. See local-footer.json for structure for macro. #}
+          {% if secondary_links is iterable %}
+            {{ list_macro.link_list(secondary_links) }}
+          {% else %}
+            {{ secondary_links }}
+          {% endif %}
+        </ul>
+      </nav>
+      {% endif %}
+      {% endblock %}
+      {# If you want to provide all of our own markup use the cell2 var. #}
+      {{ cell2 }}
+    </div>
+    {#
+      Cell 3 - For the signup form.
+    #}
+    <div class="su-local-footer__cell3">
+      {# Twig block for you to extend with #}
+      {% block contentcell3 %}
+      {#
+        The signup form is optional. If it doesn't meet your content needs
+        use the cell3 variable instead.
+      #}
+      {% if signup_form_action is not empty %}
+        {# The template path is included with the `with` keyword on purpose.
+           See the template for what variables are expected and how they are named.
+        #}
+        {% include template_path_signup_form %}
+      {% endif %}
+      {% endblock %}
+      {# If you want to provide all of our own markup use the cell3 var. #}
+      {{ cell3 }}
+    </div>
+  </section>
+</div>

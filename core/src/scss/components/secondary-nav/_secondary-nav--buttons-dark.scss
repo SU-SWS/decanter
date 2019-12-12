@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+// Specific to me styles.
+.su-secondary-nav--buttons-dark {
+
+  .su-secondary-nav__item--parent {
+    position: relative;
+
+    .su-secondary-nav__menu {
+      display: none;
+    }
+
+    > .su-secondary-nav__link {
+      @include padding(null 60px null null);
+
+      &::after {
+        background: transparent;
+      }
+    }
+  }
+
+  .su-secondary-nav__item--expanded {
+
+    > .su-secondary-nav__menu {
+      display: flex;
+    }
+
+    > .su-secondary-nav__link {
+      &::after {
+        background: transparent;
+      }
+    }
+  }
+
+  .nav-toggle {
+    &:hover,
+    &:focus {
+      animation: dropout 0.4s ease-out;
+    }
+  }
+
+  &.no-js {
+    .su-secondary-nav__menu {
+      display: block;
+    }
+  }
+}

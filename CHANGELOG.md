@@ -1,8 +1,16 @@
 # Changelog
 
+Version XXXX              20XX-XX-XX
+---------------------------------------------
+- Deprecated: su-aspect-ratio-1x1 & su-aspect-ratio-4x3 classes.
+
+Version 6.0.0-alpha.1              2019-10-31
+---------------------------------------------
+- Removed deprecated code
+- LOTS of wonderful new changes
+
 Version 5.1.0                      2019-10-31
 ---------------------------------------------
-
 - Updated codeclimate linting settings
 - Updated nvmrc to version 11.14.0
 - Removed line length lint requirement for sass
@@ -49,6 +57,7 @@ Version 5.1.0                      2019-10-31
 - Added fort-awesome and fonts
 - Updated npm package dependency versions
 - Updated webpack config
+
 
 Version 5.0.1                      2019-05-22
 ---------------------------------------------

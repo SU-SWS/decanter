@@ -1,0 +1,41 @@
+{#
+/**
+ * Macro for creating nested menus.
+ */
+#}
+{% macro nav_menu(items, menu_level, class_prefix) %}
+  {% import _self as menus %}
+  <ul class="{{ class_prefix }}__menu-lv{{ menu_level }} {{ class_prefix }}__menu">
+  {% spaceless %}
+  {% for item in items %}
+    {% set is_parent = item.children is empty ? false : true %}
+    {% set list_classes = class_prefix ~ "__item " %}
+    {% if is_parent %}
+      {% set list_classes = list_classes ~ class_prefix ~ "__item--parent " %}
+    {% endif %}
+    {% if item.current %}
+      {% set list_classes = list_classes ~  class_prefix ~ "__item--current " %}
+    {% endif %}
+
+    <li class="{{ list_classes|trim }}">
+
+      {% set link_classes = class_prefix ~ "__link " %}
+      {% if item.attributes is iterable %}
+        {% set link_attrs = "" %}
+        {% for key, val in item.attributes %}
+          {% if val.twig_markup == true %}
+            {% set val = val|merge({'twig_markup': null}) %}
+          {% endif %}
+          {% set link_attrs = link_attrs ~ key|trim ~ '="' ~ val|join|trim ~ '" ' %}
+        {% endfor %}
+      {% endif %}
+
+      <a href="{{ item.href }}" class="{{ link_classes|trim }}" {{ link_attrs }}>{{ item.text }}</a>
+      {% if item.children %}
+        {{ menus.nav_menu(item.children, menu_level + 1, class_prefix) }}
+      {% endif %}
+    </li>
+  {% endfor %}
+  {% endspaceless %}
+  </ul>
+{% endmacro %}

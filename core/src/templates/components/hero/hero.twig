@@ -15,11 +15,9 @@
  * - hero_body: An open variable for anything. Generally this would be for
  *     WYSIWYG editor contents.
  * - hero_link: The href value for the link in the hero component.
- * - hero_cta_link: Deprecated and will be removed in v.6. Use hero_link instead. The href value for the CTA field link.
  * - hero_cta_attributes: Any html attributes on the cta link that need to be
  *     added. For example: _target.
  * - hero_cta_label: The clickable text for the CTA link.
- * - hero_button_link: Deprecated and will be removed in v.6. Use hero_link instead. The href property of the button component.
  * - hero_button_label: The text label of the button component.
  * - hero_content: An open area for content to go beneath the media when using
  *                 the su-hero--caption variant.
@@ -32,16 +30,6 @@
 #}
 {%- if template_path_card is empty -%}
   {%- set template_path_card = "@decanter/components/card/card.twig" -%}
-{%- endif -%}
-
-{%- if hero_link is empty -%}
-  {# The variable hero_cta_link is deprecated and will be removed in v.6, use hero_link instead. #}
-  {%- if hero_cta_link -%}
-    {%- set hero_link = hero_cta_link -%}
-  {# The variable hero_button_link is deprecated and will be removed in v.6, use hero_link instead. #}
-  {%- elseif hero_button_link -%}
-    {%- set hero_link = hero_button_link -%}
-  {%- endif -%}
 {%- endif -%}
 
 <div{{ attributes }} class="su-hero {{ modifier_class }}">

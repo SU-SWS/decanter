@@ -1,0 +1,46 @@
+{#
+/**
+ * Macro for creating a simple single level list of links.
+ */
+#}
+{% macro link_list(items) %}
+  {% spaceless %}
+  {% for item in items %}
+
+    {# Define the attributes vars fresh on each loop #}
+    {% set list_attributes = "" %}
+    {% set link_attributes = "" %}
+
+    {#
+      The map function is not available in twigjs so we have to do this :(
+      see: https://github.com/twigjs/twig.js/wiki/Implementation-Notes
+    #}
+    {% if item.list_attributes is iterable %}
+      {% for key, val in item.list_attributes %}
+        {% if val.twig_markup == true %}
+          {% set val = val|merge({'twig_markup': null}) %}
+        {% endif %}
+        {% set list_attributes = list_attributes ~ key|trim ~ '="' ~ val|join|trim ~ '" ' %}
+      {% endfor %}
+    {% endif %}
+
+    {#
+      The map function is not available in twigjs so we have to do this :(
+      see: https://github.com/twigjs/twig.js/wiki/Implementation-Notes
+    #}
+    {% if item.link_attributes is iterable %}
+      {% for key, val in item.link_attributes %}
+        {% if val.twig_markup == true %}
+          {% set val = val|merge({'twig_markup': null}) %}
+        {% endif %}
+        {% set link_attributes = link_attributes ~ key|trim ~ '="' ~ val|join|trim ~ '" ' %}
+      {% endfor %}
+    {% endif %}
+
+    {# Actually output something #}
+    <li {{ list_attributes }}>
+      <a href="{{ item.href }}" {{ link_attributes }}>{{ item.text }}</a>
+    </li>
+  {% endfor %}
+  {% endspaceless %}
+{% endmacro %}
