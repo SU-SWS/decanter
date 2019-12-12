@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
-/// is-direction-or-angle($value)
-//
+///
 /// Validates whether something is a direction or an angle
-//
-/// $value - the value to type check
-//
-/// Style guide: Functions.Type Checks.is-direction-or-angle
-//
+///
+/// @name is-direction-or-angle
+///
+/// @param {Integer} $value - the value to type check
+///
+/// @group Type-checks
 @function is-direction-or-angle($value) {
   $is-direction: index((to top, to top right, to right top, to right, to bottom right, to right bottom, to bottom, to bottom left, to left bottom, to left, to left top, to top left), $value);
   $is-angle: type-of($value) == 'number' and index('deg' 'grad' 'turn' 'rad', unit($value));

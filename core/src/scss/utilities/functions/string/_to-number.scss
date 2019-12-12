@@ -1,15 +1,15 @@
-//
-/// to-number($value)
-//
+@charset "UTF-8";
+
 /// Converts a string to number.
-//
+/// 
 /// String to number converter.
 /// Returns a number value.
-//
-/// $value - Value to be parsed
-//
-/// Style guide: Functions.String.to-number
-//
+///
+/// @name to-number
+///
+/// @param {String} $value - Value to be parsed
+///
+/// @group String
 @function to-number($value) {
   @if type-of($value) == 'number' {
     @return $value;
