@@ -1,98 +1,14 @@
 @charset "UTF-8";
 
 //
-// %card-base
+// <del>%card-base</del>
 //
-// Card base styling.
+// <strong>Deprecated. Will be removed in 6.0.0.</strong><br/>
+// Use mixin <code>@card</code> instead.
 //
-// Style guide: Placeholders.Components.Card
+// Styleguide: Placeholders.Components.Card
 //
 
 %card-base {
-  @include box-shadow($depth: 'shallow');
-  display: block;
-  background-color: color(bg);
-
-  img {
-    // Hide the image on the smallest screen sizes.
-    @include grid-media-only('xs') {
-      display: none;
-    }
-  }
-
-  .su-card__contents {
-    @include modular-spacing('padding', 2);
-    @include sans;
-
-    // Ensure no top padding or margin on first item.
-    > *:first-child {
-      @include padding(0 null null);
-      @include margin(-0.2em null null);
-    }
-
-    // Ensure no bottom padding or margin on last item.
-    > *:last-child {
-      @include padding(null null 0);
-      @include margin(null null 0);
-    }
-
-    > h2,
-    > span {
-      @include sans;
-    }
-
-    // Super Headline.
-    > span {
-      @include modular-spacing('margin', null null -2);
-      @include types;
-      @include type-f;
-      display: block;
-    }
-
-    // Headline.
-    > h2 {
-      @include modular-spacing('margin', null null -1);
-      @include type-c;
-
-      > a {
-        font-weight: $su-font-bold;
-        transition: color 0.3s ease-out;
-
-        &:hover,
-        &:focus {
-          color: color(brand--bright);
-          text-decoration: underline;
-        }
-      }
-    }
-
-    // Card body - open field, any p or div (that are not part of the button)
-    > div:not(.su-card__button) {
-      line-height: $su-base-line-height;
-    }
-
-    > div:not(.su-card__button),
-    > p:last-of-type {
-      @include margin(null null 0);
-    }
-
-    .su-link--action,
-    > a {
-      @include modular-spacing('margin', -1 null null);
-      display: inline-block;
-    }
-  }
-
-  // Button to click on.
-  .su-card__button {
-    @include modular-spacing('margin', 1 null null);
-    text-align: center;
-
-    @include grid-media-only('xs') {
-      .su-button {
-        // Overriding default button 100% width in xs.
-        width: auto;
-      }
-    }
-  }
+  @include card;
 }

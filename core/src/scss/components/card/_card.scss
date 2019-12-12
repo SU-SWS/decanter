@@ -3,12 +3,26 @@
 //
 // Card
 //
-// One of the primary building block components. This card component comes with
-// several fields to ensure flexibility.
+// Card component with several fields to ensure flexibility -
+// a media element, headline, super headline, body content, call-to-action (CTA) link and button link. The default <code>.su-card</code>
+// has an image (optional) as its media element. For a better user experience, use either the CTA link or link button but not both together.
+//
+//**Modifier classes for the Card component:**
+// - <code>.su-card--horizontal</code> - Postcard with image on the side.
+// - <code>.su-card--link</code> - Whole card is a clickable link. No separate link buttons or CTA links allowed inside the card.
+// - <code>.su-card--minimal</code> - No border, drop shadow or background color. Do not use this with the .su-card--link variant.
+// - <code>.su-card--icon</code> - Card with an icon image or smaller image (e.g., an avatar) that doesn't fill the full width of the card.
+// Text and button are always center-aligned for this variant.
+// - <code>.su-card--video</code> - Card with a self-hosted video.
+// - <code>.su-card--embed</code> - Card with an embedded media element, e.g., a YouTube or Vimeo video. The media field in this variant also takes any custom HTML.
 //
 // .su-card--horizontal - Postcard with image on the side.
-// .su-card--link - Whole card is a clickable link with no link buttons or CTA link.
-// .su-card--minimal - No border, material shadow or background color. Do not use this with the .su-card--link variant.
+// .su-card--link - Whole card is a clickable link. No separate link buttons or CTA links allowed inside the card.
+// .su-card--minimal - No border, drop shadow or background color. Do not use this with the .su-card--link variant.
+// .su-card--icon - Card with an icon image or smaller image (e.g., an avatar) that doesn't fill the full width of the card.
+// Text and button are always center-aligned for this variant.
+// .su-card--video - Card with a self-hosted video.
+// .su-card--embed - Card with an embedded media element, e.g., a YouTube or Vimeo video.
 //
 // Markup: ../templates/components/card/card.twig
 //
@@ -16,5 +30,5 @@
 //
 
 .su-card {
-  @extend %card-base;
+  @include card;
 }
