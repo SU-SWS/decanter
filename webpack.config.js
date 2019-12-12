@@ -13,7 +13,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const WebpackAssetsManifest = require("webpack-assets-manifest");
 const ExtraWatchWebpackPlugin = require("extra-watch-webpack-plugin");
-
+const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 // Paths
 const npmPackage = 'node_modules/';
 const srcDir = path.resolve( __dirname, 'core/src' );
@@ -43,7 +43,7 @@ module.exports = {
   // Define the entry points for which webpack builds a dependency graph.
   entry: {
     "decanter": srcDir + "/js/decanter.js",
-    "decanter-grid": srcDir + "/js/decanter-grid.js",
+    "decanter-grid": srcDir + "/scss/decanter-grid.scss",
     "decanter-no-markup": srcDir + "/js/decanter-no-markup.js"
   },
   // Where should I output the assets.
@@ -97,6 +97,8 @@ module.exports = {
   },
   // Define and configure webpack plugins.
   plugins: [
+    // Remove JS files from render.
+    new FixStyleOnlyEntriesPlugin(),
     // A webpack plugin to manage files before or after the build.
     // Used here to:
     // - clean all generated files (js AND css) prior to building
