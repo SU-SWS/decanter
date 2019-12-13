@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * A three column layout with a two rows. The first two features two cells, one
+ * that spans 2 columns and one that is a single column. The second row
+ * features three equal column content areas
+ *
+ * 66/33
+ * 33/33/33
+ *
+ * Variants:
+ * layout-precles-flex--right - A right side weighted header variant to the layout.
+ *
+ * Variables:
+ * attributes - html attributes for the template wrapper tag
+ * modifier_class - Variant modifier css classes
+ * first - A single cell single row content area
+ * second - A two span content column in the first row
+ * third - A single column 33% content area in the second row
+ * fourth - A single column 33% content area in the second row
+ * fifth - A single column 33% content area in the second row
+ *
+ */
+#}
+<div{{ attributes }} class="layout {{ modifier_class }}">
+  <div class="flex-container flex-container--row-gap centered-container">
+    {% if first is not empty %}
+    <div class="flex-md-4-of-12">
+      {{ first }}
+    </div>
+    {% endif %}
+
+    {% if second is not empty %}
+    <header class="flex-md-8-of-12">
+      {{ second }}
+    </header>
+    {% endif %}
+
+    {% if third is not empty %}
+    <div class="flex-md-4-of-12">
+      {{ third }}
+    </div>
+    {% endif %}
+
+    {% if fourth is not empty %}
+    <div class="flex-md-4-of-12">
+      {{ fourth }}
+    </div>
+    {% endif %}
+
+    {% if fifth is not empty %}
+    <div class="flex-md-4-of-12">
+      {{ fifth }}
+    </div>
+    {% endif %}
+  </div>
+</div>

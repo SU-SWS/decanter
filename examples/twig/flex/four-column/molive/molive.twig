@@ -1,0 +1,58 @@
+{#
+/**
+ * @file
+ * Molive - Template for a 4 column panel layout.
+ *
+ * This template provides a four column panel display layout, with
+ * each column roughly equal in width.
+ *
+ * Variables:
+ * attributes - html attributes for the template wrapper tag
+ * modifier_class - Variant modifier css classes
+ * header - A four column span header area
+ * first - First of four columns
+ * second - Second of four columns
+ * third - Third of four columns
+ * fourth - Fourth of four columns
+ * footer - A four column span footer area
+ */
+#}
+<div{{ attributes }} class="layout {{ modifier_class }}">
+
+    {# A centered max-width header region #}
+    {% if header is not empty %}
+    <header class="centered-container">
+      <div>
+      {{ header }}
+      </div>
+    </header>
+    {% endif %}
+
+    {# Because of the responsive behaviour each column is required. #}
+    <section class="flex-container centered-container">
+      <div class="flex-md-6-of-12 flex-xl-3-of-12">
+        {{ first }}
+      </div>
+
+      <div class="flex-md-6-of-12 flex-xl-3-of-12">
+        {{ second }}
+      </div>
+
+      <div class="flex-md-6-of-12 flex-xl-3-of-12">
+        {{ third }}
+      </div>
+
+      <div class="flex-md-6-of-12 flex-xl-3-of-12">
+        {{ fourth }}
+      </div>
+    </section>
+
+    {# Centered max-width footer region #}
+    {% if footer is not empty %}
+    <footer class="centered-container">
+      <div>
+      {{ footer }}
+      </div>
+    </footer>
+    {% endif %}
+  </div>

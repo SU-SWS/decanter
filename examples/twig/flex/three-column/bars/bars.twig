@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Template for a three equal column layout. 33/33/33
+ *
+ * Variables:
+ * attributes - html attributes for the template wrapper tag
+ * modifier_class - Variant modifier css classes
+ * first - First of three equal columns
+ * second - Second of three equal columns
+ * third - third of three equal columns
+ * body - A block area to allow for others to change wrappers around regions.
+ */
+#}
+<div{{ attributes }} class="layout {{ modifier_class }}">
+  <div class="flex-container centered-container">
+    {% block body %}
+    <section class="flex-md-4-of-12">
+      {{ first }}
+    </section>
+
+    <section class="flex-md-4-of-12">
+      {{ second }}
+    </section>
+
+    <section class="flex-md-4-of-12">
+      {{ third }}
+    </section>
+    {% endblock %}
+  </div>
+</div>
