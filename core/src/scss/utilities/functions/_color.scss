@@ -1,19 +1,17 @@
 @charset "UTF-8";
 
-//
-// color($color, $colormap: $su-core-colors)
-//
-// Return a color from a color map. If only a color is specified, then it
-// returns a color from $su-core-colors. If a color and a color map are specified,
-// then it returns a color from the particular color map.
-//
-// $color - String - Color variable name from a color map, e.g., brand, link
-// $colormap - Color palette in the form of a SASS map,
-// e.g., $alert-colors, $main-nav-dark-colors.
-// Default is $su-core-colors.
-//
-// Style guide: Functions.Color
-//
+///
+/// Return a color from a color map. If only a color is specified, then it
+/// returns a color from $su-core-colors. If a color and a color map are specified,
+/// then it returns a color from the particular color map.
+///
+/// @name color
+///
+/// @param {String} $color The named key in the color map.
+/// @param {Map} $colormap [$su-core-colors] The color map
+///
+/// @example
+/// color: color($color, $su-core-colors);
 
 @function color($color, $colormap: $su-core-colors) {
   @if $colormap == $su-core-colors {

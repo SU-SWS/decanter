@@ -1,0 +1,79 @@
+{#
+/**
+ * @file
+ * A two row three column layout bookended by single column centered header
+ * and footer content regions.
+ *
+ * Variables:
+ * attributes - html attributes for the template wrapper tag
+ * modifier_class - Variant modifier css classes
+ * header - A single cell centered column header
+ * first - First row 1/3 width column
+ * second - First row 1/3 width column
+ * third - First row 1/3 width column
+ * fourth - Second row 1/3 width column
+ * fifth - Second row 1/3 width column
+ * sixth - Second row 1/3 width column
+ * footer - A single cell centered column content area
+ * body - An overridable block region.
+ */
+#}
+<div{{ attributes }} class="layout {{ modifier_class }}">
+
+  {% if header is not empty %}
+  <header class="flex-container centered-container">
+    <div class="flex-12-of-12">
+      {{ header }}
+    </div>
+  </header>
+  {% endif %}
+
+  <section class="flex-container flex-container--row-gap centered-container">
+    {% block body %}
+    {% if first is not empty %}
+    <div class="flex-md-4-of-12">
+      {{ first }}
+    </div>
+    {% endif %}
+
+    {% if second is not empty %}
+    <div class="flex-md-4-of-12">
+      {{ second }}
+    </div>
+    {% endif %}
+
+    {% if third is not empty %}
+    <div class="flex-md-4-of-12">
+      {{ third }}
+    </div>
+    {% endif %}
+
+    {% if fourth is not empty %}
+    <div class="flex-md-4-of-12">
+      {{ fourth }}
+    </div>
+    {% endif %}
+
+    {% if fifth is not empty %}
+    <div class="flex-md-4-of-12">
+      {{ fifth }}
+    </div>
+    {% endif %}
+
+    {% if sixth is not empty %}
+    <div class="flex-md-4-of-12">
+      {{ sixth }}
+    </div>
+    {% endif %}
+    {% endblock %}
+  </section>
+
+  {% if footer is not empty %}
+  <footer class="flex-container centered-container">
+    <div class="flex-12-of-12">
+      {{ footer }}
+    </div>
+  </footer>
+  {% endif %}
+
+</div>

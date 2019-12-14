@@ -1,23 +1,22 @@
 @charset "UTF-8";
 
-//
-// @responsive-grid-gap($grid-map)
-//
-// A mixin to create a responsive grid layout.
-//
-// $gutters-map: A sass map with the gutters per breakpoint.
-//
-// Styleguide: Mixins.Grid.responsive-grid-gap
-//
+///
+/// A mixin to create a responsive grid layout.
+///
+/// @name responsive-grid-gap
+///
+/// @param {map} $gutters-map - A sass map with the gutters per breakpoint.
+///
+/// @group grids
 @mixin responsive-grid-gap($gutters-map: $su-responsive-gutters-default) {
 
-  // Loop through each breakpoint generating the media query and grid.
+  /// Loop through each breakpoint generating the media query and grid.
   @each $breakpoint, $gutter in $gutters-map {
 
-    // Media Query is passed in.
+    /// Media Query is passed in.
     @media #{$breakpoint} {
-      // Add column and row gaps based on the responsive breakpoint sizes.
-      // These gaps increase as screen sizes get larger.
+      /// Add column and row gaps based on the responsive breakpoint sizes.
+      /// These gaps increase as screen sizes get larger.
       @include grid-gap(map-get($gutters-map, $breakpoint));
     }
   }

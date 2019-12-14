@@ -1,0 +1,34 @@
+{#
+/**
+ * @file
+ * Template for a single celled centered content layout.
+ *
+ * Variables:
+ * attributes - html attributes for the template wrapper tag
+ * modifier_class - Variant modifier css classes
+ * header - Centered single column open content area
+ * footer - Centered single column open content area
+ * content - Centered single column open content area
+ */
+#}
+<div{{ attributes }} class="layout layout-basic {{ modifier_class }}">
+
+  {% if header is not empty %}
+  <header {{ region_attributes.header }}>
+    {{ header }}
+  </header>
+  {% endif %}
+
+  {% if content is not empty %}
+  <section {{ region_attributes.content }}>
+  {{ content}}
+  </section>
+  {% endif %}
+
+  {% if footer is not empty %}
+  <footer {{ region_attributes.footer }}>
+    {{ footer }}
+  </footer>
+  {% endif %}
+
+</div>

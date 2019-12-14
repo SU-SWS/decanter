@@ -1,17 +1,16 @@
 @charset "UTF-8";
 
-//
-// @fancy-hover($color, $active, $position, $thickness)
-//
-// When an element (e.g., a link) is hovered over, display an animation of a border that expands out from the middle next to the element.
-//
-// $color - Hover/focus border color, e.g., #eeeeee. Defaults to $su-color-dark-red.
-// $active - Active border color. Defaults to $su-color-black.
-// $position - The position of the border relative to the element the mixin is applied to. The default is 'bottom' and the other choices are 'top', 'left' and 'right'.
-// $thickness - The thickness of the border, e.g., '3px', '1em'. The default is '6px'.
-//
-// Style guide: Mixins.Animation.Fancyhover
-//
+///
+/// When an element (e.g., a link) is hovered over, display an animation of a border that expands out from the middle next to the element.
+///
+/// @name fancy-hover
+///
+/// @param {variable} $color [$su-color-dark-red]  - Hover/focus border color, e.g., #eeeeee.
+/// @param {variable} $active [$su-color-black]  - Active border color.
+/// @param {string} $position [bottom]  - The position of the border relative to the element the mixin is applied to. The default is 'bottom' and the other choices are 'top', 'left' and 'right'.
+/// @param {string} $thickness [6px]  - The thickness of the border, e.g., '3px', '1em'.
+///
+/// @group animation
 @mixin fancy-hover($color: $su-color-dark-red, $active: $su-color-black, $position: 'bottom', $thickness: '6px') {
   text-decoration: none;
   position: relative;
@@ -70,7 +69,7 @@
       &::before {
         bottom: 0;
       }
-    } @elseif ($position == 'top') {
+    } @else if ($position == 'top') {
       @include padding(0.8em null null);
 
       &::before {
@@ -78,7 +77,7 @@
       }
     }
 
-  } @elseif ($position == 'left' or $position == 'right') {
+  } @else if ($position == 'left' or $position == 'right') {
     &::before {
       height: 100%;
       width: #{$thickness};
@@ -98,7 +97,7 @@
       &::before {
         left: 0;
       }
-    } @elseif ($position == 'right') {
+    } @else if ($position == 'right') {
       &::before {
         right: 0;
       }

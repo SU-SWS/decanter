@@ -1,0 +1,64 @@
+{#
+/**
+ * @file
+ * Template for a complex column panel layout.
+ *
+ * This template provides a complex column panel display layout, with
+ * each column roughly equal in width.
+ *
+ * Variables:
+ * -
+ * -
+ *
+ *
+ *
+ */
+#}
+<div{{ attributes }} class="layout layout-frogger {{ modifier_class }}">
+
+  {# Optional Header #}
+  {% if header is not empty %}
+  <header {{ region_attributes.header }}>
+    {{ header }}
+  </header>
+  {% endif %}
+
+  {# Required content section #}
+  <section>
+    <div {{ region_attributes.first }}>
+      {{ first }}
+    </div>
+
+    <div {{ region_attributes.second }}>
+      {{ second }}
+    </div>
+  </section>
+
+  {# Optional centered container #}
+  {% if middle is not empty %}
+  <div {{ region_attributes.middle }}>
+    {{ middle }}
+  </div>
+  {% endif %}
+
+  {# Optional third row #}
+  {% if third is not empty %}
+  <section>
+    <div {{ region_attributes.third }}>
+      {{ third }}
+    </div>
+
+    <div {{ region_attributes.fourth }}>
+      {{ fourth }}
+    </div>
+  </section>
+  {% endif %}
+
+  {# Optional footer #}
+  {% if footer is not empty %}
+  <footer {{ region_attributes.footer }}>
+    {{ footer }}
+  </footer>
+  {% endif %}
+
+</div>{# end layout wrapper #}

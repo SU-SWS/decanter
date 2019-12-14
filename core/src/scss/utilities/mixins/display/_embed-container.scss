@@ -1,16 +1,15 @@
 @charset "UTF-8";
 
-//
-// @embed-container($height, $width)
-//
-// Responsive embed container to ensure that contents scale to the
-// width of parent element while retaining an aspect ratio of 16:9.
-//
-// $height  - height in pixel integers
-// $width   - width in pixel integers
-//
-// Style guide: Mixins.Display.embed-container
-//
+///
+/// Responsive embed container to ensure that contents scale to the
+/// width of parent element while retaining an aspect ratio of 16:9.
+///
+/// @name embed-container
+///
+/// @param {number} $height  - height in pixel integers
+/// @param {number} $width   - width in pixel integers
+///
+/// @group display
 @mixin embed-container($height, $width) {
   @include padding(null null percentage($height / $width));
   position: relative;
