@@ -7,18 +7,17 @@
  *
  * Available variables:
  * - attributes: For additional HTML attributes not already provided.
- * - modifier_class: Additional css classes to change look and behaviour.
- * - hero_media: iframe or HTML5 video players
+ * - modifier_class: Additional CSS classes to change look and behavior.
+ * - hero_media: iframe or HTML5 video players.
  * - hero_image: A full HTML entity for an image. Can be img or picture.
- * - hero_super_headline: Text heading
- * - hero_headline: Text heading
+ * - hero_super_headline: Text super headline.
+ * - hero_headline: Text headline.
  * - hero_body: An open variable for anything. Generally this would be for
  *     WYSIWYG editor contents.
- * - hero_cta_link: The href value for the cta field link
+ * - hero_link: The href value for the link in the hero component.
  * - hero_cta_attributes: Any html attributes on the cta link that need to be
  *     added. For example: _target.
- * - hero_cta_label: The clickable text for the CTA link
- * - hero_button_link: The href property of the button component.
+ * - hero_cta_label: The clickable text for the CTA link.
  * - hero_button_label: The text label of the button component.
  * - hero_content: An open area for content to go beneath the media when using
  *                 the su-hero--caption variant.
@@ -56,24 +55,22 @@
     hero_super_headline is not empty or
     hero_headline is not empty or
     hero_body is not empty or
-    hero_cta_label is not empty or
-    hero_button_label is not empty
+    hero_link is not empty
   -%}
-  {# We reuse the card component here. #}
-  {% include template_path_card with
-    {
-      "modifier_class": "su-hero__card",
-      "card_super_headline": hero_super_headline,
-      "card_headline": hero_headline,
-      "card_body": hero_body,
-      "card_cta_link": hero_cta_link,
-      "card_cta_attributes": hero_cta_attributes,
-      "card_cta_label": hero_cta_label,
-      "card_button_link": hero_button_link,
-      "card_button_label": hero_button_label,
-    }
-    only
-  %}
+    {# We reuse the card component here. #}
+    {% include template_path_card with
+      {
+        "modifier_class": "su-hero__card",
+        "card_super_headline": hero_super_headline,
+        "card_headline": hero_headline,
+        "card_body": hero_body,
+        "card_link": hero_link,
+        "card_button_label": hero_button_label,
+        "card_cta_label": hero_cta_label,
+        "card_cta_attributes": hero_cta_attributes,
+      }
+      only
+    %}
   {%- endif -%}
   {%- if hero_content is not empty -%}
   <div class="su-hero__content">

@@ -9,15 +9,14 @@
   border: 0;
 
   > a {
-    @include box-shadow($depth: shallow);
+    @include box-shadow(shallow, 1px solid color(card-border));
     display: block;
     text-decoration: none;
     color: color(text);
 
     &:hover,
     &:focus {
-      @include box-shadow($depth: medium);
-      border-color: $su-color-driftwood;
+      @include box-shadow(medium);
       transition: box-shadow 0.3s ease-out;
 
       h2 {
