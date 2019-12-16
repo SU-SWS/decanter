@@ -1,10 +1,11 @@
-//
-// to-list($value)
-//
-// Converts a value to a list.
-//
-// Style guide: Functions.String.to-list
-//
+@charset "UTF-8";
+
+///
+/// Converts a value to a list.
+///
+/// @name to-list
+///
+/// @group String
 @function to-list($value) {
   @return if(type-of($value) != list, ($value, ), $value);
 }

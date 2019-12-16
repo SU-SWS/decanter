@@ -1,61 +1,61 @@
 @charset "UTF-8";
 
 //
-// Variables
+/// Variables
 //
-// Variables are a way to store information that will be reused throughout a
-// project. They store things like colors and fonts, or any CSS value that'll be
-// reused.
-// Every variable is declared as !default so that it can be
-// overridden by a previous import.
-// If you want to override a variable, set that variable in one of your
-// own partials, then @import '{path/to/}core/variables'.
+/// Variables are a way to store information that will be reused throughout a
+/// project. They store things like colors and fonts, or any CSS value that'll be
+/// reused.
+/// Every variable is declared as !default so that it can be
+/// overridden by a previous import.
+/// If you want to override a variable, set that variable in one of your
+/// own partials, then @import '{path/to/}core/variables'.
 //
-// Weight: -60
+/// Weight: -60
 //
-// Style guide: Variables
+/// Style guide: Variables
 
 //
-// Functions
+/// Functions
 //
-// Programmatic procedure or routine to help making writing code or declaring
-// something easier and more seamless.
+/// Programmatic procedure or routine to help making writing code or declaring
+/// something easier and more seamless.
 //
-// Weight: -40
+/// Weight: -40
 //
-// Style guide: Functions
+/// Style guide: Functions
 
 //
-// Mixins
+/// Mixins
 //
-// Mixins help with things that are a bit tedious to write in CSS (e.g.,
-// vendor prefixes that exist). Mixins allow for making groups of CSS
-// declarations for reuse throughout a project. Mixins can even pass in values
-// to make things more flexible.
+/// Mixins help with things that are a bit tedious to write in CSS (e.g.,
+/// vendor prefixes that exist). Mixins allow for making groups of CSS
+/// declarations for reuse throughout a project. Mixins can even pass in values
+/// to make things more flexible.
 //
-// Weight: -50
+/// Weight: -50
 //
-// Style guide: Mixins
+/// Style guide: Mixins
 
 //
-// Placeholders
+/// Placeholders
 //
-// Placeholders are reusable blocks of base CSS styles that can be used to reduce repetitiveness
-// by using `@extend %placeholder;`.
-// Placeholder styles do not show up in the compiled CSS file until a selector extends them.
+/// Placeholders are reusable blocks of base CSS styles that can be used to reduce repetitiveness
+/// by using `@extend %placeholder;`.
+/// Placeholder styles do not show up in the compiled CSS file until a selector extends them.
 //
-// Weight: -30
+/// Weight: -30
 //
-// Style guide: Placeholders
+/// Style guide: Placeholders
 
-// Load order convention exception
+/// Load order convention exception
 //
-// The convention for importing files in index.scss files is to import in
-// alphabetical order. This file intentionally breaks that convention, as
-// variables need to be imported before functions and mixins.
+/// The convention for importing files in index.scss files is to import in
+/// alphabetical order. This file intentionally breaks that convention, as
+/// variables need to be imported before functions and mixins.
 
 @import
-'variables/index', // Needs to be before mixins.
+'variables/index', /// Needs to be before mixins.
 'functions/index',
 'mixins/index',
 'placeholders/index';

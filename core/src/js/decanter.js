@@ -1,3 +1,2 @@
-import './components/components.js';
-
 import '../scss/decanter.scss';
+import './components/components.js';

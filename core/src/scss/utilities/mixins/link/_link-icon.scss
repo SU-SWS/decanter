@@ -1,17 +1,16 @@
 @charset "UTF-8";
 
-//
-// @link-icon($icon, $width: 0.65em, $animate: right, $vertical: null)
-//
-// Display an icon after a link.
-//
-// $icon {string} - Basename of link icon .svg file (without the .svg suffix).
-// $width {string} - Width of icon including unit, e.g. 0.75em, 24px.
-// $animate {string} - Type of animation for the icon on hover. Available options: right, down, up, topright, none. (deprecated true. Please use right)
-// $vertical {string] - Adjustment of vertical position of icon, e.g., '2px' moves icon up 2 pixels, '-0.3em' moves it down 0.3 em.
-//
-// Style guide: Mixins.Link.link-icon
-//
+///
+/// Display an icon after a link.
+///
+/// @name link-icon
+///
+/// @param {string} $icon  - Basename of link icon .svg file (without the .svg suffix).
+/// @param {string} $width  - Width of icon including unit, e.g. 0.75em, 24px.
+/// @param {string} $animate  - Type of animation for the icon on hover. Available options: right, down, up, topright, none. (deprecated true. Please use right)
+/// @param {string} $vertical  - Adjustment of vertical position of icon, e.g., '2px' moves icon up 2 pixels, '-0.3em' moves it down 0.3 em.
+///
+/// @group links
 @mixin link-icon($icon, $width: 0.65em, $animate: right, $vertical: null) {
   text-decoration: none;
   @supports (mask-repeat: no-repeat) {
@@ -33,13 +32,13 @@
         @if $animate == 'right' or $animate == 'true' {
           transform: translateX(0.2em);
         }
-        @elseif $animate == 'down' {
+        @else if $animate == 'down' {
           transform: translateY(0.2em);
         }
-        @elseif $animate == 'up' {
+        @else if $animate == 'up' {
           transform: translateY(-0.2em);
         }
-        @elseif $animate == 'topright' {
+        @else if $animate == 'topright' {
           transform: translate3d(0.15em, -0.15em, 0);
         }
       }

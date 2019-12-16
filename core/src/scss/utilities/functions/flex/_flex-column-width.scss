@@ -1,20 +1,19 @@
 @charset "UTF-8";
 
-//
-// flex-column-width($columns, $gutter: $su-gutter-xs, $su-grid-columns: 12)
-//
-// Return a calulated column width that can then be passed in to a `calc()`.
-//
-// $columns - mixed: Number of columns either as integer or `x of y`
-// $gutter - unit: The width of the gutter in a css unit
-// $su-grid-columns - integer: the number of columns in the grid
-//
-// Style guide: Functions.Flex.flex-column-width
-//
+///
+/// Return a calulated column width that can then be passed in to a `calc()`.
+///
+/// @name flex-column-width
+///
+/// @param {Mixed} $columns - Number of columns either as integer or `x of y`
+/// @param {Unit} $gutter - The width of the gutter in a css unit
+/// @param {Integer} $su-grid-columns - The number of columns in the grid
+///
+/// @group flex
 @function flex-column-width($columns, $gutter: $su-gutter-xs, $grid-columns: $su-grid-columns) {
   $_column-ratio: flex-column-ratio($columns, $grid-columns);
 
-  // Make note here.
+  /// Make note here.
   $_total-columns: $grid-columns;
   @if length($columns) == 3 {
     $_total-columns: flex-parse-columns($columns);

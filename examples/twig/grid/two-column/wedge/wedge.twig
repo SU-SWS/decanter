@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Wedge 2 column layout
+ *
+ * A 25/75 style two column layout.
+ *
+ * Variants:
+  * layout-wedge--right - A right sidebar variant to the layout.
+  *
+ * Variables:
+ * attributes - html attributes for the template wrapper tag
+ * modifier_class - Variant modifier css classes
+ * first - First column and 25% width
+ * second - Second Column and 75% width
+ *
+ *
+ */
+#}
+<div{{ attributes }} class="layout layout-wedge {{ modifier_class }}">
+  <section>
+    <div {{ region_attributes.first }}>
+      {{ first }}
+    </div>
+
+    <div {{ region_attributes.second }}>
+      {{ second }}
+    </div>
+  </section>
+</div>

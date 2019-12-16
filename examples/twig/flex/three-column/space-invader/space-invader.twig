@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * A three column layout with a 3 span header and an equal three column layout
+ * below it.
+ *
+ * 100
+ * 33/33/33
+ *
+ * Variables:
+ * attributes - html attributes for the template wrapper tag
+ * modifier_class - Variant modifier css classes
+ * header - A single column centered content area.
+ * first - A 33% width content column.
+ * second - A 33% width content column.
+ * third - A 33% width content column.
+ */
+#}
+<div{{ attributes }} class="layout {{ modifier_class }}">
+  <div class="flex-container flex-container--row-gap centered-container">
+
+    {% if header is not empty %}
+    <header class="flex-12-of-12">
+      {{ header }}
+    </header>
+    {% endif %}
+
+    {% if first is not empty %}
+    <div class="flex-md-4-of-12">
+      {{ first }}
+    </div>
+    {% endif %}
+
+    {% if second is not empty %}
+    <div class="flex-md-4-of-12">
+      {{ second }}
+    </div>
+    {% endif %}
+
+    {% if third is not empty %}
+    <div class="flex-md-4-of-12">
+      {{ third }}
+    </div>
+    {% endif %}
+
+  </div>
+</div>

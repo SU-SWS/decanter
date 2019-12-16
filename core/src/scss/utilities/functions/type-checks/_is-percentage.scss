@@ -1,13 +1,13 @@
 @charset "UTF-8";
 
-// is-percentage($value)
-//
-// Validates wether something is a percentage unit
-//
-// $value - the value to type check
-//
-// Style guide: Functions.Type Checks.is-percentage
-//
+///
+/// Validates wether something is a percentage unit
+///
+/// @name is-percentage
+///
+/// @param {Integer} $value - the value to type check
+///
+/// @group Type-checks
 @function is-percentage($value) {
   @return is-number($value) and unit($value) == '%';
 }

@@ -1,0 +1,60 @@
+{#
+/**
+ * @file
+ * Bricks
+ * A two column 50/50 centered row followed by a full width region.
+ *
+ * Variables:
+ * attributes - html attributes for the template wrapper tag
+ * modifier_class - Variant modifier css classes
+ * hero - The top most full width region.
+ * first - First of a 50/50 centered column
+ * second - Second of a 50/50 centered column
+ * hero2 - Second full width region
+ * third - First of a 50/50 centered column
+ * fourth - Second of a 50/50 centered column
+ */
+#}
+<div{{ attributes}} class="layout centered-container {{ modifier_class }}">
+
+  {# Full width region #}
+  {% if hero is not empty %}
+  <section>
+    {{ hero }}
+  </section>
+  {% endif %}
+
+  {# Required two equal column centered content area. #}
+  {% if first is not empty or second is not empty %}
+  <section class="flex-container">
+    <div class="flex-md-6-of-12">
+      {{ first }}
+    </div>
+
+    <div class="flex-md-6-of-12">
+      {{ second}}
+    </div>
+  </section>
+  {% endif %}
+
+  {# Full width region #}
+  {% if hero2 is not empty %}
+  <section>
+    {{ hero2 }}
+  </section>
+  {% endif %}
+
+  {# Optional two equal column centered content area. #}
+  {% if third is not empty or fourth is not empty %}
+  <section class="flex-container">
+    <div class="flex-md-6-of-12">
+      {{ third }}
+    </div>
+
+    <div class="flex-md-6-of-12">
+      {{ fourth }}
+    </div>
+  </section>
+  {% endif %}
+
+</div>
