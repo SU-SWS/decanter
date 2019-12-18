@@ -25,5 +25,9 @@
 - Any other contextual information that might be helpful (e.g., description of a bug that this PR fixes, new functionality that it adds, etc.)
 - Anyone who should be notified? (`@mention` them here)
 
+# Accessibility Checks
+- What accessibility testing has been done on the work in this PR? (WAVE, AMP, etc.)
+
+
 # See Also
 - [PR Checklist](https://gist.github.com/sherakama/0ba17601381e3adbe0cad566ad4d80a5)
