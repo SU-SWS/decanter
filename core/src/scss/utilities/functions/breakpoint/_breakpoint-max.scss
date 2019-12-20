@@ -17,7 +17,7 @@
 /// breakpoint-max(sm)
 /// Returns "767px"
 ///
-/// @group breakpoint
+/// @group function
 @function breakpoint-max($name, $breakpoints: $su-grid-screens) {
   $next: breakpoint-next($name, map-keys($breakpoints));
   @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);

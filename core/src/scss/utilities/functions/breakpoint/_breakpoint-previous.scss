@@ -11,7 +11,7 @@
 /// breakpoint-previous(lg, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px, 2xl: 1500px))
 /// Returns "md"
 ///
-/// @group breakpoint
+/// @group function
 @function breakpoint-previous($name, $breakpoints: map-keys($su-grid-screens)) {
   $n: index($breakpoints, $name);
   @if is-integer($n) and $n > 1 {

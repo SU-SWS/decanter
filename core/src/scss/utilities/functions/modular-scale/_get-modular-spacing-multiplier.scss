@@ -9,7 +9,7 @@
 ///
 /// @param {Integer} $step - Integers from -4 to 5 including 0
 ///
-/// @group Modular-scale
+/// @group function
 @function get-modular-spacing-multiplier($step: 0) {
   @if ($step >= -4 and $step <= 9) {
     @return map-get($su-modular-spacing-multiplier, $step);
