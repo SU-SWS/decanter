@@ -1,5 +1,14 @@
 # Upgrade
 
+Upgrade from version 5.2.0 to 6.0.0
+-----------------------------------
+
+The two major differences are in the removal of deprecated code and a change to the webpack build.
+Make sure you get the new npm dependencies.
+Card.twig schema has changed. Please look at the new variable name and options.
+
+More instructions forthcoming...
+
 Upgrade from version 4.1.0 to 5.0.0
 -----------------------------------
 
@@ -89,7 +98,7 @@ component folders.
 
 #### Variables (Moved with New Items)
 
-The `/variables` directory has been moved inside the `/utilities` directory. 
+The `/variables` directory has been moved inside the `/utilities` directory.
 
 #### Layouts (Moved with New Items)
 
@@ -103,7 +112,7 @@ Many new mixins have been added or changed. Below are a few notable ones.
 
 - Updated media query mixins that work with our new grid system can be found inside the `/breakpoint` directory.
 - Modular scale mixins for rendering modular spacing (uses the Bourbon modular scale with a factor of 1.25 between steps) and typography (uses a curated scale) have been introduced.
-- Many typography mixins have been added, including `@type-a` to `@type-f` which could be used to 
+- Many typography mixins have been added, including `@type-a` to `@type-f` which could be used to
 generate styles for headers and other text elements.
 
 #### Functions (New Items)

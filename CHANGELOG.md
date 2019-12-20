@@ -1,8 +1,43 @@
 # Changelog
 
-Version XXXX              20XX-XX-XX
+Version 6.0.0                      2019-12-20
 ---------------------------------------------
 - Deprecated: su-aspect-ratio-1x1 & su-aspect-ratio-4x3 classes.
+- Removed all of the KSS Styleguide build in favor of new website.
+- Removed lando.default.yml as you should be using the npm servers.
+- Removed Gruntfile.js and fully switched over to npm scripts.
+- Removed webpack url-loader and added /core/dist/assets so that images are no longer embedded in the css
+- Removed /core/dist/css/decanter-grid.css as it was empty anyhow.
+- Removed /core/dist/css/decanter-no-markup.css as it was empty anyhow.
+- Removed /core/dist/js/decanter-grid.js as it was empty except for webpack stuff.
+- Removed /core/src/js/decanter-grid.js as we now use the decanter-grid.scss as our webpack entry point.
+- Removed the scss file import from /core/src/js/decanter-no-markup.js so that it includes just javascript and no sass.
+- Removed nearly all of the layouts found in /core/src/scss/layout as they added 4500 lines of css bloat that were not being used. The files and css have been moved to an examples folder.
+- Removed all the deprecated code from Version 5.
+- New Component: Secondary Navigation
+- /core/src/js/decanter.js no imports both the SASS and Javascript files.
+- New SASSDOCs code commenting conventions for all SASS files instead of abusing the KSS style.
+- New JSDOCs code commenting conventions for all JavaScript files instead of just whatever.
+- New Variant: Card Icon
+- New Examples folder for adding examples of templates/recipies/documentation/whatever.
+- New Dependency: Font Awesome because, well, it's awesome.
+
+Version 5.2.0                      2019-12-20
+---------------------------------------------
+- This is the last Version 5 release with new features.
+- Added CODE_OF_CONDUCT.md
+- New Variant: `su-card--icon`
+- New Component: Media
+- Changed Aspect Ratio CSS class names. Deprecated old ones.
+- Changed <figure> margin and set to `margin(0)`
+- New Mixin: `@card`
+- Updates to caption mixin
+- Updates to the credits mixin
+- Updates to the small-paragraphs mixin
+- Buttons are now bolder (font style)
+- Deprecated: %card-base placeholder
+- Card.twig template has some pretty large changes to the schmea to allow for different media types.
+- hero.twig template variable change from hero_cta_link to hero_link
 
 Version 6.0.0-alpha.1              2019-10-31
 ---------------------------------------------
