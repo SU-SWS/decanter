@@ -1,5 +1,22 @@
 # Changelog
 
+Version 5.2.0                      2019-12-20
+---------------------------------------------
+- Added CODE_OF_CONDUCT.md
+- New Variant: `su-card--icon`
+- New Component: Media
+- Changed Aspect Ratio CSS class names. Deprecated old ones.
+- Changed <figure> margin and set to `margin(0)`
+- New Mixin: `@card`
+- Updates to caption mixin
+- Updates to the credits mixin
+- Updates to the small-paragraphs mixin
+- Buttons are now bolder (font style)
+- Deprecated: %card-base placeholder
+- Card.twig template has some pretty large changes to the schmea to allow for different media types.
+- hero.twig template variable change from hero_cta_link to hero_link
+
+
 Version 5.1.0                      2019-10-31
 ---------------------------------------------
 
