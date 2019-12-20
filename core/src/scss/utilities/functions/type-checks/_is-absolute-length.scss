@@ -7,7 +7,7 @@
 ///
 /// @param {Integer} $value - the value to type check
 ///
-/// @group Type-checks
+/// @group mixin
 @function is-absolute-length($value) {
   @return is-number($value) and index('cm' 'mm' 'in' 'px' 'pt' 'pc', unit($value)) != null;
 }

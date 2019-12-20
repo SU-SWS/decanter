@@ -12,7 +12,7 @@
 /// @param {Integer} $step - Integers from -4 to 9 including 0
 /// @param {Breakpoint} $breakpoint - One of `xs`, `sm`, `md`, `lg`, `xl`, `2xl`
 ///
-/// @group Modular-scale
+/// @group mixin
 @function calculate-modular-spacing($step: 0, $breakpoint: 'xl') {
   @if ($step >= -4 and $step <= 9) {
     @return round(get-modular-spacing-base($breakpoint) * get-modular-spacing-multiplier($step) * 100) / 100;

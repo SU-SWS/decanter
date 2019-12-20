@@ -11,7 +11,7 @@
 ///
 /// @name breakpoint-min
 ///
-/// @group breakpoint
+/// @group mixin
 @function breakpoint-min($name, $breakpoints: $su-grid-screens) {
   $min: map-get($breakpoints, $name);
   @return if($min != 0, $min, null);
