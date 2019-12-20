@@ -70,7 +70,7 @@
       &::before {
         bottom: 0;
       }
-    } @elseif ($position == 'top') {
+    } @else if ($position == 'top') {
       @include padding(0.8em null null);
 
       &::before {
@@ -78,7 +78,7 @@
       }
     }
 
-  } @elseif ($position == 'left' or $position == 'right') {
+  } @else if ($position == 'left' or $position == 'right') {
     &::before {
       height: 100%;
       width: #{$thickness};
@@ -98,7 +98,7 @@
       &::before {
         left: 0;
       }
-    } @elseif ($position == 'right') {
+    } @else if ($position == 'right') {
       &::before {
         right: 0;
       }
