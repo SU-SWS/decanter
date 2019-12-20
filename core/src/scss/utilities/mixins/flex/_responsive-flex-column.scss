@@ -10,7 +10,7 @@
 /// @param {map} $grid - A key value map where the key is the shortcode of the breakpoint and the value is the full media query.
 /// @param {map} $gutters - A complimentary map to the $grid map where the size of the css grid gutter is applied at each breakpoint.
 ///
-/// @group functionbox
+/// @group mixin
 @mixin responsive-flex-column($columns, $grid: $su-grid-media, $gutters: $su-grid-gutters) {
   @each $key, $breakpoint in $grid {
     @include grid-media($key) {

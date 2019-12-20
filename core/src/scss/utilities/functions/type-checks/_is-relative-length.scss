@@ -7,7 +7,7 @@
 ///
 /// @param {Integer} $value - the value to type check
 ///
-/// @group function
+/// @group mixin
 @function is-relative-length($value) {
   @return is-number($value) and index('em' 'ex' 'ch' 'rem' 'vw' 'vh' 'vmin' 'vmax', unit($value)) != null;
 }

@@ -1,14 +1,13 @@
 @charset "UTF-8";
 
-//
-// @card($image-hover)
-//
-// Mixin for base card styling
-//
-// $image-hover - String. Image link hover effect. Use 'zoom' for an image zoom-in effect. Use 'opacity'
-//
-// Style guide: Mixins.Card.card
-//
+///
+/// Mixin for base card styling
+///
+/// @param {String} image-hover - Image link hover effect. Use 'zoom' for an image zoom-in effect. Use 'opacity'
+///
+/// @name card($image-hover)
+///
+/// @group mixin
 
 @mixin card($image-hover: 'zoom') {
   @include box-shadow(shallow, 1px solid color(card-border));
@@ -17,7 +16,7 @@
 
   img,
   figure {
-    // Hide the media element on the smallest screen sizes.
+    /// Hide the media element on the smallest screen sizes.
     @include grid-media-only('xs') {
       display: none;
     }
@@ -31,19 +30,19 @@
       @include small-paragraph;
     }
 
-    // Ensure no top padding or margin on first item.
+    /// Ensure no top padding or margin on first item.
     > *:first-child {
       @include padding(0 null null);
       @include margin(-0.3em null null);
     }
 
-    // Ensure no bottom padding or margin on last item unless it is a button.
+    /// Ensure no bottom padding or margin on last item unless it is a button.
     > *:last-child:not(.su-card__button) {
       @include padding(null null 0);
       @include margin(null null 0);
     }
 
-    // Super Headline.
+    /// Super Headline.
     > span {
       @include modular-spacing('margin', null null -3);
       @include types;
@@ -51,7 +50,7 @@
       display: block;
     }
 
-    // Headline.
+    /// Headline.
     > h2 {
       @include modular-spacing('margin', null null -1);
       @include type-c;
@@ -68,7 +67,7 @@
       }
     }
 
-    // Card body - open field, any p or div (that are not part of the button)
+    /// Card body - open field, any p or div (that are not part of the button)
     > div:not(.su-card__button) {
       line-height: $su-base-line-height;
     }
@@ -87,19 +86,19 @@
     }
   }
 
-  // Button to click on.
+  /// Button to click on.
   .su-card__button {
     @include modular-spacing('margin', 1 null -3);
 
     @include grid-media-only('xs') {
       .su-button {
-        // Overriding default button 100% width in xs.
+        /// Overriding default button 100% width in xs.
         width: auto;
       }
     }
   }
 
-  // Image hover effects
+  /// Image hover effects
   a {
     @if ($image-hover == 'zoom') {
       .su-media__wrapper {
