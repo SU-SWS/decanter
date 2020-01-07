@@ -8,13 +8,16 @@ services:
         - |
           sudo apt-get install g++ build-essential
           git clone https://github.com/su-sws/decanter-web.git styleguide
-          ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+          NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           nvm install 11.14.0
           cd styleguide
           nvm use
           npm i "https://github.com/su-sws/decanter.git#${TUGBOAT_GITHUB_HEAD}"
           npm install
           npm run export
+          npm run server
 
       # Used in each of the preview builds.
       build:
@@ -26,6 +29,7 @@ services:
           npm i "https://github.com/su-sws/decanter.git#${TUGBOAT_GITHUB_HEAD}"
           npm install
           npm run export
+          npm run server
     # Collection of urls to compare visual results.
     visualdiffs:
       - /
