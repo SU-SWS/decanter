@@ -25,7 +25,9 @@ services:
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           cd styleguide
           nvm use
-          npm install "https://github.com/su-sws/decanter.git#${TUGBOAT_GITHUB_HEAD}"
+          rm package-lock.json
+          npm install "https://github.com/su-sws/decanter.git#${TUGBOAT_GITHUB_HEAD}" --save
+          npm audit fix
           npm run export
         - echo "#!/bin/sh" > /etc/service/node/run
         - echo "npm run start --prefix ${TUGBOAT_ROOT}/styleguide" >> /etc/service/node/run
