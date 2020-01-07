@@ -6,12 +6,12 @@ services:
       init:
         - git clone https://github.com/su-sws/decanter-web.git styleguide
         - ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
-        - cd $TUGBOAT_ROOT/styleguide
         - |
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
           NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           nvm install 11.14.0
+          cd styleguide
           nvm use
           npm i https://github.com/su-sws/decanter.git#$TUGBOAT_GITHUB_HEAD
           npm install
@@ -19,10 +19,10 @@ services:
 
       # Used in each of the preview builds.
       build:
-        - cd styleguide
         - |
           NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          cd styleguide
           nvm use
           npm i https://github.com/su-sws/decanter.git#$TUGBOAT_GITHUB_HEAD
           npm install
