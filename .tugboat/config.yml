@@ -4,6 +4,7 @@ services:
     commands:
       # Used in the base image as setup.
       init:
+        - sudo apt-get install g++ build-essential
         - git clone https://github.com/su-sws/decanter-web.git styleguide
         - ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
         - |
