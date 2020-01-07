@@ -4,7 +4,7 @@ services:
     commands:
       # Used in the base image as setup.
       init:
-        - git clone git@github.com:SU-SWS/decanter-web styleguide
+        - git clone git+ssh://git@github.com:su-sws/decanter-web.git styleguide
         - ln -snf "${TUGBOAT_ROOT}/styleguide" "${DOCROOT}"
         - cd $TUGBOAT_ROOT/styleguide
         - |
