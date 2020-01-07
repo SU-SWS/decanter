@@ -14,10 +14,10 @@ services:
           nvm install 11.14.0
           cd styleguide
           nvm use
-          npm i "https://github.com/su-sws/decanter.git#${TUGBOAT_GITHUB_HEAD}"
+          npm install "https://github.com/su-sws/decanter.git#${TUGBOAT_GITHUB_HEAD}"
           npm install
           npm run export
-          npm run server
+          npm run start
 
       # Used in each of the preview builds.
       build:
@@ -26,10 +26,10 @@ services:
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           cd styleguide
           nvm use
-          npm i "https://github.com/su-sws/decanter.git#${TUGBOAT_GITHUB_HEAD}"
+          npm install "https://github.com/su-sws/decanter.git#${TUGBOAT_GITHUB_HEAD}"
           npm install
           npm run export
-          npm run server
+          npm run start
     # Collection of urls to compare visual results.
     visualdiffs:
       - /
