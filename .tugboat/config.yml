@@ -26,7 +26,10 @@ services:
           nvm use
           npm install "https://github.com/su-sws/decanter.git#${TUGBOAT_GITHUB_HEAD}"
           npm run export
-          npm run start
+        - mkdir -p /etc/service/node
+        - echo "#!/bin/sh" > /etc/service/node/run
+        - echo "npm run start --prefix ${TUGBOAT_ROOT}/styleguide" >> /etc/service/node/run
+        - chmod +x /etc/service/node/run
     # Collection of urls to compare visual results.
     visualdiffs:
       - /
