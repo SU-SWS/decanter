@@ -13,12 +13,7 @@ services:
           NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           nvm install 11.14.0
-          cd styleguide
-          nvm use
-          npm install "https://github.com/su-sws/decanter.git#${TUGBOAT_GITHUB_HEAD}"
-          npm install
-          npm run export
-          npm run start
+        - exit 0
 
       # Used in each of the preview builds.
       build:
@@ -31,6 +26,7 @@ services:
           npm install
           npm run export
           npm run start
+        - exit 0
     # Collection of urls to compare visual results.
     visualdiffs:
       - /
