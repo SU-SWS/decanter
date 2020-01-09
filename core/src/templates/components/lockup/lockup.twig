@@ -59,8 +59,9 @@
   </div>
 
   {#- Cell container #2 -#}
+  {% block cell2 %}
+  {% if line1 is not empty or line2 is not empty or line3 is not empty %}
   <div class="su-lockup__cell2">
-    {% block cell2 %}
     {% if line1 is not empty %}
     <span class="su-lockup__line1" {{ region_attributes.line1 }}>{{ line1 }}</span>
     {% endif %}
@@ -72,8 +73,9 @@
     {% if line3 is not empty %}
     <span class="su-lockup__line3" {{ region_attributes.line3 }}>{{ line3 }}</span>
     {% endif %}
-    {% endblock %}
   </div>
+  {% endif %}
+  {% endblock %}
 
   {#- Line 5 of Site Name - Optional -#}
   {% if line5 is not empty %}
