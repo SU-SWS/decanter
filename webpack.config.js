@@ -15,7 +15,7 @@ const WebpackAssetsManifest = require("webpack-assets-manifest");
 const ExtraWatchWebpackPlugin = require("extra-watch-webpack-plugin");
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 // Paths
-const npmPackage = 'node_modules/';
+const npmPackage = 'node_modules';
 const srcDir = path.resolve( __dirname, 'core/src' );
 const outputDir = path.resolve( __dirname, 'core/dist' );
 
@@ -53,16 +53,10 @@ module.exports = {
   },
   // Allows for map files.
   devtool: 'source-map',
-  // Live dev server!
-  devServer: {
-    contentBase: path.join(__dirname, 'styleguide'),
-    compress: true,
-    port: 9000
-  },
   // Relative output paths for css assets.
   resolve: {
     alias: {
-      '@fortawesome': path.resolve(npmPackage + '@fortawesome')
+      './@fortawesome': path.resolve(__dirname, npmPackage, '@fortawesome')
     }
   },
   // Optimizations that are triggered by production mode.
