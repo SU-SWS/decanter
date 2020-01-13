@@ -1,5 +1,12 @@
 # Changelog
 
+Version 6.0.1                      2020-01-13
+---------------------------------------------
+- Fixed tugboat builds for previews on PRs
+- Restored the `.centered-container` class. Totally did not mean to remove it along with the other layouts.
+- Fixed empty cell logic in lockup.twig
+- Fixed failing webpack build. Shea is sorry about that one.
+
 Version 6.0.0                      2019-12-20
 ---------------------------------------------
 - Deprecated: su-aspect-ratio-1x1 & su-aspect-ratio-4x3 classes.
