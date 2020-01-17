@@ -26,12 +26,16 @@
     max-width: 105px;
   }
 
-  .su-date-stacked__month {
-    @include big-paragraph;
+  &__month {
     display: block;
+    font-size: 2.1rem;
+
+    @include grid-media-max('md') {
+      font-size: 1.6rem;
+    }
   }
 
-  .su-date-stacked__day {
+  &__day {
     @include types;
     @include type-b;
     display: block;
