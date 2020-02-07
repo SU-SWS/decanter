@@ -1,5 +1,15 @@
 # Changelog
 
+Version 6.0.2                      2020-02-06
+---------------------------------------------
+- Change font size of `@big-paragraph` to 2.1rem and line height to 1.7; (#608)
+- modify date-stacked to not use `@big-paragraph` because we don't want the line height.
+- Make date stacked component switch to mobile font size at sm breakpoint instead of md.
+- Change `@type-f` font size from 0.8em to 0.9em and remove uppercase style (#609)
+- Brand bar wrapper change to div from section. (#613)
+- Add cool grey color variables and update package.json (#614)
+-- `$su-color-cool-grey-75`, `$su-color-cool-grey-50`, `$su-color-cool-grey-25`, `$su-color-cool-grey-15`
+
 Version 6.0.1                      2020-01-13
 ---------------------------------------------
 - Fixed tugboat builds for previews on PRs
