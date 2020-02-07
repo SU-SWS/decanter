@@ -1,5 +1,10 @@
 # Changelog
 
+Version 6.0.3                      2020-02-06
+---------------------------------------------
+- Fixes 6.0.2 build fail. Shea is again, sorry.
+- Commits the changes to the updates in package.json
+
 Version 6.0.2                      2020-02-06
 ---------------------------------------------
 - Change font size of `@big-paragraph` to 2.1rem and line height to 1.7; (#608)
