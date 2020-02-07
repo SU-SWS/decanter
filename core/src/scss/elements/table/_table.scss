@@ -14,37 +14,41 @@
 // Style guide: Elements.Table
 //
 table {
-  @include margin(2em 0);
+  @include margin(2em 0 null 0);
+  @include modular-spacing('margin-bottom', 5);
+  border-collapse: collapse;
   border-spacing: 0;
   min-width: 100%;
 
-  th,
-  td {
-    @include padding(1.5rem);
-    border: 1px solid $su-color-driftwood;
+  caption {
+    @include caption;
   }
 
-  th {
-    background-color: $su-color-cloud;
-    color: $su-color-black;
-    font-weight: $su-font-regular;
-    text-align: left;
-  }
+  thead,
+  tbody {
 
-  td {
-    background-color: $su-color-white;
-  }
-
-  thead {
     th,
     td {
-      background-color: $su-color-cloud;
+      @include padding(1.5rem);
+    }
+
+    th {
+      color: $su-color-black;
+      font-weight: $su-font-semi-bold;
+      text-align: left;
+    }
+
+    tr {
+      border-top: 1px solid $su-color-cool-grey-25;
+
+      &:first-of-type {
+        border-top: 0;
+      }
     }
   }
 
-  tbody {
-    th {
-      font-weight: $su-font-regular;
-    }
+  thead + tbody {
+    border-top: 1px solid $su-color-cool-grey-25;
   }
+
 }
