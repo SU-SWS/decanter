@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+///
+/// Calculate font-size to use rems based upon 
+/// the root font size ($su-root-font-size) 
+/// set in core/src/scss/utilities/variables/core/_typography.scss
+///
+/// @name calculate-font-size
+///
+/// @param {String} $size-in-pixels - The value to be converted from pixels to rems.
+
+@function calculate-font-size($size-in-pixels) {
+  $font-size: $size-in-pixels / $su-root-font-size;
+  @return #{$font-size}rem;
+}

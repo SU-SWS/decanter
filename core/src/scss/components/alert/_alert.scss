@@ -17,36 +17,36 @@
 // Style guide: Simple.Alert
 //
 .su-alert {
-  @include padding(2rem);
+  @include padding(calculate-font-size(20px));
   background-color: color(default, $su-alert-colors);
-  background-position: 1rem center;
+  background-position: calculate-font-size(10px) center;
   background-repeat: no-repeat;
-  background-size: 4rem;
+  background-size: calculate-font-size(40px);
   color: color(dark-text, $su-alert-colors);
 
   @include grid-media('md') {
-    background-size: 5.2rem;
+    background-size: calculate-font-size(52px);
   }
 
   .su-alert__body {
     display: table-cell;
     vertical-align: top;
 
-    @include padding(null null null 3.5rem);
+    @include padding(null null null calculate-font-size(35px));
 
     @include grid-media('md') {
-      @include padding(null null null 5rem);
+      @include padding(null null null calculate-font-size(50px));
     }
 
     p:last-child {
-      @include margin(null null 0.8rem);
+      @include margin(null null calculate-font-size(8px));
     }
 
     .su-alert__heading {
-      @include margin(0 null 0.3rem);
+      @include margin(0 null calculate-font-size(3px));
 
       @include grid-media('md') {
-        @include margin(0.3rem null null);
+        @include margin(calculate-font-size(3px) null null);
       }
     }
 
