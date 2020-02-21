@@ -62,7 +62,7 @@
 {%- endif %}
 
 {%- if lockup_options is empty -%}
- {%- set lockup_options = { "modifier_class": 'su-lockup--option-a', "line1": lockup_title } -%}
+ {%- set lockup_options = { "modifier_class": 'su-lockup--option-a', "line1": lockup_title, "attributes": attributes|without('id') } -%}
 {%- endif -%}
 
 {%- if template_path_link is empty -%}
@@ -81,7 +81,7 @@
 <div {{ attributes }} class="su-local-footer {{ modifier_class }}">
   {# The header is completely optional and won't render if there isn't any content #}
   {% if lockup_title is not empty or weblogin_url is not empty or headercontent is not empty %}
-  <header class="su-local-footer__header">
+  <div class="su-local-footer__header">
     {# Lockup template. Set usually to option-a #}
     {% include template_path_lockup with lockup_options %}
     {# Web login button #}
@@ -94,7 +94,7 @@
     {% endif %}
     {# Optional content area for the header. #}
     {{ headercontent }}
-  </header>
+  </div>
   {% endif %}
   {#
     Container for the content cells. These cells have a specific and rigid
@@ -197,7 +197,7 @@
         {# The template path is included with the `with` keyword on purpose.
            See the template for what variables are expected and how they are named.
         #}
-        {% include template_path_signup_form %}
+        {% include template_path_signup_form with { "attributes" : attributes|without('id') } %}
       {% endif %}
       {% endblock %}
       {# If you want to provide all of our own markup use the cell3 var. #}
