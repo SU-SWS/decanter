@@ -1,5 +1,9 @@
 # Changelog
 
+Version 6.0.5                      2020-02-27
+---------------------------------------------
+- D8CORE-1329: removed the width 100% for xs breakpoint with buttons. (#631)
+
 Version 6.0.4                      2020-02-21
 ---------------------------------------------
 - Remove header html element and duplicate ids from local footer component (#630)
