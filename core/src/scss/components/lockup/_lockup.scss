@@ -49,19 +49,23 @@
 }
 
 .su-lockup__cell1 {
-  min-height: 26px;
+  min-height: 2.6rem;
   vertical-align: bottom;
   width: auto;
 
-  @include grid-media('md') {
+  @include grid-media-only('md') {
+    min-height: 3rem;
+  }
+
+  @include grid-media('lg') {
     @include margin(null -1px null null);
     @include padding(null 7px 0 null);
     align-self: flex-end;
     border-right: solid 1px $su-color-black;
     display: flex;
     flex-shrink: 1;
-    max-width: 160px;
-    min-height: 32px;
+    max-width: 16rem;
+    min-height: 3.2rem;
   }
 }
 
@@ -78,21 +82,30 @@
 .su-lockup__wordmark {
   @include logo;
   color: $su-color-cardinal-red;
-  font-size: 36px;
-  line-height: 17px;
+  font-size: 3.6rem;
+  line-height: 1.7rem;
   vertical-align: bottom;
 
-  @include grid-media('md') {
-    font-size: 46px;
-    line-height: 21px;
+  @include grid-media-only('md') {
+    font-size: 4.2rem;
+    line-height: 1.8rem;
+  }
+
+  @include grid-media('lg') {
+    font-size: 4.6rem;
+    line-height: 2.1rem;
   }
 }
 
 .su-lockup__wordmark-wrapper {
-  line-height: 26px;
+  line-height: 2.6rem;
 
-  @include grid-media('md') {
-    line-height: 32px;
+  @include grid-media-only('md') {
+    line-height: 3rem;
+  }
+
+  @include grid-media('lg') {
+    line-height: 3.2rem;
   }
 }
 
@@ -137,6 +150,11 @@
   line-height: 1em;
   margin-left: -0.2rem;
   text-transform: uppercase;
+
+  @include grid-media-only('md') {
+    font-size: 2.3rem;
+    letter-spacing: 0.04rem;
+  }
 }
 
 .su-lockup__line5 {
