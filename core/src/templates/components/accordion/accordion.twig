@@ -1,0 +1,29 @@
+{#
+  Accordion
+
+  Template for an expandable/collapsable section.
+
+  * Available variables:
+  * - attributes: For additional HTML attributes not already provided.
+  * - modifier_class: Additional css classes to change look and behaviour.
+  * - template_path_nav_toggle:
+  * - nav_toggle_vars:
+  * - toggle:
+  * - title:
+  * - content:
+#}
+{%- if template_path_nav_toggle is empty -%}
+  {%- set template_path_nav_toggle = "@decanter/components/nav-toggle/nav-toggle.twig" -%}
+  {% set nav_toggle_vars = { "aria_label": title } %}
+{%- endif %}
+<div {{ attributes }} class="su-accordion {{ modifier_class }}">
+  {% if toggle is empty %}
+    {% include template_path_nav_toggle with nav_toggle_vdars only %}
+  {% else %}
+    {{ toggle }}
+  {% endif %}
+  {% if title is not empty %}
+    <h2 class="su-accordion__title">{{ title }}</h2>
+  {% endif %}
+  {{ content }}
+</div>
