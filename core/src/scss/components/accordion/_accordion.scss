@@ -13,3 +13,21 @@
   clear: both;
   position: relative;
 }
+
+.su-accordion__title {
+  @include modular-typography(1);
+  font-weight: $su-font-semi-bold;
+
+  > button {
+    all: inherit;
+    cursor: pointer;
+
+    &::after {
+      content: "+";
+      display: block;
+      @include size(3.6rem);
+      background-color: $su-color-cloud;
+    }
+  }
+}
+

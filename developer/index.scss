@@ -1,5 +1,19 @@
 @import "@decanter-no-markup";
 body {
   @include sticky-footer(".su-global-footer");
+
+  > .su-masthead {
+    box-shadow: none;
+    background-color: $su-color-fog;
+    .su-main-nav,
+    .su-site-search {
+      display: none;
+    }
+  }
 }
+
+.custom-width {
+  @include margin(6rem auto 0);
+}
+
 @import "test.scss";
