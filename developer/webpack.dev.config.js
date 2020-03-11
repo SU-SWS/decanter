@@ -42,6 +42,8 @@ module.exports = {
   entry: {
     "decanter": srcDir + "/js/decanter.js",
     "twig": path.resolve(__dirname, "twig.js"),
+    "local-js": path.resolve(__dirname, "index.js"),
+    "local-css": path.resolve(__dirname, "index.scss"),
   },
   // Where should I output the assets.
   output: {
@@ -60,7 +62,8 @@ module.exports = {
   // Relative output paths for css assets.
   resolve: {
     alias: {
-      './@fortawesome': path.resolve(__dirname, npmPackage, '@fortawesome')
+      './@fortawesome': path.resolve(__dirname, npmPackage, '@fortawesome'),
+      '@decanter-no-markup': path.resolve(__dirname, "../core/src/scss/decanter-no-markup.scss"),
     }
   },
   // Optimizations that are triggered by production mode.
