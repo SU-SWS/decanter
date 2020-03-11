@@ -9,25 +9,56 @@
 //
 // Style guide: Simple.Accordion
 //
+
 .su-accordion {
+  @include font-smoothing;
+  border-top: 1px solid $su-color-cool-grey-25;
+}
+
+.su-accordion,
+.su-accordion__item,
+.su-accordion__title,
+.su-accordion__content {
   clear: both;
   position: relative;
 }
 
+.su-accordion__item {
+  border-bottom: 1px solid $su-color-cool-grey-25;
+}
+
 .su-accordion__title {
   @include modular-typography(1);
-  font-weight: $su-font-semi-bold;
+  width: 100%;
 
   > button {
     all: inherit;
+    @include modular-spacing('padding', 0);
+    font-weight: $su-font-bold;
+    position: relative;
     cursor: pointer;
 
     &::after {
-      content: "+";
       display: block;
-      @include size(3.6rem);
-      background-color: $su-color-cloud;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0.5em;
+      content: "+";
+      font-weight: $su-font-regular;
+      font-size: 3.6rem;
+      line-height: 3.6rem;
+      text-align: center;
+    }
+
+    &:focus,
+    &:hover {
+      background-color: $su-color-cool-grey-15;
+      color: $su-color-bright-red;
     }
   }
 }
 
+.su-accordion__content {
+  @include modular-spacing('padding', null 0);
+}
