@@ -41,7 +41,7 @@ module.exports = {
   // Define the entry points for which webpack builds a dependency graph.
   entry: {
     "decanter": srcDir + "/js/decanter.js",
-    "index": path.resolve(__dirname, "twig.js"),
+    "twig": path.resolve(__dirname, "twig.js"),
   },
   // Where should I output the assets.
   output: {
@@ -90,19 +90,6 @@ module.exports = {
   plugins: [
     // Remove JS files from render.
     new FixStyleOnlyEntriesPlugin(),
-    // A webpack plugin to manage files before or after the build.
-    // Used here to:
-    // - clean all generated files (js AND css) prior to building
-    // - copy generated files to the styleguide after building
-    // Copying to the styleguide must happen in this build because the 2 configs
-    // run asynchronously, and the kss build finishes before this build generates
-    // the assets that need to be copied.
-    // https://www.npmjs.com/package/filemanager-webpack-plugin
-    new FileManagerPlugin( {
-      onStart: {
-        delete: [ outputDir + '/**/*' ]
-      }
-    } ),
     // This plugin extracts CSS into separate files. It creates a CSS file per
     // JS file which contains CSS. It supports On-Demand-Loading of CSS and
     // SourceMaps.
@@ -112,12 +99,6 @@ module.exports = {
       // both options are optional
       filename: "../css/[name].css",
       chunkFilename: "../css/[id].css"
-    } ),
-    // This Webpack plugin will generate a JSON file that matches the original
-    // filename with the hashed version.
-    // https://github.com/webdeveric/webpack-assets-manifest
-    new WebpackAssetsManifest( {
-      output: 'assets.json'
     } ),
     // Turn things in to html.
     new HtmlWebpackPlugin({
