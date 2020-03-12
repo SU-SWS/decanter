@@ -40,6 +40,7 @@
   > .su-accordion__button {
     all: inherit;
     @include modular-spacing('padding', 0);
+    @include fancy-hover($su-color-black, $su-color-black, 'left', 6px);
     font-weight: $su-font-bold;
     position: relative;
     cursor: pointer;
@@ -70,8 +71,7 @@
 
     &:focus,
     &:hover {
-      background-color: $su-color-cool-grey-15;
-      color: $su-color-bright-red;
+      text-decoration: underline;
     }
   }
 }
