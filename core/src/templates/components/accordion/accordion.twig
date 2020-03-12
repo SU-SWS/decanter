@@ -17,7 +17,7 @@
     {% for item in accordion_items %}
       <div class="su-accordion__item">
         {% if item.title is not empty %}
-          <h2 class="su-accordion__title"><button>{{ item.title }}</button></h2>
+          <h2 class="su-accordion__title"><button class="su-accordion__button">{{ item.title }}</button></h2>
         {% endif %}
         <div class="su-accordion__content">
           {{ item.content }}
