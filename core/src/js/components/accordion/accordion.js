@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', event => {
   });
 
   Array.prototype.forEach.call(titleButtons, btn => {
-    btn.setAttribute('aria-expanded', 'false');
+    setExpanded(btn, 'false');
+    setHidden(btn.parentNode.nextElementSibling, 'true');
   });
 });
 
@@ -19,8 +20,10 @@ Array.prototype.forEach.call(titleButtons, btn => {
   btn.addEventListener('click', function (e) {
     if (!isExpanded(btn)) {
       setExpanded(btn, 'true');
+      setHidden(btn.parentNode.nextElementSibling, 'false');
     } else {
       setExpanded(btn, 'false');
+      setHidden(btn.parentNode.nextElementSibling, 'true');
     }
-  }, false );
+  }, false);
 });

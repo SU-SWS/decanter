@@ -62,4 +62,8 @@
 
 .su-accordion__content {
   @include modular-spacing('padding', null 0);
+
+  &[aria-hidden="true"] {
+    display: none;
+  }
 }
