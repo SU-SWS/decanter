@@ -45,11 +45,22 @@
       top: 50%;
       transform: translateY(-50%);
       right: 0.5em;
-      content: "+";
       font-weight: $su-font-regular;
       font-size: 3.6rem;
       line-height: 3.6rem;
       text-align: center;
+    }
+
+    &[aria-expanded="false"] {
+      &::after {
+        content: "+";
+      }
+    }
+
+    &[aria-expanded="true"] {
+      &::after {
+        content: "\2212";
+      }
     }
 
     &:focus,
@@ -61,7 +72,7 @@
 }
 
 .su-accordion__content {
-  @include modular-spacing('padding', null 0);
+  @include modular-spacing('padding', 0 0 null);
 
   &[aria-hidden="true"] {
     display: none;
