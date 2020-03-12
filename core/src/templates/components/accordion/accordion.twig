@@ -15,6 +15,10 @@
   {% if accordion_title is not empty %}
     {{ accordion_title }}
   {% endif %}
+  {% if accordion_control %}
+    <button class="su-accordion__collapse-all su-button--secondary">Collapse all -</button>
+    <button class="su-accordion__expand-all su-button--secondary">Expand all +</button>
+  {% endif %}
   {% if accordion_items is iterable %}
     <ul class="su-accordion__list">
       {% for item in accordion_items %}

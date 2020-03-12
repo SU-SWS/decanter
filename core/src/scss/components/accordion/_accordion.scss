@@ -23,6 +23,16 @@
   position: relative;
 }
 
+.su-accordion__collapse-all,
+.su-accordion__expand-all {
+  float: right;
+}
+
+.su-accordion__collapse-all {
+  @include modular-spacing('margin', null null 2);
+  @include margin(null null null 1.2em);
+}
+
 .su-accordion__list {
   @include list-unstyled;
   border-top: 1px solid $su-color-cool-grey-25;
