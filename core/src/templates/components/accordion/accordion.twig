@@ -5,14 +5,16 @@
 
   * Available variables:
   * - attributes: For additional HTML attributes not already provided.
-  * - modifier_class: Additional css classes to change look and behaviour.
-  * - template_path_nav_toggle:
-  * - nav_toggle_vars:
-  * - toggle:
+  * - modifier_class: Additional CSS classes to change look and behavior.
+  * - accordion_title: Optional title for the whole accordion component.
+  * - cta_button: Optional call-to-action link button at the bototm of the accordion.
   * - title:
   * - content:
 #}
 <div {{ attributes }} class="su-accordion no-js {{ modifier_class }}">
+  {% if accordion_title is not empty %}
+    {{ accordion_title }}
+  {% endif %}
   {% if accordion_items is iterable %}
     <ul class="su-accordion__list">
       {% for item in accordion_items %}
@@ -26,5 +28,8 @@
         </li>
       {% endfor %}
     </ul>
+  {% endif %}
+  {% if cta_button_text is not empty %}
+    <a href="{{ cta_button_link }}" class="su-accordion__cta su-button {{ cta_button_modifier_class }}" {{ cta_button_attributes }}>{{ cta_button_text }}</a>
   {% endif %}
 </div>
