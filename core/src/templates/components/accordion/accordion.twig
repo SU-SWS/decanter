@@ -5,25 +5,35 @@
 
   * Available variables:
   * - attributes: For additional HTML attributes not already provided.
-  * - modifier_class: Additional css classes to change look and behaviour.
-  * - template_path_nav_toggle:
-  * - nav_toggle_vars:
-  * - toggle:
+  * - modifier_class: Additional CSS classes to change look and behavior.
+  * - accordion_title: Optional title for the whole accordion component.
+  * - cta_button: Optional call-to-action link button at the bototm of the accordion.
   * - title:
   * - content:
 #}
-{%- if template_path_nav_toggle is empty -%}
-  {%- set template_path_nav_toggle = "@decanter/components/nav-toggle/nav-toggle.twig" -%}
-  {% set nav_toggle_vars = { "aria_label": title } %}
-{%- endif %}
-<div {{ attributes }} class="su-accordion {{ modifier_class }}">
-  {% if toggle is empty %}
-    {% include template_path_nav_toggle with nav_toggle_vdars only %}
-  {% else %}
-    {{ toggle }}
+<div {{ attributes }} class="su-accordion no-js {{ modifier_class }}">
+  {% if accordion_title is not empty %}
+    {{ accordion_title }}
   {% endif %}
-  {% if title is not empty %}
-    <h2 class="su-accordion__title">{{ title }}</h2>
+  {% if accordion_control %}
+    <button class="su-accordion__collapse-all su-button--secondary">Collapse all -</button>
+    <button class="su-accordion__expand-all su-button--secondary">Expand all +</button>
   {% endif %}
-  {{ content }}
+  {% if accordion_items is iterable %}
+    <ul class="su-accordion__list">
+      {% for item in accordion_items %}
+        <li class="su-accordion__item">
+          {% if item.title is not empty %}
+            <h2 class="su-accordion__title"><button class="su-accordion__button">{{ item.title }}</button></h2>
+          {% endif %}
+          <div class="su-accordion__content">
+            {{ item.content }}
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% if cta_button_text is not empty %}
+    <a href="{{ cta_button_link }}" class="su-accordion__cta su-button {{ cta_button_modifier_class }}" {{ cta_button_attributes }}>{{ cta_button_text }}</a>
+  {% endif %}
 </div>
