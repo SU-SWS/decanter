@@ -1,5 +1,5 @@
 # [Decanter](https://github.com/SU-SWS/decanter)
-##### Version: 6.x
+##### Version: 6.0.6-dev
 
 Changelog: [CHANGELOG.md](CHANGELOG.md)
 
@@ -13,8 +13,8 @@ To see a live demo of Decanter please [view the styleguide.](https://decanter.st
 Description
 ---
 
-Decanter is a web design and development system for Stanford University. 
-It includes a responsive layout system and a browsable collection of design patterns 
+Decanter is a web design and development system for Stanford University.
+It includes a responsive layout system and a browsable collection of design patterns
 that can be used in any Stanford project.
 
 Accessibility

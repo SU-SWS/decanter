@@ -1,5 +1,16 @@
 # Changelog
 
+Version 6.0.5                      2020-02-27
+---------------------------------------------
+- D8CORE-1329: removed the width 100% for xs breakpoint with buttons. (#631)
+
+Version 6.0.4                      2020-02-21
+---------------------------------------------
+- Remove header html element and duplicate ids from local footer component (#630)
+- D8CORE-1334: adjusting the padding to make the text appear centered in local footer login button (#627)
+- Changing the search icon to red from the grey (#616)
+- Uglify dist output in JS and CSS.
+
 Version 6.0.3                      2020-02-06
 ---------------------------------------------
 - Fixes 6.0.2 build fail. Shea is again, sorry.
