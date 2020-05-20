@@ -1,0 +1,43 @@
+{#
+  Event list item
+
+  Template for an Event List Item.
+
+  * Available variables:
+  * - attributes: For additional HTML attributes not already provided.
+  * - modifier_class: Additional CSS classes to change look and behavior.
+  * - event_list_item_start_mon: Starting month of the event.
+  * - event_list_item_start_date: Date of the event
+  * - event_list_item_end_mon: Ending month of the event if it spans more than one day.
+  * - event_list_item_end_date: Ending day of the event if it spans more than one day.
+  * - event_list_item_taxonomy: Optional txaonomy for the event.
+  * - event_list_item_title: Title of the event. Can be a link off to another website.
+  * - event_list_item_subtitle: Optional subtile for the event.
+  * - event_list_item_dek: Descriptive dek/deck for the event.
+  * - event_list_item_datetime: Date and time for the event.
+  * - event_list_item_location: Where it is being held.
+#}
+
+
+<div {{ attributes }} class="su-event-list-item {{ modifier_class }}">
+  <div class="su-event-list-item__date">
+    <div class="su-date-stacked su-date-stacked--no-background">
+      <span class="su-date-stacked__month">{{ event_list_item_start_mon }}</span>
+      <span class="su-date-stacked__day">{{ event_list_item_start_date }}</span>
+    </div>
+    <span class="su-event-list-item__date__seperator">-to-</span>
+    <div class="su-date-stacked su-date-stacked--no-background">
+      <span class="su-date-stacked__month">{{ event_list_item_end_mon }}</span>
+      <span class="su-date-stacked__day">{{ event_list_item_end_date }}</span>
+    </div>
+  </div>
+  <div class="su-event-list-item__details">
+    <span class="event_list_item__taxonomy">{{ event_list_item_taxonomy }}</span>
+    <h2 class="event_list_item__title"><a href="#" class="su-link--external">{{ event_list_item_title }}</a></h2>
+    <p class="event_list_item__subtitle">{{ event_list_item_subtitle }}</p>
+    <p class="event_list_item__dek">{{ event_list_item_dek }}</p>
+    <p class="event_list_item__datetime">{{ event_list_item_datetime }}</p>
+    <p class="event_list_item__location">{{ event_list_item_location }}</p>
+  </div>
+</div>
+

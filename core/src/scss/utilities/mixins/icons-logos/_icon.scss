@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+///
+/// Display an icon after a link.
+///
+/// @name icon
+///
+/// @param {string} $icon  - Basename of link icon .svg file (without the .svg suffix).
+/// @param {string} $width  - Width of icon including unit, e.g. 0.75em, 24px.
+/// @param {string} $animate  - Type of animation for the icon on hover. Available options: right, down, up, topright, none. (deprecated true. Please use right)
+/// @param {string} $vertical  - Adjustment of vertical position of icon, e.g., '2px' moves icon up 2 pixels, '-0.3em' moves it down 0.3 em.
+///
+/// @group mixin
+@mixin icon($icon, $width: 0.65em, $animate: right, $vertical: null) {
+  text-decoration: none;
+  @supports (mask-repeat: no-repeat) {
+    &::before {
+      @include margin(null 0.3em $vertical 0.4em);
+      @include size($width);
+      display: inline-block;
+      content: '';
+      mask: url("#{$su-image-path}/#{$icon}.svg") no-repeat 0 0;
+      mask-size: contain;
+      background-color: $su-color-black;
+    }
+
+  }
+}

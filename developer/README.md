@@ -11,3 +11,8 @@ You can use this directory to quickly test your templates/markup/styles.
 1. Compile the assets by running `npm run dev`
 1. Start the webserver by running `npm run start`
 1. Optionally run `npm run watch` to live compile the assets.
+
+##Notes
+
+If you would like to use new images in a mixin, then make sure you set your variable to the local image directory.
+eg: `$su-image-path: "assets";`
