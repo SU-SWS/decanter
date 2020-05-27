@@ -1,5 +1,14 @@
 # Changelog
 
+Version 6.0.6                      2020-05-27
+---------------------------------------------
+- Fixes a typo in the grid-media-min comments (#641)
+- Create CODE_OF_CONDUCT.md (#676)
+- Removed conflicting background styles on checkboxes (#644)
+- DECANTER-193: Accordion/FAQ and development environment. (#642)
+- Add aria-expanded="false" to main nav parent links in the twig template (#681)
+- D8CORE-1632: Add variables to quote template (#678)
+
 Version 6.0.5                      2020-02-27
 ---------------------------------------------
 - D8CORE-1329: removed the width 100% for xs breakpoint with buttons. (#631)
