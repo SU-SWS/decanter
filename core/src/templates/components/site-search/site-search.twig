@@ -11,7 +11,8 @@
  * - action: Action of the form
  * - method: Method of the form
  * - search_label: Custom screen reader label
- * - search_input_name: Name for the search input field. Also used as the ID of the search input field and the "for" attribute of the label.
+ * - search_input_name: Name for the search input field. Also used as the "for" attribute of the search input field label.
+ * - search_input_id: ID for the search input field. If not provided, it will take on the same value as search_input_name.
  * - search_input_attributes: Additional HTML attributes for the search input field
  * - placeholder: Placeholder text for the search input field
  * - search_button_attributes: Additional HTML attributes for the submit button
@@ -21,10 +22,13 @@
  *
  */
 #}
+{%- if search_input_id is empty -%}
+  {%- set search_input_id = search_input_name -%}
+{%- endif -%}
 <div {{ attributes }} class="su-site-search {{ modifier_class }}" role="search">
  <form action="{{ action }}" method="{{ method }}" accept-charset="UTF-8">
   <label class="su-site-search__sr-label" for="{{ search_input_name|default('search-field') }}">{{ search_label|default('Search this site') }}</label>
-  <input {{ search_input_attributes }} type="text" id="{{ search_input_name|default('search-field') }}" name="{{ search_input_name|default('search-field') }}" class="su-site-search__input" placeholder="{{ placeholder|default('Search this site') }}" maxlength="128">
+  <input {{ search_input_attributes }} type="text" id="{{ search_input_id|default('search-field') }}" name="{{ search_input_name|default('search-field') }}" class="su-site-search__input" placeholder="{{ placeholder|default('Search this site') }}" maxlength="128">
   <button {{ search_button_attributes }} type="submit" name="{{ search_button_name|default('search') }}" class="su-site-search__submit su-sr-only-text" aria-label="Search">{{ search_button_text|default('Submit Search') }}</button>
   {#- Any additional eg. hidden input fields -#}
   {{- additional_fields -}}
