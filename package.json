@@ -6,7 +6,9 @@
   "homepage": "https://github.com/SU-SWS/decanter",
   "license": "MIT",
   "scripts": {
-    "build": "tailwindcss build src/css/index.css -o dist/decanter.css",
+    "build": "webpack --mode=development",
+    "publish": "webpack --mode=production",
+    "wind": "tailwindcss build src/css/index.css -o dist/decanter.css",
     "eslint": "eslint -c .eslintrc 'core/src/'",
     "sasslint": "sass-lint -c .sass-lint.yml '**/*.scss' -v -q -i 'vendor/**/*.scss, node_modules/**/*.scss, kss/builder/decanter/**/*.scss'"
   },
@@ -24,14 +26,19 @@
     "url": "https://github.com/SU-SWS/decanter/issues"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.12.1",
+    "@fortawesome/fontawesome-free": "^5.13.1",
     "tailwindcss": "^1.4.6"
   },
   "devDependencies": {
-    "autoprefixer": "^9.7.4",
+    "autoprefixer": "^9.8.5",
+    "css-loader": "^3.6.0",
     "custom-event-polyfill": "^1.0",
     "eslint": "^5.16",
-    "jsdoc": "^3.6.3",
-    "sass-lint": "^1.13"
+    "jsdoc": "^3.6.4",
+    "mini-css-extract-plugin": "^0.9.0",
+    "postcss-loader": "^3.0.0",
+    "sass-lint": "^1.13",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   }
 }
