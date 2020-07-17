@@ -43,6 +43,7 @@ module.exports = {
     require(dir + '/components/alert/alert.js')(),
     // @tailwind utilities;
     require(dir + '/utilities/accessibility/accessibily-hidden.js')(),
+    require(dir + '/utilities/accessibility/sr-only-text.js')(),
     // 3rd Party Plugins;
     require('tailwindcss-visuallyhidden')()
   ],
