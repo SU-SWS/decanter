@@ -16,9 +16,9 @@ module.exports = {
   // https://tailwindcss.com/docs/configuration/#theme
   theme: {
     // Overrides.
-    boxShadow: require(dir + '/theme/boxshadow.js')(),
-    colors: require(dir + '/theme/colors.js')(),
-    screens: require(dir + '/theme/screens.js')(),
+    boxShadow:  require(dir + '/theme/boxshadow.js')(),
+    colors:     require(dir + '/theme/colors.js')(),
+    screens:    require(dir + '/theme/screens.js')(),
     fontFamily: require(dir + '/theme/fontfamily.js')(),
 
     // Extentions of tailwind core config.
@@ -29,7 +29,7 @@ module.exports = {
   // would normally generate by default if you don't need them for your project.
   // https://tailwindcss.com/docs/configuration/#core-plugins
   corePlugins: {
-    preflight: false,
+    // preflight: false,
   },
 
   // The plugins section allows you to register third-party plugins with
