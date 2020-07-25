@@ -101,7 +101,7 @@
     responsive behaviour so they are not optional. Empty cells will still
     render and create whitespace.
   #}
-  <section class="su-local-footer__columns">
+  <div class="su-local-footer__columns">
     {# Content Cell 1 - For action and social media links. #}
     <div class="su-local-footer__cell1">
       {# Twig block for you to extend with #}
@@ -111,6 +111,7 @@
         Use the `cell1` variable instead.
       #}
       {% if address|render|striptags|trim is not empty %}
+      <h2 class="su-sr-only-element">Address</h2>
       <address class="su-local-footer__address">
         {{ address }}
       </address>
@@ -203,5 +204,5 @@
       {# If you want to provide all of our own markup use the cell3 var. #}
       {{ cell3 }}
     </div>
-  </section>
+  </div>
 </div>
