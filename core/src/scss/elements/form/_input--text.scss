@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+//
+// Input text field styles
+//
+
+// Refactor later
+input,
+textarea {
+  @extend %input-base;
+  outline: none;
+}
+
+textarea {
+  height: 16rem;
+}
+
+label {
+  display: block;
+  margin-top: 3rem;
+}
+
+.su-input--text {
+  font-size: 1.8rem;
+  line-height: 1.25;
+
+  &__label,
+  &__help {
+    @include margin(null null 0.6rem);
+  }
+
+  &__label {
+    font-weight: $su-font-semi-bold;
+  }
+
+  &__input {
+    border-radius: 3px;
+    border-color: $su-color-cool-grey-25;
+  }
+}

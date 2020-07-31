@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Input text element with a label, text input field, optional help text, character counter and error message.
+ *
+ * A text input element
+ *
+ * Available variables:
+ * - attributes: For additional HTML attributes not already provided.
+ * - input_text_input_attributes: For adding additional HTML attributes to the input field.
+ * - modifier_class: Additional CSS classes to change look and behaviour of the component.
+ * - input_text_label_modifier_class: Additional CSS classes to change look and behaviour of the label.
+ * - input_text_input_modifier_class: Additional CSS classes to change look and behaviour of the input field.
+ * - input_text_help: Optioanl help text.
+ * - input_text_label: Text label for the field.
+ * - input_text_name: Value for the "name" attribute for the input field. Also used as the label "for" attribute.
+ * - input_text_error: Error message if exists.
+ * - input_text_counter: Optional character counter.
+ *
+ */
+#}
+<div {{ attributes }} class="su-input--text {{ modifier_class }}">
+  <label for="{{ input_text_name }}" class="su-input--text__label {{ input_text_label_modifier_class }}">{{ input_text_label }}</label>
+
+  {%- if input_text_help is not empty -%}
+    <p class="su-input--text__help">{{ input_text_help }}</p>
+  {%- endif -%}
+
+  <input {{ input_text_input_attributes }} type="text" name="{{ input_text_name }}" class="su-input--text__input {{ input_text_input_modifier_class }}">
+
+  {%- if input_text_error is not empty -%}
+    <p class="su-input--text__error">{{ input_text_error }}</p>
+  {%- endif -%}
+
+  {%- if input_text_counter is not empty -%}
+    <span class="su-input--text__counter">{{ input_text_counter }}</span>
+  {%- endif -%}
+</div>
