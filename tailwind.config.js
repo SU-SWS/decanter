@@ -23,6 +23,7 @@ module.exports = {
     screens:          require(dir + '/theme/screens.js')(),
     fontFamily:       require(dir + '/theme/fontFamily.js')(),
     fontWeight:       require(dir + '/theme/fontWeight.js')(),
+    lineHeight:       require(dir + '/theme/lineHeight.js')(),
 
     // Extensions of tailwind core config.
     extend: {},
