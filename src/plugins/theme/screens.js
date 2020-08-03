@@ -3,13 +3,11 @@
  */
 module.exports = function () {
   return {
-    xs: '0px',
     sm: '576px',
     md: '768px',
     lg: '992px',
     xl: '1200px',
     '2xl': '1500px',
-    'portrait': {'raw': '(orientation: portrait)'},
-    'print': {'raw': 'print'},
+    //'print': {'raw': 'print'}, // disable print for now since it generate a lot of screen classes that are not useful for print
   }
 }
