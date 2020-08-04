@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+///
+/// Media query that spans multiple breakpoint widths (between the min and max breakpoints).
+///
+/// @name su-grid-media-device
+///
+/// @param {key code} $lower - The lower breakpoint key code eg: 'sm'
+/// @param {key code} $upper - The upper breakpoint key code eg: 'xl'
+/// @param {map} $breakpoints - A map of each of the screen breakpoint sizes.
+///
+/// @group mixin
+@mixin grid-media-device($device: 'mobile', $breakpoints: $su-grid-screens) {
+  @if $device == 'mobile' {
+    @media only screen and (min-width: 0) and (max-width:#{map-get($su-grid-screens, 'md') - 1}){
+      @content;
+    }
+  }
+  @else if $device == 'tablet' {
+    @media only screen and (min-width: #{map-get($su-grid-screens, 'md')})  {
+      @content;
+    }
+  }
+  @else if $device == 'desktop' {
+    @media only screen and (min-width: #{map-get($su-grid-screens, 'xl')})  {
+      @content;
+    }
+  }
+}
