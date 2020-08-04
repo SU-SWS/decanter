@@ -16,6 +16,7 @@ module.exports = {
   // https://tailwindcss.com/docs/configuration/#theme
   theme: {
     // Overrides.
+    aspectRatio:      require(dir + '/theme/aspectRatio.js')(),
     borderRadius:     require(dir + '/theme/borderRadius.js')(),
     borderWidth:      require(dir + '/theme/borderWidth.js')(),
     boxShadow:        require(dir + '/theme/boxShadow.js')(),
@@ -56,7 +57,8 @@ module.exports = {
     require(dir + '/utilities/accessibility/accessibily-hidden.js')(),
     require(dir + '/utilities/accessibility/sr-only-text.js')(),
     // 3rd Party Plugins;
-    require('tailwindcss-visuallyhidden')()
+    require('tailwindcss-visuallyhidden')(),
+    require('tailwindcss-aspect-ratio'),
   ],
 
   // The variants section lets you control which variants are generated for each
