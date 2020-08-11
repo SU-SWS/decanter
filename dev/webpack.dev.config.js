@@ -18,6 +18,7 @@ module.exports.devServer = {
   port: 9000,
   hot: true,
   progress: true,
+  writeToDisk: true
 };
 
 // Entry points.
@@ -44,7 +45,7 @@ module.exports.module.rules.push({
 // Plugins
 // -----------------------------------------------------------------------------
 // Render html files.
-module.exports.plugins.unshift(
+module.exports.plugins.push(
   new HtmlWebpackPlugin({
     filename: '../index.html',
     template: path.resolve(__dirname, 'src', 'test.html')
