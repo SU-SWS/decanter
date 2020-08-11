@@ -4,6 +4,7 @@
 
 var path = require('path');
 var dir = path.resolve(__dirname, 'src/plugins');
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
 
@@ -25,6 +26,8 @@ module.exports = {
     fontFamily:       require(dir + '/theme/fontFamily.js')(),
     fontWeight:       require(dir + '/theme/fontWeight.js')(),
     lineHeight:       require(dir + '/theme/lineHeight.js')(),
+    // Decanter Custom.
+    decanter: require(dir + '/theme/decanter.js')(),
 
     // Extensions of tailwind core config.
     extend: {},

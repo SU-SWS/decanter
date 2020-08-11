@@ -603,11 +603,6 @@ video {
   height: auto;
 }
 
-body {
-  background-color: #FFFFFF;
-  overflow-x: hidden;
-}
-
 /**
  * This injects Tailwind's component classes and any component classes
  * registered by plugins.
@@ -659,6 +654,52 @@ body {
   background-color: #006cb8;
   background-image: alert-info.svg;
   color: #ffffff;
+}
+
+.su-debug-screens::before {
+  position: fixed;
+  z-index: 2147483647;
+  bottom: 0;
+  left: 0;
+  padding: .3333333em .5em;
+  font-size: 12px;
+  line-height: 1;
+  font-family: sans-serif;
+  background-color: #000;
+  color: #fff;
+  -webkit-box-shadow: 0 0 0 1px #fff;
+          box-shadow: 0 0 0 1px #fff;
+  content: 'screen: _';
+}
+
+@media (min-width: 576px) {
+  .su-debug-screens::before {
+    content: 'screen: sm';
+  }
+}
+
+@media (min-width: 768px) {
+  .su-debug-screens::before {
+    content: 'screen: md';
+  }
+}
+
+@media (min-width: 992px) {
+  .su-debug-screens::before {
+    content: 'screen: lg';
+  }
+}
+
+@media (min-width: 1200px) {
+  .su-debug-screens::before {
+    content: 'screen: xl';
+  }
+}
+
+@media (min-width: 1500px) {
+  .su-debug-screens::before {
+    content: 'screen: 2xl';
+  }
 }
 
 /**
@@ -4246,6 +4287,10 @@ body {
   font-family: Roboto Slab, Georgia, Times, Times New Roman, serif;
 }
 
+.su-font-x-light {
+  font-weight: 100;
+}
+
 .su-font-light {
   font-weight: 300;
 }
@@ -4260,6 +4305,10 @@ body {
 
 .su-font-bold {
   font-weight: 700;
+}
+
+.su-font-black {
+  font-weight: 900;
 }
 
 .su-h-0 {
@@ -14468,6 +14517,10 @@ body {
     font-family: Roboto Slab, Georgia, Times, Times New Roman, serif;
   }
 
+  .sm\:su-font-x-light {
+    font-weight: 100;
+  }
+
   .sm\:su-font-light {
     font-weight: 300;
   }
@@ -14482,6 +14535,10 @@ body {
 
   .sm\:su-font-bold {
     font-weight: 700;
+  }
+
+  .sm\:su-font-black {
+    font-weight: 900;
   }
 
   .sm\:su-h-0 {
@@ -24519,6 +24576,10 @@ body {
     font-family: Roboto Slab, Georgia, Times, Times New Roman, serif;
   }
 
+  .md\:su-font-x-light {
+    font-weight: 100;
+  }
+
   .md\:su-font-light {
     font-weight: 300;
   }
@@ -24533,6 +24594,10 @@ body {
 
   .md\:su-font-bold {
     font-weight: 700;
+  }
+
+  .md\:su-font-black {
+    font-weight: 900;
   }
 
   .md\:su-h-0 {
@@ -34570,6 +34635,10 @@ body {
     font-family: Roboto Slab, Georgia, Times, Times New Roman, serif;
   }
 
+  .lg\:su-font-x-light {
+    font-weight: 100;
+  }
+
   .lg\:su-font-light {
     font-weight: 300;
   }
@@ -34584,6 +34653,10 @@ body {
 
   .lg\:su-font-bold {
     font-weight: 700;
+  }
+
+  .lg\:su-font-black {
+    font-weight: 900;
   }
 
   .lg\:su-h-0 {
@@ -44621,6 +44694,10 @@ body {
     font-family: Roboto Slab, Georgia, Times, Times New Roman, serif;
   }
 
+  .xl\:su-font-x-light {
+    font-weight: 100;
+  }
+
   .xl\:su-font-light {
     font-weight: 300;
   }
@@ -44635,6 +44712,10 @@ body {
 
   .xl\:su-font-bold {
     font-weight: 700;
+  }
+
+  .xl\:su-font-black {
+    font-weight: 900;
   }
 
   .xl\:su-h-0 {
@@ -54672,6 +54753,10 @@ body {
     font-family: Roboto Slab, Georgia, Times, Times New Roman, serif;
   }
 
+  .\32xl\:su-font-x-light {
+    font-weight: 100;
+  }
+
   .\32xl\:su-font-light {
     font-weight: 300;
   }
@@ -54686,6 +54771,10 @@ body {
 
   .\32xl\:su-font-bold {
     font-weight: 700;
+  }
+
+  .\32xl\:su-font-black {
+    font-weight: 900;
   }
 
   .\32xl\:su-h-0 {
