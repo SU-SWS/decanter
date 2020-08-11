@@ -25,6 +25,7 @@ module.exports = {
     fontFamily:       require(dir + '/theme/fontFamily.js')(),
     fontWeight:       require(dir + '/theme/fontWeight.js')(),
     lineHeight:       require(dir + '/theme/lineHeight.js')(),
+    spacing:          require(dir + '/theme/spacing.js')(),
 
     // Extensions of tailwind core config.
     extend: {},
