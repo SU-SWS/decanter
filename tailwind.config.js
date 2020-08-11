@@ -59,6 +59,7 @@ module.exports = {
     // 3rd Party Plugins;
     require('tailwindcss-visuallyhidden')(),
     require('tailwindcss-aspect-ratio'),
+    require('tailwindcss-debug-screens'),
   ],
 
   // The variants section lets you control which variants are generated for each
