@@ -16,12 +16,17 @@ module.exports = {
   // https://tailwindcss.com/docs/configuration/#theme
   theme: {
     // Overrides.
-    boxShadow:  require(dir + '/theme/boxshadow.js')(),
-    colors:     require(dir + '/theme/colors.js')(),
-    screens:    require(dir + '/theme/screens.js')(),
-    fontFamily: require(dir + '/theme/fontfamily.js')(),
+    aspectRatio:      require(dir + '/theme/aspectRatio.js')(),
+    borderRadius:     require(dir + '/theme/borderRadius.js')(),
+    borderWidth:      require(dir + '/theme/borderWidth.js')(),
+    boxShadow:        require(dir + '/theme/boxShadow.js')(),
+    colors:           require(dir + '/theme/colors.js')(),
+    screens:          require(dir + '/theme/screens.js')(),
+    fontFamily:       require(dir + '/theme/fontFamily.js')(),
+    fontWeight:       require(dir + '/theme/fontWeight.js')(),
+    lineHeight:       require(dir + '/theme/lineHeight.js')(),
 
-    // Extentions of tailwind core config.
+    // Extensions of tailwind core config.
     extend: {},
   },
 
@@ -30,6 +35,13 @@ module.exports = {
   // https://tailwindcss.com/docs/configuration/#core-plugins
   corePlugins: {
     // preflight: false,
+    fontSmoothing: false,
+    placeholderOpacity: false,
+    placeholderColor: false,
+    divideOpacity: false,
+    borderCollapse: false,
+    borderOpacity: false,
+    skew: false,
   },
 
   // The plugins section allows you to register third-party plugins with
@@ -45,12 +57,15 @@ module.exports = {
     require(dir + '/utilities/accessibility/accessibily-hidden.js')(),
     require(dir + '/utilities/accessibility/sr-only-text.js')(),
     // 3rd Party Plugins;
-    require('tailwindcss-visuallyhidden')()
+    require('tailwindcss-visuallyhidden')(),
+    require('tailwindcss-aspect-ratio'),
   ],
 
   // The variants section lets you control which variants are generated for each
   // core utility plugin.
   // https://tailwindcss.com/docs/configuration/#variants
-  // variants: {},
+  variants: {
+    fontWeight: ['responsive'],
+  },
 
 }
