@@ -17,13 +17,13 @@ module.exports.devServer = {
   compress: true,
   port: 9000,
   hot: true,
-  progress: true
+  progress: true,
 };
 
 // Entry points.
 // -----------------------------------------------------------------------------
 module.exports.entry = {
-  "test": path.resolve(__dirname, "src/test.js")
+  "test": path.resolve(__dirname, "src/index.js")
 };
 
 // Output points.
@@ -43,13 +43,10 @@ module.exports.module.rules.push({
 
 // Plugins
 // -----------------------------------------------------------------------------
-
-module.exports.plugins.push(
+// Render html files.
+module.exports.plugins.unshift(
   new HtmlWebpackPlugin({
-    // hash: true,
     filename: '../index.html',
-    // title: 'Decanter Preview Environment',
-    // myPageHeader: 'Decanter Preview Environment',
     template: path.resolve(__dirname, 'src', 'test.html')
   })
 );
