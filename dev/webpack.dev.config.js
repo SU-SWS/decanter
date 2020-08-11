@@ -5,6 +5,7 @@
 
 var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // Module Exports From the base.
 module.exports = require('../webpack.config.js');
@@ -51,3 +52,6 @@ module.exports.plugins.push(
     template: path.resolve(__dirname, 'src', 'test.html')
   })
 );
+
+// Clean up all the things first.
+module.exports.plugins.unshift(new CleanWebpackPlugin());
