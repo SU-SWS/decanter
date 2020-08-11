@@ -7,7 +7,7 @@ respectful will be handled first.
 
 ## Using the issue tracker
 
-The issue tracker is the preferred channel for [bug reports](#bugs),
+The Decanter issue tracker is the preferred channel for [bug reports](#bugs),
 [features requests](#features) and [submitting pull
 requests](#pull-requests), but please respect the following restrictions:
 
