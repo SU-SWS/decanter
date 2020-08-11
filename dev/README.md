@@ -9,3 +9,17 @@
 5. Compile the assets for the first time. (`npm run dev`)
 5. Start up the dev server. (`npm run start`)
 6. Happy developing.
+
+
+## Copy & Paste setup.
+
+1. From the root of this repository
+```
+nvm use
+npm install
+touch dev/src/test.css
+touch dev/src/test.js
+cp dev/src/sample.test.html dev/src/test.html
+npm run dev
+npm run start
+```
