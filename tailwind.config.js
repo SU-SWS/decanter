@@ -15,6 +15,7 @@ module.exports = {
   // type scale, border sizes, breakpoints — anything related to the visual
   // design of your site.
   // https://tailwindcss.com/docs/configuration/#theme
+
   theme: {
     // Overrides.
     aspectRatio:      require(dir + '/theme/aspectRatio.js')(),

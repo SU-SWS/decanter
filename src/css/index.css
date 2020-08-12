@@ -39,7 +39,6 @@
     text-white;
 
     line-height: 0.75;
-    -webkit-font-feature-settings: "liga";
     -ms-font-feature-settings: "liga" 1;
     font-feature-settings: "liga";
     font-variant-ligatures: discretionary-ligatures;
@@ -48,7 +47,7 @@
 .su-brand-bar {
     @apply
     w-full
-    bg-digital-red;
+    bg-cardinal-red;
 
     height: 30px;
 }
@@ -81,6 +80,52 @@
     bg-black
     underline
     ;
+}
+
+.su-lockup a {
+    @apply
+    font-regular
+    no-underline
+    ;
+}
+
+.su-lockup__cell1 {
+    @apply w-auto;
+
+    font-size: 36px;
+    line-height: 17px;
+    min-height: 26px;
+    vertical-align: bottom;
+}
+
+@screen md {
+    .su-lockup .su-logo {
+        font-size: 46px;
+        line-height: 21px;
+    }
+}
+
+.su-masthead {
+    @apply
+    relative
+    max-w-full
+    bg-white
+    ;
+}
+
+.su-masthead .su-brand-bar + div {
+    @apply flex flex-row flex-wrap justify-between;
+    padding: 3rem; /** modular spacing later */
+}
+
+.su-masthead .su-site-search {
+    @apply hidden;
+}
+
+@screen lg {
+    .su-masthead .su-site-search {
+        @apply flex;
+    }
 }
 
 /**
