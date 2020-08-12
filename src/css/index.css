@@ -128,6 +128,54 @@
     }
 }
 
+.su-flex-container {
+    @apply flex flex-row flex-wrap justify-between;
+
+    margin-left: -10px;
+    margin-right: -10px;
+
+    > * {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@screen lg {
+    .su-flex-container {
+        margin-left: -18px;
+        margin-right: -18px;
+
+        > * {
+            padding-left: 18px;
+            padding-right: 18px;
+        }
+    }
+}
+
+@screen xl {
+    .su-flex-container {
+        margin-left: -20px;
+        margin-right: -20px;
+
+        > * {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+}
+
+@screen 2xl {
+    .su-flex-container {
+        margin-left: -24px;
+        margin-right: -24px;
+
+        > * {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+    }
+}
+
 /**
  * This injects Tailwind's utility classes and any utility classes registered
  * by plugins.
