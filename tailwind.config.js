@@ -26,7 +26,7 @@ module.exports = {
     fontFamily:       require(dir + '/theme/fontFamily.js')(),
     fontWeight:       require(dir + '/theme/fontWeight.js')(),
     lineHeight:       require(dir + '/theme/lineHeight.js')(),
-    spacing:          require(dir + '/theme/spacing.js')(),
+    gap:          require(dir + '/theme/gap.js')(),
     transitionDuration: require(dir + '/theme/transitionDuration.js')(),
     // Decanter Custom.
     decanter: require(dir + '/theme/decanter.js')(),
