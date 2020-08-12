@@ -28,26 +28,36 @@ module.exports = function () {
       'h1': {
         clear: 'both',
         fontWeight: config('theme.fontWeight.bold'),
+        lineHeight: config('theme.decanter.base.displayLineHeight')
       },
       'h2': {
         clear: 'both',
         fontWeight: config('theme.fontWeight.bold'),
+        lineHeight: config('theme.decanter.base.displayLineHeight')
       },
       'h3': {
         clear: 'both',
         fontWeight: config('theme.fontWeight.bold'),
+        lineHeight: config('theme.decanter.base.displayLineHeight')
       },
       'h4': {
         clear: 'both',
         fontWeight: config('theme.fontWeight.bold'),
+        lineHeight: config('theme.decanter.base.displayLineHeight')
       },
       'h5': {
         clear: 'both',
         fontWeight: config('theme.fontWeight.bold'),
+        lineHeight: config('theme.decanter.base.displayLineHeight')
       },
       'h6': {
         clear: 'both',
         fontWeight: config('theme.fontWeight.bold'),
+        lineHeight: config('theme.decanter.base.displayLineHeight')
+      },
+      'img': {
+        margin: '0',
+        padding: '0',
       },
     })
   }

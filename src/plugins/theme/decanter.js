@@ -7,7 +7,8 @@ module.exports = function () {
       rootFontSize: '62.5%',
       baseFontSize: '2rem',
       mobileFontScale: '0.85',
-      baseLineHeight: '1.4rem',
+      baseLineHeight: '1.4',
+      displayLineHeight: '1.2',
       fontSmoothing: {
         '-webkit-font-smoothing': 'antialiased',
         '-moz-osx-font-smoothing': 'grayscale',

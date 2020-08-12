@@ -3,7 +3,6 @@
  */
 module.exports = function () {
   return {
-    'x-light': 100,
     light: '300',
     regular: '400',
     semibold: '600',
