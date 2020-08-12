@@ -12,7 +12,7 @@ module.exports = function () {
         color: theme('colors.white'),
         textAlign: 'center',
         fontFamily: sans,
-        fontWeight: '400',
+        fontWeight: theme('fontWeight.normal'),
         transition: 'background-color 0.25s ease-in-out, color 0.25s ease-in-out',
       },
     }
