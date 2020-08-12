@@ -21,6 +21,7 @@ module.exports = function () {
       mobileFontScale: '0.85',
       baseLineHeight: '1.4em',
       fontSmoothing: fontSmoothing,
+      inputMaxWidth: '46rem',
     },
     // Shared settings between base and components.
     typography: {
@@ -59,6 +60,6 @@ module.exports = function () {
       typeF: {
         fontSize: '0.9em',
       },
-    }
+    },
   }
 }
