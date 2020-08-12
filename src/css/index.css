@@ -1,14 +1,180 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:300,300i,400,400i,600,600i,700,700i,900,900i');
+
 /**
  * This injects Tailwind's base styles and any base styles registered by
  * plugins.
  */
 @tailwind base;
 
+@font-face {
+    font-family: Stanford;
+    src:url("https://www-media.stanford.edu/assets/fonts/stanford.woff") format("woff"),
+    url("https://www-media.stanford.edu/assets/fonts/stanford.ttf") format("truetype");
+    font-weight:300;
+}
+
 /**
  * This injects Tailwind's component classes and any component classes
  * registered by plugins.
  */
 @tailwind components;
+
+@screen md {
+    body {
+        font-size: 1.8rem;
+    }
+}
+
+@screen 2xl {
+    body {
+        font-size: 1.9rem;
+    }
+}
+
+.su-logo {
+    @apply
+    inline-block
+    font-regular font-stanford
+    text-white;
+
+    line-height: 0.75;
+    -ms-font-feature-settings: "liga" 1;
+    font-feature-settings: "liga";
+    font-variant-ligatures: discretionary-ligatures;
+}
+
+.su-brand-bar {
+    @apply
+    w-full
+    bg-cardinal-red;
+
+    height: 30px;
+}
+
+.su-brand-bar .su-logo {
+    margin-top: 8px;
+    font-size: 20px;
+}
+
+/**
+ * Button styles
+ */
+
+.su-button {
+    @apply
+    inline-block
+    w-auto
+    border-0
+    font-sans font-regular
+    leading-none
+    text-center text-white
+    bg-digital-red
+    transition-colors duration-250 ease-in-out
+    ;
+}
+
+.su-button:hover,
+.su-button:focus {
+    @apply
+    bg-black
+    underline
+    ;
+}
+
+.su-lockup a {
+    @apply
+    font-regular
+    no-underline
+    ;
+}
+
+.su-lockup__cell1 {
+    @apply w-auto;
+
+    font-size: 36px;
+    line-height: 17px;
+    min-height: 26px;
+    vertical-align: bottom;
+}
+
+@screen md {
+    .su-lockup .su-logo {
+        font-size: 46px;
+        line-height: 21px;
+    }
+}
+
+.su-masthead {
+    @apply
+    relative
+    max-w-full
+    bg-white
+    ;
+}
+
+.su-masthead .su-brand-bar + div {
+    @apply flex flex-row flex-wrap justify-between;
+    padding: 3rem; /** modular spacing later */
+}
+
+.su-masthead .su-site-search {
+    @apply hidden;
+}
+
+@screen lg {
+    .su-masthead .su-site-search {
+        @apply flex;
+    }
+}
+
+.su-flex-container {
+    @apply flex flex-row flex-wrap justify-between;
+
+    margin-left: -10px;
+    margin-right: -10px;
+
+    > * {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+@screen lg {
+    .su-flex-container {
+        margin-left: -18px;
+        margin-right: -18px;
+
+        > * {
+            padding-left: 18px;
+            padding-right: 18px;
+        }
+    }
+}
+
+@screen xl {
+    .su-flex-container {
+        margin-left: -20px;
+        margin-right: -20px;
+
+        > * {
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+    }
+}
+
+@screen 2xl {
+    .su-flex-container {
+        margin-left: -24px;
+        margin-right: -24px;
+
+        > * {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+    }
+}
 
 /**
  * This injects Tailwind's utility classes and any utility classes registered
