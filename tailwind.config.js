@@ -14,19 +14,22 @@ module.exports = {
   // type scale, border sizes, breakpoints — anything related to the visual
   // design of your site.
   // https://tailwindcss.com/docs/configuration/#theme
+
   theme: {
     // Overrides.
-    aspectRatio:      require(dir + '/theme/aspectRatio.js')(),
-    borderRadius:     require(dir + '/theme/borderRadius.js')(),
-    borderWidth:      require(dir + '/theme/borderWidth.js')(),
-    boxShadow:        require(dir + '/theme/boxShadow.js')(),
-    colors:           require(dir + '/theme/colors.js')(),
-    screens:          require(dir + '/theme/screens.js')(),
-    fontFamily:       require(dir + '/theme/fontFamily.js')(),
-    fontWeight:       require(dir + '/theme/fontWeight.js')(),
-    lineHeight:       require(dir + '/theme/lineHeight.js')(),
+    aspectRatio:        require(dir + '/theme/aspectRatio.js')(),
+    borderRadius:       require(dir + '/theme/borderRadius.js')(),
+    borderWidth:        require(dir + '/theme/borderWidth.js')(),
+    boxShadow:          require(dir + '/theme/boxShadow.js')(),
+    colors:             require(dir + '/theme/colors.js')(),
+    screens:            require(dir + '/theme/screens.js')(),
+    fontFamily:         require(dir + '/theme/fontFamily.js')(),
+    fontWeight:         require(dir + '/theme/fontWeight.js')(),
+    lineHeight:         require(dir + '/theme/lineHeight.js')(),
+    gap:                require(dir + '/theme/gap.js')(),
+    transitionDuration: require(dir + '/theme/transitionDuration.js')(),
     // Decanter Custom.
-    decanter:         require(dir + '/theme/decanter.js')(),
+    decanter:           require(dir + '/theme/decanter.js')(),
     // Extensions of tailwind core config.
     extend: {},
   },
@@ -54,6 +57,7 @@ module.exports = {
     require(dir + '/base/base.js')(),
     // @tailwind components;
     require(dir + '/components/alert/alert.js')(),
+    require(dir + '/components/button/button.js')(),
     require(dir + '/components/headings/types.js')(),
     // @tailwind utilities;
     require(dir + '/utilities/accessibility/accessibily-hidden.js')(),

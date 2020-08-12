@@ -24,7 +24,7 @@ module.exports = function () {
       color: config('theme.colors.black.default'),
       fontSize: config('theme.decanter.base.baseFontSize'),
       height: '4.8rem',
-      lineHeight: '1.3rem',
+      lineHeight: '1.3',
     };
 
     // Add the elements.
@@ -33,11 +33,13 @@ module.exports = function () {
         fontFamily: sans,
         color: config('theme.colors.black.default'),
         ...config('theme.decanter.base.fontSmoothing'),
+        fontSize: config('theme.decanter.base.rootFontSize'),
       },
       'body': {
         backgroundColor: config('theme.colors.white'),
         overflowX: 'hidden',
         color: config('theme.colors.black.default'),
+        fontSize: '1.6rem',
       },
       'p': {
         lineHeight: config('theme.decanter.base.baseLineHeight'),
@@ -101,6 +103,7 @@ module.exports = function () {
       'legend': {
         ...config('theme.decanter.typography.typeB'),
         fontWeight: config('theme.fontWeight.bold'),
+        lineHeight: config('theme.decanter.base.displayLineHeight')
       },
       'input': {
         ...inputBase,

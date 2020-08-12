@@ -9,9 +9,10 @@ module.exports = function () {
     '-moz-osx-font-smoothing': 'grayscale',
   };
 
-  // Sudo storage since we don't have access to the `theme()` at this point.
+  // Psuedo storage since we don't have access to the `theme()` at this point.
   var theme = {};
   theme.fontWeight = require('./fontWeight')();
+  theme.lineHeight = require('./lineHeight')();
 
   // Returned values.
   return {
@@ -19,7 +20,7 @@ module.exports = function () {
       rootFontSize: '62.5%',
       baseFontSize: '2rem',
       mobileFontScale: '0.85',
-      baseLineHeight: '1.4em',
+      baseLineHeight: '1.4',
       fontSmoothing: fontSmoothing,
       inputMaxWidth: '46rem',
     },
@@ -27,7 +28,7 @@ module.exports = function () {
     typography: {
       headings: {
         letterSpacing: '-0.016em',
-        lineHeight: '1.2em',
+        lineHeight: theme.lineHeight.display,
         clear: 'both',
         fontWeight: theme.fontWeight.bold,
         ...fontSmoothing,

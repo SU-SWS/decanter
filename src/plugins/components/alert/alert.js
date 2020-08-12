@@ -1,17 +1,21 @@
+/**
+ * [description]
+ * @return {[type]} [description]
+ */
 module.exports = function () {
   return function ({ addComponents, theme, variants }) {
     const alert = {
       '.alert': {
         padding: '2rem',
-        backgroundColor: '#f4f4f4',
+        backgroundColor: theme('colors.fog.light'),
         backgroundRepeat: 'no-repeat',
         backgroundSize: '4rem',
-        color: '#2e2d29'
+        color: theme('colors.black.default')
       },
       '.alert--info': {
-        backgroundColor: '#006cb8',
+        backgroundColor: theme('colors.sky.dark'),
         backgroundImage: 'alert-info.svg',
-        color: '#ffffff'
+        color: theme('colors.white')
       },
     }
 
