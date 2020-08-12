@@ -8,7 +8,7 @@ module.exports = function () {
         ...theme('decanter.base.fontSmoothing'),
         fontSize: '1.5625em',
         fontWeight: theme('fontWeight.regular'),
-        lineHeight: '1.5em',
+        lineHeight: '1.5',
         maxWidth: '85rem',
         letterSpacing: '-0.012em',
       },
@@ -18,7 +18,7 @@ module.exports = function () {
         marginBottom: '0',
         clear: 'both',
         fontWeight: theme('fontWeight.bold'),
-        lineHeight: '1.2em',
+        lineHeight: theme('lineHeight.display'),
         fontSize: '2.5939941406em',
         letterSpacing: '-0.016em',
         '@screen md': {
@@ -28,16 +28,16 @@ module.exports = function () {
       '.caption': {
         ...theme('decanter.base.fontSmoothing'),
         fontSize: '1.4rem',
-        lineHeight: '1.3rem',
-        color: '#4d4f53',
+        lineHeight: '1.3',
+        color: theme('colors.cool-grey'),
       },
       '.credits': {
         ...theme('decanter.base.fontSmoothing'),
-        fontSize: '1.6rem',
-        lineHeight: '1.3rem',
+        fontSize: '1.4rem',
+        lineHeight: '1.3',
         fontStyle: 'italic',
         '@screen md': {
-          fontSize: '1.4rem',
+          fontSize: '1.6rem',
         },
       },
       '.subheading': {
@@ -48,12 +48,14 @@ module.exports = function () {
         fontStyle: 'italic',
       },
       '.big-paragraph': {
-        fontSize: '2.1rem',
-        lineHeight: '1.7em',
+        '@screen md': {
+          fontSize: '2.1rem',
+          lineHeight: '1.7',
+        },
       },
       '.small-paragraph': {
         fontSize: '1.6rem',
-        lineHeight: '1.3em',
+        lineHeight: '1.3',
         '@screen md': {
           fontSize: '1.8rem',
         },
