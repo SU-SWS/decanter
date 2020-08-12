@@ -4,7 +4,6 @@
 
 var path = require('path');
 var dir = path.resolve(__dirname, 'src/plugins');
-const plugin = require('tailwindcss/plugin');
 
 module.exports = {
 
@@ -27,8 +26,7 @@ module.exports = {
     fontWeight:       require(dir + '/theme/fontWeight.js')(),
     lineHeight:       require(dir + '/theme/lineHeight.js')(),
     // Decanter Custom.
-    decanter: require(dir + '/theme/decanter.js')(),
-
+    decanter:         require(dir + '/theme/decanter.js')(),
     // Extensions of tailwind core config.
     extend: {},
   },
@@ -56,9 +54,11 @@ module.exports = {
     require(dir + '/base/base.js')(),
     // @tailwind components;
     require(dir + '/components/alert/alert.js')(),
+    require(dir + '/components/headings/types.js')(),
     // @tailwind utilities;
     require(dir + '/utilities/accessibility/accessibily-hidden.js')(),
     require(dir + '/utilities/accessibility/sr-only-text.js')(),
+    require(dir + '/utilities/typography/styles.js')(),
     // 3rd Party Plugins;
     require('tailwindcss-visuallyhidden')(),
     require('tailwindcss-aspect-ratio'),

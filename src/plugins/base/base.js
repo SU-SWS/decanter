@@ -2,11 +2,13 @@
  * Base Styles
  */
 
-
 module.exports = function () {
   return function ({ addBase, config }) {
+
     // Create a string from the config array.
     var sans = config('theme.fontFamily.sans').join(", ");
+    // Heading defaults.
+    var headings = config('theme.decanter.typography.headings');
 
     addBase({
       'html': {
@@ -25,28 +27,40 @@ module.exports = function () {
         marginBottom: '1em',
       },
       'h1': {
-        clear: 'both',
-        fontWeight: config('theme.fontWeight.bold'),
+        ...headings,
+        ...config('theme.decanter.typography.typeA'),
       },
       'h2': {
-        clear: 'both',
-        fontWeight: config('theme.fontWeight.bold'),
+        ...headings,
+        ...config('theme.decanter.typography.typeB'),
       },
       'h3': {
-        clear: 'both',
-        fontWeight: config('theme.fontWeight.bold'),
+        ...headings,
+        ...config('theme.decanter.typography.typeC'),
       },
       'h4': {
-        clear: 'both',
-        fontWeight: config('theme.fontWeight.bold'),
+        ...headings,
+        ...config('theme.decanter.typography.typeD'),
       },
       'h5': {
-        clear: 'both',
-        fontWeight: config('theme.fontWeight.bold'),
+        ...headings,
+        ...config('theme.decanter.typography.typeE'),
       },
       'h6': {
-        clear: 'both',
-        fontWeight: config('theme.fontWeight.bold'),
+        ...headings,
+        ...config('theme.decanter.typography.typeF'),
+      },
+      'cite': {
+        fontStyle: 'normal',
+      },
+      'var': {
+        fontStyle: 'normal',
+      },
+      'address': {
+        fontStyle: 'normal',
+      },
+      'dfn': {
+        fontStyle: 'normal',
       },
     })
   }
