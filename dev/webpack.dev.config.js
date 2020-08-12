@@ -16,7 +16,6 @@ module.exports.devServer = {
   contentBase: path.resolve(__dirname),
   watchContentBase: true,
   compress: true,
-  port: 9003,
   hot: true,
   progress: true,
   writeToDisk: true

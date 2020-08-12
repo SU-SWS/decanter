@@ -1,5 +1,6 @@
 module.exports = function () {
-  return function ({ addComponents, theme }) {
+
+  return function ({ addComponents, theme, variants }) {
     const alert = {
       '.alert': {
         padding: '2rem',
