@@ -1,3 +1,7 @@
+/**
+ * [description]
+ * @return {[type]} [description]
+ */
 module.exports = function () {
   return function ({ addComponents, theme, config }) {
     const sans = config('theme.fontFamily.sans').join(', ');

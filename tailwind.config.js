@@ -58,7 +58,6 @@ module.exports = {
     // @tailwind components;
     require(dir + '/components/alert/alert.js')(),
     require(dir + '/components/button/button.js')(),
-    require(dir + '/components/headings/types.js')(),
     // @tailwind utilities;
     require(dir + '/utilities/accessibility/accessibily-hidden.js')(),
     require(dir + '/utilities/accessibility/sr-only-text.js')(),
