@@ -27,6 +27,7 @@ module.exports = {
     fontWeight:       require(dir + '/theme/fontWeight.js')(),
     lineHeight:       require(dir + '/theme/lineHeight.js')(),
     spacing:          require(dir + '/theme/spacing.js')(),
+    transitionDuration: require(dir + '/theme/transitionDuration.js')(),
     // Decanter Custom.
     decanter: require(dir + '/theme/decanter.js')(),
 
@@ -57,6 +58,7 @@ module.exports = {
     require(dir + '/base/base.js')(),
     // @tailwind components;
     require(dir + '/components/alert/alert.js')(),
+    require(dir + '/components/button/button.js')(),
     // @tailwind utilities;
     require(dir + '/utilities/accessibility/accessibily-hidden.js')(),
     require(dir + '/utilities/accessibility/sr-only-text.js')(),

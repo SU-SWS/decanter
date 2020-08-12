@@ -11,13 +11,14 @@ module.exports = function () {
     addBase({
       'html': {
         fontFamily: sans,
-        color: config('theme.colors.black.default'),
         ...config('theme.decanter.base.fontSmoothing'),
+        fontSize: config('theme.decanter.base.rootFontSize'),
       },
       'body': {
         backgroundColor: config('theme.colors.white'),
         overflowX: 'hidden',
         color: config('theme.colors.black.default'),
+        fontSize: '1.6rem',
       },
       'p': {
         lineHeight: config('theme.decanter.base.baseLineHeight'),

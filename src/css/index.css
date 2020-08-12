@@ -1,14 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i');
+
 /**
  * This injects Tailwind's base styles and any base styles registered by
  * plugins.
  */
 @tailwind base;
 
+@font-face {
+    font-family: Stanford;
+    src:url("https://www-media.stanford.edu/assets/fonts/stanford.woff") format("woff"),
+    url("https://www-media.stanford.edu/assets/fonts/stanford.ttf") format("truetype");
+    font-weight:300;
+}
+
 /**
  * This injects Tailwind's component classes and any component classes
  * registered by plugins.
  */
 @tailwind components;
+
+@screen md {
+    body {
+        font-size: 1.8rem;
+    }
+}
+
+@screen 2xl {
+    body {
+        font-size: 1.9rem;
+    }
+}
+
+.su-logo {
+    @apply
+    inline-block
+    font-regular font-stanford
+    text-white;
+
+    line-height: 0.75;
+    -webkit-font-feature-settings: "liga";
+    -ms-font-feature-settings: "liga" 1;
+    font-feature-settings: "liga";
+    font-variant-ligatures: discretionary-ligatures;
+}
+
+.su-brand-bar {
+    @apply
+    w-full
+    bg-digital-red;
+
+    height: 30px;
+}
+
+.su-brand-bar .su-logo {
+    margin-top: 8px;
+    font-size: 20px;
+}
+
+/**
+ * Button styles
+ */
+
+.su-button {
+    @apply
+    inline-block
+    w-auto
+    border-0
+    font-sans font-regular
+    leading-none
+    text-center text-white
+    bg-digital-red
+    transition-colors duration-250 ease-in-out
+    ;
+}
+
+.su-button:hover,
+.su-button:focus {
+    @apply
+    bg-black
+    underline
+    ;
+}
 
 /**
  * This injects Tailwind's utility classes and any utility classes registered
