@@ -916,12 +916,53 @@ select{
   display: inline-block;
   width: auto;
   border: none;
+  cursor: pointer;
   background-color: #B1040E;
   color: #FFFFFF;
   text-align: center;
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1;
   -webkit-transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
   transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+}
+
+.su-button:hover, .su-button:focus, .su-button:active{
+  background-color: #2E2D29;
+  text-decoration: underline;
+}
+
+.su-button--big{
+  padding: 1.3rem 2.8rem 1.5rem;
+  font-size: 2.5rem;
+}
+
+@media (min-width: 768px){
+  .su-button--big{
+    padding: 1.5rem 3rem 1.8rem;
+    font-size: 2.8rem;
+  }
+}
+
+@media (min-width: 1500px){
+  .su-button--big{
+    padding: 1.5rem 3rem 1.8rem;
+    font-size: 3rem;
+  }
+}
+
+.su-button--secondary{
+  background-color: #FFFFFF;
+  color: #B1040E;
+  -webkit-box-shadow: inset 0 0 0 2px #B1040E;
+          box-shadow: inset 0 0 0 2px #B1040E;
+}
+
+.su-button--secondary:hover, .su-button--secondary:focus, .su-button--secondary:active{
+  background-color: #FFFFFF;
+  color: #2E2D29;
+  -webkit-box-shadow: inset 0 0 0 2px #2E2D29;
+          box-shadow: inset 0 0 0 2px #2E2D29;
 }
 
 .su-type-a{
@@ -1128,40 +1169,6 @@ select{
 .su-brand-bar .su-logo {
   margin-top: 8px;
   font-size: 20px;
-}
-
-/**
- * Button styles
- */
-
-.su-button {
-  display: inline-block;
-  width: auto;
-  border-width: 0;
-  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  line-height: 1;
-  text-align: center;
-  --text-opacity: 1;
-  color: #FFFFFF;
-  color: rgba(255, 255, 255, var(--text-opacity));
-  --bg-opacity: 1;
-  background-color: #B1040E;
-  background-color: rgba(177, 4, 14, var(--bg-opacity));
-  -webkit-transition-property: background-color, border-color, color, fill, stroke;
-  transition-property: background-color, border-color, color, fill, stroke;
-  -webkit-transition-duration: 250ms;
-          transition-duration: 250ms;
-  -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.su-button:hover,
-.su-button:focus {
-  --bg-opacity: 1;
-  background-color: #2E2D29;
-  background-color: rgba(46, 45, 41, var(--bg-opacity));
-  text-decoration: underline;
 }
 
 .su-lockup a {
