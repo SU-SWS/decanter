@@ -22,7 +22,7 @@ module.exports = function () {
         marginLeft: 'auto',
         marginRight: 'auto',
         ...padding,
-        // At 1700px (2xs breakpoint + twice the screen margins at 2xl), the max container width stays at 1500px.
+        // At 1700px (2xl breakpoint + twice the screen margins at 2xl), the max container width stays at 1500px.
         '@media only screen and (min-width: 1700px)': {
           paddingLeft: 'calc((100% - 1500px)/2)',
           paddingRight: 'calc((100% - 1500px)/2)',
