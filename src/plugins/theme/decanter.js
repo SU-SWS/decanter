@@ -24,6 +24,14 @@ module.exports = function () {
       fontSmoothing: fontSmoothing,
       inputMaxWidth: '46rem',
     },
+    screenMargins: {
+      'xs': '20px',
+      'sm': '30px',
+      'md': '50px',
+      'lg': '80px',
+      'xl': '100px',
+      '2xl': '100px',
+    },
     // Shared settings between base and components.
     typography: {
       headings: {
