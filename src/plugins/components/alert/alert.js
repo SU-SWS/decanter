@@ -1,5 +1,8 @@
+/**
+ * [description]
+ * @return {[type]} [description]
+ */
 module.exports = function () {
-
   return function ({ addComponents, theme, variants }) {
     const alert = {
       '.alert': {

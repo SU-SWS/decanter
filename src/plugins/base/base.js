@@ -24,13 +24,14 @@ module.exports = function () {
       color: config('theme.colors.black.default'),
       fontSize: config('theme.decanter.base.baseFontSize'),
       height: '4.8rem',
-      lineHeight: '1.3rem',
+      lineHeight: '1.3',
     };
 
     // Add the elements.
     addBase({
       'html': {
         fontFamily: sans,
+        color: config('theme.colors.black.default'),
         ...config('theme.decanter.base.fontSmoothing'),
         fontSize: config('theme.decanter.base.rootFontSize'),
       },
@@ -44,31 +45,77 @@ module.exports = function () {
         lineHeight: config('theme.decanter.base.baseLineHeight'),
         marginTop: '0',
         marginBottom: '1em',
+        '+ ul': {
+          marginBottom: '0',
+        },
+        '+ ol': {
+          marginBottom: '0',
+        },
       },
+      // HEADINGS
+      // -----------------------------------------------------------------------
       'h1': {
         ...headings,
         ...config('theme.decanter.typography.typeA'),
+        '+ ul': {
+          marginBottom: '0',
+        },
+        '+ ol': {
+          marginBottom: '0',
+        },
       },
       'h2': {
         ...headings,
         ...config('theme.decanter.typography.typeB'),
+        '+ ul': {
+          marginBottom: '0',
+        },
+        '+ ol': {
+          marginBottom: '0',
+        },
       },
       'h3': {
         ...headings,
         ...config('theme.decanter.typography.typeC'),
+        '+ ul': {
+          marginBottom: '0',
+        },
+        '+ ol': {
+          marginBottom: '0',
+        },
       },
       'h4': {
         ...headings,
         ...config('theme.decanter.typography.typeD'),
+        '+ ul': {
+          marginBottom: '0',
+        },
+        '+ ol': {
+          marginBottom: '0',
+        },
       },
       'h5': {
         ...headings,
         ...config('theme.decanter.typography.typeE'),
+        '+ ul': {
+          marginBottom: '0',
+        },
+        '+ ol': {
+          marginBottom: '0',
+        },
       },
       'h6': {
         ...headings,
         ...config('theme.decanter.typography.typeF'),
+        '+ ul': {
+          marginBottom: '0',
+        },
+        '+ ol': {
+          marginBottom: '0',
+        },
       },
+      // MISC
+      // -----------------------------------------------------------------------
       'cite': {
         fontStyle: 'normal',
       },
@@ -81,6 +128,8 @@ module.exports = function () {
       'dfn': {
         fontStyle: 'normal',
       },
+      // Images
+      // -----------------------------------------------------------------------
       'figure': {
         margin: '0',
       },
@@ -91,6 +140,8 @@ module.exports = function () {
         height: 'auto',
         maxWidth: '100%',
       },
+      // FORMS
+      // -----------------------------------------------------------------------
       'fieldset': {
         border: '0',
       },
@@ -118,12 +169,64 @@ module.exports = function () {
         '-webkit-appearance': 'none',
         '-moz-appearance': 'none',
         backgroundColor: config('theme.color.white'),
-        // background: url("#{$su-image-path}/arrow-down.png"),
-        // background-image: url("#{$su-image-path}/arrow-down.svg"),
-        backgroundPosition: 'right 1.3rem center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: '1.3rem',
-      }
+      },
+      // @todo: https://github.com/SU-SWS/decanter/blob/master/core/src/scss/elements/input/_radio-checkbox.scss
+      //        https://github.com/SU-SWS/decanter/blob/master/core/src/scss/elements/input/_range.scss
+      //
+      // LISTS
+      // -----------------------------------------------------------------------
+      'ul': {
+        margin: '1em inherit',
+        paddingLeft: '1em',
+      },
+      'ol': {
+        margin: '1em inherit',
+        paddingLeft: '1em',
+      },
+      'li': {
+        lineHeight: config('theme.decanter.base.baseLineHeight'),
+        marginBottom: '0.5em',
+        '&:last-child': {
+          marginBottom: '0',
+        },
+      },
+      // TABLES
+      // -----------------------------------------------------------------------
+      'table': {
+        margin: '2em 0',
+        borderSpacing: '0',
+        minWidth: '100%',
+        'th': {
+          padding: '1.5rem',
+          border: '1px solid ' + config('theme.colors.fog.dark'),
+        },
+        'td': {
+          padding: '1.5rem',
+          border: '1px solid ' + config('theme.colors.fog.dark'),
+        },
+        'th': {
+          backgroundColor: config('theme.colors.stone.light'),
+          color: config('theme.colors.black.default'),
+          fontWeight: config('theme.fontWeight.regular'),
+          textAlign: 'left',
+        },
+        'td': {
+          backgroundColor: config('theme.colors.white'),
+        },
+        'thead': {
+          'th': {
+            backgroundColor: config('theme.colors.stone.light'),
+          },
+          'td': {
+            backgroundColor: config('theme.colors.stone.light'),
+          },
+        },
+        'tbody': {
+          'th': {
+            fontWeight: config('theme.fontWeight.regular'),
+          },
+        },
+      },
     })
   }
 }

@@ -17,19 +17,19 @@ module.exports = {
 
   theme: {
     // Overrides.
-    aspectRatio:      require(dir + '/theme/aspectRatio.js')(),
-    borderRadius:     require(dir + '/theme/borderRadius.js')(),
-    borderWidth:      require(dir + '/theme/borderWidth.js')(),
-    boxShadow:        require(dir + '/theme/boxShadow.js')(),
-    colors:           require(dir + '/theme/colors.js')(),
-    screens:          require(dir + '/theme/screens.js')(),
-    fontFamily:       require(dir + '/theme/fontFamily.js')(),
-    fontWeight:       require(dir + '/theme/fontWeight.js')(),
-    lineHeight:       require(dir + '/theme/lineHeight.js')(),
-    gap:              require(dir + '/theme/gap.js')(),
+    aspectRatio:        require(dir + '/theme/aspectRatio.js')(),
+    borderRadius:       require(dir + '/theme/borderRadius.js')(),
+    borderWidth:        require(dir + '/theme/borderWidth.js')(),
+    boxShadow:          require(dir + '/theme/boxShadow.js')(),
+    colors:             require(dir + '/theme/colors.js')(),
+    screens:            require(dir + '/theme/screens.js')(),
+    fontFamily:         require(dir + '/theme/fontFamily.js')(),
+    fontWeight:         require(dir + '/theme/fontWeight.js')(),
+    lineHeight:         require(dir + '/theme/lineHeight.js')(),
+    gap:                require(dir + '/theme/gap.js')(),
     transitionDuration: require(dir + '/theme/transitionDuration.js')(),
     // Decanter Custom.
-    decanter:         require(dir + '/theme/decanter.js')(),
+    decanter:           require(dir + '/theme/decanter.js')(),
     // Extensions of tailwind core config.
     extend: {},
   },
@@ -57,14 +57,17 @@ module.exports = {
     require(dir + '/base/base.js')(),
     // @tailwind components;
     require(dir + '/components/alert/alert.js')(),
-    require(dir + '/components/button/button.js')(),
-    require(dir + '/components/headings/types.js')(),
     require(dir + '/components/logo/logo.js')(),
-    require(dir + '/components/brand-bar/brandBar.js')(),
+    require(dir + '/components/brand-bar/brand-bar.js')(),
+    require(dir + '/components/button/button.js')(),
+    require(dir + '/components/skiplinks/skiplinks.js')(),
     // @tailwind utilities;
     require(dir + '/utilities/accessibility/accessibily-hidden.js')(),
     require(dir + '/utilities/accessibility/sr-only-text.js')(),
     require(dir + '/utilities/flex/flex-container.js')(),
+    require(dir + '/utilities/layout/centered-container.js')(),
+    require(dir + '/utilities/lists/lists.js')(),
+    require(dir + '/utilities/tables/borderless.js')(),
     require(dir + '/utilities/typography/styles.js')(),
     // 3rd Party Plugins;
     require('tailwindcss-visuallyhidden')(),

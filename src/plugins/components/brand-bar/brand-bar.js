@@ -1,7 +1,11 @@
+/**
+ * For displaying the Stanford University logo using custom font and glyphs.
+ * Can be used with the generic logo twig template.
+ */
 module.exports = function () {
   return function ({ addComponents, theme, config }) {
 
-    const brandBar = {
+    const components = {
       '.brand-bar': {
         width: '100%',
         height: '30px',
@@ -14,6 +18,6 @@ module.exports = function () {
       },
     }
 
-    addComponents(brandBar)
+    addComponents(components)
   }
 }

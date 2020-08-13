@@ -9,7 +9,7 @@ module.exports = function () {
     '-moz-osx-font-smoothing': 'grayscale',
   };
 
-  // Sudo storage since we don't have access to the `theme()` at this point.
+  // Psuedo storage since we don't have access to the `theme()` at this point.
   var theme = {};
   theme.fontWeight = require('./fontWeight')();
   theme.lineHeight = require('./lineHeight')();
@@ -23,6 +23,14 @@ module.exports = function () {
       baseLineHeight: '1.4',
       fontSmoothing: fontSmoothing,
       inputMaxWidth: '46rem',
+    },
+    screenMargins: {
+      'xs': '20px',
+      'sm': '30px',
+      'md': '50px',
+      'lg': '80px',
+      'xl': '100px',
+      '2xl': '100px',
     },
     // Shared settings between base and components.
     typography: {
