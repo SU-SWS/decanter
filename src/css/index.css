@@ -20,43 +20,6 @@
  */
 @tailwind components;
 
-@screen md {
-    body {
-        font-size: 1.8rem;
-    }
-}
-
-@screen 2xl {
-    body {
-        font-size: 1.9rem;
-    }
-}
-
-.su-logo {
-    @apply
-    inline-block
-    font-regular font-stanford
-    text-white;
-
-    line-height: 0.75;
-    -ms-font-feature-settings: "liga" 1;
-    font-feature-settings: "liga";
-    font-variant-ligatures: discretionary-ligatures;
-}
-
-.su-brand-bar {
-    @apply
-    w-full
-    bg-cardinal-red;
-
-    height: 30px;
-}
-
-.su-brand-bar .su-logo {
-    margin-top: 8px;
-    font-size: 20px;
-}
-
 /**
  * Button styles
  */
@@ -82,13 +45,6 @@
     ;
 }
 
-.su-lockup a {
-    @apply
-    font-regular
-    no-underline
-    ;
-}
-
 .su-lockup__cell1 {
     @apply w-auto;
 
@@ -96,13 +52,6 @@
     line-height: 17px;
     min-height: 26px;
     vertical-align: bottom;
-}
-
-@screen md {
-    .su-lockup .su-logo {
-        font-size: 46px;
-        line-height: 21px;
-    }
 }
 
 .su-masthead {

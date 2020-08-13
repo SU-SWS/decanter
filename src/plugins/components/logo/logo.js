@@ -4,11 +4,13 @@
  */
 module.exports = function () {
   return function ({ addComponents, theme, config }) {
+    const stanford = config('theme.fontFamily.stanford').join(', ');
 
     const components = {
       '.logo': {
         display: 'inline-block',
-        fontFamily: theme('fontFamily.stanford'),
+        fontFamily: stanford,
+        color: theme('colors.cardinal-red.default'),
         fontStyle: 'normal',
         fontWeight: theme('fontWeight.regular'),
         fontVariant: 'normal',
@@ -25,15 +27,14 @@ module.exports = function () {
         'font-variant-ligatures': 'discretionary-ligatures',
         '-webkit-font-smoothing': 'antialiased',
         '-moz-osx-font-smoothing': 'grayscale',
-        color: theme('colors.white'),
         '&:active': {
-          color: theme('colors.white'),
+          color: theme('colors.cardinal-red.default'),
         },
         '&:focus': {
-          color: theme('colors.white'),
+          color: theme('colors.cardinal-red.default'),
         },
         '&:hover': {
-          color: theme('colors.white'),
+          color: theme('colors.cardinal-red.default'),
         },
       },
     }
