@@ -1,3 +1,6 @@
+/**
+ * Screen Reader Only Text.
+ */
 module.exports = function () {
   return function ({ addUtilities }) {
     const newUtilities = {

@@ -45,30 +45,72 @@ module.exports = function () {
         lineHeight: config('theme.decanter.base.baseLineHeight'),
         marginTop: '0',
         marginBottom: '1em',
+        '+ ul': {
+          marginBottom: '0',
+        },
+        '+ ol': {
+          marginBottom: '0',
+        },
       },
       'h1': {
         ...headings,
         ...config('theme.decanter.typography.typeA'),
+        '+ ul': {
+          marginBottom: '0',
+        },
+        '+ ol': {
+          marginBottom: '0',
+        },
       },
       'h2': {
         ...headings,
         ...config('theme.decanter.typography.typeB'),
+        '+ ul': {
+          marginBottom: '0',
+        },
+        '+ ol': {
+          marginBottom: '0',
+        },
       },
       'h3': {
         ...headings,
         ...config('theme.decanter.typography.typeC'),
+        '+ ul': {
+          marginBottom: '0',
+        },
+        '+ ol': {
+          marginBottom: '0',
+        },
       },
       'h4': {
         ...headings,
         ...config('theme.decanter.typography.typeD'),
+        '+ ul': {
+          marginBottom: '0',
+        },
+        '+ ol': {
+          marginBottom: '0',
+        },
       },
       'h5': {
         ...headings,
         ...config('theme.decanter.typography.typeE'),
+        '+ ul': {
+          marginBottom: '0',
+        },
+        '+ ol': {
+          marginBottom: '0',
+        },
       },
       'h6': {
         ...headings,
         ...config('theme.decanter.typography.typeF'),
+        '+ ul': {
+          marginBottom: '0',
+        },
+        '+ ol': {
+          marginBottom: '0',
+        },
       },
       'cite': {
         fontStyle: 'normal',
@@ -124,7 +166,23 @@ module.exports = function () {
         backgroundPosition: 'right 1.3rem center',
         backgroundRepeat: 'no-repeat',
         backgroundSize: '1.3rem',
-      }
+      },
+      'ul': {
+        margin: '1em inherit',
+        paddingLeft: '1em',
+      },
+      'ol': {
+        margin: '1em inherit',
+        paddingLeft: '1em',
+      },
+      'li': {
+        lineHeight: config('theme.decanter.base.baseLineHeight'),
+        marginBottom: '0.5em',
+        '&:last-child': {
+          marginBottom: '0',
+        },
+      },
+
     })
   }
 }
