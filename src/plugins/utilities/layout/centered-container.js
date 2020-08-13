@@ -21,8 +21,6 @@ module.exports = function () {
       '.centered-container': {
         marginLeft: 'auto',
         marginRight: 'auto',
-        paddingLeft: theme('decanter.screenMargins.xs'),
-        paddingRight: theme('decanter.screenMargins.xs'),
         ...padding,
         // At 1700px (2xs breakpoint + twice the screen margins at 2xl), the max container width stays at 1500px.
         '@media only screen and (min-width: 1700px)': {

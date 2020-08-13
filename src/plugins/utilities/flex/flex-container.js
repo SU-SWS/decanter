@@ -3,42 +3,33 @@
  */
 module.exports = function () {
   return function ({ addUtilities, theme }) {
+
+      var screens = theme('gap');
+      var padding = {};
+      var margin = {};
+
+      for (var key in screens) {
+        padding['@screen ' + key] = {
+          paddingLeft:  parseInt(theme('gap.' + key), 10) / 2,
+          paddingRight:  parseInt(theme('gap.' + key), 10) / 2,
+        };
+
+        margin['@screen ' + key] = {
+          marginLeft:  parseInt(theme('gap.' + key), 10) / -2,
+          marginRight:  parseInt(theme('gap.' + key), 10) / -2,
+        };
+      }
+
     const newUtilities = {
       '.flex-container': {
         display: 'flex',
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'space-between',
-        marginLeft: parseInt(theme('gap.xs'), 10) / -2,
-        marginRight: parseInt(theme('gap.xs'), 10) / -2,
+        ...margin,
         ' > *': {
-          paddingLeft: parseInt(theme('gap.xs'), 10) / 2,
-          paddingRight: parseInt(theme('gap.xs'), 10) / 2,
+          ...padding,
         },
-        '@screen lg': {
-          marginLeft: parseInt(theme('gap.lg'), 10) / -2,
-          marginRight: parseInt(theme('gap.lg'), 10) / -2,
-          ' > *': {
-            paddingLeft: parseInt(theme('gap.lg'), 10) / 2,
-            paddingRight: parseInt(theme('gap.lg'), 10) / 2,
-          }
-        },
-        '@screen xl': {
-          marginLeft: parseInt(theme('gap.xl'), 10) / -2,
-          marginRight: parseInt(theme('gap.xl'), 10) / -2,
-          ' > *': {
-            paddingLeft: parseInt(theme('gap.xl'), 10) / 2,
-            paddingRight: parseInt(theme('gap.xl'), 10) / 2,
-          }
-        },
-        '@screen 2xl': {
-          marginLeft: parseInt(theme('gap.2xl'), 10) / -2,
-          marginRight: parseInt(theme('gap.2xl'), 10) / -2,
-          ' > *': {
-            paddingLeft: parseInt(theme('gap.2xl'), 10) / 2,
-            paddingRight: parseInt(theme('gap.2xl'), 10) / 2,
-          }
-        }
       },
     }
 
