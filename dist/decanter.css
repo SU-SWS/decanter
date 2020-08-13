@@ -1359,6 +1359,101 @@ table tbody th{
   white-space: nowrap;
 }
 
+@media (min-width: 768px){
+  .su-lockup, .su-lockup > a{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    -justify-content: flex-start;
+    vertical-align: bottom;
+  }
+}
+
+.su-lockup a{
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.su-lockup__cell1{
+  width: auto;
+  font-size: 36px;
+  min-height: 26px;
+  vertical-align: botton;
+}
+
+@media (min-width: 768px){
+  .su-lockup__cell1{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-negative: 1;
+        flex-shrink: 1;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    margin-right: -1px;
+    padding-right: 7px;
+    padding-bottom: 0;
+    max-width: 160px;
+    min-height: 32px;
+    border-right: 1px solid #2E2D29;
+  }
+}
+
+@media (min-width: 768px){
+  .su-lockup__cell2{
+    padding-top: 0;
+    padding-left: 7px;
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    border-left: 1px solid #2E2D29;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    vertical-align: bottom;
+  }
+}
+
+.su-lockup .su-logo{
+  color: #8C1515;
+  font-size: 36px;
+  line-height: 17px;
+  vertical-align: bottom;
+}
+
+@media (min-width: 768px){
+  .su-lockup .su-logo{
+    font-size: 46px;
+    line-height: 21px;
+  }
+}
+
+.su-lockup__wordmark-wrapper{
+  line-height: 26px;
+}
+
+@media (min-width: 768px){
+  .su-lockup__wordmark-wrapper{
+    line-height: 32px;
+  }
+}
+
+.su-lockup__line1, .su-lockup__line2, .su-lockup__line3, .su-lockup__line4, .su-lockup__line5{
+  display: block;
+  color: #2E2D29;
+}
+
 .su-skiplinks{
   padding: 0;
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1481,14 +1576,6 @@ table tbody th{
   }
 }
 
-.su-lockup__cell1 {
-  width: auto;
-  font-size: 36px;
-  line-height: 17px;
-  min-height: 26px;
-  vertical-align: bottom;
-}
-
 .su-masthead {
   position: relative;
   max-width: 100%;
@@ -1497,20 +1584,8 @@ table tbody th{
   background-color: rgba(255, 255, 255, var(--bg-opacity));
 }
 
-.su-masthead .su-brand-bar + div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding: 3rem; /** modular spacing later */
+.su-masthead .su-brand-bar + div .su-flex-container {
+  padding: 3rem 0; /** modular spacing later */
 }
 
 .su-masthead .su-site-search {
@@ -11399,56 +11474,56 @@ table tbody th{
 }
 
 @media (min-width: 0){
-  .su-flex-container{
+  .su-flex-container-row{
     margin-left: -10px;
     margin-right: -10px;
   }
 }
 
 @media (min-width: 992px){
-  .su-flex-container{
+  .su-flex-container-row{
     margin-left: -18px;
     margin-right: -18px;
   }
 }
 
 @media (min-width: 1200px){
-  .su-flex-container{
+  .su-flex-container-row{
     margin-left: -20px;
     margin-right: -20px;
   }
 }
 
 @media (min-width: 1500px){
-  .su-flex-container{
+  .su-flex-container-row{
     margin-left: -24px;
     margin-right: -24px;
   }
 }
 
 @media (min-width: 0){
-  .su-flex-container > *{
+  .su-flex-container-row > *{
     padding-left: 10px;
     padding-right: 10px;
   }
 }
 
 @media (min-width: 992px){
-  .su-flex-container > *{
+  .su-flex-container-row > *{
     padding-left: 18px;
     padding-right: 18px;
   }
 }
 
 @media (min-width: 1200px){
-  .su-flex-container > *{
+  .su-flex-container-row > *{
     padding-left: 20px;
     padding-right: 20px;
   }
 }
 
 @media (min-width: 1500px){
-  .su-flex-container > *{
+  .su-flex-container-row > *{
     padding-left: 24px;
     padding-right: 24px;
   }

@@ -20,15 +20,6 @@
  */
 @tailwind components;
 
-.su-lockup__cell1 {
-    @apply w-auto;
-
-    font-size: 36px;
-    line-height: 17px;
-    min-height: 26px;
-    vertical-align: bottom;
-}
-
 .su-masthead {
     @apply
     relative
@@ -37,9 +28,8 @@
     ;
 }
 
-.su-masthead .su-brand-bar + div {
-    @apply flex flex-row flex-wrap justify-between;
-    padding: 3rem; /** modular spacing later */
+.su-masthead .su-brand-bar + div .su-flex-container {
+    padding: 3rem 0; /** modular spacing later */
 }
 
 .su-masthead .su-site-search {
