@@ -34,6 +34,7 @@ module.exports = function () {
         color: config('theme.colors.black.default'),
         ...config('theme.decanter.base.fontSmoothing'),
         fontSize: config('theme.decanter.base.rootFontSize'),
+        lineHeight: '1.15', // This is our original html line height using normalize
       },
       'body': {
         backgroundColor: config('theme.colors.white'),

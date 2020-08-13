@@ -60,6 +60,7 @@ module.exports = {
     require(dir + '/components/logo/logo.js')(),
     require(dir + '/components/brand-bar/brand-bar.js')(),
     require(dir + '/components/button/button.js')(),
+    require(dir + '/components/global-footer/global-footer.js')(),
     require(dir + '/components/skiplinks/skiplinks.js')(),
     // @tailwind utilities;
     require(dir + '/utilities/accessibility/accessibily-hidden.js')(),

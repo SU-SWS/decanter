@@ -10,7 +10,7 @@ module.exports = function () {
         width: '100%',
         height: '30px',
         backgroundColor: theme('colors.cardinal-red.default'),
-        ' .logo': {
+        '.logo': {
           marginTop: '8px',
           fontSize: '20px',
           color: theme('colors.white'),
