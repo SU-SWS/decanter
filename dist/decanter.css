@@ -1227,61 +1227,6 @@ select{
   }
 }
 
-.su-flex-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin-left: -10px;
-  margin-right: -10px;
-}
-
-.su-flex-container > * {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-@media (min-width: 992px) {
-  .su-flex-container {
-    margin-left: -18px;
-    margin-right: -18px;
-  }
-    .su-flex-container > * {
-      padding-left: 18px;
-      padding-right: 18px;
-    }
-}
-
-@media (min-width: 1200px) {
-  .su-flex-container {
-    margin-left: -20px;
-    margin-right: -20px;
-  }
-    .su-flex-container > * {
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-}
-
-@media (min-width: 1500px) {
-  .su-flex-container {
-    margin-left: -24px;
-    margin-right: -24px;
-  }
-    .su-flex-container > * {
-      padding-left: 24px;
-      padding-right: 24px;
-    }
-}
-
 /**
  * This injects Tailwind's utility classes and any utility classes registered
  * by plugins.
@@ -11130,6 +11075,64 @@ select{
   overflow: hidden;
   text-indent: 101%;
   white-space: nowrap;
+}
+
+.su-flex-container{
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.su-flex-container > *{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+@media (min-width: 992px){
+  .su-flex-container{
+    margin-left: -18px;
+    margin-right: -18px;
+  }
+
+  .su-flex-container > *{
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+@media (min-width: 1200px){
+  .su-flex-container{
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  .su-flex-container > *{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (min-width: 1500px){
+  .su-flex-container{
+    margin-left: -24px;
+    margin-right: -24px;
+  }
+
+  .su-flex-container > *{
+    padding-left: 24px;
+    padding-right: 24px;
+  }
 }
 
 .su-intro-text{

@@ -62,6 +62,7 @@ module.exports = {
     // @tailwind utilities;
     require(dir + '/utilities/accessibility/accessibily-hidden.js')(),
     require(dir + '/utilities/accessibility/sr-only-text.js')(),
+    require(dir + '/utilities/flex/flex-container.js')(),
     require(dir + '/utilities/typography/styles.js')(),
     // 3rd Party Plugins;
     require('tailwindcss-visuallyhidden')(),
