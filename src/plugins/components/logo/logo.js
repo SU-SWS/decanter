@@ -23,7 +23,13 @@ module.exports = function () {
         fontVariantLigatures: 'discretionary-ligatures',
         '-webkit-font-smoothing': 'antialiased',
         '-moz-osx-font-smoothing': 'grayscale',
-        '&:hover, &:focus, &:active': {
+        '&:active': {
+          color: theme('colors.cardinal-red.default'),
+        },
+        '&:focus': {
+          color: theme('colors.cardinal-red.default'),
+        },
+        '&:hover': {
           color: theme('colors.cardinal-red.default'),
         },
       },

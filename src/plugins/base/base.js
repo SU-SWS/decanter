@@ -40,6 +40,12 @@ module.exports = function () {
         overflowX: 'hidden',
         color: config('theme.colors.black.default'),
         fontSize: '1.6rem',
+        '@screen md': {
+          fontSize: '1.8rem',
+        },
+        '@screen 2xl': {
+          fontSize: '1.9rem',
+        },
       },
       'p': {
         lineHeight: config('theme.decanter.base.baseLineHeight'),
