@@ -34,7 +34,7 @@ module.exports = function () {
       },
       '.intro-text': {
         ...theme('decanter.base.fontSmoothing'),
-        fontSize: '1.5625em',
+        fontSize: '1.56em',
         fontWeight: theme('fontWeight.regular'),
         lineHeight: '1.5',
         maxWidth: '85rem',

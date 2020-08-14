@@ -121,6 +121,16 @@ module.exports = function () {
           marginBottom: '0',
         },
       },
+      // LINK
+      // -----------------------------------------------------------------------
+      'a': {
+        color: config('theme.colors.bright-blue.default'),
+        textDecoration: 'underline',
+        fontWeight: config('theme.fontWeight.semibold'),
+        '&:hover, &:focus, &:active': {
+          color: config('theme.colors.bright-blue.dark'),
+        }
+      },
       // MISC
       // -----------------------------------------------------------------------
       'cite': {
