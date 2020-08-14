@@ -128,6 +128,21 @@ module.exports = function () {
           },
         },
       },
+      // Lockup option N: Unit (1 line)
+      '.lockup--option-n': {
+        '.lockup__line2, .lockup__line3, .lockup__line4, .lockup__line5': {
+          display: 'none',
+        },
+        '.lockup__line1': {
+          marginTop: '0.5rem',
+          marginLeft: '-0.2rem',
+          lineHeight: '2.6rem',
+          '@screen md': {
+            fontSize: '3.2rem',
+            lineHeight: '2.24rem',
+          },
+        },
+      },
     }
 
     addComponents(components)
