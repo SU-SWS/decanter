@@ -62,6 +62,7 @@ module.exports = {
     require(dir + '/components/button/button.js')(),
     require(dir + '/components/global-footer/global-footer.js')(),
     require(dir + '/components/lockup/lockup.js')(),
+    require(dir + '/components/site-search/site-search.js')(),
     require(dir + '/components/masthead/masthead.js')(),
     require(dir + '/components/skiplinks/skiplinks.js')(),
     // @tailwind utilities;

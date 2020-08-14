@@ -967,10 +967,10 @@ table tbody th{
 @font-face {
   font-family: Stanford;
 
-  src:url("https://www-media.stanford.edu/assets/fonts/stanford.woff") format("woff"),
+  src: url("https://www-media.stanford.edu/assets/fonts/stanford.woff") format("woff"),
     url("https://www-media.stanford.edu/assets/fonts/stanford.ttf") format("truetype");
 
-  font-weight:300;
+  font-weight: 300;
 }
 
 /**
@@ -1499,7 +1499,7 @@ table tbody th{
 
 @media (min-width: 768px){
   .su-lockup__line5{
-    margin-top: 8px;
+    margin-top: 0.8rem;
     font-size: 3rem;
   }
 }
@@ -1523,7 +1523,7 @@ table tbody th{
 @media (min-width: 768px){
   .su-lockup--option-d .su-lockup__line3{
     font-size: 1.8rem;
-    line-height: 0.7em;
+    line-height: 1.26rem;
   }
 }
 
@@ -1542,6 +1542,67 @@ table tbody th{
     font-size: 3.2rem;
     line-height: 2.24rem;
   }
+}
+
+.su-site-search{
+  position: relative;
+}
+
+.su-site-search__input{
+  display: inline-block;
+  padding: 0.6rem 2rem;
+  max-width: 100%;
+  height: 4rem;
+  border-radius: 3rem;
+  font-size: 1.6rem;
+}
+
+.su-site-search__input::-webkit-input-placeholder{
+  color: #2E2D29;
+  opacity: 1;
+}
+
+.su-site-search__input::-moz-placeholder{
+  color: #2E2D29;
+  opacity: 1;
+}
+
+.su-site-search__input:-ms-input-placeholder{
+  color: #2E2D29;
+  opacity: 1;
+}
+
+.su-site-search__input::-ms-input-placeholder{
+  color: #2E2D29;
+  opacity: 1;
+}
+
+.su-site-search__input::placeholder{
+  color: #2E2D29;
+  opacity: 1;
+}
+
+.su-site-search__submit{
+  position: absolute;
+  top: 1.1rem;
+  right: 1.2rem;
+  width: 24px;
+  height: 25px;
+  padding: 0;
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  opacity: 0.6;
+}
+
+.su-site-search__submit:hover, .su-site-search__submit:active, .su-site-search__submit:focus{
+  background-color: transparent;
+  opacity: 1;
+}
+
+.su-site-search__submit:active, .su-site-search__submit:focus{
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .su-masthead{

@@ -103,7 +103,7 @@ module.exports = function () {
           lineHeight: theme('lineHeight.none'),
           width: '100%',
           '@screen md': {
-            marginTop: '8px',
+            marginTop: '0.8rem',
             fontSize: '3rem',
           },
         },
@@ -124,7 +124,7 @@ module.exports = function () {
         '.lockup__line3': {
           '@screen md': {
             fontSize: '1.8rem',
-            lineHeight: '0.7em',
+            lineHeight: '1.26rem',
           },
         },
       },
