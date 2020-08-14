@@ -916,6 +916,50 @@ select{
   -moz-appearance: none;
 }
 
+button, [type="button"], [type="submit"], [type="reset"], [type="image"]{
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  width: auto;
+  -webkit-transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+  transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+  padding: 1rem 2rem 1.15rem;
+  background-color: #B1040E;
+  color: #FFFFFF;
+}
+
+button:active, button:hover, button:focus, [type="button"]:active, [type="button"]:hover, [type="button"]:focus, [type="submit"]:active, [type="submit"]:hover, [type="submit"]:focus, [type="reset"]:active, [type="reset"]:hover, [type="reset"]:focus, [type="image"]:active, [type="image"]:hover, [type="image"]:focus{
+  text-decoration: underline;
+}
+
+button:hover, button:focus, [type="button"]:hover, [type="button"]:focus, [type="submit"]:hover, [type="submit"]:focus, [type="reset"]:hover, [type="reset"]:focus, [type="image"]:hover, [type="image"]:focus{
+  background-color: #2E2D29;
+  color: #FFFFFF;
+}
+
+button:focus, [type="button"]:focus, [type="submit"]:focus, [type="reset"]:focus, [type="image"]:focus{
+  -webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+          box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+a{
+  color: #2E2D29;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+a:hover, a:focus, a:active{
+  color: #2E2D29;
+}
+
 ul{
   margin: 1em inherit;
   padding-left: 1em;

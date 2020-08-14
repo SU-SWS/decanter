@@ -177,9 +177,46 @@ module.exports = function () {
         '-moz-appearance': 'none',
         backgroundColor: config('theme.color.white'),
       },
+      'button, [type="button"], [type="submit"], [type="reset"], [type="image"]': {
+        fontFamily: sans,
+        ...config('theme.decanter.base.fontSmoothing'),
+        cursor: 'pointer',
+        display: 'inline-block',
+        border: '0',
+        fontSize: config('theme.decanter.base.baseFontSize'),
+        fontWeight: config('theme.fontWeight.regular'),
+        lineHeight: '1',
+        textAlign: 'center',
+        textDecoration: 'none',
+        width: 'auto',
+        transition: 'background-color 0.25s ease-in-out, color 0.25s ease-in-out',
+        padding: '1rem 2rem 1.15rem',
+        backgroundColor: config('theme.colors.digital-red.default'),
+        color: config('theme.colors.white'),
+        '&:active, &:hover, &:focus': {
+          textDecoration: 'underline',
+        },
+        '&:hover, &:focus': {
+          backgroundColor: config('theme.colors.black.default'),
+          color: config('theme.colors.white'),
+        },
+        '&:focus': {
+          boxShadow: config('theme.boxShadow.default'),
+        },
+      },
       // @todo: https://github.com/SU-SWS/decanter/blob/master/core/src/scss/elements/input/_radio-checkbox.scss
       //        https://github.com/SU-SWS/decanter/blob/master/core/src/scss/elements/input/_range.scss
       //
+      // LINKS
+      // -----------------------------------------------------------------------
+      'a': {
+        color: config('theme.colors.black.default'),
+        textDecoration: 'underline',
+        fontWeight: config('theme.fontWeight.semibold'),
+        '&:hover, &:focus, &:active': {
+          color: config('theme.colors.black.default')
+        }
+      },
       // LISTS
       // -----------------------------------------------------------------------
       'ul': {

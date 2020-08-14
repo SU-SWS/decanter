@@ -55,6 +55,29 @@ module.exports = {
             },
           },
         ],
+      },
+      {
+        test: /\.(woff2?|ttf|otf|eot)$/,
+        loader: 'file-loader',
+        options: {
+          name: "[name].[ext]",
+          publicPath: "/dist/assets/fonts",
+          outputPath: "../dist/assets/fonts"
+        }
+      },
+      // Apply plugins to image assets.
+      {
+        test: /\.(png|svg|jpg|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              publicPath: "/dist/assets/img",
+              outputPath: "../dist/assets/img"
+            }
+          }
+        ]
       }
     ],
   }

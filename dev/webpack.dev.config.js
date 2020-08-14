@@ -13,12 +13,15 @@ module.exports = require('../webpack.config.js');
 // Dev server settings.
 // -----------------------------------------------------------------------------
 module.exports.devServer = {
-  contentBase: path.resolve(__dirname),
+  contentBase: path.resolve(__dirname, 'dist'),
   watchContentBase: true,
+  port: 9090,
   compress: true,
   hot: true,
+  overlay: true,
   progress: true,
-  writeToDisk: true
+  writeToDisk: true,
+  index: 'index.html'
 };
 
 // Entry points.
@@ -32,7 +35,6 @@ module.exports.entry = {
 module.exports.output = {
   filename: "[name].js",
   path: path.resolve(__dirname, 'dist'),
-  publicPath: '/dist/',
 };
 
 // Rules.
@@ -47,8 +49,9 @@ module.exports.module.rules.push({
 // Render html files.
 module.exports.plugins.push(
   new HtmlWebpackPlugin({
-    filename: '../index.html',
-    template: path.resolve(__dirname, 'src', 'test.html')
+    filename: 'index.html',
+    template: path.resolve(__dirname, 'src', 'test.html'),
+    inject: true,
   })
 );
 
