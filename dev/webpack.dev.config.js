@@ -37,7 +37,7 @@ module.exports.optimization = {
 // -----------------------------------------------------------------------------
 module.exports.devServer = {
   contentBase: path.resolve(__dirname, 'dist'),
-  watchContentBase: false,
+  watchContentBase: true,
   port: 9090,
   compress: true,
   hot : true,
