@@ -26,10 +26,11 @@ services:
           touch dev/src/test.js
           cp dev/src/sample.test.html dev/src/test.html
           npm run build:dev
-          npm run start
         - echo "#!/bin/sh" > /etc/service/node/run
         - echo "npm run start" >> /etc/service/node/run
         - chmod +x /etc/service/node/run
+        - setsid npm run start &>/dev/null
+
 
     # Collection of urls to compare visual results.
     visualdiffs:
