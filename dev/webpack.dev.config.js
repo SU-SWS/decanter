@@ -33,23 +33,23 @@ module.exports.optimization = {
   removeEmptyChunks: false,
 };
 
-// Dev server settings.
+// Dev server settings. HMR NOT WORKING. COME BACK LATER.
 // -----------------------------------------------------------------------------
-module.exports.devServer = {
-  contentBase: path.resolve(__dirname, 'dist'),
-  watchContentBase: true,
-  port: 9090,
-  compress: true,
-  hot : true,
-  liveReload: true,
-  inline : true,
-  open: true,
-  overlay: true,
-  historyApiFallback : true,
-  progress: true,
-  writeToDisk: true,
-  index: 'index.html',
-};
+// module.exports.devServer = {
+//   contentBase: path.resolve(__dirname, 'dist'),
+//   watchContentBase: true,
+//   port: 9090,
+//   compress: true,
+//   hot : true,
+//   liveReload: true,
+//   inline : true,
+//   open: true,
+//   overlay: true,
+//   historyApiFallback : true,
+//   progress: true,
+//   writeToDisk: true,
+//   index: 'index.html',
+// };
 
 // Entry points.
 // -----------------------------------------------------------------------------
@@ -101,9 +101,6 @@ module.exports.plugins.push(
     ]
   })
 );
-
-// HMR.
-module.exports.plugins.push(new webpack.HotModuleReplacementPlugin());
 
 // Clean up all the things.
 module.exports.plugins.push(new CleanWebpackPlugin());

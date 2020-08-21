@@ -1,8 +1,3 @@
-// HMR.
-if (module.hot) {
-  module.hot.accept();
-}
-
 // Local css.
 import './test.css';
 
