@@ -50,7 +50,7 @@ module.exports = function () {
       },
       'p': {
         lineHeight: config('theme.decanter.base.baseLineHeight'),
-        color: "#FF0",
+        color: "#F00",
         marginTop: '0',
         marginBottom: '1em',
         '+ ul': {

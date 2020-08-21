@@ -64,7 +64,7 @@ module.exports = {
             options: {
               ident: 'postcss',
               plugins: [
-                // require('tailwindcss'),
+                require('tailwindcss'),
                 require('postcss-import'),
                 require('postcss-nested'),
                 require('autoprefixer'),
