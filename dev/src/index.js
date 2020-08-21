@@ -1,7 +1,11 @@
-// Core decanter.
-// import '../../src/decanter.js';
+// HMR.
+if (module.hot) {
+  module.hot.accept();
+}
+
 // Local css.
 import './test.css';
+
 // Local javascript.
 import './test.js';
 

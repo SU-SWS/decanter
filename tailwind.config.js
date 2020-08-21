@@ -48,6 +48,9 @@ module.exports = {
     skew: false,
   },
 
+  // Never purge styles here.
+  purge: false,
+
   // The plugins section allows you to register third-party plugins with
   // Tailwind that can be used to generate extra utilities, components, base
   // styles, or custom variants.

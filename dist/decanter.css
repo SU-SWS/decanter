@@ -1,5 +1,14 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i);
 @import url(https://fonts.googleapis.com/css?family=Source+Serif+Pro:300,300i,400,400i,600,600i,700,700i,900,900i);
+@font-face {
+  font-family: Stanford;
+
+  src: url("https://www-media.stanford.edu/assets/fonts/stanford.woff") format("woff"),
+  url("https://www-media.stanford.edu/assets/fonts/stanford.ttf") format("truetype");
+
+  font-weight: 300;
+}
+
 /**
  * This injects Tailwind's base styles and any base styles registered by
  * plugins.
@@ -635,6 +644,7 @@ body{
 
 p{
   line-height: 1.4;
+  color: #0F0;
   margin-top: 0;
   margin-bottom: 1em;
 }
@@ -945,12 +955,12 @@ button:hover, button:focus, [type="button"]:hover, [type="button"]:focus, [type=
 }
 
 button:focus, [type="button"]:focus, [type="submit"]:focus, [type="reset"]:focus, [type="image"]:focus{
-  -webkit-box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
-          box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.13), 0px 3px 6px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.13), 0px 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 a{
-  color: #2E2D29;
+  color: #006CB8;
   text-decoration: underline;
   font-weight: 600;
 }
@@ -1005,15 +1015,6 @@ table thead td{
 
 table tbody th{
   font-weight: 400;
-}
-
-@font-face {
-  font-family: Stanford;
-
-  src: url("https://www-media.stanford.edu/assets/fonts/stanford.woff") format("woff"),
-    url("https://www-media.stanford.edu/assets/fonts/stanford.ttf") format("truetype");
-
-  font-weight: 300;
 }
 
 /**
@@ -11998,7 +11999,7 @@ table tbody th{
 .su-intro-text{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 1.5625em;
+  font-size: 1.56em;
   font-weight: 400;
   line-height: 1.5;
   max-width: 85rem;

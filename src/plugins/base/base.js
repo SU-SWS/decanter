@@ -50,6 +50,7 @@ module.exports = function () {
       },
       'p': {
         lineHeight: config('theme.decanter.base.baseLineHeight'),
+        color: "#FF0",
         marginTop: '0',
         marginBottom: '1em',
         '+ ul': {
@@ -120,16 +121,6 @@ module.exports = function () {
         '+ ol': {
           marginBottom: '0',
         },
-      },
-      // LINK
-      // -----------------------------------------------------------------------
-      'a': {
-        color: config('theme.colors.bright-blue.default'),
-        textDecoration: 'underline',
-        fontWeight: config('theme.fontWeight.semibold'),
-        '&:hover, &:focus, &:active': {
-          color: config('theme.colors.bright-blue.dark'),
-        }
       },
       // MISC
       // -----------------------------------------------------------------------
@@ -220,12 +211,12 @@ module.exports = function () {
       // LINKS
       // -----------------------------------------------------------------------
       'a': {
-        color: config('theme.colors.black.default'),
+        color: config('theme.colors.bright-blue.default'),
         textDecoration: 'underline',
         fontWeight: config('theme.fontWeight.semibold'),
         '&:hover, &:focus, &:active': {
           color: config('theme.colors.black.default')
-        }
+        },
       },
       // LISTS
       // -----------------------------------------------------------------------
