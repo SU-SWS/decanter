@@ -1,13 +1,17 @@
 services:
   node:
     image: tugboatqa/node
-    expose: 3000
+    expose: 9090
     checkout: false
     commands:
       # Used in the base image as setup.
       init:
         - mkdir -p /etc/service/node
         - |
+          sudo apt-get install g++ build-essential
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+          NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           nvm install 14.5.0
           nvm use
           npm install
@@ -15,6 +19,8 @@ services:
       # Used in each of the preview builds.
       build:
         - |
+          NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           nvm use
           touch dev/src/test.css
           touch dev/src/test.js
