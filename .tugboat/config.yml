@@ -2,7 +2,7 @@ services:
   node:
     image: tugboatqa/node
     expose: 9090
-    checkout: false
+    checkout: true
     commands:
       # Used in the base image as setup.
       init:
@@ -12,6 +12,7 @@ services:
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
           NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          cd {TUGBOAT_ROOT}
           nvm install 14.5.0
           nvm use
           npm install
@@ -21,6 +22,7 @@ services:
         - |
           NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+          cd {TUGBOAT_ROOT}
           nvm use
           touch dev/src/test.css
           touch dev/src/test.js
