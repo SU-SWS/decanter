@@ -12,7 +12,6 @@ services:
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
           NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          cd {TUGBOAT_ROOT}
           nvm install 14.5.0
           nvm use
           npm install
@@ -22,12 +21,12 @@ services:
         - |
           NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          cd {TUGBOAT_ROOT}
           nvm use
           touch dev/src/test.css
           touch dev/src/test.js
           cp dev/src/sample.test.html dev/src/test.html
           npm run build:dev
+          npm run start
         - echo "#!/bin/sh" > /etc/service/node/run
         - echo "npm run start" >> /etc/service/node/run
         - chmod +x /etc/service/node/run
