@@ -1,7 +1,6 @@
-// Core decanter.
-import '../../src/decanter.js';
 // Local css.
 import './test.css';
+
 // Local javascript.
 import './test.js';
 

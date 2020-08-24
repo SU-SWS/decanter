@@ -1,20 +1,17 @@
 services:
   node:
-    image: tugboatqa/node
-    expose: 3000
-    checkout: false
+    image: tugboatqa/httpd
+    checkout: true
     commands:
       # Used in the base image as setup.
       init:
-        - mkdir -p /etc/service/node
+        - ln -snf "${TUGBOAT_ROOT}/dev/dist" "${DOCROOT}"
         - |
           sudo apt-get install g++ build-essential
-          git clone https://github.com/su-sws/decanter-web.git styleguide
-          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
+          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
           NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          nvm install 11.14.0
-          cd styleguide
+          nvm install 14.5.0
           nvm use
           npm install
 
@@ -23,36 +20,12 @@ services:
         - |
           NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          cd styleguide
           nvm use
-          npm install "https://github.com/su-sws/decanter.git#${TUGBOAT_GITHUB_HEAD}" --save --force
-          npm audit fix
-          npm run export
-        - echo "#!/bin/sh" > /etc/service/node/run
-        - echo "npm run start --prefix ${TUGBOAT_ROOT}/styleguide" >> /etc/service/node/run
-        - chmod +x /etc/service/node/run
+          touch dev/src/test.css
+          touch dev/src/test.js
+          cp dev/src/sample.test.html dev/src/test.html
+          npm run build:dev
 
     # Collection of urls to compare visual results.
     visualdiffs:
       - /
-      - /component/composite-card/
-      - /component/composite-hero/
-      - /component/composite-main-navigation/
-      - /component/composite-secondary-navigation/
-      - /component/composite-signup-form/
-      - /component/identity-brand-bar/
-      - /component/identity-global-footer/
-      - /component/identity-local-footer/
-      - /component/identity-lockup/
-      - /component/identity-logo/
-      - /component/identity-masthead/
-      - /component/simple-alert/
-      - /component/simple-button/
-      - /component/simple-cta/
-      - /component/simple-date-stacked/
-      - /component/simple-link/
-      - /component/simple-media/
-      - /component/simple-nav-toggle/
-      - /component/simple-quote/
-      - /component/simple-site-search/
-      - /component/simple-skiplinks/

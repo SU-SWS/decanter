@@ -7,12 +7,13 @@
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode=development",
-    "publish": "webpack --mode=production",
+    "build:dev": "webpack --mode=development --config dev/webpack.dev.config.js",
+    "publish": "webpack --mode=production --no-progress",
     "wind": "tailwindcss build src/css/index.css -o dist/decanter.css",
     "eslint": "eslint -c .eslintrc 'core/src/'",
     "sasslint": "sass-lint -c .sass-lint.yml '**/*.scss' -v -q -i 'vendor/**/*.scss, node_modules/**/*.scss, kss/builder/decanter/**/*.scss'",
-    "start": "webpack-dev-server --mode=development --open --config dev/webpack.dev.config.js",
-    "dev": "webpack --mode=development --config dev/webpack.dev.config.js"
+    "start": "live-server dev/dist --port=9090 --verbose",
+    "watch": "nodemon --watch ./ --ext js,css,html --ignore dist --ignore node_modules --ignore dev/dist --exec \"npm run build:dev\""
   },
   "keywords": [
     "css",
@@ -29,26 +30,31 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.14.0",
-    "tailwindcss": "^1.6.2"
+    "tailwindcss": "^1.7.3"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^2.3.0",
-    "autoprefixer": "^9.8.5",
+    "autoprefixer": "^9.8.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.6.0",
     "custom-event-polyfill": "^1.0",
     "eslint": "^5.16",
-    "html-loader": "^1.1.0",
+    "extra-watch-webpack-plugin": "^1.0.3",
+    "file-loader": "^6.0.0",
+    "html-loader": "^1.2.1",
     "html-webpack-plugin": "^4.3.0",
-    "jsdoc": "^3.6.4",
+    "jsdoc": "^3.6.5",
+    "live-server": "^1.2.1",
     "mini-css-extract-plugin": "^0.9.0",
+    "nodemon": "^2.0.4",
+    "postcss-import": "^12.0.1",
     "postcss-loader": "^3.0.0",
     "postcss-nested": "^4.2.3",
     "sass-lint": "^1.13",
+    "style-loader": "^1.2.1",
     "tailwindcss-aspect-ratio": "^3.0.0",
     "tailwindcss-debug-screens": "^1.1.0",
     "tailwindcss-visuallyhidden": "^1.0.2",
-    "webpack": "^4.43.0",
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   }

@@ -48,6 +48,9 @@ module.exports = {
     skew: false,
   },
 
+  // Never purge styles here.
+  purge: false,
+
   // The plugins section allows you to register third-party plugins with
   // Tailwind that can be used to generate extra utilities, components, base
   // styles, or custom variants.
@@ -61,11 +64,15 @@ module.exports = {
     require(dir + '/components/brand-bar/brand-bar.js')(),
     require(dir + '/components/button/button.js')(),
     require(dir + '/components/global-footer/global-footer.js')(),
+    require(dir + '/components/lockup/lockup.js')(),
+    require(dir + '/components/site-search/site-search.js')(),
+    require(dir + '/components/masthead/masthead.js')(),
     require(dir + '/components/skiplinks/skiplinks.js')(),
     // @tailwind utilities;
     require(dir + '/utilities/accessibility/accessibily-hidden.js')(),
     require(dir + '/utilities/accessibility/sr-only-text.js')(),
     require(dir + '/utilities/flex/flex-container.js')(),
+    require(dir + '/utilities/flex/flex-container-row.js')(),
     require(dir + '/utilities/layout/centered-container.js')(),
     require(dir + '/utilities/lists/lists.js')(),
     require(dir + '/utilities/tables/borderless.js')(),

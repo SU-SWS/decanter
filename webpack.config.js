@@ -3,6 +3,13 @@ const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
+// Dev or not.
+if (process.env.NODE_ENV === undefined) {
+  process.env.NODE_ENV = "development";
+}
+
+const devMode = (process.env.NODE_ENV !== 'production');
+
 // webpack.config.js
 module.exports = {
   name: "decanter",
@@ -13,7 +20,7 @@ module.exports = {
   // Where should I output the assets.
   output: {
     filename: "[name].js",
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
   },
   // Define and configure webpack plugins.
   plugins: [
@@ -24,7 +31,8 @@ module.exports = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: "[name].css"
+      filename: devMode ? '[name].css' : '[name].[hash].css',
+      chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
     }),
   ],
   module: {
@@ -33,13 +41,21 @@ module.exports = {
         test: /\.css$/,
         use: [
           // Extract loader.
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              // only enable hot in development
+              hmr: process.env.NODE_ENV === 'development',
+              // if hmr does not work, this is a forceful method.
+              // reloadAll: true,
+            },
+          },
           // CSS Loader. Generate sourceMaps.
           {
             loader: 'css-loader',
             options: {
               sourceMap: true,
-              url: true
+              url: true,
             }
           },
           // PostCSS loader.
@@ -49,12 +65,36 @@ module.exports = {
               ident: 'postcss',
               plugins: [
                 require('tailwindcss'),
-                require('autoprefixer'),
+                require('postcss-import'),
                 require('postcss-nested'),
+                require('autoprefixer'),
               ],
             },
           },
         ],
+      },
+      {
+        test: /\.(woff2?|ttf|otf|eot)$/,
+        loader: 'file-loader',
+        options: {
+          name: "[name].[ext]",
+          publicPath: "/dist/assets/fonts",
+          outputPath: "../dist/assets/fonts"
+        }
+      },
+      // Apply plugins to image assets.
+      {
+        test: /\.(png|svg|jpg|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+              publicPath: "/dist/assets/img",
+              outputPath: "../dist/assets/img"
+            }
+          }
+        ]
       }
     ],
   }
