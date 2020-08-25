@@ -70,11 +70,13 @@ module.exports = {
     require(dir + '/components/skiplinks/skiplinks.js')(),
     // @tailwind utilities;
     require(dir + '/utilities/accessibility/accessibily-hidden.js')(),
+    require(dir + '/utilities/accessibility/sr-only-element.js')(),
     require(dir + '/utilities/accessibility/sr-only-text.js')(),
     require(dir + '/utilities/flex/flex-container.js')(),
     require(dir + '/utilities/flex/flex-container-row.js')(),
     require(dir + '/utilities/layout/centered-container.js')(),
     require(dir + '/utilities/lists/lists.js')(),
+    require(dir + '/utilities/media/embed-container.js')(),
     require(dir + '/utilities/tables/borderless.js')(),
     require(dir + '/utilities/typography/styles.js')(),
     // 3rd Party Plugins;
@@ -88,6 +90,12 @@ module.exports = {
   // https://tailwindcss.com/docs/configuration/#variants
   variants: {
     fontWeight: ['responsive'],
+  },
+
+  // Deprecations and handling.
+  // https://tailwindcss.com/docs/upcoming-changes
+  future: {
+    removeDeprecatedGapUtilities: true,
   },
 
 }
