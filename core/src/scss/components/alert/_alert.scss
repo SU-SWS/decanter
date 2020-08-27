@@ -7,51 +7,125 @@
 // of a status, or for displaying a validation message that
 // alerts someone of an important piece of information.
 //
-// .su-alert--success  - Successful Transaction Message
-// .su-alert--warning  - Warning Message
-// .su-alert--error    - Error Message
-// .su-alert--info     - Informative Message
+// .su-alert--success     - Successful Transaction Message
+// .su-alert--warning     - Warning Message
+// .su-alert--error       - Error Message
+// .su-alert--info        - Informative Message
+// .su-alert--text-light  - Lighter color text for darker backgrounds
 //
 // Markup: templates/components/alert/alert.twig
 //
 // Style guide: Simple.Alert
 //
 .su-alert {
-  @include padding(2rem);
-  background-color: color(default, $su-alert-colors);
-  background-position: 1rem center;
-  background-repeat: no-repeat;
-  background-size: 4rem;
-  color: color(dark-text, $su-alert-colors);
+  @include padding(1em null);
+  background-color: $su-color-fog;
 
-  @include grid-media('md') {
-    background-size: 5.2rem;
+  .centered-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+// Dismiss close button.
+// -----------------------------------------------------------------------------
+.su-alert__dismiss {
+  @include modular-spacing('margin', null null null 1);
+  flex-shrink: 1;
+  order: 3;
+  height: 100%;
+  align-content: flex-end;
+}
+
+// Flex header with the icon and message type label.
+// -----------------------------------------------------------------------------
+.su-alert__header {
+  @include modular-spacing('margin', null 1 null null);
+  order: 1;
+  flex-shrink: 1;
+  height: 100%;
+  min-height: 100%;
+  align-content: flex-start;
+}
+
+// Icon Styles.
+// ------------
+.su-alert__icon {
+  @include margin(null 0.5em null null);
+  display: inline-block;
+  max-width: 20px;
+
+  i {
+    font-style: normal;
+  }
+}
+
+// Alert Type Styles.
+// ------------------
+.su-alert__type {
+  height: 100%;
+  line-height: 100%;
+  display: inline-block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: $su-font-bold;
+}
+
+// Flex body with the main message.
+// -----------------------------------------------------------------------------
+.su-alert__body {
+  order: 2;
+  height: 100%;
+  flex-grow: 1;
+  flex-basis: 200px;
+  align-content: center;
+}
+
+.su-alert__heading {
+  @include margin(null null 1rem null);
+}
+
+.su-alert__text {
+  @include modular-spacing('margin', null null 0 null);
+
+  a {
+    color: $su-color-black;
   }
 
-  .su-alert__body {
-    display: table-cell;
-    vertical-align: top;
+  a:hover,
+  a:focus {
+    color: $su-color-bright-blue;
+  }
+}
 
-    @include padding(null null null 3.5rem);
+// Optional open footer area.
+// -----------------------------------------------------------------------------
+.su-alert__footer {
 
-    @include grid-media('md') {
-      @include padding(null null null 5rem);
+  a {
+    color: $su-color-black;
+  }
+
+  a:hover,
+  a:focus {
+    color: $su-color-bright-blue;
+  }
+
+  .su-link {
+    &::after {
+      background: $su-color-black;
     }
 
-    p:last-child {
-      @include margin(null null 0.8rem);
-    }
+    &:hover,
+    &:focus {
+      color: $su-color-black;
+      text-decoration: underline;
 
-    .su-alert__heading {
-      @include margin(0 null 0.3rem);
-
-      @include grid-media('md') {
-        @include margin(0.3rem null null);
+      &::after {
+        background: $su-color-black;
       }
-    }
-
-    .su-alert__text {
-      @include margin(0 null);
     }
   }
 }
