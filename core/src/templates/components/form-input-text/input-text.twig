@@ -19,20 +19,20 @@
  *
  */
 #}
-<div {{ attributes }} class="su-input--text {{ modifier_class }}">
-  <label for="{{ input_text_name }}" class="su-input--text__label {{ input_text_label_modifier_class }}">{{ input_text_label }}</label>
+<div {{ attributes }} class="su-input-text {{ modifier_class }}">
+  <label for="{{ input_text_name }}" class="su-input-text__label {{ input_text_label_modifier_class }}">{{ input_text_label }}</label>
 
   {%- if input_text_help is not empty -%}
-    <p class="su-input--text__help">{{ input_text_help }}</p>
+    <p class="su-input-text__help">{{ input_text_help }}</p>
   {%- endif -%}
 
   <input {{ input_text_input_attributes }} type="text" name="{{ input_text_name }}" class="su-input--text__input {{ input_text_input_modifier_class }}">
 
   {%- if input_text_error is not empty -%}
-    <p class="su-input--text__error">{{ input_text_error }}</p>
+    <p class="su-input-text__error">{{ input_text_error }}</p>
   {%- endif -%}
 
   {%- if input_text_counter is not empty -%}
-    <span class="su-input--text__counter">{{ input_text_counter }}</span>
+    <span class="su-input-text__counter">{{ input_text_counter }}</span>
   {%- endif -%}
 </div>
