@@ -67,6 +67,7 @@
   flex-shrink: 1;
 
   @include grid-media-max('md') {
+    @include margin(null null 1em null);
     width: 100%;
   }
 }
@@ -92,7 +93,6 @@
   font-size: 1.7rem;
   text-transform: uppercase;
   font-weight: $su-font-semi-bold;
-  margin-bottom: 1em;
 
   &::after {
     content: ":";
@@ -112,7 +112,7 @@
 }
 
 .su-alert__text {
-  @include modular-spacing('margin', null null 0 null);
+  @include margin(null null 0 null);
 
   a {
     color: $su-color-black;
@@ -153,4 +153,8 @@
       }
     }
   }
+}
+
+.su-alert__text + .su-alert__footer {
+  @include modular-spacing('margin', 0 null null null);
 }
