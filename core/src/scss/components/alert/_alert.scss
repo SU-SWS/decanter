@@ -7,11 +7,11 @@
 // of a status, or for displaying a validation message that
 // alerts someone of an important piece of information.
 //
-// .su-alert--success     - Successful Transaction Message
-// .su-alert--warning     - Warning Message
-// .su-alert--error       - Error Message
-// .su-alert--info        - Informative Message
-// .su-alert--text-light  - Lighter color text for darker backgrounds
+// .su-alert--success su-alert--text-light    - Successful Transaction Message
+// .su-alert--warning                         - Warning Message
+// .su-alert--error su-alert--text-light      - Error Message
+// .su-alert--info su-alert--text-light       - Informative Message
+// .su-alert--text-light                      - Lighter color text for darker backgrounds
 //
 // Markup: templates/components/alert/alert.twig
 //
@@ -24,8 +24,11 @@
     @include padding(1em null);
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
+    // justify-content: flex-start;
+
+    @include grid-media("sm") {
+      align-items: center;
+    }
   }
 }
 
@@ -33,10 +36,28 @@
 // -----------------------------------------------------------------------------
 .su-alert__dismiss {
   @include modular-spacing('margin', null null null 1);
-  flex-shrink: 1;
   order: 3;
   height: 100%;
   align-content: flex-end;
+  flex-shrink: 1;
+  text-align: right;
+
+  @include grid-media-max('xs') {
+    width: 100%;
+  }
+
+  .su-alert__dismiss-button {
+    @include padding(0);
+    background-color: transparent;
+    text-transform: uppercase;
+    font-weight: $su-font-semi-bold;
+    color: $su-color-black;
+    font-size: 1.7rem;
+
+    .su-far {
+      @include margin(null null null 0.5em);
+    }
+  }
 }
 
 // Flex header with the icon and message type label.
@@ -45,9 +66,14 @@
   @include modular-spacing('margin', null 1 null null);
   order: 1;
   flex-shrink: 1;
-  height: 100%;
-  min-height: 100%;
-  align-content: flex-start;
+
+  @include grid-media-max('md') {
+    width: 100%;
+  }
+
+  // height: 100%;
+  // min-height: 100%;
+  // align-content: flex-start;
 }
 
 // Icon Styles.
@@ -64,13 +90,14 @@
 
 // Alert Type Styles.
 // ------------------
-.su-alert__type {
+.su-alert__label {
   height: 100%;
   line-height: 100%;
   display: inline-block;
   font-size: 1.7rem;
   text-transform: uppercase;
-  font-weight: $su-font-bold;
+  font-weight: $su-font-semi-bold;
+  margin-bottom: 1em;
 
   &::after {
     content: ":";
@@ -81,10 +108,10 @@
 // -----------------------------------------------------------------------------
 .su-alert__body {
   order: 2;
-  height: 100%;
   flex-grow: 1;
+  // height: 100%;
+  // align-content: center;
   flex-basis: 100px;
-  align-content: center;
 }
 
 .su-alert__heading {
