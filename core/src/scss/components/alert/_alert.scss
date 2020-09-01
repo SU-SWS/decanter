@@ -168,3 +168,9 @@
 .su-alert__text + .su-alert__footer {
   @include modular-spacing('margin', 0 null null null);
 }
+
+.su-alert__dismiss ~ .su-alert__body {
+  @include grid-media-max('sm') {
+    @include margin(null null 1em null);
+  }
+}
