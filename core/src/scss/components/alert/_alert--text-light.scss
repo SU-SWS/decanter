@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+// Error alert.
+.su-alert--text-light {
+  color: $su-color-white;
+
+  a {
+    color: $su-color-white;
+
+    &:hover,
+    &:focus {
+      color: $su-color-black;
+    }
+  }
+
+  .su-alert__footer {
+    .su-link {
+      &::after {
+        background: $su-color-white;
+      }
+
+      &:hover,
+      &:focus {
+        &::after {
+          background: $su-color-black;
+        }
+      }
+    }
+  }
+
+  .su-alert__dismiss-button {
+    color: $su-color-white;
+  }
+}
