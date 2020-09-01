@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', event => {
     alrt.addEventListener('click', function (e) {
       // When a dismiss button is pressed. Find the nearest parent wrapper and
       // remove it all from the dom.
-      e.target.closest(".su-alert").remove();
+      e.target.closest('.su-alert').remove();
     }, false);
   });
 });
