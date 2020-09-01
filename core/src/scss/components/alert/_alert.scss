@@ -53,9 +53,17 @@
     color: $su-color-black;
     font-size: 1.7rem;
 
-    .su-far {
+    .su-far,
+    .su-fas {
       @include margin(null null null 0.5em);
     }
+
+    i,
+    .su-far,
+    .su-fas {
+      font-style: normal;
+    }
+
   }
 }
 
@@ -79,7 +87,9 @@
   display: inline-block;
   max-width: 20px;
 
-  i {
+  i,
+  .su-far,
+  .su-fas {
     font-style: normal;
   }
 }

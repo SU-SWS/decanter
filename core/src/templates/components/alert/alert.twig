@@ -25,7 +25,7 @@
     {%- block block_dismiss -%}
       {%- if alert_dismiss -%}
         <div class="su-alert__dismiss">
-          <button aria-label="Dismiss alert" class="su-alert__dismiss-button">Dismiss <i class="su-far su-fa-times-circle"></i></button>
+          <button aria-label="{{ alert_dismiss_text|default("Dismiss alert") }}" class="su-alert__dismiss-button">{{ alert_dismiss_text|default("Dismiss") }} <i class="su-fas su-fa-times-circle"></i></button>
         </div>
       {%- endif -%}
     {%- endblock -%}
