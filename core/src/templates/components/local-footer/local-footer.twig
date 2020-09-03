@@ -83,7 +83,9 @@
   {% if lockup_title is not empty or weblogin_url is not empty or headercontent is not empty %}
   <div class="su-local-footer__header">
     {# Lockup template. Set usually to option-a #}
-    {% include template_path_lockup with lockup_options %}
+    {% block block_lockup %}
+      {% include template_path_lockup with lockup_options %}
+    {% endblock %}
     {# Web login button #}
     {% if weblogin_url is not empty %}
       {% include template_path_link with {
