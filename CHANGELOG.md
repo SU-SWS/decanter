@@ -1,5 +1,10 @@
 # Changelog
 
+Version 6.1.1                      2020-09-03
+---------------------------------------------
+- D8CORE-2376: Local Footer Lockup Overrides (#729)
+- D8CORE-2630: Updating the alert basic link hover colors and underline for accessibility (#730)
+
 Version 6.1.0                      2020-09-01
 ---------------------------------------------
 - Updates to all NPM packages and dependencies
