@@ -1,5 +1,9 @@
 # Changelog
 
+Version 6.1.2                      2020-09-09
+---------------------------------------------
+- D8CORE-2630: Alert link accessibility fixes for color contrast (#731)
+
 Version 6.1.1                      2020-09-03
 ---------------------------------------------
 - D8CORE-2376: Local Footer Lockup Overrides (#729)
