@@ -150,6 +150,33 @@ Array.prototype.forEach.call(collapseButtons, collapseBtn => {
 
 /***/ }),
 
+/***/ "./core/src/js/components/alert/alert.js":
+/*!***********************************************!*\
+  !*** ./core/src/js/components/alert/alert.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Alert components.
+ **/
+const alertDismiss = document.querySelectorAll('.su-alert__dismiss-button');
+
+// Fire when ready.
+document.addEventListener('DOMContentLoaded', event => {
+  // Loop through each alert with a dismiss button.
+  Array.prototype.forEach.call(alertDismiss, alrt => {
+    alrt.addEventListener('click', function (e) {
+      // When a dismiss button is pressed. Find the nearest parent wrapper and
+      // remove it all from the dom.
+      e.target.closest('.su-alert').remove();
+    }, false);
+  });
+});
+
+
+/***/ }),
+
 /***/ "./core/src/js/components/components.js":
 /*!**********************************************!*\
   !*** ./core/src/js/components/components.js ***!
@@ -159,13 +186,18 @@ Array.prototype.forEach.call(collapseButtons, collapseBtn => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _accordion_accordion_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./accordion/accordion.js */ "./core/src/js/components/accordion/accordion.js");
-/* harmony import */ var _accordion_accordion_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_accordion_accordion_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _main_nav_main_nav_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./main-nav/main-nav.js */ "./core/src/js/components/main-nav/main-nav.js");
-/* harmony import */ var _secondary_nav_secondary_nav_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./secondary-nav/secondary-nav.js */ "./core/src/js/components/secondary-nav/secondary-nav.js");
+/* harmony import */ var _alert_alert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./alert/alert.js */ "./core/src/js/components/alert/alert.js");
+/* harmony import */ var _alert_alert_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alert_alert_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _accordion_accordion_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./accordion/accordion.js */ "./core/src/js/components/accordion/accordion.js");
+/* harmony import */ var _accordion_accordion_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_accordion_accordion_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _main_nav_main_nav_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main-nav/main-nav.js */ "./core/src/js/components/main-nav/main-nav.js");
+/* harmony import */ var _secondary_nav_secondary_nav_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./secondary-nav/secondary-nav.js */ "./core/src/js/components/secondary-nav/secondary-nav.js");
 /**
  * Primary roll up file for all javascript components.
  */
+
+// The Alert Component.
+
 // The Accordion Component.
 
 // The Primary Navigation Component.

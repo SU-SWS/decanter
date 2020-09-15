@@ -1,5 +1,24 @@
 # Changelog
 
+Version 6.1.2                      2020-09-09
+---------------------------------------------
+- D8CORE-2630: Alert link accessibility fixes for color contrast (#731)
+
+Version 6.1.1                      2020-09-03
+---------------------------------------------
+- D8CORE-2376: Local Footer Lockup Overrides (#729)
+- D8CORE-2630: Updating the alert basic link hover colors and underline for accessibility (#730)
+
+Version 6.1.0                      2020-09-01
+---------------------------------------------
+- Updates to all NPM packages and dependencies
+- New nvm version requirement setting at 14.8.0
+- D8CORE-2490: All new refactored alert component
+- D8CORE-2544: Link is external A11y changes to brandbar
+- D8CORE-1403: A11y changes to footer
+- Add search_input_id variable for masthead search box template
+- Minor semantic changes to template tags.
+
 Version 6.0.6                      2020-05-27
 ---------------------------------------------
 - Fixes a typo in the grid-media-min comments (#641)

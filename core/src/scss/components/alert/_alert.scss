@@ -7,51 +7,175 @@
 // of a status, or for displaying a validation message that
 // alerts someone of an important piece of information.
 //
-// .su-alert--success  - Successful Transaction Message
-// .su-alert--warning  - Warning Message
-// .su-alert--error    - Error Message
-// .su-alert--info     - Informative Message
+// .su-alert--success su-alert--text-light    - Successful Transaction Message
+// .su-alert--warning                         - Warning Message
+// .su-alert--error su-alert--text-light      - Error Message
+// .su-alert--info su-alert--text-light       - Informative Message
+// .su-alert--text-light                      - Lighter color text for darker backgrounds
 //
 // Markup: templates/components/alert/alert.twig
 //
 // Style guide: Simple.Alert
 //
 .su-alert {
-  @include padding(2rem);
-  background-color: color(default, $su-alert-colors);
-  background-position: 1rem center;
-  background-repeat: no-repeat;
-  background-size: 4rem;
-  color: color(dark-text, $su-alert-colors);
+  background-color: $su-color-fog;
 
-  @include grid-media('md') {
-    background-size: 5.2rem;
+  .centered-container {
+    @include padding(1em null);
+    display: flex;
+    flex-wrap: wrap;
+
+    @include grid-media("sm") {
+      align-items: center;
+    }
+  }
+}
+
+// Dismiss close button.
+// -----------------------------------------------------------------------------
+.su-alert__dismiss {
+  @include modular-spacing('margin', null null null 1);
+  order: 3;
+  height: 100%;
+  align-content: flex-end;
+  flex-shrink: 1;
+  text-align: right;
+
+  @include grid-media-max('xs') {
+    width: 100%;
   }
 
-  .su-alert__body {
-    display: table-cell;
-    vertical-align: top;
+  .su-alert__dismiss-button {
+    @include padding(0);
+    background-color: transparent;
+    text-transform: uppercase;
+    font-weight: $su-font-semi-bold;
+    color: $su-color-black;
+    font-size: 1.7rem;
 
-    @include padding(null null null 3.5rem);
-
-    @include grid-media('md') {
-      @include padding(null null null 5rem);
+    .su-far,
+    .su-fas {
+      @include margin(null null null 0.5em);
     }
 
-    p:last-child {
-      @include margin(null null 0.8rem);
+    i,
+    .su-far,
+    .su-fas {
+      font-style: normal;
+      text-decoration: none;
     }
 
-    .su-alert__heading {
-      @include margin(0 null 0.3rem);
+  }
+}
 
-      @include grid-media('md') {
-        @include margin(0.3rem null null);
+// Flex header with the icon and message type label.
+// -----------------------------------------------------------------------------
+.su-alert__header {
+  @include modular-spacing('margin', null 1 null null);
+  order: 1;
+  flex-shrink: 1;
+
+  @include grid-media-max('md') {
+    @include margin(null null 1em null);
+    width: 100%;
+  }
+}
+
+// Icon Styles.
+// ------------
+.su-alert__icon {
+  @include margin(null 0.5em null null);
+  display: inline-block;
+  max-width: 20px;
+
+  i,
+  .su-far,
+  .su-fas {
+    font-style: normal;
+  }
+}
+
+// Alert Type Styles.
+// ------------------
+.su-alert__label {
+  height: 100%;
+  line-height: 100%;
+  display: inline-block;
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  font-weight: $su-font-semi-bold;
+
+  &::after {
+    content: ":";
+  }
+}
+
+// Flex body with the main message.
+// -----------------------------------------------------------------------------
+.su-alert__body {
+  order: 2;
+  flex-grow: 1;
+  flex-basis: 100px;
+}
+
+.su-alert__heading {
+  @include margin(null null 1rem null);
+}
+
+.su-alert__text {
+  @include margin(null null 0 null);
+
+  a {
+    color: $su-color-black;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $su-color-black;
+      text-decoration: underline;
+    }
+  }
+
+
+}
+
+// Optional open footer area.
+// -----------------------------------------------------------------------------
+.su-alert__footer {
+
+  a {
+    color: $su-color-black;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: $su-color-black;
+      text-decoration: underline;
+    }
+  }
+
+  .su-link {
+    &::after {
+      background: $su-color-black;
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+
+      &::after {
+        background: $su-color-black;
       }
     }
+  }
+}
 
-    .su-alert__text {
-      @include margin(0 null);
-    }
+.su-alert__text + .su-alert__footer {
+  @include modular-spacing('margin', 0 null null null);
+}
+
+.su-alert__dismiss ~ .su-alert__body {
+  @include grid-media-max('sm') {
+    @include margin(null null 1em null);
   }
 }

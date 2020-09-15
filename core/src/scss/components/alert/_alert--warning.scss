@@ -2,11 +2,15 @@
 
 // Warning alert.
 .su-alert--warning {
-  background-color: color(warning, $su-alert-colors);
-  background-image: url("#{$su-image-path}/alert-warning.png");
-  background-image: url("#{$su-image-path}/alert-warning.svg");
+  background-color: $su-color-sun;
 
   a {
-    color: color(warning-link, $su-alert-colors);
+    color: $su-color-black;
+
+    &:hover,
+    &:focus {
+      color: $su-color-black;
+      text-decoration: underline;
+    }
   }
 }
