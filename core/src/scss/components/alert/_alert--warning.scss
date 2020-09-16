@@ -12,5 +12,36 @@
       color: $su-color-black;
       text-decoration: underline;
     }
+
+    &.su-button,
+    &.su-button--secondary {
+      @include button-secondary();
+
+      background-color: $su-color-sun;
+      box-shadow: $su-button-stroke $su-color-black;
+      color: $su-color-black;
+
+      &:hover,
+      &:focus {
+        background-color: $su-color-sun;
+        box-shadow: $su-button-stroke $su-color-black;
+        color: $su-color-black;
+      }
+    }
+
+    &.su-button--big {
+      @include button-big;
+
+      background-color: $su-color-sun;
+      box-shadow: $su-button-stroke $su-color-black;
+      color: $su-color-black;
+
+      &:hover,
+      &:focus {
+        background-color: $su-color-sun;
+        box-shadow: $su-button-stroke $su-color-black;
+        color: $su-color-black;
+      }
+    }
   }
 }
