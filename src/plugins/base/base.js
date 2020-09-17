@@ -266,7 +266,7 @@ module.exports = function () {
           },
         },
       },
-      //        https://github.com/SU-SWS/decanter/blob/master/core/src/scss/elements/input/_range.scss
+      // https://github.com/SU-SWS/decanter/blob/master/core/src/scss/elements/input/_range.scss
       //
       // LINKS
       // -----------------------------------------------------------------------
