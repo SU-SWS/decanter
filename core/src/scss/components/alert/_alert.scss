@@ -134,9 +134,35 @@
       color: $su-color-black;
       text-decoration: underline;
     }
+
+    &.su-button,
+    &.su-button--secondary {
+      @include button-secondary;
+
+      background-color: $su-color-fog;
+      box-shadow: $su-button-stroke $su-color-black;
+      color: $su-color-black;
+
+      &:hover,
+      &:focus {
+        background-color: $su-color-fog;
+      }
+    }
+
+    &.su-button--big {
+      @include button-big;
+
+      background-color: $su-color-fog;
+      box-shadow: $su-button-stroke $su-color-black;
+      color: $su-color-black;
+
+      &:hover,
+      &:focus {
+        background-color: $su-color-fog;
+        color: $su-color-black;
+      }
+    }
   }
-
-
 }
 
 // Optional open footer area.
