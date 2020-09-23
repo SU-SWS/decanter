@@ -1,5 +1,13 @@
 # Changelog
 
+Version 6.1.3                      2020-09-23
+---------------------------------------------
+
+- D8CORE-2536: adding aria-label (#716)
+- D8CORE-2652: adding styles to the alerts for buttons (#732)
+- D8CORE-2529: if there is a link but no content set the link to null (#756)
+- Change vendor imports to use the ~ convention. (#759)
+
 Version 6.1.2                      2020-09-09
 ---------------------------------------------
 - D8CORE-2630: Alert link accessibility fixes for color contrast (#731)
