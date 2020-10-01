@@ -266,7 +266,83 @@ module.exports = function () {
           },
         },
       },
-      // https://github.com/SU-SWS/decanter/blob/master/core/src/scss/elements/input/_range.scss
+      // Range element.
+      '[type="range"]': {
+        '-webkit-appearance': 'none',
+        border: 0,
+        paddingLeft: 0,
+        width: '100%',
+      },
+      '[type="range"]:focus': {
+        boxShadow: 'none',
+        outline: 'none',
+      },
+      '[type="range"]::-webkit-slider-runnable-track': {
+        background: config('theme.colors.cool-grey'),
+        border: '1px solid ' + config('theme.colors.fog.dark'),
+        cursor: 'pointer',
+        height: '1.2rem',
+        width: '100%',
+      },
+      '[type="range"]::-moz-range-track': {
+        background: config('theme.colors.cardinal-red.default'),
+        border: '1px solid ' + config('theme.colors.fog.dark'),
+        cursor: 'pointer',
+        height: '1.2rem',
+        width: '100%',
+      },
+      '[type="range"]::-ms-track': {
+        background: 'transparent',
+        color: 'transparent',
+        cursor: 'pointer',
+        height: '1.2rem',
+        width: '100%',
+      },
+      '[type="range"]::-webkit-slider-thumb': {
+        '-webkit-appearance': 'none',
+        border: '1px solid ' + config('theme.colors.fog.dark'),
+        height: '2.2rem',
+        borderRadius: '1.5rem',
+        background: config('theme.colors.cool-grey'),
+        cursor: 'pointer',
+        marginTop: '-0.65rem',
+        width: '2.2rem',
+      },
+      '[type"range"]::-moz-range-thumb': {
+        background: config('theme.colors.cool-grey'),
+        border: '1px solid ' + config('theme.colors.fog.dark'),
+        borderRadius: '1.5rem',
+        cursor: 'pointer',
+        height: '2.2rem',
+        width: '2.2rem',
+      },
+      '[type="range"]::-ms-thumb': {
+        background: config('theme.colors.cool-grey'),
+        border: '1px solid ' + config('theme.colors.fog.dark'),
+        borderRadius: '1.5rem',
+        cursor: 'pointer',
+        height: '2.2rem',
+        width: '2.2rem',
+      },
+      '[type="range"]::-ms-fill-lower': {
+        background: config('theme.colors.cool-grey'),
+        border: '1px solid ' + config('theme.colors.fog.dark'),
+        borderRadius: '2rem',
+      },
+      '[type="range"]::-ms-fill-upper': {
+        background: config('theme.colors.cool-grey'),
+        border: '1px solid ' + config('theme.colors.fog.dark'),
+        borderRadius: '2rem',
+      },
+      '[type="range"]:focus::-webkit-slider-thumb': {
+        border: '2px solid ' + config('theme.colors.fog.dark'),
+      },
+      '[type="range"]:focus::-moz-range-thumb': {
+        border: '2px solid ' + config('theme.colors.fog.dark'),
+      },
+      '[type="range"]:focus::-ms-thumb': {
+        border: '2px solid ' + config('theme.colors.fog.dark'),
+      },
       //
       // LINKS
       // -----------------------------------------------------------------------

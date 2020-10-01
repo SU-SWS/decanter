@@ -1,9 +1,14 @@
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,400,400i,600,600i,700,700i,900,900i);
 @import url(https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600,700);
 @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700);
 @import url(https://fonts.googleapis.com/css?family=Kalam:300,400,700);
 @import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=devanagari);
+@import url(https://fonts.googleapis.com/css2?family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap);
+
+
+@charset "UTF-8";
 /** Import Fonts. */
+@charset "UTF-8";
 /** Import Font Awesome Fonts */
 @font-face {
   font-family: 'Font Awesome 5 Free';
@@ -11,7 +16,11 @@
   font-weight: 400;
   font-display: auto;
   src: url(/assets/fonts/fa-regular-400.eot);
-  src: url(/assets/fonts/fa-regular-400.eot?#iefix) format("embedded-opentype"), url(/assets/fonts/fa-regular-400.woff2) format("woff2"), url(/assets/fonts/fa-regular-400.woff) format("woff"), url(/assets/fonts/fa-regular-400.ttf) format("truetype"), url(/assets/img/fa-regular-400.svg#fontawesome) format("svg");
+  src: url(/assets/fonts/fa-regular-400.eot?#iefix) format("embedded-opentype"),
+  url(/assets/fonts/fa-regular-400.woff2) format("woff2"),
+  url(/assets/fonts/fa-regular-400.woff) format("woff"),
+  url(/assets/fonts/fa-regular-400.ttf) format("truetype"),
+  url(/assets/img/fa-regular-400.svg#fontawesome) format("svg");
 }
 @font-face {
   font-family: 'Font Awesome 5 Brands';
@@ -19,62 +28,11 @@
   font-weight: 400;
   font-display: auto;
   src: url(/assets/fonts/fa-brands-400.eot);
-  src: url(/assets/fonts/fa-brands-400.eot?#iefix) format("embedded-opentype"), url(/assets/fonts/fa-brands-400.woff2) format("woff2"), url(/assets/fonts/fa-brands-400.woff) format("woff"), url(/assets/fonts/fa-brands-400.ttf) format("truetype"), url(/assets/img/fa-brands-400.svg#fontawesome) format("svg");
-}
-/** Import Stanford Hosted Fonts **/
-@font-face {
-  font-family: "Source Serif Pro";
-  src: url("https://www-media.stanford.edu/assets/fonts/sourceserifpro-extralight-webfont.woff") format("woff");
-  font-style: normal;
-  font-weight: 200
-}
-@font-face {
-  font-family: "Source Serif Pro";
-  src: url("https://www-media.stanford.edu/assets/fonts/sourceserifpro-extralightitalic-webfont.woff") format("woff");
-  font-style: italic;
-  font-weight: 200
-}
-@font-face {
-  font-family: "Source Serif Pro";
-  src: url("https://www-media.stanford.edu/assets/fonts/sourceserifpro-light-webfont.woff") format("woff");
-  font-style: normal;
-  font-weight: 300
-}
-@font-face {
-  font-family: "Source Serif Pro";
-  src: url("https://www-media.stanford.edu/assets/fonts/sourceserifpro-lightitalic-webfont.woff") format("woff");
-  font-style: italic;
-  font-weight: 300
-}
-@font-face {
-  font-family: "Source Serif Pro";
-  src: url("https://www-media.stanford.edu/assets/fonts/sourceserifpro-regularitalic-webfont.woff") format("woff");
-  font-style: italic;
-  font-weight: 400
-}
-@font-face {
-  font-family: "Source Serif Pro";
-  src: url("https://www-media.stanford.edu/assets/fonts/sourceserifpro-semibolditalic-webfont.woff") format("woff");
-  font-style: italic;
-  font-weight: 600
-}
-@font-face {
-  font-family: "Source Serif Pro";
-  src: url("https://www-media.stanford.edu/assets/fonts/sourceserifpro-bolditalic-webfont.woff") format("woff");
-  font-style: italic;
-  font-weight: 700
-}
-@font-face {
-  font-family: "Source Serif Pro";
-  src: url("https://www-media.stanford.edu/assets/fonts/sourceserifpro-black-webfont.woff") format("woff");
-  font-style: normal;
-  font-weight: 900
-}
-@font-face {
-  font-family: "Source Serif Pro";
-  src: url("https://www-media.stanford.edu/assets/fonts/sourceserifpro-blackitalic-webfont.woff") format("woff");
-  font-style: italic;
-  font-weight: 900
+  src: url(/assets/fonts/fa-brands-400.eot?#iefix) format("embedded-opentype"),
+  url(/assets/fonts/fa-brands-400.woff2) format("woff2"),
+  url(/assets/fonts/fa-brands-400.woff) format("woff"),
+  url(/assets/fonts/fa-brands-400.ttf) format("truetype"),
+  url(/assets/img/fa-brands-400.svg#fontawesome) format("svg");
 }
 @font-face {
   font-family: "Stanford";
@@ -861,6 +819,135 @@ button:hover, button:focus, [type="button"]:hover, [type="button"]:focus, [type=
 button:focus, [type="button"]:focus, [type="submit"]:focus, [type="reset"]:focus, [type="image"]:focus{
   -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.13), 0px 3px 6px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.13), 0px 3px 6px rgba(0, 0, 0, 0.1);
+}
+[type="checkbox"], [type="radio"]{
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+[type="checkbox"] + label, [type="radio"] + label{
+  cursor: pointer;
+  font-weight: 400;
+  margin-bottom: 0.5em;
+}
+[type="checkbox"] + label::before, [type="radio"] + label::before{
+  background: #FFFFFF;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 0 1px #B6B1A9;
+          box-shadow: 0 0 0 1px #B6B1A9;
+  content: "a0";
+  display: inline-block;
+  height: 1.8rem;
+  line-height: 1.8rem;
+  margin-right: 0.6em;
+  text-indent: 0.15em;
+  vertical-align: middle;
+  width: 1.8rem;
+}
+[type="checkbox"]:checked + label::before, [type="radio"]:checked + label::before{
+  background-color: #B1040E;
+  -webkit-box-shadow: 0 0 0 1px #B1040E;
+          box-shadow: 0 0 0 1px #B1040E;
+}
+[type="radio"]:checked + label::before{
+  -webkit-box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #B1040E;
+          box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #B1040E;
+}
+[type="radio"]:focus + label::before{
+  -webkit-box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #B1040E, 0 0 3px 4px #2E2D29, 0 0 7px 4px #2E2D29;
+          box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 4px #B1040E, 0 0 3px 4px #2E2D29, 0 0 7px 4px #2E2D29;
+}
+[type="radio"] + label::before{
+  -webkit-box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 3px #B6B1A9;
+          box-shadow: 0 0 0 2px #FFFFFF, 0 0 0 3px #B6B1A9;
+  height: 1.6rem;
+  line-height: 1.6rem;
+  width: 1.6rem;
+  border-radius: 100%;
+}
+[type="range"]{
+  -webkit-appearance: none;
+  border: 0;
+  padding-left: 0;
+  width: 100%;
+}
+[type="range"]:focus{
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  outline: none;
+}
+[type="range"]::-webkit-slider-runnable-track{
+  background: #53565A;
+  border: 1px solid #B6B1A9;
+  cursor: pointer;
+  height: 1.2rem;
+  width: 100%;
+}
+[type="range"]::-moz-range-track{
+  background: #8C1515;
+  border: 1px solid #B6B1A9;
+  cursor: pointer;
+  height: 1.2rem;
+  width: 100%;
+}
+[type="range"]::-ms-track{
+  background: transparent;
+  color: transparent;
+  cursor: pointer;
+  height: 1.2rem;
+  width: 100%;
+}
+[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  border: 1px solid #B6B1A9;
+  height: 2.2rem;
+  border-radius: 1.5rem;
+  background: #53565A;
+  cursor: pointer;
+  margin-top: -0.65rem;
+  width: 2.2rem;
+}
+[type"range"]::-moz-range-thumb{
+  background: #53565A;
+  border: 1px solid #B6B1A9;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  height: 2.2rem;
+  width: 2.2rem;
+}
+[type="range"]::-ms-thumb{
+  background: #53565A;
+  border: 1px solid #B6B1A9;
+  border-radius: 1.5rem;
+  cursor: pointer;
+  height: 2.2rem;
+  width: 2.2rem;
+}
+[type="range"]::-ms-fill-lower{
+  background: #53565A;
+  border: 1px solid #B6B1A9;
+  border-radius: 2rem;
+}
+[type="range"]::-ms-fill-upper{
+  background: #53565A;
+  border: 1px solid #B6B1A9;
+  border-radius: 2rem;
+}
+[type="range"]:focus::-webkit-slider-thumb{
+  border: 2px solid #B6B1A9;
+}
+[type="range"]:focus::-moz-range-thumb{
+  border: 2px solid #B6B1A9;
+}
+[type="range"]:focus::-ms-thumb{
+  border: 2px solid #B6B1A9;
 }
 a{
   color: #006CB8;
@@ -6447,6 +6534,57 @@ table tbody th{
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
 }
+.su-place-items-auto{
+  place-items: auto;
+}
+.su-place-items-start{
+  place-items: start;
+}
+.su-place-items-end{
+  place-items: end;
+}
+.su-place-items-center{
+  place-items: center;
+}
+.su-place-items-stretch{
+  place-items: stretch;
+}
+.su-place-content-center{
+  place-content: center;
+}
+.su-place-content-start{
+  place-content: start;
+}
+.su-place-content-end{
+  place-content: end;
+}
+.su-place-content-between{
+  place-content: space-between;
+}
+.su-place-content-around{
+  place-content: space-around;
+}
+.su-place-content-evenly{
+  place-content: space-evenly;
+}
+.su-place-content-stretch{
+  place-content: stretch;
+}
+.su-place-self-auto{
+  place-self: auto;
+}
+.su-place-self-start{
+  place-self: start;
+}
+.su-place-self-end{
+  place-self: end;
+}
+.su-place-self-center{
+  place-self: center;
+}
+.su-place-self-stretch{
+  place-self: stretch;
+}
 .su-items-start{
   -webkit-box-align: start;
       -ms-flex-align: start;
@@ -6472,6 +6610,30 @@ table tbody th{
       -ms-flex-align: stretch;
           align-items: stretch;
 }
+.su-content-center{
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+.su-content-start{
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+}
+.su-content-end{
+  -ms-flex-line-pack: end;
+      align-content: flex-end;
+}
+.su-content-between{
+  -ms-flex-line-pack: justify;
+      align-content: space-between;
+}
+.su-content-around{
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+}
+.su-content-evenly{
+  -ms-flex-line-pack: space-evenly;
+      align-content: space-evenly;
+}
 .su-self-auto{
   -ms-flex-item-align: auto;
       align-self: auto;
@@ -6491,6 +6653,21 @@ table tbody th{
 .su-self-stretch{
   -ms-flex-item-align: stretch;
       align-self: stretch;
+}
+.su-justify-items-auto{
+  justify-items: auto;
+}
+.su-justify-items-start{
+  justify-items: start;
+}
+.su-justify-items-end{
+  justify-items: end;
+}
+.su-justify-items-center{
+  justify-items: center;
+}
+.su-justify-items-stretch{
+  justify-items: stretch;
 }
 .su-justify-start{
   -webkit-box-pack: start;
@@ -6521,25 +6698,20 @@ table tbody th{
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
 }
-.su-content-center{
-  -ms-flex-line-pack: center;
-      align-content: center;
+.su-justify-self-auto{
+  justify-self: auto;
 }
-.su-content-start{
-  -ms-flex-line-pack: start;
-      align-content: flex-start;
+.su-justify-self-start{
+  justify-self: start;
 }
-.su-content-end{
-  -ms-flex-line-pack: end;
-      align-content: flex-end;
+.su-justify-self-end{
+  justify-self: end;
 }
-.su-content-between{
-  -ms-flex-line-pack: justify;
-      align-content: space-between;
+.su-justify-self-center{
+  justify-self: center;
 }
-.su-content-around{
-  -ms-flex-line-pack: distribute;
-      align-content: space-around;
+.su-justify-self-stretch{
+  justify-self: stretch;
 }
 .su-flex-1{
   -webkit-box-flex: 1;
@@ -9626,6 +9798,41 @@ table tbody th{
 .focus\:su-no-underline:focus{
   text-decoration: none;
 }
+.su-ordinal, .su-slashed-zero, .su-lining-nums, .su-oldstyle-nums, .su-proportional-nums, .su-tabular-nums, .su-diagonal-fractions, .su-stacked-fractions{
+  --font-variant-numeric-ordinal: var(--tailwind-empty,/*!*/ /*!*/);
+  --font-variant-numeric-slashed-zero: var(--tailwind-empty,/*!*/ /*!*/);
+  --font-variant-numeric-figure: var(--tailwind-empty,/*!*/ /*!*/);
+  --font-variant-numeric-spacing: var(--tailwind-empty,/*!*/ /*!*/);
+  --font-variant-numeric-fraction: var(--tailwind-empty,/*!*/ /*!*/);
+  font-variant-numeric: var(--font-variant-numeric-ordinal) var(--font-variant-numeric-slashed-zero) var(--font-variant-numeric-figure) var(--font-variant-numeric-spacing) var(--font-variant-numeric-fraction);
+}
+.su-normal-nums{
+  font-variant-numeric: normal;
+}
+.su-ordinal{
+  --font-variant-numeric-ordinal: ordinal;
+}
+.su-slashed-zero{
+  --font-variant-numeric-slashed-zero: slashed-zero;
+}
+.su-lining-nums{
+  --font-variant-numeric-figure: lining-nums;
+}
+.su-oldstyle-nums{
+  --font-variant-numeric-figure: oldstyle-nums;
+}
+.su-proportional-nums{
+  --font-variant-numeric-spacing: proportional-nums;
+}
+.su-tabular-nums{
+  --font-variant-numeric-spacing: tabular-nums;
+}
+.su-diagonal-fractions{
+  --font-variant-numeric-fraction: diagonal-fractions;
+}
+.su-stacked-fractions{
+  --font-variant-numeric-fraction: stacked-fractions;
+}
 .su-tracking-tighter{
   letter-spacing: -0.05em;
 }
@@ -9903,30 +10110,6 @@ table tbody th{
   grid-gap: 48px;
   gap: 48px;
 }
-.su-col-gap-xs{
-  grid-column-gap: 20px;
-  -webkit-column-gap: 20px;
-     -moz-column-gap: 20px;
-          column-gap: 20px;
-}
-.su-col-gap-lg{
-  grid-column-gap: 36px;
-  -webkit-column-gap: 36px;
-     -moz-column-gap: 36px;
-          column-gap: 36px;
-}
-.su-col-gap-xl{
-  grid-column-gap: 40px;
-  -webkit-column-gap: 40px;
-     -moz-column-gap: 40px;
-          column-gap: 40px;
-}
-.su-col-gap-2xl{
-  grid-column-gap: 48px;
-  -webkit-column-gap: 48px;
-     -moz-column-gap: 48px;
-          column-gap: 48px;
-}
 .su-gap-x-xs{
   grid-column-gap: 20px;
   -webkit-column-gap: 20px;
@@ -9950,22 +10133,6 @@ table tbody th{
   -webkit-column-gap: 48px;
      -moz-column-gap: 48px;
           column-gap: 48px;
-}
-.su-row-gap-xs{
-  grid-row-gap: 20px;
-  row-gap: 20px;
-}
-.su-row-gap-lg{
-  grid-row-gap: 36px;
-  row-gap: 36px;
-}
-.su-row-gap-xl{
-  grid-row-gap: 40px;
-  row-gap: 40px;
-}
-.su-row-gap-2xl{
-  grid-row-gap: 48px;
-  row-gap: 48px;
 }
 .su-gap-y-xs{
   grid-row-gap: 20px;
@@ -11579,8 +11746,60 @@ table tbody th{
   -webkit-animation: bounce 1s infinite;
           animation: bounce 1s infinite;
 }
+.hover\:su-animate-none:hover{
+  -webkit-animation: none;
+          animation: none;
+}
+.hover\:su-animate-spin:hover{
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+.hover\:su-animate-ping:hover{
+  -webkit-animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+          animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.hover\:su-animate-pulse:hover{
+  -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.hover\:su-animate-bounce:hover{
+  -webkit-animation: bounce 1s infinite;
+          animation: bounce 1s infinite;
+}
+.focus\:su-animate-none:focus{
+  -webkit-animation: none;
+          animation: none;
+}
+.focus\:su-animate-spin:focus{
+  -webkit-animation: spin 1s linear infinite;
+          animation: spin 1s linear infinite;
+}
+.focus\:su-animate-ping:focus{
+  -webkit-animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+          animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+.focus\:su-animate-pulse:focus{
+  -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.focus\:su-animate-bounce:focus{
+  -webkit-animation: bounce 1s infinite;
+          animation: bounce 1s infinite;
+}
 .su-accessibly-hidden[aria-hidden="true"]{
   display: none;
+}
+.su-sr-only-element{
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  height: 1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 .su-sr-only-text{
   overflow: hidden;
@@ -11649,50 +11868,74 @@ table tbody th{
     padding-right: 24px;
   }
 }
-.su-centered-container{
+.su-centered-container, .su-cc{
   margin-left: auto;
   margin-right: auto;
 }
 @media (min-width: 0){
-  .su-centered-container{
+  .su-centered-container, .su-cc{
     padding-left: 20px;
     padding-right: 20px;
   }
 }
 @media (min-width: 576px){
-  .su-centered-container{
+  .su-centered-container, .su-cc{
     padding-left: 30px;
     padding-right: 30px;
   }
 }
 @media (min-width: 768px){
-  .su-centered-container{
+  .su-centered-container, .su-cc{
     padding-left: 50px;
     padding-right: 50px;
   }
 }
 @media (min-width: 992px){
-  .su-centered-container{
+  .su-centered-container, .su-cc{
     padding-left: 80px;
     padding-right: 80px;
   }
 }
 @media (min-width: 1200px){
-  .su-centered-container{
+  .su-centered-container, .su-cc{
     padding-left: 100px;
     padding-right: 100px;
   }
 }
 @media (min-width: 1500px){
-  .su-centered-container{
+  .su-centered-container, .su-cc{
     padding-left: 100px;
     padding-right: 100px;
   }
 }
 @media only screen and (min-width: 1700px){
-  .su-centered-container{
+  .su-centered-container, .su-cc{
     padding-left: calc((100% - 1500px)/2);
     padding-right: calc((100% - 1500px)/2);
+  }
+}
+@media (min-width: 0){
+  .su-grid-gap{
+    grid-gap: 20px;
+    gap: 20px;
+  }
+}
+@media (min-width: 992px){
+  .su-grid-gap{
+    grid-gap: 36px;
+    gap: 36px;
+  }
+}
+@media (min-width: 1200px){
+  .su-grid-gap{
+    grid-gap: 40px;
+    gap: 40px;
+  }
+}
+@media (min-width: 1500px){
+  .su-grid-gap{
+    grid-gap: 48px;
+    gap: 48px;
   }
 }
 .su-list-unstyled{
@@ -11716,6 +11959,20 @@ table tbody th{
 }
 .su-list-horizontal > li:last-child{
   margin-right: 0;
+}
+.su-embed-container{
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+.su-embed-container embed, .su-embed-container iframe, .su-embed-container object{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 .su-table-borderless thead tr{
   background-color: transparent;
@@ -18108,6 +18365,74 @@ table tbody th{
         flex-wrap: nowrap;
   }
 
+  .xs\:su-place-items-auto{
+    place-items: auto;
+  }
+
+  .xs\:su-place-items-start{
+    place-items: start;
+  }
+
+  .xs\:su-place-items-end{
+    place-items: end;
+  }
+
+  .xs\:su-place-items-center{
+    place-items: center;
+  }
+
+  .xs\:su-place-items-stretch{
+    place-items: stretch;
+  }
+
+  .xs\:su-place-content-center{
+    place-content: center;
+  }
+
+  .xs\:su-place-content-start{
+    place-content: start;
+  }
+
+  .xs\:su-place-content-end{
+    place-content: end;
+  }
+
+  .xs\:su-place-content-between{
+    place-content: space-between;
+  }
+
+  .xs\:su-place-content-around{
+    place-content: space-around;
+  }
+
+  .xs\:su-place-content-evenly{
+    place-content: space-evenly;
+  }
+
+  .xs\:su-place-content-stretch{
+    place-content: stretch;
+  }
+
+  .xs\:su-place-self-auto{
+    place-self: auto;
+  }
+
+  .xs\:su-place-self-start{
+    place-self: start;
+  }
+
+  .xs\:su-place-self-end{
+    place-self: end;
+  }
+
+  .xs\:su-place-self-center{
+    place-self: center;
+  }
+
+  .xs\:su-place-self-stretch{
+    place-self: stretch;
+  }
+
   .xs\:su-items-start{
     -webkit-box-align: start;
         -ms-flex-align: start;
@@ -18138,6 +18463,36 @@ table tbody th{
             align-items: stretch;
   }
 
+  .xs\:su-content-center{
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+
+  .xs\:su-content-start{
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
+  }
+
+  .xs\:su-content-end{
+    -ms-flex-line-pack: end;
+        align-content: flex-end;
+  }
+
+  .xs\:su-content-between{
+    -ms-flex-line-pack: justify;
+        align-content: space-between;
+  }
+
+  .xs\:su-content-around{
+    -ms-flex-line-pack: distribute;
+        align-content: space-around;
+  }
+
+  .xs\:su-content-evenly{
+    -ms-flex-line-pack: space-evenly;
+        align-content: space-evenly;
+  }
+
   .xs\:su-self-auto{
     -ms-flex-item-align: auto;
         align-self: auto;
@@ -18161,6 +18516,26 @@ table tbody th{
   .xs\:su-self-stretch{
     -ms-flex-item-align: stretch;
         align-self: stretch;
+  }
+
+  .xs\:su-justify-items-auto{
+    justify-items: auto;
+  }
+
+  .xs\:su-justify-items-start{
+    justify-items: start;
+  }
+
+  .xs\:su-justify-items-end{
+    justify-items: end;
+  }
+
+  .xs\:su-justify-items-center{
+    justify-items: center;
+  }
+
+  .xs\:su-justify-items-stretch{
+    justify-items: stretch;
   }
 
   .xs\:su-justify-start{
@@ -18198,29 +18573,24 @@ table tbody th{
             justify-content: space-evenly;
   }
 
-  .xs\:su-content-center{
-    -ms-flex-line-pack: center;
-        align-content: center;
+  .xs\:su-justify-self-auto{
+    justify-self: auto;
   }
 
-  .xs\:su-content-start{
-    -ms-flex-line-pack: start;
-        align-content: flex-start;
+  .xs\:su-justify-self-start{
+    justify-self: start;
   }
 
-  .xs\:su-content-end{
-    -ms-flex-line-pack: end;
-        align-content: flex-end;
+  .xs\:su-justify-self-end{
+    justify-self: end;
   }
 
-  .xs\:su-content-between{
-    -ms-flex-line-pack: justify;
-        align-content: space-between;
+  .xs\:su-justify-self-center{
+    justify-self: center;
   }
 
-  .xs\:su-content-around{
-    -ms-flex-line-pack: distribute;
-        align-content: space-around;
+  .xs\:su-justify-self-stretch{
+    justify-self: stretch;
   }
 
   .xs\:su-flex-1{
@@ -22144,6 +22514,51 @@ table tbody th{
     text-decoration: none;
   }
 
+  .xs\:su-ordinal, .xs\:su-slashed-zero, .xs\:su-lining-nums, .xs\:su-oldstyle-nums, .xs\:su-proportional-nums, .xs\:su-tabular-nums, .xs\:su-diagonal-fractions, .xs\:su-stacked-fractions{
+    --font-variant-numeric-ordinal: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-slashed-zero: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-figure: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-spacing: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-fraction: var(--tailwind-empty,/*!*/ /*!*/);
+    font-variant-numeric: var(--font-variant-numeric-ordinal) var(--font-variant-numeric-slashed-zero) var(--font-variant-numeric-figure) var(--font-variant-numeric-spacing) var(--font-variant-numeric-fraction);
+  }
+
+  .xs\:su-normal-nums{
+    font-variant-numeric: normal;
+  }
+
+  .xs\:su-ordinal{
+    --font-variant-numeric-ordinal: ordinal;
+  }
+
+  .xs\:su-slashed-zero{
+    --font-variant-numeric-slashed-zero: slashed-zero;
+  }
+
+  .xs\:su-lining-nums{
+    --font-variant-numeric-figure: lining-nums;
+  }
+
+  .xs\:su-oldstyle-nums{
+    --font-variant-numeric-figure: oldstyle-nums;
+  }
+
+  .xs\:su-proportional-nums{
+    --font-variant-numeric-spacing: proportional-nums;
+  }
+
+  .xs\:su-tabular-nums{
+    --font-variant-numeric-spacing: tabular-nums;
+  }
+
+  .xs\:su-diagonal-fractions{
+    --font-variant-numeric-fraction: diagonal-fractions;
+  }
+
+  .xs\:su-stacked-fractions{
+    --font-variant-numeric-fraction: stacked-fractions;
+  }
+
   .xs\:su-tracking-tighter{
     letter-spacing: -0.05em;
   }
@@ -22507,34 +22922,6 @@ table tbody th{
     gap: 48px;
   }
 
-  .xs\:su-col-gap-xs{
-    grid-column-gap: 20px;
-    -webkit-column-gap: 20px;
-       -moz-column-gap: 20px;
-            column-gap: 20px;
-  }
-
-  .xs\:su-col-gap-lg{
-    grid-column-gap: 36px;
-    -webkit-column-gap: 36px;
-       -moz-column-gap: 36px;
-            column-gap: 36px;
-  }
-
-  .xs\:su-col-gap-xl{
-    grid-column-gap: 40px;
-    -webkit-column-gap: 40px;
-       -moz-column-gap: 40px;
-            column-gap: 40px;
-  }
-
-  .xs\:su-col-gap-2xl{
-    grid-column-gap: 48px;
-    -webkit-column-gap: 48px;
-       -moz-column-gap: 48px;
-            column-gap: 48px;
-  }
-
   .xs\:su-gap-x-xs{
     grid-column-gap: 20px;
     -webkit-column-gap: 20px;
@@ -22561,26 +22948,6 @@ table tbody th{
     -webkit-column-gap: 48px;
        -moz-column-gap: 48px;
             column-gap: 48px;
-  }
-
-  .xs\:su-row-gap-xs{
-    grid-row-gap: 20px;
-    row-gap: 20px;
-  }
-
-  .xs\:su-row-gap-lg{
-    grid-row-gap: 36px;
-    row-gap: 36px;
-  }
-
-  .xs\:su-row-gap-xl{
-    grid-row-gap: 40px;
-    row-gap: 40px;
-  }
-
-  .xs\:su-row-gap-2xl{
-    grid-row-gap: 48px;
-    row-gap: 48px;
   }
 
   .xs\:su-gap-y-xs{
@@ -24589,31 +24956,6 @@ table tbody th{
   .xs\:su-delay-1000{
     -webkit-transition-delay: 1000ms;
             transition-delay: 1000ms;
-  }
-
-  .xs\:su-animate-none{
-    -webkit-animation: none;
-            animation: none;
-  }
-
-  .xs\:su-animate-spin{
-    -webkit-animation: spin 1s linear infinite;
-            animation: spin 1s linear infinite;
-  }
-
-  .xs\:su-animate-ping{
-    -webkit-animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-            animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-  }
-
-  .xs\:su-animate-pulse{
-    -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .xs\:su-animate-bounce{
-    -webkit-animation: bounce 1s infinite;
-            animation: bounce 1s infinite;
   }
 
   .xs\:su-aspect-ratio-none{
@@ -30771,6 +31113,74 @@ table tbody th{
         flex-wrap: nowrap;
   }
 
+  .sm\:su-place-items-auto{
+    place-items: auto;
+  }
+
+  .sm\:su-place-items-start{
+    place-items: start;
+  }
+
+  .sm\:su-place-items-end{
+    place-items: end;
+  }
+
+  .sm\:su-place-items-center{
+    place-items: center;
+  }
+
+  .sm\:su-place-items-stretch{
+    place-items: stretch;
+  }
+
+  .sm\:su-place-content-center{
+    place-content: center;
+  }
+
+  .sm\:su-place-content-start{
+    place-content: start;
+  }
+
+  .sm\:su-place-content-end{
+    place-content: end;
+  }
+
+  .sm\:su-place-content-between{
+    place-content: space-between;
+  }
+
+  .sm\:su-place-content-around{
+    place-content: space-around;
+  }
+
+  .sm\:su-place-content-evenly{
+    place-content: space-evenly;
+  }
+
+  .sm\:su-place-content-stretch{
+    place-content: stretch;
+  }
+
+  .sm\:su-place-self-auto{
+    place-self: auto;
+  }
+
+  .sm\:su-place-self-start{
+    place-self: start;
+  }
+
+  .sm\:su-place-self-end{
+    place-self: end;
+  }
+
+  .sm\:su-place-self-center{
+    place-self: center;
+  }
+
+  .sm\:su-place-self-stretch{
+    place-self: stretch;
+  }
+
   .sm\:su-items-start{
     -webkit-box-align: start;
         -ms-flex-align: start;
@@ -30801,6 +31211,36 @@ table tbody th{
             align-items: stretch;
   }
 
+  .sm\:su-content-center{
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+
+  .sm\:su-content-start{
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
+  }
+
+  .sm\:su-content-end{
+    -ms-flex-line-pack: end;
+        align-content: flex-end;
+  }
+
+  .sm\:su-content-between{
+    -ms-flex-line-pack: justify;
+        align-content: space-between;
+  }
+
+  .sm\:su-content-around{
+    -ms-flex-line-pack: distribute;
+        align-content: space-around;
+  }
+
+  .sm\:su-content-evenly{
+    -ms-flex-line-pack: space-evenly;
+        align-content: space-evenly;
+  }
+
   .sm\:su-self-auto{
     -ms-flex-item-align: auto;
         align-self: auto;
@@ -30824,6 +31264,26 @@ table tbody th{
   .sm\:su-self-stretch{
     -ms-flex-item-align: stretch;
         align-self: stretch;
+  }
+
+  .sm\:su-justify-items-auto{
+    justify-items: auto;
+  }
+
+  .sm\:su-justify-items-start{
+    justify-items: start;
+  }
+
+  .sm\:su-justify-items-end{
+    justify-items: end;
+  }
+
+  .sm\:su-justify-items-center{
+    justify-items: center;
+  }
+
+  .sm\:su-justify-items-stretch{
+    justify-items: stretch;
   }
 
   .sm\:su-justify-start{
@@ -30861,29 +31321,24 @@ table tbody th{
             justify-content: space-evenly;
   }
 
-  .sm\:su-content-center{
-    -ms-flex-line-pack: center;
-        align-content: center;
+  .sm\:su-justify-self-auto{
+    justify-self: auto;
   }
 
-  .sm\:su-content-start{
-    -ms-flex-line-pack: start;
-        align-content: flex-start;
+  .sm\:su-justify-self-start{
+    justify-self: start;
   }
 
-  .sm\:su-content-end{
-    -ms-flex-line-pack: end;
-        align-content: flex-end;
+  .sm\:su-justify-self-end{
+    justify-self: end;
   }
 
-  .sm\:su-content-between{
-    -ms-flex-line-pack: justify;
-        align-content: space-between;
+  .sm\:su-justify-self-center{
+    justify-self: center;
   }
 
-  .sm\:su-content-around{
-    -ms-flex-line-pack: distribute;
-        align-content: space-around;
+  .sm\:su-justify-self-stretch{
+    justify-self: stretch;
   }
 
   .sm\:su-flex-1{
@@ -34807,6 +35262,51 @@ table tbody th{
     text-decoration: none;
   }
 
+  .sm\:su-ordinal, .sm\:su-slashed-zero, .sm\:su-lining-nums, .sm\:su-oldstyle-nums, .sm\:su-proportional-nums, .sm\:su-tabular-nums, .sm\:su-diagonal-fractions, .sm\:su-stacked-fractions{
+    --font-variant-numeric-ordinal: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-slashed-zero: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-figure: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-spacing: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-fraction: var(--tailwind-empty,/*!*/ /*!*/);
+    font-variant-numeric: var(--font-variant-numeric-ordinal) var(--font-variant-numeric-slashed-zero) var(--font-variant-numeric-figure) var(--font-variant-numeric-spacing) var(--font-variant-numeric-fraction);
+  }
+
+  .sm\:su-normal-nums{
+    font-variant-numeric: normal;
+  }
+
+  .sm\:su-ordinal{
+    --font-variant-numeric-ordinal: ordinal;
+  }
+
+  .sm\:su-slashed-zero{
+    --font-variant-numeric-slashed-zero: slashed-zero;
+  }
+
+  .sm\:su-lining-nums{
+    --font-variant-numeric-figure: lining-nums;
+  }
+
+  .sm\:su-oldstyle-nums{
+    --font-variant-numeric-figure: oldstyle-nums;
+  }
+
+  .sm\:su-proportional-nums{
+    --font-variant-numeric-spacing: proportional-nums;
+  }
+
+  .sm\:su-tabular-nums{
+    --font-variant-numeric-spacing: tabular-nums;
+  }
+
+  .sm\:su-diagonal-fractions{
+    --font-variant-numeric-fraction: diagonal-fractions;
+  }
+
+  .sm\:su-stacked-fractions{
+    --font-variant-numeric-fraction: stacked-fractions;
+  }
+
   .sm\:su-tracking-tighter{
     letter-spacing: -0.05em;
   }
@@ -35170,34 +35670,6 @@ table tbody th{
     gap: 48px;
   }
 
-  .sm\:su-col-gap-xs{
-    grid-column-gap: 20px;
-    -webkit-column-gap: 20px;
-       -moz-column-gap: 20px;
-            column-gap: 20px;
-  }
-
-  .sm\:su-col-gap-lg{
-    grid-column-gap: 36px;
-    -webkit-column-gap: 36px;
-       -moz-column-gap: 36px;
-            column-gap: 36px;
-  }
-
-  .sm\:su-col-gap-xl{
-    grid-column-gap: 40px;
-    -webkit-column-gap: 40px;
-       -moz-column-gap: 40px;
-            column-gap: 40px;
-  }
-
-  .sm\:su-col-gap-2xl{
-    grid-column-gap: 48px;
-    -webkit-column-gap: 48px;
-       -moz-column-gap: 48px;
-            column-gap: 48px;
-  }
-
   .sm\:su-gap-x-xs{
     grid-column-gap: 20px;
     -webkit-column-gap: 20px;
@@ -35224,26 +35696,6 @@ table tbody th{
     -webkit-column-gap: 48px;
        -moz-column-gap: 48px;
             column-gap: 48px;
-  }
-
-  .sm\:su-row-gap-xs{
-    grid-row-gap: 20px;
-    row-gap: 20px;
-  }
-
-  .sm\:su-row-gap-lg{
-    grid-row-gap: 36px;
-    row-gap: 36px;
-  }
-
-  .sm\:su-row-gap-xl{
-    grid-row-gap: 40px;
-    row-gap: 40px;
-  }
-
-  .sm\:su-row-gap-2xl{
-    grid-row-gap: 48px;
-    row-gap: 48px;
   }
 
   .sm\:su-gap-y-xs{
@@ -37252,31 +37704,6 @@ table tbody th{
   .sm\:su-delay-1000{
     -webkit-transition-delay: 1000ms;
             transition-delay: 1000ms;
-  }
-
-  .sm\:su-animate-none{
-    -webkit-animation: none;
-            animation: none;
-  }
-
-  .sm\:su-animate-spin{
-    -webkit-animation: spin 1s linear infinite;
-            animation: spin 1s linear infinite;
-  }
-
-  .sm\:su-animate-ping{
-    -webkit-animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-            animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-  }
-
-  .sm\:su-animate-pulse{
-    -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .sm\:su-animate-bounce{
-    -webkit-animation: bounce 1s infinite;
-            animation: bounce 1s infinite;
   }
 
   .sm\:su-aspect-ratio-none{
@@ -43434,6 +43861,74 @@ table tbody th{
         flex-wrap: nowrap;
   }
 
+  .md\:su-place-items-auto{
+    place-items: auto;
+  }
+
+  .md\:su-place-items-start{
+    place-items: start;
+  }
+
+  .md\:su-place-items-end{
+    place-items: end;
+  }
+
+  .md\:su-place-items-center{
+    place-items: center;
+  }
+
+  .md\:su-place-items-stretch{
+    place-items: stretch;
+  }
+
+  .md\:su-place-content-center{
+    place-content: center;
+  }
+
+  .md\:su-place-content-start{
+    place-content: start;
+  }
+
+  .md\:su-place-content-end{
+    place-content: end;
+  }
+
+  .md\:su-place-content-between{
+    place-content: space-between;
+  }
+
+  .md\:su-place-content-around{
+    place-content: space-around;
+  }
+
+  .md\:su-place-content-evenly{
+    place-content: space-evenly;
+  }
+
+  .md\:su-place-content-stretch{
+    place-content: stretch;
+  }
+
+  .md\:su-place-self-auto{
+    place-self: auto;
+  }
+
+  .md\:su-place-self-start{
+    place-self: start;
+  }
+
+  .md\:su-place-self-end{
+    place-self: end;
+  }
+
+  .md\:su-place-self-center{
+    place-self: center;
+  }
+
+  .md\:su-place-self-stretch{
+    place-self: stretch;
+  }
+
   .md\:su-items-start{
     -webkit-box-align: start;
         -ms-flex-align: start;
@@ -43464,6 +43959,36 @@ table tbody th{
             align-items: stretch;
   }
 
+  .md\:su-content-center{
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+
+  .md\:su-content-start{
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
+  }
+
+  .md\:su-content-end{
+    -ms-flex-line-pack: end;
+        align-content: flex-end;
+  }
+
+  .md\:su-content-between{
+    -ms-flex-line-pack: justify;
+        align-content: space-between;
+  }
+
+  .md\:su-content-around{
+    -ms-flex-line-pack: distribute;
+        align-content: space-around;
+  }
+
+  .md\:su-content-evenly{
+    -ms-flex-line-pack: space-evenly;
+        align-content: space-evenly;
+  }
+
   .md\:su-self-auto{
     -ms-flex-item-align: auto;
         align-self: auto;
@@ -43487,6 +44012,26 @@ table tbody th{
   .md\:su-self-stretch{
     -ms-flex-item-align: stretch;
         align-self: stretch;
+  }
+
+  .md\:su-justify-items-auto{
+    justify-items: auto;
+  }
+
+  .md\:su-justify-items-start{
+    justify-items: start;
+  }
+
+  .md\:su-justify-items-end{
+    justify-items: end;
+  }
+
+  .md\:su-justify-items-center{
+    justify-items: center;
+  }
+
+  .md\:su-justify-items-stretch{
+    justify-items: stretch;
   }
 
   .md\:su-justify-start{
@@ -43524,29 +44069,24 @@ table tbody th{
             justify-content: space-evenly;
   }
 
-  .md\:su-content-center{
-    -ms-flex-line-pack: center;
-        align-content: center;
+  .md\:su-justify-self-auto{
+    justify-self: auto;
   }
 
-  .md\:su-content-start{
-    -ms-flex-line-pack: start;
-        align-content: flex-start;
+  .md\:su-justify-self-start{
+    justify-self: start;
   }
 
-  .md\:su-content-end{
-    -ms-flex-line-pack: end;
-        align-content: flex-end;
+  .md\:su-justify-self-end{
+    justify-self: end;
   }
 
-  .md\:su-content-between{
-    -ms-flex-line-pack: justify;
-        align-content: space-between;
+  .md\:su-justify-self-center{
+    justify-self: center;
   }
 
-  .md\:su-content-around{
-    -ms-flex-line-pack: distribute;
-        align-content: space-around;
+  .md\:su-justify-self-stretch{
+    justify-self: stretch;
   }
 
   .md\:su-flex-1{
@@ -47470,6 +48010,51 @@ table tbody th{
     text-decoration: none;
   }
 
+  .md\:su-ordinal, .md\:su-slashed-zero, .md\:su-lining-nums, .md\:su-oldstyle-nums, .md\:su-proportional-nums, .md\:su-tabular-nums, .md\:su-diagonal-fractions, .md\:su-stacked-fractions{
+    --font-variant-numeric-ordinal: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-slashed-zero: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-figure: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-spacing: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-fraction: var(--tailwind-empty,/*!*/ /*!*/);
+    font-variant-numeric: var(--font-variant-numeric-ordinal) var(--font-variant-numeric-slashed-zero) var(--font-variant-numeric-figure) var(--font-variant-numeric-spacing) var(--font-variant-numeric-fraction);
+  }
+
+  .md\:su-normal-nums{
+    font-variant-numeric: normal;
+  }
+
+  .md\:su-ordinal{
+    --font-variant-numeric-ordinal: ordinal;
+  }
+
+  .md\:su-slashed-zero{
+    --font-variant-numeric-slashed-zero: slashed-zero;
+  }
+
+  .md\:su-lining-nums{
+    --font-variant-numeric-figure: lining-nums;
+  }
+
+  .md\:su-oldstyle-nums{
+    --font-variant-numeric-figure: oldstyle-nums;
+  }
+
+  .md\:su-proportional-nums{
+    --font-variant-numeric-spacing: proportional-nums;
+  }
+
+  .md\:su-tabular-nums{
+    --font-variant-numeric-spacing: tabular-nums;
+  }
+
+  .md\:su-diagonal-fractions{
+    --font-variant-numeric-fraction: diagonal-fractions;
+  }
+
+  .md\:su-stacked-fractions{
+    --font-variant-numeric-fraction: stacked-fractions;
+  }
+
   .md\:su-tracking-tighter{
     letter-spacing: -0.05em;
   }
@@ -47833,34 +48418,6 @@ table tbody th{
     gap: 48px;
   }
 
-  .md\:su-col-gap-xs{
-    grid-column-gap: 20px;
-    -webkit-column-gap: 20px;
-       -moz-column-gap: 20px;
-            column-gap: 20px;
-  }
-
-  .md\:su-col-gap-lg{
-    grid-column-gap: 36px;
-    -webkit-column-gap: 36px;
-       -moz-column-gap: 36px;
-            column-gap: 36px;
-  }
-
-  .md\:su-col-gap-xl{
-    grid-column-gap: 40px;
-    -webkit-column-gap: 40px;
-       -moz-column-gap: 40px;
-            column-gap: 40px;
-  }
-
-  .md\:su-col-gap-2xl{
-    grid-column-gap: 48px;
-    -webkit-column-gap: 48px;
-       -moz-column-gap: 48px;
-            column-gap: 48px;
-  }
-
   .md\:su-gap-x-xs{
     grid-column-gap: 20px;
     -webkit-column-gap: 20px;
@@ -47887,26 +48444,6 @@ table tbody th{
     -webkit-column-gap: 48px;
        -moz-column-gap: 48px;
             column-gap: 48px;
-  }
-
-  .md\:su-row-gap-xs{
-    grid-row-gap: 20px;
-    row-gap: 20px;
-  }
-
-  .md\:su-row-gap-lg{
-    grid-row-gap: 36px;
-    row-gap: 36px;
-  }
-
-  .md\:su-row-gap-xl{
-    grid-row-gap: 40px;
-    row-gap: 40px;
-  }
-
-  .md\:su-row-gap-2xl{
-    grid-row-gap: 48px;
-    row-gap: 48px;
   }
 
   .md\:su-gap-y-xs{
@@ -49915,31 +50452,6 @@ table tbody th{
   .md\:su-delay-1000{
     -webkit-transition-delay: 1000ms;
             transition-delay: 1000ms;
-  }
-
-  .md\:su-animate-none{
-    -webkit-animation: none;
-            animation: none;
-  }
-
-  .md\:su-animate-spin{
-    -webkit-animation: spin 1s linear infinite;
-            animation: spin 1s linear infinite;
-  }
-
-  .md\:su-animate-ping{
-    -webkit-animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-            animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-  }
-
-  .md\:su-animate-pulse{
-    -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .md\:su-animate-bounce{
-    -webkit-animation: bounce 1s infinite;
-            animation: bounce 1s infinite;
   }
 
   .md\:su-aspect-ratio-none{
@@ -56097,6 +56609,74 @@ table tbody th{
         flex-wrap: nowrap;
   }
 
+  .lg\:su-place-items-auto{
+    place-items: auto;
+  }
+
+  .lg\:su-place-items-start{
+    place-items: start;
+  }
+
+  .lg\:su-place-items-end{
+    place-items: end;
+  }
+
+  .lg\:su-place-items-center{
+    place-items: center;
+  }
+
+  .lg\:su-place-items-stretch{
+    place-items: stretch;
+  }
+
+  .lg\:su-place-content-center{
+    place-content: center;
+  }
+
+  .lg\:su-place-content-start{
+    place-content: start;
+  }
+
+  .lg\:su-place-content-end{
+    place-content: end;
+  }
+
+  .lg\:su-place-content-between{
+    place-content: space-between;
+  }
+
+  .lg\:su-place-content-around{
+    place-content: space-around;
+  }
+
+  .lg\:su-place-content-evenly{
+    place-content: space-evenly;
+  }
+
+  .lg\:su-place-content-stretch{
+    place-content: stretch;
+  }
+
+  .lg\:su-place-self-auto{
+    place-self: auto;
+  }
+
+  .lg\:su-place-self-start{
+    place-self: start;
+  }
+
+  .lg\:su-place-self-end{
+    place-self: end;
+  }
+
+  .lg\:su-place-self-center{
+    place-self: center;
+  }
+
+  .lg\:su-place-self-stretch{
+    place-self: stretch;
+  }
+
   .lg\:su-items-start{
     -webkit-box-align: start;
         -ms-flex-align: start;
@@ -56127,6 +56707,36 @@ table tbody th{
             align-items: stretch;
   }
 
+  .lg\:su-content-center{
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+
+  .lg\:su-content-start{
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
+  }
+
+  .lg\:su-content-end{
+    -ms-flex-line-pack: end;
+        align-content: flex-end;
+  }
+
+  .lg\:su-content-between{
+    -ms-flex-line-pack: justify;
+        align-content: space-between;
+  }
+
+  .lg\:su-content-around{
+    -ms-flex-line-pack: distribute;
+        align-content: space-around;
+  }
+
+  .lg\:su-content-evenly{
+    -ms-flex-line-pack: space-evenly;
+        align-content: space-evenly;
+  }
+
   .lg\:su-self-auto{
     -ms-flex-item-align: auto;
         align-self: auto;
@@ -56150,6 +56760,26 @@ table tbody th{
   .lg\:su-self-stretch{
     -ms-flex-item-align: stretch;
         align-self: stretch;
+  }
+
+  .lg\:su-justify-items-auto{
+    justify-items: auto;
+  }
+
+  .lg\:su-justify-items-start{
+    justify-items: start;
+  }
+
+  .lg\:su-justify-items-end{
+    justify-items: end;
+  }
+
+  .lg\:su-justify-items-center{
+    justify-items: center;
+  }
+
+  .lg\:su-justify-items-stretch{
+    justify-items: stretch;
   }
 
   .lg\:su-justify-start{
@@ -56187,29 +56817,24 @@ table tbody th{
             justify-content: space-evenly;
   }
 
-  .lg\:su-content-center{
-    -ms-flex-line-pack: center;
-        align-content: center;
+  .lg\:su-justify-self-auto{
+    justify-self: auto;
   }
 
-  .lg\:su-content-start{
-    -ms-flex-line-pack: start;
-        align-content: flex-start;
+  .lg\:su-justify-self-start{
+    justify-self: start;
   }
 
-  .lg\:su-content-end{
-    -ms-flex-line-pack: end;
-        align-content: flex-end;
+  .lg\:su-justify-self-end{
+    justify-self: end;
   }
 
-  .lg\:su-content-between{
-    -ms-flex-line-pack: justify;
-        align-content: space-between;
+  .lg\:su-justify-self-center{
+    justify-self: center;
   }
 
-  .lg\:su-content-around{
-    -ms-flex-line-pack: distribute;
-        align-content: space-around;
+  .lg\:su-justify-self-stretch{
+    justify-self: stretch;
   }
 
   .lg\:su-flex-1{
@@ -60133,6 +60758,51 @@ table tbody th{
     text-decoration: none;
   }
 
+  .lg\:su-ordinal, .lg\:su-slashed-zero, .lg\:su-lining-nums, .lg\:su-oldstyle-nums, .lg\:su-proportional-nums, .lg\:su-tabular-nums, .lg\:su-diagonal-fractions, .lg\:su-stacked-fractions{
+    --font-variant-numeric-ordinal: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-slashed-zero: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-figure: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-spacing: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-fraction: var(--tailwind-empty,/*!*/ /*!*/);
+    font-variant-numeric: var(--font-variant-numeric-ordinal) var(--font-variant-numeric-slashed-zero) var(--font-variant-numeric-figure) var(--font-variant-numeric-spacing) var(--font-variant-numeric-fraction);
+  }
+
+  .lg\:su-normal-nums{
+    font-variant-numeric: normal;
+  }
+
+  .lg\:su-ordinal{
+    --font-variant-numeric-ordinal: ordinal;
+  }
+
+  .lg\:su-slashed-zero{
+    --font-variant-numeric-slashed-zero: slashed-zero;
+  }
+
+  .lg\:su-lining-nums{
+    --font-variant-numeric-figure: lining-nums;
+  }
+
+  .lg\:su-oldstyle-nums{
+    --font-variant-numeric-figure: oldstyle-nums;
+  }
+
+  .lg\:su-proportional-nums{
+    --font-variant-numeric-spacing: proportional-nums;
+  }
+
+  .lg\:su-tabular-nums{
+    --font-variant-numeric-spacing: tabular-nums;
+  }
+
+  .lg\:su-diagonal-fractions{
+    --font-variant-numeric-fraction: diagonal-fractions;
+  }
+
+  .lg\:su-stacked-fractions{
+    --font-variant-numeric-fraction: stacked-fractions;
+  }
+
   .lg\:su-tracking-tighter{
     letter-spacing: -0.05em;
   }
@@ -60496,34 +61166,6 @@ table tbody th{
     gap: 48px;
   }
 
-  .lg\:su-col-gap-xs{
-    grid-column-gap: 20px;
-    -webkit-column-gap: 20px;
-       -moz-column-gap: 20px;
-            column-gap: 20px;
-  }
-
-  .lg\:su-col-gap-lg{
-    grid-column-gap: 36px;
-    -webkit-column-gap: 36px;
-       -moz-column-gap: 36px;
-            column-gap: 36px;
-  }
-
-  .lg\:su-col-gap-xl{
-    grid-column-gap: 40px;
-    -webkit-column-gap: 40px;
-       -moz-column-gap: 40px;
-            column-gap: 40px;
-  }
-
-  .lg\:su-col-gap-2xl{
-    grid-column-gap: 48px;
-    -webkit-column-gap: 48px;
-       -moz-column-gap: 48px;
-            column-gap: 48px;
-  }
-
   .lg\:su-gap-x-xs{
     grid-column-gap: 20px;
     -webkit-column-gap: 20px;
@@ -60550,26 +61192,6 @@ table tbody th{
     -webkit-column-gap: 48px;
        -moz-column-gap: 48px;
             column-gap: 48px;
-  }
-
-  .lg\:su-row-gap-xs{
-    grid-row-gap: 20px;
-    row-gap: 20px;
-  }
-
-  .lg\:su-row-gap-lg{
-    grid-row-gap: 36px;
-    row-gap: 36px;
-  }
-
-  .lg\:su-row-gap-xl{
-    grid-row-gap: 40px;
-    row-gap: 40px;
-  }
-
-  .lg\:su-row-gap-2xl{
-    grid-row-gap: 48px;
-    row-gap: 48px;
   }
 
   .lg\:su-gap-y-xs{
@@ -62578,31 +63200,6 @@ table tbody th{
   .lg\:su-delay-1000{
     -webkit-transition-delay: 1000ms;
             transition-delay: 1000ms;
-  }
-
-  .lg\:su-animate-none{
-    -webkit-animation: none;
-            animation: none;
-  }
-
-  .lg\:su-animate-spin{
-    -webkit-animation: spin 1s linear infinite;
-            animation: spin 1s linear infinite;
-  }
-
-  .lg\:su-animate-ping{
-    -webkit-animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-            animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-  }
-
-  .lg\:su-animate-pulse{
-    -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .lg\:su-animate-bounce{
-    -webkit-animation: bounce 1s infinite;
-            animation: bounce 1s infinite;
   }
 
   .lg\:su-aspect-ratio-none{
@@ -68760,6 +69357,74 @@ table tbody th{
         flex-wrap: nowrap;
   }
 
+  .xl\:su-place-items-auto{
+    place-items: auto;
+  }
+
+  .xl\:su-place-items-start{
+    place-items: start;
+  }
+
+  .xl\:su-place-items-end{
+    place-items: end;
+  }
+
+  .xl\:su-place-items-center{
+    place-items: center;
+  }
+
+  .xl\:su-place-items-stretch{
+    place-items: stretch;
+  }
+
+  .xl\:su-place-content-center{
+    place-content: center;
+  }
+
+  .xl\:su-place-content-start{
+    place-content: start;
+  }
+
+  .xl\:su-place-content-end{
+    place-content: end;
+  }
+
+  .xl\:su-place-content-between{
+    place-content: space-between;
+  }
+
+  .xl\:su-place-content-around{
+    place-content: space-around;
+  }
+
+  .xl\:su-place-content-evenly{
+    place-content: space-evenly;
+  }
+
+  .xl\:su-place-content-stretch{
+    place-content: stretch;
+  }
+
+  .xl\:su-place-self-auto{
+    place-self: auto;
+  }
+
+  .xl\:su-place-self-start{
+    place-self: start;
+  }
+
+  .xl\:su-place-self-end{
+    place-self: end;
+  }
+
+  .xl\:su-place-self-center{
+    place-self: center;
+  }
+
+  .xl\:su-place-self-stretch{
+    place-self: stretch;
+  }
+
   .xl\:su-items-start{
     -webkit-box-align: start;
         -ms-flex-align: start;
@@ -68790,6 +69455,36 @@ table tbody th{
             align-items: stretch;
   }
 
+  .xl\:su-content-center{
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+
+  .xl\:su-content-start{
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
+  }
+
+  .xl\:su-content-end{
+    -ms-flex-line-pack: end;
+        align-content: flex-end;
+  }
+
+  .xl\:su-content-between{
+    -ms-flex-line-pack: justify;
+        align-content: space-between;
+  }
+
+  .xl\:su-content-around{
+    -ms-flex-line-pack: distribute;
+        align-content: space-around;
+  }
+
+  .xl\:su-content-evenly{
+    -ms-flex-line-pack: space-evenly;
+        align-content: space-evenly;
+  }
+
   .xl\:su-self-auto{
     -ms-flex-item-align: auto;
         align-self: auto;
@@ -68813,6 +69508,26 @@ table tbody th{
   .xl\:su-self-stretch{
     -ms-flex-item-align: stretch;
         align-self: stretch;
+  }
+
+  .xl\:su-justify-items-auto{
+    justify-items: auto;
+  }
+
+  .xl\:su-justify-items-start{
+    justify-items: start;
+  }
+
+  .xl\:su-justify-items-end{
+    justify-items: end;
+  }
+
+  .xl\:su-justify-items-center{
+    justify-items: center;
+  }
+
+  .xl\:su-justify-items-stretch{
+    justify-items: stretch;
   }
 
   .xl\:su-justify-start{
@@ -68850,29 +69565,24 @@ table tbody th{
             justify-content: space-evenly;
   }
 
-  .xl\:su-content-center{
-    -ms-flex-line-pack: center;
-        align-content: center;
+  .xl\:su-justify-self-auto{
+    justify-self: auto;
   }
 
-  .xl\:su-content-start{
-    -ms-flex-line-pack: start;
-        align-content: flex-start;
+  .xl\:su-justify-self-start{
+    justify-self: start;
   }
 
-  .xl\:su-content-end{
-    -ms-flex-line-pack: end;
-        align-content: flex-end;
+  .xl\:su-justify-self-end{
+    justify-self: end;
   }
 
-  .xl\:su-content-between{
-    -ms-flex-line-pack: justify;
-        align-content: space-between;
+  .xl\:su-justify-self-center{
+    justify-self: center;
   }
 
-  .xl\:su-content-around{
-    -ms-flex-line-pack: distribute;
-        align-content: space-around;
+  .xl\:su-justify-self-stretch{
+    justify-self: stretch;
   }
 
   .xl\:su-flex-1{
@@ -72796,6 +73506,51 @@ table tbody th{
     text-decoration: none;
   }
 
+  .xl\:su-ordinal, .xl\:su-slashed-zero, .xl\:su-lining-nums, .xl\:su-oldstyle-nums, .xl\:su-proportional-nums, .xl\:su-tabular-nums, .xl\:su-diagonal-fractions, .xl\:su-stacked-fractions{
+    --font-variant-numeric-ordinal: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-slashed-zero: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-figure: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-spacing: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-fraction: var(--tailwind-empty,/*!*/ /*!*/);
+    font-variant-numeric: var(--font-variant-numeric-ordinal) var(--font-variant-numeric-slashed-zero) var(--font-variant-numeric-figure) var(--font-variant-numeric-spacing) var(--font-variant-numeric-fraction);
+  }
+
+  .xl\:su-normal-nums{
+    font-variant-numeric: normal;
+  }
+
+  .xl\:su-ordinal{
+    --font-variant-numeric-ordinal: ordinal;
+  }
+
+  .xl\:su-slashed-zero{
+    --font-variant-numeric-slashed-zero: slashed-zero;
+  }
+
+  .xl\:su-lining-nums{
+    --font-variant-numeric-figure: lining-nums;
+  }
+
+  .xl\:su-oldstyle-nums{
+    --font-variant-numeric-figure: oldstyle-nums;
+  }
+
+  .xl\:su-proportional-nums{
+    --font-variant-numeric-spacing: proportional-nums;
+  }
+
+  .xl\:su-tabular-nums{
+    --font-variant-numeric-spacing: tabular-nums;
+  }
+
+  .xl\:su-diagonal-fractions{
+    --font-variant-numeric-fraction: diagonal-fractions;
+  }
+
+  .xl\:su-stacked-fractions{
+    --font-variant-numeric-fraction: stacked-fractions;
+  }
+
   .xl\:su-tracking-tighter{
     letter-spacing: -0.05em;
   }
@@ -73159,34 +73914,6 @@ table tbody th{
     gap: 48px;
   }
 
-  .xl\:su-col-gap-xs{
-    grid-column-gap: 20px;
-    -webkit-column-gap: 20px;
-       -moz-column-gap: 20px;
-            column-gap: 20px;
-  }
-
-  .xl\:su-col-gap-lg{
-    grid-column-gap: 36px;
-    -webkit-column-gap: 36px;
-       -moz-column-gap: 36px;
-            column-gap: 36px;
-  }
-
-  .xl\:su-col-gap-xl{
-    grid-column-gap: 40px;
-    -webkit-column-gap: 40px;
-       -moz-column-gap: 40px;
-            column-gap: 40px;
-  }
-
-  .xl\:su-col-gap-2xl{
-    grid-column-gap: 48px;
-    -webkit-column-gap: 48px;
-       -moz-column-gap: 48px;
-            column-gap: 48px;
-  }
-
   .xl\:su-gap-x-xs{
     grid-column-gap: 20px;
     -webkit-column-gap: 20px;
@@ -73213,26 +73940,6 @@ table tbody th{
     -webkit-column-gap: 48px;
        -moz-column-gap: 48px;
             column-gap: 48px;
-  }
-
-  .xl\:su-row-gap-xs{
-    grid-row-gap: 20px;
-    row-gap: 20px;
-  }
-
-  .xl\:su-row-gap-lg{
-    grid-row-gap: 36px;
-    row-gap: 36px;
-  }
-
-  .xl\:su-row-gap-xl{
-    grid-row-gap: 40px;
-    row-gap: 40px;
-  }
-
-  .xl\:su-row-gap-2xl{
-    grid-row-gap: 48px;
-    row-gap: 48px;
   }
 
   .xl\:su-gap-y-xs{
@@ -75241,31 +75948,6 @@ table tbody th{
   .xl\:su-delay-1000{
     -webkit-transition-delay: 1000ms;
             transition-delay: 1000ms;
-  }
-
-  .xl\:su-animate-none{
-    -webkit-animation: none;
-            animation: none;
-  }
-
-  .xl\:su-animate-spin{
-    -webkit-animation: spin 1s linear infinite;
-            animation: spin 1s linear infinite;
-  }
-
-  .xl\:su-animate-ping{
-    -webkit-animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-            animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-  }
-
-  .xl\:su-animate-pulse{
-    -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .xl\:su-animate-bounce{
-    -webkit-animation: bounce 1s infinite;
-            animation: bounce 1s infinite;
   }
 
   .xl\:su-aspect-ratio-none{
@@ -81423,6 +82105,74 @@ table tbody th{
         flex-wrap: nowrap;
   }
 
+  .\32xl\:su-place-items-auto{
+    place-items: auto;
+  }
+
+  .\32xl\:su-place-items-start{
+    place-items: start;
+  }
+
+  .\32xl\:su-place-items-end{
+    place-items: end;
+  }
+
+  .\32xl\:su-place-items-center{
+    place-items: center;
+  }
+
+  .\32xl\:su-place-items-stretch{
+    place-items: stretch;
+  }
+
+  .\32xl\:su-place-content-center{
+    place-content: center;
+  }
+
+  .\32xl\:su-place-content-start{
+    place-content: start;
+  }
+
+  .\32xl\:su-place-content-end{
+    place-content: end;
+  }
+
+  .\32xl\:su-place-content-between{
+    place-content: space-between;
+  }
+
+  .\32xl\:su-place-content-around{
+    place-content: space-around;
+  }
+
+  .\32xl\:su-place-content-evenly{
+    place-content: space-evenly;
+  }
+
+  .\32xl\:su-place-content-stretch{
+    place-content: stretch;
+  }
+
+  .\32xl\:su-place-self-auto{
+    place-self: auto;
+  }
+
+  .\32xl\:su-place-self-start{
+    place-self: start;
+  }
+
+  .\32xl\:su-place-self-end{
+    place-self: end;
+  }
+
+  .\32xl\:su-place-self-center{
+    place-self: center;
+  }
+
+  .\32xl\:su-place-self-stretch{
+    place-self: stretch;
+  }
+
   .\32xl\:su-items-start{
     -webkit-box-align: start;
         -ms-flex-align: start;
@@ -81453,6 +82203,36 @@ table tbody th{
             align-items: stretch;
   }
 
+  .\32xl\:su-content-center{
+    -ms-flex-line-pack: center;
+        align-content: center;
+  }
+
+  .\32xl\:su-content-start{
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
+  }
+
+  .\32xl\:su-content-end{
+    -ms-flex-line-pack: end;
+        align-content: flex-end;
+  }
+
+  .\32xl\:su-content-between{
+    -ms-flex-line-pack: justify;
+        align-content: space-between;
+  }
+
+  .\32xl\:su-content-around{
+    -ms-flex-line-pack: distribute;
+        align-content: space-around;
+  }
+
+  .\32xl\:su-content-evenly{
+    -ms-flex-line-pack: space-evenly;
+        align-content: space-evenly;
+  }
+
   .\32xl\:su-self-auto{
     -ms-flex-item-align: auto;
         align-self: auto;
@@ -81476,6 +82256,26 @@ table tbody th{
   .\32xl\:su-self-stretch{
     -ms-flex-item-align: stretch;
         align-self: stretch;
+  }
+
+  .\32xl\:su-justify-items-auto{
+    justify-items: auto;
+  }
+
+  .\32xl\:su-justify-items-start{
+    justify-items: start;
+  }
+
+  .\32xl\:su-justify-items-end{
+    justify-items: end;
+  }
+
+  .\32xl\:su-justify-items-center{
+    justify-items: center;
+  }
+
+  .\32xl\:su-justify-items-stretch{
+    justify-items: stretch;
   }
 
   .\32xl\:su-justify-start{
@@ -81513,29 +82313,24 @@ table tbody th{
             justify-content: space-evenly;
   }
 
-  .\32xl\:su-content-center{
-    -ms-flex-line-pack: center;
-        align-content: center;
+  .\32xl\:su-justify-self-auto{
+    justify-self: auto;
   }
 
-  .\32xl\:su-content-start{
-    -ms-flex-line-pack: start;
-        align-content: flex-start;
+  .\32xl\:su-justify-self-start{
+    justify-self: start;
   }
 
-  .\32xl\:su-content-end{
-    -ms-flex-line-pack: end;
-        align-content: flex-end;
+  .\32xl\:su-justify-self-end{
+    justify-self: end;
   }
 
-  .\32xl\:su-content-between{
-    -ms-flex-line-pack: justify;
-        align-content: space-between;
+  .\32xl\:su-justify-self-center{
+    justify-self: center;
   }
 
-  .\32xl\:su-content-around{
-    -ms-flex-line-pack: distribute;
-        align-content: space-around;
+  .\32xl\:su-justify-self-stretch{
+    justify-self: stretch;
   }
 
   .\32xl\:su-flex-1{
@@ -85459,6 +86254,51 @@ table tbody th{
     text-decoration: none;
   }
 
+  .\32xl\:su-ordinal, .\32xl\:su-slashed-zero, .\32xl\:su-lining-nums, .\32xl\:su-oldstyle-nums, .\32xl\:su-proportional-nums, .\32xl\:su-tabular-nums, .\32xl\:su-diagonal-fractions, .\32xl\:su-stacked-fractions{
+    --font-variant-numeric-ordinal: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-slashed-zero: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-figure: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-spacing: var(--tailwind-empty,/*!*/ /*!*/);
+    --font-variant-numeric-fraction: var(--tailwind-empty,/*!*/ /*!*/);
+    font-variant-numeric: var(--font-variant-numeric-ordinal) var(--font-variant-numeric-slashed-zero) var(--font-variant-numeric-figure) var(--font-variant-numeric-spacing) var(--font-variant-numeric-fraction);
+  }
+
+  .\32xl\:su-normal-nums{
+    font-variant-numeric: normal;
+  }
+
+  .\32xl\:su-ordinal{
+    --font-variant-numeric-ordinal: ordinal;
+  }
+
+  .\32xl\:su-slashed-zero{
+    --font-variant-numeric-slashed-zero: slashed-zero;
+  }
+
+  .\32xl\:su-lining-nums{
+    --font-variant-numeric-figure: lining-nums;
+  }
+
+  .\32xl\:su-oldstyle-nums{
+    --font-variant-numeric-figure: oldstyle-nums;
+  }
+
+  .\32xl\:su-proportional-nums{
+    --font-variant-numeric-spacing: proportional-nums;
+  }
+
+  .\32xl\:su-tabular-nums{
+    --font-variant-numeric-spacing: tabular-nums;
+  }
+
+  .\32xl\:su-diagonal-fractions{
+    --font-variant-numeric-fraction: diagonal-fractions;
+  }
+
+  .\32xl\:su-stacked-fractions{
+    --font-variant-numeric-fraction: stacked-fractions;
+  }
+
   .\32xl\:su-tracking-tighter{
     letter-spacing: -0.05em;
   }
@@ -85822,34 +86662,6 @@ table tbody th{
     gap: 48px;
   }
 
-  .\32xl\:su-col-gap-xs{
-    grid-column-gap: 20px;
-    -webkit-column-gap: 20px;
-       -moz-column-gap: 20px;
-            column-gap: 20px;
-  }
-
-  .\32xl\:su-col-gap-lg{
-    grid-column-gap: 36px;
-    -webkit-column-gap: 36px;
-       -moz-column-gap: 36px;
-            column-gap: 36px;
-  }
-
-  .\32xl\:su-col-gap-xl{
-    grid-column-gap: 40px;
-    -webkit-column-gap: 40px;
-       -moz-column-gap: 40px;
-            column-gap: 40px;
-  }
-
-  .\32xl\:su-col-gap-2xl{
-    grid-column-gap: 48px;
-    -webkit-column-gap: 48px;
-       -moz-column-gap: 48px;
-            column-gap: 48px;
-  }
-
   .\32xl\:su-gap-x-xs{
     grid-column-gap: 20px;
     -webkit-column-gap: 20px;
@@ -85876,26 +86688,6 @@ table tbody th{
     -webkit-column-gap: 48px;
        -moz-column-gap: 48px;
             column-gap: 48px;
-  }
-
-  .\32xl\:su-row-gap-xs{
-    grid-row-gap: 20px;
-    row-gap: 20px;
-  }
-
-  .\32xl\:su-row-gap-lg{
-    grid-row-gap: 36px;
-    row-gap: 36px;
-  }
-
-  .\32xl\:su-row-gap-xl{
-    grid-row-gap: 40px;
-    row-gap: 40px;
-  }
-
-  .\32xl\:su-row-gap-2xl{
-    grid-row-gap: 48px;
-    row-gap: 48px;
   }
 
   .\32xl\:su-gap-y-xs{
@@ -87904,31 +88696,6 @@ table tbody th{
   .\32xl\:su-delay-1000{
     -webkit-transition-delay: 1000ms;
             transition-delay: 1000ms;
-  }
-
-  .\32xl\:su-animate-none{
-    -webkit-animation: none;
-            animation: none;
-  }
-
-  .\32xl\:su-animate-spin{
-    -webkit-animation: spin 1s linear infinite;
-            animation: spin 1s linear infinite;
-  }
-
-  .\32xl\:su-animate-ping{
-    -webkit-animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-            animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-  }
-
-  .\32xl\:su-animate-pulse{
-    -webkit-animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
-
-  .\32xl\:su-animate-bounce{
-    -webkit-animation: bounce 1s infinite;
-            animation: bounce 1s infinite;
   }
 
   .\32xl\:su-aspect-ratio-none{
