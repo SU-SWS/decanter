@@ -18,7 +18,7 @@ module.exports = function () {
 
     const newUtilities = {
       // Center an element horizontally.
-      '.centered-container': {
+      '.centered-container, .cc': {
         marginLeft: 'auto',
         marginRight: 'auto',
         ...padding,
