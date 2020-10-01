@@ -225,7 +225,7 @@ module.exports = function () {
             background: config('theme.colors.white'),
             borderRadius: '3px',
             boxShadow: '0 0 0 1px ' + config('theme.colors.fog.dark'),
-            content: '"\a0"',
+            content: '""',
             display: 'inline-block',
             height: '1.8rem',
             lineHeight: '1.8rem',
@@ -241,6 +241,15 @@ module.exports = function () {
           '+ label::before': {
             backgroundColor: config('theme.colors.digital-red.default'),
             boxShadow: '0 0 0 1px ' + config('theme.colors.digital-red.default'),
+          },
+        },
+      },
+      '[type="checkbox"]': {
+        '&:checked': {
+          '+ label::before': {
+            backgroundColor: 'transparent',
+            color: config('theme.colors.digital-red.default'),
+            content: "'\\2713'",
           },
         },
       },
