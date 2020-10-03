@@ -14,6 +14,12 @@
  * - modifier_class: Additional css classes to change look and behaviour.
  */
 #}
+{% if external_link_text is empty -%}
+  {%- set external_link_text -%}
+    <span class="su-brand-bar__link--a11y">(link is external)</span>
+  {% endset %}
+{%- endif %}
+
 <div class="su-brand-bar {{ modifier_class }}">
-  <div class="su-brand-bar__container"><a {{ attributes }} class="su-brand-bar__logo" href="https://stanford.edu">Stanford University</a></div>
+  <div class="su-brand-bar__container"><a {{ attributes }} class="su-brand-bar__logo" href="https://stanford.edu">Stanford University{{ external_link_text }}</a></div>
 </div>

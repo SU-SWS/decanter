@@ -2,17 +2,46 @@
 
 // Error alert.
 .su-alert--error {
-  background-color: color(error, $su-alert-colors);
-  background-image: url("#{$su-image-path}/alert-error.png");
-  background-image: url("#{$su-image-path}/alert-error.svg");
-  color: color(light-text, $su-alert-colors);
+  background-color: $su-color-bright-red;
+  color: $su-color-white;
 
   a {
-    color: color(light-text, $su-alert-colors);
+    color: $su-color-white;
 
     &:hover,
     &:focus {
-      color: color(light-hover, $su-alert-colors);
+      text-decoration: underline;
+    }
+
+    &.su-button,
+    &.su-button--secondary {
+      @include button-secondary;
+
+      background-color: $su-color-bright-red;
+      box-shadow: $su-button-stroke $su-color-white;
+      color: $su-color-white;
+
+      &:hover,
+      &:focus {
+        background-color: $su-color-bright-red;
+        box-shadow: $su-button-stroke $su-color-white;
+        color: $su-color-white;
+      }
+    }
+
+    &.su-button--big {
+      @include button-big;
+
+      background-color: $su-color-bright-red;
+      box-shadow: $su-button-stroke $su-color-white;
+      color: $su-color-white;
+
+      &:hover,
+      &:focus {
+        background-color: $su-color-bright-red;
+        box-shadow: $su-button-stroke $su-color-white;
+        color: $su-color-white;
+      }
     }
   }
 }
