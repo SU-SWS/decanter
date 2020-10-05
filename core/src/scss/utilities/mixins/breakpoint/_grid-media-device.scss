@@ -9,7 +9,12 @@
 ///
 /// @group mixin
 @mixin grid-media-device($breakpoint: 'tablet') {
-  @media #{map-get($su-grid-device, $breakpoint)} {
+  @if $breakpoint == 'mobile' {
     @content;
+  }
+  @else {
+    @media #{map-get($su-grid-device, $breakpoint)} {
+      @content;
+    }
   }
 }
