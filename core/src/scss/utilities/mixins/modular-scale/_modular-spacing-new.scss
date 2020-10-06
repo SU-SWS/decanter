@@ -16,7 +16,9 @@
 ///   @include modular-spacing-new('padding', 2 null);
 ///   @include modular-spacing-new('margin', 0 -4 1 2);
 ///
+/// @param {string} $type  Spacing type, either 'padding' or 'margin'.
 /// @param {list} $steps - List (1 to 4 values): Either integer (from -4 to 10 including 0) or null. Follows the shorthand notation of padding/margin. Use null to skip a side. A value of 0 returns the modular spacing base value for that breakpoint.
+/// @param {map} $grid - Breakpoint device sass map. Defaults to $su-grid-device.
 ///
 /// @group mixin
 @mixin modular-spacing-new($type: 'padding', $steps: 0, $grid: $su-grid-device) {
