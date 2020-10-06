@@ -12,7 +12,7 @@
 @function get-modular-spacing-value($step: 0, $device: 'desktop') {
   $value: map-deep-get($su-modular-spacing-map, $step, $device);
   @if ($step < -4 and $step > 10) {
-    @warn 'Modular spacing step value must be an integer between -4 and 10.';
+    @error 'Modular spacing step value must be an integer between -4 and 10.';
   }
   @if $value == null {
     @warn 'Could not find this spacing value in the $su-modular-spacing-map. Check the parameters.';
