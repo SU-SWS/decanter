@@ -11,33 +11,38 @@
 {% if template_path_logo is empty -%}
   {%- set template_path_logo = "@decanter/components/logo/logo.twig" -%}
 {%- endif %}
+{% if external_link_text is empty -%}
+  {%- set external_link_text -%}
+    <span class="su-global-footer__link-a11y">(link is external)</span>
+  {% endset %}
+{%- endif %}
 
-<section class="su-global-footer {{ modifier_class }}">
-  <div class="su-global-footer__container">
+<div class="su-global-footer {{ modifier_class }}">
+  <div class="su-global-footer__container" title="Common Stanford resources">
     <div class="su-global-footer__brand">
       {%- include template_path_logo -%}
     </div>
     <div class="su-global-footer__content">
       <nav aria-label="global footer menu">
         <ul class="su-global-footer__menu su-global-footer__menu--global">
-          <li><a href="https://www.stanford.edu">Stanford Home</a></li>
-          <li><a href="https://visit.stanford.edu/plan/">Maps &amp; Directions</a></li>
-          <li><a href="https://www.stanford.edu/search/">Search Stanford</a></li>
-          <li><a href="https://emergency.stanford.edu">Emergency Info</a></li>
+          <li><a href="https://www.stanford.edu">Stanford Home{{ external_link_text }}</a></li>
+          <li><a href="https://visit.stanford.edu/plan/">Maps &amp; Directions{{ external_link_text }}</a></li>
+          <li><a href="https://www.stanford.edu/search/">Search Stanford{{ external_link_text }}</a></li>
+          <li><a href="https://emergency.stanford.edu">Emergency Info{{ external_link_text }}</a></li>
         </ul>
         <ul class="su-global-footer__menu su-global-footer__menu--policy">
           <li><a href="https://www.stanford.edu/site/terms/"
-                 title="Terms of use for sites">Terms of Use</a></li>
+                 title="Terms of use for sites">Terms of Use{{ external_link_text }}</a></li>
           <li><a href="https://www.stanford.edu/site/privacy/"
-                 title="Privacy and cookie policy">Privacy</a></li>
+                 title="Privacy and cookie policy">Privacy{{ external_link_text }}</a></li>
           <li><a href="https://uit.stanford.edu/security/copyright-infringement"
-                 title="Report alleged copyright infringement">Copyright</a></li>
+                 title="Report alleged copyright infringement">Copyright{{ external_link_text }}</a></li>
           <li><a href="https://adminguide.stanford.edu/chapter-1/subchapter-5/policy-1-5-4"
-                 title="Ownership and use of Stanford trademarks and images">Trademarks</a></li>
+                 title="Ownership and use of Stanford trademarks and images">Trademarks{{ external_link_text }}</a></li>
           <li><a href="http://exploredegrees.stanford.edu/nonacademicregulations/nondiscrimination/"
-                 title="Non-discrimination policy">Non-Discrimination</a></li>
+                 title="Non-discrimination policy">Non-Discrimination{{ external_link_text }}</a></li>
           <li><a href="https://www.stanford.edu/site/accessibility"
-                 title="Report web accessibility issues">Accessibility</a></li>
+                 title="Report web accessibility issues">Accessibility{{ external_link_text }}</a></li>
         </ul>
       </nav>
       <div class="su-global-footer__copyright">
@@ -46,4 +51,4 @@
       </div>
     </div>
   </div>
-</section> <!-- su-global-footer end -->
+</div> <!-- su-global-footer end -->

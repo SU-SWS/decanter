@@ -1,5 +1,41 @@
 # Changelog
 
+Version 6.1.3                      2020-09-23
+---------------------------------------------
+
+- D8CORE-2536: adding aria-label (#716)
+- D8CORE-2652: adding styles to the alerts for buttons (#732)
+- D8CORE-2529: if there is a link but no content set the link to null (#756)
+- Change vendor imports to use the ~ convention. (#759)
+
+Version 6.1.2                      2020-09-09
+---------------------------------------------
+- D8CORE-2630: Alert link accessibility fixes for color contrast (#731)
+
+Version 6.1.1                      2020-09-03
+---------------------------------------------
+- D8CORE-2376: Local Footer Lockup Overrides (#729)
+- D8CORE-2630: Updating the alert basic link hover colors and underline for accessibility (#730)
+
+Version 6.1.0                      2020-09-01
+---------------------------------------------
+- Updates to all NPM packages and dependencies
+- New nvm version requirement setting at 14.8.0
+- D8CORE-2490: All new refactored alert component
+- D8CORE-2544: Link is external A11y changes to brandbar
+- D8CORE-1403: A11y changes to footer
+- Add search_input_id variable for masthead search box template
+- Minor semantic changes to template tags.
+
+Version 6.0.6                      2020-05-27
+---------------------------------------------
+- Fixes a typo in the grid-media-min comments (#641)
+- Create CODE_OF_CONDUCT.md (#676)
+- Removed conflicting background styles on checkboxes (#644)
+- DECANTER-193: Accordion/FAQ and development environment. (#642)
+- Add aria-expanded="false" to main nav parent links in the twig template (#681)
+- D8CORE-1632: Add variables to quote template (#678)
+
 Version 6.0.5                      2020-02-27
 ---------------------------------------------
 - D8CORE-1329: removed the width 100% for xs breakpoint with buttons. (#631)

@@ -36,7 +36,7 @@
                 {% set the_attrs = the_attrs ~ ' ' ~ pair.attr ~ '="' ~ pair.value ~ '"' %}
               {% endfor -%}
             {% endif -%}
-            <a href="{{ item.href }}" {{ the_attrs }}>{{ item.text }}</a>
+            <a href="{{ item.href }}" {{ the_attrs }} {% if is_parent %}aria-expanded="false"{% endif %}>{{ item.text }}</a>
             {%- if is_parent -%}
               <ul class="su-main-nav__menu-lv2">
                 {%- for item_lv2 in item.lv2 -%}

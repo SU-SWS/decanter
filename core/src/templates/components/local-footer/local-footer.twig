@@ -83,7 +83,9 @@
   {% if lockup_title is not empty or weblogin_url is not empty or headercontent is not empty %}
   <div class="su-local-footer__header">
     {# Lockup template. Set usually to option-a #}
-    {% include template_path_lockup with lockup_options %}
+    {% block block_lockup %}
+      {% include template_path_lockup with lockup_options %}
+    {% endblock %}
     {# Web login button #}
     {% if weblogin_url is not empty %}
       {% include template_path_link with {
@@ -101,7 +103,7 @@
     responsive behaviour so they are not optional. Empty cells will still
     render and create whitespace.
   #}
-  <section class="su-local-footer__columns">
+  <div class="su-local-footer__columns">
     {# Content Cell 1 - For action and social media links. #}
     <div class="su-local-footer__cell1">
       {# Twig block for you to extend with #}
@@ -111,6 +113,7 @@
         Use the `cell1` variable instead.
       #}
       {% if address|render|striptags|trim is not empty %}
+      <h2 class="su-sr-only-element">Address</h2>
       <address class="su-local-footer__address">
         {{ address }}
       </address>
@@ -203,5 +206,5 @@
       {# If you want to provide all of our own markup use the cell3 var. #}
       {{ cell3 }}
     </div>
-  </section>
+  </div>
 </div>
