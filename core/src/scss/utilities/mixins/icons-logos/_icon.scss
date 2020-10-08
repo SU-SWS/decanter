@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+///
+/// Display an icon using the :before on an element. If needs to be part of a link, consider using the link-icon instead.
+///
+/// @name icon
+///
+/// @param {string} $icon  - Basename of link icon .svg file (without the .svg suffix).
+/// @param {string} $width  - Width of icon including unit, e.g. 0.75em, 24px.
+/// @param {string} $vertical  - Adjustment of vertical position of icon, e.g., '2px' moves icon up 2 pixels, '-0.3em' moves it down 0.3 em.
+/// @param {string} $icon_path  - Path to where the icon lives. Defaults to $su-image-path.
+///
+/// @group mixin
+@mixin icon($icon, $width: 0.65em, $vertical: null, $icon-path: $su-image-path) {
+  text-decoration: none;
+  @supports (mask-repeat: no-repeat) {
+    &::before {
+      @include margin(null 0.3em $vertical 0.4em);
+      @include size($width);
+      display: inline-block;
+      content: '';
+      mask: url("#{$icon-path}/#{$icon}.svg") no-repeat 0 0;
+      mask-size: contain;
+      background-color: $su-color-black;
+    }
+  }
+}
