@@ -1,0 +1,28 @@
+{#
+/**
+ * @file
+ * Alert Component.
+ *
+ * Component for displaying a notification that keeps people informed of a
+ * status, or for displaying a validation message that alerts someone of an
+ * important piece of information. It has five variants:
+ *   - Default: Black text with gray background with no icon
+ *
+ * Available variables:
+ * - attributes: For additional HTML attributes not already provided.
+ * - modifier_class: Additional css classes to change look and behaviour.
+ * - alert_header: Text heading.
+ * - alert_text: Text details of the alert message.
+ */
+#}
+
+<div {{ attributes }} class="su-alert flex-container {{ modifier_class -}}">
+  <div class="flex-12-of-12">
+    {% if alert_header is not empty %}
+    <h3 class="">{{ alert_header }}</h3>
+    {% endif %}
+    {% if alert_text is not empty %}
+    <p class="">{{ alert_text }}</p>
+    {% endif %}
+  </div>
+</div>
