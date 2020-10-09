@@ -4,9 +4,9 @@
 /// Responsive Spacing
 /// A mixin for adding spacing (margin or padding) between elements or between an
 /// element and the edge of its container. The amount of spacing is returned
-/// based on a curated scale that is finetuned for 3 different breakpoint ranges (Mobile: XS-SM, Tablet(and small desktop): MD-XL, Desktop: 2XL).
-/// Please see core/scss/utilities/variables/core/_responsive-spacing.scss for
-/// variable maps.
+/// based on curated values that are finetuned for 3 breakpoint ranges
+/// (Mobile: XS-SM, Tablet(and small desktop): MD-XL, Desktop: 2XL).
+/// Please see core/scss/utilities/variables/core/_responsive-spacing.scss for the variable map.
 ///
 /// @name responsive-spacing
 ///
@@ -15,7 +15,7 @@
 ///   @include responsive-spacing('margin', 0 -4 1 2);
 ///
 /// @param {string} $type  Spacing type, either 'padding' or 'margin'.
-/// @param {list} $steps - List (1 to 4 values): Either integer (from -4 to 10 including 0) or null. Follows the shorthand notation of padding/margin. Use null to skip a side. A value of 0 returns the modular spacing base value for that breakpoint.
+/// @param {list} $steps - List (1 to 4 values): Either integer (from -2 to 10 including 0) or null. Follows the shorthand notation of padding/margin. Use null to skip a side.
 /// @param {map} $grid - Breakpoint device sass map. Defaults to $su-grid-device.
 ///
 /// @group mixin
