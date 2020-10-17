@@ -3,14 +3,13 @@
 ////
 /// Colors
 ///
-/// Default color palette. Primary colors include Cardinal Red, White, Cool Grey,
-/// and Black. All other colors are supporting colors.
+/// Default Stanford University color palette. Primary colors include Cardinal Red, White, Cool Grey,
+/// and Black. Also include accent colors and colors for digital use only.
 /// See complete color palette at
-/// http://identity.stanford.edu/color.html#digital-color.
+/// https://identity.stanford.edu/design-elements/color/
 ///
 /// @group variable
 ////
-
 
 ///
 /// @name $su-color-cardinal-red
@@ -23,7 +22,6 @@ $su-color-cardinal-red: #8c1515 !default;
 ///
 /// @group variable
 $su-color-cardinal-red-light: #B83A4B !default;
-
 
 ///
 /// @name $su-color-cardinal-red-dark
@@ -42,6 +40,12 @@ $su-color-white: #ffffff !default;
 ///
 /// @group variable
 $su-color-black: #2e2d29 !default;
+
+///
+/// @name $su-color-black-true
+///
+/// @group variable
+$su-color-black-true: #000 !default;
 
 ///
 /// @name $su-color-black-90
@@ -210,10 +214,18 @@ $su-color-cloud: #dad7cb !default;
 $su-color-dark-red: #820000 !default;
 
 ///
+/// @name $su-color-fog-dark
+///
+/// @group variable
+$su-color-fog-dark: #b6b1a9 !default;
+
+///
 /// @name $su-color-driftwood
 ///
 /// @group variable
-$su-color-driftwood: #b6b1a9 !default;
+///
+/// @deprecated $su-color-fog-dark replaces $su-color-driftwood as the new variable name
+$su-color-driftwood: $su-color-fog-dark !default;
 
 ///
 /// @name $su-color-fog
