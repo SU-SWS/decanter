@@ -24,6 +24,7 @@ services:
           NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           cd styleguide
+          nvm install
           nvm use
           npm install "https://github.com/su-sws/decanter.git#${TUGBOAT_GITHUB_HEAD}" --save --force
           npm audit fix
