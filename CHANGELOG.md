@@ -4,7 +4,8 @@ Version 6.2.0                      2020-11-04
 ---------------------------------------------
 - Added responsive-spacing mixin to replace modular-spacing
 - Added deprecation notices for Noto-Sans and Kalam fonts
-
+- D8CORE-1261: Revised table styles. (#617)
+- D8CORE-1623: Adding a mixin and icons for `@include icon` (#690)
 
 Version 6.1.3                      2020-09-23
 ---------------------------------------------
