@@ -1,5 +1,11 @@
 # Changelog
 
+Version 6.2.0                      2020-11-04
+---------------------------------------------
+- Added responsive-spacing mixin to replace modular-spacing
+- Added deprecation notices for Noto-Sans and Kalam fonts
+
+
 Version 6.1.3                      2020-09-23
 ---------------------------------------------
 
@@ -139,7 +145,7 @@ Version 5.1.0                      2019-10-31
 - New Mixin: `link-glyph()`
 - New Mixin: `link-icon()`
 - New Function: `breakpoint-previous`
-- New Typography styles: 	
+- New Typography styles:
   -- `.su-type-a`: Display Type A (used for H1 heading)
   -- `.su-type-b`: Display Type B (used for H2 heading)
   -- `.su-type-c`: Display Type C (used for H3 heading)
