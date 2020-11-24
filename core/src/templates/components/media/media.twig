@@ -30,7 +30,7 @@
 #}
 
 {# Set link to null if there is no content to prevent an empty link #}
-{%- if media_link is not empty and media_image_src is empty and media_audio_src is empty and media_video_src is empty -%}
+{%- if media_image_src is empty and media_audio_src is empty and media_video_src is empty -%}
   {%- set media_link = false -%}
 {%- endif -%}
 
