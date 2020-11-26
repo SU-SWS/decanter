@@ -29,11 +29,6 @@
  */
 #}
 
-{# Set link to null if there is no content to prevent an empty link #}
-{%- if media_link is not empty and media_image_src is empty and media_audio_src is empty and media_video_src is empty -%}
-  {%- set media_link = false -%}
-{%- endif -%}
-
 <figure {{ attributes }} class="su-media {{ modifier_class }}">
   {# Option to make the media element a clickable link #}
   {%- if media_link %}
