@@ -4,7 +4,7 @@
  */
 module.exports = function () {
   return function ({ addComponents, theme, config }) {
-    const stanford = config('theme.fontFamily.stanford').join(', ');
+    const stanford = config('theme.fontFamily.stanford');
 
     const components = {
       '.logo': {
@@ -18,19 +18,19 @@ module.exports = function () {
         fontStyle: 'normal',
         fontVariant: 'normal',
         letterSpacing: '0',
-        color: theme('colors.cardinal-red.default'),
+        color: theme('colors.cardinal-red.DEFAULT'),
         fontFeatureSettings: '"liga" 1',
         fontVariantLigatures: 'discretionary-ligatures',
         '-webkit-font-smoothing': 'antialiased',
         '-moz-osx-font-smoothing': 'grayscale',
         '&:active': {
-          color: theme('colors.cardinal-red.default'),
+          color: theme('colors.cardinal-red.DEFAULT'),
         },
         '&:focus': {
-          color: theme('colors.cardinal-red.default'),
+          color: theme('colors.cardinal-red.DEFAULT'),
         },
         '&:hover': {
-          color: theme('colors.cardinal-red.default'),
+          color: theme('colors.cardinal-red.DEFAULT'),
         },
       },
     }

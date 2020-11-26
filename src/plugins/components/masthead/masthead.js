@@ -9,7 +9,7 @@ module.exports = function () {
         position: 'relative',
         maxWidth: '100%',
         backgroundColor: theme('colors.white'),
-        boxShadow: theme('boxShadow.default'),
+        boxShadow: theme('boxShadow.DEFAULT'),
         '> div:last-child': {
           paddingTop: '2.31rem', // Todo: modular-spacing later
           '@screen md': {

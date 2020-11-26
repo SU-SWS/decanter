@@ -36,7 +36,7 @@ module.exports = function () {
             paddingBottom: '0',
             maxWidth: '160px',
             minHeight: '32px',
-            borderRight: '1px solid ' + theme('colors.black.default'),
+            borderRight: '1px solid ' + theme('colors.black.DEFAULT'),
           },
         },
         '&__cell2': {
@@ -44,13 +44,13 @@ module.exports = function () {
             paddingTop: '0',
             paddingLeft: '7px',
             alignSelf: 'flex-end',
-            borderLeft: '1px solid ' + theme('colors.black.default'),
+            borderLeft: '1px solid ' + theme('colors.black.DEFAULT'),
             flexGrow: '1',
             verticalAlign: 'bottom',
           },
         },
         '.logo': {
-          color: theme('colors.cardinal-red.default'),
+          color: theme('colors.cardinal-red.DEFAULT'),
           fontSize: '36px',
           lineHeight: '17px',
           verticalAlign: 'bottom',
@@ -69,7 +69,7 @@ module.exports = function () {
         },
         '&__line1, &__line2, &__line3, &__line4, &__line5': {
           display: 'block',
-          color: theme('colors.black.default'),
+          color: theme('colors.black.DEFAULT'),
         },
         '&__line1': {
           fontSize: '2.6rem',

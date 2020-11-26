@@ -4,7 +4,7 @@
  */
 module.exports = function () {
   return function ({ addComponents, theme, config }) {
-    const sans = config('theme.fontFamily.sans').join(', ');
+    const sans = config('theme.fontFamily.sans');
 
     const button = {
       '.button': {
@@ -13,7 +13,7 @@ module.exports = function () {
         width: 'auto',
         border: 'none',
         cursor: 'pointer',
-        backgroundColor: theme('colors.digital-red.default'),
+        backgroundColor: theme('colors.digital-red.DEFAULT'),
         color: theme('colors.white'),
         textAlign: 'center',
         fontFamily: sans,
@@ -21,7 +21,7 @@ module.exports = function () {
         lineHeight: theme('lineHeight.none'),
         transition: 'background-color 0.25s ease-in-out, color 0.25s ease-in-out',
         '&:hover, &:focus, &:active': {
-          backgroundColor: theme('colors.black.default'),
+          backgroundColor: theme('colors.black.DEFAULT'),
           textDecoration: 'underline',
         },
       },
@@ -39,12 +39,12 @@ module.exports = function () {
       },
       '.button--secondary': {
         backgroundColor: theme('colors.white'),
-        color: theme('colors.digital-red.default'),
-        boxShadow: 'inset 0 0 0 2px ' + theme('colors.digital-red.default'),
+        color: theme('colors.digital-red.DEFAULT'),
+        boxShadow: 'inset 0 0 0 2px ' + theme('colors.digital-red.DEFAULT'),
         '&:hover, &:focus, &:active': {
           backgroundColor: theme('colors.white'),
-          color: theme('colors.black.default'),
-          boxShadow: 'inset 0 0 0 2px ' + theme('colors.black.default'),
+          color: theme('colors.black.DEFAULT'),
+          boxShadow: 'inset 0 0 0 2px ' + theme('colors.black.DEFAULT'),
         },
       },
     }

@@ -10,7 +10,7 @@ module.exports = function () {
         backgroundColor: theme('colors.fog.light'),
         backgroundRepeat: 'no-repeat',
         backgroundSize: '4rem',
-        color: theme('colors.black.default')
+        color: theme('colors.black.DEFAULT')
       },
       '.alert--info': {
         backgroundColor: theme('colors.sky.dark'),

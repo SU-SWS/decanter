@@ -18,7 +18,7 @@ module.exports = function () {
           fontSize: '1.6rem',
         },
         '&__input::placeholder': {
-          color: theme('colors.black.default'),
+          color: theme('colors.black.DEFAULT'),
           opacity: '1', // For Firefox
         },
         '&__submit': {

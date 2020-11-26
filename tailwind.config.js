@@ -90,15 +90,8 @@ module.exports = {
   // core utility plugin.
   // https://tailwindcss.com/docs/configuration/#variants
   variants: {
-    fontWeight: ['responsive'],
-    animation: ['hover', 'focus']
-  },
-
-  // Deprecations and handling.
-  // https://tailwindcss.com/docs/upcoming-changes
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
-
+    fontWeight: ['responsive', 'hover', 'focus'],
+    animation: ['hover', 'focus'],
+    extend: {},
+  }
 }

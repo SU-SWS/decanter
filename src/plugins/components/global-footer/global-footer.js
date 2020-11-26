@@ -6,7 +6,7 @@ module.exports = function () {
 
     const components = {
       '.global-footer': {
-        backgroundColor: theme('colors.cardinal-red.default'),
+        backgroundColor: theme('colors.cardinal-red.DEFAULT'),
         color: theme('colors.white'),
         paddingTop: '2.31rem',
         paddingBottom: '2.31rem', // Todo: modular-spacing later

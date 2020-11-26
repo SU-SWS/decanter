@@ -43,12 +43,7 @@ module.exports = {
           // Extract loader.
           {
             loader: MiniCssExtractPlugin.loader,
-            options: {
-              // only enable hot in development
-              hmr: process.env.NODE_ENV === 'development',
-              // if hmr does not work, this is a forceful method.
-              // reloadAll: true,
-            },
+            options: {},
           },
           // CSS Loader. Generate sourceMaps.
           {
@@ -62,13 +57,14 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              ident: 'postcss',
-              plugins: [
-                require('tailwindcss'),
-                require('postcss-import'),
-                require('postcss-nested'),
-                require('autoprefixer'),
-              ],
+              postcssOptions: {
+                plugins: [
+                  require('tailwindcss'),
+                  require('postcss-import'),
+                  require('postcss-nested'),
+                  require('autoprefixer'),
+                ],
+              },
             },
           },
         ],

@@ -3,7 +3,7 @@
  */
 module.exports = function () {
   return function ({ addComponents, theme, config }) {
-    const sans = config('theme.fontFamily.sans').join(', ');
+    const sans = config('theme.fontFamily.sans');
 
     const components = {
       '.skiplinks': {
@@ -12,7 +12,7 @@ module.exports = function () {
         },
         padding: '0',
         fontFamily: sans,
-        backgroundColor: theme('colors.black.default'),
+        backgroundColor: theme('colors.black.DEFAULT'),
         color: theme('colors.white'),
         fontSize: '0.75em',
         fontWeight: theme('fontWeight.regular'),
@@ -45,7 +45,7 @@ module.exports = function () {
           height: 'auto',
           width: 'auto',
           color: theme('colors.white'),
-          border: '1px solid ' + theme('colors.black.default'),
+          border: '1px solid ' + theme('colors.black.DEFAULT'),
           borderRadius: '3px',
           position: 'fixed',
           left: '.8em',
@@ -57,7 +57,7 @@ module.exports = function () {
           height: 'auto',
           width: 'auto',
           color: theme('colors.white'),
-          border: '1px solid ' + theme('colors.black.default'),
+          border: '1px solid ' + theme('colors.black.DEFAULT'),
           borderRadius: '3px',
           position: 'fixed',
           left: '.8em',

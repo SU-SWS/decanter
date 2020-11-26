@@ -21,7 +21,7 @@ module.exports = function () {
       width: '100%',
       border: '0.1rem solid ' + config('theme.colors.fog.dark'),
       borderRadius: '0',
-      color: config('theme.colors.black.default'),
+      color: config('theme.colors.black.DEFAULT'),
       fontSize: config('theme.decanter.base.baseFontSize'),
       height: '4.8rem',
       lineHeight: '1.3',
@@ -31,7 +31,7 @@ module.exports = function () {
     addBase({
       'html': {
         fontFamily: sans,
-        color: config('theme.colors.black.default'),
+        color: config('theme.colors.black.DEFAULT'),
         ...config('theme.decanter.base.fontSmoothing'),
         fontSize: config('theme.decanter.base.rootFontSize'),
         lineHeight: '1.15', // This is our original html line height using normalize
@@ -39,7 +39,7 @@ module.exports = function () {
       'body': {
         backgroundColor: config('theme.colors.white'),
         overflowX: 'hidden',
-        color: config('theme.colors.black.default'),
+        color: config('theme.colors.black.DEFAULT'),
         fontSize: '1.6rem',
         '@screen md': {
           fontSize: '1.8rem',
@@ -191,17 +191,17 @@ module.exports = function () {
         width: 'auto',
         transition: 'background-color 0.25s ease-in-out, color 0.25s ease-in-out',
         padding: '1rem 2rem 1.15rem',
-        backgroundColor: config('theme.colors.digital-red.default'),
+        backgroundColor: config('theme.colors.digital-red.DEFAULT'),
         color: config('theme.colors.white'),
         '&:active, &:hover, &:focus': {
           textDecoration: 'underline',
         },
         '&:hover, &:focus': {
-          backgroundColor: config('theme.colors.black.default'),
+          backgroundColor: config('theme.colors.black.DEFAULT'),
           color: config('theme.colors.white'),
         },
         '&:focus': {
-          boxShadow: config('theme.boxShadow.default'),
+          boxShadow: config('theme.boxShadow.DEFAULT'),
         },
       },
       // Checkbox and Radio Buttons.
@@ -239,8 +239,8 @@ module.exports = function () {
         // Checked styles.
         '&:checked': {
           '+ label::before': {
-            backgroundColor: config('theme.colors.digital-red.default'),
-            boxShadow: '0 0 0 1px ' + config('theme.colors.digital-red.default'),
+            backgroundColor: config('theme.colors.digital-red.DEFAULT'),
+            boxShadow: '0 0 0 1px ' + config('theme.colors.digital-red.DEFAULT'),
           },
         },
       },
@@ -248,7 +248,7 @@ module.exports = function () {
         '&:checked': {
           '+ label::before': {
             backgroundColor: 'transparent',
-            color: config('theme.colors.digital-red.default'),
+            color: config('theme.colors.digital-red.DEFAULT'),
             content: "'\\2713'",
           },
         },
@@ -257,12 +257,12 @@ module.exports = function () {
       '[type="radio"]': {
         '&:checked': {
           '+ label::before': {
-            boxShadow: '0 0 0 2px ' + config('theme.colors.white') + ', 0 0 0 4px ' + config('theme.colors.digital-red.default'),
+            boxShadow: '0 0 0 2px ' + config('theme.colors.white') + ', 0 0 0 4px ' + config('theme.colors.digital-red.DEFAULT'),
           },
         },
         '&:focus': {
           '+ label::before': {
-            boxShadow: '0 0 0 2px ' + config('theme.colors.white') + ', 0 0 0 4px ' + config('theme.colors.digital-red.default') + ', 0 0 3px 4px ' + config('theme.colors.black.default') + ', 0 0 7px 4px ' + config('theme.colors.black.default'),
+            boxShadow: '0 0 0 2px ' + config('theme.colors.white') + ', 0 0 0 4px ' + config('theme.colors.digital-red.DEFAULT') + ', 0 0 3px 4px ' + config('theme.colors.black.DEFAULT') + ', 0 0 7px 4px ' + config('theme.colors.black.DEFAULT'),
           },
         },
         '+ label': {
@@ -294,7 +294,7 @@ module.exports = function () {
         width: '100%',
       },
       '[type="range"]::-moz-range-track': {
-        background: config('theme.colors.cardinal-red.default'),
+        background: config('theme.colors.cardinal-red.DEFAULT'),
         border: '1px solid ' + config('theme.colors.fog.dark'),
         cursor: 'pointer',
         height: '1.2rem',
@@ -356,11 +356,11 @@ module.exports = function () {
       // LINKS
       // -----------------------------------------------------------------------
       'a': {
-        color: config('theme.colors.bright-blue.default'),
+        color: config('theme.colors.bright-blue.DEFAULT'),
         textDecoration: 'underline',
         fontWeight: config('theme.fontWeight.semibold'),
         '&:hover, &:focus, &:active': {
-          color: config('theme.colors.black.default')
+          color: config('theme.colors.black.DEFAULT')
         },
       },
       // LISTS
@@ -396,7 +396,7 @@ module.exports = function () {
         },
         'th': {
           backgroundColor: config('theme.colors.stone.light'),
-          color: config('theme.colors.black.default'),
+          color: config('theme.colors.black.DEFAULT'),
           fontWeight: config('theme.fontWeight.regular'),
           textAlign: 'left',
         },
