@@ -15,8 +15,7 @@ module.exports = function () {
         '.logo': {
           fontFamily: stanford,
           marginTop: '8px',
-          fontSize: '20px',
-          color: theme('colors.white'),
+          fontSize: '20px'
         },
       },
     }
