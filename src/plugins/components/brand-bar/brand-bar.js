@@ -11,7 +11,7 @@ module.exports = function () {
       '.brand-bar': {
         width: '100%',
         height: '30px',
-        backgroundColor: theme('colors.digital-red.DEFAULT'),
+        backgroundColor: theme('colors.cardinal-red.DEFAULT'),
         '.logo': {
           fontFamily: stanford,
           marginTop: '8px',
