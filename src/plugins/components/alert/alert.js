@@ -11,12 +11,7 @@ module.exports = function () {
         backgroundRepeat: 'no-repeat',
         backgroundSize: '4rem',
         color: theme('colors.black.DEFAULT')
-      },
-      '.alert--info': {
-        backgroundColor: theme('colors.sky.dark'),
-        backgroundImage: 'alert-info.svg',
-        color: theme('colors.white')
-      },
+      }
     }
 
     addComponents(alert)
