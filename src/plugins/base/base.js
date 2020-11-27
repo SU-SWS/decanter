@@ -317,7 +317,7 @@ module.exports = function () {
         marginTop: '-0.65rem',
         width: '2.2rem',
       },
-      '[type"range"]::-moz-range-thumb': {
+      '[type="range"]::-moz-range-thumb': {
         background: config('theme.colors.cool-grey'),
         border: '1px solid ' + config('theme.colors.fog.dark'),
         borderRadius: '1.5rem',
