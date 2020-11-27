@@ -78,6 +78,7 @@ module.exports = {
     require(dir + '/utilities/layout/grid-gap.js')(),
     require(dir + '/utilities/lists/lists.js')(),
     require(dir + '/utilities/media/embed-container.js')(),
+    require(dir + '/utilities/responsive-spacing/responsive-spacing.js')(),
     require(dir + '/utilities/tables/borderless.js')(),
     require(dir + '/utilities/typography/styles.js')(),
     // 3rd Party Plugins;
