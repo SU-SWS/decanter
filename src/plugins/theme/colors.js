@@ -5,11 +5,6 @@ module.exports = function () {
   return {
     transparent: 'transparent',
     current: 'currentColor',
-    'cardinal-red': {
-      DEFAULT: '#8C1515',
-      light: '#B83A4B',
-      dark: '#820000'
-    },
     'cool-grey': '#53565A',
     black: {
       DEFAULT: '#2E2D29',
@@ -25,6 +20,11 @@ module.exports = function () {
       true: '#000000' // For when a higher contrast is needed
     },
     white: '#FFFFFF',
+    'cardinal-red': {
+      DEFAULT: '#8C1515',
+      light: '#B83A4B',
+      dark: '#820000'
+    },
     'digital-red': {
       DEFAULT: '#B1040E', // Same as old Bright Red
       light: '#EC0513' // Same as old Vivid Red

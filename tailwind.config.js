@@ -2,11 +2,10 @@
  * Tailwind Configuration.
  */
 
-var path = require('path');
-var dir = path.resolve(__dirname, 'src/plugins');
+var path = require('path')
+var dir = path.resolve(__dirname, 'src/plugins')
 
 module.exports = {
-
   // Our own prefix.
   prefix: 'su-',
 
@@ -17,21 +16,22 @@ module.exports = {
 
   theme: {
     // Overrides.
-    aspectRatio:        require(dir + '/theme/aspectRatio.js')(),
-    borderRadius:       require(dir + '/theme/borderRadius.js')(),
-    borderWidth:        require(dir + '/theme/borderWidth.js')(),
-    boxShadow:          require(dir + '/theme/boxShadow.js')(),
-    colors:             require(dir + '/theme/colors.js')(),
-    screens:            require(dir + '/theme/screens.js')(),
-    fontFamily:         require(dir + '/theme/fontFamily.js')(),
-    fontWeight:         require(dir + '/theme/fontWeight.js')(),
-    lineHeight:         require(dir + '/theme/lineHeight.js')(),
-    gap:                require(dir + '/theme/gap.js')(),
+    aspectRatio: require(dir + '/theme/aspectRatio.js')(),
+    borderRadius: require(dir + '/theme/borderRadius.js')(),
+    borderWidth: require(dir + '/theme/borderWidth.js')(),
+    boxShadow: require(dir + '/theme/boxShadow.js')(),
+    colors: require(dir + '/theme/colors.js')(),
+    screens: require(dir + '/theme/screens.js')(),
+    fontFamily: require(dir + '/theme/fontFamily.js')(),
+    fontSize: require(dir + '/theme/fontSize.js')(),
+    fontWeight: require(dir + '/theme/fontWeight.js')(),
+    lineHeight: require(dir + '/theme/lineHeight.js')(),
+    gap: require(dir + '/theme/gap.js')(),
     transitionDuration: require(dir + '/theme/transitionDuration.js')(),
     // Decanter Custom.
-    decanter:           require(dir + '/theme/decanter.js')(),
+    decanter: require(dir + '/theme/decanter.js')(),
     // Extensions of tailwind core config.
-    extend: {},
+    extend: {}
   },
 
   // The corePlugins section lets you completely disable classes that Tailwind
@@ -45,7 +45,7 @@ module.exports = {
     divideOpacity: false,
     borderCollapse: false,
     borderOpacity: false,
-    skew: false,
+    skew: false
   },
 
   // Never purge styles here.
@@ -83,7 +83,7 @@ module.exports = {
     // 3rd Party Plugins;
     require('tailwindcss-visuallyhidden')(),
     require('tailwindcss-aspect-ratio'),
-    require('tailwindcss-debug-screens'),
+    require('tailwindcss-debug-screens')
   ],
 
   // The variants section lets you control which variants are generated for each
@@ -92,6 +92,6 @@ module.exports = {
   variants: {
     fontWeight: ['responsive', 'hover', 'focus'],
     animation: ['hover', 'focus'],
-    extend: {},
+    extend: {}
   }
 }
