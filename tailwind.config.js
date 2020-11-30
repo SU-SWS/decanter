@@ -43,7 +43,9 @@ module.exports = {
     fontSmoothing: false,
     placeholderOpacity: false,
     placeholderColor: false,
+    divideColor: false,
     divideOpacity: false,
+    divideStyle: false,
     borderCollapse: false,
     borderOpacity: false,
     skew: false
