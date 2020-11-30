@@ -1,5 +1,9 @@
 # Changelog
 
+Version 6.2.1                      2020-11-30
+---------------------------------------------
+- D8CORE-2529: changing the condition that makes the link not appear (#775)
+
 Version 6.2.0                      2020-11-04
 ---------------------------------------------
 - Added responsive-spacing mixin to replace modular-spacing
