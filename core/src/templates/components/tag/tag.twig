@@ -1,0 +1,14 @@
+{#
+/**
+ * Tag Component
+ *
+ * Tags for linking to, e.g., a category page, and in some cases, allowing for clearing a category filter
+ *
+ * Available variables:
+ * - attributes: Additional HTML attributes for the tag.
+ * - modifier_class: Additional CSS class(es) to change look or behavior of the tag.
+ * - tag_text: The text that appears in the tag.
+ * - link_href: The URL that the tag links to.
+ */
+#}
+<a {{ attributes }} href="{{ link_href }}" class="su-tag {{ modifier_class }}">{{ tag_text }}</a>

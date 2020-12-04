@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+//
+// Tag
+//
+// Default styling for a tag.
+//
+// Markup: templates/components/tag/tag.twig
+//
+// Style guide: Simple.Tag
+//
+
+.su-tag {
+  @include padding(1.2rem 3rem);
+  display: inline-block;
+  border: 1px solid $su-color-cool-grey-75;
+  border-radius: 4rem;
+  text-decoration: none;
+  color: $su-color-cool-grey;
+  font-weight: $su-font-regular;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: $su-color-bright-red;
+    border-color: $su-color-bright-red;
+  }
+}
