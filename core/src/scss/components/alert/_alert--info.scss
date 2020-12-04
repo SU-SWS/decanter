@@ -2,17 +2,38 @@
 
 // Info alert.
 .su-alert--info {
-  background-color: color(info, $su-alert-colors);
-  background-image: url("#{$su-image-path}/alert-info.png");
-  background-image: url("#{$su-image-path}/alert-info.svg");
-  color: color(light-text, $su-alert-colors);
+  background-color: $su-color-bright-blue;
 
   a {
-    color: color(light-text, $su-alert-colors);
+    &.su-button,
+    &.su-button--secondary {
+      @include button-secondary;
 
-    &:hover,
-    &:focus {
-      color: color(light-hover, $su-alert-colors);
+      background-color: $su-color-bright-blue;
+      box-shadow: $su-button-stroke $su-color-white;
+      color: $su-color-white;
+
+      &:hover,
+      &:focus {
+        background-color: $su-color-bright-blue;
+        box-shadow: $su-button-stroke $su-color-white;
+        color: $su-color-white;
+      }
+    }
+
+    &.su-button--big {
+      @include button-big;
+
+      background-color: $su-color-bright-blue;
+      box-shadow: $su-button-stroke $su-color-white;
+      color: $su-color-white;
+
+      &:hover,
+      &:focus {
+        background-color: $su-color-bright-blue;
+        box-shadow: $su-button-stroke $su-color-white;
+        color: $su-color-white;
+      }
     }
   }
 }

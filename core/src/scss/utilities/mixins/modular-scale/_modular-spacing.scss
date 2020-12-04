@@ -13,15 +13,19 @@
 /// @name modular-spacing
 ///
 /// @example scss
-///   @include modular-spacing(3);
 ///   @include modular-spacing('padding', 2 null);
 ///   @include modular-spacing('margin', 0 -4 1 2);
 ///
 /// @param {string} $type  Spacing type, either 'padding' or 'margin'.
 /// @param {list} $steps - List (1 to 4 values): Either integer (from -4 to 9 including 0) or null. Follows the shorthand notation of padding/margin. Use null to skip a side. A value of 0 returns the modular spacing base value for that breakpoint.
 ///
+/// @deprecated modular-spacing mixin has been deprecated font will be removed in Decanter Version 7. Please replace with responsive-spacing instead.
+///
 /// @group mixin
 @mixin modular-spacing($type: 'padding', $steps: 0, $grid: $su-grid-media) {
+
+  @warn "modular-spacing mixin has been deprecated font will be removed in Decanter Version 7. Please replace with responsive-spacing instead.";
+
   /// Get a list of all breakpoint keys in $grid.
   $bp-list: map-keys($grid);
   /// Find total number of breakpoints in our grid.

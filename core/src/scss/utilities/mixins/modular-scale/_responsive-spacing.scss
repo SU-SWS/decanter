@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+///
+/// Responsive Spacing
+/// A mixin for adding spacing (margin or padding) between elements or between an
+/// element and the edge of its container. The amount of spacing is returned
+/// based on curated values that are finetuned for 3 breakpoint ranges
+/// (Mobile: XS-SM, Tablet(and small desktop): MD-XL, Desktop: 2XL).
+/// Please see core/scss/utilities/variables/core/_responsive-spacing.scss for the variable map.
+///
+/// @name responsive-spacing
+///
+/// @example scss
+///   @include responsive-spacing('padding', 2 null);
+///   @include responsive-spacing('margin', 0 -4 1 2);
+///
+/// @param {string} $type  Spacing type, either 'padding' or 'margin'.
+/// @param {list} $steps - List (1 to 4 values): Either integer (from -2 to 10 including 0) or null. Follows the shorthand notation of padding/margin. Use null to skip a side.
+/// @param {map} $grid - Breakpoint device sass map. Defaults to $su-grid-device.
+///
+/// @group mixin
+@mixin responsive-spacing($type: 'padding', $steps: 0, $grid: $su-grid-device) {
+  @each $key, $breakpoint in $grid {
+    @include grid-media-device($key) {
+      @if length($steps) == 1 {
+        #{$type}: get-responsive-spacing-value($steps, $key);
+      }
+      @else if length($steps) == 2 {
+        @if nth($steps, 1) != null {
+          #{$type}-top: get-responsive-spacing-value(nth($steps, 1), $key);
+          #{$type}-bottom: get-responsive-spacing-value(nth($steps, 1), $key);
+        }
+
+        @if nth($steps, 2) != null {
+          #{$type}-left: get-responsive-spacing-value(nth($steps, 2), $key);
+          #{$type}-right: get-responsive-spacing-value(nth($steps, 2), $key);
+        }
+      }
+      @else if length($steps) == 3 {
+        @if nth($steps, 1) != null {
+          #{$type}-top: get-responsive-spacing-value(nth($steps, 1), $key);
+        }
+
+        @if nth($steps, 2) != null {
+          #{$type}-right: get-responsive-spacing-value(nth($steps, 2), $key);
+          #{$type}-left: get-responsive-spacing-value(nth($steps, 2), $key);
+        }
+
+        @if nth($steps, 3) != null {
+          #{$type}-bottom: get-responsive-spacing-value(nth($steps, 3), $key);
+        }
+      }
+      @else if length($steps) == 4 {
+        @if nth($steps, 1) != null {
+          #{$type}-top: get-responsive-spacing-value(nth($steps, 1), $key);
+        }
+
+        @if nth($steps, 2) != null {
+          #{$type}-right: get-responsive-spacing-value(nth($steps, 2), $key);
+        }
+
+        @if nth($steps, 3) != null {
+          #{$type}-bottom: get-responsive-spacing-value(nth($steps, 3), $key);
+        }
+
+        @if nth($steps, 4) != null {
+          #{$type}-left: get-responsive-spacing-value(nth($steps, 4), $key);
+        }
+      }
+      @else if length($steps) > 4 or length($steps) == 0 {
+        @error '$steps should have 1 to 4 values';
+      }
+    }
+  }
+}

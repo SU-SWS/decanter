@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+///
+/// Get a value out of the $su-responsive-spacing-map
+///
+/// @name get-responsive-spacing-value
+///
+/// @param {Integer} $step - Integers from -2 to 10 including 0
+/// @param {device} $device - `mobile`, `tablet` or `desktop`
+/// @param {Map} $map - $su-responsive-spacing-map normally or equivalent
+///
+/// @group mixin
+@function get-responsive-spacing-value($step: 0, $device: 'desktop', $map: $su-responsive-spacing-map) {
+  $value: map-deep-get($map, $step, $device);
+  @if ($step < -2 and $step > 10) {
+    @error 'Responsive spacing step value must be an integer between -2 and 10.';
+  }
+  @if $value == null {
+    @error 'Could not find this spacing value in the $map. Check the parameters.';
+  }
+  @return $value;
+}
