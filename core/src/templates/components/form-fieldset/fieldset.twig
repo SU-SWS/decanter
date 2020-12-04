@@ -11,12 +11,14 @@
  * - modifier_class: Additional CSS classes to change look and behaviour of the component.
  * - fieldset_legend_modifier_class: Additional CSS classes to change look and behaviour of the fieldset.
  * - fieldset_legend: heading for the fieldset
+ * - fieldset_body: placeholder for the body of the fieldset
  *
  */
 #}
 
 <fieldset {{ attributes }} class="su-fieldset {{ modifier_class }}">
   <legend {{ attributes }} class="su-fieldset--legend {{ modifier_class }}">{{ fieldset_legend }}</legend>
+  {{ fieldset_body }}
 </fieldset>
 
 
