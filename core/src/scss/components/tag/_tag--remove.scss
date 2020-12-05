@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+//
+// Tag variant for clearing selection
+//
+// @see scss/components/tag/_tag.scss
+// @see scss/utilities/mixins/link/_link-icon.scss
+//
+
+.su-tag--remove {
+  @include link-icon(close-black, 10px, none, -0.03em);
+
+  &::after {
+    background-color: $su-color-black;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline; // override link-icon mixin
+
+    &::after {
+      mask-image: url("#{$su-image-path}/close-black.svg");
+      background-color: $su-color-bright-red;
+    }
+  }
+}
