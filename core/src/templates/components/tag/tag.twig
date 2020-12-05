@@ -1,14 +1,24 @@
 {#
 /**
+ * @file
  * Tag Component
  *
  * Tags for linking to, e.g., a category page, and in some cases, allowing for clearing a category filter
+ *
+ * Available variants:
+ * - .su-tag--remove: For clearing filters; has an "x" icon at the end of the tag
  *
  * Available variables:
  * - attributes: Additional HTML attributes for the tag.
  * - modifier_class: Additional CSS class(es) to change look or behavior of the tag.
  * - tag_text: The text that appears in the tag.
- * - link_href: The URL that the tag links to.
+ * - tag_link: The URL that the tag links to.
+ * - tag_remove_sr_text: Screen reader text for the variant to remove a filter
  */
 #}
-<a {{ attributes }} href="{{ link_href }}" class="su-tag {{ modifier_class }}">{{ tag_text }}</a>
+<a {{ attributes }} href="{{ tag_link }}" class="su-tag {{ modifier_class }}">
+  {{ tag_text }}
+  {% if 'su-tag--remove' in modifier_class %}
+    <span class="su-sr-only-element">{{ tag_remove_sr_text|default(', click to remove filter') }}</span>
+  {% endif %}
+</a>
