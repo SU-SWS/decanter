@@ -1,0 +1,24 @@
+{#
+/**
+ * @file
+ * Form fieldset container element with a legend
+ *
+ * A form fieldset component to group fields
+ *
+ * Available variables:
+ * - attributes: For additional HTML attributes not already provided.
+ * - fieldset_legend_attributes: For adding additional HTML attributes to the legend element.
+ * - modifier_class: Additional CSS classes to change look and behaviour of the component.
+ * - fieldset_legend_modifier_class: Additional CSS classes to change look and behaviour of the fieldset.
+ * - fieldset_legend: heading for the fieldset
+ * - fieldset_body: placeholder for the body of the fieldset
+ *
+ */
+#}
+
+<fieldset {{ attributes }} class="su-fieldset {{ modifier_class }}">
+  <legend {{ fieldset_legend_attributes }} class="su-fieldset--legend {{ fieldset_legend_modifier_class }}">{{ fieldset_legend }}</legend>
+  {{ fieldset_body }}
+</fieldset>
+
+
