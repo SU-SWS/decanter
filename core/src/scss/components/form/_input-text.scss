@@ -28,15 +28,30 @@ label {
 
   &__label,
   &__help {
-    @include margin(null null 0.6rem);
+    @include margin(null null 1.1rem);
   }
 
   &__label {
     font-weight: $su-font-semi-bold;
+    max-width: 35ch;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   &__input {
     border-radius: 3px;
     border-color: $su-color-cool-grey-25;
+    @include padding(1.9rem 1.9rem 2.0rem 1.9rem);
+
+    &:focus {
+      border-color: $su-color-bright-blue;
+      border-bottom: 0.3rem solid $su-color-bright-blue;
+      box-shadow: 0 0 3px #6FC3FF, 0 0 7px #6FC3FF;
+    }
+  }
+
+  &__counter {
+    @include margin(0.6rem null null);
   }
 }
