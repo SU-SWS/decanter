@@ -4,3 +4,4 @@
 - `modular-spacing` mixin will be removed in Version 7. Please use `responsive-spacing` instead.
 - Noto Sans Font will be removed in Version 7
 - Kalam Font will be removed in Version 7.
+- `su-brand-bar` will be removed in Version 7, and replaced with `su-global-identity-bar`.
