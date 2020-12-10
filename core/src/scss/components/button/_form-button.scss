@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+//
+// Form Button
+//
+// Simple form button element to aid in creating interactive design.
+//
+// .su-form-button--secondary - Secondary button
+// .su-form-button--big - Big button
+//
+// Markup: templates/components/button/button.twig
+//
+// Style guide: Simple.Button
+//
+.su-form-button,
+.su-form-button.su-link,
+form-button,
+[type='button'],
+[type='submit'],
+[type='reset'],
+[type='image'] {
+  @include button-primary;
+  background-color: $su-color-bright-blue;
+  box-shadow: $su-button-stroke $su-color-white;
+  color: $su-color-white;
+
+  &:hover,
+  &:focus {
+    background-color: $su-color-bright-blue;
+    box-shadow: $su-button-stroke $su-color-white;
+    color: $su-color-white;
+  }
+}
