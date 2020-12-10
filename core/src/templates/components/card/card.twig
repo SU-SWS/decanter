@@ -62,7 +62,7 @@
   {%- endif -%}
 {%- endif -%}
 
-{# For variant where there's no card contents #}
+{# When there's no card contents #}
 {% set card_contents_not_empty = false %}
 {% if card_super_headline is not empty or
   card_headline is not empty or
@@ -144,13 +144,13 @@
   {% endblock block_card_media -%}
 
   {%- if card_contents_not_empty -%}
-  <div class="su-card__contents cjw">
-    {# Card Super Headline #}
-    {% if card_super_headline is not empty %}
+    <div class="su-card__contents cjw">
+      {# Card Super Headline #}
       {%- block block_card_super_headline %}
-        <span>{{ card_super_headline }}</span>
+        {% if card_super_headline is not empty %}
+          <span>{{ card_super_headline }}</span>
+        {% endif -%}
       {% endblock -%}
-    {% endif -%}
 
     {# Card Headline #}
     {%- block block_card_headline  %}
@@ -169,11 +169,9 @@
     {% endblock -%}
 
     {# An open field for body content #}
-    {% if card_body is not empty %}
-      {%- block block_card_body %}
-        {{ card_body }}
-      {% endblock -%}
-    {% endif -%}
+    {%- block block_card_body %}
+      {{ card_body }}
+    {% endblock -%}
 
     {# Block for CTA elements, e.g., link, button #}
     {%- block block_card_cta %}
