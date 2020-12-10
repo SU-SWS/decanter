@@ -144,13 +144,14 @@
   {% endblock block_card_media -%}
 
   {%- if card_contents_not_empty -%}
-    <div class="su-card__contents cjw">
-      {# Card Super Headline #}
-      {%- block block_card_super_headline %}
-        {% if card_super_headline is not empty %}
-          <span>{{ card_super_headline }}</span>
-        {% endif -%}
-      {% endblock -%}
+  <div class="su-card__contents">
+
+    {# Card Super Headline #}
+    {%- block block_card_super_headline %}
+      {% if card_super_headline is not empty %}
+        <span>{{ card_super_headline }}</span>
+      {% endif -%}
+    {% endblock -%}
 
     {# Card Headline #}
     {%- block block_card_headline  %}
