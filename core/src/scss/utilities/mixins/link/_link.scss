@@ -11,12 +11,20 @@
 /// @group mixin
 @mixin link($color: color(link), $hover: color(link--hover)) {
   color: $color;
-  text-decoration: underline;
   font-weight: $su-font-semi-bold;
+  @include padding(null 0.15rem);
+  text-decoration: underline;
 
   &:hover,
   &:focus,
   &:active {
     color: $hover;
   }
+
+  &:focus {
+    box-shadow: 2px 2px 6px 0 $su-color-sky, -2px -2px 6px 0 $su-color-sky;
+    outline: none;
+  }
 }
+
+
