@@ -10,9 +10,9 @@
 ///
 /// @group mixin
 @mixin link($color: color(link), $hover: color(link--hover)) {
+  @include padding(null 0.15rem);
   color: $color;
   font-weight: $su-font-semi-bold;
-  @include padding(null 0.15rem);
   text-decoration: underline;
 
   &:hover,
