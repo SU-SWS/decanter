@@ -54,8 +54,8 @@ module.exports.optimization = {
 // Entry points.
 // -----------------------------------------------------------------------------
 module.exports.entry = {
-  'test': path.resolve(__dirname, "src/index.js"),
   'decanter': path.resolve(__dirname, "../src/decanter.js"),
+  'test': path.resolve(__dirname, "src/index.js"),
 };
 
 // Output points.

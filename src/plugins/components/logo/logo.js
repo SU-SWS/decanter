@@ -4,7 +4,7 @@
  */
 module.exports = function () {
   return function ({ addComponents, theme, config }) {
-    const stanford = config('theme.fontFamily.stanford');
+    let stanford = config('theme.fontFamily.stanford').join(", ");
 
     const components = {
       '.logo': {

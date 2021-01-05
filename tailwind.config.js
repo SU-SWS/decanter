@@ -31,7 +31,9 @@ module.exports = {
     // Decanter Custom.
     decanter: require(dir + '/theme/decanter.js')(),
     // Extensions of tailwind core config.
-    extend: {}
+    extend: {
+      backgroundImage: require(dir + '/theme/backgroundImage.js')()
+    }
   },
 
   // The corePlugins section lets you completely disable classes that Tailwind

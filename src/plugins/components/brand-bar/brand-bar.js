@@ -5,7 +5,7 @@
 module.exports = function () {
   return function ({ addComponents, theme, config }) {
 
-    var stanford = config('theme.fontFamily.stanford').join(", ");
+    let stanford = config('theme.fontFamily.stanford').join(", ");
 
     const components = {
       '.brand-bar': {

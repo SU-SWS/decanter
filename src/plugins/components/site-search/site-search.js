@@ -32,7 +32,7 @@ module.exports = function () {
           marginRight: '0',
           marginBottom: '0',
           opacity: '0.6',
-          //background: 'url("#{$su-image-path}/icon-search.svg") no-repeat 0 0',
+          background: theme('backgroundImage.icon-search') + ' no-repeat 0 0',
           '&:hover, &:active, &:focus': {
             backgroundColor: 'transparent',
             opacity: '1',
