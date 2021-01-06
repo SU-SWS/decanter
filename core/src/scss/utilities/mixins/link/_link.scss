@@ -9,7 +9,7 @@
 /// @param {variable} $hover - Default hover color
 ///
 /// @group mixin
-@mixin link($color: color(link), $hover: color(link--hover)) {
+@mixin link($color: color(link), $hover: color(link--hover), $focus: color(focus)) {
   @include padding(null 0.15rem);
   color: $color;
   font-weight: $su-font-semi-bold;
@@ -22,7 +22,8 @@
   }
 
   &:focus {
-    box-shadow: $su-button-stroke color(focus), $su-focus-shadow;
+    box-shadow: $su-button-stroke $focus, $su-focus-shadow;
     outline: none;
+    border: $focus;
   }
 }
