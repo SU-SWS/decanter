@@ -1,9 +1,22 @@
 @charset "UTF-8";
 
 // Big button.
-button.su-button--big,
-button.su-button--big.su-link,
-.su-button--big,
-.su-button--big.su-link {
-  @include button-big;
+.su-button {
+  &--big {
+    &,
+    &.su-link {
+      @include button-big;
+    }
+  }
+}
+
+button {
+  &.su-button {
+    &--big {
+      &,
+      &.su-link {
+        @include button-big;
+      }
+    }
+  }
 }

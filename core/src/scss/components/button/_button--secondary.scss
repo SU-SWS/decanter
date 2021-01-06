@@ -1,9 +1,22 @@
 @charset "UTF-8";
 
 // Secondary button.
-button.su-button--secondary,
-button.su-button--secondary.su-link,
-.su-button--secondary,
-.su-button--secondary.su-link {
-  @include button-secondary;
+.su-button {
+  &--secondary {
+    &,
+    &.su-link {
+      @include button-secondary;
+    }
+  }
+}
+
+button {
+  &.su-button {
+    &--secondary {
+      &,
+      &.su-link {
+        @include button-secondary;
+      }
+    }
+  }
 }
