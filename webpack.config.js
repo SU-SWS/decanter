@@ -62,20 +62,20 @@ module.exports = {
                   require('tailwindcss'),
                   require('postcss-import'),
                   require('postcss-nested'),
-                  require('autoprefixer'),
-                ],
-              },
-            },
-          },
-        ],
+                  require('autoprefixer')
+                ]
+              }
+            }
+          }
+        ]
       },
       {
         test: /\.(woff2?|ttf|otf|eot)$/,
         loader: 'file-loader',
         options: {
-          name: "[name].[ext]",
-          publicPath: "/assets/fonts",
-          outputPath: "../dist/assets/fonts"
+          name: '[name].[ext]',
+          publicPath: './assets/fonts',
+          outputPath: '../dist/assets/fonts'
         }
       },
       // Apply plugins to image assets.
@@ -83,15 +83,15 @@ module.exports = {
         test: /\.(png|svg|jpg|gif)$/i,
         use: [
           {
-            loader: "file-loader",
+            loader: 'file-loader',
             options: {
-              name: "[name].[ext]",
-              publicPath: "/assets/img",
-              outputPath: "../dist/assets/img"
+              name: '[name].[ext]',
+              publicPath: './assets/img',
+              outputPath: '../dist/assets/img'
             }
           }
         ]
       }
-    ],
+    ]
   }
 }
