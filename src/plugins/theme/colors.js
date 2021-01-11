@@ -31,12 +31,12 @@ module.exports = function () {
       dark: '#820000' // Same as Dark Cardinal Red
     },
     'digital-blue': { // Link colors
-      DEFAULT: '#008566',
+      DEFAULT: '#006CB8',
       light: '#6FC3FF',
       dark: '#00548F'
     },
     'digital-green': {
-      DEFAULT: '#006CB8',
+      DEFAULT: '#008566',
       light: '#1AECBA',
       dark: '#006F54'
     },
