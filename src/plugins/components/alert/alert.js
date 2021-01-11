@@ -7,7 +7,7 @@ module.exports = function () {
     const alert = {
       '.alert': {
         padding: '2rem',
-        backgroundColor: theme('colors.fog.light'),
+        backgroundColor: theme('colors.foggy.light'),
         backgroundRepeat: 'no-repeat',
         backgroundSize: '4rem',
         color: theme('colors.black.DEFAULT')
