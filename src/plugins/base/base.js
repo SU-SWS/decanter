@@ -224,7 +224,7 @@ module.exports = function () {
           '&::before': {
             background: config('theme.colors.white'),
             borderRadius: '3px',
-            boxShadow: '0 0 0 1px ' + config('theme.colors.fog.dark'),
+            boxShadow: '0 0 0 1px ' + config('theme.colors.foggy.dark'),
             content: '""',
             display: 'inline-block',
             height: '1.8rem',
@@ -288,14 +288,14 @@ module.exports = function () {
       },
       '[type="range"]::-webkit-slider-runnable-track': {
         background: config('theme.colors.cool-grey'),
-        border: '1px solid ' + config('theme.colors.fog.dark'),
+        border: '1px solid ' + config('theme.colors.foggy.dark'),
         cursor: 'pointer',
         height: '1.2rem',
         width: '100%',
       },
       '[type="range"]::-moz-range-track': {
         background: config('theme.colors.cardinal-red.DEFAULT'),
-        border: '1px solid ' + config('theme.colors.fog.dark'),
+        border: '1px solid ' + config('theme.colors.foggy.dark'),
         cursor: 'pointer',
         height: '1.2rem',
         width: '100%',
@@ -309,7 +309,7 @@ module.exports = function () {
       },
       '[type="range"]::-webkit-slider-thumb': {
         '-webkit-appearance': 'none',
-        border: '1px solid ' + config('theme.colors.fog.dark'),
+        border: '1px solid ' + config('theme.colors.foggy.dark'),
         height: '2.2rem',
         borderRadius: '1.5rem',
         background: config('theme.colors.cool-grey'),
@@ -319,7 +319,7 @@ module.exports = function () {
       },
       '[type="range"]::-moz-range-thumb': {
         background: config('theme.colors.cool-grey'),
-        border: '1px solid ' + config('theme.colors.fog.dark'),
+        border: '1px solid ' + config('theme.colors.foggy.dark'),
         borderRadius: '1.5rem',
         cursor: 'pointer',
         height: '2.2rem',
@@ -327,7 +327,7 @@ module.exports = function () {
       },
       '[type="range"]::-ms-thumb': {
         background: config('theme.colors.cool-grey'),
-        border: '1px solid ' + config('theme.colors.fog.dark'),
+        border: '1px solid ' + config('theme.colors.foggy.dark'),
         borderRadius: '1.5rem',
         cursor: 'pointer',
         height: '2.2rem',
@@ -335,28 +335,28 @@ module.exports = function () {
       },
       '[type="range"]::-ms-fill-lower': {
         background: config('theme.colors.cool-grey'),
-        border: '1px solid ' + config('theme.colors.fog.dark'),
+        border: '1px solid ' + config('theme.colors.foggy.dark'),
         borderRadius: '2rem',
       },
       '[type="range"]::-ms-fill-upper': {
         background: config('theme.colors.cool-grey'),
-        border: '1px solid ' + config('theme.colors.fog.dark'),
+        border: '1px solid ' + config('theme.colors.foggy.dark'),
         borderRadius: '2rem',
       },
       '[type="range"]:focus::-webkit-slider-thumb': {
-        border: '2px solid ' + config('theme.colors.fog.dark'),
+        border: '2px solid ' + config('theme.colors.foggy.dark'),
       },
       '[type="range"]:focus::-moz-range-thumb': {
-        border: '2px solid ' + config('theme.colors.fog.dark'),
+        border: '2px solid ' + config('theme.colors.foggy.dark'),
       },
       '[type="range"]:focus::-ms-thumb': {
-        border: '2px solid ' + config('theme.colors.fog.dark'),
+        border: '2px solid ' + config('theme.colors.foggy.dark'),
       },
       //
       // LINKS
       // -----------------------------------------------------------------------
       'a': {
-        color: config('theme.colors.bright-blue.DEFAULT'),
+        color: config('theme.colors.digital-blue.DEFAULT'),
         textDecoration: 'underline',
         fontWeight: config('theme.fontWeight.semibold'),
         '&:hover, &:focus, &:active': {
@@ -388,11 +388,11 @@ module.exports = function () {
         minWidth: '100%',
         'th': {
           padding: '1.5rem',
-          border: '1px solid ' + config('theme.colors.fog.dark'),
+          border: '1px solid ' + config('theme.colors.foggy.dark'),
         },
         'td': {
           padding: '1.5rem',
-          border: '1px solid ' + config('theme.colors.fog.dark'),
+          border: '1px solid ' + config('theme.colors.foggy.dark'),
         },
         'th': {
           backgroundColor: config('theme.colors.stone.light'),
