@@ -27,12 +27,18 @@ module.exports = function () {
     },
     'digital-red': {
       DEFAULT: '#B1040E', // Same as old Bright Red
-      light: '#EC0513' // Same as old Vivid Red
+      light: '#EC0513', // Same as old Vivid Red
+      dark: '#820000' // Same as Dark Cardinal Red
     },
-    'bright-blue': { // Link colors
+    'digital-blue': { // Link colors
       DEFAULT: '#006CB8',
       light: '#6FC3FF',
-      dark: '#00548f'
+      dark: '#00548F'
+    },
+    'digital-green': {
+      DEFAULT: '#008566',
+      light: '#1AECBA',
+      dark: '#006F54'
     },
     'palo-alto': {
       DEFAULT: '#175E54',
@@ -44,7 +50,7 @@ module.exports = function () {
       light: '#59B3A9',
       dark: '#017E7C'
     },
-    'olive': {
+    olive: {
       DEFAULT: '#8F993E',
       light: '#A6B168',
       dark: '#7A863B'
@@ -99,7 +105,7 @@ module.exports = function () {
       light: '#D4D1D1',
       dark: '#544948' // Same as old Stone
     },
-    fog: {
+    foggy: {
       DEFAULT: '#7F7776',
       light: '#F4F4F4', // Same as old Fog
       dark: '#B6B1A9' // Same as old Driftwood
