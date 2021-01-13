@@ -31,7 +31,7 @@
 }
 
 .su-accordion__collapse-all {
-  @include modular-spacing('margin', null null 2);
+  @include responsive-spacing('margin', null null 2);
   @include margin(null null null 1.2em);
 }
 
@@ -51,7 +51,7 @@
 
   > .su-accordion__button {
     all: inherit;
-    @include modular-spacing('padding', 0);
+    @include responsive-spacing('padding', 0);
     @include fancy-hover($su-color-black, $su-color-black, 'left', 6px);
     font-weight: $su-font-bold;
     position: relative;
@@ -90,7 +90,7 @@
 }
 
 .su-accordion__content {
-  @include modular-spacing('padding', 0 0 null);
+  @include responsive-spacing('padding', 0 0 null);
   height: auto;
 
   &[aria-hidden="true"] {
@@ -101,7 +101,7 @@
 }
 
 .su-accordion__cta {
-  @include modular-spacing('margin', 3 null null);
+  @include responsive-spacing('margin', 3 null null);
   @include margin(null auto);
   display: block;
   width: fit-content;

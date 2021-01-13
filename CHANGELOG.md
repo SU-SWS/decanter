@@ -1,5 +1,16 @@
 # Changelog
 
+Version 6.2.1                      2020-11-30
+---------------------------------------------
+- D8CORE-2529: changing the condition that makes the link not appear (#775)
+
+Version 6.2.0                      2020-11-04
+---------------------------------------------
+- Added responsive-spacing mixin to replace modular-spacing
+- Added deprecation notices for Noto-Sans and Kalam fonts
+- D8CORE-1261: Revised table styles. (#617)
+- D8CORE-1623: Adding a mixin and icons for `@include icon` (#690)
+
 Version 6.1.3                      2020-09-23
 ---------------------------------------------
 
@@ -139,7 +150,7 @@ Version 5.1.0                      2019-10-31
 - New Mixin: `link-glyph()`
 - New Mixin: `link-icon()`
 - New Function: `breakpoint-previous`
-- New Typography styles: 	
+- New Typography styles:
   -- `.su-type-a`: Display Type A (used for H1 heading)
   -- `.su-type-b`: Display Type B (used for H2 heading)
   -- `.su-type-c`: Display Type C (used for H3 heading)
