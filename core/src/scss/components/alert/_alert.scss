@@ -18,7 +18,7 @@
 // Style guide: Simple.Alert
 //
 .su-alert {
-  background-color: $su-color-fog;
+  background-color: color(default, $su-alert-colors);
 
   .centered-container {
     @include padding(1em null);
@@ -50,7 +50,7 @@
     background-color: transparent;
     text-transform: uppercase;
     font-weight: $su-font-semi-bold;
-    color: $su-color-black;
+    color: color(dark-text, $su-alert-colors);
     font-size: 1.7rem;
 
     .su-far,
@@ -139,27 +139,27 @@
     &.su-button--secondary {
       @include button-secondary;
 
-      background-color: $su-color-fog;
+      background-color: color(default, $su-alert-colors);
       box-shadow: $su-button-stroke $su-color-black;
-      color: $su-color-black;
+      color: color(dark-text, $su-alert-colors);
 
       &:hover,
       &:focus {
-        background-color: $su-color-fog;
+        background-color: color(default, $su-alert-colors);
       }
     }
 
     &.su-button--big {
       @include button-big;
 
-      background-color: $su-color-fog;
+      background-color: color(default, $su-alert-colors);
       box-shadow: $su-button-stroke $su-color-black;
-      color: $su-color-black;
+      color: color(dark-text, $su-alert-colors);
 
       &:hover,
       &:focus {
-        background-color: $su-color-fog;
-        color: $su-color-black;
+        background-color: color(default, $su-alert-colors);
+        color: color(dark-text, $su-alert-colors);
       }
     }
   }
@@ -170,19 +170,19 @@
 .su-alert__footer {
 
   a {
-    color: $su-color-black;
+    color: color(dark-text, $su-alert-colors);
     text-decoration: none;
 
     &:hover,
     &:focus {
-      color: $su-color-black;
+      color: color(dark-text, $su-alert-colors);
       text-decoration: underline;
     }
   }
 
   .su-link {
     &::after {
-      background: $su-color-black;
+      background: color(dark-text, $su-alert-colors);
     }
 
     &:hover,
@@ -190,7 +190,7 @@
       text-decoration: underline;
 
       &::after {
-        background: $su-color-black;
+        background: color(dark-text, $su-alert-colors);
       }
     }
   }
