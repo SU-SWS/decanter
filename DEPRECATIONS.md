@@ -32,6 +32,7 @@ _Deprecated in 6.2.2_
     - `$su-color-driftwood` will be replaced by `$su-color-foggy-dark`
     - `$su-color-fog` will be replaced by `$su-color-foggy-light`
     - `$su-color-vivid-red` will be replaced by `$su-color-digital-red-light`
+- Stanford University lockup options C, G, J, and Q (i.e. `.su-lockup--option-c`) will be removed in Version 7.
 
 _Deprecated in 6.2.0_
 
