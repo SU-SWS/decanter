@@ -1,5 +1,11 @@
 # Changelog
 
+Version 6.2.2                      2021-01-20
+---------------------------------------------
+- D8CORE-2610: Deprecation notice about C, G, J, and Q lockup (#789)
+- Bump ini from 1.3.5 to 1.3.8 (#784)
+- Add new colors from identity guide and deprecate old color (#768)
+
 Version 6.2.1                      2020-11-30
 ---------------------------------------------
 - D8CORE-2529: changing the condition that makes the link not appear (#775)
