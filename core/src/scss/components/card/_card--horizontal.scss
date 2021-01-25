@@ -9,7 +9,7 @@
   &.su-card--link > a {
     // Set up the grid for this variant.
     @include display-grid;
-    @include modular-spacing('padding', 2);
+    @include responsive-spacing('padding', 2);
 
     @each $key, $breakpoint in $su-grid-media {
       @include grid-media($key) {

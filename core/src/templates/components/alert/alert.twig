@@ -19,13 +19,54 @@
  * - alert_body: Text details of the alert message.
  */
 #}
-<div {{ attributes }} class="su-alert {{ modifier_class }}" >
-  <div class="su-alert__body">
-    {% if alert_header is not empty %}
-    <h3 class="su-alert__heading">{{ alert_header }}</h3>
-    {% endif %}
-    {% if alert_text is not empty %}
-    <p class="su-alert__text">{{ alert_text }}</p>
-    {% endif %}
+<div {{ attributes }} class="su-alert {{ modifier_class }}">
+  <div class="centered-container">
+    {# JavaScript Ability To Close and Hide Alert. #}
+    {%- block block_dismiss -%}
+      {%- if alert_dismiss -%}
+        <div class="su-alert__dismiss">
+          <button aria-label="{{ alert_dismiss_text|default("Dismiss alert") }}" class="su-alert__dismiss-button">{{ alert_dismiss_text|default("Dismiss") }} <i class="su-fas su-fa-times-circle"></i></button>
+        </div>
+      {%- endif -%}
+    {%- endblock -%}
+
+    {# Header, sometimes left, content. #}
+    {%- block block_alert_header -%}
+      {%- if alert_icon is not empty or alert_label is not empty -%}
+        <div class="su-alert__header">
+        {%- if alert_icon is not empty -%}
+          <span class="su-alert__icon">{{- alert_icon -}}</span>
+        {%- endif -%}
+        {%- if alert_label is not empty -%}
+          <span class="su-alert__label">{{- alert_label -}}</span>
+        {%- endif -%}
+        </div>
+      {%- endif -%}
+    {%- endblock -%}
+
+    {# Body content and the primary message. #}
+    {%- block block_body -%}
+    <div class="su-alert__body">
+
+      {# HEADER #}
+      {%- if alert_header is not empty -%}
+        <h3 class="su-alert__heading">{{- alert_header -}}</h3>
+      {%- endif -%}
+
+      {# TEXT #}
+      {%- if alert_text is not empty -%}
+        <div class="su-alert__text">
+          {{- alert_text -}}
+        </div>
+      {%- endif -%}
+
+      {# FOOTER #}
+      {%- if alert_footer is not empty -%}
+        <div class="su-alert__footer">
+          {{- alert_footer -}}
+        </div>
+      {%- endif -%}
+    </div>
+    {%- endblock -%}
   </div>
 </div>

@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+///
+/// A helper to quickly generate a media query
+///
+/// @name su-grid-media-device
+///
+/// @param {key code} $breakpoint - The breakpoint shortcode - 'mobile', 'tablet' or 'desktop'
+///
+/// @group mixin
+@mixin grid-media-device($breakpoint: 'tablet') {
+  @if $breakpoint == 'mobile' {
+    @content;
+  }
+  @else {
+    @media #{map-get($su-grid-device, $breakpoint)} {
+      @content;
+    }
+  }
+}

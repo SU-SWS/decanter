@@ -2,19 +2,16 @@
 
 // Table without borders.
 .su-table--borderless {
-  thead {
-    tr {
-      background-color: transparent;
-    }
-
+  thead,
+  tbody {
+    tr,
+    td,
     th {
-      border-top: 0;
+      border: 0;
     }
   }
 
-  th,
-  td {
-    border-left: 0;
-    border-right: 0;
+  thead + tbody {
+    border: 0;
   }
 }

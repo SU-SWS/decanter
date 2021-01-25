@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+// Error alert.
+.su-alert--text-light {
+  color: color(light-text, $su-alert-colors);
+
+  a {
+    color: color(light-text, $su-alert-colors);
+
+    &:hover,
+    &:focus {
+      color: color(light-text, $su-alert-colors);
+      text-decoration: underline;
+    }
+  }
+
+  .su-alert__footer {
+    .su-link {
+      &::after {
+        background: $su-color-white;
+      }
+    }
+  }
+
+  .su-alert__dismiss-button {
+    color: color(light-text, $su-alert-colors);
+  }
+}

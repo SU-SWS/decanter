@@ -31,17 +31,17 @@
 }
 
 .su-accordion__collapse-all {
-  @include modular-spacing('margin', null null 2);
+  @include responsive-spacing('margin', null null 2);
   @include margin(null null null 1.2em);
 }
 
 .su-accordion__list {
   @include list-unstyled;
-  border-top: 1px solid $su-color-cool-grey-25;
+  border-top: 1px solid $su-color-black-20;
 }
 
 .su-accordion__item {
-  border-bottom: 1px solid $su-color-cool-grey-25;
+  border-bottom: 1px solid $su-color-black-20;
 }
 
 .su-accordion__title {
@@ -51,7 +51,7 @@
 
   > .su-accordion__button {
     all: inherit;
-    @include modular-spacing('padding', 0);
+    @include responsive-spacing('padding', 0);
     @include fancy-hover($su-color-black, $su-color-black, 'left', 6px);
     font-weight: $su-font-bold;
     position: relative;
@@ -66,7 +66,7 @@
       font-weight: $su-font-regular;
       font-size: 3.6rem;
       line-height: 3.6rem;
-      color: $su-color-bright-red;
+      color: $su-color-digital-red;
       text-align: center;
     }
 
@@ -90,7 +90,7 @@
 }
 
 .su-accordion__content {
-  @include modular-spacing('padding', 0 0 null);
+  @include responsive-spacing('padding', 0 0 null);
   height: auto;
 
   &[aria-hidden="true"] {
@@ -101,7 +101,7 @@
 }
 
 .su-accordion__cta {
-  @include modular-spacing('margin', 3 null null);
+  @include responsive-spacing('margin', 3 null null);
   @include margin(null auto);
   display: block;
   width: fit-content;

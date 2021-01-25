@@ -3,8 +3,6 @@
 // Error alert.
 .su-alert--error {
   background-color: color(error, $su-alert-colors);
-  background-image: url("#{$su-image-path}/alert-error.png");
-  background-image: url("#{$su-image-path}/alert-error.svg");
   color: color(light-text, $su-alert-colors);
 
   a {
@@ -12,7 +10,38 @@
 
     &:hover,
     &:focus {
-      color: color(light-hover, $su-alert-colors);
+      text-decoration: underline;
+    }
+
+    &.su-button,
+    &.su-button--secondary {
+      @include button-secondary;
+
+      background-color: color(error, $su-alert-colors);
+      box-shadow: $su-button-stroke $su-color-white;
+      color: color(light-text, $su-alert-colors);
+
+      &:hover,
+      &:focus {
+        background-color: color(error, $su-alert-colors);
+        box-shadow: $su-button-stroke $su-color-white;
+        color: color(light-text, $su-alert-colors);
+      }
+    }
+
+    &.su-button--big {
+      @include button-big;
+
+      background-color: color(error, $su-alert-colors);
+      box-shadow: $su-button-stroke $su-color-white;
+      color: color(light-text, $su-alert-colors);
+
+      &:hover,
+      &:focus {
+        background-color: color(error, $su-alert-colors);
+        box-shadow: $su-button-stroke $su-color-white;
+        color: color(light-text, $su-alert-colors);
+      }
     }
   }
 }

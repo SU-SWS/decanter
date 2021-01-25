@@ -1,5 +1,49 @@
 # Changelog
 
+Version 6.2.2                      2021-01-20
+---------------------------------------------
+- D8CORE-2610: Deprecation notice about C, G, J, and Q lockup (#789)
+- Bump ini from 1.3.5 to 1.3.8 (#784)
+- Add new colors from identity guide and deprecate old color (#768)
+
+Version 6.2.1                      2020-11-30
+---------------------------------------------
+- D8CORE-2529: changing the condition that makes the link not appear (#775)
+
+Version 6.2.0                      2020-11-04
+---------------------------------------------
+- Added responsive-spacing mixin to replace modular-spacing
+- Added deprecation notices for Noto-Sans and Kalam fonts
+- D8CORE-1261: Revised table styles. (#617)
+- D8CORE-1623: Adding a mixin and icons for `@include icon` (#690)
+
+Version 6.1.3                      2020-09-23
+---------------------------------------------
+
+- D8CORE-2536: adding aria-label (#716)
+- D8CORE-2652: adding styles to the alerts for buttons (#732)
+- D8CORE-2529: if there is a link but no content set the link to null (#756)
+- Change vendor imports to use the ~ convention. (#759)
+
+Version 6.1.2                      2020-09-09
+---------------------------------------------
+- D8CORE-2630: Alert link accessibility fixes for color contrast (#731)
+
+Version 6.1.1                      2020-09-03
+---------------------------------------------
+- D8CORE-2376: Local Footer Lockup Overrides (#729)
+- D8CORE-2630: Updating the alert basic link hover colors and underline for accessibility (#730)
+
+Version 6.1.0                      2020-09-01
+---------------------------------------------
+- Updates to all NPM packages and dependencies
+- New nvm version requirement setting at 14.8.0
+- D8CORE-2490: All new refactored alert component
+- D8CORE-2544: Link is external A11y changes to brandbar
+- D8CORE-1403: A11y changes to footer
+- Add search_input_id variable for masthead search box template
+- Minor semantic changes to template tags.
+
 Version 6.0.6                      2020-05-27
 ---------------------------------------------
 - Fixes a typo in the grid-media-min comments (#641)
@@ -112,7 +156,7 @@ Version 5.1.0                      2019-10-31
 - New Mixin: `link-glyph()`
 - New Mixin: `link-icon()`
 - New Function: `breakpoint-previous`
-- New Typography styles: 	
+- New Typography styles:
   -- `.su-type-a`: Display Type A (used for H1 heading)
   -- `.su-type-b`: Display Type B (used for H2 heading)
   -- `.su-type-c`: Display Type C (used for H3 heading)

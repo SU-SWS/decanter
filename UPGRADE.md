@@ -1,5 +1,28 @@
 # Upgrade
 
+Upgrade from version 6.1.4 to 6.2.0
+-----------------------------------
+
+Find and replace all occurances of modular-spacing with responsive-spacing.
+
+Upgrade from version 6.0.6 to 6.1.0
+-----------------------------------
+
+Template changes to a few components (footer, search, alerts) may require you to
+update your markup or adjust your twig variables.
+
+New versions of nvm required. Run `nvm install` & `nvm use` before updating your
+npm packages.
+
+New npm package versions. Run `npm install` or `npm update` to get the latest.
+
+Removed a few SVGs out of `dist/assets` that are no longer being used in the
+components. Please switch to `core/src/img` if you were using them.
+
+New FontAwesome font for fa-solid-900 that will need to be added to your fonts
+if you moved them somewhere outside of a webpack build.
+
+
 Upgrade from version 5.2.0 to 6.0.0
 -----------------------------------
 

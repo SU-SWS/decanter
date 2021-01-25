@@ -13,7 +13,7 @@ services:
           curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh | bash
           NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-          nvm install 11.14.0
+          nvm install
           cd styleguide
           nvm use
           npm install
@@ -24,6 +24,7 @@ services:
           NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
           cd styleguide
+          nvm install
           nvm use
           npm install "https://github.com/su-sws/decanter.git#${TUGBOAT_GITHUB_HEAD}" --save --force
           npm audit fix
