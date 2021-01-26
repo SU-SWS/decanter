@@ -18,7 +18,7 @@
 // Style guide: Simple.Alert
 //
 .su-alert {
-  background-color: $su-color-fog;
+  background-color: color(default, $su-alert-colors);
 
   .centered-container {
     @include padding(1em null);
@@ -34,7 +34,7 @@
 // Dismiss close button.
 // -----------------------------------------------------------------------------
 .su-alert__dismiss {
-  @include modular-spacing('margin', null null null 1);
+  @include responsive-spacing('margin', null null null 1);
   order: 3;
   height: 100%;
   align-content: flex-end;
@@ -50,7 +50,7 @@
     background-color: transparent;
     text-transform: uppercase;
     font-weight: $su-font-semi-bold;
-    color: $su-color-black;
+    color: color(dark-text, $su-alert-colors);
     font-size: 1.7rem;
 
     .su-far,
@@ -71,7 +71,7 @@
 // Flex header with the icon and message type label.
 // -----------------------------------------------------------------------------
 .su-alert__header {
-  @include modular-spacing('margin', null 1 null null);
+  @include responsive-spacing('margin', null 1 null null);
   order: 1;
   flex-shrink: 1;
 
@@ -139,27 +139,27 @@
     &.su-button--secondary {
       @include button-secondary;
 
-      background-color: $su-color-fog;
+      background-color: color(default, $su-alert-colors);
       box-shadow: $su-button-stroke $su-color-black;
-      color: $su-color-black;
+      color: color(dark-text, $su-alert-colors);
 
       &:hover,
       &:focus {
-        background-color: $su-color-fog;
+        background-color: color(default, $su-alert-colors);
       }
     }
 
     &.su-button--big {
       @include button-big;
 
-      background-color: $su-color-fog;
+      background-color: color(default, $su-alert-colors);
       box-shadow: $su-button-stroke $su-color-black;
-      color: $su-color-black;
+      color: color(dark-text, $su-alert-colors);
 
       &:hover,
       &:focus {
-        background-color: $su-color-fog;
-        color: $su-color-black;
+        background-color: color(default, $su-alert-colors);
+        color: color(dark-text, $su-alert-colors);
       }
     }
   }
@@ -170,19 +170,19 @@
 .su-alert__footer {
 
   a {
-    color: $su-color-black;
+    color: color(dark-text, $su-alert-colors);
     text-decoration: none;
 
     &:hover,
     &:focus {
-      color: $su-color-black;
+      color: color(dark-text, $su-alert-colors);
       text-decoration: underline;
     }
   }
 
   .su-link {
     &::after {
-      background: $su-color-black;
+      background: color(dark-text, $su-alert-colors);
     }
 
     &:hover,
@@ -190,14 +190,14 @@
       text-decoration: underline;
 
       &::after {
-        background: $su-color-black;
+        background: color(dark-text, $su-alert-colors);
       }
     }
   }
 }
 
 .su-alert__text + .su-alert__footer {
-  @include modular-spacing('margin', 0 null null null);
+  @include responsive-spacing('margin', 0 null null null);
 }
 
 .su-alert__dismiss ~ .su-alert__body {
