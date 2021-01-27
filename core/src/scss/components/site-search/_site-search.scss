@@ -45,14 +45,21 @@
   width: 24px;
   height: 25px;
 
-  &:hover,
   &:active,
-  &:focus {
+  &:focus,
+  &:hover {
     background-color: transparent;
     opacity: 1;
   }
 
-  &:active {
+  &:active,
+  &:focus {
     box-shadow: none;
   }
+
+  // &:focus-visible {
+  //   box-shadow: $su-button-stroke $focus, $su-focus-shadow;
+  //   outline: none;
+  //   border: $focus;
+  // }
 }

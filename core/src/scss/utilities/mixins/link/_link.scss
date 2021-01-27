@@ -9,21 +9,30 @@
 /// @param {variable} $hover - Default hover color
 ///
 /// @group mixin
-@mixin link($color: color(link), $hover: color(link--hover), $focus: color(focus)) {
+@mixin link(
+  $color: color(link),
+  $hover: color(link--hover),
+  $focus: color(focus)
+) {
   @include padding(null 0.15rem);
   color: $color;
   font-weight: $su-font-semi-bold;
   text-decoration: underline;
 
   &:hover,
-  &:focus,
   &:active {
     color: $hover;
   }
 
+  // Default focus.
   &:focus {
+    outline: $su-focus-default-outline;
+  }
+
+  // For browsers that support focus-visible.
+  &:focus-visible {
+    border: $focus;
     box-shadow: $su-button-stroke $focus, $su-focus-shadow;
     outline: none;
-    border: $focus;
   }
 }
