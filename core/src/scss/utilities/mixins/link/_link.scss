@@ -14,6 +14,7 @@
   $hover: color(link--hover),
   $focus: color(focus)
 ) {
+  @include focus-visible;
   @include padding(null 0.15rem);
   color: $color;
   font-weight: $su-font-semi-bold;
@@ -24,15 +25,15 @@
     color: $hover;
   }
 
-  // Default focus.
-  &:focus {
-    outline: $su-focus-default-outline;
-  }
+  // // Set a default focus.
+  // &:focus {
+  //   outline: $su-focus-default-outline;
+  // }
 
-  // For browsers that support focus-visible.
-  &:focus-visible {
-    border: $focus;
-    box-shadow: $su-button-stroke $focus, $su-focus-shadow;
-    outline: none;
-  }
+  // // For browsers that support focus-visible.
+  // &:focus-visible {
+  //   border: $focus;
+  //   box-shadow: $su-button-stroke $focus, $su-focus-shadow;
+  //   outline: none;
+  // }
 }
