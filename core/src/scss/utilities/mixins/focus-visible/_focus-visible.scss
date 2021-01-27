@@ -14,9 +14,16 @@
   }
 
   // For browsers that support focus-visible.
-  &:focus-visible {
-    border: $focus;
-    box-shadow: $su-button-stroke $focus, $su-focus-shadow;
-    outline: none;
+  // See https://stackoverflow.com/questions/62665318/using-supports-selector-despite-sass-not-supporting-it
+  @supports #{'\selector(*:focus-visible)'} {
+    &:focus-visible {
+      border: $focus;
+      box-shadow: $su-button-stroke $focus, $su-focus-shadow;
+      outline: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
   }
 }
