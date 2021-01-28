@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+///
+/// Extra focus styles for Button styled elements
+///
+/// @name button-focus
+///
+/// @param {variable} $focus color(focus)  - focus color, e.g., #eeeeee.
+///
+/// @group mixin
+///
+@mixin button-focus($focus: color(focus)) {
+
+  &:focus {
+    box-shadow: $su-button-stroke $focus;
+  }
+
+  @supports #{'\selector(*:focus-visible)'} {
+    &:focus {
+      box-shadow: $su-button-stroke $su-color-black;
+    }
+
+    &:focus-visible {
+      box-shadow: $su-button-stroke $focus, $su-focus-shadow;
+    }
+  }
+}

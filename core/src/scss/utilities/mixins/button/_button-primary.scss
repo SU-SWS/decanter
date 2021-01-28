@@ -9,6 +9,9 @@
 @mixin button-primary {
   @extend %button-base;
   @include focus-visible;
+
+  // button-focus needs to follow focus-visible.
+  @include button-focus;
   @include padding(1rem 2rem 1.15rem);
 
   background-color: color(brand--bright);
