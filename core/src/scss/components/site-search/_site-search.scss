@@ -34,6 +34,7 @@
 }
 
 .su-site-search__submit {
+  @include focus-visible;
   @include padding(0);
   @include margin(0 0 0 null);
 
@@ -56,10 +57,4 @@
   &:focus {
     box-shadow: none;
   }
-
-  // &:focus-visible {
-  //   box-shadow: $su-button-stroke $focus, $su-focus-shadow;
-  //   outline: none;
-  //   border: $focus;
-  // }
 }
