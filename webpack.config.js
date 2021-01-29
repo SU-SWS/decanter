@@ -15,7 +15,12 @@ module.exports = {
   name: "decanter",
   // Define the entry points for which webpack builds a dependency graph.
   entry: {
-    "decanter": path.resolve(__dirname, "src", "decanter.js")
+    "decanter": path.resolve(__dirname, "src", "decanter.js"),
+    "decanter-base": path.resolve(__dirname, "src", "decanter-base.js"),
+    "decanter-components": path.resolve(__dirname, "src", "decanter-components.js"),
+    "decanter-fonts": path.resolve(__dirname, "src", "decanter-fonts.js"),
+    "decanter-screens": path.resolve(__dirname, "src", "decanter-screens.js"),
+    "decanter-utilities": path.resolve(__dirname, "src", "decanter-utilities.js"),
   },
   // Where should I output the assets.
   output: {
