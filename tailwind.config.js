@@ -90,7 +90,7 @@ module.exports = {
   // core utility plugin.
   // https://tailwindcss.com/docs/configuration/#variants
   variants: {
-    fontWeight: ['responsive', 'hover', 'focus'],
+    fontWeight: ['responsive'],
     animation: ['hover', 'focus'],
     extend: {}
   }
