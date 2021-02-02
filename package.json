@@ -11,7 +11,6 @@
     "publish": "webpack --mode=production",
     "wind": "tailwindcss build src/css/index.css -o dist/decanter.css",
     "eslint": "eslint -c .eslintrc 'core/src/'",
-    "sasslint": "sass-lint -c .sass-lint.yml '**/*.scss' -v -q -i 'vendor/**/*.scss, node_modules/**/*.scss, kss/builder/decanter/**/*.scss'",
     "start": "live-server dev/dist --port=9090 --verbose",
     "watch": "nodemon --watch ./ --ext js,css,html --ignore dist --ignore node_modules --ignore dev/dist --exec \"npm run build:dev\""
   },
@@ -30,7 +29,9 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.0",
-    "tailwindcss": "^2.0.1"
+    "@tailwindcss/aspect-ratio": "^0.2.0",
+    "@tailwindcss/forms": "^0.2.1",
+    "tailwindcss": "^2.0.2"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
@@ -49,9 +50,7 @@
     "postcss-loader": "^4.0.0",
     "postcss-nested": "^5.0.1",
     "style-loader": "^2.0.0",
-    "tailwindcss-aspect-ratio": "^3.0.0",
     "tailwindcss-debug-screens": "^2.0.0",
-    "tailwindcss-visuallyhidden": "^1.0.2",
     "webpack": "^5.8.0",
     "webpack-cli": "^4.2.0"
   }

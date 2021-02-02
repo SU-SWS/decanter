@@ -114,7 +114,7 @@ module.exports = function () {
       }
 
       // Margin Top.
-      res[prefix + '-' + margin + '-' + top + '-' + key] = {
+      res[prefix + '-' + margin + top + '-' + key] = {
         marginTop: map[key].xs,
         '@screen md': {
           marginTop: map[key].md
@@ -125,7 +125,7 @@ module.exports = function () {
       }
 
       // Padding Top.
-      res[prefix + '-' + padding + '-' + top + '-' + key] = {
+      res[prefix + '-' + padding + top + '-' + key] = {
         paddingTop: map[key].xs,
         '@screen md': {
           paddingTop: map[key].md
@@ -136,7 +136,7 @@ module.exports = function () {
       }
 
       // Margin Right.
-      res[prefix + '-' + margin + '-' + right + '-' + key] = {
+      res[prefix + '-' + margin + right + '-' + key] = {
         marginRight: map[key].xs,
         '@screen md': {
           marginRight: map[key].md
@@ -147,7 +147,7 @@ module.exports = function () {
       }
 
       // Padding Right.
-      res[prefix + '-' + padding + '-' + right + '-' + key] = {
+      res[prefix + '-' + padding + right + '-' + key] = {
         paddingRight: map[key].xs,
         '@screen md': {
           paddingRight: map[key].md
@@ -158,7 +158,7 @@ module.exports = function () {
       }
 
       // Margin Bottom.
-      res[prefix + '-' + margin + '-' + bottom + '-' + key] = {
+      res[prefix + '-' + margin + bottom + '-' + key] = {
         marginBottom: map[key].xs,
         '@screen md': {
           marginBottom: map[key].md
@@ -169,7 +169,7 @@ module.exports = function () {
       }
 
       // Padding Bottom.
-      res[prefix + '-' + padding + '-' + bottom + '-' + key] = {
+      res[prefix + '-' + padding + bottom + '-' + key] = {
         paddingBottom: map[key].xs,
         '@screen md': {
           paddingBottom: map[key].md
@@ -180,7 +180,7 @@ module.exports = function () {
       }
 
       // Margin Left.
-      res[prefix + '-' + margin + '-' + left + '-' + key] = {
+      res[prefix + '-' + margin + left + '-' + key] = {
         marginLeft: map[key].xs,
         '@screen md': {
           marginLeft: map[key].md
@@ -191,7 +191,7 @@ module.exports = function () {
       }
 
       // Padding Left.
-      res[prefix + '-' + padding + '-' + left + '-' + key] = {
+      res[prefix + '-' + padding + left + '-' + key] = {
         paddingLeft: map[key].xs,
         '@screen md': {
           paddingLeft: map[key].md
@@ -202,7 +202,7 @@ module.exports = function () {
       }
 
       // Margin Top + Bottom.
-      res[prefix + '-' + margin + '-' + topbottom + '-' + key] = {
+      res[prefix + '-' + margin + topbottom + '-' + key] = {
         marginTop: map[key].xs,
         marginBottom: map[key].xs,
         '@screen md': {
@@ -216,7 +216,7 @@ module.exports = function () {
       }
 
       // Padding Top + Bottom.
-      res[prefix + '-' + padding + '-' + topbottom + '-' + key] = {
+      res[prefix + '-' + padding + topbottom + '-' + key] = {
         paddingTop: map[key].xs,
         paddingBottom: map[key].xs,
         '@screen md': {
@@ -230,7 +230,7 @@ module.exports = function () {
       }
 
       // Margin Left + Right.
-      res[prefix + '-' + margin + '-' + leftright + '-' + key] = {
+      res[prefix + '-' + margin + leftright + '-' + key] = {
         marginLeft: map[key].xs,
         marginRight: map[key].xs,
         '@screen md': {
@@ -244,7 +244,7 @@ module.exports = function () {
       }
 
       // Padding Left + Right.
-      res[prefix + '-' + padding + '-' + leftright + '-' + key] = {
+      res[prefix + '-' + padding + leftright + '-' + key] = {
         paddingLeft: map[key].xs,
         paddingRight: map[key].xs,
         '@screen md': {

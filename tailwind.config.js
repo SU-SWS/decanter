@@ -81,16 +81,15 @@ module.exports = {
     require(dir + '/utilities/tables/borderless.js')(),
     require(dir + '/utilities/typography/styles.js')(),
     // 3rd Party Plugins;
-    require('tailwindcss-visuallyhidden')(),
-    require('tailwindcss-aspect-ratio'),
-    require('tailwindcss-debug-screens')
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/forms'),
+    require('tailwindcss-debug-screens'),
   ],
 
   // The variants section lets you control which variants are generated for each
   // core utility plugin.
   // https://tailwindcss.com/docs/configuration/#variants
   variants: {
-    fontWeight: ['responsive', 'hover', 'focus'],
     animation: ['hover', 'focus'],
     extend: {}
   }
