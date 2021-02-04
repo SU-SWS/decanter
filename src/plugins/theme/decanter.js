@@ -23,6 +23,7 @@ module.exports = function () {
       baseLineHeight: '1.4',
       fontSmoothing: fontSmoothing,
       inputMaxWidth: '46rem',
+      inputFontSize: '1.8rem',
       modularScale: '1.25',
     },
     screenMargins: {
