@@ -8,6 +8,10 @@ module.exports = function () {
     const headings = theme('decanter.typography.headings');
 
     const newUtilities = {
+      '.type-6': {
+        ...headings,
+        ...theme('decanter.typography.type6'),
+      },
       '.type-5': {
         ...headings,
         ...theme('decanter.typography.type5'),
@@ -51,21 +55,16 @@ module.exports = function () {
       },
       '.caption': {
         ...theme('decanter.base.fontSmoothing'),
-        fontSize: '1.4rem',
+        fontSize: '0.9em',
         lineHeight: '1.3',
         color: theme('colors.cool-grey'),
-        '@screen md': {
-          fontSize: '1.6rem',
-        },
       },
       '.credits': {
         ...theme('decanter.base.fontSmoothing'),
-        fontSize: '1.4rem',
+        fontSize: '0.9rem',
         lineHeight: '1.3',
+        color: theme('colors.cool-grey'),
         fontStyle: 'italic',
-        '@screen md': {
-          fontSize: '1.6rem',
-        },
       },
       '.subheading': {
         fontSize: '1.25em',

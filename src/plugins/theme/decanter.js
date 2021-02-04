@@ -52,29 +52,36 @@ module.exports = function () {
           fontWeight: theme.fontWeight.bold,
         },
       },
+      type6: {
+        fontSize: '2.6em',
+        letterSpacing: '-0.018em',
+        '@screen md': {
+          fontSize: (1.25 ** 6).toFixed(2) + 'em',
+        },
+      },
       type5: {
         fontSize: '2.6em',
         letterSpacing: '-0.018em',
         '@screen md': {
-          fontSize: '3.05em',
+          fontSize: (1.25 ** 5).toFixed(2) + 'em',
         },
       },
       type4: {
         fontSize: '2.08em',
         letterSpacing: '-0.016em',
         '@screen md': {
-          fontSize: '2.44em',
+          fontSize: (1.25 ** 4).toFixed(2) + 'em',
         },
       },
       type3: {
         fontSize: '1.66em',
         letterSpacing: '-0.016em',
         '@screen md': {
-          fontSize: '1.95em',
+          fontSize: (1.25 ** 3).toFixed(2) + 'em',
         }
       },
       type2: {
-        fontSize: '1.56em',
+        fontSize: (1.25 ** 2).toFixed(2) + 'em',
         letterSpacing: '-0.012em',
       },
       type1: {
@@ -83,9 +90,6 @@ module.exports = function () {
       },
       type0: {
         fontSize: '1em',
-      },
-      typeF: {
-        fontSize: '0.9em',
       },
     },
   }
