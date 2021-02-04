@@ -63,10 +63,8 @@ module.exports = {
     // @tailwind base;
     require(dir + '/base/base.js')(),
     // @tailwind components;
-    require(dir + '/components/brand-bar/brand-bar.js')(),
     require(dir + '/components/button/button.js')(),
     require(dir + '/components/logo/logo.js')(),
-    require(dir + '/components/skiplinks/skiplinks.js')(),
     // @tailwind utilities;
     require(dir + '/utilities/accessibility/accessibily-hidden.js')(),
     require(dir + '/utilities/accessibility/sr-only-element.js')(),

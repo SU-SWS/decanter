@@ -6,9 +6,6 @@ module.exports = function () {
     // The return object.
     let res = {}
 
-    // Global settings.
-    let screens = theme('screens')
-
     // Naming convention vars.
     const prefix = '.rs'
     const margin = 'm'
