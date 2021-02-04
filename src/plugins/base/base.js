@@ -51,27 +51,27 @@ module.exports = function () {
       // -----------------------------------------------------------------------
       'h1': {
         ...headings,
-        ...config('theme.decanter.typography.typeA'),
+        ...config('theme.decanter.typography.type5'),
       },
       'h2': {
         ...headings,
-        ...config('theme.decanter.typography.typeB'),
+        ...config('theme.decanter.typography.type4'),
       },
       'h3': {
         ...headings,
-        ...config('theme.decanter.typography.typeC'),
+        ...config('theme.decanter.typography.type3'),
       },
       'h4': {
         ...headings,
-        ...config('theme.decanter.typography.typeD'),
+        ...config('theme.decanter.typography.type2'),
       },
       'h5': {
         ...headings,
-        ...config('theme.decanter.typography.typeE'),
+        ...config('theme.decanter.typography.type1'),
       },
       'h6': {
         ...headings,
-        ...config('theme.decanter.typography.typeF'),
+        ...config('theme.decanter.typography.type0'),
       },
       // MISC
       // -----------------------------------------------------------------------

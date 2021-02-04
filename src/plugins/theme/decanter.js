@@ -52,29 +52,36 @@ module.exports = function () {
           fontWeight: theme.fontWeight.bold,
         },
       },
-      typeA: {
+      type5: {
+        fontSize: '2.6em',
+        letterSpacing: '-0.018em',
+        '@screen md': {
+          fontSize: '3.05em',
+        },
+      },
+      type4: {
         fontSize: '2.08em',
         letterSpacing: '-0.016em',
         '@screen md': {
           fontSize: '2.44em',
         },
       },
-      typeB: {
+      type3: {
         fontSize: '1.66em',
         letterSpacing: '-0.016em',
         '@screen md': {
           fontSize: '1.95em',
         }
       },
-      typeC: {
+      type2: {
         fontSize: '1.56em',
         letterSpacing: '-0.012em',
       },
-      typeD: {
+      type1: {
         fontSize: '1.25em',
         letterSpacing: '-0.01em',
       },
-      typeE: {
+      type0: {
         fontSize: '1em',
       },
       typeF: {
