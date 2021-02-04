@@ -8,29 +8,29 @@ module.exports = function () {
     const headings = theme('decanter.typography.headings');
 
     const newUtilities = {
-      '.type-a': {
+      '.type-5': {
         ...headings,
-        ...theme('decanter.typography.typeA'),
+        ...theme('decanter.typography.type5'),
       },
-      '.type-b': {
+      '.type-4': {
         ...headings,
-        ...theme('decanter.typography.typeB'),
+        ...theme('decanter.typography.type4'),
       },
-      '.type-c': {
+      '.type-3': {
         ...headings,
-        ...theme('decanter.typography.typeC'),
+        ...theme('decanter.typography.type3'),
       },
-      '.type-d': {
+      '.type-2': {
         ...headings,
-        ...theme('decanter.typography.typeD'),
+        ...theme('decanter.typography.type2'),
       },
-      '.type-e': {
+      '.type-1': {
         ...headings,
-        ...theme('decanter.typography.typeE'),
+        ...theme('decanter.typography.type1'),
       },
-      '.type-f': {
+      '.type-0': {
         ...headings,
-        ...theme('decanter.typography.typeF'),
+        ...theme('decanter.typography.type0'),
       },
       '.intro-text': {
         ...theme('decanter.base.fontSmoothing'),

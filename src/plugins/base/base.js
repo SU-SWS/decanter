@@ -92,6 +92,11 @@ module.exports = function () {
       'figure': {
         margin: '0',
       },
+      'figcaption': {
+        fontSize: '0.9em',
+        lineHeight: '1.3',
+        color: config('theme.colors.cool-grey'),
+      },
       'img': {
         margin: '0',
         padding: '0',
