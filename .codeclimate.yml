@@ -12,7 +12,7 @@ plugins:
   eslint:
     enabled: true
   markdownlint:
-    enabled: false
+    enabled: true
     checks:
       MD029:
         enabled: false
@@ -28,6 +28,8 @@ plugins:
   # SASS Lint requires a .sass-lint.yml file in the repo in order to tweak settings.
   # Withouth the .sass-lint.yml file it will run with the defaults.
   # Defaults file: https://github.com/sasstools/sass-lint/blob/master/lib/config/sass-lint.yml
+  scss-lint:
+    enabled: false
   sass-lint:
     enabled: false
   # SCSS Lint requires a .scss-lint.yml file in the repo in order to tweak settings.
@@ -65,10 +67,9 @@ exclude_patterns:
 - "vendor"
 - "vendors"
 - "node_modules"
-- "core/dist/**/*"
-- "core/src/scss/core/_normalize.scss"
+- "dist/**/*"
 - "composer.json"
 - "package.json"
 - "webpack.config.js"
-- "developer"
+- "dev"
 - "examples"
