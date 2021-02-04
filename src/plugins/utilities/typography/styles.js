@@ -8,29 +8,33 @@ module.exports = function () {
     const headings = theme('decanter.typography.headings');
 
     const newUtilities = {
-      '.type-a': {
+      '.type-6': {
         ...headings,
-        ...theme('decanter.typography.typeA'),
+        ...theme('decanter.typography.type6'),
       },
-      '.type-b': {
+      '.type-5': {
         ...headings,
-        ...theme('decanter.typography.typeB'),
+        ...theme('decanter.typography.type5'),
       },
-      '.type-c': {
+      '.type-4': {
         ...headings,
-        ...theme('decanter.typography.typeC'),
+        ...theme('decanter.typography.type4'),
       },
-      '.type-d': {
+      '.type-3': {
         ...headings,
-        ...theme('decanter.typography.typeD'),
+        ...theme('decanter.typography.type3'),
       },
-      '.type-e': {
+      '.type-2': {
         ...headings,
-        ...theme('decanter.typography.typeE'),
+        ...theme('decanter.typography.type2'),
       },
-      '.type-f': {
+      '.type-1': {
         ...headings,
-        ...theme('decanter.typography.typeF'),
+        ...theme('decanter.typography.type1'),
+      },
+      '.type-0': {
+        ...headings,
+        ...theme('decanter.typography.type0'),
       },
       '.intro-text': {
         ...theme('decanter.base.fontSmoothing'),
@@ -51,21 +55,16 @@ module.exports = function () {
       },
       '.caption': {
         ...theme('decanter.base.fontSmoothing'),
-        fontSize: '1.4rem',
+        fontSize: '0.9em',
         lineHeight: '1.3',
         color: theme('colors.cool-grey'),
-        '@screen md': {
-          fontSize: '1.6rem',
-        },
       },
       '.credits': {
         ...theme('decanter.base.fontSmoothing'),
-        fontSize: '1.4rem',
+        fontSize: '0.9rem',
         lineHeight: '1.3',
+        color: theme('colors.cool-grey'),
         fontStyle: 'italic',
-        '@screen md': {
-          fontSize: '1.6rem',
-        },
       },
       '.subheading': {
         fontSize: '1.25em',

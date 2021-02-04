@@ -31,9 +31,6 @@ module.exports = {
     // Decanter Custom.
     decanter: require(dir + '/theme/decanter.js')(),
     // Extensions of tailwind core config.
-    extend: {
-      backgroundImage: require(dir + '/theme/backgroundImage.js')()
-    }
   },
 
   // The corePlugins section lets you completely disable classes that Tailwind
@@ -43,7 +40,6 @@ module.exports = {
     // preflight: false,
     fontSmoothing: false,
     placeholderOpacity: false,
-    placeholderColor: false,
     divideColor: false,
     divideOpacity: false,
     divideStyle: false,
@@ -63,7 +59,6 @@ module.exports = {
     // @tailwind base;
     require(dir + '/base/base.js')(),
     // @tailwind components;
-    require(dir + '/components/button/button.js')(),
     require(dir + '/components/logo/logo.js')(),
     // @tailwind utilities;
     require(dir + '/utilities/accessibility/accessibily-hidden.js')(),

@@ -23,6 +23,7 @@ module.exports = function () {
       baseLineHeight: '1.4',
       fontSmoothing: fontSmoothing,
       inputMaxWidth: '46rem',
+      inputFontSize: '1.8rem',
       modularScale: '1.25',
     },
     screenMargins: {
@@ -42,6 +43,7 @@ module.exports = function () {
     typography: {
       headings: {
         lineHeight: theme.lineHeight.display,
+        marginBottom: '0.6em',
         clear: 'both',
         fontWeight: theme.fontWeight.bold,
         ...fontSmoothing,
@@ -50,33 +52,44 @@ module.exports = function () {
           fontWeight: theme.fontWeight.bold,
         },
       },
-      typeA: {
+      type6: {
+        fontSize: '2.6em',
+        letterSpacing: '-0.018em',
+        '@screen md': {
+          fontSize: (1.25 ** 6).toFixed(2) + 'em',
+        },
+      },
+      type5: {
+        fontSize: '2.6em',
+        letterSpacing: '-0.018em',
+        '@screen md': {
+          fontSize: (1.25 ** 5).toFixed(2) + 'em',
+        },
+      },
+      type4: {
         fontSize: '2.08em',
         letterSpacing: '-0.016em',
         '@screen md': {
-          fontSize: '2.44em',
+          fontSize: (1.25 ** 4).toFixed(2) + 'em',
         },
       },
-      typeB: {
+      type3: {
         fontSize: '1.66em',
         letterSpacing: '-0.016em',
         '@screen md': {
-          fontSize: '1.95em',
+          fontSize: (1.25 ** 3).toFixed(2) + 'em',
         }
       },
-      typeC: {
-        fontSize: '1.56em',
+      type2: {
+        fontSize: (1.25 ** 2).toFixed(2) + 'em',
         letterSpacing: '-0.012em',
       },
-      typeD: {
+      type1: {
         fontSize: '1.25em',
         letterSpacing: '-0.01em',
       },
-      typeE: {
+      type0: {
         fontSize: '1em',
-      },
-      typeF: {
-        fontSize: '0.9em',
       },
     },
   }
