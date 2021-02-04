@@ -46,74 +46,32 @@ module.exports = function () {
         lineHeight: config('theme.decanter.base.baseLineHeight'),
         marginTop: '0',
         marginBottom: '1em',
-        '+ ul': {
-          marginBottom: '0',
-        },
-        '+ ol': {
-          marginBottom: '0',
-        },
       },
       // HEADINGS
       // -----------------------------------------------------------------------
       'h1': {
         ...headings,
         ...config('theme.decanter.typography.typeA'),
-        '+ ul': {
-          marginBottom: '0',
-        },
-        '+ ol': {
-          marginBottom: '0',
-        },
       },
       'h2': {
         ...headings,
         ...config('theme.decanter.typography.typeB'),
-        '+ ul': {
-          marginBottom: '0',
-        },
-        '+ ol': {
-          marginBottom: '0',
-        },
       },
       'h3': {
         ...headings,
         ...config('theme.decanter.typography.typeC'),
-        '+ ul': {
-          marginBottom: '0',
-        },
-        '+ ol': {
-          marginBottom: '0',
-        },
       },
       'h4': {
         ...headings,
         ...config('theme.decanter.typography.typeD'),
-        '+ ul': {
-          marginBottom: '0',
-        },
-        '+ ol': {
-          marginBottom: '0',
-        },
       },
       'h5': {
         ...headings,
         ...config('theme.decanter.typography.typeE'),
-        '+ ul': {
-          marginBottom: '0',
-        },
-        '+ ol': {
-          marginBottom: '0',
-        },
       },
       'h6': {
         ...headings,
         ...config('theme.decanter.typography.typeF'),
-        '+ ul': {
-          marginBottom: '0',
-        },
-        '+ ol': {
-          marginBottom: '0',
-        },
       },
       // MISC
       // -----------------------------------------------------------------------

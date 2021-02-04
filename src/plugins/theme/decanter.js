@@ -43,6 +43,7 @@ module.exports = function () {
     typography: {
       headings: {
         lineHeight: theme.lineHeight.display,
+        marginBottom: '0.6em',
         clear: 'both',
         fontWeight: theme.fontWeight.bold,
         ...fontSmoothing,
