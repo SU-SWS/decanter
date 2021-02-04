@@ -12,7 +12,8 @@
     "wind": "tailwindcss build src/css/index.css -o dist/decanter.css",
     "eslint": "eslint -c .eslintrc 'core/src/'",
     "start": "live-server dev/dist --port=9090 --verbose",
-    "watch": "nodemon --watch ./ --ext js,css,html --ignore dist --ignore node_modules --ignore dev/dist --exec \"npm run build:dev\""
+    "watch": "nodemon --watch ./ --ext js,css,html --ignore dist --ignore node_modules --ignore dev/dist --exec \"npm run build:dev\"",
+    "dev:prep": "touch dev/src/test.css && touch dev/src/test.js && cp dev/src/sample.test.html dev/src/test.html"
   },
   "keywords": [
     "css",
