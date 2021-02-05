@@ -1,5 +1,6 @@
 /**
  * Font Size Defaults.
+ * For larger font sizes, use our custom modular typography classes (.su-type-0 to .su-type-6)
  */
 module.exports = function () {
   return {
