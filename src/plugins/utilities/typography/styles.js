@@ -38,9 +38,12 @@ module.exports = function () {
       },
       '.intro-text': {
         ...theme('decanter.base.fontSmoothing'),
-        ...theme('decanter.typography.type2'),
+        ...theme('decanter.typography.type1'),
         lineHeight: theme('lineHeight.DEFAULT'),
         maxWidth: '85rem',
+        '@screen md': {
+          ...theme('decanter.typography.type2'),
+        },
       },
       '.font-splash': {
         ...headings,
@@ -72,6 +75,15 @@ module.exports = function () {
         '@screen md': {
           fontSize: '2.3rem',
           lineHeight: theme('lineHeight.DEFAULT'),
+        },
+      },
+      '.legacy-body': {
+        fontSize: '1.6rem',
+        '@screen md': {
+          fontSize: '1.8rem',
+        },
+        '@screen 2xl': {
+          fontSize: '1.9rem',
         },
       },
       '.card-paragraph': {

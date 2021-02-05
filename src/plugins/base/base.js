@@ -32,20 +32,23 @@ module.exports = function () {
       },
       'body': {
         backgroundColor: config('theme.colors.white'),
-        overflowX: 'hidden',
         color: config('theme.colors.black.DEFAULT'),
-        fontSize: '1.6rem',
+        overflowX: 'hidden',
+        fontSize: '1.8rem',
         '@screen md': {
-          fontSize: '1.8rem',
+          fontSize: '2.1rem',
         },
-        '@screen 2xl': {
-          fontSize: '1.9rem',
+        '@screen xl': {
+          fontSize: '2.3rem',
         },
       },
       'p': {
-        lineHeight: config('theme.decanter.base.baseLineHeight'),
+        lineHeight: config('theme.lineHeight.cozy'),
         marginTop: '0',
         marginBottom: '1em',
+        '@screen md': {
+          lineHeight: config('theme.lineHeight.DEFAULT'),
+        },
       },
       // HEADINGS
       // -----------------------------------------------------------------------
