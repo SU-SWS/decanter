@@ -1,5 +1,5 @@
 /**
- * Spacing - used in various classes
+ * Spacing - used in various classes such as margin and padding; individual values taken from Responsive Spacing map
  */
 module.exports = function () {
   return {
