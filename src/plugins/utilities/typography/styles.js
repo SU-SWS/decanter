@@ -38,52 +38,48 @@ module.exports = function () {
       },
       '.intro-text': {
         ...theme('decanter.base.fontSmoothing'),
-        fontSize: '1.56em',
-        fontWeight: theme('fontWeight.regular'),
-        lineHeight: '1.5',
+        ...theme('decanter.typography.type2'),
+        lineHeight: theme('lineHeight.DEFAULT'),
         maxWidth: '85rem',
-        letterSpacing: '-0.012em',
       },
       '.font-splash': {
         ...headings,
-        marginBottom: '0',
-        fontSize: '2.59em',
-        letterSpacing: '-0.016em',
-        '@screen md': {
-          fontSize: '3.05em',
-        },
+        ...theme('decanter.typography.type6'),
       },
       '.caption': {
         ...theme('decanter.base.fontSmoothing'),
         fontSize: '0.9em',
-        lineHeight: '1.3',
+        lineHeight: theme('lineHeight.snug'),
         color: theme('colors.cool-grey'),
       },
       '.credits': {
         ...theme('decanter.base.fontSmoothing'),
         fontSize: '0.9rem',
-        lineHeight: '1.3',
+        lineHeight: theme('lineHeight.snug'),
         color: theme('colors.cool-grey'),
         fontStyle: 'italic',
       },
       '.subheading': {
-        fontSize: '1.25em',
+        ...theme('decanter.typography.type1'),
       },
       '.quote-text': {
         fontSize: '1.25em',
         fontStyle: 'italic',
       },
       '.big-paragraph': {
+        fontSize: '1.8rem',
+        lineHeight: theme('lineHeight.cozy'),
         '@screen md': {
-          fontSize: '2.1rem',
-          lineHeight: '1.7',
+          fontSize: '2.3rem',
+          lineHeight: theme('lineHeight.DEFAULT'),
         },
       },
-      '.small-paragraph': {
+      '.card-paragraph': {
         fontSize: '1.6rem',
-        lineHeight: '1.3',
+        lineHeight: theme('lineHeight.snug'),
         '@screen md': {
-          fontSize: '1.8rem',
+          fontSize: '2.1rem',
+          lineHeight: theme('lineHeight.cozy'),
         },
       },
     }
