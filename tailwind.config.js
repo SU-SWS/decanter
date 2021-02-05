@@ -27,6 +27,7 @@ module.exports = {
     fontWeight: require(dir + '/theme/fontWeight.js')(),
     lineHeight: require(dir + '/theme/lineHeight.js')(),
     gap: require(dir + '/theme/gap.js')(),
+    spacing: require(dir + '/theme/spacing.js')(),
     transitionDuration: require(dir + '/theme/transitionDuration.js')(),
     // Decanter Custom.
     decanter: require(dir + '/theme/decanter.js')(),
