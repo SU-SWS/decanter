@@ -34,5 +34,6 @@ module.exports = function () {
     screen: '100vw',
     min: 'min-content',
     max: 'max-content',
+    fit: 'fit-content',
   }
 }
