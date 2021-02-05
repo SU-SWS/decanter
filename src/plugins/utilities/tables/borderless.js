@@ -7,7 +7,7 @@ module.exports = function () {
       // For no borders at all.
       '.table-borderless': {
         'thead': {
-          'tr': {
+          'tr, th': {
             backgroundColor: 'transparent',
           },
           'th': {
@@ -15,6 +15,7 @@ module.exports = function () {
           },
         },
         'th': {
+          backgroundColor: 'transparent',
           borderLeft: '0',
           borderRight: '0',
         },

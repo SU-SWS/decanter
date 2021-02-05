@@ -203,9 +203,17 @@ module.exports = function () {
       // TABLES
       // -----------------------------------------------------------------------
       'table': {
-        margin: '2em 0',
+        margin: '0',
         borderSpacing: '0',
         minWidth: '100%',
+        fontSize: '1.6rem',
+        '@screen md': {
+          fontSize: '1.8rem'
+        },
+        'caption': {
+          marginBottom: '0.6em',
+          fontWeight: config('theme.fontWeight.semibold'),
+        },
         'th': {
           padding: '1.5rem',
           border: '1px solid ' + config('theme.colors.foggy.dark'),
