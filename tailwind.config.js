@@ -16,7 +16,6 @@ module.exports = {
 
   theme: {
     // Overrides.
-    aspectRatio: require(dir + '/theme/aspectRatio.js')(),
     borderRadius: require(dir + '/theme/borderRadius.js')(),
     borderWidth: require(dir + '/theme/borderWidth.js')(),
     boxShadow: require(dir + '/theme/boxShadow.js')(),
