@@ -40,7 +40,7 @@ module.exports = function () {
         ...theme('decanter.base.fontSmoothing'),
         ...theme('decanter.typography.type1'),
         lineHeight: theme('lineHeight.DEFAULT'),
-        maxWidth: '85rem',
+        maxWidth: '60ch',
         '@screen md': {
           ...theme('decanter.typography.type2'),
         },
