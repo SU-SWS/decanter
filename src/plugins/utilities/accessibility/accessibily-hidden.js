@@ -4,7 +4,7 @@
 module.exports = function () {
   return function ({ addUtilities }) {
     const newUtilities = {
-      '.accessibly-hidden': {
+      '.accessibly-hidden, .a11y-hidden': {
         '&[aria-hidden="true"]': {
           display: 'none'
         }

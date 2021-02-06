@@ -45,25 +45,21 @@ module.exports = function () {
         ...headings,
         ...theme('decanter.typography.type6'),
       },
-      '.caption': {
+      '.quote-text': {
+        fontSize: '1.25em',
+        fontStyle: 'italic',
+      },
+      '.caption, .credits': {
         ...theme('decanter.base.fontSmoothing'),
         fontSize: 'max(1.6rem, 0.9em)',
         lineHeight: theme('lineHeight.snug'),
         color: theme('colors.cool-grey'),
       },
       '.credits': {
-        ...theme('decanter.base.fontSmoothing'),
-        fontSize: 'max(1.6rem, 0.9em)',
-        lineHeight: theme('lineHeight.snug'),
-        color: theme('colors.cool-grey'),
         fontStyle: 'italic',
       },
       '.subheading': {
         ...theme('decanter.typography.type1'),
-      },
-      '.quote-text': {
-        fontSize: '1.25em',
-        fontStyle: 'italic',
       },
       '.big-paragraph': {
         fontSize: '1.15em',

@@ -68,7 +68,6 @@ module.exports = {
     require(dir + '/components/logo/logo.js')(),
     // @tailwind utilities;
     require(dir + '/utilities/accessibility/accessibily-hidden.js')(),
-    require(dir + '/utilities/accessibility/sr-only-element.js')(),
     require(dir + '/utilities/accessibility/sr-only-text.js')(),
     require(dir + '/utilities/layout/centered-container.js')(),
     require(dir + '/utilities/layout/grid-gap.js')(),
