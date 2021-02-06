@@ -47,13 +47,13 @@ module.exports = function () {
       },
       '.caption': {
         ...theme('decanter.base.fontSmoothing'),
-        fontSize: '0.9em',
+        fontSize: 'max(1.6rem, 0.9em)',
         lineHeight: theme('lineHeight.snug'),
         color: theme('colors.cool-grey'),
       },
       '.credits': {
         ...theme('decanter.base.fontSmoothing'),
-        fontSize: '0.9em',
+        fontSize: 'max(1.6rem, 0.9em)',
         lineHeight: theme('lineHeight.snug'),
         color: theme('colors.cool-grey'),
         fontStyle: 'italic',
@@ -73,7 +73,7 @@ module.exports = function () {
         },
       },
       '.card-paragraph': {
-        fontSize: '0.9em',
+        fontSize: 'max(1.6rem, 0.93em)',
         lineHeight: theme('lineHeight.snug'),
         '@screen md': {
           lineHeight: theme('lineHeight.cozy'),
