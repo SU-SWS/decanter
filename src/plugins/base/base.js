@@ -36,10 +36,10 @@ module.exports = function () {
         overflowX: 'hidden',
         fontSize: '1.8rem',
         '@screen md': {
-          fontSize: '2.1rem',
+          fontSize: '1.9rem',
         },
-        '@screen xl': {
-          fontSize: '2.3rem',
+        '@screen 2xl': {
+          fontSize: '2.1rem',
         },
       },
       'p': {
