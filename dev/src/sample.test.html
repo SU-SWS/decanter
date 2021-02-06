@@ -35,9 +35,8 @@
           <li class="su-inline-block su-mb-12"><a href="#text__tables" class="su-inline-block su-py-8 su-px-20 su-mr-12 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">Tabular data</a></li>
           <li class="su-inline-block su-mb-12"><a href="#text__code" class="su-inline-block su-py-8 su-px-20 su-mr-12 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">Code</a></li>
           <li class="su-inline-block su-mb-12"><a href="#text__inline" class="su-inline-block su-py-8 su-px-20 su-mr-12 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">Inline elements</a></li>
-          <li class="su-inline-block su-mb-12"><a href="#text__comments" class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">HTML Comments</a></li>
         </ul>
-        <h2 class="su-type-5"><a href="#embedded" class="su-text-black hover:su-underline focus:su-underline">Embedded content</a></h2>
+        <h2 class="su-type-5"><a href="#embedded" class="su-text-black hover:su-underline focus:su-underline">HTML Elements</a></h2>
         <ul class="su-list-unstyled su-text-16 md:su-text-20 su-rs-mb-4">
           <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#embedded__images">Images</a></li>
           <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#embedded__audio">Audio</a></li>
@@ -63,275 +62,280 @@
   </header>
   <!-- Typography section -->
   <section class="su-rs-mb-3">
-    <header id="text" class="su-rs-mb-3 su-rs-py-4 su-bg-black-90">
+    <header id="text" class="su-rs-py-4 su-bg-black-90">
       <div class="su-cc">
         <h2 class="su-type-6 su-text-white su-mb-0 su-text-center">Typography</h2>
       </div>
     </header>
-    <div class="su-cc">
-      <article id="logo" class="su-mb-3">
-        <h3>Stanford Logo</h3>
-        <div class="su-rs-mb-2">
-          <h4>Horizontal version</h4>
-          <a class="su-logo su-text-cardinal-red hover:su-text-cardinal-red active:su-text-cardinal-red focus:su-text-cardinal-red su-type-2" href="https://stanford.edu">Stanford University</a>
-        </div>
-        <div class="su-rs-mb-2">
-          <h3>Stacked full version</h3>
-          <a class="su-logo su-text-cardinal-red hover:su-text-cardinal-red active:su-text-cardinal-red focus:su-text-cardinal-red su-type-2" href="https://stanford.edu">Stanford<br>University</a>
-        </div>
-      </article>
-      <article id="text__headings">
-        <div>
-          <h2 class="su-splash-text">Splash Text</h2>
-          <h1>Heading 1</h1>
-          <h2>Heading 2</h2>
-          <h3>Heading 3</h3>
-          <h4>Heading 4</h4>
-          <h5>Heading 5</h5>
-          <h6>Heading 6</h6>
-        </div>
-        <footer><p><a href="#top">[Top]</a></p></footer>
-      </article>
-      <article id="text__paragraphs" class="su-flex">
-        <div class="lg:su-w-8/12 su-mx-auto">
-          <header><h2>Paragraphs</h2></header>
-          <div class="su-rs-mb-2">
-            <h2>Intro and Regular Paragraph</h2>
-            <p class="su-intro-text">A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
-            <p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
-            <p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+    <div class="su-cc su-flex su-flex-col md:su-flex-row su-rs-py-6">
+      <div class="su-mx-auto lg:su-w-8/12">
+        <article id="logo" class="su-rs-mb-5">
+          <h3 class="su-type-5 su-text-lagunita-light">Stanford Logos</h3>
+          <div class="su-grid su-grid-cols-1 md:su-grid-cols-2 su-grid-gap">
+            <div>
+              <h4 class="su-type-3">Horizontal Version</h4>
+              <a class="su-logo su-text-cardinal-red hover:su-text-cardinal-red active:su-text-cardinal-red focus:su-text-cardinal-red su-type-3" href="https://stanford.edu">Stanford University</a>
+            </div>
+            <div>
+              <h4 class="su-type-3">Stacked Version</h4>
+              <a class="su-logo su-text-cardinal-red hover:su-text-cardinal-red active:su-text-cardinal-red focus:su-text-cardinal-red su-type-3" href="https://stanford.edu">Stanford<br>University</a>
+            </div>
           </div>
-          <h2>Other base font size options</h2>
-          <div class="su-body-basefont-19 su-rs-mb-2">
-            <h3>H3 .su-body-basefont-19</h3>
-            <p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
-            <p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+        </article>
+        <article id="text__headings" class="su-rs-mb-5">
+          <h3 class="su-type-5 su-text-lagunita-light">Headings & Display Type</h3>
+          <div>
+            <span class="su-splash-text su-rs-mb-0">Splash Text</span>
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            <h6>Heading 6</h6>
           </div>
+        </article>
+        <article id="text__paragraphs" class="su-rs-mb-5">
+          <div>
+            <h3 class="su-type-5 su-text-lagunita-light">Paragraphs</h3>
+            <div class="su-rs-mb-4">
+              <h4 class="su-type-4">Intro and Paragraph (Base Font Size 21px)</h4>
+              <p class="su-intro-text">Intro text max-width is 65ch. A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea.</p>
+              <p><strong>Regular paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+              <p class="su-big-paragraph"><strong>Big paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+              <p class="su-card-paragraph"><strong>Card paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+            </div>
+            <h2>Comparison of Different Base Font Size Options</h2>
+            <div class="su-body-basefont-19 su-rs-mb-4">
+              <h3>H3 .su-body-basefont-19</h3>
+              <p class="su-intro-text">Intro text max-width is 65ch. A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea.</p>
+              <p><strong>Regular paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+              <p class="su-big-paragraph"><strong>Big paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+              <p class="su-card-paragraph"><strong>Card paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+            </div>
 
-          <div class="su-body-basefont-20 su-rs-mb-2">
-            <h3>H3 .su-body-basefont-20</h3>
-            <p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
-            <p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
-          </div>
+            <div class="su-body-basefont-20 su-rs-mb-4">
+              <h3>H3 .su-body-basefont-20</h3>
+              <p class="su-intro-text">Intro text max-width is 65ch. A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea.</p>
+              <p><strong>Regular paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+              <p class="su-big-paragraph"><strong>Big paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+              <p class="su-card-paragraph"><strong>Card paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+            </div>
 
-          <div class="su-body-basefont-22 su-rs-mb-2">
-            <h3>H3 .su-body-basefont-22</h3>
-            <p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
-            <p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
-          </div>
+            <div class="su-rs-mb-4">
+              <h3>H3 Default body font size (21px)</h3>
+              <p class="su-intro-text">Intro text max-width is 65ch. A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea.</p>
+              <p><strong>Regular paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+              <p class="su-big-paragraph"><strong>Big paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+              <p class="su-card-paragraph"><strong>Card paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+            </div>
 
-          <div class="su-body-basefont-23 su-rs-mb-2">
-            <h3>H3 .su-body-basefont-23</h3>
-            <p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
-            <p>A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
-          </div>
-          <footer><p><a href="#top">[Top]</a></p></footer>
-        </div>
-      </article>
-      <article id="text__blockquotes">
-        <header><h1>Blockquotes</h1></header>
-        <div>
-          <blockquote>
-            <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
-            <p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
-            <cite><a href="#!">Said no one, ever.</a></cite>
-          </blockquote>
-        </div>
-        <footer><p><a href="#top">[Top]</a></p></footer>
-      </article>
-      <article id="text__lists">
-        <header><h1>Lists</h1></header>
-        <div>
-          <h3>Definition list</h3>
-          <dl>
-            <dt>Definition List Title</dt>
-            <dd>This is a definition list division.</dd>
-          </dl>
-          <h3>Ordered List</h3>
-          <ol>
-            <li>List Item 1</li>
-            <li>List Item 2</li>
-            <li>List Item 3</li>
-          </ol>
-          <h3>Unordered List</h3>
-          <ul>
-            <li>List Item 1</li>
-            <li>List Item 2</li>
-            <li>List Item 3</li>
-          </ul>
-        </div>
-        <footer><p><a href="#top">[Top]</a></p></footer>
-      </article>
-      <article id="text__hr">
-        <header><h1>Horizontal rules</h1></header>
-        <div>
-          <hr>
-        </div>
-        <footer><p><a href="#top">[Top]</a></p></footer>
-      </article>
-      <article id="text__tables">
-        <header><h1>Tabular data</h1></header>
-        <table class="su-rs-mb-2">
-          <caption>Table Caption</caption>
-          <thead>
-          <tr>
-            <th>Table Heading 1</th>
-            <th>Table Heading 2</th>
-            <th>Table Heading 3</th>
-            <th>Table Heading 4</th>
-            <th>Table Heading 5</th>
-          </tr>
-          </thead>
-          <tfoot>
-          <tr>
-            <th>Table Footer 1</th>
-            <th>Table Footer 2</th>
-            <th>Table Footer 3</th>
-            <th>Table Footer 4</th>
-            <th>Table Footer 5</th>
-          </tr>
-          </tfoot>
-          <tbody>
-          <tr>
-            <td>Table Cell 1</td>
-            <td>Table Cell 2</td>
-            <td>Table Cell 3</td>
-            <td>Table Cell 4</td>
-            <td>Table Cell 5</td>
-          </tr>
-          <tr>
-            <td>Table Cell 1</td>
-            <td>Table Cell 2</td>
-            <td>Table Cell 3</td>
-            <td>Table Cell 4</td>
-            <td>Table Cell 5</td>
-          </tr>
-          <tr>
-            <td>Table Cell 1</td>
-            <td>Table Cell 2</td>
-            <td>Table Cell 3</td>
-            <td>Table Cell 4</td>
-            <td>Table Cell 5</td>
-          </tr>
-          <tr>
-            <td>Table Cell 1</td>
-            <td>Table Cell 2</td>
-            <td>Table Cell 3</td>
-            <td>Table Cell 4</td>
-            <td>Table Cell 5</td>
-          </tr>
-          </tbody>
-        </table>
+            <div class="su-body-basefont-22 su-rs-mb-4">
+              <h3>H3 .su-body-basefont-22</h3>
+              <p class="su-intro-text">Intro text max-width is 65ch. A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea.</p>
+              <p><strong>Regular paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+              <p class="su-big-paragraph"><strong>Big paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+              <p class="su-card-paragraph"><strong>Card paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+            </div>
 
-        <table class="su-table-borderless su-rs-mb-2">
-          <caption>Borderless Table Caption</caption>
-          <thead>
-          <tr>
-            <th>Table Heading 1</th>
-            <th>Table Heading 2</th>
-            <th>Table Heading 3</th>
-            <th>Table Heading 4</th>
-            <th>Table Heading 5</th>
-          </tr>
-          </thead>
-          <tfoot>
-          <tr>
-            <th>Table Footer 1</th>
-            <th>Table Footer 2</th>
-            <th>Table Footer 3</th>
-            <th>Table Footer 4</th>
-            <th>Table Footer 5</th>
-          </tr>
-          </tfoot>
-          <tbody>
-          <tr>
-            <td>Table Cell 1</td>
-            <td>Table Cell 2</td>
-            <td>Table Cell 3</td>
-            <td>Table Cell 4</td>
-            <td>Table Cell 5</td>
-          </tr>
-          <tr>
-            <td>Table Cell 1</td>
-            <td>Table Cell 2</td>
-            <td>Table Cell 3</td>
-            <td>Table Cell 4</td>
-            <td>Table Cell 5</td>
-          </tr>
-          <tr>
-            <td>Table Cell 1</td>
-            <td>Table Cell 2</td>
-            <td>Table Cell 3</td>
-            <td>Table Cell 4</td>
-            <td>Table Cell 5</td>
-          </tr>
-          <tr>
-            <td>Table Cell 1</td>
-            <td>Table Cell 2</td>
-            <td>Table Cell 3</td>
-            <td>Table Cell 4</td>
-            <td>Table Cell 5</td>
-          </tr>
-          </tbody>
-        </table>
-        <footer><p><a href="#top">[Top]</a></p></footer>
-      </article>
-      <article id="text__code">
-        <header><h1>Code</h1></header>
-        <div>
-          <p><strong>Keyboard input:</strong> <kbd>Cmd</kbd></p>
-          <p><strong>Inline code:</strong> <code>&lt;div&gt;code&lt;/div&gt;</code></p>
-          <p><strong>Sample output:</strong> <samp>This is sample output from a computer program.</samp></p>
-          <h2>Pre-formatted text</h2>
-          <pre>P R E F O R M A T T E D T E X T
-  ! " # $ % &amp; ' ( ) * + , - . /
-  0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
-  @ A B C D E F G H I J K L M N O
-  P Q R S T U V W X Y Z [ \ ] ^ _
-  ` a b c d e f g h i j k l m n o
-  p q r s t u v w x y z { | } ~ </pre>
-        </div>
-        <footer><p><a href="#top">[Top]</a></p></footer>
-      </article>
-      <article id="text__inline">
-        <header><h1>Inline elements</h1></header>
-        <div>
-          <p><a href="#!">This is a text link</a>.</p>
-          <p><strong>Strong is used to indicate strong importance.</strong></p>
-          <p><em>This text has added emphasis.</em></p>
-          <p>The <b>b element</b> is stylistically different text from normal text, without any special importance.</p>
-          <p>The <i>i element</i> is text that is offset from the normal text.</p>
-          <p>The <u>u element</u> is text with an unarticulated, though explicitly rendered, non-textual annotation.</p>
-          <p><del>This text is deleted</del> and <ins>This text is inserted</ins>.</p>
-          <p><s>This text has a strikethrough</s>.</p>
-          <p>Superscript<sup>®</sup>.</p>
-          <p>Subscript for things like H<sub>2</sub>O.</p>
-          <p><small>This small text is small for for fine print, etc.</small></p>
-          <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
-          <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q></p>
-          <p><cite>This is a citation.</cite></p>
-          <p>The <dfn>dfn element</dfn> indicates a definition.</p>
-          <p>The <mark>mark element</mark> indicates a highlight.</p>
-          <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
-          <p>The time element: <time datetime="2013-04-06T12:32+00:00">2 weeks ago</time></p>
-        </div>
-        <footer><p><a href="#top">[Top]</a></p></footer>
-      </article>
-      <article id="text__comments">
-        <header><h1>HTML Comments</h1></header>
-        <div>
-          <p>There is comment here: <!--This comment should not be displayed--></p>
-          <p>There is a comment spanning multiple tags and lines below here.</p>
-          <!--<p><a href="#!">This is a text link. But it should not be displayed in a comment</a>.</p>
-          <p><strong>Strong is used to indicate strong importance. But, it should not be displayed in a comment</strong></p>
-          <p><em>This text has added emphasis. But, it should not be displayed in a comment</em></p>-->
-        </div>
-        <footer><p><a href="#top">[Top]</a></p></footer>
-      </article>
+            <div class="su-body-basefont-23 su-rs-mb-4">
+              <h3>H3 .su-body-basefont-23</h3>
+              <p class="su-intro-text">Intro text max-width is 65ch. A paragraph (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea.</p>
+              <p><strong>Regular paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+              <p class="su-big-paragraph"><strong>Big paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+              <p class="su-card-paragraph"><strong>Card paragraph</strong> (from the Greek paragraphos, “to write beside” or “written beside”) is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
+            </div>
+          </div>
+        </article>
+        <article id="text__blockquotes" class="su-rs-mb-5">
+          <header><h3 class="su-type-5 su-text-lagunita-light">Blockquotes</h3></header>
+          <div>
+            <blockquote>
+              <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document, that is set off from the main text as a paragraph, or block of text.</p>
+              <p>It is typically distinguished visually using indentation and a different typeface or smaller size quotation. It may or may not include a citation, usually placed at the bottom.</p>
+              <cite>Said no one, ever</cite>
+            </blockquote>
+          </div>
+        </article>
+        <article id="text__lists" class="su-rs-mb-5">
+          <header><h3 class="su-type-5 su-text-lagunita-light">Lists</h3></header>
+          <div>
+            <h3>Definition list</h3>
+            <dl>
+              <dt>Definition List Title</dt>
+              <dd>This is a definition list division.</dd>
+            </dl>
+            <h3>Ordered List</h3>
+            <ol>
+              <li>List Item 1</li>
+              <li>List Item 2</li>
+              <li>List Item 3</li>
+            </ol>
+            <h3>Unordered List</h3>
+            <ul>
+              <li>List Item 1</li>
+              <li>List Item 2</li>
+              <li>List Item 3</li>
+            </ul>
+          </div>
+        </article>
+        <article id="text__hr" class="su-rs-mb-5">
+          <header><h3 class="su-type-5 su-text-lagunita-light">Horizontal Rule</h3></header>
+          <div>
+            <hr>
+          </div>
+        </article>
+        <article id="text__tables" class="su-rs-mb-5">
+          <header><h3 class="su-type-5 su-text-lagunita-light">Tables</h3></header>
+          <table class="su-rs-mb-2">
+            <caption>Table Caption</caption>
+            <thead>
+            <tr>
+              <th>Table Heading 1</th>
+              <th>Table Heading 2</th>
+              <th>Table Heading 3</th>
+              <th>Table Heading 4</th>
+              <th>Table Heading 5</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+              <th>Table Footer 1</th>
+              <th>Table Footer 2</th>
+              <th>Table Footer 3</th>
+              <th>Table Footer 4</th>
+              <th>Table Footer 5</th>
+            </tr>
+            </tfoot>
+            <tbody>
+            <tr>
+              <td>Table Cell 1</td>
+              <td>Table Cell 2</td>
+              <td>Table Cell 3</td>
+              <td>Table Cell 4</td>
+              <td>Table Cell 5</td>
+            </tr>
+            <tr>
+              <td>Table Cell 1</td>
+              <td>Table Cell 2</td>
+              <td>Table Cell 3</td>
+              <td>Table Cell 4</td>
+              <td>Table Cell 5</td>
+            </tr>
+            <tr>
+              <td>Table Cell 1</td>
+              <td>Table Cell 2</td>
+              <td>Table Cell 3</td>
+              <td>Table Cell 4</td>
+              <td>Table Cell 5</td>
+            </tr>
+            <tr>
+              <td>Table Cell 1</td>
+              <td>Table Cell 2</td>
+              <td>Table Cell 3</td>
+              <td>Table Cell 4</td>
+              <td>Table Cell 5</td>
+            </tr>
+            </tbody>
+          </table>
+
+          <table class="su-table-borderless su-rs-mb-2">
+            <caption>Borderless Table Caption</caption>
+            <thead>
+            <tr>
+              <th>Table Heading 1</th>
+              <th>Table Heading 2</th>
+              <th>Table Heading 3</th>
+              <th>Table Heading 4</th>
+              <th>Table Heading 5</th>
+            </tr>
+            </thead>
+            <tfoot>
+            <tr>
+              <th>Table Footer 1</th>
+              <th>Table Footer 2</th>
+              <th>Table Footer 3</th>
+              <th>Table Footer 4</th>
+              <th>Table Footer 5</th>
+            </tr>
+            </tfoot>
+            <tbody>
+            <tr>
+              <td>Table Cell 1</td>
+              <td>Table Cell 2</td>
+              <td>Table Cell 3</td>
+              <td>Table Cell 4</td>
+              <td>Table Cell 5</td>
+            </tr>
+            <tr>
+              <td>Table Cell 1</td>
+              <td>Table Cell 2</td>
+              <td>Table Cell 3</td>
+              <td>Table Cell 4</td>
+              <td>Table Cell 5</td>
+            </tr>
+            <tr>
+              <td>Table Cell 1</td>
+              <td>Table Cell 2</td>
+              <td>Table Cell 3</td>
+              <td>Table Cell 4</td>
+              <td>Table Cell 5</td>
+            </tr>
+            <tr>
+              <td>Table Cell 1</td>
+              <td>Table Cell 2</td>
+              <td>Table Cell 3</td>
+              <td>Table Cell 4</td>
+              <td>Table Cell 5</td>
+            </tr>
+            </tbody>
+          </table>
+        </article>
+        <article id="text__code" class="su-rs-mb-5">
+          <header><h3 class="su-type-5 su-text-lagunita-light">Code & Preformatted Text</h3></header>
+          <div>
+            <p><strong>Keyboard input:</strong> <kbd>Cmd</kbd></p>
+            <p><strong>Inline code:</strong> <code>&lt;div&gt;code&lt;/div&gt;</code></p>
+            <p><strong>Sample output:</strong> <samp>This is sample output from a computer program.</samp></p>
+            <h2>Pre-formatted text</h2>
+            <pre>
+              P R E F O R M A T T E D T E X T
+              ! " # $ % &amp; ' ( ) * + , - . /
+              0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
+              @ A B C D E F G H I J K L M N O
+              P Q R S T U V W X Y Z [ \ ] ^ _
+              ` a b c d e f g h i j k l m n o
+              p q r s t u v w x y z { | } ~
+            </pre>
+          </div>
+        </article>
+        <article id="text__inline" class="su-rs-mb-5">
+          <header><h3 class="su-type-5 su-text-lagunita-light">Inline Styles</h3></header>
+          <div>
+            <p><a href="#!">This is a text link</a>.</p>
+            <p><strong>Strong is used to indicate strong importance.</strong></p>
+            <p><em>This text has added emphasis.</em></p>
+            <p>The <b>b element</b> is stylistically different text from normal text, without any special importance.</p>
+            <p>The <i>i element</i> is text that is offset from the normal text.</p>
+            <p>The <u>u element</u> is text with an unarticulated, though explicitly rendered, non-textual annotation.</p>
+            <p><del>This text is deleted</del> and <ins>This text is inserted</ins>.</p>
+            <p><s>This text has a strikethrough</s>.</p>
+            <p>Superscript<sup>®</sup>.</p>
+            <p>Subscript for things like H<sub>2</sub>O.</p>
+            <p><small>This small text is small for for fine print, etc.</small></p>
+            <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
+            <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q></p>
+            <p><cite>This is a citation.</cite></p>
+            <p>The <dfn>dfn element</dfn> indicates a definition.</p>
+            <p>The <mark>mark element</mark> indicates a highlight.</p>
+            <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
+            <p>The time element: <time datetime="2013-04-06T12:32+00:00">2 weeks ago</time></p>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
   <section id="embedded">
-    <header><h1>Embedded content</h1></header>
+    <header><h1>Common HTML Elements</h1></header>
     <article id="embedded__images">
       <header><h2>Images</h2></header>
       <div>
@@ -345,42 +349,34 @@
           <figcaption>Here is a caption for this image.</figcaption>
         </figure>
       </div>
-      <footer><p><a href="#top">[Top]</a></p></footer>
     </article>
     <article id="embedded__audio">
       <header><h2>Audio</h2></header>
       <div><audio controls="">audio</audio></div>
-      <footer><p><a href="#top">[Top]</a></p></footer>
     </article>
     <article id="embedded__video">
       <header><h2>Video</h2></header>
       <div><video controls="">video</video></div>
-      <footer><p><a href="#top">[Top]</a></p></footer>
     </article>
     <article id="embedded__canvas">
       <header><h2>Canvas</h2></header>
       <div><canvas>canvas</canvas></div>
-      <footer><p><a href="#top">[Top]</a></p></footer>
     </article>
     <article id="embedded__meter">
       <header><h2>Meter</h2></header>
       <div><meter value="2" min="0" max="10">2 out of 10</meter></div>
-      <footer><p><a href="#top">[Top]</a></p></footer>
     </article>
     <article id="embedded__progress">
       <header><h2>Progress</h2></header>
       <div><progress>progress</progress></div>
-      <footer><p><a href="#top">[Top]</a></p></footer>
     </article>
     <article id="embedded__svg">
       <header><h2>Inline SVG</h2></header>
       <div><svg width="100px" height="100px"><circle cx="100" cy="100" r="100" fill="#1fa3ec"></circle></svg></div>
-      <footer><p><a href="#top">[Top]</a></p></footer>
     </article>
     <article id="embedded__iframe">
       <header><h2>IFrame</h2></header>
       <div><iframe src="index.html" height="300"></iframe></div>
-      <footer><p><a href="#top">[Top]</a></p></footer>
     </article>
   </section>
   <section id="forms">
