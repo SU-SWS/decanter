@@ -10,9 +10,6 @@ module.exports = function () {
         marginBottom: '0',
         paddingLeft: '0',
         listStyleType: 'none',
-        '> li': {
-          marginBottom: '0',
-        },
       },
       // Horizontal Lists.
       '.list-horizontal': {

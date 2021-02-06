@@ -2,74 +2,84 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Decanter Preview Environment</title>
 </head>
 <body class="su-debug-screens">
 
 <!-- MAIN DEVELOPMENT AREA -->
-<div id="top" class="su-centered-container" role="document">
-  <header role="banner">
-    <h1>Decanter With Tailwind Test Page.</h1>
-    <p>This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
+<div class="su-bg-digital-red su-pt-5 su-pb-2">
+  <div class="su-cc">
+    <a class="su-logo su-text-white hover:su-text-white active:su-text-white focus:su-text-whit su-text-20" href="https://stanford.edu">Stanford University</a>
+  </div>
+</div>
+<div role="banner" class="su-rs-py-6 su-bg-gradient-to-b su-from-black su-to-plum su-text-white">
+  <div class="su-centered-container">
+    <h1 class="su-splash-text">Decanter With Tailwind Test Page.</h1>
+    <p class="su-intro-text">This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
+  </div>
+</div>
+<main id="top" role="document">
+  <!-- Nav pills -->
+  <header class="su-bg-black-20 su-text-white su-rs-py-4">
+    <div class="su-cc">
+      <nav aria-label="table of content">
+        <h2 class="su-type-5"><a href="#text" class="su-text-black hover:su-underline focus:su-underline">Typography</a></h2>
+        <ul class="su-list-unstyled su-text-16 md:su-text-20 su-rs-mb-4">
+          <li class="su-inline-block su-mb-12"><a href="#logo" class="su-inline-block su-py-8 su-px-20 su-mr-12 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">Stanford Logos</a></li>
+          <li class="su-inline-block su-mb-12"><a href="#text__headings" class="su-inline-block su-py-8 su-px-20 su-mr-12 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">Headings</a></li>
+          <li class="su-inline-block su-mb-12"><a href="#text__paragraphs" class="su-inline-block su-py-8 su-px-20 su-mr-12 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">Paragraphs</a></li>
+          <li class="su-inline-block su-mb-12"><a href="#text__blockquotes" class="su-inline-block su-py-8 su-px-20 su-mr-12 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">Blockquotes</a></li>
+          <li class="su-inline-block su-mb-12"><a href="#text__lists" class="su-inline-block su-py-8 su-px-20 su-mr-12 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">Lists</a></li>
+          <li class="su-inline-block su-mb-12"><a href="#text__hr" class="su-inline-block su-py-8 su-px-20 su-mr-12 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">Horizontal rules</a></li>
+          <li class="su-inline-block su-mb-12"><a href="#text__tables" class="su-inline-block su-py-8 su-px-20 su-mr-12 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">Tabular data</a></li>
+          <li class="su-inline-block su-mb-12"><a href="#text__code" class="su-inline-block su-py-8 su-px-20 su-mr-12 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">Code</a></li>
+          <li class="su-inline-block su-mb-12"><a href="#text__inline" class="su-inline-block su-py-8 su-px-20 su-mr-12 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">Inline elements</a></li>
+          <li class="su-inline-block su-mb-12"><a href="#text__comments" class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">HTML Comments</a></li>
+        </ul>
+        <h2 class="su-type-5"><a href="#embedded" class="su-text-black hover:su-underline focus:su-underline">Embedded content</a></h2>
+        <ul class="su-list-unstyled su-text-16 md:su-text-20 su-rs-mb-4">
+          <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#embedded__images">Images</a></li>
+          <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#embedded__audio">Audio</a></li>
+          <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#embedded__video">Video</a></li>
+          <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#embedded__canvas">Canvas</a></li>
+          <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#embedded__meter">Meter</a></li>
+          <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#embedded__progress">Progress</a></li>
+          <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#embedded__svg">Inline SVG</a></li>
+          <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#embedded__iframe">IFrames</a></li>
+        </ul>
+        <h2 class="su-type-5"><a href="#forms" class="su-text-black hover:su-underline focus:su-underline">Form elements</a></h2>
+        <ul class="su-list-unstyled su-text-16 md:su-text-20 su-rs-mb-4">
+          <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#forms__input">Input fields</a></li>
+          <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#forms__select">Select menus</a></li>
+          <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#forms__checkbox">Checkboxes</a></li>
+          <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#forms__radio">Radio buttons</a></li>
+          <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#forms__textareas">Textareas</a></li>
+          <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#forms__html5">HTML5 inputs</a></li>
+          <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#forms__action">Action buttons</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
-  <nav role="navigation">
-    <ul class="su-list-horizontal">
-      <li>
-        <a href="#text">Text</a>
-        <ul>
-          <li><a href="#logo">Stanford Logos</a></li>
-          <li><a href="#text__headings">Headings</a></li>
-          <li><a href="#text__paragraphs">Paragraphs</a></li>
-          <li><a href="#text__blockquotes">Blockquotes</a></li>
-          <li><a href="#text__lists">Lists</a></li>
-          <li><a href="#text__hr">Horizontal rules</a></li>
-          <li><a href="#text__tables">Tabular data</a></li>
-          <li><a href="#text__code">Code</a></li>
-          <li><a href="#text__inline">Inline elements</a></li>
-          <li><a href="#text__comments">HTML Comments</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#embedded">Embedded content</a>
-        <ul>
-          <li><a href="#embedded__images">Images</a></li>
-          <li><a href="#embedded__audio">Audio</a></li>
-          <li><a href="#embedded__video">Video</a></li>
-          <li><a href="#embedded__canvas">Canvas</a></li>
-          <li><a href="#embedded__meter">Meter</a></li>
-          <li><a href="#embedded__progress">Progress</a></li>
-          <li><a href="#embedded__svg">Inline SVG</a></li>
-          <li><a href="#embedded__iframe">IFrames</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#forms">Form elements</a>
-        <ul>
-          <li><a href="#forms__input">Input fields</a></li>
-          <li><a href="#forms__select">Select menus</a></li>
-          <li><a href="#forms__checkbox">Checkboxes</a></li>
-          <li><a href="#forms__radio">Radio buttons</a></li>
-          <li><a href="#forms__textareas">Textareas</a></li>
-          <li><a href="#forms__html5">HTML5 inputs</a></li>
-          <li><a href="#forms__action">Action buttons</a></li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
-  <div>
-    <section id="logo" class="su-mb-3">
-      <h2>Stanford Logo</h2>
-      <div class="su-rs-mb-2">
-        <h3>Horizontal version</h3>
-        <a class="su-logo su-text-cardinal-red hover:su-text-cardinal-red active:su-text-cardinal-red focus:su-text-cardinal-red su-type-2" href="https://stanford.edu">Stanford University</a>
+  <!-- Typography section -->
+  <section class="su-rs-mb-3">
+    <header id="text" class="su-rs-mb-3 su-rs-py-4 su-bg-black-90">
+      <div class="su-cc">
+        <h2 class="su-type-6 su-text-white su-mb-0 su-text-center">Typography</h2>
       </div>
-      <div class="su-rs-mb-2">
-        <h3>Stacked full version</h3>
-        <a class="su-logo su-text-cardinal-red hover:su-text-cardinal-red active:su-text-cardinal-red focus:su-text-cardinal-red su-type-2" href="https://stanford.edu">Stanford<br>University</a>
-      </div>
-    </section>
-    <section id="text" class="su-rs-mb-3">
-      <header><h1>Typography</h1></header>
+    </header>
+    <div class="su-cc">
+      <article id="logo" class="su-mb-3">
+        <h3>Stanford Logo</h3>
+        <div class="su-rs-mb-2">
+          <h4>Horizontal version</h4>
+          <a class="su-logo su-text-cardinal-red hover:su-text-cardinal-red active:su-text-cardinal-red focus:su-text-cardinal-red su-type-2" href="https://stanford.edu">Stanford University</a>
+        </div>
+        <div class="su-rs-mb-2">
+          <h3>Stacked full version</h3>
+          <a class="su-logo su-text-cardinal-red hover:su-text-cardinal-red active:su-text-cardinal-red focus:su-text-cardinal-red su-type-2" href="https://stanford.edu">Stanford<br>University</a>
+        </div>
+      </article>
       <article id="text__headings">
         <div>
           <h2 class="su-splash-text">Splash Text</h2>
@@ -274,12 +284,12 @@
           <p><strong>Sample output:</strong> <samp>This is sample output from a computer program.</samp></p>
           <h2>Pre-formatted text</h2>
           <pre>P R E F O R M A T T E D T E X T
-! " # $ % &amp; ' ( ) * + , - . /
-0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
-@ A B C D E F G H I J K L M N O
-P Q R S T U V W X Y Z [ \ ] ^ _
-` a b c d e f g h i j k l m n o
-p q r s t u v w x y z { | } ~ </pre>
+  ! " # $ % &amp; ' ( ) * + , - . /
+  0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
+  @ A B C D E F G H I J K L M N O
+  P Q R S T U V W X Y Z [ \ ] ^ _
+  ` a b c d e f g h i j k l m n o
+  p q r s t u v w x y z { | } ~ </pre>
         </div>
         <footer><p><a href="#top">[Top]</a></p></footer>
       </article>
@@ -318,232 +328,234 @@ p q r s t u v w x y z { | } ~ </pre>
         </div>
         <footer><p><a href="#top">[Top]</a></p></footer>
       </article>
-    </section>
-    <section id="embedded">
-      <header><h1>Embedded content</h1></header>
-      <article id="embedded__images">
-        <header><h2>Images</h2></header>
-        <div>
-          <h3>No <code>&lt;figure&gt;</code> element</h3>
-          <p><img src="http://placekitten.com/480/480" alt="Image alt text"></p>
-          <h3>Wrapped in a <code>&lt;figure&gt;</code> element, no <code>&lt;figcaption&gt;</code></h3>
-          <figure><img src="http://placekitten.com/420/420" alt="Image alt text"></figure>
-          <h3>Wrapped in a <code>&lt;figure&gt;</code> element, with a <code>&lt;figcaption&gt;</code></h3>
-          <figure>
-            <img src="http://placekitten.com/420/420" alt="Image alt text">
-            <figcaption>Here is a caption for this image.</figcaption>
-          </figure>
-        </div>
-        <footer><p><a href="#top">[Top]</a></p></footer>
-      </article>
-      <article id="embedded__audio">
-        <header><h2>Audio</h2></header>
-        <div><audio controls="">audio</audio></div>
-        <footer><p><a href="#top">[Top]</a></p></footer>
-      </article>
-      <article id="embedded__video">
-        <header><h2>Video</h2></header>
-        <div><video controls="">video</video></div>
-        <footer><p><a href="#top">[Top]</a></p></footer>
-      </article>
-      <article id="embedded__canvas">
-        <header><h2>Canvas</h2></header>
-        <div><canvas>canvas</canvas></div>
-        <footer><p><a href="#top">[Top]</a></p></footer>
-      </article>
-      <article id="embedded__meter">
-        <header><h2>Meter</h2></header>
-        <div><meter value="2" min="0" max="10">2 out of 10</meter></div>
-        <footer><p><a href="#top">[Top]</a></p></footer>
-      </article>
-      <article id="embedded__progress">
-        <header><h2>Progress</h2></header>
-        <div><progress>progress</progress></div>
-        <footer><p><a href="#top">[Top]</a></p></footer>
-      </article>
-      <article id="embedded__svg">
-        <header><h2>Inline SVG</h2></header>
-        <div><svg width="100px" height="100px"><circle cx="100" cy="100" r="100" fill="#1fa3ec"></circle></svg></div>
-        <footer><p><a href="#top">[Top]</a></p></footer>
-      </article>
-      <article id="embedded__iframe">
-        <header><h2>IFrame</h2></header>
-        <div><iframe src="index.html" height="300"></iframe></div>
-        <footer><p><a href="#top">[Top]</a></p></footer>
-      </article>
-    </section>
-    <section id="forms">
-      <header><h1>Form elements</h1></header>
-      <form>
-        <fieldset id="forms__input">
-          <legend>Input fields</legend>
-          <p>
-            <label for="input__text">Text Input</label>
-            <input id="input__text" type="text" placeholder="Text Input">
-          </p>
-          <p>
-            <label for="input__password">Password</label>
-            <input id="input__password" type="password" placeholder="Type your Password">
-          </p>
-          <p>
-            <label for="input__webaddress">Web Address</label>
-            <input id="input__webaddress" type="url" placeholder="http://yoursite.com">
-          </p>
-          <p>
-            <label for="input__emailaddress">Email Address</label>
-            <input id="input__emailaddress" type="email" placeholder="name@email.com">
-          </p>
-          <p>
-            <label for="input__phone">Phone Number</label>
-            <input id="input__phone" type="tel" placeholder="(999) 999-9999">
-          </p>
-          <p>
-            <label for="input__search">Search</label>
-            <input id="input__search" type="search" placeholder="Enter Search Term">
-          </p>
-          <p>
-            <label for="input__text2">Number Input</label>
-            <input id="input__text2" type="number" placeholder="Enter a Number">
-          </p>
-          <p>
-            <label for="input__text3" class="error">Error</label>
-            <input id="input__text3" class="is-error" type="text" placeholder="Text Input">
-          </p>
-          <p>
-            <label for="input__text4" class="valid">Valid</label>
-            <input id="input__text4" class="is-valid" type="text" placeholder="Text Input">
-          </p>
-        </fieldset>
-        <p><a href="#top">[Top]</a></p>
-        <fieldset id="forms__select">
-          <legend>Select menus</legend>
-          <p>
-            <label for="select">Select</label>
-            <select id="select">
-              <optgroup label="Option Group">
-                <option>Option One</option>
-                <option>Option Two</option>
-                <option>Option Three</option>
-              </optgroup>
-            </select>
-          </p>
-        </fieldset>
-        <p><a href="#top">[Top]</a></p>
-        <fieldset id="forms__checkbox">
-          <legend>Checkboxes</legend>
-          <ul class="list list--bare">
-            <li><input id="checkbox1" name="checkbox" type="checkbox" checked="checked" /><label for="checkbox1">Choice A</label></li>
-            <li><input id="checkbox2" name="checkbox" type="checkbox" /><label for="checkbox2">Choice B</label></li>
-            <li><input id="checkbox3" name="checkbox" type="checkbox" /><label for="checkbox3">Choice C</label></li>
-          </ul>
-        </fieldset>
-        <p><a href="#top">[Top]</a></p>
-        <fieldset id="forms__radio">
-          <legend>Radio buttons</legend>
-          <ul class="list list--bare">
-            <li><input id="radio1" name="radio" type="radio" class="radio" checked="checked" /><label for="radio1">Option 1</label></li>
-            <li><input id="radio2" name="radio" type="radio" class="radio" /><label for="radio2">Option 2</label></li>
-            <li><input id="radio3" name="radio" type="radio" class="radio" /><label for="radio3">Option 3</label></li>
-          </ul>
-        </fieldset>
-        <p><a href="#top">[Top]</a></p>
-        <fieldset id="forms__textareas">
-          <legend>Textareas</legend>
-          <p>
-            <label for="textarea">Textarea</label>
-            <textarea id="textarea" rows="8" cols="48" placeholder="Enter your message here"></textarea>
-          </p>
-        </fieldset>
-        <p><a href="#top">[Top]</a></p>
-        <fieldset id="forms__html5">
-          <legend>HTML5 inputs</legend>
-          <p>
-            <label for="ic">Color input</label>
-            <input type="color" id="ic" value="#000000">
-          </p>
-          <p>
-            <label for="in">Number input</label>
-            <input type="number" id="in" min="0" max="10" value="5">
-          </p>
-          <p>
-            <label for="ir">Range input</label>
-            <input type="range" id="ir" value="10">
-          </p>
-          <p>
-            <label for="idd">Date input</label>
-            <input type="date" id="idd" value="1970-01-01">
-          </p>
-          <p>
-            <label for="idm">Month input</label>
-            <input type="month" id="idm" value="1970-01">
-          </p>
-          <p>
-            <label for="idw">Week input</label>
-            <input type="week" id="idw" value="1970-W01">
-          </p>
-          <p>
-            <label for="idt">Datetime input</label>
-            <input type="datetime" id="idt" value="1970-01-01T00:00:00Z">
-          </p>
-          <p>
-            <label for="idtl">Datetime-local input</label>
-            <input type="datetime-local" id="idtl" value="1970-01-01T00:00">
-          </p>
-        </fieldset>
-        <p><a href="#top">[Top]</a></p>
-        <fieldset id="forms__action">
-          <legend>Action buttons</legend>
-          <p>
-            <input type="submit" value="<input type=submit>">
-            <input type="button" value="<input type=button>">
-            <input type="reset" value="<input type=reset>">
-            <input type="submit" value="<input disabled>" disabled>
-          </p>
-          <p>
-            <button type="submit">&lt;button type=submit&gt;</button>
-            <button type="button">&lt;button type=button&gt;</button>
-            <button type="reset">&lt;button type=reset&gt;</button>
-            <button type="button" disabled>&lt;button disabled&gt;</button>
-          </p>
-        </fieldset>
-        <p><a href="#top">[Top]</a></p>
-      </form>
-    </section>
-    <section>
-      <h2>Flex Grid</h2>
-      <div class="su-flex xs:su-gap-xs lg:su-gap-lg xl:su-gap-xl 2xl:su-gap-2xl su-text-white">
-        <div class="su-w-1/2 su-bg-sky su-rs-p-2">
-          <h3>6 of 12 columns</h3>
-          <p class="su-card-paragraph">This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
-        </div>
-        <div class="su-w-1/2 su-bg-sky-dark su-rs-p-2">
-          <h3>6 of 12 columns</h3>
-          <p class="su-card-paragraph">This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
-        </div>
+    </div>
+  </section>
+  <section id="embedded">
+    <header><h1>Embedded content</h1></header>
+    <article id="embedded__images">
+      <header><h2>Images</h2></header>
+      <div>
+        <h3>No <code>&lt;figure&gt;</code> element</h3>
+        <p><img src="http://placekitten.com/480/480" alt="Image alt text"></p>
+        <h3>Wrapped in a <code>&lt;figure&gt;</code> element, no <code>&lt;figcaption&gt;</code></h3>
+        <figure><img src="http://placekitten.com/420/420" alt="Image alt text"></figure>
+        <h3>Wrapped in a <code>&lt;figure&gt;</code> element, with a <code>&lt;figcaption&gt;</code></h3>
+        <figure>
+          <img src="http://placekitten.com/420/420" alt="Image alt text">
+          <figcaption>Here is a caption for this image.</figcaption>
+        </figure>
       </div>
-      <div class="su-flex su-grid-gap">
-        <div class="su-w-1/2 lg:su-w-3/4 su-bg-spirited su-rs-p-2">
-          <h3>8 of 12 columns</h3>
-          <p class="su-card-paragraph">This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
-        </div>
-        <div class="su-w-1/2 lg:su-w-1/4 su-bg-spirited-dark su-rs-p-2">
-          <h3>4 of 12 columns</h3>
-          <p class="su-card-paragraph">This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
-        </div>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+    <article id="embedded__audio">
+      <header><h2>Audio</h2></header>
+      <div><audio controls="">audio</audio></div>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+    <article id="embedded__video">
+      <header><h2>Video</h2></header>
+      <div><video controls="">video</video></div>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+    <article id="embedded__canvas">
+      <header><h2>Canvas</h2></header>
+      <div><canvas>canvas</canvas></div>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+    <article id="embedded__meter">
+      <header><h2>Meter</h2></header>
+      <div><meter value="2" min="0" max="10">2 out of 10</meter></div>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+    <article id="embedded__progress">
+      <header><h2>Progress</h2></header>
+      <div><progress>progress</progress></div>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+    <article id="embedded__svg">
+      <header><h2>Inline SVG</h2></header>
+      <div><svg width="100px" height="100px"><circle cx="100" cy="100" r="100" fill="#1fa3ec"></circle></svg></div>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+    <article id="embedded__iframe">
+      <header><h2>IFrame</h2></header>
+      <div><iframe src="index.html" height="300"></iframe></div>
+      <footer><p><a href="#top">[Top]</a></p></footer>
+    </article>
+  </section>
+  <section id="forms">
+    <header><h1>Form elements</h1></header>
+    <form>
+      <fieldset id="forms__input">
+        <legend>Input fields</legend>
+        <p>
+          <label for="input__text">Text Input</label>
+          <input id="input__text" type="text" placeholder="Text Input">
+        </p>
+        <p>
+          <label for="input__password">Password</label>
+          <input id="input__password" type="password" placeholder="Type your Password">
+        </p>
+        <p>
+          <label for="input__webaddress">Web Address</label>
+          <input id="input__webaddress" type="url" placeholder="http://yoursite.com">
+        </p>
+        <p>
+          <label for="input__emailaddress">Email Address</label>
+          <input id="input__emailaddress" type="email" placeholder="name@email.com">
+        </p>
+        <p>
+          <label for="input__phone">Phone Number</label>
+          <input id="input__phone" type="tel" placeholder="(999) 999-9999">
+        </p>
+        <p>
+          <label for="input__search">Search</label>
+          <input id="input__search" type="search" placeholder="Enter Search Term">
+        </p>
+        <p>
+          <label for="input__text2">Number Input</label>
+          <input id="input__text2" type="number" placeholder="Enter a Number">
+        </p>
+        <p>
+          <label for="input__text3" class="error">Error</label>
+          <input id="input__text3" class="is-error" type="text" placeholder="Text Input">
+        </p>
+        <p>
+          <label for="input__text4" class="valid">Valid</label>
+          <input id="input__text4" class="is-valid" type="text" placeholder="Text Input">
+        </p>
+      </fieldset>
+      <p><a href="#top">[Top]</a></p>
+      <fieldset id="forms__select">
+        <legend>Select menus</legend>
+        <p>
+          <label for="select">Select</label>
+          <select id="select">
+            <optgroup label="Option Group">
+              <option>Option One</option>
+              <option>Option Two</option>
+              <option>Option Three</option>
+            </optgroup>
+          </select>
+        </p>
+      </fieldset>
+      <p><a href="#top">[Top]</a></p>
+      <fieldset id="forms__checkbox">
+        <legend>Checkboxes</legend>
+        <ul class="list list--bare">
+          <li><input id="checkbox1" name="checkbox" type="checkbox" checked="checked" /><label for="checkbox1">Choice A</label></li>
+          <li><input id="checkbox2" name="checkbox" type="checkbox" /><label for="checkbox2">Choice B</label></li>
+          <li><input id="checkbox3" name="checkbox" type="checkbox" /><label for="checkbox3">Choice C</label></li>
+        </ul>
+      </fieldset>
+      <p><a href="#top">[Top]</a></p>
+      <fieldset id="forms__radio">
+        <legend>Radio buttons</legend>
+        <ul class="list list--bare">
+          <li><input id="radio1" name="radio" type="radio" class="radio" checked="checked" /><label for="radio1">Option 1</label></li>
+          <li><input id="radio2" name="radio" type="radio" class="radio" /><label for="radio2">Option 2</label></li>
+          <li><input id="radio3" name="radio" type="radio" class="radio" /><label for="radio3">Option 3</label></li>
+        </ul>
+      </fieldset>
+      <p><a href="#top">[Top]</a></p>
+      <fieldset id="forms__textareas">
+        <legend>Textareas</legend>
+        <p>
+          <label for="textarea">Textarea</label>
+          <textarea id="textarea" rows="8" cols="48" placeholder="Enter your message here"></textarea>
+        </p>
+      </fieldset>
+      <p><a href="#top">[Top]</a></p>
+      <fieldset id="forms__html5">
+        <legend>HTML5 inputs</legend>
+        <p>
+          <label for="ic">Color input</label>
+          <input type="color" id="ic" value="#000000">
+        </p>
+        <p>
+          <label for="in">Number input</label>
+          <input type="number" id="in" min="0" max="10" value="5">
+        </p>
+        <p>
+          <label for="ir">Range input</label>
+          <input type="range" id="ir" value="10">
+        </p>
+        <p>
+          <label for="idd">Date input</label>
+          <input type="date" id="idd" value="1970-01-01">
+        </p>
+        <p>
+          <label for="idm">Month input</label>
+          <input type="month" id="idm" value="1970-01">
+        </p>
+        <p>
+          <label for="idw">Week input</label>
+          <input type="week" id="idw" value="1970-W01">
+        </p>
+        <p>
+          <label for="idt">Datetime input</label>
+          <input type="datetime" id="idt" value="1970-01-01T00:00:00Z">
+        </p>
+        <p>
+          <label for="idtl">Datetime-local input</label>
+          <input type="datetime-local" id="idtl" value="1970-01-01T00:00">
+        </p>
+      </fieldset>
+      <p><a href="#top">[Top]</a></p>
+      <fieldset id="forms__action">
+        <legend>Action buttons</legend>
+        <p>
+          <input type="submit" value="<input type=submit>">
+          <input type="button" value="<input type=button>">
+          <input type="reset" value="<input type=reset>">
+          <input type="submit" value="<input disabled>" disabled>
+        </p>
+        <p>
+          <button type="submit">&lt;button type=submit&gt;</button>
+          <button type="button">&lt;button type=button&gt;</button>
+          <button type="reset">&lt;button type=reset&gt;</button>
+          <button type="button" disabled>&lt;button disabled&gt;</button>
+        </p>
+      </fieldset>
+      <p><a href="#top">[Top]</a></p>
+    </form>
+  </section>
+  <section>
+    <h2>Flex Grid</h2>
+    <div class="su-flex xs:su-gap-xs lg:su-gap-lg xl:su-gap-xl 2xl:su-gap-2xl su-text-white">
+      <div class="su-w-1/2 su-bg-sky su-rs-p-2">
+        <h3>6 of 12 columns</h3>
+        <p class="su-card-paragraph">This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
       </div>
-    </section>
-    <section>
-      <h2>Aspect Ratio Container</h2>
-      <div class="su-w-1/2">
-        <div class="su-aspect-w-16 su-aspect-h-9 su-bg-bay-dark su-text-white"><div class="su-rs-p-4 ">
-          <h3>16 x 9 box</h3>
-          <p>Note: The padding decorator classes will have to be added in a nested div because it affects the aspect ratio decorators. Similarly, to use a width decorator class, it will have to go into a parent wrapper div around the container with the aspect ratio classes.</p></div></div></div>
-    </section>
+      <div class="su-w-1/2 su-bg-sky-dark su-rs-p-2">
+        <h3>6 of 12 columns</h3>
+        <p class="su-card-paragraph">This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
+      </div>
+    </div>
+    <div class="su-flex su-grid-gap">
+      <div class="su-w-1/2 lg:su-w-3/4 su-bg-spirited su-rs-p-2">
+        <h3>8 of 12 columns</h3>
+        <p class="su-card-paragraph">This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
+      </div>
+      <div class="su-w-1/2 lg:su-w-1/4 su-bg-spirited-dark su-rs-p-2">
+        <h3>4 of 12 columns</h3>
+        <p class="su-card-paragraph">This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
+      </div>
+    </div>
+  </section>
+  <section>
+    <h2>Aspect Ratio Container</h2>
+    <div class="su-w-1/2">
+      <div class="su-aspect-w-16 su-aspect-h-9 su-bg-bay-dark su-text-white"><div class="su-rs-p-4 ">
+        <h3>16 x 9 box</h3>
+        <p>Note: The padding decorator classes will have to be added in a nested div because it affects the aspect ratio decorators. Similarly, to use a width decorator class, it will have to go into a parent wrapper div around the container with the aspect ratio classes.</p></div></div></div>
+  </section>
+</main>
+<footer role="contentinfo" class="su-bg-digital-red su-text-white su-text-16 md:su-text-18 su-rs-py-2">
+  <div class="su-cc">
+    <p class="su-mb-0">HTML 5 Test page by <a href="http://twitter.com/cbracco" class="su-text-white hover:su-text-white focus:su-text-white">@cbracco</a>.</p>
   </div>
-  <footer role="contentinfo">
-    <p>HTML 5 Test page by <a href="http://twitter.com/cbracco">@cbracco</a>.</p>
-  </footer>
-</div>
+</footer>
 <!-- END DEVELOPMENT AREA -->
 </body>
 </html>
