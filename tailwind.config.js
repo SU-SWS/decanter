@@ -8,6 +8,8 @@ var dir = path.resolve(__dirname, 'src/plugins')
 module.exports = {
   // Our own prefix.
   prefix: 'su-',
+  // Enable dark mode utility classes
+  darkMode: 'media',
 
   // The theme section is where you define your color palette, font stacks,
   // type scale, border sizes, breakpoints — anything related to the visual
