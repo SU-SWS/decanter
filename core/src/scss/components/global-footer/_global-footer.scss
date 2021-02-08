@@ -29,6 +29,10 @@
       color: color(link--reverse);
       text-decoration: underline;
     }
+
+    &:focus {
+      outline-offset: 1px;
+    }
   }
 
   // Grid settings for footer nav region; passing 0 for no outer gutters.
@@ -69,6 +73,11 @@
     &:hover,
     &:focus {
       text-decoration: none;
+    }
+
+    &:focus {
+      outline-offset: 7px;
+      outline-width: 3px;
     }
 
     @include grid-media-only('xs') {

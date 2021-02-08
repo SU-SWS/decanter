@@ -34,6 +34,7 @@
 }
 
 .su-site-search__submit {
+  @include focus-visible;
   @include padding(0);
   @include margin(0 0 0 null);
 
@@ -45,15 +46,14 @@
   width: 24px;
   height: 25px;
 
-  &:hover,
   &:active,
-  &:focus {
+  &:focus,
+  &:hover {
     background-color: transparent;
     opacity: 1;
   }
 
-  &:active,
-  &:focus {
+  &:active {
     box-shadow: none;
   }
 }

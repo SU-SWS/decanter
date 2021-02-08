@@ -8,6 +8,10 @@
 /// @group mixin
 @mixin button-primary {
   @extend %button-base;
+  @include focus-visible;
+
+  // button-focus needs to follow focus-visible.
+  @include button-focus-override;
   @include padding(1rem 2rem 1.15rem);
 
   background-color: color(brand--bright);
@@ -17,9 +21,5 @@
   &:focus {
     background-color: color(bg--reverse);
     color: color(link--reverse);
-  }
-
-  &:focus {
-    box-shadow: $su-focus-shadow;
   }
 }

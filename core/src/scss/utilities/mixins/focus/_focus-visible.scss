@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+///
+/// Focus for focused elements
+///
+/// @name focus-visible
+///
+/// @group mixin
+///
+@mixin focus-visible($focus: color(focus)) {
+  // Set a default focus.
+  &:focus {
+    outline: $su-focus-outline;
+  }
+
+  // For browsers that support focus-visible.
+  // See https://stackoverflow.com/questions/62665318/using-supports-selector-despite-sass-not-supporting-it
+  @supports #{'\selector(*:focus-visible)'} {
+    &:focus-visible {
+      border: $focus;
+      box-shadow: $su-button-stroke $focus, $su-focus-shadow;
+      outline: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

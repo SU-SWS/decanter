@@ -9,13 +9,17 @@
 /// @param {variable} $hover - Default hover color
 ///
 /// @group mixin
-@mixin link($color: color(link), $hover: color(link--hover)) {
+@mixin link(
+  $color: color(link),
+  $hover: color(link--hover),
+  $focus: color(focus)
+) {
+  @include focus-visible($focus);
   color: $color;
-  text-decoration: underline;
   font-weight: $su-font-semi-bold;
+  text-decoration: underline;
 
   &:hover,
-  &:focus,
   &:active {
     color: $hover;
   }
