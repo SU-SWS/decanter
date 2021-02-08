@@ -67,13 +67,14 @@ module.exports = {
     // @tailwind components;
     require(dir + '/components/logo/logo.js')(),
     // @tailwind utilities;
-    require(dir + '/utilities/accessibility/accessibily-hidden.js')(),
+    require(dir + '/utilities/accessibility/accessibility-hidden.js')(),
     require(dir + '/utilities/accessibility/sr-only-text.js')(),
     require(dir + '/utilities/layout/centered-container.js')(),
     require(dir + '/utilities/layout/grid-gap.js')(),
     require(dir + '/utilities/lists/lists.js')(),
     require(dir + '/utilities/media/embed-container.js')(),
     require(dir + '/utilities/responsive-spacing/responsive-spacing.js')(),
+    require(dir + '/utilities/scrolling/smooth-scroll.js')(),
     require(dir + '/utilities/tables/borderless.js')(),
     require(dir + '/utilities/typography/styles.js')(),
     // 3rd Party Plugins;
