@@ -12,7 +12,8 @@
     "start": "webpack-dev-server --mode=development --open --config developer/webpack.dev.config.js",
     "dev": "webpack --mode=development --config developer/webpack.dev.config.js",
     "eslint": "eslint -c .eslintrc 'core/src/'",
-    "sasslint": "sass-lint -c .sass-lint.yml '**/*.scss' -v -q -i 'vendor/**/*.scss, node_modules/**/*.scss, kss/builder/decanter/**/*.scss'"
+    "sasslint": "sass-lint -c .sass-lint.yml '**/*.scss' -v -q -i 'vendor/**/*.scss, node_modules/**/*.scss, kss/builder/decanter/**/*.scss'",
+    "launch": "node launch-preview.js"
   },
   "keywords": [
     "css",
@@ -29,7 +30,8 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.12.1",
-    "bourbon": "^5.1"
+    "bourbon": "^5.1",
+    "decanter": "git+https://github.com/su-sws/decanter.git#master"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
