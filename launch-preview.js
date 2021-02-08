@@ -1,9 +1,9 @@
-const { exec } = require('child_process');
+const {exec} = require('child_process');
 let branch = 'master';
 
 exec('rm -Rf ./styleguide');
 exec('git clone https://github.com/su-sws/decanter-web.git styleguide');
-exec('git branch --show-current', function(error, stdout, stderr) {
+exec('git branch --show-current', function (error, stdout, stderr) {
   branch = stdout;
 });
 exec('cd styleguide');
