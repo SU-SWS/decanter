@@ -33,7 +33,6 @@ module.exports = function () {
         ...theme('decanter.typography.type0'),
       },
       '.intro-text': {
-        ...theme('decanter.base.fontSmoothing'),
         ...theme('decanter.typography.type1'),
         lineHeight: theme('lineHeight.DEFAULT'),
         maxWidth: theme('maxWidth.prose'),
@@ -50,7 +49,6 @@ module.exports = function () {
         fontStyle: 'italic',
       },
       '.caption, .credits': {
-        ...theme('decanter.base.fontSmoothing'),
         fontSize: 'max(1.6rem, 0.9em)',
         lineHeight: theme('lineHeight.snug'),
         color: theme('colors.cool-grey'),
@@ -107,7 +105,7 @@ module.exports = function () {
         '@screen md': {
           fontSize: '2.1rem',
         },
-        '@screen xl': {
+        '@screen 2xl': {
           fontSize: '2.3rem',
         },
       },
