@@ -52,28 +52,28 @@ module.exports = function () {
         },
       },
       type6: {
-        fontSize: '2.6em',
+        fontSize: (1.25 ** 6 * 0.85).toFixed(2) + 'em',
         letterSpacing: '-0.018em',
         '@screen md': {
           fontSize: (1.25 ** 6).toFixed(2) + 'em',
         },
       },
       type5: {
-        fontSize: '2.6em',
+        fontSize: (1.25 ** 5 * 0.85).toFixed(2) + 'em',
         letterSpacing: '-0.018em',
         '@screen md': {
           fontSize: (1.25 ** 5).toFixed(2) + 'em',
         },
       },
       type4: {
-        fontSize: '2.08em',
+        fontSize: (1.25 ** 4 * 0.85).toFixed(2) + 'em',
         letterSpacing: '-0.016em',
         '@screen md': {
           fontSize: (1.25 ** 4).toFixed(2) + 'em',
         },
       },
       type3: {
-        fontSize: '1.66em',
+        fontSize: (1.25 ** 3 * 0.85).toFixed(2) + 'em',
         letterSpacing: '-0.016em',
         '@screen md': {
           fontSize: (1.25 ** 3).toFixed(2) + 'em',

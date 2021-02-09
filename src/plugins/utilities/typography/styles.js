@@ -53,6 +53,9 @@ module.exports = function () {
         lineHeight: theme('lineHeight.snug'),
         color: theme('colors.cool-grey'),
       },
+      '.caption': {
+        marginTop: '0.4em',
+      },
       '.credits': {
         fontStyle: 'italic',
       },
