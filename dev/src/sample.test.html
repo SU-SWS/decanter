@@ -57,6 +57,12 @@
           <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#forms__html5">HTML5 inputs</a></li>
           <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#forms__action">Action buttons</a></li>
         </ul>
+        <h2 class="su-type-5"><a href="#layouts" class="su-text-black hover:su-underline focus:su-underline">Layouts & Grids</a></h2>
+        <ul class="su-list-unstyled su-text-16 md:su-text-20 su-rs-mb-4">
+          <li class="su-inline-block su-mb-12"><a href="#css-grid" class="su-inline-block su-py-8 su-px-20 su-mr-12 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">CSS Grid</a></li>
+          <li class="su-inline-block su-mb-12"><a href="#flex-grid" class="su-inline-block su-py-8 su-px-20 su-mr-12 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">Flex Grid</a></li>
+          <li class="su-inline-block su-mb-12"><a href="#aspect-ratio" class="su-inline-block su-py-8 su-px-20 su-mr-12 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">Aspect Ratio Containers</a></li>
+        </ul>
       </nav>
     </div>
   </header>
@@ -184,6 +190,59 @@
             <hr>
           </div>
         </article>
+        <article id="text__code" class="su-rs-mb-5">
+          <header><h3 class="su-type-5 su-text-lagunita-light">Code & Preformatted Text</h3></header>
+          <div>
+            <p><strong>Keyboard input:</strong> <kbd>Cmd</kbd></p>
+            <p><strong>Inline code:</strong> <code>&lt;div&gt;code&lt;/div&gt;</code></p>
+            <p><strong>Sample output:</strong> <samp>This is sample output from a computer program.</samp></p>
+            <h2>Pre-formatted text</h2>
+            <pre>
+P R E F O R M A T T E D T E X T
+! " # $ % &amp; ' ( ) * + , - . /
+0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
+@ A B C D E F G H I J K L M N O
+P Q R S T U V W X Y Z [ \ ] ^ _
+` a b c d e f g h i j k l m n o
+p q r s t u v w x y z { | } ~
+</pre>
+          </div>
+        </article>
+        <article id="text__inline" class="su-rs-mb-5">
+          <header><h3 class="su-type-5 su-text-lagunita-light">Inline Styles</h3></header>
+          <div>
+            <p><a href="#!">This is a text link</a>.</p>
+            <p><strong>Strong is used to indicate strong importance.</strong></p>
+            <p><em>This text has added emphasis.</em></p>
+            <p>The <b>b element</b> is stylistically different text from normal text, without any special importance.</p>
+            <p>The <i>i element</i> is text that is offset from the normal text.</p>
+            <p>The <u>u element</u> is text with an unarticulated, though explicitly rendered, non-textual annotation.</p>
+            <p><del>This text is deleted</del> and <ins>This text is inserted</ins>.</p>
+            <p><s>This text has a strikethrough</s>.</p>
+            <p>Superscript<sup>®</sup>.</p>
+            <p>Subscript for things like H<sub>2</sub>O.</p>
+            <p><small>This small text is small for for fine print, etc.</small></p>
+            <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
+            <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q></p>
+            <p><cite>This is a citation.</cite></p>
+            <p>The <dfn>dfn element</dfn> indicates a definition.</p>
+            <p>The <mark>mark element</mark> indicates a highlight.</p>
+            <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
+            <p>The time element: <time datetime="2013-04-06T12:32+00:00">2 weeks ago</time></p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- HTML Elements section -->
+  <section class="su-rs-mb-3">
+    <header id="html-elements" class="su-rs-py-4 su-bg-black-90">
+      <div class="su-cc">
+        <h2 class="su-type-6 su-text-white su-mb-0 su-text-center">HTML Elements</h2>
+      </div>
+    </header>
+    <div class="su-cc su-flex su-flex-col md:su-flex-row su-rs-py-6 su-overflow-x-hidden">
+      <div class="su-mx-auto su-w-full lg:su-w-8/12">
         <article id="text__tables" class="su-rs-mb-5">
           <header><h3 class="su-type-5 su-text-lagunita-light">Tables</h3></header>
           <table class="su-rs-mb-2">
@@ -290,268 +349,254 @@
             </tbody>
           </table>
         </article>
-        <article id="text__code" class="su-rs-mb-5">
-          <header><h3 class="su-type-5 su-text-lagunita-light">Code & Preformatted Text</h3></header>
+        <article id="embedded__images" class="su-rs-mb-5">
+          <header><h3 class="su-type-5 su-text-lagunita-light">Images</h3></header>
           <div>
-            <p><strong>Keyboard input:</strong> <kbd>Cmd</kbd></p>
-            <p><strong>Inline code:</strong> <code>&lt;div&gt;code&lt;/div&gt;</code></p>
-            <p><strong>Sample output:</strong> <samp>This is sample output from a computer program.</samp></p>
-            <h2>Pre-formatted text</h2>
-            <pre>
-P R E F O R M A T T E D T E X T
-! " # $ % &amp; ' ( ) * + , - . /
-0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
-@ A B C D E F G H I J K L M N O
-P Q R S T U V W X Y Z [ \ ] ^ _
-` a b c d e f g h i j k l m n o
-p q r s t u v w x y z { | } ~
-</pre>
+            <h4>Plain <code>&lt;img&gt;</code> element</h4>
+            <p><img src="http://placekitten.com/300/200" alt="Image alt text"></p>
+            <h4>Wrapped in a <code>&lt;figure&gt;</code> element, no <code>&lt;figcaption&gt;</code></h4>
+            <figure><img src="http://placekitten.com/300/200" alt="Image alt text"></figure>
+            <h4>Wrapped in a <code>&lt;figure&gt;</code> element, with a <code>&lt;figcaption&gt;</code></h4>
+            <figure>
+              <img src="http://placekitten.com/300/200" alt="Image alt text">
+              <figcaption>Here is a caption for this image.</figcaption>
+            </figure>
           </div>
         </article>
-        <article id="text__inline" class="su-rs-mb-5">
-          <header><h3 class="su-type-5 su-text-lagunita-light">Inline Styles</h3></header>
-          <div>
-            <p><a href="#!">This is a text link</a>.</p>
-            <p><strong>Strong is used to indicate strong importance.</strong></p>
-            <p><em>This text has added emphasis.</em></p>
-            <p>The <b>b element</b> is stylistically different text from normal text, without any special importance.</p>
-            <p>The <i>i element</i> is text that is offset from the normal text.</p>
-            <p>The <u>u element</u> is text with an unarticulated, though explicitly rendered, non-textual annotation.</p>
-            <p><del>This text is deleted</del> and <ins>This text is inserted</ins>.</p>
-            <p><s>This text has a strikethrough</s>.</p>
-            <p>Superscript<sup>®</sup>.</p>
-            <p>Subscript for things like H<sub>2</sub>O.</p>
-            <p><small>This small text is small for for fine print, etc.</small></p>
-            <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
-            <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline quotation.</q></p>
-            <p><cite>This is a citation.</cite></p>
-            <p>The <dfn>dfn element</dfn> indicates a definition.</p>
-            <p>The <mark>mark element</mark> indicates a highlight.</p>
-            <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
-            <p>The time element: <time datetime="2013-04-06T12:32+00:00">2 weeks ago</time></p>
+        <article id="embedded__audio" class="su-rs-mb-5">
+          <header><h3 class="su-type-5 su-text-lagunita-light">Audio</h3></header>
+          <div><audio controls="">audio</audio></div>
+        </article>
+        <article id="embedded__video" class="su-rs-mb-5">
+          <header><h2>Video</h2></header>
+          <div><video controls="">video</video></div>
+        </article>
+        <article id="embedded__canvas" class="su-rs-mb-5">
+          <header><h2>Canvas</h2></header>
+          <div><canvas>canvas</canvas></div>
+        </article>
+        <article id="embedded__meter" class="su-rs-mb-5">
+          <header><h2>Meter</h2></header>
+          <div><meter value="2" min="0" max="10">2 out of 10</meter></div>
+        </article>
+        <article id="embedded__progress" class="su-rs-mb-5">
+          <header><h2>Progress</h2></header>
+          <div><progress>progress</progress></div>
+        </article>
+        <article id="embedded__svg" class="su-rs-mb-5">
+          <header><h2>Inline SVG</h2></header>
+          <div><svg width="100px" height="100px"><circle cx="100" cy="100" r="100" fill="#1fa3ec"></circle></svg></div>
+        </article>
+        <article id="embedded__iframe" class="su-rs-mb-5">
+          <header><h2>IFrame</h2></header>
+          <div><iframe src="index.html" height="300" width="100%"></iframe></div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- Form Elements section -->
+  <section class="su-rs-mb-3">
+    <header id="forms" class="su-rs-py-4 su-bg-black-90">
+      <div class="su-cc">
+        <h2 class="su-type-6 su-text-white su-mb-0 su-text-center">Form Elements</h2>
+      </div>
+    </header>
+    <div class="su-cc su-flex su-flex-col md:su-flex-row su-rs-py-6 su-overflow-x-hidden">
+      <div class="su-mx-auto su-w-full lg:su-w-8/12">
+        <form>
+          <fieldset id="forms__input">
+            <legend>Input fields</legend>
+            <p>
+              <label for="input__text">Text Input</label>
+              <input id="input__text" type="text" placeholder="Text Input">
+            </p>
+            <p>
+              <label for="input__password">Password</label>
+              <input id="input__password" type="password" placeholder="Type your Password">
+            </p>
+            <p>
+              <label for="input__webaddress">Web Address</label>
+              <input id="input__webaddress" type="url" placeholder="http://yoursite.com">
+            </p>
+            <p>
+              <label for="input__emailaddress">Email Address</label>
+              <input id="input__emailaddress" type="email" placeholder="name@email.com">
+            </p>
+            <p>
+              <label for="input__phone">Phone Number</label>
+              <input id="input__phone" type="tel" placeholder="(999) 999-9999">
+            </p>
+            <p>
+              <label for="input__search">Search</label>
+              <input id="input__search" type="search" placeholder="Enter Search Term">
+            </p>
+            <p>
+              <label for="input__text2">Number Input</label>
+              <input id="input__text2" type="number" placeholder="Enter a Number">
+            </p>
+            <p>
+              <label for="input__text3" class="error">Error</label>
+              <input id="input__text3" class="is-error" type="text" placeholder="Text Input">
+            </p>
+            <p>
+              <label for="input__text4" class="valid">Valid</label>
+              <input id="input__text4" class="is-valid" type="text" placeholder="Text Input">
+            </p>
+          </fieldset>
+          <p><a href="#top">[Top]</a></p>
+          <fieldset id="forms__select">
+            <legend>Select menus</legend>
+            <p>
+              <label for="select">Select</label>
+              <select id="select">
+                <optgroup label="Option Group">
+                  <option>Option One</option>
+                  <option>Option Two</option>
+                  <option>Option Three</option>
+                </optgroup>
+              </select>
+            </p>
+          </fieldset>
+          <p><a href="#top">[Top]</a></p>
+          <fieldset id="forms__checkbox">
+            <legend>Checkboxes</legend>
+            <ul class="list list--bare">
+              <li><input id="checkbox1" name="checkbox" type="checkbox" checked="checked" /><label for="checkbox1">Choice A</label></li>
+              <li><input id="checkbox2" name="checkbox" type="checkbox" /><label for="checkbox2">Choice B</label></li>
+              <li><input id="checkbox3" name="checkbox" type="checkbox" /><label for="checkbox3">Choice C</label></li>
+            </ul>
+          </fieldset>
+          <p><a href="#top">[Top]</a></p>
+          <fieldset id="forms__radio">
+            <legend>Radio buttons</legend>
+            <ul class="list list--bare">
+              <li><input id="radio1" name="radio" type="radio" class="radio" checked="checked" /><label for="radio1">Option 1</label></li>
+              <li><input id="radio2" name="radio" type="radio" class="radio" /><label for="radio2">Option 2</label></li>
+              <li><input id="radio3" name="radio" type="radio" class="radio" /><label for="radio3">Option 3</label></li>
+            </ul>
+          </fieldset>
+          <p><a href="#top">[Top]</a></p>
+          <fieldset id="forms__textareas">
+            <legend>Textareas</legend>
+            <p>
+              <label for="textarea">Textarea</label>
+              <textarea id="textarea" rows="8" cols="48" placeholder="Enter your message here"></textarea>
+            </p>
+          </fieldset>
+          <p><a href="#top">[Top]</a></p>
+          <fieldset id="forms__html5">
+            <legend>HTML5 inputs</legend>
+            <p>
+              <label for="ic">Color input</label>
+              <input type="color" id="ic" value="#000000">
+            </p>
+            <p>
+              <label for="in">Number input</label>
+              <input type="number" id="in" min="0" max="10" value="5">
+            </p>
+            <p>
+              <label for="ir">Range input</label>
+              <input type="range" id="ir" value="10">
+            </p>
+            <p>
+              <label for="idd">Date input</label>
+              <input type="date" id="idd" value="1970-01-01">
+            </p>
+            <p>
+              <label for="idm">Month input</label>
+              <input type="month" id="idm" value="1970-01">
+            </p>
+            <p>
+              <label for="idw">Week input</label>
+              <input type="week" id="idw" value="1970-W01">
+            </p>
+            <p>
+              <label for="idt">Datetime input</label>
+              <input type="datetime" id="idt" value="1970-01-01T00:00:00Z">
+            </p>
+            <p>
+              <label for="idtl">Datetime-local input</label>
+              <input type="datetime-local" id="idtl" value="1970-01-01T00:00">
+            </p>
+          </fieldset>
+          <p><a href="#top">[Top]</a></p>
+          <fieldset id="forms__action">
+            <legend>Action buttons</legend>
+            <p>
+              <input type="submit" value="<input type=submit>">
+              <input type="button" value="<input type=button>">
+              <input type="reset" value="<input type=reset>">
+              <input type="submit" value="<input disabled>" disabled>
+            </p>
+            <p>
+              <button type="submit">&lt;button type=submit&gt;</button>
+              <button type="button">&lt;button type=button&gt;</button>
+              <button type="reset">&lt;button type=reset&gt;</button>
+              <button type="button" disabled>&lt;button disabled&gt;</button>
+            </p>
+          </fieldset>
+          <p><a href="#top">[Top]</a></p>
+        </form>
+      </div>
+    </div>
+  </section>
+  <!-- Layouts section -->
+  <section class="su-rs-mb-3">
+    <header id="layouts" class="su-rs-py-4 su-bg-black-90">
+      <div class="su-cc">
+        <h2 class="su-type-6 su-text-white su-mb-0 su-text-center">Layouts and Grids</h2>
+      </div>
+    </header>
+    <div class="su-cc su-flex su-flex-col md:su-flex-row su-rs-py-6">
+      <div class="su-mx-auto su-w-full">
+        <article id="flex-grid" class="su-rs-mb-5">
+          <h2>Flex Grid</h2>
+          <div class="su-flex su-flex-col md:su-flex-row su-gap-xs lg:su-gap-lg xl:su-gap-xl 2xl:su-gap-2xl su-text-white su-rs-mb-2">
+            <div class="su-w-full md:su-w-1/2 su-bg-sky su-rs-p-2">
+              <h3>6 of 12 columns</h3>
+              <p class="su-card-paragraph">This column stacks vertically for XS-SM breakpoints and spans 6 of 12 columns for MD and up; responsive grid gaps.</p>
+            </div>
+            <div class="su-w-full md:su-w-1/2 su-bg-sky-dark su-rs-p-2">
+              <h3>6 of 12 columns</h3>
+              <p class="su-card-paragraph">This column stacks vertically for XS-SM breakpoints and spans 6 of 12 columns for MD and up; responsive grid gaps.</p>
+            </div>
+          </div>
+          <div class="su-flex su-flex-col sm:su-flex-row su-grid-gap su-rs-mb-2">
+            <div class="su-w-full sm:su-w-1/2 lg:su-w-3/4 su-bg-spirited su-rs-p-2">
+              <h3>8 of 12 columns</h3>
+              <p class="su-card-paragraph">This column stacks vertically for XS breakpoint; spans 6 of 12 columns for SM-MD; spans 8 of 12 columns for LG and up; responsive column gaps using .su-grid-gap class.</p>
+            </div>
+            <div class="su-w-full sm:su-w-1/2 lg:su-w-1/4 su-bg-spirited-dark su-rs-p-2">
+              <h3>4 of 12 columns</h3>
+              <p class="su-card-paragraph">This column stacks vertically for XS breakpoint; spans 6 of 12 columns for SM-MD; spans 4 of 12 columns for LG and up; responsive column gaps using .su-grid-gap class..</p>
+            </div>
+          </div>
+        </article>
+        <article id="css-grid" class="su-rs-mb-5">
+          <h2>CSS Grid</h2>
+        </article>
+        <article id="aspect-ratio" class="su-rs-mb-5">
+          <h2>Aspect Ratio Container</h2>
+          <p>Note: The padding decorator classes will have to be added in a nested div because it affects the aspect ratio decorators. Similarly, to use a width decorator class, it will have to go into a parent wrapper div around the container with the aspect ratio classes.</p>
+          <div class="su-w-full md:su-w-1/2">
+            <div class="su-aspect-w-16 su-aspect-h-9 su-bg-bay-dark su-text-white">
+              <div class="su-rs-p-4">
+                <h3>16 x 9 box</h3>
+              </div>
+            </div>
           </div>
         </article>
       </div>
     </div>
   </section>
-  <section id="html-elements">
-    <header><h1>Common HTML Elements</h1></header>
-    <article id="embedded__images">
-      <header><h2>Images</h2></header>
-      <div>
-        <h3>No <code>&lt;figure&gt;</code> element</h3>
-        <p><img src="http://placekitten.com/480/480" alt="Image alt text"></p>
-        <h3>Wrapped in a <code>&lt;figure&gt;</code> element, no <code>&lt;figcaption&gt;</code></h3>
-        <figure><img src="http://placekitten.com/420/420" alt="Image alt text"></figure>
-        <h3>Wrapped in a <code>&lt;figure&gt;</code> element, with a <code>&lt;figcaption&gt;</code></h3>
-        <figure>
-          <img src="http://placekitten.com/420/420" alt="Image alt text">
-          <figcaption>Here is a caption for this image.</figcaption>
-        </figure>
-      </div>
-    </article>
-    <article id="embedded__audio">
-      <header><h2>Audio</h2></header>
-      <div><audio controls="">audio</audio></div>
-    </article>
-    <article id="embedded__video">
-      <header><h2>Video</h2></header>
-      <div><video controls="">video</video></div>
-    </article>
-    <article id="embedded__canvas">
-      <header><h2>Canvas</h2></header>
-      <div><canvas>canvas</canvas></div>
-    </article>
-    <article id="embedded__meter">
-      <header><h2>Meter</h2></header>
-      <div><meter value="2" min="0" max="10">2 out of 10</meter></div>
-    </article>
-    <article id="embedded__progress">
-      <header><h2>Progress</h2></header>
-      <div><progress>progress</progress></div>
-    </article>
-    <article id="embedded__svg">
-      <header><h2>Inline SVG</h2></header>
-      <div><svg width="100px" height="100px"><circle cx="100" cy="100" r="100" fill="#1fa3ec"></circle></svg></div>
-    </article>
-    <article id="embedded__iframe">
-      <header><h2>IFrame</h2></header>
-      <div><iframe src="index.html" height="300"></iframe></div>
-    </article>
-  </section>
-  <section id="forms">
-    <header><h1>Form elements</h1></header>
-    <form>
-      <fieldset id="forms__input">
-        <legend>Input fields</legend>
-        <p>
-          <label for="input__text">Text Input</label>
-          <input id="input__text" type="text" placeholder="Text Input">
-        </p>
-        <p>
-          <label for="input__password">Password</label>
-          <input id="input__password" type="password" placeholder="Type your Password">
-        </p>
-        <p>
-          <label for="input__webaddress">Web Address</label>
-          <input id="input__webaddress" type="url" placeholder="http://yoursite.com">
-        </p>
-        <p>
-          <label for="input__emailaddress">Email Address</label>
-          <input id="input__emailaddress" type="email" placeholder="name@email.com">
-        </p>
-        <p>
-          <label for="input__phone">Phone Number</label>
-          <input id="input__phone" type="tel" placeholder="(999) 999-9999">
-        </p>
-        <p>
-          <label for="input__search">Search</label>
-          <input id="input__search" type="search" placeholder="Enter Search Term">
-        </p>
-        <p>
-          <label for="input__text2">Number Input</label>
-          <input id="input__text2" type="number" placeholder="Enter a Number">
-        </p>
-        <p>
-          <label for="input__text3" class="error">Error</label>
-          <input id="input__text3" class="is-error" type="text" placeholder="Text Input">
-        </p>
-        <p>
-          <label for="input__text4" class="valid">Valid</label>
-          <input id="input__text4" class="is-valid" type="text" placeholder="Text Input">
-        </p>
-      </fieldset>
-      <p><a href="#top">[Top]</a></p>
-      <fieldset id="forms__select">
-        <legend>Select menus</legend>
-        <p>
-          <label for="select">Select</label>
-          <select id="select">
-            <optgroup label="Option Group">
-              <option>Option One</option>
-              <option>Option Two</option>
-              <option>Option Three</option>
-            </optgroup>
-          </select>
-        </p>
-      </fieldset>
-      <p><a href="#top">[Top]</a></p>
-      <fieldset id="forms__checkbox">
-        <legend>Checkboxes</legend>
-        <ul class="list list--bare">
-          <li><input id="checkbox1" name="checkbox" type="checkbox" checked="checked" /><label for="checkbox1">Choice A</label></li>
-          <li><input id="checkbox2" name="checkbox" type="checkbox" /><label for="checkbox2">Choice B</label></li>
-          <li><input id="checkbox3" name="checkbox" type="checkbox" /><label for="checkbox3">Choice C</label></li>
-        </ul>
-      </fieldset>
-      <p><a href="#top">[Top]</a></p>
-      <fieldset id="forms__radio">
-        <legend>Radio buttons</legend>
-        <ul class="list list--bare">
-          <li><input id="radio1" name="radio" type="radio" class="radio" checked="checked" /><label for="radio1">Option 1</label></li>
-          <li><input id="radio2" name="radio" type="radio" class="radio" /><label for="radio2">Option 2</label></li>
-          <li><input id="radio3" name="radio" type="radio" class="radio" /><label for="radio3">Option 3</label></li>
-        </ul>
-      </fieldset>
-      <p><a href="#top">[Top]</a></p>
-      <fieldset id="forms__textareas">
-        <legend>Textareas</legend>
-        <p>
-          <label for="textarea">Textarea</label>
-          <textarea id="textarea" rows="8" cols="48" placeholder="Enter your message here"></textarea>
-        </p>
-      </fieldset>
-      <p><a href="#top">[Top]</a></p>
-      <fieldset id="forms__html5">
-        <legend>HTML5 inputs</legend>
-        <p>
-          <label for="ic">Color input</label>
-          <input type="color" id="ic" value="#000000">
-        </p>
-        <p>
-          <label for="in">Number input</label>
-          <input type="number" id="in" min="0" max="10" value="5">
-        </p>
-        <p>
-          <label for="ir">Range input</label>
-          <input type="range" id="ir" value="10">
-        </p>
-        <p>
-          <label for="idd">Date input</label>
-          <input type="date" id="idd" value="1970-01-01">
-        </p>
-        <p>
-          <label for="idm">Month input</label>
-          <input type="month" id="idm" value="1970-01">
-        </p>
-        <p>
-          <label for="idw">Week input</label>
-          <input type="week" id="idw" value="1970-W01">
-        </p>
-        <p>
-          <label for="idt">Datetime input</label>
-          <input type="datetime" id="idt" value="1970-01-01T00:00:00Z">
-        </p>
-        <p>
-          <label for="idtl">Datetime-local input</label>
-          <input type="datetime-local" id="idtl" value="1970-01-01T00:00">
-        </p>
-      </fieldset>
-      <p><a href="#top">[Top]</a></p>
-      <fieldset id="forms__action">
-        <legend>Action buttons</legend>
-        <p>
-          <input type="submit" value="<input type=submit>">
-          <input type="button" value="<input type=button>">
-          <input type="reset" value="<input type=reset>">
-          <input type="submit" value="<input disabled>" disabled>
-        </p>
-        <p>
-          <button type="submit">&lt;button type=submit&gt;</button>
-          <button type="button">&lt;button type=button&gt;</button>
-          <button type="reset">&lt;button type=reset&gt;</button>
-          <button type="button" disabled>&lt;button disabled&gt;</button>
-        </p>
-      </fieldset>
-      <p><a href="#top">[Top]</a></p>
-    </form>
-  </section>
-  <section>
-    <h2>Flex Grid</h2>
-    <div class="su-flex xs:su-gap-xs lg:su-gap-lg xl:su-gap-xl 2xl:su-gap-2xl su-text-white">
-      <div class="su-w-1/2 su-bg-sky su-rs-p-2">
-        <h3>6 of 12 columns</h3>
-        <p class="su-card-paragraph">This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
-      </div>
-      <div class="su-w-1/2 su-bg-sky-dark su-rs-p-2">
-        <h3>6 of 12 columns</h3>
-        <p class="su-card-paragraph">This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
-      </div>
-    </div>
-    <div class="su-flex su-grid-gap">
-      <div class="su-w-1/2 lg:su-w-3/4 su-bg-spirited su-rs-p-2">
-        <h3>8 of 12 columns</h3>
-        <p class="su-card-paragraph">This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
-      </div>
-      <div class="su-w-1/2 lg:su-w-1/4 su-bg-spirited-dark su-rs-p-2">
-        <h3>4 of 12 columns</h3>
-        <p class="su-card-paragraph">This is a test page filled with common HTML elements to be used to provide visual feedback whilst building CSS systems and frameworks.</p>
-      </div>
-    </div>
-  </section>
-  <section>
-    <h2>Aspect Ratio Container</h2>
-    <div class="su-w-1/2">
-      <div class="su-aspect-w-16 su-aspect-h-9 su-bg-bay-dark su-text-white"><div class="su-rs-p-4 ">
-        <h3>16 x 9 box</h3>
-        <p>Note: The padding decorator classes will have to be added in a nested div because it affects the aspect ratio decorators. Similarly, to use a width decorator class, it will have to go into a parent wrapper div around the container with the aspect ratio classes.</p></div></div></div>
-  </section>
+
 </main>
 <footer role="contentinfo" class="su-bg-digital-red su-text-white su-text-16 md:su-text-18 su-rs-py-2">
+  <!-- HTML Test page based on sample provided by http://twitter.com/cbracco -->
   <div class="su-cc">
-    <p class="su-mb-0">HTML 5 Test page by <a href="http://twitter.com/cbracco" class="su-text-white hover:su-text-white focus:su-text-white">@cbracco</a>.</p>
+    <p class="su-mb-0">A TailwindCSS/Decanter v7 test page.</p>
   </div>
-  <a href="#top" class="su-hidden md:su-block su-fixed su-bottom-20 su-right-20 su-w-50 su-text-black hover:su-text-digital-red focus:su-text-digital-red su-transition-colors"><span class="su-sr-only">Back to top</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <a href="#top" class="su-hidden md:su-block su-fixed su-bottom-20 su-right-20 su-w-50 su-text-black hover:su-text-plum focus:su-text-plum su-transition-colors"><span class="su-sr-only">Back to top</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
   </svg></a>
 </footer>
