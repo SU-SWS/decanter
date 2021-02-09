@@ -2,6 +2,50 @@
 
 // Checkbox styles
 
-.su-input-checkbox {
+.su-input-checkbox,
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked {
+  // Hide the browser's default checkbox
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
 
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label {
+  position: relative;
+  padding-left: 2.3em;
+  font-size: 1.05em;
+  line-height: 1.7;
+  cursor: pointer;
+}
+
+/* checkbox */
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1.4em;
+  height: 1.4em;
+  border: 2px solid rgba($su-color-black, 0.5);
+  background: #fff;
+  border-radius: 0.2em;
+}
+
+[type="checkbox"]:checked + label:before {
+  background: $su-color-blue;
+}
+
+/* checked mark */
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
 }
