@@ -205,6 +205,7 @@ module.exports = function () {
       'table': {
         margin: '0',
         borderSpacing: '0',
+        borderCollapse: 'collapse',
         minWidth: '100%',
         fontSize: '1.6rem',
         '@screen md': {
@@ -212,33 +213,28 @@ module.exports = function () {
         },
         'caption': {
           marginBottom: '0.6em',
-          fontWeight: config('theme.fontWeight.semibold'),
+          fontSize: '0.9em',
+          lineHeight: '1.3',
+          color: config('theme.colors.cool-grey'),
+        },
+        'tr': {
+          borderTop: '1px solid ' + config('theme.colors.black.20'),
+        },
+        'th, td': {
+          padding: '1.5rem',
         },
         'th': {
-          padding: '1.5rem',
-          border: '1px solid ' + config('theme.colors.foggy.dark'),
-          backgroundColor: config('theme.colors.stone.light'),
           color: config('theme.colors.black.DEFAULT'),
-          fontWeight: config('theme.fontWeight.regular'),
+          fontWeight: config('theme.fontWeight.semibold'),
           textAlign: 'left',
         },
-        'td': {
-          padding: '1.5rem',
-          border: '1px solid ' + config('theme.colors.foggy.dark'),
-          backgroundColor: config('theme.colors.white'),
+        'thead, tbody': {
+          'tr:first-of-type': {
+            borderTop: '0',
+          }
         },
-        'thead': {
-          'th': {
-            backgroundColor: config('theme.colors.stone.light'),
-          },
-          'td': {
-            backgroundColor: config('theme.colors.stone.light'),
-          },
-        },
-        'tbody': {
-          'th': {
-            fontWeight: config('theme.fontWeight.regular'),
-          },
+        'thead + tbody': {
+          borderTop: '1px solid ' + config('theme.colors.black.20'),
         },
       },
     })
