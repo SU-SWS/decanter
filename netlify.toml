@@ -1,0 +1,22 @@
+# BUILD Settings:
+# ##############################################################################
+[build]
+  publish = "styleguide/out"
+  functions = "lambda"
+
+[dev]
+  publish = "styleguide/out"
+  port = 64946
+  autolaunch = true
+
+# HEADERS - BASIC AUTH
+# ##############################################################################
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Content-Security-Policy = "form-action https:"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=2592000"
+    Permissions-Policy = "vibrate=(), geolocation=(), midi=(), notifications=(), push=(), microphone=(), camera=(), magnetometer=(), gyroscope=(), speaker=()"
