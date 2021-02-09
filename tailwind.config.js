@@ -8,6 +8,8 @@ var dir = path.resolve(__dirname, 'src/plugins')
 module.exports = {
   // Our own prefix.
   prefix: 'su-',
+  // Enable dark mode utility classes
+  darkMode: 'media',
 
   // The theme section is where you define your color palette, font stacks,
   // type scale, border sizes, breakpoints — anything related to the visual
@@ -16,18 +18,22 @@ module.exports = {
 
   theme: {
     // Overrides.
-    aspectRatio: require(dir + '/theme/aspectRatio.js')(),
     borderRadius: require(dir + '/theme/borderRadius.js')(),
     borderWidth: require(dir + '/theme/borderWidth.js')(),
     boxShadow: require(dir + '/theme/boxShadow.js')(),
     colors: require(dir + '/theme/colors.js')(),
-    screens: require(dir + '/theme/screens.js')(),
     fontFamily: require(dir + '/theme/fontFamily.js')(),
     fontSize: require(dir + '/theme/fontSize.js')(),
     fontWeight: require(dir + '/theme/fontWeight.js')(),
-    lineHeight: require(dir + '/theme/lineHeight.js')(),
     gap: require(dir + '/theme/gap.js')(),
+    height: require(dir + '/theme/height.js')(),
+    lineHeight: require(dir + '/theme/lineHeight.js')(),
+    maxHeight: require(dir + '/theme/maxHeight.js')(),
+    maxWidth: require(dir + '/theme/maxWidth.js')(),
+    screens: require(dir + '/theme/screens.js')(),
+    spacing: require(dir + '/theme/spacing.js')(),
     transitionDuration: require(dir + '/theme/transitionDuration.js')(),
+    width: require(dir + '/theme/width.js')(),
     // Decanter Custom.
     decanter: require(dir + '/theme/decanter.js')(),
     // Extensions of tailwind core config.
@@ -40,7 +46,6 @@ module.exports = {
     // preflight: false,
     fontSmoothing: false,
     placeholderOpacity: false,
-    divideColor: false,
     divideOpacity: false,
     divideStyle: false,
     borderCollapse: false,
@@ -61,16 +66,15 @@ module.exports = {
     // @tailwind components;
     require(dir + '/components/logo/logo.js')(),
     // @tailwind utilities;
-    require(dir + '/utilities/accessibility/accessibily-hidden.js')(),
-    require(dir + '/utilities/accessibility/sr-only-element.js')(),
+    require(dir + '/utilities/accessibility/accessibility-hidden.js')(),
     require(dir + '/utilities/accessibility/sr-only-text.js')(),
-    require(dir + '/utilities/flex/flex-container.js')(),
-    require(dir + '/utilities/flex/flex-container-row.js')(),
     require(dir + '/utilities/layout/centered-container.js')(),
-    require(dir + '/utilities/layout/grid-gap.js')(),
-    require(dir + '/utilities/lists/lists.js')(),
     require(dir + '/utilities/media/embed-container.js')(),
+    require(dir + '/utilities/layout/grid-gap.js')(),
+    require(dir + '/utilities/form/input-base.js')(),
+    require(dir + '/utilities/lists/lists.js')(),
     require(dir + '/utilities/responsive-spacing/responsive-spacing.js')(),
+    require(dir + '/utilities/scrolling/smooth-scroll.js')(),
     require(dir + '/utilities/tables/borderless.js')(),
     require(dir + '/utilities/typography/styles.js')(),
     // 3rd Party Plugins;

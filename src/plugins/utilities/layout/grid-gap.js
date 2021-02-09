@@ -21,6 +21,8 @@ module.exports = function () {
     const newUtilities = {
       // Center an element horizontally.
       '.grid-gap': {
+        'grid-gap': gaps['xs'],
+        gap: gaps['xs'],
         ...output
       }
     }

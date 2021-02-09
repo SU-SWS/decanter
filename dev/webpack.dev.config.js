@@ -4,7 +4,6 @@
  */
 
 var path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ExtraWatchWebpackPlugin = require("extra-watch-webpack-plugin");
@@ -72,6 +71,32 @@ module.exports.output = {
 module.exports.module.rules.push({
   test: /\.html$/,
   loader: 'html-loader'
+});
+
+// Apply plugins to font assets.
+module.exports.module.rules.push({
+  test: /\.(woff2?|ttf|otf|eot)$/,
+  loader: 'file-loader',
+  options: {
+    name: '[name].[ext]',
+    publicPath: './assets/fonts',
+    outputPath: '/dist/assets/fonts'
+  }
+});
+
+// Apply plugins to image assets.
+module.exports.module.rules.push({
+  test: /\.(png|svg|jpg|gif)$/i,
+  use: [
+    {
+      loader: 'file-loader',
+      options: {
+        name: '[name].[ext]',
+        publicPath: './assets/img',
+        outputPath: '/dist/assets/img'
+      }
+    }
+  ]
 });
 
 // Plugins

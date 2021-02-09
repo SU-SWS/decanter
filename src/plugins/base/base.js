@@ -18,7 +18,7 @@ module.exports = function () {
       borderColor: config('theme.colors.foggy.dark'),
       color: config('theme.colors.black.DEFAULT'),
       fontSize: config('theme.decanter.base.inputFontSize'),
-      lineHeight: '1.3',
+      lineHeight: config('theme.lineHeight.snug'),
     };
 
     // Add the elements.
@@ -32,20 +32,23 @@ module.exports = function () {
       },
       'body': {
         backgroundColor: config('theme.colors.white'),
-        overflowX: 'hidden',
         color: config('theme.colors.black.DEFAULT'),
-        fontSize: '1.6rem',
+        overflowX: 'hidden',
+        fontSize: '1.8rem',
         '@screen md': {
-          fontSize: '1.8rem',
+          fontSize: '1.9rem',
         },
         '@screen 2xl': {
-          fontSize: '1.9rem',
+          fontSize: '2.1rem',
         },
       },
       'p': {
-        lineHeight: config('theme.decanter.base.baseLineHeight'),
+        lineHeight: config('theme.lineHeight.cozy'),
         marginTop: '0',
         marginBottom: '1em',
+        '@screen md': {
+          lineHeight: config('theme.lineHeight.DEFAULT'),
+        },
       },
       // HEADINGS
       // -----------------------------------------------------------------------
@@ -87,13 +90,17 @@ module.exports = function () {
       'dfn': {
         fontStyle: 'normal',
       },
+      'pre, code, kbd, samp': {
+        fontSize: '0.9em',
+      },
       // Images
       // -----------------------------------------------------------------------
       'figure': {
         margin: '0',
       },
       'figcaption': {
-        fontSize: '0.9em',
+        marginTop: '0.4em',
+        fontSize: 'max(1.6rem, 0.9em)',
         lineHeight: '1.3',
         color: config('theme.colors.cool-grey'),
       },
@@ -119,9 +126,6 @@ module.exports = function () {
         fontWeight: config('theme.fontWeight.bold'),
         lineHeight: config('theme.decanter.base.displayLineHeight')
       },
-      'input[type="text"], input[type="email"], input[type="password"], input[type="url"]': {
-        ...inputBase,
-      },
       'input[type="radio"], input[type="checkbox"]': {
         backgroundColor: config('theme.colors.white'),
         borderWidth: '3px',
@@ -133,16 +137,13 @@ module.exports = function () {
         backgroundColor: config('theme.colors.digital-blue.DEFAULT'),
       },
       'textarea': {
-        ...inputBase,
         height: '16rem',
       },
       'select': {
-        ...inputBase,
         backgroundColor: config('theme.color.white'),
       },
       'button, [type="button"], [type="submit"], [type="reset"], [type="image"]': {
         fontFamily: sans,
-        ...config('theme.decanter.base.fontSmoothing'),
         cursor: 'pointer',
         display: 'inline-block',
         border: '0',
@@ -174,60 +175,65 @@ module.exports = function () {
         color: config('theme.colors.digital-blue.DEFAULT'),
         textDecoration: 'underline',
         fontWeight: config('theme.fontWeight.semibold'),
-        '&:hover, &:focus, &:active': {
+        '&:hover, &:focus': {
           color: config('theme.colors.black.DEFAULT')
         },
       },
       // LISTS
       // -----------------------------------------------------------------------
       'ul': {
-        margin: '1em inherit',
         paddingLeft: '1em',
         listStyleType: 'disc',
       },
       'ol': {
-        margin: '1em inherit',
         paddingLeft: '1em',
         listStyleType: 'decimal',
       },
-      'li': {
+      'li, dd': {
         lineHeight: config('theme.decanter.base.baseLineHeight'),
         marginBottom: '0.5em',
         '&:last-child': {
           marginBottom: '0',
         },
       },
+      'dt': {
+        fontWeight: config('theme.fontWeight.bold'),
+      },
       // TABLES
       // -----------------------------------------------------------------------
       'table': {
-        margin: '2em 0',
+        margin: '0',
         borderSpacing: '0',
+        borderCollapse: 'collapse',
         minWidth: '100%',
-        'th': {
+        fontSize: '1.6rem',
+        '@screen md': {
+          fontSize: '1.8rem'
+        },
+        'caption': {
+          marginBottom: '0.6em',
+          fontSize: '0.9em',
+          lineHeight: '1.3',
+          color: config('theme.colors.cool-grey'),
+        },
+        'tr': {
+          borderTop: '1px solid ' + config('theme.colors.black.20'),
+        },
+        'th, td': {
           padding: '1.5rem',
-          border: '1px solid ' + config('theme.colors.foggy.dark'),
-          backgroundColor: config('theme.colors.stone.light'),
+        },
+        'th': {
           color: config('theme.colors.black.DEFAULT'),
-          fontWeight: config('theme.fontWeight.regular'),
+          fontWeight: config('theme.fontWeight.semibold'),
           textAlign: 'left',
         },
-        'td': {
-          padding: '1.5rem',
-          border: '1px solid ' + config('theme.colors.foggy.dark'),
-          backgroundColor: config('theme.colors.white'),
+        'thead, tbody': {
+          'tr:first-of-type': {
+            borderTop: '0',
+          }
         },
-        'thead': {
-          'th': {
-            backgroundColor: config('theme.colors.stone.light'),
-          },
-          'td': {
-            backgroundColor: config('theme.colors.stone.light'),
-          },
-        },
-        'tbody': {
-          'th': {
-            fontWeight: config('theme.fontWeight.regular'),
-          },
+        'thead + tbody': {
+          borderTop: '1px solid ' + config('theme.colors.black.20'),
         },
       },
     })

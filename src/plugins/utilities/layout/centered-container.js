@@ -19,6 +19,8 @@ module.exports = function () {
     const newUtilities = {
       // Center an element horizontally.
       '.centered-container, .cc': {
+        paddingLeft:  theme('decanter.screenMargins.xs'),
+        paddingRight:  theme('decanter.screenMargins.xs'),
         marginLeft: 'auto',
         marginRight: 'auto',
         ...padding,
