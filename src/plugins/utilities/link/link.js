@@ -17,7 +17,7 @@ const flattenColorPalette = (colors) =>
  * Link colors in paragraphs, WYSIWYG, or nested in components with open fields.
  */
 module.exports = function () {
-  return function ({ addUtilities, theme, variants }) {
+  return function ({ addUtilities, theme }) {
     const colors = flattenColorPalette(theme('textColor'))
     const utilities = {}
 
@@ -29,6 +29,6 @@ module.exports = function () {
       }
     }
 
-    addUtilities(utilities, { variants: ['responsive'] })
+    addUtilities(utilities, { variants: ['hover', 'focus', 'active', 'visited'] })
   }
 }
