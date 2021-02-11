@@ -17,18 +17,36 @@ const flattenColorPalette = (colors) =>
  * Link colors in paragraphs, WYSIWYG, or nested in components with open fields.
  */
 module.exports = function () {
-  return function ({ addUtilities, theme }) {
+  return function ({ addUtilities, theme, prefix }) {
     const colors = flattenColorPalette(theme('textColor'))
     const utilities = {}
 
     for (const [key, value] of Object.entries(colors)) {
-      utilities['.link-' + key] = {
+      utilities[prefix('.link-' + key)] = {
         'a': {
+          color: value
+        }
+      }
+
+      utilities['.hover\:' + prefix('.link-').replace('.', '') + key] = {
+        'a:hover': {
+          color: value
+        }
+      }
+
+      utilities['.focus\:' + prefix('.link-').replace('.', '') + key] = {
+        'a:focus': {
+          color: value
+        }
+      }
+
+      utilities['.visited\:' + prefix('.link-').replace('.', '') + key] = {
+        'a:visited': {
           color: value
         }
       }
     }
 
-    addUtilities(utilities, { variants: ['hover', 'focus', 'active', 'visited'] })
+    addUtilities(utilities, { variants: [], respectPrefix: false })
   }
 }
