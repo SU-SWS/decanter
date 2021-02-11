@@ -8,9 +8,9 @@
 <body class="su-debug-screens">
 
 <!-- MAIN DEVELOPMENT AREA -->
-<div class="su-bg-digital-red su-pt-5 su-pb-2">
+<div class="su-bg-digital-red su-pt-5 su-pb-1">
   <div class="su-cc">
-    <a class="su-logo su-text-white hover:su-text-white active:su-text-white focus:su-text-whit su-text-20" href="https://stanford.edu">Stanford University</a>
+    <a class="su-logo su-text-white hover:su-text-white focus:su-text-white su-text-20" href="https://stanford.edu">Stanford University</a>
   </div>
 </div>
 <div role="banner" class="su-rs-py-6 su-bg-gradient-to-b su-from-black su-to-plum su-text-white">
@@ -36,6 +36,7 @@
         </ul>
         <h2 class="su-type-5"><a href="#html-elements" class="su-text-black hover:su-underline focus:su-underline">HTML Elements</a></h2>
         <ul class="su-list-unstyled su-text-16 md:su-text-20 su-rs-mb-4">
+          <li class="su-inline-block su-mb-12"><a href="#drop-shadows" class="su-inline-block su-py-8 su-px-20 su-mr-12 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">Drop Shadows</a></li>
           <li class="su-inline-block su-mb-12"><a href="#text__tables" class="su-inline-block su-py-8 su-px-20 su-mr-12 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors">Tables</a></li>
           <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#embedded__images">Images</a></li>
           <li class="su-inline-block su-mb-12 su-mr-12"><a class="su-inline-block su-py-8 su-px-20 su-bg-spirited-dark hover:su-bg-archway-dark focus:su-bg-archway-dark su-rounded-full su-text-white hover:su-text-white focus:su-text-white su-no-underline su-transition-colors" href="#embedded__youtube">Embed Streaming Video</a></li>
@@ -237,6 +238,19 @@ p q r s t u v w x y z { | } ~
     </header>
     <div class="su-cc su-flex su-flex-col md:su-flex-row su-rs-py-6 su-overflow-x-hidden">
       <div class="su-mx-auto su-w-full lg:su-w-8/12">
+        <article id="drop-shadows" class="su-rs-mb-5">
+          <header><h3 class="su-type-5 su-text-lagunita-light">Drop Shadows</h3></header>
+          <div class="su-grid md:su-grid-cols-2 lg:su-grid-cols-3 su-gap-xl md:su-gap-lg 2xl:su-gap-2xl">
+            <div class="su-rs-py-4 su-rs-px-1 su-flex su-justify-center su-content-center su-text-plum su-font-semibold su-bg-white su-border su-border-solid su-border-black-10 su-shadow-none">.su-shadow-none</div>
+            <div class="su-rs-py-4 su-rs-px-1 su-flex su-justify-center su-content-center su-text-plum su-font-semibold su-bg-white su-border su-border-solid su-border-black-10 su-shadow-sm">.su-shadow-sm</div>
+            <div class="su-rs-py-4 su-rs-px-1 su-flex su-justify-center su-content-center su-text-plum su-font-semibold su-bg-white su-border su-border-solid su-border-black-10 su-shadow">.su-shadow</div>
+            <div class="su-rs-py-4 su-rs-px-1 su-flex su-justify-center su-content-center su-text-plum su-font-semibold su-bg-white su-border su-border-solid su-border-black-10 su-shadow-md">.su-shadow-md</div>
+            <div class="su-rs-py-4 su-rs-px-1 su-flex su-justify-center su-content-center su-text-plum su-font-semibold su-bg-white su-border su-border-solid su-border-black-10 su-shadow-lg">.su-shadow-lg</div>
+            <div class="su-rs-py-4 su-rs-px-1 su-flex su-justify-center su-content-center su-text-plum su-font-semibold su-bg-white su-border su-border-solid su-border-black-10 su-shadow-xl">.su-shadow-xl</div>
+            <div class="su-rs-py-4 su-rs-px-1 su-flex su-justify-center su-content-center su-text-plum su-font-semibold su-bg-white su-border su-border-solid su-border-black-10 su-shadow-2xl">.su-shadow-2xl</div>
+            <div class="su-rs-py-4 su-rs-px-1 su-flex su-justify-center su-content-center su-text-plum su-font-semibold su-bg-white su-border su-border-solid su-border-black-10 su-shadow-inner">.su-shadow-inner</div>
+          </div>
+        </article>
         <article id="text__tables" class="su-rs-mb-5">
           <header><h3 class="su-type-5 su-text-lagunita-light">Tables</h3></header>
           <h4 class="su-type-3">Default Table</h4>
@@ -406,7 +420,7 @@ p q r s t u v w x y z { | } ~
     <div class="su-cc su-flex su-flex-col md:su-flex-row su-rs-py-6 su-overflow-x-hidden">
       <div class="su-mx-auto su-w-full lg:su-w-8/12">
         <form>
-          <fieldset id="forms__input">
+          <fieldset id="forms__input" class="su-rs-mb-3">
             <legend>Input fields</legend>
             <p>
               <label for="input__text">Text Input</label>
@@ -446,7 +460,7 @@ p q r s t u v w x y z { | } ~
             </p>
           </fieldset>
 
-          <fieldset id="forms__select">
+          <fieldset id="forms__select" class="su-rs-mb-3">
             <legend>Select menus</legend>
             <p>
               <label for="select">Select</label>
@@ -460,7 +474,7 @@ p q r s t u v w x y z { | } ~
             </p>
           </fieldset>
 
-          <fieldset id="forms__checkbox">
+          <fieldset id="forms__checkbox" class="su-rs-mb-3">
             <legend>Checkboxes</legend>
             <ul>
               <li><input id="checkbox1" name="checkbox" type="checkbox" checked="checked" /><label for="checkbox1">Choice A</label></li>
@@ -469,7 +483,7 @@ p q r s t u v w x y z { | } ~
             </ul>
           </fieldset>
 
-          <fieldset id="forms__radio">
+          <fieldset id="forms__radio" class="su-rs-mb-3">
             <legend>Radio buttons</legend>
             <ul>
               <li><input id="radio1" name="radio" type="radio" class="radio" checked="checked" /><label for="radio1">Option 1</label></li>
@@ -478,7 +492,7 @@ p q r s t u v w x y z { | } ~
             </ul>
           </fieldset>
 
-          <fieldset id="forms__textareas">
+          <fieldset id="forms__textareas" class="su-rs-mb-3">
             <legend>Textareas</legend>
             <p>
               <label for="textarea">Textarea</label>
@@ -486,7 +500,7 @@ p q r s t u v w x y z { | } ~
             </p>
           </fieldset>
 
-          <fieldset id="forms__html5">
+          <fieldset id="forms__html5" class="su-rs-mb-3">
             <legend>HTML5 inputs</legend>
             <p>
               <label for="ic">Color input</label>
@@ -522,7 +536,7 @@ p q r s t u v w x y z { | } ~
             </p>
           </fieldset>
 
-          <fieldset id="forms__action">
+          <fieldset id="forms__action" class="su-rs-mb-3">
             <legend>Action buttons</legend>
             <p>
               <input type="submit" value="<input type=submit>">
@@ -629,7 +643,6 @@ p q r s t u v w x y z { | } ~
   <!-- HTML Test page based on sample provided by http://twitter.com/cbracco -->
   <div class="su-cc">
     <p class="su-mb-0">A TailwindCSS/Decanter v7 test page.</p>
-    <p><a href="https://www.netlify.com"><img src="https://www.netlify.com/img/global/badges/netlify-dark.svg"></a></p>
   </div>
   <a href="#top" class="su-hidden md:su-block su-fixed su-bottom-20 su-right-20 su-w-50 su-text-black hover:su-text-plum focus:su-text-plum su-transition-colors"><span class="su-sr-only">Back to top</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
     <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z" clip-rule="evenodd" />
