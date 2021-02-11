@@ -165,7 +165,7 @@ module.exports = function () {
           color: config('theme.colors.white'),
         },
         '&:focus': {
-          boxShadow: config('theme.boxShadow.DEFAULT'),
+          boxShadow: config('theme.boxShadow.md'),
         },
       },
       //
