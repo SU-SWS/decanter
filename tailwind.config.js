@@ -20,7 +20,6 @@ module.exports = {
     // Overrides.
     borderRadius: require(dir + '/theme/borderRadius.js')(),
     borderWidth: require(dir + '/theme/borderWidth.js')(),
-    boxShadow: require(dir + '/theme/boxShadow.js')(),
     colors: require(dir + '/theme/colors.js')(),
     fontFamily: require(dir + '/theme/fontFamily.js')(),
     fontSize: require(dir + '/theme/fontSize.js')(),
