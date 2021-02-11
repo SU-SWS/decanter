@@ -29,6 +29,6 @@ module.exports = function () {
       }
     }
 
-    addUtilities(utilities, variants('linkColor'))
+    addUtilities(utilities, { variants: ['responsive'] })
   }
 }
