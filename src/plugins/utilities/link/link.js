@@ -28,19 +28,19 @@ module.exports = function () {
         }
       }
 
-      utilities['.hover\:' + prefix('.link-').replace('.', '') + key] = {
+      utilities['.hover\\:' + prefix('.link-').replace('.', '') + key] = {
         'a:hover': {
           color: value
         }
       }
 
-      utilities['.focus\:' + prefix('.link-').replace('.', '') + key] = {
+      utilities['.focus\\:' + prefix('.link-').replace('.', '') + key] = {
         'a:focus': {
           color: value
         }
       }
 
-      utilities['.visited\:' + prefix('.link-').replace('.', '') + key] = {
+      utilities['.visited\\:' + prefix('.link-').replace('.', '') + key] = {
         'a:visited': {
           color: value
         }
