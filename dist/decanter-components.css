@@ -39,6 +39,36 @@
   }
 }
 
+.su-input-base{
+  display: block;
+  color: #2E2D29;
+  font-size: 1.8rem;
+  line-height: 1.3;
+}
+
+.su-list-unstyled{
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.su-list-horizontal{
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.su-list-horizontal > li{
+  display: block;
+  float: left;
+}
+
+.su-list-horizontal > li:last-child{
+  margin-right: 0;
+}
+
 .su-logo{
   display: inline-block;
   font-family: Stanford, "Source Serif Pro", Georgia, Times, "Times New Roman", serif;
@@ -70,6 +100,30 @@
 
 .su-logo:hover{
   color: #8C1515;
+}
+
+.su-embed-container{
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.su-embed-container embed, .su-embed-container iframe, .su-embed-container object{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.su-table-borderless thead tr, .su-table-borderless thead th, .su-table-borderless thead td, .su-table-borderless tbody tr, .su-table-borderless tbody th, .su-table-borderless tbody td, .su-table-borderless tfoot tr, .su-table-borderless tfoot th, .su-table-borderless tfoot td{
+  border: 0;
+}
+
+.su-table-borderless thead + tbody{
+  border: 0;
 }
 
 .su-aspect-w-1,

@@ -62,20 +62,24 @@ module.exports = {
   plugins: [
     // @tailwind base;
     require(dir + '/base/base.js')(),
+
     // @tailwind components;
+    require(dir + '/components/form/input-base.js')(),
+    require(dir + '/components/lists/lists.js')(),
     require(dir + '/components/logo/logo.js')(),
+    require(dir + '/components/media/embed-container.js')(),
+    require(dir + '/components/tables/borderless.js')(),
+
     // @tailwind utilities;
     require(dir + '/utilities/accessibility/accessibility-hidden.js')(),
     require(dir + '/utilities/accessibility/sr-only-text.js')(),
-    require(dir + '/utilities/form/input-base.js')(),
     require(dir + '/utilities/layout/centered-container.js')(),
     require(dir + '/utilities/layout/grid-gap.js')(),
     require(dir + '/utilities/link/link.js')(),
-    require(dir + '/utilities/lists/lists.js')(),
-    require(dir + '/utilities/media/embed-container.js')(),
+    require(dir + '/utilities/link/link-fontweight.js')(),
+    require(dir + '/utilities/link/link-underline.js')(),
     require(dir + '/utilities/responsive-spacing/responsive-spacing.js')(),
     require(dir + '/utilities/scrolling/smooth-scroll.js')(),
-    require(dir + '/utilities/tables/borderless.js')(),
     require(dir + '/utilities/typography/styles.js')(),
     // 3rd Party Plugins;
     require('@tailwindcss/aspect-ratio'),
