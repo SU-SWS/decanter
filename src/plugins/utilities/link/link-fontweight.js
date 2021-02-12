@@ -3,7 +3,7 @@
  * Only responsive variants are available as font weight shouldn't change when hover/focus.
  */
 module.exports = function () {
-  return function ({ addUtilities, prefix }) {
+  return function ({ addUtilities }) {
     const utilities = {};
 
     utilities['.link-regular'] = {
