@@ -24,12 +24,6 @@ module.exports = function () {
       }
     }
 
-    utilities['.hover\\:' + prefix('.link-').replace('.', '') + 'no-underline'] = {
-      'a:hover': {
-        textDecoration: 'none'
-      }
-    }
-
-      addUtilities(utilities, { variants: ['responsive'], respectPrefix: false })
+    addUtilities(utilities, { variants: ['responsive'], respectPrefix: false })
   }
 }
