@@ -2,7 +2,7 @@
  * Responsive spacing to provide a curated map of space.
  */
 module.exports = function () {
-  return function ({ addUtilities, theme }) {
+  return function ({ addUtilities }) {
     // The return object.
     let res = {}
 
@@ -17,7 +17,7 @@ module.exports = function () {
     const topbottom = 'y'
     const leftright = 'x'
 
-    // Currated Map.
+    // Curated Map.
     const map = {
       neg2: {
         xs: '0.8rem',

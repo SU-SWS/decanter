@@ -3,8 +3,8 @@
  * width of parent element while retaining an aspect ratio of 16:9.
  */
 module.exports = function () {
-  return function ({ addUtilities }) {
-    const newUtilities = {
+  return function ({ addComponents }) {
+    const components = {
       '.embed-container': {
         paddingBottom: "56.25%",
         position: "relative",
@@ -21,6 +21,6 @@ module.exports = function () {
       },
     }
 
-    addUtilities(newUtilities)
+    addComponents(components)
   }
 }

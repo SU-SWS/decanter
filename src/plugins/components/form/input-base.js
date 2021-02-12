@@ -2,8 +2,8 @@
  * Input base styles to compensate for HTML font size difference between TW and Decanter
  */
 module.exports = function () {
-  return function ({ addUtilities, theme }) {
-    const newUtilities = {
+  return function ({ addComponents, theme }) {
+    const components = {
       '.input-base': {
         display: 'block',
         borderColor: theme('color.foggy-dark'),
@@ -13,6 +13,6 @@ module.exports = function () {
       },
     }
 
-    addUtilities(newUtilities)
+    addComponents(components)
   }
 }

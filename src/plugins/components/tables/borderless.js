@@ -2,8 +2,8 @@
  * Borderless table styles.
  */
 module.exports = function () {
-  return function ({ addUtilities }) {
-    const newUtilities = {
+  return function ({ addComponents }) {
+    const components = {
       // For no borders at all.
       '.table-borderless': {
         'thead, tbody, tfoot': {
@@ -17,6 +17,6 @@ module.exports = function () {
       }
     }
 
-    addUtilities(newUtilities)
+    addComponents(components)
   }
 }

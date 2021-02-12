@@ -2,8 +2,8 @@
  * List styles.
  */
 module.exports = function () {
-  return function ({ addUtilities }) {
-    const newUtilities = {
+  return function ({ addComponents }) {
+    const components = {
       // For no styles at all.
       '.list-unstyled': {
         marginTop: '0',
@@ -27,6 +27,6 @@ module.exports = function () {
       },
     }
 
-    addUtilities(newUtilities)
+    addComponents(components)
   }
 }
