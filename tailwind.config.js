@@ -71,6 +71,7 @@ module.exports = {
     require(dir + '/utilities/layout/centered-container.js')(),
     require(dir + '/utilities/layout/grid-gap.js')(),
     require(dir + '/utilities/link/link.js')(),
+    require(dir + '/utilities/link/link-underline.js')(),
     require(dir + '/utilities/lists/lists.js')(),
     require(dir + '/utilities/media/embed-container.js')(),
     require(dir + '/utilities/responsive-spacing/responsive-spacing.js')(),
