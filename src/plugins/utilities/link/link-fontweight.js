@@ -6,24 +6,24 @@ module.exports = function () {
   return function ({ addUtilities, prefix }) {
     const utilities = {};
 
-    utilities[prefix('.link-') + 'regular'] = {
+    utilities['.link-regular'] = {
       'a': {
         fontWeight: '400'
       }
     }
 
-    utilities[prefix('.link-') + 'semibold'] = {
+    utilities['.link-semibold'] = {
       'a': {
         fontWeight: '600'
       }
     }
 
-    utilities[prefix('.link-') + 'bold'] = {
+    utilities['.link-bold'] = {
       'a': {
         fontWeight: '700'
       }
     }
 
-    addUtilities(utilities, { variants: ['responsive'], respectPrefix: false })
+    addUtilities(utilities, { variants: ['responsive'] })
   }
 }
