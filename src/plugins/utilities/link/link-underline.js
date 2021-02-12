@@ -1,5 +1,6 @@
 /**
  * Link underline/no-underline in paragraphs, WYSIWYG, or nested in components with open fields.
+ * Only hover/focus variants are available.
  */
 module.exports = function () {
   return function ({ addUtilities, prefix }) {
