@@ -93,7 +93,7 @@ module.exports = {
   // core utility plugin.
   // https://tailwindcss.com/docs/configuration/#variants
   variants: {
-    animation: ['hover', 'focus', 'hocus', 'group-hover', 'group-focus', 'group-hocus', 'motion-safe', 'motion-reduce', 'dark', 'responsive'],
+    animation: ['hover', 'focus', 'hocus', 'group-hover', 'group-focus', 'group-hocus', 'motion-safe', 'motion-reduce'],
     extend: {
       backgroundColor: ['group-focus-within', 'group-focus-visible', 'group-active', 'hocus', 'group-hocus'],
       textColor: ['group-focus-within', 'group-focus-visible', 'group-active', 'hocus', 'group-hocus'],
