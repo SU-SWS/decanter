@@ -38,7 +38,8 @@ module.exports = function () {
     'digital-green': {
       DEFAULT: '#008566',
       light: '#1AECBA',
-      dark: '#006F54'
+      dark: '#006F54',
+      bright: '#009b76',
     },
     'palo-alto': {
       DEFAULT: '#175E54',
