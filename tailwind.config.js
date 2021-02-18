@@ -85,13 +85,18 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/forms'),
     require('tailwindcss-debug-screens'),
+    require('tailwindcss-interaction-variants'),
+
   ],
 
   // The variants section lets you control which variants are generated for each
   // core utility plugin.
   // https://tailwindcss.com/docs/configuration/#variants
   variants: {
-    animation: ['hover', 'focus'],
-    extend: {}
+    animation: ['hover', 'focus', 'hocus', 'group-hover', 'group-focus', 'group-hocus', 'motion-safe', 'motion-reduce'],
+    extend: {
+      backgroundColor: ['group-focus-within', 'group-focus-visible', 'group-active', 'hocus', 'group-hocus'],
+      textColor: ['group-focus-within', 'group-focus-visible', 'group-active', 'hocus', 'group-hocus'],
+    }
   }
 }

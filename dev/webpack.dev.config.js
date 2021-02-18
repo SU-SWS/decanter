@@ -28,27 +28,9 @@ module.exports.watchOptions = {
 // Optimizations
 module.exports.optimization = {
   minimize: false,
-  noEmitOnErrors: true,
+  emitOnErrors: false,
   removeEmptyChunks: false,
 };
-
-// Dev server settings. HMR NOT WORKING. COME BACK LATER.
-// -----------------------------------------------------------------------------
-// module.exports.devServer = {
-//   contentBase: path.resolve(__dirname, 'dist'),
-//   watchContentBase: true,
-//   port: 9090,
-//   compress: true,
-//   hot : true,
-//   liveReload: true,
-//   inline : true,
-//   open: true,
-//   overlay: true,
-//   historyApiFallback : true,
-//   progress: true,
-//   writeToDisk: true,
-//   index: 'index.html',
-// };
 
 // Entry points.
 // -----------------------------------------------------------------------------
@@ -108,7 +90,6 @@ module.exports.plugins.push(
     template: path.resolve(__dirname, 'src', 'test.html'),
     hash: false,
     inject: true,
-    compile: true,
     favicon: false,
     minify: false,
     cache: false,
