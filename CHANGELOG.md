@@ -1,5 +1,12 @@
 # Changelog
 
+Version 7.0.0-alpha.1              2021-02-24
+---------------------------------------------
+- Initial TailwindCSS build out.
+- This version is still highly volitile and we do not recommend you upgrade
+  existing version 6 projects.
+- No warranty, documentation, or stability guarenteed. Use at your own risk.
+
 Version 6.0.6                      2020-05-27
 ---------------------------------------------
 - Fixes a typo in the grid-media-min comments (#641)
@@ -112,7 +119,7 @@ Version 5.1.0                      2019-10-31
 - New Mixin: `link-glyph()`
 - New Mixin: `link-icon()`
 - New Function: `breakpoint-previous`
-- New Typography styles: 	
+- New Typography styles:
   -- `.su-type-a`: Display Type A (used for H1 heading)
   -- `.su-type-b`: Display Type B (used for H2 heading)
   -- `.su-type-c`: Display Type C (used for H3 heading)

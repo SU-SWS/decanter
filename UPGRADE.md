@@ -1,5 +1,10 @@
 # Upgrade
 
+Upgrade from version 6.2.x to 7.0.0-alpha.x
+-------------------------------------------
+We are still working on this. We will have documentation on this change by
+stable release.
+
 Upgrade from version 5.2.0 to 6.0.0
 -----------------------------------
 
