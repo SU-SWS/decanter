@@ -9,9 +9,9 @@
 /// @param {variable} $hover - Default hover color
 ///
 /// @group mixin
-// Pull-quote.
+//
 @mixin pullquote(
-  $direction: right,
+  $side: right,
   $border-color: $su-color-black,
   $mobile-background-color: $su-color-cool-grey-25,
   $background-color: $su-color-white
@@ -49,14 +49,9 @@
     font-size: 1.8rem;
     width: 20em;
   }
-}
 
-// .su-pullquote-#{$direction} {
-//   float: $direction;
-//   margin-right: 2em;
-// }
-
-.su-pullquote-block-right {
-  //float: $direction;
-  margin-left: 2em;
+  .su-pullquote-#{$side} {
+    float: $side;
+    margin-#{$side}: 2em;
+  }
 }
