@@ -1,0 +1,62 @@
+@charset "UTF-8";
+
+///
+/// Pull Quote Styling.
+///
+/// @name link
+///
+/// @param {variable} $color - Default up color
+/// @param {variable} $hover - Default hover color
+///
+/// @group mixin
+// Pull-quote.
+@mixin pullquote(
+  $direction: right,
+  $border-color: $su-color-black,
+  $mobile-background-color: $su-color-cool-grey-25,
+  $background-color: $su-color-white
+) {
+  background-color: $mobile-background-color;
+  border-bottom: solid 1px $border-color;
+  border-left: 0;
+  border-right: 0;
+  border-top: solid 1px $border-color;
+  box-sizing: border-box;
+  margin: 0.25em 0 2em;
+  max-width: 100%;
+  padding: 1.5em;
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+
+  img + figcaption {
+    padding-top: 0.4em;
+  }
+
+  p {
+    font-size: 1.8rem;
+  }
+
+  p + figure,
+  figure + p {
+    padding-top: 0.7em;
+  }
+
+  @include grid-media-min('md') {
+    background-color: $background-color;
+    font-size: 1.8rem;
+    width: 20em;
+  }
+}
+
+// .su-pullquote-#{$direction} {
+//   float: $direction;
+//   margin-right: 2em;
+// }
+
+.su-pullquote-block-right {
+  //float: $direction;
+  margin-left: 2em;
+}
