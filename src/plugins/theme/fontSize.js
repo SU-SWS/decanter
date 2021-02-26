@@ -1,6 +1,6 @@
 /**
  * Font Size Defaults.
- * For larger font sizes, use our custom modular typography classes (.su-type-0 to .su-type-6)
+ * Also see our custom modular typography classes (.su-type-0 to .su-type-6).
  */
 module.exports = function () {
   return {
@@ -18,5 +18,16 @@ module.exports = function () {
     '23': '2.3rem',
     '24': '2.4rem',
     '25': '2.5rem',
+    // Modular scale steps
+    'm0': '1em',
+    'm1': '1.25em',
+    'm2': '1.56em',
+    'm3': '1.95em',
+    'm4': '2.44em',
+    'm5': '3.05em',
+    'm6': '3.81em',
+    'm7': '4.77em',
+    'm8': '5.96em',
+    'm9': '7.45em',
   }
 }

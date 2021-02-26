@@ -80,6 +80,7 @@ module.exports = {
     require(dir + '/utilities/link/link-underline.js')(),
     require(dir + '/utilities/responsive-spacing/responsive-spacing.js')(),
     require(dir + '/utilities/scrolling/smooth-scroll.js')(),
+    require(dir + '/utilities/typography/modular-typography.js')(),
     require(dir + '/utilities/typography/styles.js')(),
     // 3rd Party Plugins;
     require('@tailwindcss/aspect-ratio'),
