@@ -11,27 +11,6 @@ module.exports = function () {
       '.types': {
         ...headings,
       },
-      '.type-6': {
-        ...theme('decanter.typography.type6'),
-      },
-      '.type-5': {
-        ...theme('decanter.typography.type5'),
-      },
-      '.type-4': {
-        ...theme('decanter.typography.type4'),
-      },
-      '.type-3': {
-        ...theme('decanter.typography.type3'),
-      },
-      '.type-2': {
-        ...theme('decanter.typography.type2'),
-      },
-      '.type-1': {
-        ...theme('decanter.typography.type1'),
-      },
-      '.type-0': {
-        ...theme('decanter.typography.type0'),
-      },
       '.intro-text': {
         ...theme('decanter.typography.type1'),
         lineHeight: theme('lineHeight.DEFAULT'),
