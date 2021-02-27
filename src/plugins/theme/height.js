@@ -4,6 +4,17 @@
 module.exports = function () {
   return {
     auto: 'auto',
+    '01em': '0.1em',
+    '02em': '0.2em',
+    '03em': '0.3em',
+    '04em': '0.4em',
+    '05em': '0.5em',
+    '06em': '0.6em',
+    '07em': '0.7em',
+    '08em': '0.8em',
+    '09em': '0.9em',
+    '1em': '1em',
+    1: '0.1rem',
     10: '1rem',
     20: '2rem',
     30: '3rem',
