@@ -55,7 +55,7 @@ module.exports = function () {
           lineHeight: theme('lineHeight.cozy'),
         },
       },
-      '.body-basefont-19': {
+      '.basefont-19': {
         fontSize: '1.6rem',
         '@screen md': {
           fontSize: '1.8rem',
@@ -64,7 +64,7 @@ module.exports = function () {
           fontSize: '1.9rem',
         },
       },
-      '.body-basefont-20': {
+      '.basefont-20': {
         fontSize: '1.8rem',
         '@screen md': {
           fontSize: '1.9rem',
@@ -73,7 +73,7 @@ module.exports = function () {
           fontSize: '2rem',
         },
       },
-      '.body-basefont-22': {
+      '.basefont-22': {
         fontSize: '1.8rem',
         '@screen md': {
           fontSize: '2rem',
@@ -82,7 +82,7 @@ module.exports = function () {
           fontSize: '2.2rem',
         },
       },
-      '.body-basefont-23': {
+      '.basefont-23': {
         fontSize: '1.8rem',
         '@screen md': {
           fontSize: '2.1rem',
