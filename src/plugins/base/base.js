@@ -11,16 +11,6 @@ module.exports = function () {
     // Heading defaults.
     var headings = config('theme.decanter.typography.headings');
 
-    // Input base styles.
-    var inputBase = {
-      display: 'block',
-      maxWidth: config('theme.decanter.base.inputMaxWidth'),
-      borderColor: config('theme.colors.foggy.dark'),
-      color: config('theme.colors.black.DEFAULT'),
-      fontSize: config('theme.decanter.base.inputFontSize'),
-      lineHeight: config('theme.lineHeight.snug'),
-    };
-
     // Add the elements.
     addBase({
       'html': {
