@@ -14,6 +14,7 @@ module.exports = function () {
     '08em': '0.8em',
     '09em': '0.9em',
     '1em': '1em',
+    1: '0.1rem',
     10: '1rem',
     20: '2rem',
     30: '3rem',
