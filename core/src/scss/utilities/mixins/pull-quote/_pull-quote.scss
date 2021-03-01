@@ -52,9 +52,13 @@
     font-size: 1.8rem;
     width: 20em;
 
-    .su-pull-quote-#{$side} {
-      float: $side;
-      margin-#{$side}: 2em;
+    @if $side == left {
+      float: left;
+      margin-right: 2em;
+    }
+    @else if $side == right {
+      float: right;
+      margin-right: 2em;
     }
   }
 }
