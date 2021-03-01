@@ -10,11 +10,47 @@
 ///
 /// @group mixin
 //
+@mixin pullquote-left(
+  $border-color: $su-color-black,
+  $mobile-background-color: $su-color-cool-grey-25,
+  $background-color: transparent
+) {
+  @include pullquote(
+    left,
+    $border-color,
+    $mobile-background-color,
+    $background-color
+  );
+
+  .su-pullquote-left {
+    float: left;
+    margin-right: 2em;
+  }
+}
+
+@mixin pullquote-right(
+  $border-color: $su-color-black,
+  $mobile-background-color: $su-color-cool-grey-25,
+  $background-color: transparent
+) {
+  @include pullquote(
+    right,
+    $border-color,
+    $mobile-background-color,
+    $background-color
+  );
+
+  .su-pullquote-right {
+    float: right;
+    margin-left: 2em;
+  }
+}
+
 @mixin pullquote(
   $side: right,
   $border-color: $su-color-black,
   $mobile-background-color: $su-color-cool-grey-25,
-  $background-color: $su-color-white
+  $background-color: transparent
 ) {
   background-color: $mobile-background-color;
   border-bottom: solid 1px $border-color;
@@ -48,10 +84,10 @@
     background-color: $background-color;
     font-size: 1.8rem;
     width: 20em;
-  }
 
-  .su-pullquote-#{$side} {
-    float: $side;
-    margin-#{$side}: 2em;
+    // .su-pullquote-#{$side} {
+    //   float: $side;
+    //   margin-#{$side}: 2em;
+    // }
   }
 }
