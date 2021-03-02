@@ -96,6 +96,7 @@ module.exports = {
   variants: {
     animation: ['hover', 'focus', 'hocus', 'group-hover', 'group-focus', 'group-hocus', 'motion-safe', 'motion-reduce'],
     extend: {
+      margin: ['first', 'last'],
       backgroundColor: ['group-focus-within', 'group-focus-visible', 'group-active', 'hocus', 'group-hocus'],
       borderColor: ['group-focus-within', 'hocus', 'group-hocus'],
       textColor: ['group-focus-within', 'group-focus-visible', 'group-active', 'hocus', 'group-hocus'],
