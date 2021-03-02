@@ -18,6 +18,7 @@ module.exports = function () {
     '23': '2.3rem',
     '24': '2.4rem',
     '25': '2.5rem',
+    '09em': '0.9em',
     // Modular scale steps
     'm0': '1em',
     'm1': '1.25em',
