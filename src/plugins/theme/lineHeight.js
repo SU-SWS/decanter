@@ -9,6 +9,7 @@ module.exports = function () {
     snug: '1.3', // For card paragraph, caption etc
     cozy: '1.4', // Normal for base font size
     DEFAULT: '1.5', // Normal for big paragraph
-    half: '0.5' // Useful for logo lockup
+    half: '0.5', // Useful for logo lockup
+    trim: '0.75' // Trim leading for Source Sans Pro
   }
 }
