@@ -73,6 +73,15 @@ module.exports = function () {
           fontSize: '2rem',
         },
       },
+      '.basefont-21': {
+        fontSize: '1.8rem',
+        '@screen md': {
+          fontSize: '1.9rem',
+        },
+        '@screen 2xl': {
+          fontSize: '2.1rem',
+        },
+      },
       '.basefont-22': {
         fontSize: '1.8rem',
         '@screen md': {
