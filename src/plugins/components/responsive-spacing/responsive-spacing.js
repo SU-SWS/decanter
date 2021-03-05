@@ -2,7 +2,7 @@
  * Responsive spacing to provide a curated map of space.
  */
 module.exports = function () {
-  return function ({ addUtilities }) {
+  return function ({ addComponents }) {
     // The return object.
     let res = {}
 
@@ -255,6 +255,6 @@ module.exports = function () {
       }
     } // End for loop.
 
-    addUtilities(res)
+    addComponents(res)
   }
 }

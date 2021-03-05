@@ -2,7 +2,7 @@
  * Responsive grid gaps.
  */
 module.exports = function () {
-  return function ({ addUtilities, theme }) {
+  return function ({ addComponents, theme }) {
     // Find and set the padding based on the screen margins
     let screens = theme('screens')
     let gaps = theme('gap')
@@ -18,7 +18,7 @@ module.exports = function () {
       }
     }
 
-    const newUtilities = {
+    const components = {
       // Center an element horizontally.
       '.grid-gap': {
         'grid-gap': gaps['xs'],
@@ -27,6 +27,6 @@ module.exports = function () {
       }
     }
 
-    addUtilities(newUtilities)
+    addComponents(components)
   }
 }

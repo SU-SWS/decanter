@@ -16,28 +16,6 @@ module.exports = {
   // design of your site.
   // https://tailwindcss.com/docs/configuration/#theme
 
-  theme: {
-    // Overrides.
-    borderRadius: require(dir + '/theme/borderRadius.js')(),
-    borderWidth: require(dir + '/theme/borderWidth.js')(),
-    colors: require(dir + '/theme/colors.js')(),
-    fontFamily: require(dir + '/theme/fontFamily.js')(),
-    fontSize: require(dir + '/theme/fontSize.js')(),
-    fontWeight: require(dir + '/theme/fontWeight.js')(),
-    gap: require(dir + '/theme/gap.js')(),
-    height: require(dir + '/theme/height.js')(),
-    lineHeight: require(dir + '/theme/lineHeight.js')(),
-    maxHeight: require(dir + '/theme/maxHeight.js')(),
-    maxWidth: require(dir + '/theme/maxWidth.js')(),
-    screens: require(dir + '/theme/screens.js')(),
-    spacing: require(dir + '/theme/spacing.js')(),
-    transitionDuration: require(dir + '/theme/transitionDuration.js')(),
-    width: require(dir + '/theme/width.js')(),
-    // Decanter Custom.
-    decanter: require(dir + '/theme/decanter.js')(),
-    // Extensions of tailwind core config.
-  },
-
   // The corePlugins section lets you completely disable classes that Tailwind
   // would normally generate by default if you don't need them for your project.
   // https://tailwindcss.com/docs/configuration/#core-plugins
@@ -66,22 +44,23 @@ module.exports = {
     // @tailwind components;
     require(dir + '/components/form/input-base.js')(),
     require(dir + '/components/lists/lists.js')(),
+    require(dir + '/components/layout/centered-container.js')(),
+    require(dir + '/components/layout/grid-gap.js')(),
     require(dir + '/components/logo/logo.js')(),
     require(dir + '/components/media/embed-container.js')(),
+    require(dir + '/components/responsive-spacing/responsive-spacing.js')(),
     require(dir + '/components/tables/borderless.js')(),
+    require(dir + '/components/typography/modular-typography.js')(),
+    require(dir + '/components/typography/styles.js')(),
 
     // @tailwind utilities;
     require(dir + '/utilities/accessibility/accessibility-hidden.js')(),
     require(dir + '/utilities/accessibility/sr-only-text.js')(),
-    require(dir + '/utilities/layout/centered-container.js')(),
-    require(dir + '/utilities/layout/grid-gap.js')(),
     require(dir + '/utilities/link/link.js')(),
     require(dir + '/utilities/link/link-fontweight.js')(),
     require(dir + '/utilities/link/link-underline.js')(),
-    require(dir + '/utilities/responsive-spacing/responsive-spacing.js')(),
     require(dir + '/utilities/scrolling/smooth-scroll.js')(),
-    require(dir + '/utilities/typography/modular-typography.js')(),
-    require(dir + '/utilities/typography/styles.js')(),
+
     // 3rd Party Plugins;
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/forms'),
@@ -89,6 +68,28 @@ module.exports = {
     require('tailwindcss-interaction-variants'),
 
   ],
+
+  theme: {
+    // Overrides.
+    borderRadius: require(dir + '/theme/borderRadius.js')(),
+    borderWidth: require(dir + '/theme/borderWidth.js')(),
+    colors: require(dir + '/theme/colors.js')(),
+    fontFamily: require(dir + '/theme/fontFamily.js')(),
+    fontSize: require(dir + '/theme/fontSize.js')(),
+    fontWeight: require(dir + '/theme/fontWeight.js')(),
+    gap: require(dir + '/theme/gap.js')(),
+    height: require(dir + '/theme/height.js')(),
+    lineHeight: require(dir + '/theme/lineHeight.js')(),
+    maxHeight: require(dir + '/theme/maxHeight.js')(),
+    maxWidth: require(dir + '/theme/maxWidth.js')(),
+    screens: require(dir + '/theme/screens.js')(),
+    spacing: require(dir + '/theme/spacing.js')(),
+    transitionDuration: require(dir + '/theme/transitionDuration.js')(),
+    width: require(dir + '/theme/width.js')(),
+    // Decanter Custom.
+    decanter: require(dir + '/theme/decanter.js')(),
+    // Extensions of tailwind core config.
+  },
 
   // The variants section lets you control which variants are generated for each
   // core utility plugin.

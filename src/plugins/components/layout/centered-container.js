@@ -2,7 +2,7 @@
  * Centered container.
  */
 module.exports = function () {
-  return function ({ addUtilities, theme }) {
+  return function ({ addComponents, theme }) {
 
     // Find and set the padding based on the screen margins
     var screens = theme('screens');
@@ -16,7 +16,7 @@ module.exports = function () {
       };
     }
 
-    const newUtilities = {
+    const components = {
       // Center an element horizontally.
       '.centered-container, .cc': {
         paddingLeft:  theme('decanter.screenMargins.xs'),
@@ -32,6 +32,6 @@ module.exports = function () {
       },
     }
 
-    addUtilities(newUtilities)
+    addComponents(components)
   }
 }
