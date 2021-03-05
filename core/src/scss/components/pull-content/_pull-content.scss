@@ -6,40 +6,42 @@
 // pull-content styling.
 //
 //
-.su-pull-content--left,
-.su-pull-content--right {
-  background-color: $su-color-cool-grey-25;
-  border-bottom: solid 1px $su-color-black;
-  border-left: 0;
-  border-right: 0;
-  border-top: solid 1px $su-color-black;
-  box-sizing: border-box;
-  margin: 0.25em 0 2em;
-  max-width: 100%;
-  padding: 1.5em;
-  width: 100%;
-
-  img {
+.su-pull-content {
+  &--left,
+  &--right {
+    background-color: $su-color-cool-grey-25;
+    border-bottom: solid 1px $su-color-black;
+    border-left: 0;
+    border-right: 0;
+    border-top: solid 1px $su-color-black;
+    box-sizing: border-box;
+    margin: 0.25em 0 2em;
+    max-width: 100%;
+    padding: 1.5em;
     width: 100%;
-  }
 
-  img + figcaption {
-    padding-top: 0.4em;
-  }
+    img {
+      width: 100%;
+    }
 
-  p {
-    font-size: 1.8rem;
-  }
+    img + figcaption {
+      padding-top: 0.4em;
+    }
 
-  p + figure,
-  figure + p {
-    padding-top: 0.7em;
-  }
+    p {
+      font-size: 1.8rem;
+    }
 
-  @include grid-media-min('md') {
-    background-color: transparent;
-    font-size: 1.8rem;
-    width: 20em;
+    p + figure,
+    figure + p {
+      padding-top: 0.7em;
+    }
+
+    @include grid-media-min('md') {
+      background-color: transparent;
+      font-size: 1.8rem;
+      width: 20em;
+    }
   }
 }
 
