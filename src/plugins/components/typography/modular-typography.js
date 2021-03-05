@@ -3,9 +3,9 @@
  * Larger steps (type-3 and up) are scaled down for XS and SM breakpoints by a factor of 0.85.
  */
 module.exports = function () {
-  return function ({ addUtilities, theme }) {
+  return function ({ addComponents, theme }) {
 
-    const newUtilities = {
+    const components = {
       '.type-6': {
         ...theme('decanter.typography.type6'),
       },
@@ -29,6 +29,6 @@ module.exports = function () {
       },
     }
 
-    addUtilities(newUtilities)
+    addComponents(components)
   }
 }

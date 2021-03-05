@@ -2,12 +2,12 @@
  * Custom typography styles.
  */
 module.exports = function () {
-  return function ({ addUtilities, theme }) {
+  return function ({ addComponents, theme }) {
 
     // Default styles for the headings.
     const headings = theme('decanter.typography.headings');
 
-    const newUtilities = {
+    const components = {
       '.types': {
         ...headings,
       },
@@ -102,6 +102,6 @@ module.exports = function () {
       },
     }
 
-    addUtilities(newUtilities)
+    addComponents(components)
   }
 }
