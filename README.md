@@ -19,7 +19,7 @@ For Decanter v7, instead of using SASS/SCSS with the BEM naming convention, we u
 The utility class approach we adopt for Decanter v7 works well with React.js. For those who are using React for their projects, please check out [Decanter React](https://decanter-react.netlify.app/), our React component library which uses Decanter v7.
 
 ## Assets
-We have remove all assets from the repo in Decanter 7. Instead, we are using remote third party resources for our fonts and icons.
+We have removed all assets from the repo in Decanter 7. Instead, we are using remote third party resources for our fonts and icons.
 
 ### Fonts
 - For Source Sans Pro, Source Serif Pro, Roboto Slab, Roboto Mono - we include them using the `@import` method from [Google Fonts](https://fonts.google.com/).
@@ -33,5 +33,5 @@ We have remove all assets from the repo in Decanter 7. Instead, we are using rem
 ## Accessibility
 [![WCAG Conformance 2.0 AA Badge](https://www.w3.org/WAI/wcag2AA-blue.png)](https://www.w3.org/TR/WCAG20/)
 
-Evaluation Date: 201X-XX-XX
+Evaluation Date: 202X-XX-XX
 This project conforms to level AA WCAG 2.0 standards as required by the university's accessibility policy. For more information on the policy please visit: [https://ucomm.stanford.edu/policies/accessibility-policy.html](https://ucomm.stanford.edu/policies/accessibility-policy.html).
