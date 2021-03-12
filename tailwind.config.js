@@ -71,6 +71,7 @@ module.exports = {
     require(dir + '/components/logo/logo.js')(),
     require(dir + '/components/media/embed-container.js')(),
     require(dir + '/components/responsive-spacing/responsive-spacing.js')(),
+    require(dir + '/components/skiplink/skiplink.js')(),
     require(dir + '/components/tables/borderless.js')(),
     require(dir + '/components/typography/modular-typography.js')(),
     require(dir + '/components/typography/styles.js')(),
