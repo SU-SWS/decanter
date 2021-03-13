@@ -15,22 +15,17 @@ module.exports = function () {
         },
         'p, ol, ul, dl': {
           color: theme('color.black.true'),
-          paddingBottom: '1.6em',
+          marginBottom: '1.6em',
         },
         'li p': {
           marginBottom: '0.4em',
         },
-        'h2:not(:first-child)': {
-          marginTop: '1.8em',
-        },
-        'h3, h4, h5, h6': {
-          '&:not(:first-child)': {
-            marginTop: '1.6em',
-          }
-        },
         'h2, h3, h4, h5, h6': {
           marginBottom: '0.7em',
           clear: 'both',
+          '&:not(:first-child)': {
+            marginTop: '1.6em',
+          },
           'a': {
             textDecoration: 'none',
           },
