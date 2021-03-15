@@ -3257,6 +3257,53 @@
   }
 }
 
+.su-skiplink, .su-skiplinks{
+  position: absolute;
+  top: -500px;
+  left: 0.8em;
+  min-height: 1px;
+  -webkit-transition: top 0.25s ease-in-out;
+  transition: top 0.25s ease-in-out;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #2E2D29;
+  color: #FFFFFF;
+  font-size: 2rem;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.su-skiplink:hover, .su-skiplink:visited, .su-skiplinks:hover, .su-skiplinks:visited{
+  width: 1px;
+  height: 1px;
+  color: #FFFFFF;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.su-skiplink:active, .su-skiplink:focus, .su-skiplinks:active, .su-skiplinks:focus{
+  position: fixed;
+  top: 0.8em;
+  padding: 0.4em 0.8em;
+  width: auto;
+  height: auto;
+  color: #FFFFFF;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #53565A;
+  border-radius: 3px;
+  z-index: 10000;
+}
+
+@media print{
+  .su-skiplink, .su-skiplinks{
+    display: none;
+  }
+}
+
 .su-table-borderless thead tr, .su-table-borderless thead th, .su-table-borderless thead td, .su-table-borderless tbody tr, .su-table-borderless tbody th, .su-table-borderless tbody td, .su-table-borderless tfoot tr, .su-table-borderless tfoot th, .su-table-borderless tfoot td{
   border: 0;
 }
