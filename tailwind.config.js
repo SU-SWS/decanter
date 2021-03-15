@@ -75,6 +75,7 @@ module.exports = {
     require(dir + '/components/tables/borderless.js')(),
     require(dir + '/components/typography/modular-typography.js')(),
     require(dir + '/components/typography/styles.js')(),
+    require(dir + '/components/typography/wysiwyg.js')(),
 
     // @tailwind utilities;
     require(dir + '/utilities/accessibility/accessibility-hidden.js')(),
