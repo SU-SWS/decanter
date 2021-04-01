@@ -16,18 +16,34 @@
   $width: 0.65em,
   $animate: right,
   $vertical: null,
-  $location: 'after'
+  $location: after
 ) {
   text-decoration: none;
   @supports (mask-repeat: no-repeat) {
+    // Common properties for both before and after locations
+    &::#{$location} {
+      @include size($width);
+      display: inline-block;
+      content: '';
+      mask: url('#{$su-image-path}/#{$icon}.svg') no-repeat 0 0;
+      mask-size: contain;
+    }
+
+    &:hover,
+    &:focus {
+      &::#{$location} {
+        @if $animate == 'down' {
+          transform: translateY(0.2em);
+        } @else if $animate == 'up' {
+          transform: translateY(-0.2em);
+        }
+      }
+    }
+
+    // Icon $location after link text
     @if $location == 'after' {
       &::after {
         @include margin(null 0.3em $vertical 0.4em);
-        @include size($width);
-        display: inline-block;
-        content: '';
-        mask: url('#{$su-image-path}/#{$icon}.svg') no-repeat 0 0;
-        mask-size: contain;
         background-color: color(link);
         transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
       }
@@ -38,10 +54,6 @@
           background-color: color(link--hover);
           @if $animate == 'right' or $animate == 'true' {
             transform: translateX(0.2em);
-          } @else if $animate == 'down' {
-            transform: translateY(0.2em);
-          } @else if $animate == 'up' {
-            transform: translateY(-0.2em);
           } @else if $animate == 'topright' {
             transform: translate3d(0.15em, -0.15em, 0);
           }
@@ -49,16 +61,10 @@
       }
     }
 
-    // if $location is not 'after' then it'll be before!
+    // If icon $location is not after then it'll be before!
     @else {
       &::before {
         @include margin(null 0.4em $vertical 0.3em);
-        @include size($width);
-        display: inline-block;
-        content: '';
-        mask: url('#{$su-image-path}/#{$icon}.svg') no-repeat 0 0;
-        mask-size: contain;
-        background-color: color(link);
         transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
       }
 
@@ -68,10 +74,6 @@
           background-color: color(link--hover);
           @if $animate == 'left' or $animate == 'true' {
             transform: translateX(-0.2em);
-          } @else if $animate == 'down' {
-            transform: translateY(0.2em);
-          } @else if $animate == 'up' {
-            transform: translateY(-0.2em);
           } @else if $animate == 'topleft' {
             transform: translate3d(-0.15em, -0.15em, 0);
           }
