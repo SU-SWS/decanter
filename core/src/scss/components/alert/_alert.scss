@@ -58,15 +58,30 @@
     font-size: 1.7rem;
 
     .su-far,
-    .su-fas {
+    .su-fas,
+    .fas {
       @include margin(null null null 0.5em);
     }
 
     i,
     .su-far,
-    .su-fas {
+    .su-fas,
+    .fas {
       font-style: normal;
       text-decoration: none;
+    }
+
+    &.su-text-black {
+      &:hover {
+        background: $su-color-digital-blue-light;
+        color: $su-color-black;
+      }
+    }
+    &.su-text-white {
+      &:hover {
+        background: $su-color-white;
+        color: $su-color-black;
+      }
     }
 
   }
@@ -172,6 +187,21 @@
 // Optional open footer area.
 // -----------------------------------------------------------------------------
 .su-alert__footer {
+  &.su-link-black-true {
+    a {
+      &:hover {
+        background: $su-color-digital-blue-light;
+      }
+    }
+  }
+  &.su-link-black-false {
+    a {
+      &:hover {
+        background: $su-color-white;
+        color: $su-color-black;
+      }
+    }
+  }
 
   a {
     color: color(dark-text, $su-alert-colors);
