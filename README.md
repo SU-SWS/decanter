@@ -1,5 +1,5 @@
 # [Decanter](https://github.com/SU-SWS/decanter)
-##### Version: 7.0.0-alpha.2
+##### Version: 7.0.0-dev
 
 Changelog: [CHANGELOG.md](CHANGELOG.md)
 
