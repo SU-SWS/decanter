@@ -56,7 +56,7 @@ module.exports = {
     contentBase: path.resolve(__dirname),
     watchContentBase: true,
     compress: true,
-    port: 9000,
+    port: 9001,
     hot: true
   },
   // Relative output paths for css assets.

@@ -119,10 +119,6 @@
   text-transform: uppercase;
   font-weight: $su-font-semi-bold;
   letter-spacing: 0.1em;
-
-  &::after {
-    content: ":";
-  }
 }
 
 // Flex body with the main message.
@@ -142,11 +138,13 @@
 
   a {
     color: $su-color-black;
-    text-decoration: none;
+    text-decoration: underline;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
     &:hover,
     &:focus {
       color: $su-color-black;
+      background-color: $su-color-digital-blue-light;
       text-decoration: underline;
     }
 
