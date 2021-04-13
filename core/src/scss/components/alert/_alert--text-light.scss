@@ -14,6 +14,16 @@
     }
   }
 
+  .su-alert__text {
+    a {
+      &:hover,
+      &:focus {
+        background-color: $su-color-white;
+        color: $su-color-black;
+      }
+    }
+  }
+
   .su-alert__footer {
     .su-link {
       &::after {
@@ -24,5 +34,11 @@
 
   .su-alert__dismiss-button {
     color: color(light-text, $su-alert-colors);
+
+    &:hover,
+    &:focus {
+      background-color: transparent;
+      color: $su-color-white;
+    }
   }
 }

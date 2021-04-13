@@ -20,6 +20,10 @@
 .su-alert {
   background-color: color(default, $su-alert-colors);
 
+  a {
+    color: color(dark-text, $su-alert-colors);
+  }
+
   .centered-container {
     @include padding(1em null);
     display: flex;
@@ -52,19 +56,29 @@
     font-weight: $su-font-semi-bold;
     color: color(dark-text, $su-alert-colors);
     font-size: 1.7rem;
+    letter-spacing: 0.1em;
 
     .su-far,
-    .su-fas {
+    .su-fas,
+    .fas {
       @include margin(null null null 0.5em);
     }
 
     i,
     .su-far,
-    .su-fas {
+    .su-fas,
+    .fas {
       font-style: normal;
       text-decoration: none;
     }
 
+    &.su-text-black {
+      &:hover,
+      &:focus {
+        background-color: transparent;
+        color: $su-color-black;
+      }
+    }
   }
 }
 
@@ -104,6 +118,7 @@
   font-size: 1.7rem;
   text-transform: uppercase;
   font-weight: $su-font-semi-bold;
+  letter-spacing: 0.1em;
 
   &::after {
     content: ":";
@@ -127,11 +142,13 @@
 
   a {
     color: $su-color-black;
-    text-decoration: none;
+    text-decoration: underline;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 
     &:hover,
     &:focus {
       color: $su-color-black;
+      background-color: $su-color-digital-blue-light;
       text-decoration: underline;
     }
 
