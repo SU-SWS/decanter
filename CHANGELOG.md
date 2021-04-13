@@ -1,5 +1,16 @@
 # Changelog
 
+Version 7.0.0-alpha.2              2021-04-13
+---------------------------------------------
+- ADAPT-000: Remove animation variants but add translate variants (#814)
+- ADAPT-000: Misc additions (#806)
+- ADAPT-1856: Misc v7 changes take 2 (#808)
+- ADAPT-000: Move things from TW Utilities to Components (#809)
+- ADAPT-1783: Update README.md for v7 (#810)
+- ADAPT-1073: Unstructured WYSIWYG content styles as TW component (#813)
+- Add skiplink component (#812)
+- ADAPT-000 Remove animation variants but add translate variants (#814)
+
 Version 7.0.0-alpha.1              2021-02-24
 ---------------------------------------------
 - Initial TailwindCSS build out.
