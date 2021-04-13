@@ -1,5 +1,11 @@
 # Changelog
 
+Version 6.2.3                      2021-04-13
+---------------------------------------------
+- D8CORE-2950: Adding mailto icon (#776)
+- Netlify Build Previews (Removed Tugboat)
+- ADAPT-578: modified <a> text color for Info, Success and default Alerts
+
 Version 6.2.2                      2021-01-20
 ---------------------------------------------
 - D8CORE-2610: Deprecation notice about C, G, J, and Q lockup (#789)
