@@ -13,7 +13,7 @@
 // Global styles for the local footer.
 // ------------------------------------------------
 .su-local-footer {
-  background-color: $su-color-fog;
+  background-color: $su-color-foggy-light;
 
   a {
     font-weight: $su-font-regular;
@@ -44,7 +44,7 @@
   // Lockup placement.
   .su-lockup {
     @include grid-media-between('xs', 'md') {
-      @include modular-spacing('margin-bottom', 2);
+      @include responsive-spacing('margin-bottom', 2);
     }
 
     @include grid-media('lg') {
@@ -60,7 +60,7 @@
     border-radius: 7px;
 
     @include grid-media-between('xs', 'md') {
-      @include modular-spacing('margin-bottom', 1);
+      @include responsive-spacing('margin-bottom', 1);
       width: auto;
     }
 
@@ -84,14 +84,14 @@
 .su-local-footer__header {
   @include centered-column;
   @include responsive-grid-gap;
-  @include modular-spacing('padding-top', 3);
+  @include responsive-spacing('padding-top', 3);
   clear: both;
 }
 
 // The resposive behaviour for all contents using grid-area
 // --------------------------------------------------------
 .su-local-footer__columns {
-  @include modular-spacing('padding-bottom', 3);
+  @include responsive-spacing('padding-bottom', 3);
   grid-template-rows: auto;
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
@@ -135,8 +135,8 @@
     grid-area: B;
 
     @include grid-media-between('xs', 'md') {
-      @include modular-spacing('padding-top', 3);
-      @include modular-spacing('padding-bottom', 1);
+      @include responsive-spacing('padding-top', 3);
+      @include responsive-spacing('padding-bottom', 1);
     }
 
     @include grid-media-only('md') {
@@ -194,7 +194,7 @@
       }
 
       &:first-of-type {
-        @include modular-spacing('padding-bottom', 1);
+        @include responsive-spacing('padding-bottom', 1);
       }
     }
   }
@@ -248,7 +248,7 @@
 // ------------------------------------------------
 .su-local-footer__address,
 .su-local-footer__action-links {
-  @include modular-spacing('padding-bottom', 3);
+  @include responsive-spacing('padding-bottom', 3);
   font-size: 16px;
 }
 

@@ -1,5 +1,10 @@
 # Upgrade
 
+Upgrade from version 6.1.4 to 6.2.0
+-----------------------------------
+
+Find and replace all occurances of modular-spacing with responsive-spacing.
+
 Upgrade from version 6.0.6 to 6.1.0
 -----------------------------------
 
