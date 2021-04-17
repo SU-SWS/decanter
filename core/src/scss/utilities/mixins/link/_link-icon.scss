@@ -35,7 +35,8 @@
       &::#{$location} {
         @if $animate == 'down' {
           transform: translateY(0.2em);
-        } @else if $animate == 'up' {
+        }
+        @else if $animate == 'up' {
           transform: translateY(-0.2em);
         }
       }
@@ -55,7 +56,8 @@
           background-color: color(link--hover);
           @if $animate == 'right' or $animate == 'true' {
             transform: translateX(0.2em);
-          } @else if $animate == 'topright' {
+          }
+          @else if $animate == 'topright' {
             transform: translate3d(0.15em, -0.15em, 0);
           }
         }
