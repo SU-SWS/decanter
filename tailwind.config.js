@@ -76,6 +76,7 @@ module.exports = {
     require(dir + '/components/typography/modular-typography.js')(),
     require(dir + '/components/typography/styles.js')(),
     require(dir + '/components/typography/wysiwyg.js')(),
+    require(dir + '/components/shadow/text-shadow.js')(),
 
     // @tailwind utilities;
     require(dir + '/utilities/accessibility/accessibility-hidden.js')(),
