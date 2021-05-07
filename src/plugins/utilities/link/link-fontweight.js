@@ -6,24 +6,24 @@ module.exports = function () {
   return function ({ addUtilities }) {
     const utilities = {};
 
-    utilities['.link-regular'] = {
-      'a': {
-        fontWeight: '400'
-      }
-    }
+    utilities[".link-regular"] = {
+      a: {
+        fontWeight: "400",
+      },
+    };
 
-    utilities['.link-semibold'] = {
-      'a': {
-        fontWeight: '600'
-      }
-    }
+    utilities[".link-semibold"] = {
+      a: {
+        fontWeight: "600",
+      },
+    };
 
-    utilities['.link-bold'] = {
-      'a': {
-        fontWeight: '700'
-      }
-    }
+    utilities[".link-bold"] = {
+      a: {
+        fontWeight: "700",
+      },
+    };
 
-    addUtilities(utilities, { variants: ['responsive'] })
-  }
-}
+    addUtilities(utilities, { variants: ["responsive"] });
+  };
+};

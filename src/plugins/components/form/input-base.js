@@ -4,15 +4,15 @@
 module.exports = function () {
   return function ({ addComponents, theme }) {
     const components = {
-      '.input-base': {
-        display: 'block',
-        borderColor: theme('color.foggy-dark'),
-        color: theme('colors.black.DEFAULT'),
-        fontSize: theme('decanter.base.inputFontSize'),
-        lineHeight: theme('lineHeight.snug'),
+      ".input-base": {
+        display: "block",
+        borderColor: theme("color.foggy-dark"),
+        color: theme("colors.black.DEFAULT"),
+        fontSize: theme("decanter.base.inputFontSize"),
+        lineHeight: theme("lineHeight.snug"),
       },
-    }
+    };
 
-    addComponents(components)
-  }
-}
+    addComponents(components);
+  };
+};
