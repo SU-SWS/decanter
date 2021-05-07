@@ -4,8 +4,9 @@ checks:
     config:
       threshold: 10
   method-lines:
-    config:
-      threshold: 40
+    enabled: false
+  file-lines:
+    enabled: false
 plugins:
   # https://docs.codeclimate.com/docs/eslint
   # ES Linting requires an .eslintrc file to tweak checks.
@@ -19,9 +20,9 @@ plugins:
       # Disable inline html check because homepage.md needs it.
       MD033:
         enabled: false
-  # We shouldn't actually have css in this repo.
+  # Only css in src should be linted.
   csslint:
-    enabled: false
+    enabled: true
   # We don't lint our coffee. Eew.
   coffeelint:
     enabled: false
@@ -44,14 +45,7 @@ plugins:
     enabled: false
   # https://docs.codeclimate.com/docs/duplication
   duplication:
-    enabled: true
-    # exclude_paths:
-    #   - examples/
-    config:
-      languages:
-        javascript:
-          mass_threshold: 50
-          # count_threshold: 3
+    enabled: false
   fixme:
     enabled: true
     config:
@@ -67,9 +61,8 @@ exclude_patterns:
 - "vendor"
 - "vendors"
 - "node_modules"
-- "dist/**/*"
+- "dist"
 - "composer.json"
 - "package.json"
 - "webpack.config.js"
 - "dev"
-- "examples"

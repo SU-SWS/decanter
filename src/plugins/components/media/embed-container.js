@@ -5,13 +5,13 @@
 module.exports = function () {
   return function ({ addComponents }) {
     const components = {
-      '.embed-container': {
+      ".embed-container": {
         paddingBottom: "56.25%",
         position: "relative",
         height: 0,
         overflow: "hidden",
         maxWidth: "100%",
-        'embed, iframe, object ': {
+        "embed, iframe, object ": {
           position: "absolute",
           top: 0,
           left: 0,
@@ -19,8 +19,8 @@ module.exports = function () {
           height: "100%",
         },
       },
-    }
+    };
 
-    addComponents(components)
-  }
-}
+    addComponents(components);
+  };
+};
