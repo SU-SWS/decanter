@@ -1,0 +1,130 @@
+# Automatically Create a Release when PR is merged to main with one of the following 
+# labels: "patch", "minor", "major", "alpha", "beta", "rc".
+
+name: Auto Release
+
+# Controls when the action will run. 
+on:
+  # Triggers the workflow only when merging pull request to the main branch.
+  pull_request:
+    types: [closed]
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Only run on merged PRs with an appropriate label.
+    if: |
+      github.event.pull_request.merged &&
+      (
+        contains(github.event.pull_request.labels.*.name, 'patch') ||
+        contains(github.event.pull_request.labels.*.name, 'minor') ||
+        contains(github.event.pull_request.labels.*.name, 'major') ||
+        contains(github.event.pull_request.labels.*.name, 'alpha') ||
+        contains(github.event.pull_request.labels.*.name, 'beta') ||
+        contains(github.event.pull_request.labels.*.name, 'rc')
+      )
+    
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.base_ref }}
+          fetch-depth: 0
+
+      # Uses 'npm ci' instead of 'npm install'. See https://docs.npmjs.com/cli/v7/commands/npm-ci
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Set Git user
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "Github Action"
+
+      # Run 'npm run package' and commit dist folder if there are any changes.
+      - name: npm run package
+        run: |
+          npm run package
+          if [ $(git status | grep "dist\/") ]
+          then 
+            git add dist
+          fi
+      
+      # Increment version based on label
+      - name: Patch Release tag
+        if: ${{ contains( github.event.pull_request.labels.*.name, 'patch') }}
+        run: npm version patch
+
+      - name: Minor Release tag
+        if: ${{ contains( github.event.pull_request.labels.*.name, 'minor') }}
+        run: npm version minor
+      
+      - name: Major Release tag
+        if: ${{ contains( github.event.pull_request.labels.*.name, 'major') }}
+        run: npm version major
+      
+      - name: Alpha Release tag
+        if: ${{ contains( github.event.pull_request.labels.*.name, 'alpha') }}
+        run: |
+          npm version prerelease --preid alpha
+          echo "PRERELEASE=true" >> $GITHUB_ENV
+      
+      - name: Beta Release tag
+        if: ${{ contains( github.event.pull_request.labels.*.name, 'beta') }}
+        run: |
+          npm version prerelease --preid beta
+          echo "PRERELEASE=true" >> $GITHUB_ENV
+
+      - name: RC Release tag
+        if: ${{ contains( github.event.pull_request.labels.*.name, 'rc') }}
+        run: |
+          npm version prerelease --preid rc
+          echo "PRERELEASE=true" >> $GITHUB_ENV
+
+      # Push commits back to origin repo. 
+      - name: Push Changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.base_ref }}
+          tags: true
+
+      - name: Set enviroment variables for release notes.
+        run: |
+          echo "RELEASE_TAG=$(git tag --sort=-taggerdate | head -1)" >> $GITHUB_ENV
+          echo "PREVIOUS_TAG=$(git tag --sort=-taggerdate | sed -n '2 p')" >> $GITHUB_ENV
+
+      - name: Create Release Notes
+        id: release_notes
+        run: |
+          # Scrape release notes for this release from the full changelog.
+          release_notes=$(./node_modules/.bin/auto-changelog --stdout | awk "/\[$RELEASE_TAG\]/{flag=1; next} /\[$PREVIOUS_TAG\]/{flag=0} flag")
+          # Escape whitespace characters to ensure that multiline content outputs correctly.
+          release_notes="${release_notes//'%'/'%25'}"
+          release_notes="${release_notes//$'\n'/'%0A'}"
+          releast_notes="${release_notes//$'\r'/'%0D'}"
+          # Expose the release notes as an output variable.
+          echo "::set-output name=release_notes::$release_notes"
+
+      - name: Update Github Release with changelog notes.
+        uses: meeDamian/github-release@2.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ env.RELEASE_TAG }}
+          body: ${{steps.release_notes.outputs.release_notes}}
+          allow_override: true
+          prerelease: ${{ env.PRERELEASE }}
+
+      # Publish updated package to NPM.
+      - name: Publish to NPM
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          access: "public"
