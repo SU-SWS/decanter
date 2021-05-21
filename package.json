@@ -2,13 +2,14 @@
   "name": "decanter",
   "description": "Pattern Library and CSS Framework.",
   "author": "Stanford University",
-  "version": "7.0.0-dev",
+  "version": "7.0.0-alpha.5",
   "homepage": "https://github.com/SU-SWS/decanter",
   "license": "MIT",
   "scripts": {
     "build": "webpack --mode=development ",
     "build:dev": "webpack --mode=development --config dev/webpack.dev.config.js && npm run config-viewer:export",
     "publish": "webpack --mode=production",
+    "package": "webpack --mode=production",
     "wind": "tailwindcss build src/css/index.css -o dist/decanter.css",
     "config-viewer": "tailwind-config-viewer -o -c tailwind.config.js",
     "config-viewer:export": "tailwind-config-viewer export ./dev/dist/viewer",
@@ -16,7 +17,8 @@
     "lint:fix": "eslint './src'  --fix",
     "start": "live-server dev/dist --port=9090 --verbose",
     "watch": "nodemon --watch ./ --ext js,css,html --ignore dist --ignore node_modules --ignore dev/dist --exec \"npm run build:dev\"",
-    "dev:prep": "touch dev/src/test.css && touch dev/src/test.js && cp dev/src/sample.test.html dev/src/test.html"
+    "dev:prep": "touch dev/src/test.css && touch dev/src/test.js && cp dev/src/sample.test.html dev/src/test.html",
+    "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "keywords": [
     "css",
@@ -36,6 +38,8 @@
     "tailwindcss-interaction-variants": "^5.0.0"
   },
   "devDependencies": {
+    "auto-changelog": "^2.2.1",
+    "autoprefixer": "^10.2.5",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^5.0.0",
     "eslint": "^7.14",
