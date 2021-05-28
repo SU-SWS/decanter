@@ -2,9 +2,31 @@
 
 ## Version 6.3.0 2021-05-28
 
-- Bourbon updated to 7.0.0
-- Font Awesome updated to 5.15.3
 - Updated nvm node version to 15
+- Updated NPM Modules:
+  -- Bourbon 7.0.0
+  -- Font Awesome 5.15.3
+  -- autoprefixer 10.2.6
+  -- css-loader 5.2.6
+  -- dot-prop 6.0.1
+  -- eslint 7.27.0
+  -- file-loader 6.2.0
+  -- filemanager-webpack-plugin 5.0.0
+  -- html-webpack-plugin 5.3.1
+  -- mini-css-extract-plugin 1.6.0
+  -- node-gyp 8.1.0
+  -- node-pre-gyp 0.17.0
+  -- node-sass 6.0.0
+  -- optimize-css-assets-webpack-plugin 6.0.0
+  -- postcss-loader 5.3.0
+  -- sass-loader 11.1.1
+  -- style-loader 2.0.0
+  -- url-loader 4.1.1
+  -- webpack 5.38.1
+  -- webpack-assets-manifest 5.0.6
+  -- webpack-cli 4.7.0
+  -- webpack-fix-style-only-entries 0.6.1
+  -- webpack-manifest-plugin 3.1.1
 
 ## Version 6.2.3 2021-04-13
 
