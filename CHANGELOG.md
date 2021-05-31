@@ -1,74 +1,47 @@
 # Changelog
 
-## Version 6.3.0 2021-05-28
-
-- Updated nvm node version to 15
-- Updated NPM Modules:
-  -- Bourbon 7.0.0
-  -- Font Awesome 5.15.3
-  -- autoprefixer 10.2.6
-  -- css-loader 5.2.6
-  -- dot-prop 6.0.1
-  -- eslint 7.27.0
-  -- file-loader 6.2.0
-  -- filemanager-webpack-plugin 5.0.0
-  -- html-webpack-plugin 5.3.1
-  -- mini-css-extract-plugin 1.6.0
-  -- node-gyp 8.1.0
-  -- node-pre-gyp 0.17.0
-  -- node-sass 6.0.0
-  -- optimize-css-assets-webpack-plugin 6.0.0
-  -- postcss-loader 5.3.0
-  -- sass-loader 11.1.1
-  -- style-loader 2.0.0
-  -- url-loader 4.1.1
-  -- webpack 5.38.1
-  -- webpack-assets-manifest 5.0.6
-  -- webpack-cli 4.7.0
-  -- webpack-fix-style-only-entries 0.6.1
-  -- webpack-manifest-plugin 3.1.1
-
-## Version 6.2.3 2021-04-13
-
+Version 6.2.3                      2021-04-13
+---------------------------------------------
 - D8CORE-2950: Adding mailto icon (#776)
 - Netlify Build Previews (Removed Tugboat)
 - ADAPT-578: modified <a> text color for Info, Success and default Alerts
 
-## Version 6.2.2 2021-01-20
-
+Version 6.2.2                      2021-01-20
+---------------------------------------------
 - D8CORE-2610: Deprecation notice about C, G, J, and Q lockup (#789)
 - Bump ini from 1.3.5 to 1.3.8 (#784)
 - Add new colors from identity guide and deprecate old color (#768)
 
-## Version 6.2.1 2020-11-30
-
+Version 6.2.1                      2020-11-30
+---------------------------------------------
 - D8CORE-2529: changing the condition that makes the link not appear (#775)
 
-## Version 6.2.0 2020-11-04
-
+Version 6.2.0                      2020-11-04
+---------------------------------------------
 - Added responsive-spacing mixin to replace modular-spacing
 - Added deprecation notices for Noto-Sans and Kalam fonts
 - D8CORE-1261: Revised table styles. (#617)
 - D8CORE-1623: Adding a mixin and icons for `@include icon` (#690)
 
-## Version 6.1.3 2020-09-23
+Version 6.1.3                      2020-09-23
+---------------------------------------------
 
 - D8CORE-2536: adding aria-label (#716)
 - D8CORE-2652: adding styles to the alerts for buttons (#732)
 - D8CORE-2529: if there is a link but no content set the link to null (#756)
 - Change vendor imports to use the ~ convention. (#759)
 
-## Version 6.1.2 2020-09-09
-
+Version 6.1.2                      2020-09-09
+---------------------------------------------
 - D8CORE-2630: Alert link accessibility fixes for color contrast (#731)
 
-## Version 6.1.1 2020-09-03
-
+Version 6.1.1                      2020-09-03
+---------------------------------------------
 - D8CORE-2376: Local Footer Lockup Overrides (#729)
 - D8CORE-2630: Updating the alert basic link hover colors and underline for accessibility (#730)
 
-## Version 6.1.0 2020-09-01
-
+Version 6.1.0                      2020-09-01
+---------------------------------------------
 - Updates to all NPM packages and dependencies
 - New nvm version requirement setting at 14.8.0
 - D8CORE-2490: All new refactored alert component
@@ -77,8 +50,8 @@
 - Add search_input_id variable for masthead search box template
 - Minor semantic changes to template tags.
 
-## Version 6.0.6 2020-05-27
-
+Version 6.0.6                      2020-05-27
+---------------------------------------------
 - Fixes a typo in the grid-media-min comments (#641)
 - Create CODE_OF_CONDUCT.md (#676)
 - Removed conflicting background styles on checkboxes (#644)
@@ -86,41 +59,41 @@
 - Add aria-expanded="false" to main nav parent links in the twig template (#681)
 - D8CORE-1632: Add variables to quote template (#678)
 
-## Version 6.0.5 2020-02-27
-
+Version 6.0.5                      2020-02-27
+---------------------------------------------
 - D8CORE-1329: removed the width 100% for xs breakpoint with buttons. (#631)
 
-## Version 6.0.4 2020-02-21
-
+Version 6.0.4                      2020-02-21
+---------------------------------------------
 - Remove header html element and duplicate ids from local footer component (#630)
 - D8CORE-1334: adjusting the padding to make the text appear centered in local footer login button (#627)
 - Changing the search icon to red from the grey (#616)
 - Uglify dist output in JS and CSS.
 
-## Version 6.0.3 2020-02-06
-
+Version 6.0.3                      2020-02-06
+---------------------------------------------
 - Fixes 6.0.2 build fail. Shea is again, sorry.
 - Commits the changes to the updates in package.json
 
-## Version 6.0.2 2020-02-06
-
+Version 6.0.2                      2020-02-06
+---------------------------------------------
 - Change font size of `@big-paragraph` to 2.1rem and line height to 1.7; (#608)
 - modify date-stacked to not use `@big-paragraph` because we don't want the line height.
 - Make date stacked component switch to mobile font size at sm breakpoint instead of md.
 - Change `@type-f` font size from 0.8em to 0.9em and remove uppercase style (#609)
 - Brand bar wrapper change to div from section. (#613)
 - Add cool grey color variables and update package.json (#614)
-  -- `$su-color-cool-grey-75`, `$su-color-cool-grey-50`, `$su-color-cool-grey-25`, `$su-color-cool-grey-15`
+-- `$su-color-cool-grey-75`, `$su-color-cool-grey-50`, `$su-color-cool-grey-25`, `$su-color-cool-grey-15`
 
-## Version 6.0.1 2020-01-13
-
+Version 6.0.1                      2020-01-13
+---------------------------------------------
 - Fixed tugboat builds for previews on PRs
 - Restored the `.centered-container` class. Totally did not mean to remove it along with the other layouts.
 - Fixed empty cell logic in lockup.twig
 - Fixed failing webpack build. Shea is sorry about that one.
 
-## Version 6.0.0 2019-12-20
-
+Version 6.0.0                      2019-12-20
+---------------------------------------------
 - Deprecated: su-aspect-ratio-1x1 & su-aspect-ratio-4x3 classes.
 - Removed all of the KSS Styleguide build in favor of new website.
 - Removed lando.default.yml as you should be using the npm servers.
@@ -141,8 +114,8 @@
 - New Examples folder for adding examples of templates/recipies/documentation/whatever.
 - New Dependency: Font Awesome because, well, it's awesome.
 
-## Version 5.2.0 2019-12-20
-
+Version 5.2.0                      2019-12-20
+---------------------------------------------
 - This is the last Version 5 release with new features.
 - Added CODE_OF_CONDUCT.md
 - New Variant: `su-card--icon`
@@ -158,13 +131,13 @@
 - Card.twig template has some pretty large changes to the schmea to allow for different media types.
 - hero.twig template variable change from hero_cta_link to hero_link
 
-## Version 6.0.0-alpha.1 2019-10-31
-
+Version 6.0.0-alpha.1              2019-10-31
+---------------------------------------------
 - Removed deprecated code
 - LOTS of wonderful new changes
 
-## Version 5.1.0 2019-10-31
-
+Version 5.1.0                      2019-10-31
+---------------------------------------------
 - Updated codeclimate linting settings
 - Updated nvmrc to version 11.14.0
 - Removed line length lint requirement for sass
@@ -212,8 +185,9 @@
 - Updated npm package dependency versions
 - Updated webpack config
 
-## Version 5.0.1 2019-05-22
 
+Version 5.0.1                      2019-05-22
+---------------------------------------------
 - Fix CSS grid gaps not displaying on Edge issue and other minor grid related issue
 - Fix main nav color variants css selector specificity issues
 - Add drop shadow to md breakpoint mobile menu
@@ -223,12 +197,12 @@
 - Add favicon to style guide
 - Update README
 
-## Version 5.0.0 2019-03-27
-
+Version 5.0.0                      2019-03-27
+---------------------------------------------
 - New Webpack Build System
 - Two revamped and improved Grid Systems with 6 breakpoints
-  - Flexbox based, class generated grid system
-  - CSS Grid based mixin supported grid system
+    - Flexbox based, class generated grid system
+    - CSS Grid based mixin supported grid system
 - A modular scale system that includes both modular spacing and modular typography mixins
 - LOTS of new components and variants, including Stanford branded elements such as 20 versions of logo lockups, global footer, brand bars - check them out!
 - LOTS of new SASS/SCSS mixins, functions and placeholders to help you in your project
@@ -242,13 +216,13 @@
 - Removed the font files and put them on a CDN
 - Dropped the Atomic design structure for components to allow for less strict component creation
 
-## Version 4.1.0 2018-08-16
-
+Version 4.1.0                      2018-08-16
+---------------------------------------------
 - Added class-based grid system
 - Added new Flexbox grid mixins
 
-## Version 4.0.0 2018-08-09
-
+Version 4.0.0                      2018-08-09
+---------------------------------------------
 - Added new CSS Grid mixins
 - Added new example site layout templates levering CSS Grid mixins
 - Eliminated Neat
@@ -256,25 +230,25 @@
 - Added LiveReload to Grunt workflow
 - Other tweaks and bug fixes
 
-## Version 3.1.0 2018-08-09
-
+Version 3.1.0                      2018-08-09
+---------------------------------------------
 - Added all available Source Sans Pro font styles
 - Added sensible img tag defaults
 - Fix to require kss npm package to be installed globally
 - Other small tweaks and bug fixes
 
-## Version 3.0.0 2018-05-16
-
+Version 3.0.0                      2018-05-16
+---------------------------------------------
 - Updated to latest stable release of Bourbon (5.0.0)
 - Added autoprefixer and postcss for better vendor prefix support
 
-## Version 2.1.0 2018-05-10
-
+Version 2.1.0                      2018-05-10
+---------------------------------------------
 - KSS Node generating style guide and pattern library
 - More components, variables, and mixins
 
-## Version 2.0.0 2017-12-18
-
+Version 2.0.0                      2017-12-18
+---------------------------------------------
 - Base HTML element styles
 - Base component styles
 - Grid system
