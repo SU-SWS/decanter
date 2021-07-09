@@ -1,0 +1,46 @@
+/**
+ * Form elements styles
+ */
+module.exports = function () {
+  return function ({ addComponents, theme }) {
+    const components = {
+      ".radio, .checkbox": {
+        backgroundColor: theme("colors.white"),
+        borderWidth: "3px",
+        borderColor: theme("colors.digital-blue.DEFAULT"),
+        width: "2.4rem",
+        height: "2.4rem",
+      },
+
+      ".radio:checked, .checkbox:checked": {
+        backgroundColor: theme("colors.digital-blue.DEFAULT"),
+      },
+
+      ".fieldset": {
+        border: "0",
+      },
+
+      ".label": {
+        display: "block",
+        maxWidth: theme("decanter.base.inputMaxWidth"),
+        fontSize: theme("decanter.base.inputFontSize"),
+      },
+
+      ".legend": {
+        ...theme("decanter.typography.typeB"),
+        fontWeight: theme("fontWeight.bold"),
+        lineHeight: theme("decanter.base.displayLineHeight"),
+      },
+
+      ".textarea": {
+        height: "16rem",
+      },
+
+      ".select": {
+        backgroundColor: theme("color.white"),
+      },
+    };
+
+    addComponents(components);
+  };
+};

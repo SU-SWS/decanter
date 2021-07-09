@@ -100,64 +100,6 @@ module.exports = function () {
         height: "auto",
         maxWidth: "100%",
       },
-      // FORMS
-      // -----------------------------------------------------------------------
-      fieldset: {
-        border: "0",
-      },
-      label: {
-        display: "block",
-        maxWidth: config("theme.decanter.base.inputMaxWidth"),
-        fontSize: config("theme.decanter.base.inputFontSize"),
-      },
-      legend: {
-        ...config("theme.decanter.typography.typeB"),
-        fontWeight: config("theme.fontWeight.bold"),
-        lineHeight: config("theme.decanter.base.displayLineHeight"),
-      },
-      'input[type="radio"], input[type="checkbox"]': {
-        backgroundColor: config("theme.colors.white"),
-        borderWidth: "3px",
-        borderColor: config("theme.colors.digital-blue.DEFAULT"),
-        width: "2.4rem",
-        height: "2.4rem",
-      },
-      'input[type="radio"]:checked, input[type="checkbox"]:checked': {
-        backgroundColor: config("theme.colors.digital-blue.DEFAULT"),
-      },
-      textarea: {
-        height: "16rem",
-      },
-      select: {
-        backgroundColor: config("theme.color.white"),
-      },
-      'button, [type="button"], [type="submit"], [type="reset"], [type="image"]': {
-        fontFamily: sans,
-        cursor: "pointer",
-        display: "inline-block",
-        border: "0",
-        fontWeight: config("theme.fontWeight.regular"),
-        lineHeight: "1",
-        textAlign: "center",
-        textDecoration: "none",
-        width: "auto",
-        transition:
-          "background-color 0.25s ease-in-out, color 0.25s ease-in-out",
-        padding: "1rem 2rem",
-        backgroundColor: config("theme.colors.digital-red.DEFAULT"),
-        color: config("theme.colors.white"),
-        "&:active, &:hover, &:focus": {
-          textDecoration: "underline",
-        },
-        "&:hover, &:focus": {
-          backgroundColor: config("theme.colors.black.DEFAULT"),
-          color: config("theme.colors.white"),
-        },
-        "&:focus": {
-          boxShadow: config("theme.boxShadow.md"),
-        },
-      },
-      //
       // LINKS
       // -----------------------------------------------------------------------
       a: {
