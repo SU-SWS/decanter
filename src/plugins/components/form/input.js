@@ -4,7 +4,7 @@
 module.exports = function () {
   return function ({ addComponents, theme }) {
     const components = {
-      ".input-base": {
+      ".input": {
         display: "block",
         borderColor: theme("color.foggy-dark"),
         color: theme("colors.black.DEFAULT"),
