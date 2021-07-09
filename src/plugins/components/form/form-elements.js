@@ -16,14 +16,6 @@ module.exports = function () {
         backgroundColor: theme("colors.digital-blue.DEFAULT"),
       },
 
-      ".select": {
-        display: "block",
-        borderColor: theme("color.foggy-dark"),
-        color: theme("colors.black.DEFAULT"),
-        fontSize: theme("decanter.base.inputFontSize"),
-        lineHeight: theme("lineHeight.snug"),
-      },
-
       ".fieldset": {
         border: "0",
       },
@@ -50,6 +42,11 @@ module.exports = function () {
       },
 
       ".select": {
+        display: "block",
+        borderColor: theme("color.foggy-dark"),
+        color: theme("colors.black.DEFAULT"),
+        fontSize: theme("decanter.base.inputFontSize"),
+        lineHeight: theme("lineHeight.snug"),
         backgroundColor: theme("color.white"),
       },
     };
