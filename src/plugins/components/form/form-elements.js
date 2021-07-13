@@ -27,7 +27,6 @@ module.exports = function () {
       },
 
       ".legend": {
-        ...theme("decanter.typography.typeB"),
         fontWeight: theme("fontWeight.bold"),
         lineHeight: theme("decanter.base.displayLineHeight"),
       },
