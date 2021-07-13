@@ -100,24 +100,18 @@ module.exports = {
   // https://tailwindcss.com/docs/configuration/#variants
   variants: {
     extend: {
-      transform: ["group-hocus", "motion-safe", "motion-reduce"],
-      translate: ["group-hocus"],
-      rotate: ["group-hocus"],
+      transform: ["motion-safe", "motion-reduce"],
       margin: ["first", "last"],
       backgroundColor: [
         "group-focus-within",
         "group-focus-visible",
         "group-active",
-        "hocus",
-        "group-hocus",
       ],
-      borderColor: ["group-focus-within", "hocus", "group-hocus"],
+      borderColor: ["group-focus-within"],
       textColor: [
         "group-focus-within",
         "group-focus-visible",
         "group-active",
-        "hocus",
-        "group-hocus",
       ],
     },
   },
