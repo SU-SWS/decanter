@@ -1,5 +1,18 @@
 # Upgrade
 
+Upgrade from version 7.0.0-alpha to 7.0.0-beta
+-------------------------------------------
+- Renamed `su-input-base` to `su-input`
+- We removed the base styles from form elements as they were too hard to override. You are now expected to add the following css classes to your form elements.
+  - `su-button`
+  - `su-radio`
+  - `su-checkbox`
+  - `su-fieldset`
+  - `su-label`
+  - `su-legend`
+  - `su-textarea`
+  - `su-select`
+
 Upgrade from version 6.2.x to 7.0.0-alpha.x
 -------------------------------------------
 We are still working on this. We will have documentation on this change by
