@@ -44,7 +44,7 @@
     // Icon $location after link text
     @if $location == 'after' {
       &::after {
-        @include margin(null 0.1em $vertical 0.4em);
+        @include margin(null 0.1em $vertical 0.1em);
         background-color: color(link);
 
         @if $animate == 'right' or $animate == 'true' or $animate == 'topright'
@@ -71,7 +71,7 @@
     // If icon $location is not after then it'll be before!
     @else {
       &::before {
-        @include margin(null 0.1em $vertical 0.3em);
+        @include margin(null 0.1em $vertical 0.1em);
         @if $animate == 'left' or $animate == 'true' {
           @include margin(null 0.4em $vertical 0.3em);
           transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
