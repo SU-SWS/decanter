@@ -47,8 +47,7 @@
         @include margin(null 0.1em $vertical 0.1em);
         background-color: color(link);
 
-        @if $animate == 'right' or $animate == 'true' or $animate == 'topright'
-        {
+        @if $animate == 'right' or $animate == 'true' or $animate == 'topright' {
           @include margin(null 0.3em $vertical 0.4em);
           transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
         }
@@ -61,7 +60,8 @@
 
           @if $animate == 'right' or $animate == 'true' {
             transform: translateX(0.2em);
-          } @else if $animate == 'topright' {
+          }
+          @else if $animate == 'topright' {
             transform: translate3d(0.15em, -0.15em, 0);
           }
         }
