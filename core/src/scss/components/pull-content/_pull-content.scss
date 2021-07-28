@@ -9,11 +9,9 @@
 .su-pull-content {
   &--left,
   &--right {
-    background-color: $su-color-cool-grey-25;
-    border-bottom: solid 1px $su-color-black;
+    background-color: $su-color-black-10;
     border-left: 0;
     border-right: 0;
-    border-top: solid 1px $su-color-black;
     box-sizing: border-box;
     margin: 0.25em 0 2em;
     max-width: 100%;
@@ -29,7 +27,7 @@
     }
 
     p {
-      font-size: 1.8rem;
+      font-size: 2.1rem;
     }
 
     p + figure,
@@ -39,7 +37,9 @@
 
     @include grid-media-min('md') {
       background-color: transparent;
-      font-size: 1.8rem;
+      border-top: solid 1px $su-color-black-70;
+      border-bottom: solid 1px $su-color-black-70;
+      font-size: 2.1rem;
       width: 20em;
     }
   }
