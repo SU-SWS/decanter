@@ -6,11 +6,11 @@
 /// @name box-shadow
 ///
 /// @param {string} $depth [flat] - One of flat, paper, shallow, medium, medium-deep, deep
-/// @param {css} $stroke [1px solid #C6C6C6] - border css properties
+/// @param {css} $stroke [1px solid #e3e3e3] - border css properties
 ///
 /// @group mixin
-@mixin box-shadow($depth: 'paper', $stroke: '1px solid #C6C6C6') {
-  @if $stroke != 0 and $stroke != 'none' and $stroke != null {
+@mixin box-shadow($depth: "paper", $stroke: "1px solid $su-border-gray2") {
+  @if $stroke != 0 and $stroke != "none" and $stroke != null {
     border: #{$stroke};
   }
 
