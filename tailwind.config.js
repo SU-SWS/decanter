@@ -1,8 +1,14 @@
+/* eslint-disable no-var */
+/* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable prefer-template */
+/* eslint-disable global-require */
+/* eslint-disable import/no-dynamic-require */
 /**
  * Tailwind Configuration.
  */
 
 var path = require("path");
+
 var dir = path.resolve(__dirname, "src/plugins");
 
 module.exports = {
@@ -68,6 +74,7 @@ module.exports = {
     require(dir + "/components/form/buttons.js")(),
     require(dir + "/components/form/form-elements.js")(),
     require(dir + "/components/lists/lists.js")(),
+    require(dir + "/components/link/stretched-link.js")(),
     require(dir + "/components/layout/centered-container.js")(),
     require(dir + "/components/layout/grid-gap.js")(),
     require(dir + "/components/logo/logo.js")(),
@@ -87,6 +94,7 @@ module.exports = {
     require(dir + "/utilities/link/link-fontweight.js")(),
     require(dir + "/utilities/link/link-underline.js")(),
     require(dir + "/utilities/scrolling/smooth-scroll.js")(),
+    require(dir + "/utilities/typography/writing-mode.js")(),
 
     // 3rd Party Plugins;
     require("@tailwindcss/aspect-ratio"),
@@ -108,11 +116,7 @@ module.exports = {
         "group-active",
       ],
       borderColor: ["group-focus-within"],
-      textColor: [
-        "group-focus-within",
-        "group-focus-visible",
-        "group-active",
-      ],
+      textColor: ["group-focus-within", "group-focus-visible", "group-active"],
     },
   },
 };
