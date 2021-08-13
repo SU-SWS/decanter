@@ -2,7 +2,7 @@
   "name": "decanter",
   "description": "Pattern Library and CSS Framework.",
   "author": "",
-  "version": "6.2.4-dev",
+  "version": "6.2.3",
   "homepage": "https://github.com/SU-SWS/decanter",
   "license": "MIT",
   "scripts": {
@@ -13,7 +13,8 @@
     "dev": "webpack --mode=development --config developer/webpack.dev.config.js",
     "eslint": "eslint -c .eslintrc 'core/src/'",
     "sasslint": "sass-lint -c .sass-lint.yml '**/*.scss' -v -q -i 'vendor/**/*.scss, node_modules/**/*.scss, kss/builder/decanter/**/*.scss'",
-    "launch": "node launch-preview.js"
+    "launch": "node launch-preview.js",
+    "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "keywords": [
     "css",
