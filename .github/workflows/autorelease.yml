@@ -52,9 +52,9 @@ jobs:
       - name: npm run package
         run: |
           npm run publish
-          if [ $(git status | grep "dist\/") ]
+          if [ $(git status | grep "core\/dist\/") ]
           then
-            git add dist
+            git add core/dist
           fi
 
       # Increment version based on label
