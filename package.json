@@ -2,7 +2,7 @@
   "name": "decanter",
   "description": "Pattern Library and CSS Framework.",
   "author": "",
-  "version": "6.2.4-dev",
+  "version": "6.2.4",
   "homepage": "https://github.com/SU-SWS/decanter",
   "license": "MIT",
   "scripts": {
@@ -13,7 +13,8 @@
     "dev": "webpack --mode=development --config developer/webpack.dev.config.js",
     "eslint": "eslint -c .eslintrc 'core/src/'",
     "sasslint": "sass-lint -c .sass-lint.yml '**/*.scss' -v -q -i 'vendor/**/*.scss, node_modules/**/*.scss, kss/builder/decanter/**/*.scss'",
-    "launch": "node launch-preview.js"
+    "launch": "node launch-preview.js",
+    "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "keywords": [
     "css",
@@ -35,6 +36,7 @@
   "devDependencies": {
     "@babel/core": "^7.11.4",
     "@babel/preset-env": "^7.11.0",
+    "auto-changelog": "^2.3.0",
     "autoprefixer": "^9.8.6",
     "babel-loader": "^8.1.0",
     "caniuse-lite": "^1.0.30001118",
