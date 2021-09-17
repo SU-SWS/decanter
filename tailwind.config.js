@@ -92,13 +92,8 @@ module.exports = {
     require(dir + "/utilities/accessibility/sr-only-text.js")(),
     require(dir + "/utilities/link/link.js")(),
     require(dir + "/utilities/link/link-fontweight.js")(),
-    require(dir + "/utilities/link/link-underline.js")(),
     require(dir + "/utilities/scrolling/smooth-scroll.js")(),
     require(dir + "/utilities/typography/writing-mode.js")(),
-
-    // @tailwind variants;
-    require(dir + "/variants/complex-hover.js")(),
-    require(dir + "/variants/complex-focus.js")(),
 
     // 3rd Party Plugins;
     require("@tailwindcss/aspect-ratio"),
