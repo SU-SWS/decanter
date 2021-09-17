@@ -19,26 +19,34 @@ module.exports = function () {
     };
 
     utilities[`.hover\\:${prefix(".link-").replace(".", "")}no-underline`] = {
-      "a:hover": {
-        textDecoration: "none",
+      a: {
+        "&:hover": {
+          textDecoration: "none",
+        },
       },
     };
 
     utilities[`.focus\\:${prefix(".link-").replace(".", "")}no-underline`] = {
-      "a:focus": {
-        textDecoration: "none",
+      a: {
+        "&:focus": {
+          textDecoration: "none",
+        },
       },
     };
 
     utilities[`.hover\\:${prefix(".link-").replace(".", "")}underline`] = {
-      "a:hover": {
-        textDecoration: "underline",
+      a: {
+        "&:hover": {
+          textDecoration: "underline",
+        },
       },
     };
 
     utilities[`.focus\\:${prefix(".link-").replace(".", "")}underline`] = {
-      "a:focus": {
-        textDecoration: "underline",
+      a: {
+        "&:focus": {
+          textDecoration: "underline",
+        },
       },
     };
 

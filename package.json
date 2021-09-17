@@ -1,10 +1,22 @@
 {
   "name": "decanter",
   "description": "Pattern Library and CSS Framework.",
-  "author": "Stanford University",
+  "author": "Stanford Web Services",
   "version": "7.0.0-beta.0",
   "homepage": "https://github.com/SU-SWS/decanter",
-  "license": "MIT",
+  "license": "GPL-3.0-or-later",
+  "keywords": [
+    "CSS",
+    "Decanter",
+    "Stanford",
+    "TailWindCSS"
+  ],
+  "source": "src/decanter.js",
+  "main": "dist/decanter.js",
+  "files": [
+    "dist",
+    "src"
+  ],
   "scripts": {
     "build": "webpack --mode=development ",
     "build:dev": "webpack --mode=development --config dev/webpack.dev.config.js && npm run config-viewer:export",
@@ -20,11 +32,6 @@
     "dev:prep": "touch dev/src/test.css && touch dev/src/test.js && cp dev/src/sample.test.html dev/src/test.html",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
-  "keywords": [
-    "css",
-    "styleguide",
-    "Stanford"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SU-SWS/decanter.git"
