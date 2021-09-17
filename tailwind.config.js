@@ -96,6 +96,10 @@ module.exports = {
     require(dir + "/utilities/scrolling/smooth-scroll.js")(),
     require(dir + "/utilities/typography/writing-mode.js")(),
 
+    // @tailwind variants;
+    require(dir + "/variants/complex-hover.js")(),
+    require(dir + "/variants/complex-focus.js")(),
+
     // 3rd Party Plugins;
     require("@tailwindcss/aspect-ratio"),
     require("@tailwindcss/forms"),
