@@ -91,8 +91,8 @@ module.exports = {
     require(dir + "/utilities/accessibility/accessibility-hidden.js")(),
     require(dir + "/utilities/accessibility/sr-only-text.js")(),
     require(dir + "/utilities/link/link.js")(),
-    require(dir + "/utilities/link/link-fontweight.js")(),
     require(dir + "/utilities/link/link-underline.js")(),
+    require(dir + "/utilities/link/link-fontweight.js")(),
     require(dir + "/utilities/scrolling/smooth-scroll.js")(),
     require(dir + "/utilities/typography/writing-mode.js")(),
 
