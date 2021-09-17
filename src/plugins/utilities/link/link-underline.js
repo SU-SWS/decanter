@@ -18,30 +18,25 @@ module.exports = function () {
       },
     };
 
-    utilities[
-      `.hover\\:${prefix(".link-").replace(".", "")}no-underline a:hover`
-    ] = {
+    utilities[`.hover\\:${prefix(".link-").replace(".", "")}no-underline a`] = {
       textDecoration: "none",
     };
 
-    utilities[
-      `.focus\\:${prefix(".link-").replace(".", "")}no-underline a:focus`
-    ] = {
+    utilities[`.focus\\:${prefix(".link-").replace(".", "")}no-underline a`] = {
       textDecoration: "none",
     };
 
-    utilities[
-      `.hover\\:${prefix(".link-").replace(".", "")}underline a:hover`
-    ] = {
+    utilities[`.hover\\:${prefix(".link-").replace(".", "")}underline a`] = {
       textDecoration: "underline",
     };
 
-    utilities[
-      `.focus\\:${prefix(".link-").replace(".", "")}underline a:focus`
-    ] = {
+    utilities[`.focus\\:${prefix(".link-").replace(".", "")}underline a`] = {
       textDecoration: "underline",
     };
 
-    addUtilities(utilities, { variants: [], respectPrefix: false });
+    addUtilities(utilities, {
+      variants: ["hover", "focus"],
+      respectPrefix: false,
+    });
   };
 };
