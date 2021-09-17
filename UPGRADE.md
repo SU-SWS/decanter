@@ -2,7 +2,7 @@
 
 Upgrade from version 7.0.0-beta.0 to 7.0.0-beta.1
 -------------------------------------------
-- Removed `su-link-underline` utility class
+- Removed `su-link-underline`, `su-link-no-underline`, and `.su-link` nested variant states as they don't play nice with JIT mode.
 - Replace this functionality by installing and using the tailwind children varients plugin within your project and using it with the no-underline utility.
   - https://github.com/benface/tailwindcss-children
   - https://tailwindcss.com/docs/text-decoration#no-underline
