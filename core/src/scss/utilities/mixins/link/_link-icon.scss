@@ -33,6 +33,8 @@
     &:hover,
     &:focus {
       &::#{$location} {
+        background-color: color(link--hover);
+
         @if $animate == 'down' {
           transform: translateY(0.2em);
         }
@@ -56,8 +58,6 @@
       &:hover,
       &:focus {
         &::after {
-          background-color: color(link--hover);
-
           @if $animate == 'right' or $animate == 'true' {
             transform: translateX(0.2em);
           }
@@ -72,13 +72,6 @@
     @else {
       &::before {
         @include margin(null 0.1em $vertical 0.1em);
-      }
-
-      &:hover,
-      &:focus {
-        &::before {
-          background-color: color(link--hover);
-        }
       }
     }
   }
