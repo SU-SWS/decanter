@@ -15,17 +15,41 @@
   box-shadow: $su-button-stroke color(brand--bright);
   color: color(link--alt);
 
+  &::after,
+  &::before {
+    background-color: color(link--alt);
+    color: color(bg);
+  }
+
   &:hover,
   &:focus {
     background-color: color(bg);
     color: color(link--alt-hover);
+
+    &::after,
+    &::before {
+      background-color: color(bg);
+      color: color(link--alt-hover);
+    }
   }
 
   &:hover {
     box-shadow: $su-button-stroke $su-color-black;
+
+    &::after,
+    &::before {
+      background-color: color(link--alt-hover);
+      color: color(bg);
+    }
   }
 
   &:focus {
     box-shadow: $su-button-stroke $su-color-black, $su-focus-shadow;
+
+    &::after,
+    &::before {
+      background-color: color(link--alt-hover);
+      color: color(bg);
+    }
   }
 }
