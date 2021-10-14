@@ -9,38 +9,69 @@
 /// @param {string} $width  - Width of icon including unit, e.g. 0.75em, 24px.
 /// @param {string} $animate  - Type of animation for the icon on hover. Available options: right, down, up, topright, none. (deprecated true. Please use right)
 /// @param {string} $vertical  - Adjustment of vertical position of icon, e.g., '2px' moves icon up 2 pixels, '-0.3em' moves it down 0.3 em.
+/// @param {string} $location - Location of icon, e.g., before or after.
 ///
 /// @group mixin
-@mixin link-icon($icon, $width: 0.65em, $animate: right, $vertical: null) {
+@mixin link-icon(
+  $icon,
+  $width: 0.65em,
+  $animate: right,
+  $vertical: null,
+  $location: after
+) {
   text-decoration: none;
   @supports (mask-repeat: no-repeat) {
-    &::after {
-      @include margin(null 0.3em $vertical 0.4em);
+    // Common properties for both before and after locations
+    &::#{$location} {
       @include size($width);
       display: inline-block;
       content: '';
-      mask: url("#{$su-image-path}/#{$icon}.svg") no-repeat 0 0;
+      mask: url('#{$su-image-path}/#{$icon}.svg') no-repeat 0 0;
       mask-size: contain;
-      background-color: color(link);
-      transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
     }
 
     &:hover,
     &:focus {
-      &::after {
+      &::#{$location} {
         background-color: color(link--hover);
-        @if $animate == 'right' or $animate == 'true' {
-          transform: translateX(0.2em);
-        }
-        @else if $animate == 'down' {
+
+        @if $animate == 'down' {
           transform: translateY(0.2em);
         }
         @else if $animate == 'up' {
           transform: translateY(-0.2em);
         }
-        @else if $animate == 'topright' {
-          transform: translate3d(0.15em, -0.15em, 0);
+      }
+    }
+
+    // Icon $location after link text
+    @if $location == 'after' {
+      &::after {
+        @include margin(null 0.3em $vertical 0.4em);
+        background-color: color(link);
+
+        @if $animate == 'right' or $animate == 'true' or $animate == 'topright' {
+          transition: transform 0.2s ease-in-out, mask-image 0.2s ease-in-out;
         }
+      }
+
+      &:hover,
+      &:focus {
+        &::after {
+          @if $animate == 'right' or $animate == 'true' {
+            transform: translateX(0.2em);
+          }
+          @else if $animate == 'topright' {
+            transform: translate3d(0.15em, -0.15em, 0);
+          }
+        }
+      }
+    }
+
+    // If icon $location is not after then it'll be before!
+    @else {
+      &::before {
+        @include margin(null 0.1em $vertical 0.1em);
       }
     }
   }

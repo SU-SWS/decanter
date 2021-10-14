@@ -9,14 +9,24 @@
 @mixin button-primary {
   @extend %button-base;
   @include padding(1rem 2rem 1.15rem);
-
   background-color: color(brand--bright);
   color: color(link--reverse);
+
+  &::after,
+  &::before {
+    background-color: color(link--reverse);
+    color: color(brand--bright);
+  }
 
   &:hover,
   &:focus {
     background-color: color(bg--reverse);
     color: color(link--reverse);
+
+    &::after,
+    &::before {
+      background-color: color(link--reverse);
+    }
   }
 
   &:focus {
