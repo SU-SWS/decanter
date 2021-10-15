@@ -5,6 +5,15 @@
 module.exports = function () {
   return function ({ addComponents, theme }) {
     const components = {
+      ".type-9": {
+        ...theme("decanter.typography.type9"),
+      },
+      ".type-8": {
+        ...theme("decanter.typography.type8"),
+      },
+      ".type-7": {
+        ...theme("decanter.typography.type7"),
+      },
       ".type-6": {
         ...theme("decanter.typography.type6"),
       },

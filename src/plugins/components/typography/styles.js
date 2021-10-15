@@ -11,12 +11,9 @@ module.exports = function () {
         ...headings,
       },
       ".intro-text": {
-        ...theme("decanter.typography.type1"),
+        ...theme("decanter.typography.type2"),
         lineHeight: theme("lineHeight.DEFAULT"),
         maxWidth: theme("maxWidth.prose"),
-        "@screen md": {
-          ...theme("decanter.typography.type2"),
-        },
       },
       ".splash-text": {
         ...headings,

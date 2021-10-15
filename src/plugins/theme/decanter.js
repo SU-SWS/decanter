@@ -15,6 +15,24 @@ module.exports = function () {
   // eslint-disable-next-line global-require
   theme.lineHeight = require("./lineHeight")();
 
+  const modtype = {};
+
+
+  // Generate modular typography steps from 1 to 9
+  // eslint-disable-next-line no-plusplus
+  for (let i = 1; i < 10; i++) {
+    modtype[`type${i}`] = {
+      fontSize: `${(1.15 ** i).toFixed(2)}em`,
+      letterSpacing: `${(-0.01 - (i - 1) * 0.002).toFixed(3)}em`,
+      "@screen md": {
+        fontSize: `${(1.2 ** i).toFixed(2)}em`,
+      },
+      "@screen lg": {
+        fontSize: `${(1.25 ** i).toFixed(2)}em`,
+      },
+    };
+  }
+
   // Returned values.
   return {
     base: {
@@ -52,45 +70,10 @@ module.exports = function () {
           fontWeight: theme.fontWeight.bold,
         },
       },
-      type6: {
-        fontSize: `${(1.25 ** 6 * 0.85).toFixed(2)}em`,
-        letterSpacing: "-0.018em",
-        "@screen md": {
-          fontSize: `${(1.25 ** 6).toFixed(2)}em`,
-        },
-      },
-      type5: {
-        fontSize: `${(1.25 ** 5 * 0.85).toFixed(2)}em`,
-        letterSpacing: "-0.018em",
-        "@screen md": {
-          fontSize: `${(1.25 ** 5).toFixed(2)}em`,
-        },
-      },
-      type4: {
-        fontSize: `${(1.25 ** 4 * 0.85).toFixed(2)}em`,
-        letterSpacing: "-0.016em",
-        "@screen md": {
-          fontSize: `${(1.25 ** 4).toFixed(2)}em`,
-        },
-      },
-      type3: {
-        fontSize: `${(1.25 ** 3 * 0.85).toFixed(2)}em`,
-        letterSpacing: "-0.016em",
-        "@screen md": {
-          fontSize: `${(1.25 ** 3).toFixed(2)}em`,
-        },
-      },
-      type2: {
-        fontSize: `${(1.25 ** 2).toFixed(2)}em`,
-        letterSpacing: "-0.012em",
-      },
-      type1: {
-        fontSize: "1.25em",
-        letterSpacing: "-0.01em",
-      },
       type0: {
         fontSize: "1em",
       },
+      ...modtype,
     },
   };
 };
