@@ -33,8 +33,9 @@ module.exports = function () {
     "digital-blue": {
       // Link colors
       DEFAULT: "#006CB8",
-      light: "#6FC3FF",
+      light: "#85CCFF",
       dark: "#00548F",
+      vivid: "#0597FF",
     },
     "digital-green": {
       DEFAULT: "#008566",
