@@ -15,9 +15,6 @@ It includes a responsive layout system and a browsable collection of design patt
 that can be used in any Stanford project.
 For Decanter v7, instead of using SASS/SCSS with the BEM naming convention, we use [TailwindCSS](https://tailwindcss.com/) to generate utility classes with some customization needed for our Stanford design system.
 
-## Using Decanter v7 with React
-The utility class approach we adopt for Decanter v7 works well with React.js. For those who are using React for their projects, please check out [Decanter React](https://decanter-react.netlify.app/), our React component library which uses Decanter v7.
-
 ## Assets
 We have removed all assets from the repo in Decanter 7. Instead, we are using remote third party resources for our fonts and icons.
 
