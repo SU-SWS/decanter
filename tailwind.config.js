@@ -7,15 +7,15 @@
  * Tailwind Configuration.
  */
 
-var path = require("path");
+const path = require("path");
+const plugin = require('tailwindcss/plugin');
 
-var dir = path.resolve(__dirname, "src/plugins");
+const dir = path.resolve(__dirname, "src/plugins");
 
 module.exports = {
   // Our own prefix.
   prefix: "su-",
-  // Enable dark mode utility classes
-  darkMode: "media",
+  content: ["./dev/src/**/*.{html,js}"],
 
   // The theme section is where you define your color palette, font stacks,
   // type scale, border sizes, breakpoints — anything related to the visual
@@ -58,14 +58,21 @@ module.exports = {
     skew: false,
   },
 
-  // Never purge styles here.
-  purge: false,
-
   // The plugins section allows you to register third-party plugins with
   // Tailwind that can be used to generate extra utilities, components, base
   // styles, or custom variants.
   // https://tailwindcss.com/docs/configuration/#plugins
   plugins: [
+    plugin(({ addVariant }) => {
+      addVariant('hocus', ['&:hover', '&:focus']);
+      addVariant('children', '& > *');
+    }),
+
+    // 3rd Party Plugins;
+    require("@tailwindcss/aspect-ratio"),
+    require("@tailwindcss/forms"),
+    require("tailwindcss-debug-screens"),
+
     // @tailwind base;
     require(dir + "/base/base.js")(),
 
@@ -95,28 +102,5 @@ module.exports = {
     require(dir + "/utilities/link/link-fontweight.js")(),
     require(dir + "/utilities/scrolling/smooth-scroll.js")(),
     require(dir + "/utilities/typography/writing-mode.js")(),
-
-    // 3rd Party Plugins;
-    require("@tailwindcss/aspect-ratio"),
-    require("@tailwindcss/forms"),
-    require("tailwindcss-debug-screens"),
-    require("tailwindcss-interaction-variants"),
   ],
-
-  // The variants section lets you control which variants are generated for each
-  // core utility plugin.
-  // https://tailwindcss.com/docs/configuration/#variants
-  variants: {
-    extend: {
-      transform: ["motion-safe", "motion-reduce"],
-      margin: ["first", "last"],
-      backgroundColor: [
-        "group-focus-within",
-        "group-focus-visible",
-        "group-active",
-      ],
-      borderColor: ["group-focus-within"],
-      textColor: ["group-focus-within", "group-focus-visible", "group-active"],
-    },
-  },
 };
