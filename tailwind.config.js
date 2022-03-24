@@ -15,7 +15,6 @@ const dir = path.resolve(__dirname, "src/plugins");
 module.exports = {
   // Our own prefix.
   prefix: "su-",
-  // content: ["./src/**/*.{html,js}"],
   presets: [
     require('./dev/tailwind-preset.js'),
   ],
