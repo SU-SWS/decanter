@@ -29,7 +29,7 @@
  <form action="{{ action }}" method="{{ method }}" accept-charset="UTF-8">
   <label class="su-site-search__sr-label" for="{{ search_input_name|default('search-field') }}">{{ search_label|default('Search this site') }}</label>
   <input {{ search_input_attributes }} type="text" id="{{ search_input_id|default('search-field') }}" name="{{ search_input_name|default('search-field') }}" class="su-site-search__input" placeholder="{{ placeholder|default('Search this site') }}" maxlength="128">
-  <button {{ search_button_attributes }} type="submit" name="{{ search_button_name|default('search') }}" class="su-site-search__submit su-sr-only-text" aria-label="Search">{{ search_button_text|default('Submit Search') }}</button>
+  <button {{ search_button_attributes }} type="submit" name="{{ search_button_name|default('search') }}" class="su-site-search__submit su-sr-only-text">{{ search_button_text|default('Submit Search') }}</button>
   {#- Any additional eg. hidden input fields -#}
   {{- additional_fields -}}
  </form>
