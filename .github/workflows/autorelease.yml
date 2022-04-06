@@ -39,6 +39,11 @@ jobs:
           ref: ${{ github.base_ref }}
           fetch-depth: 0
 
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version-file: '.nvmrc'
+
       # Uses 'npm ci' instead of 'npm install'. See https://docs.npmjs.com/cli/v7/commands/npm-ci
       - name: Install dependencies
         run: npm ci
