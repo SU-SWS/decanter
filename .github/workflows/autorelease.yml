@@ -39,6 +39,10 @@ jobs:
           ref: ${{ github.base_ref }}
           fetch-depth: 0
 
+      - name: Set the correct Node version using nvm
+        shell: bash
+        run: nvm install
+
       # Uses 'npm ci' instead of 'npm install'. See https://docs.npmjs.com/cli/v7/commands/npm-ci
       - name: Install dependencies
         run: npm ci
