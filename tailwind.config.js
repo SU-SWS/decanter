@@ -7,7 +7,7 @@
 const path = require('path');
 const plugin = require('tailwindcss/plugin');
 
-const dir = path.resolve(__dirname, 'plugins');
+const dir = path.resolve(__dirname, 'src/plugins');
 
 module.exports = {
   // Our own prefix.
