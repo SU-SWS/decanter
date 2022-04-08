@@ -1,11 +1,13 @@
 # BUILD Settings:
 # ##############################################################################
 [build]
-  publish = "dev/dist"
+  publish = "static/"
+  command = "npm run build"
   functions = "lambda"
 
 [dev]
-  publish = "dev/dist"
+  publish = "static/"
+  command = "npm run build"
   port = 64946
   autolaunch = true
 

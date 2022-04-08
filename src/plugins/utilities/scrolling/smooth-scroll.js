@@ -4,8 +4,8 @@
 module.exports = function () {
   return function ({ addUtilities }) {
     const newUtilities = {
-      ".smooth-scroll": {
-        scrollBehavior: "smooth",
+      '.smooth-scroll': {
+        scrollBehavior: 'smooth',
       },
     };
 

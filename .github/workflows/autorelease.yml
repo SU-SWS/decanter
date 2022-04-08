@@ -1,9 +1,9 @@
-# Automatically Create a Release when PR is merged to main with one of the following 
+# Automatically Create a Release when PR is merged to main with one of the following
 # labels: "patch", "minor", "major", "alpha", "beta", "rc".
 
 name: Auto Release
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow only when merging pull request to the main branch.
   pull_request:
@@ -30,7 +30,7 @@ jobs:
         contains(github.event.pull_request.labels.*.name, 'beta') ||
         contains(github.event.pull_request.labels.*.name, 'rc')
       )
-    
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -38,6 +38,11 @@ jobs:
         with:
           ref: ${{ github.base_ref }}
           fetch-depth: 0
+
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version-file: '.nvmrc'
 
       # Uses 'npm ci' instead of 'npm install'. See https://docs.npmjs.com/cli/v7/commands/npm-ci
       - name: Install dependencies
@@ -53,10 +58,10 @@ jobs:
         run: |
           npm run package
           if [ $(git status | grep "dist\/") ]
-          then 
+          then
             git add dist
           fi
-      
+
       # Increment version based on label
       - name: Patch Release tag
         if: ${{ contains( github.event.pull_request.labels.*.name, 'patch') }}
@@ -65,17 +70,17 @@ jobs:
       - name: Minor Release tag
         if: ${{ contains( github.event.pull_request.labels.*.name, 'minor') }}
         run: npm version minor
-      
+
       - name: Major Release tag
         if: ${{ contains( github.event.pull_request.labels.*.name, 'major') }}
         run: npm version major
-      
+
       - name: Alpha Release tag
         if: ${{ contains( github.event.pull_request.labels.*.name, 'alpha') }}
         run: |
           npm version prerelease --preid alpha
           echo "PRERELEASE=true" >> $GITHUB_ENV
-      
+
       - name: Beta Release tag
         if: ${{ contains( github.event.pull_request.labels.*.name, 'beta') }}
         run: |
@@ -88,7 +93,7 @@ jobs:
           npm version prerelease --preid rc
           echo "PRERELEASE=true" >> $GITHUB_ENV
 
-      # Push commits back to origin repo. 
+      # Push commits back to origin repo.
       - name: Push Changes
         uses: ad-m/github-push-action@master
         with:
