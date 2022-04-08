@@ -16,8 +16,8 @@
     "src"
   ],
   "scripts": {
-    "build": "tailwind -c src/tailwind.config.js -o static/css/decanter.css --content static/*.html",
-    "watch": "tailwind -c src/tailwind.config.js -o static/css/decanter.css --watch --content static/*.html",
+    "build": "tailwind -c src/tailwind.config.js -i src/css/index.css -o static/css/decanter.css --content static/*.html",
+    "watch": "tailwind -c src/tailwind.config.js -i src/css/index.css -o static/css/decanter.css --watch --content static/*.html",
     "serve": "light-server -s static -w static/*.html",
     "dev": "npm run watch && npm run serve",
     "lint": "eslint './src'",
