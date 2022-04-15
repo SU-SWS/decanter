@@ -1,5 +1,6 @@
 /**
- * Border width options.
+ * Border width
+ * Note: These are in px not rem units
  */
 module.exports = function () {
   return {

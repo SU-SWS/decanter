@@ -1,5 +1,8 @@
 /**
  * Make any HTML element clickable by stretching a nested link
+ * For example, wrap the <a> tag around the headline of a card
+ * Add this su-stretched-link class to the <a> tag to make the whole card clickable
+ * Based on Bootstrap's idea https://getbootstrap.com/docs/4.3/utilities/stretched-link/
  */
 module.exports = function () {
   return function ({ addComponents }) {

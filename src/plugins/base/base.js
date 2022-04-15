@@ -89,7 +89,7 @@ module.exports = function () {
       },
       figcaption: {
         marginTop: '0.4em',
-        fontSize: 'max(1.6rem, 0.9em)',
+        fontSize: 'max(1.6rem, 0.9em)', //
         lineHeight: '1.3',
         color: config('theme.colors.cool-grey'),
       },

@@ -1,5 +1,5 @@
 /**
- * Gutters for flex grid and CSS grid
+ * Responsive gutters for CSS and Flex Grids
  */
 module.exports = function () {
   return {

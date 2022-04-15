@@ -1,6 +1,6 @@
 /**
- * For displaying the Stanford University logo using custom font and glyphs.
- * Can be used with the generic logo twig template.
+ * For displaying the Stanford University logo using custom font and glyphs
+ * Default color is Cardinal Red, but can be overriden by applying TW text color classes
  */
 module.exports = function () {
   return function ({ addComponents, theme, config }) {

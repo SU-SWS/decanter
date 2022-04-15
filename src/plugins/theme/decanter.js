@@ -17,9 +17,12 @@ module.exports = function () {
 
   const modtype = {};
 
-  // Generate modular typography steps from 1 to 9
-  // eslint-disable-next-line no-plusplus
-  for (let i = 1; i < 10; i++) {
+  // Decanter's reponsive modular typography system
+  // su-type-0 is the base step = 1em
+  // su-type-1 to su-type-9 (largest) available
+  // Each step includes difference font sizes and letterspacing for mobile, tablet and desktop breakpoints
+  // Generate responsive modular typography steps from 1 to 9
+  for (let i = 1; i < 10; i += 1) {
     modtype[`type${i}`] = {
       fontSize: `${(1.15 ** i).toFixed(2)}em`,
       letterSpacing: `${(-0.01 - (i - 1) * 0.002).toFixed(3)}em`,
@@ -62,7 +65,7 @@ module.exports = function () {
         },
       },
       type0: {
-        fontSize: '1em',
+        fontSize: '1em', // Base step for our modular typography system
       },
       ...modtype,
     },

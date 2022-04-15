@@ -6,6 +6,7 @@ module.exports = function () {
   return {
     transparent: 'transparent',
     current: 'currentColor',
+    inherit: 'inherit',
     // Primary Colors
     // https://identity.stanford.edu/design-elements/color/primary-colors/
     'cardinal-red': {

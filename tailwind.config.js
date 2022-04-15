@@ -30,7 +30,6 @@ module.exports = {
     fontWeight: require(`${dir}/theme/fontWeight.js`)(),
     gap: require(`${dir}/theme/gap.js`)(),
     lineHeight: require(`${dir}/theme/lineHeight.js`)(),
-    maxHeight: require(`${dir}/theme/maxHeight.js`)(),
     maxWidth: require(`${dir}/theme/maxWidth.js`)(),
     screens: require(`${dir}/theme/screens.js`)(),
     spacing: require(`${dir}/theme/spacing.js`)(),
@@ -38,20 +37,6 @@ module.exports = {
     // Decanter Custom.
     decanter: require(`${dir}/theme/decanter.js`)(),
     // Extensions of tailwind core config.
-  },
-
-  // The corePlugins section lets you completely disable classes that Tailwind
-  // would normally generate by default if you don't need them for your project.
-  // https://tailwindcss.com/docs/configuration/#core-plugins
-  corePlugins: {
-    // preflight: false,
-    fontSmoothing: false,
-    placeholderOpacity: false,
-    divideOpacity: false,
-    divideStyle: false,
-    borderCollapse: false,
-    borderOpacity: false,
-    skew: false,
   },
 
   // The plugins section allows you to register third-party plugins with
@@ -91,11 +76,9 @@ module.exports = {
 
     // @tailwind utilities;
     require(`${dir}/utilities/accessibility/accessibility-hidden.js`)(),
-    require(`${dir}/utilities/accessibility/sr-only-text.js`)(),
     require(`${dir}/utilities/link/link.js`)(),
     require(`${dir}/utilities/link/link-underline.js`)(),
     require(`${dir}/utilities/link/link-fontweight.js`)(),
-    require(`${dir}/utilities/scrolling/smooth-scroll.js`)(),
     require(`${dir}/utilities/typography/writing-mode.js`)(),
   ],
 };

@@ -1,5 +1,5 @@
 /**
- * Border radius options.
+ * Border radius
  */
 module.exports = function () {
   return {

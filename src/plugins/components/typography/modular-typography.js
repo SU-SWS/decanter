@@ -1,6 +1,8 @@
 /**
- * Modular typography steps with 1.25 multiplier between steps. type-0 = base font size, ie, 1em.
- * Larger steps (type-3 and up) are scaled down for XS and SM breakpoints by a factor of 0.85.
+ * Decanter's responsive modular typography utilities
+ * su-type-0 is the base step = 1em; su-type-9 is the largest available currently
+ * Each step up is progressively larger with different font sizes for mobile, tablet and desktop breakpoints
+ * For example, try su-type-2 for a medium sized card headline and su-type-7 for a hero banner splash text
  */
 module.exports = function () {
   return function ({ addComponents, theme }) {

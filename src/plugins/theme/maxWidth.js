@@ -1,6 +1,7 @@
 /**
- * Max Widths - customized to not produce classes with our custom spacing values
+ * Max widths
  */
+
 module.exports = function () {
   return {
     none: 'none',
@@ -28,9 +29,13 @@ module.exports = function () {
     800: '80rem',
     900: '90rem',
     1000: '100rem',
+    1200: '120rem',
+    1500: '150rem',
     full: '100%',
     min: 'min-content',
     max: 'max-content',
+    fit: 'fit-content',
     prose: '65ch',
+    'prose-wide': '75ch',
   };
 };
