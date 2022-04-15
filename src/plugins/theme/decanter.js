@@ -37,7 +37,6 @@ module.exports = function () {
     base: {
       rootFontSize: '62.5%',
       baseFontSize: '2.1rem',
-      mobileFontScale: '0.85',
       baseLineHeight: '1.5',
       fontSmoothing,
       inputMaxWidth: '46rem',

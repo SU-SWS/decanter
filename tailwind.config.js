@@ -29,14 +29,12 @@ module.exports = {
     fontSize: require(`${dir}/theme/fontSize.js`)(),
     fontWeight: require(`${dir}/theme/fontWeight.js`)(),
     gap: require(`${dir}/theme/gap.js`)(),
-    height: require(`${dir}/theme/height.js`)(),
     lineHeight: require(`${dir}/theme/lineHeight.js`)(),
     maxHeight: require(`${dir}/theme/maxHeight.js`)(),
     maxWidth: require(`${dir}/theme/maxWidth.js`)(),
     screens: require(`${dir}/theme/screens.js`)(),
     spacing: require(`${dir}/theme/spacing.js`)(),
     transitionDuration: require(`${dir}/theme/transitionDuration.js`)(),
-    width: require(`${dir}/theme/width.js`)(),
     // Decanter Custom.
     decanter: require(`${dir}/theme/decanter.js`)(),
     // Extensions of tailwind core config.
