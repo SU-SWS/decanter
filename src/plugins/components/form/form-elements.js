@@ -22,7 +22,6 @@ module.exports = function () {
 
       '.label': {
         display: 'block',
-        maxWidth: theme('decanter.base.inputMaxWidth'),
         fontSize: theme('decanter.base.inputFontSize'),
       },
 

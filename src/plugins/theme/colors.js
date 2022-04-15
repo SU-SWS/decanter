@@ -1,13 +1,20 @@
 /**
- * Stanford's default color palette (updated with new Identity Guide release)
+ * Stanford's official color palette from the Identity Guide
+ * https://identity.stanford.edu/design-elements/color/
  */
 module.exports = function () {
   return {
     transparent: 'transparent',
     current: 'currentColor',
-    'cool-grey': '#53565A',
+    // Primary Colors
+    // https://identity.stanford.edu/design-elements/color/primary-colors/
+    'cardinal-red': {
+      DEFAULT: '#8C1515', // Stanford main brand color
+      light: '#B83A4B',
+      dark: '#820000',
+    },
     black: {
-      DEFAULT: '#2E2D29',
+      DEFAULT: '#2E2D29', // Default text color on light background
       90: '#43423E',
       80: '#585754',
       70: '#6D6C69',
@@ -20,11 +27,9 @@ module.exports = function () {
       true: '#000000', // For when a higher contrast is needed
     },
     white: '#FFFFFF',
-    'cardinal-red': {
-      DEFAULT: '#8C1515',
-      light: '#B83A4B',
-      dark: '#820000',
-    },
+    'cool-grey': '#53565A',
+    // Web Interactive Colors
+    // https://identity.stanford.edu/design-elements/color/web/
     'digital-red': {
       DEFAULT: '#B1040E', // Same as old Bright Red
       light: '#E50808', // Same as old Vivid Red
@@ -43,6 +48,8 @@ module.exports = function () {
       dark: '#006F54',
       bright: '#009b76',
     },
+    // Accent Colors
+    // https://identity.stanford.edu/design-elements/color/accent-colors/
     'palo-alto': {
       DEFAULT: '#175E54',
       light: '#2D716F',

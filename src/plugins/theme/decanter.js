@@ -36,10 +36,8 @@ module.exports = function () {
   return {
     base: {
       rootFontSize: '62.5%',
-      baseFontSize: '2.1rem',
       baseLineHeight: '1.5',
       fontSmoothing,
-      inputMaxWidth: '46rem',
       inputFontSize: '1.8rem',
       modularScale: '1.25',
     },
@@ -50,11 +48,6 @@ module.exports = function () {
       lg: '80px',
       xl: '100px',
       '2xl': '100px',
-    },
-    baseBodyFontSize: {
-      xs: '1.8rem',
-      md: '1.9rem',
-      '2xl': '2.1rem',
     },
     // Shared settings between base and components.
     typography: {
