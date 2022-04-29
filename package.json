@@ -11,23 +11,14 @@
     "Stanford",
     "TailWindCSS"
   ],
-  "source": "src/decanter.js",
-  "main": "dist/decanter.css",
-  "files": [
-    "dist",
-    "src"
-  ],
+  "main": "tailwind.config.js",
   "scripts": {
-    "build": "webpack --mode=development ",
-    "build:dev": "webpack --mode=development --config dev/webpack.dev.config.js",
-    "publish": "webpack --mode=production",
-    "package": "webpack --mode=production",
-    "wind": "tailwindcss build src/css/index.css -o dist/decanter.css",
+    "build": "tailwind -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --content static/*.html",
+    "watch": "tailwind -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --watch --content static/*.html",
+    "serve": "light-server -s static -w static/*.html",
+    "dev": "npm run watch && npm run serve",
     "lint": "eslint './src'",
     "lint:fix": "eslint './src'  --fix",
-    "start": "live-server dev/dist --port=9090 --verbose",
-    "watch": "nodemon --watch ./ --ext js,css,html --ignore dist --ignore node_modules --ignore dev/dist --exec \"npm run build:dev\"",
-    "dev:prep": "touch dev/src/test.css && touch dev/src/test.js && cp dev/src/sample.test.html dev/src/test.html",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "repository": {
@@ -38,35 +29,23 @@
     "url": "https://github.com/SU-SWS/decanter/issues"
   },
   "dependencies": {
-    "@tailwindcss/aspect-ratio": "^0.2.0",
-    "@tailwindcss/forms": "^0.3.2",
-    "tailwindcss-interaction-variants": "^5.0.0"
+    "@tailwindcss/aspect-ratio": "^0.4.0",
+    "@tailwindcss/forms": "^0.4.0",
+    "tailwindcss": "^3.0.24"
   },
   "devDependencies": {
     "auto-changelog": "^2.2.1",
-    "autoprefixer": "^10.2.5",
-    "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^5.0.0",
+    "autoprefixer": "^10.4.4",
     "eslint": "^7.14",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-prettier": "^3.4.0",
-    "extra-watch-webpack-plugin": "^1.0.3",
-    "file-loader": "^6.2.0",
-    "html-loader": "^1.3.2",
-    "html-webpack-plugin": "^5.1.0",
-    "live-server": "^1.2.1",
-    "mini-css-extract-plugin": "^1.3.1",
-    "nodemon": "^2.0.6",
+    "light-server": "^2.9.1",
+    "postcss": "^8.4.12",
     "postcss-import": "^13.0.0",
     "postcss-loader": "^4.0.0",
     "postcss-nested": "^5.0.1",
-    "prettier": "^2.2.1",
-    "style-loader": "^2.0.0",
-    "tailwindcss": "^2.1.1",
-    "tailwindcss-debug-screens": "^2.0.0",
-    "webpack": "^5.8.0",
-    "webpack-cli": "^4.2.0"
+    "prettier": "^2.2.1"
   }
 }

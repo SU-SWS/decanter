@@ -3,29 +3,29 @@
  */
 module.exports = function () {
   return {
-    mono: ['"Roboto Mono"', "Menlo", '"Courier New"', "monospace"],
+    mono: ['"Roboto Mono"', 'Menlo', '"Courier New"', 'monospace'],
     sans: [
       '"Source Sans Pro"',
       '"Helvetica Neue"',
-      "Helvetica",
-      "Arial",
-      "sans-serif",
+      'Helvetica',
+      'Arial',
+      'sans-serif',
     ],
     serif: [
       '"Source Serif Pro"',
-      "Georgia",
-      "Times",
+      'Georgia',
+      'Times',
       '"Times New Roman"',
-      "serif",
+      'serif',
     ],
-    slab: ['"Roboto Slab"', "Georgia", "Times", '"Times New Roman"', "serif"],
+    slab: ['"Roboto Slab"', 'Georgia', 'Times', '"Times New Roman"', 'serif'],
     stanford: [
-      "Stanford",
+      'Stanford',
       '"Source Serif Pro"',
-      "Georgia",
-      "Times",
+      'Georgia',
+      'Times',
       '"Times New Roman"',
-      "serif",
+      'serif',
     ],
   };
 };

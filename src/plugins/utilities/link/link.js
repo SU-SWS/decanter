@@ -5,9 +5,9 @@ const flattenColorPalette = (colors) =>
   Object.assign(
     {},
     ...Object.entries(colors).flatMap(([color, values]) =>
-      typeof values === "object"
+      typeof values === 'object'
         ? Object.entries(flattenColorPalette(values)).map(([number, hex]) => ({
-            [color + (number === "DEFAULT" ? "" : `-${number}`)]: hex,
+            [color + (number === 'DEFAULT' ? '' : `-${number}`)]: hex,
           }))
         : [{ [`${color}`]: values }]
     )
@@ -18,7 +18,7 @@ const flattenColorPalette = (colors) =>
  */
 module.exports = function () {
   return function ({ addUtilities, theme }) {
-    const colors = flattenColorPalette(theme("textColor"));
+    const colors = flattenColorPalette(theme('textColor'));
     const utilities = {};
 
     Object.entries(colors).forEach((entry) => {

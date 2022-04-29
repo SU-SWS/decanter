@@ -1,10 +1,11 @@
 /**
  * Transition durations
  */
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = function () {
   return {
-    DEFAULT: "250ms",
-    500: "500ms",
-    1000: "1000ms",
+    ...defaultTheme.transitionDuration,
+    DEFAULT: '250ms',
   };
 };

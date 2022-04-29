@@ -6,24 +6,24 @@ module.exports = function () {
   return function ({ addUtilities }) {
     const utilities = {};
 
-    utilities[".link-regular"] = {
+    utilities['.link-regular'] = {
       a: {
-        fontWeight: "400",
+        fontWeight: '400',
       },
     };
 
-    utilities[".link-semibold"] = {
+    utilities['.link-semibold'] = {
       a: {
-        fontWeight: "600",
+        fontWeight: '600',
       },
     };
 
-    utilities[".link-bold"] = {
+    utilities['.link-bold'] = {
       a: {
-        fontWeight: "700",
+        fontWeight: '700',
       },
     };
 
-    addUtilities(utilities, { variants: ["responsive"] });
+    addUtilities(utilities, { variants: ['responsive'] });
   };
 };

@@ -24,7 +24,7 @@ We have removed all assets from the repo in Decanter 7. Instead, we are using re
 
 ### Icons
 - We have removed FontAwesome (dependency and asset) completely from Decanter v7. For those who would like to continue using FontAwesome, please feel free to do so and include them using methods that are suitable for your own projects.
-- In Decanter React, we are using the [react-hero-icon](https://www.npmjs.com/package/react-hero-icon) package to include the needed icons for our components, e.g., the Alert components. [Hero Icons](https://heroicons.com/) are created by the TailwindCSS team and are open source. They can be included as SVG or JSX elements.
+- We recommend using the [react-hero-icon](https://www.npmjs.com/package/react-hero-icon) package as [Hero Icons](https://heroicons.com/) are created by the TailwindCSS team and are open source. They can be included as SVG or JSX elements.
 
 
 ## Accessibility
