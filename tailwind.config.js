@@ -13,9 +13,6 @@ module.exports = {
   // Our own prefix.
   prefix: 'su-',
 
-  // How to handle dark mode settings.
-  darkMode: 'media',
-
   // The theme section is where you define your color palette, font stacks,
   // type scale, border sizes, breakpoints — anything related to the visual
   // design of your site.
@@ -36,7 +33,6 @@ module.exports = {
     transitionDuration: require(`${dir}/theme/transitionDuration.js`)(),
     // Decanter Custom.
     decanter: require(`${dir}/theme/decanter.js`)(),
-    // Extensions of tailwind core config.
   },
 
   // The plugins section allows you to register third-party plugins with
@@ -44,6 +40,7 @@ module.exports = {
   // styles, or custom variants.
   // https://tailwindcss.com/docs/configuration/#plugins
   plugins: [
+    // Add our own variants for convenience
     plugin(({ addVariant }) => {
       addVariant('hocus', ['&:hover', '&:focus']);
       addVariant('children', '& > *');

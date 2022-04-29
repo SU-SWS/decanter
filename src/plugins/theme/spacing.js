@@ -4,6 +4,8 @@
 module.exports = function () {
   return {
     0: '0',
+    // Spacing utilities in em units are mostly used for typography elements,
+    // e.g., spacing below headings, between paragraphs, list items, etc.
     '01em': '0.1em',
     '02em': '0.2em',
     '03em': '0.3em',
@@ -14,6 +16,7 @@ module.exports = function () {
     '08em': '0.8em',
     '09em': '0.9em',
     '1em': '1em',
+    // Spacing utilities in rem units are mostly used for layout elements and do not scale with container font size
     1: '0.1rem',
     2: '0.2rem',
     3: '0.3rem',

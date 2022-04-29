@@ -44,7 +44,7 @@ module.exports = function () {
           lineHeight: theme('lineHeight.DEFAULT'),
         },
       },
-      '.card-paragraph': {
+      '.card-paragraph, .card': {
         fontSize: 'max(1.6rem, 0.93em)',
         lineHeight: theme('lineHeight.snug'),
         '@screen md': {
