@@ -49,6 +49,7 @@ module.exports = {
     // 3rd Party Plugins;
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/forms'),
+    require('tailwind-children'),
 
     // @tailwind base;
     require(`${dir}/base/base.js`)(),
