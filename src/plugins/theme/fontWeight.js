@@ -1,11 +1,9 @@
 /**
- * Font weights
+ * Font weight extended config
  */
-const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = function () {
   return {
-    ...defaultTheme.fontWeight,
     regular: '400', // su-font-normal = 400 font weight for Tailwind, but Decanter users are used to su-font-regular for the same thing
   };
 };

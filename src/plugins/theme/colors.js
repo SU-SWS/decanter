@@ -32,9 +32,9 @@ module.exports = function () {
     // Web Interactive Colors
     // https://identity.stanford.edu/design-elements/color/web/
     'digital-red': {
-      DEFAULT: '#B1040E', // Same as old Bright Red
-      light: '#E50808', // Same as old Vivid Red
-      dark: '#820000', // Same as Dark Cardinal Red
+      DEFAULT: '#B1040E', // Same as old Bright Red in previous color palette
+      light: '#E50808', // Same as old Vivid Red in previous color palette
+      dark: '#820000', // Same as Dark Cardinal Red in previous color palette
     },
     'digital-blue': {
       // Link colors
@@ -109,17 +109,30 @@ module.exports = function () {
     archway: {
       DEFAULT: '#5D4B3C',
       light: '#766253',
-      dark: '#2F2424', // Same as old Chocolate
+      dark: '#2F2424', // Same as old Chocolate in previous color palette
     },
     stone: {
       DEFAULT: '#7F7776',
       light: '#D4D1D1',
-      dark: '#544948', // Same as old Stone
+      dark: '#544948', // Same as old Stone in previous color palette
     },
     foggy: {
       DEFAULT: '#DAD7CB',
-      light: '#F4F4F4', // Same as old Fog
-      dark: '#B6B1A9', // Same as old Driftwood
+      light: '#F4F4F4', // Same as old Fog in previous color palette
+      dark: '#B6B1A9', // Same as old Driftwood in previous color palette
     },
+    // "fog" is same color as foggy above; in Decanter v6 we named this color foggy to avoid a class name conflict
+    // This is the same as the color "Fog" in the Identity Guide
+    fog: {
+      DEFAULT: '#DAD7CB',
+      light: '#F4F4F4',
+      dark: '#B6B1A9',
+    },
+    // Commonly used social media brand colors
+    facebook: '#4267B2',
+    twitter: '#1DA1F2',
+    instagram: '#E1306C',
+    linkedin: '#0077B5',
+    youtube: '#FF0000',
   };
 };

@@ -1,6 +1,8 @@
 /**
  * Decanter Variables.
  */
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = function () {
   // Shared vars.
   const fontSmoothing = {
@@ -10,8 +12,6 @@ module.exports = function () {
 
   // Psuedo storage since we don't have access to the `theme()` at this point.
   const theme = {};
-  // eslint-disable-next-line global-require
-  theme.fontWeight = require('./fontWeight')();
   // eslint-disable-next-line global-require
   theme.lineHeight = require('./lineHeight')();
 
@@ -58,10 +58,10 @@ module.exports = function () {
         lineHeight: theme.lineHeight.display,
         marginBottom: '0.6em',
         clear: 'both',
-        fontWeight: theme.fontWeight.bold,
+        fontWeight: defaultTheme.fontWeight.bold,
         a: {
           textDecoration: 'none',
-          fontWeight: theme.fontWeight.bold,
+          fontWeight: defaultTheme.fontWeight.bold,
         },
       },
       type0: {
