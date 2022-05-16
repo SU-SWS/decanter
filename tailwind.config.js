@@ -24,15 +24,19 @@ module.exports = {
     colors: require(`${dir}/theme/colors.js`)(),
     fontFamily: require(`${dir}/theme/fontFamily.js`)(),
     fontSize: require(`${dir}/theme/fontSize.js`)(),
-    fontWeight: require(`${dir}/theme/fontWeight.js`)(),
     gap: require(`${dir}/theme/gap.js`)(),
     lineHeight: require(`${dir}/theme/lineHeight.js`)(),
     maxWidth: require(`${dir}/theme/maxWidth.js`)(),
     screens: require(`${dir}/theme/screens.js`)(),
     spacing: require(`${dir}/theme/spacing.js`)(),
-    transitionDuration: require(`${dir}/theme/transitionDuration.js`)(),
     // Decanter Custom.
     decanter: require(`${dir}/theme/decanter.js`)(),
+    // Decanter's extension of Tailwind's default theme.
+    extend: {
+      fontWeight: require(`${dir}/theme/fontWeight.js`)(),
+      lineClamp: require(`${dir}/theme/lineClamp.js`)(),
+      transitionDuration: require(`${dir}/theme/transitionDuration.js`)(),
+    },
   },
 
   // The plugins section allows you to register third-party plugins with
@@ -43,13 +47,17 @@ module.exports = {
     // Add our own variants for convenience
     plugin(({ addVariant }) => {
       addVariant('hocus', ['&:hover', '&:focus']);
-      addVariant('group-hocus', [':merge(.group):focus &', ':merge(.group):hover &']);
+      addVariant('group-hocus', [
+        ':merge(.group):focus &',
+        ':merge(.group):hover &',
+      ]);
       addVariant('children', '& > *');
     }),
 
     // 3rd Party Plugins;
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/forms'),
+    require('@tailwindcss/line-clamp'),
 
     // @tailwind base;
     require(`${dir}/base/base.js`)(),
@@ -58,10 +66,10 @@ module.exports = {
     require(`${dir}/components/form/input.js`)(),
     require(`${dir}/components/form/buttons.js`)(),
     require(`${dir}/components/form/form-elements.js`)(),
-    require(`${dir}/components/lists/lists.js`)(),
-    require(`${dir}/components/link/stretched-link.js`)(),
     require(`${dir}/components/layout/centered-container.js`)(),
     require(`${dir}/components/layout/grid-gap.js`)(),
+    require(`${dir}/components/link/stretched-link.js`)(),
+    require(`${dir}/components/lists/lists.js`)(),
     require(`${dir}/components/logo/logo.js`)(),
     require(`${dir}/components/media/embed-container.js`)(),
     require(`${dir}/components/responsive-spacing/responsive-spacing.js`)(),
@@ -74,9 +82,11 @@ module.exports = {
 
     // @tailwind utilities;
     require(`${dir}/utilities/accessibility/accessibility-hidden.js`)(),
+    require(`${dir}/utilities/backface-visibility/backface-visibility.js`)(),
     require(`${dir}/utilities/link/link.js`)(),
     require(`${dir}/utilities/link/link-underline.js`)(),
     require(`${dir}/utilities/link/link-fontweight.js`)(),
+    require(`${dir}/utilities/typography/break-words.js`)(),
     require(`${dir}/utilities/typography/writing-mode.js`)(),
   ],
 };
