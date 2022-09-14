@@ -121,7 +121,7 @@ jobs:
       - name: Update Github Release with changelog notes.
         uses: meeDamian/github-release@2.0
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.ADMIN_GITHUB_TOKEN }}
           tag: ${{ env.RELEASE_TAG }}
           body: ${{steps.release_notes.outputs.release_notes}}
           allow_override: true
