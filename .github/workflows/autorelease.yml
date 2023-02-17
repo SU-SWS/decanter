@@ -119,7 +119,7 @@ jobs:
           # Escape whitespace characters to ensure that multiline content outputs correctly.
           release_notes="${release_notes//'%'/'%25'}"
           release_notes="${release_notes//$'\n'/'%0A'}"
-          releast_notes="${release_notes//$'\r'/'%0D'}"
+          release_notes="${release_notes//$'\r'/'%0D'}"
           # Expose the release notes as an output variable.
           echo "::set-output name=release_notes::$release_notes"
 
