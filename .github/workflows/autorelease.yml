@@ -60,9 +60,12 @@ jobs:
       - name: npm run package
         run: |
           npm run publish
-          git add core/dist
-          git commit -m 'Packaging build'
-          git push origin master
+          if [ $(git status | grep "core\/dist\/") ]
+          then
+            git add core/dist
+            git commit -m 'Packaging build'
+            git push origin master
+          fi
 
       # Increment version based on label
       - name: Patch Release tag
