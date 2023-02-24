@@ -4,7 +4,8 @@
  */
 module.exports = function () {
   return {
-    // su-text-12 to su-text-25 correspond to font sizes from 12px to 25px (in rem units)
+    // su-text-11 to su-text-30 correspond to font sizes from 12px to 30px (in rem units)
+    11: '1.1rem',
     12: '1.2rem',
     13: '1.3rem',
     14: '1.4rem',
@@ -19,6 +20,11 @@ module.exports = function () {
     23: '2.3rem',
     24: '2.4rem',
     25: '2.5rem',
+    26: '2.6rem',
+    27: '2.7rem',
+    28: '2.8rem',
+    29: '2.9rem',
+    30: '3rem',
     /**
      * Font sizes classes for use in modular typography utilities.
      * To take full advantage of modular typography which inlude letter spacing adjustments propotional to font sizes,

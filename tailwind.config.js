@@ -51,7 +51,14 @@ module.exports = {
         ':merge(.group):focus &',
         ':merge(.group):hover &',
       ]);
+      addVariant('group-hocus-visible', [
+        ':merge(.group):focus-visible &',
+        ':merge(.group):hover &',
+      ]);
       addVariant('children', '& > *');
+      addVariant('children-hover', '& > *:hover');
+      addVariant('children-focus', '& > *:focus');
+      addVariant('children-focus-visible', '& > *:focus-visible');
     }),
 
     // 3rd Party Plugins;
