@@ -47,6 +47,7 @@ module.exports = {
     // Add our own variants for convenience
     plugin(({ addVariant }) => {
       addVariant('hocus', ['&:hover', '&:focus']);
+      addVariant('hocus-visible', ['&:hover', '&:focus-visible']);
       addVariant('group-hocus', [
         ':merge(.group):focus &',
         ':merge(.group):hover &',
