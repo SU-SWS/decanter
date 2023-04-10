@@ -1,0 +1,34 @@
+
+github:
+  prebuilds:
+    master: true
+    branches: false
+    pullRequests: true
+    pullRequestsFromForks: false
+    addCheck: false
+    addComment: false
+    addBadge: true
+ports:
+  - name: Build
+    description: Build
+    port: 3000
+    onOpen: ignore
+    visibility: public
+tasks:
+  - init: npm install && npm run build
+    command: |
+      git remote set-url origin git@github.com:SU-SWS/decanter.git
+      npm run dev
+  - name: Setup SSH Keys
+    command: |
+      rm -rf ~/.ssh/id_rsa &&
+      rm -rf ~/.ssh/id_rsa.pub &&
+      eval $(command gp env -e) &&
+      mkdir -p ~/.ssh &&
+      [[ ! -z $SSH_PUBLIC_KEY  ]] &&
+      echo $SSH_PUBLIC_KEY | base64 -d > ~/.ssh/id_rsa.pub &&
+      chmod 644 ~/.ssh/id_rsa.pub &&
+      [[ ! -z $SSH_PRIVATE_KEY  ]] &&
+      echo $SSH_PRIVATE_KEY | base64 -d > ~/.ssh/id_rsa &&
+      chmod 600 ~/.ssh/id_rsa &&
+      eval `ssh-agent -s
