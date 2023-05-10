@@ -4,8 +4,6 @@
 
 module.exports = function () {
   return {
-    none: 'none',
-    0: '0',
     10: '1rem',
     20: '2rem',
     30: '3rem',
@@ -31,11 +29,6 @@ module.exports = function () {
     1000: '100rem',
     1200: '120rem',
     1500: '150rem',
-    full: '100%',
-    min: 'min-content',
-    max: 'max-content',
-    fit: 'fit-content',
-    prose: '65ch',
     'prose-wide': '75ch',
   };
 };

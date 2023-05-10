@@ -4,9 +4,6 @@
  */
 module.exports = function () {
   return {
-    transparent: 'transparent',
-    current: 'currentColor',
-    inherit: 'inherit',
     // Primary Colors
     // https://identity.stanford.edu/design-elements/color/primary-colors/
     'cardinal-red': {
@@ -14,6 +11,7 @@ module.exports = function () {
       light: '#B83A4B',
       dark: '#820000',
     },
+    // These replace the Tailwind default Black spectrum
     black: {
       DEFAULT: '#2E2D29', // Default text color on light background
       90: '#43423E',
@@ -27,7 +25,6 @@ module.exports = function () {
       10: '#EAEAEA',
       true: '#000000', // For when a higher contrast is needed
     },
-    white: '#FFFFFF',
     'cool-grey': '#53565A',
     // Web Interactive Colors
     // https://identity.stanford.edu/design-elements/color/web/
@@ -37,7 +34,7 @@ module.exports = function () {
       dark: '#820000', // Same as Dark Cardinal Red in previous color palette
     },
     'digital-blue': {
-      // Link colors
+      // Used for links in some of the Stanford sites
       DEFAULT: '#006CB8',
       light: '#85CCFF',
       dark: '#00548F',
@@ -71,6 +68,7 @@ module.exports = function () {
       light: '#8ab8a7',
       dark: '#417865',
     },
+    // This replaces the TW Sky
     sky: {
       DEFAULT: '#4298B5',
       light: '#67AFD2',
@@ -111,6 +109,7 @@ module.exports = function () {
       light: '#766253',
       dark: '#2F2424', // Same as old Chocolate in previous color palette
     },
+    // This replaces the TW Stone
     stone: {
       DEFAULT: '#7F7776',
       light: '#D4D1D1',
