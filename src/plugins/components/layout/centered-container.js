@@ -30,7 +30,7 @@ module.exports = function () {
     const key = `@media only screen and (min-width: ${largestScreen + (largestGutter * 2)}px)`
     const components = {
       // Center an element horizontally.
-      '.centered': {
+      '.centered-container, .cc': {
         maxWidth: 'calc(100vw - ' + (smallestGutter * 2) + 'px)',
         width: '100%',
         marginLeft: 'auto',
