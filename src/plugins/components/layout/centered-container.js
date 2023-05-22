@@ -2,7 +2,7 @@
  * Centered container.
  */
 module.exports = function () {
-  return function ({ addUtilities, theme }) {
+  return function ({ addComponents, theme }) {
     // Find and set the padding based on the screen margins
     const screens = theme('screens');
     const maxWdiths = {};
@@ -42,6 +42,6 @@ module.exports = function () {
       },
     };
 
-    addUtilities(components);
+    addComponents(components);
   };
 };
