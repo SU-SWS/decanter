@@ -12,4 +12,10 @@
  * - logo_text: The text for the ligature logo - either Stanford<br>University or Stanford.
  */
 #}
-<a {{ attributes }} class="su-logo {{ modifier_class }}" href="{{ href|default('https://www.stanford.edu') }}">{{ logo_text|default('Stanford<br>University')|raw }}</a>
+{% if external_link_text is empty -%}
+  {%- set external_link_text -%}
+    <span class="su-global-footer__link-a11y"> (link is external)</span>
+  {% endset %}
+{%- endif %}
+
+<a {{ attributes }} id="su-logo" class="su-logo {{ modifier_class }}" href="{{ href|default('https://www.stanford.edu') }}">{{ logo_text|default('Stanford<br>University')|raw }}{{ external_link_text }}</a>

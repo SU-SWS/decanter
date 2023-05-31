@@ -13,7 +13,7 @@
 {%- endif %}
 {% if external_link_text is empty -%}
   {%- set external_link_text -%}
-    <span class="su-global-footer__link-a11y">(link is external)</span>
+    <span class="su-global-footer__link-a11y"> (link is external)</span>
   {% endset %}
 {%- endif %}
 
@@ -25,8 +25,8 @@
     <div class="su-global-footer__content">
       <nav aria-label="global footer menu">
         <ul class="su-global-footer__menu su-global-footer__menu--global">
-          <li><a href="https://www.stanford.edu">Stanford Home{{ external_link_text }}</a></li>
-          <li><a href="https://visit.stanford.edu/plan/">Maps &amp; Directions{{ external_link_text }}</a></li>
+          <li><a href="https://www.stanford.edu" aria-describedby="su-logo">Stanford Home{{ external_link_text }}</a></li>
+          <li><a href="https://visit.stanford.edu/basics/">Maps &amp; Directions{{ external_link_text }}</a></li>
           <li><a href="https://www.stanford.edu/search/">Search Stanford{{ external_link_text }}</a></li>
           <li><a href="https://emergency.stanford.edu">Emergency Info{{ external_link_text }}</a></li>
         </ul>
