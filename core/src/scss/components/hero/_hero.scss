@@ -76,6 +76,10 @@ $_su-hero-height: (
   width: 100%;
   overflow: hidden;
 
+  @include grid-media-max('sm') {
+    aspect-ratio: 30/11;
+  }
+
   @include grid-media('md') {
     min-height: map-get($_su-hero-height, 'md');
     position: absolute;
