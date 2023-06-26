@@ -19,22 +19,22 @@ module.exports = {
   // https://tailwindcss.com/docs/configuration/#theme
   theme: {
     // Overrides.
-    borderRadius: require(`${dir}/theme/borderRadius.js`)(),
-    borderWidth: require(`${dir}/theme/borderWidth.js`)(),
-    colors: require(`${dir}/theme/colors.js`)(),
     fontFamily: require(`${dir}/theme/fontFamily.js`)(),
-    fontSize: require(`${dir}/theme/fontSize.js`)(),
     gap: require(`${dir}/theme/gap.js`)(),
-    lineHeight: require(`${dir}/theme/lineHeight.js`)(),
-    maxWidth: require(`${dir}/theme/maxWidth.js`)(),
     screens: require(`${dir}/theme/screens.js`)(),
     spacing: require(`${dir}/theme/spacing.js`)(),
     // Decanter Custom.
     decanter: require(`${dir}/theme/decanter.js`)(),
     // Decanter's extension of Tailwind's default theme.
     extend: {
+      borderRadius: require(`${dir}/theme/borderRadius.js`)(),
+      borderWidth: require(`${dir}/theme/borderWidth.js`)(),
+      colors: require(`${dir}/theme/colors.js`)(),
+      fontSize: require(`${dir}/theme/fontSize.js`)(),
       fontWeight: require(`${dir}/theme/fontWeight.js`)(),
       lineClamp: require(`${dir}/theme/lineClamp.js`)(),
+      lineHeight: require(`${dir}/theme/lineHeight.js`)(),
+      maxWidth: require(`${dir}/theme/maxWidth.js`)(),
       transitionDuration: require(`${dir}/theme/transitionDuration.js`)(),
     },
   },

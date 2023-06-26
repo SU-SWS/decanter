@@ -3,8 +3,8 @@
  */
 module.exports = function () {
   return {
-    none: '0',
-    DEFAULT: '0.3rem', // form input border-radius
-    full: '9999px', // TW convention for circular
+    // Decanter form input border-radius
+    // Note: this replaces the TW default 0.25rem
+    DEFAULT: '0.3rem',
   };
 };
