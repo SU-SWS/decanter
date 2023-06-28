@@ -1,2 +1,4224 @@
-!function(r){var n={};function o(t){var e;return(n[t]||(e=n[t]={i:t,l:!1,exports:{}},r[t].call(e.exports,e,e.exports,o),e.l=!0,e)).exports}o.m=r,o.c=n,o.d=function(t,e,r){o.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:r})},o.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},o.t=function(e,t){if(1&t&&(e=o(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(o.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var n in e)o.d(r,n,function(t){return e[t]}.bind(null,n));return r},o.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return o.d(e,"a",e),e},o.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},o.p="",o(o.s=7)}([function(t,e){NodeList.prototype.forEach=NodeList.prototype.forEach||Array.prototype.forEach},function(t,e){var r=document.querySelectorAll(".su-alert__dismiss-button");document.addEventListener("DOMContentLoaded",function(t){Array.prototype.forEach.call(r,function(t){t.addEventListener("click",function(t){t.target.closest(".su-alert").remove()},!1)})})},function(t,e){function n(t,e){t.setAttribute("aria-expanded",e)}function o(t,e){t.setAttribute("aria-hidden",e)}var r=document.querySelectorAll(".su-accordion"),i=document.querySelectorAll(".su-accordion__button"),u=document.querySelectorAll(".su-accordion__expand-all"),c=document.querySelectorAll(".su-accordion__collapse-all");document.addEventListener("DOMContentLoaded",function(t){Array.prototype.forEach.call(r,function(t){t.classList.remove("no-js")}),Array.prototype.forEach.call(i,function(t){n(t,"false"),o(t.parentNode.nextElementSibling,"true")})}),Array.prototype.forEach.call(i,function(e){e.addEventListener("click",function(t){"true"!==e.getAttribute("aria-expanded")?(n(e,"true"),o(e.parentNode.nextElementSibling,"false")):(n(e,"false"),o(e.parentNode.nextElementSibling,"true"))},!1)}),Array.prototype.forEach.call(u,function(r){r.addEventListener("click",function(t){var e=r.closest(".su-accordion").querySelectorAll(".su-accordion__button");Array.prototype.forEach.call(e,function(t){n(t,"true"),o(t.parentNode.nextElementSibling,"false")})},!1)}),Array.prototype.forEach.call(c,function(r){r.addEventListener("click",function(t){var e=r.closest(".su-accordion").querySelectorAll(".su-accordion__button");Array.prototype.forEach.call(e,function(t){n(t,"false"),o(t.parentNode.nextElementSibling,"true")})},!1)})},function(t,e,r){"use strict";r(1),r(2),r(0);function M(){$.forEach(function(t){t.closeSubNav()})}function U(){Z.forEach(function(t){t.closeMobileNav()})}function F(t){return"Home"===t||122===t}function H(t){return"End"===t||123===t}function z(t){return"Tab"===t||9===t}function V(t){return"Escape"===t||"Esc"===t||27===t}function G(t){return" "===t||"Spacebar"===t||32===t}function J(t){return"Enter"===t||13===t}function Q(t){return"ArrowLeft"===t||"Left"===t||37===t}function W(t){return"ArrowRight"===t||"Right"===t||39===t}function X(t){return"ArrowUp"===t||"Up"===t||38===t}function Y(t){return"ArrowDown"===t||"Down"===t||40===t}function o(t,e){var r;return"string"!=typeof t||t.length<=0?null:"function"==typeof Event?new Event(t,e):((r=document.createEvent("UIEvent")).initEvent(t,!0,!0,e),r)}var Z=[],$=[];function i(t){return(i="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function tt(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==i(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==i(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===i(t)?t:String(t)}(n.key),n)}}var u=function(){function r(t,e){if(!(this instanceof r))throw new TypeError("Cannot call a class as a function");this.item=t,this.nav=e,this.link=this.item.querySelector("a"),this.subNav=null,this.item.addEventListener("keydown",this),this.isSubNavTrigger()&&(this.subNav=new rt(this),this.openEvent=o("openSubnav"),this.closeEvent=o("closeSubnav"),$.push(this),this.item.addEventListener("click",this))}var t,e,n;return t=r,(e=[{key:"isFirstItem",value:function(){return 0===this.nav.items.indexOf(this)}},{key:"isLastItem",value:function(){return this.nav.items.indexOf(this)===this.nav.items.length-1}},{key:"isSubNavTrigger",value:function(){return"UL"===this.item.lastElementChild.tagName.toUpperCase()}},{key:"isSubNavItem",value:function(){return this.isSubNavTrigger()||this.nav.isSubNav()}},{key:"isExpanded",value:function(){return"true"===this.link.getAttribute("aria-expanded")}},{key:"setExpanded",value:function(t){this.link.setAttribute("aria-expanded",t)}},{key:"openSubNav",value:function(){var t=!(0<arguments.length&&void 0!==arguments[0])||arguments[0];M(),this.isSubNavTrigger()&&(this.item.classList.add("su-main-nav__item--expanded"),this.setExpanded("true"),t&&this.subNav.focusOn("first"),this.item.dispatchEvent(this.openEvent))}},{key:"closeSubNav",value:function(){var t=0<arguments.length&&void 0!==arguments[0]&&arguments[0];this.isSubNavTrigger()?this.isExpanded()&&(this.item.classList.remove("su-main-nav__item--expanded"),this.setExpanded("false"),t&&this.link.focus(),this.item.dispatchEvent(this.closeEvent)):this.isSubNavItem()&&this.nav.elem.closeSubNav(t)}},{key:"handleEvent",value:function(t){var e,r="on"+(t=t||window.event).type.charAt(0).toUpperCase()+t.type.slice(1);if("function"==typeof this[r])return e=t.target||t.srcElement,this[r](t,e)}},{key:"onKeydown",value:function(t,e){var r=t.key||t.keyCode;G(r)||J(r)?(t.preventDefault(),t.stopPropagation(),this.isSubNavTrigger()?this.openSubNav():window.location=this.link):Y(r)?(t.preventDefault(),t.stopPropagation(),this.nav.isDesktopNav()&&this.isSubNavTrigger()?this.openSubNav():this.nav.focusOn("next",this)):X(r)?(t.preventDefault(),t.stopPropagation(),this.nav.focusOn("prev",this)):Q(r)?(t.preventDefault(),t.stopPropagation(),this.nav.isDesktopNav()?this.nav.isSubNav()?(this.closeSubNav(),this.nav.getParentNav().focusOn("prev",this.nav.elem)):this.nav.focusOn("prev",this):this.isSubNavItem()&&this.closeSubNav(!0)):W(r)?(t.preventDefault(),t.stopPropagation(),this.nav.isDesktopNav()?this.nav.isSubNav()?(this.closeSubNav(),this.nav.getParentNav().focusOn("next",this.nav.elem)):this.nav.focusOn("next",this):this.isSubNavTrigger()&&this.openSubNav()):F(r)?this.nav.focusOn("first"):H(r)?this.nav.focusOn("last"):z(r)&&(t.stopPropagation(),r=t.shiftKey,this.isSubNavItem())&&(!r&&this.isLastItem()||r&&this.isFirstItem())&&this.closeSubNav(!0)}},{key:"onClick",value:function(t,e){this.isExpanded()?this.closeSubNav():this.openSubNav(!1),e===this.link&&(t.preventDefault(),t.stopPropagation())}}])&&tt(t.prototype,e),n&&tt(t,n),Object.defineProperty(t,"prototype",{writable:!1}),r}();function c(t){return(c="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function et(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==c(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==c(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===c(t)?t:String(t)}(n.key),n)}}var rt=function(){function r(t){var e=this;if(!(this instanceof r))throw new TypeError("Cannot call a class as a function");this.elem=t,this.topNav=this.getTopNav(),t instanceof u&&(t=t.item),this.toggle=t.querySelector(t.tagName+" > button"),this.toggleText=this.toggle?this.toggle.innerText:"",this.items=[],this.openEvent=o("openNav"),this.closeEvent=o("closeNav"),t.querySelectorAll(t.tagName+" > ul > li").forEach(function(t){e.items.push(new u(t,e))}),t.addEventListener("keydown",this),this.toggle&&this.toggle.addEventListener("click",this)}var t,e,n;return t=r,(e=[{key:"getTopNav",value:function(){for(var t=this;t.elem instanceof u;)t=t.elem.nav;return t}},{key:"getParentNav",value:function(){return this.isSubNav()?this.elem.nav:this}},{key:"isExpanded",value:function(){return this.elem instanceof u?this.elem.isExpanded():"true"===this.elem.getAttribute("aria-expanded")}},{key:"setExpanded",value:function(t){this.elem instanceof u?this.elem.setExpanded(t):(this.elem.setAttribute("aria-expanded",t),this.toggle&&this.toggle.setAttribute("aria-expanded",t))}},{key:"isDesktopNav",value:function(){return"none"===getComputedStyle(this.topNav.toggle).display}},{key:"isTopNav",value:function(){return this.topNav===this}},{key:"isSubNav",value:function(){return this.topNav!==this}},{key:"getFirstItem",value:function(){return this.items.length?this.items[0]:null}},{key:"getLastItem",value:function(){return this.items.length?this.items[this.items.length-1]:null}},{key:"getFirstLink",value:function(){return this.items.length?this.getFirstItem().link:null}},{key:"getLastLink",value:function(){return this.items.length?this.getLastItem().link:null}},{key:"focusOn",value:function(t){var e=1<arguments.length&&void 0!==arguments[1]?arguments[1]:null,r=null,n=null;switch(e&&(r=this.items.indexOf(e),n=this.items.length-1),t){case"first":this.getFirstLink().focus();break;case"last":this.getLastLink().focus();break;case"next":(r===n?this.getFirstLink():this.items[r+1].link).focus();break;case"prev":(0===r?this.getLastLink():this.items[r-1].link).focus();break;default:Number.isInteger(t)&&0<=t&&t<this.items.length&&this.items[t].link.focus()}}},{key:"openMobileNav",value:function(){var t=!(0<arguments.length&&void 0!==arguments[0])||arguments[0];U(),this.setExpanded("true"),this.toggle.innerText="Close",t&&this.focusOn("first"),this.elem.dispatchEvent(this.openEvent)}},{key:"closeMobileNav",value:function(){this.isExpanded()&&(this.setExpanded("false"),this.toggle.innerText=this.toggleText,this.elem.dispatchEvent(this.closeEvent))}},{key:"handleEvent",value:function(t){var e,r="on"+(t=t||window.event).type.charAt(0).toUpperCase()+t.type.slice(1);if("function"==typeof this[r])return e=t.target||t.srcElement,this[r](t,e)}},{key:"onClick",value:function(t,e){e===this.toggle&&(t.preventDefault(),t.stopPropagation(),this.isExpanded()?this.closeMobileNav():this.openMobileNav(!1))}},{key:"onKeydown",value:function(t,e){var r=t.key||t.keyCode;V(r)?this.isTopNav()?this.isDesktopNav()||(t.preventDefault(),t.stopPropagation(),this.closeMobileNav(),this.toggle.focus()):this.isExpanded()&&(t.preventDefault(),t.stopPropagation(),this.elem.closeSubNav(!0)):(J(r)||G(r))&&e===this.toggle&&(t.preventDefault(),t.stopPropagation(),this.isExpanded()||this.openMobileNav())}}])&&et(t.prototype,e),n&&et(t,n),Object.defineProperty(t,"prototype",{writable:!1}),r}(),n=(document.addEventListener("DOMContentLoaded",function(t){var n,e="su-main-nav";document.querySelectorAll("."+e).forEach(function(t,e){t.classList.remove("no-js");var r=new rt(t);Z.push(r),0===e?n=getComputedStyle(t,null).zIndex:t.style.zIndex=n-300*e}),document.addEventListener("click",function(t){t=t.target||t.srcElement;t.matches("."+e+" "+t.tagName)||(M(),U())},!1)}),document.querySelectorAll(".su-secondary-nav"));function a(t){return(a="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function nt(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==a(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==a(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===a(t)?t:String(t)}(n.key),n)}}var ot=function(){function i(t,e){var r=2<arguments.length&&void 0!==arguments[2]?arguments[2]:{},n=this,o=i;if(!(n instanceof o))throw new TypeError("Cannot call a class as a function");this.elem=t,this.item=e,this.itemActiveClass=r.itemActiveClass||"active",this.itemActiveTrailClass=r.itemActiveTrailClass||"active-trail",this.itemExpandedClass=r.itemExpandedClass||"expanded"}var t,e,r;return t=i,(e=[{key:"setActivePath",value:function(){var t=window.location.pathname,e=window.location.hash||"",r=window.location.search||"",n=!1;if([this.elem.querySelector("a[href*='"+e+"']"),this.elem.querySelector("a[href*='"+r+"']"),this.elem.querySelector("a[href='"+t+r+e+"']"),this.elem.querySelector("a[href*='"+t+r+"']")].forEach(function(t){!n&&t&&(n=t)}),n)for(;n;){if("LI"===n.tagName){n.classList.add(this.itemActiveClass);break}n=n.parentNode}}},{key:"expandActivePath",value:function(){var e=this,t=this.elem.querySelectorAll("."+this.itemActiveClass);t.length&&t.forEach(function(t){for(;t&&t!==e.elem;)"LI"===t.tagName&&(t.classList.add(e.itemExpandedClass),t.classList.add(e.itemActiveTrailClass),"function"==typeof e.item.expandActivePathItem)&&e.item.expandActivePathItem(t),t=t.parentNode})}}])&&nt(t.prototype,e),r&&nt(t,r),Object.defineProperty(t,"prototype",{writable:!1}),i}();function f(t){return(f="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function it(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==f(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==f(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===f(t)?t:String(t)}(n.key),n)}}var l=function(){function r(t,e){if(!(this instanceof r))throw new TypeError("Cannot call a class as a function");this.elem=t,this.handler=e,this.createEventListeners()}var t,e,n;return t=r,(e=[{key:"createEventListeners",value:function(){this.elem.addEventListener("keydown",this),this.elem.addEventListener("click",this),this.elem.addEventListener("preOpenSubnav",this),this.elem.addEventListener("postOpenSubnav",this)}},{key:"handleEvent",value:function(t){var e="on"+(t=t||window.event).type.charAt(0).toUpperCase()+t.type.slice(1),r=t.target||t.srcElement;"onKeydown"==e?this.onKeydown(t,r):"onClick"==e?this.onClick(t,r):this.callEvent(e,t,r)}},{key:"onKeydown",value:function(t,e){var r=function(t){for(var e=0,r=Object.entries({home:F,end:H,tab:z,escape:V,space:G,enter:J,arrowLeft:Q,arrowRight:W,arrowUp:X,arrowDown:Y});e<r.length;e++){var n=r[e];if(n[1](t))return n[0]}return!1}(t.key||t.keyCode);r&&(r="onKeydown"+r.charAt(0).toUpperCase()+r.slice(1),this.callEvent(r,t,e))}},{key:"onClick",value:function(t,e){this.callEvent("onClick",t,e)}},{key:"callEvent",value:function(t,e,r){"function"==typeof this.handler.eventRegistry[t]&&new this.handler.eventRegistry[t](this.handler,e,r).init()}}])&&it(t.prototype,e),n&&it(t,n),Object.defineProperty(t,"prototype",{writable:!1}),r}();function s(t){return(s="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function ut(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==s(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==s(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===s(t)?t:String(t)}(n.key),n)}}var ct=function(){function r(t,e){if(!(this instanceof r))throw new TypeError("Cannot call a class as a function");this.item=t,this.what=e}var t,e,n;return t=r,(e=[{key:"fetch",value:function(){try{switch(this.what){case"first":return this.item.parentNode.firstElementChild.firstChild;case"last":return this.item.parentNode.lastElementChild.firstChild;case"firstElement":return this.item.parentNode.firstElementChild;case"lastElement":return this.item.parentNode.lastElementChild;case"next":return this.item.nextElementSibling.querySelector("a");case"prev":return this.item.previousElementSibling.querySelector("a");case"nextElement":return this.item.nextElementSibling;case"prevElement":return this.item.previousElementSibling;case"parentItem":var t=this.item.parentNode.parentNode;return"NAV"===t.tagName?!1:t.querySelector("a");case"parentButton":return this.item.parentNode.parentNode.querySelector("button");case"parentNav":return this.item.parentNode.parentNode;case"parentNavLast":return this.item.parentNode.parentNode.parentNode.lastElementChild.querySelector("a");case"parentNavFirst":return this.item.parentNode.parentNode.parentNode.firstElementChild.querySelector("a");case"parentNavNext":return this.item.parentNode.parentNode.nextElementSibling;case"parentNavNextItem":return this.item.parentNode.parentNode.nextElementSibling.querySelector("a");case"parentNavPrev":return this.item.parentNode.parentNode.previousElementSibling;case"parentNavPrevItem":return this.item.parentNode.parentNode.previousElementSibling.querySelector("a");case"firstSubnavLink":return this.item.querySelector(":scope > ul li a");case"firstSubnavItem":return this.item.querySelector(":scope > ul li");case"subnav":return this.item.querySelector(":scope > ul");default:return!1}}catch(t){return!1}}}])&&ut(t.prototype,e),n&&ut(t,n),Object.defineProperty(t,"prototype",{writable:!1}),r}();function p(t){return(p="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function at(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==p(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==p(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===p(t)?t:String(t)}(n.key),n)}}var y=function(){function n(t,e,r){if(!(this instanceof n))throw new TypeError("Cannot call a class as a function");this.item=t,this.elem=t.elem,this.masterNav=t.masterNav,this.parentNav=t.parentNav,this.target=r,this.event=e}var t,e,r;return t=n,(e=[{key:"isOnTarget",value:function(){return this.target===this.elem}},{key:"validate",value:function(){return!!this.isOnTarget()}},{key:"init",value:function(){this.validate()&&this.exec()}},{key:"getElement",value:function(t){var e=1<arguments.length&&void 0!==arguments[1]?arguments[1]:this.elem.parentNode;return new ct(e,t).fetch()}}])&&at(t.prototype,e),r&&at(t,r),Object.defineProperty(t,"prototype",{writable:!1}),n}();function b(t){return(b="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function ft(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==b(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==b(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===b(t)?t:String(t)}(n.key),n)}}function lt(t,e){return(lt=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function st(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=pt(r),e=(t=n?(t=pt(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===b(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function pt(t){return(pt=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var v=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&lt(t,e);var r,n=st(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){this.event.preventDefault();var t=!1;(t=1<this.item.getDepth()?(this.event.stopPropagation(),this.parentNav.closeSubNav(),this.getElement("parentItem")):(this.masterNav.closeAllSubNavs(),this.getElement("first",this.item.parentNode)))&&t.focus()}}])&&ft(t.prototype,e),r&&ft(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function h(t){return(h="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function yt(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==h(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==h(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===h(t)?t:String(t)}(n.key),n)}}function bt(t,e){return(bt=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function vt(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=ht(r),e=(t=n?(t=ht(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===h(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function ht(t){return(ht=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var mt=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&bt(t,e);var r,n=vt(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){this.event.stopPropagation(),this.event.preventDefault(),window.location=this.target.getAttribute("href")}}])&&yt(t.prototype,e),r&&yt(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function dt(t){return(dt="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function gt(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==dt(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==dt(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===dt(t)?t:String(t)}(n.key),n)}}var wt=function(){function o(t){var e=1<arguments.length&&void 0!==arguments[1]?arguments[1]:{},r=this,n=o;if(!(r instanceof n))throw new TypeError("Cannot call a class as a function");this.elem=t;this.options=Object.assign({itemClass:"su-secondary-nav__item",itemExpandedClass:"su-secondary-nav__item--expanded",itemActiveClass:"su-secondary-nav__item--current",itemActiveTrailClass:"su-secondary-nav__item--active-trail",itemParentClass:"su-secondary-nav__item--parent",eventRegistry:{}},e),this.elem.classList.remove("no-js"),this.eventRegistry=this.createEventRegistry(e),this.dispatch=new l(t,this),this.activePath=new ot(t,this,this.options),this.activePath.setActivePath(),this.navItems=[],this.subNavItems=[],this.parentItemSelector=":scope > ul > ."+this.options.itemParentClass,this.navItemSelector=":scope > ul > ."+this.options.itemClass+":not(."+this.options.itemParentClass+")"}var t,e,r;return t=o,(e=[{key:"expandActivePathItem",value:function(t){}},{key:"createEventRegistry",value:function(t){return Object.assign({onKeydownEscape:v,onKeydownSpace:mt},t.eventRegistry)}},{key:"createSubNavItems",value:function(){var t=this.elem.querySelectorAll(this.parentItemSelector),e=this.elem.querySelectorAll(this.navItemSelector);1<=t.length&&this.createParentItems(t),1<=e.length&&this.createNavItems(e)}},{key:"createParentItems",value:function(t){var i=this,u=1<arguments.length&&void 0!==arguments[1]?arguments[1]:1,c=2<arguments.length&&void 0!==arguments[2]?arguments[2]:null;t.forEach(function(t){var e=t.querySelector("a"),r=t.querySelectorAll(i.parentItemSelector),t=t.querySelectorAll(i.navItemSelector),n=u+1,o=null;e&&(o=i.newParentItem(e,u,c)),1<=r.length&&i.createParentItems(r,n,o),1<=t.length&&i.createNavItems(t,n,o)})}},{key:"createNavItems",value:function(t){var e=this,r=1<arguments.length&&void 0!==arguments[1]?arguments[1]:1,n=2<arguments.length&&void 0!==arguments[2]?arguments[2]:null;t.forEach(function(t){t=t.querySelector("a");t&&e.newNavItem(t,r,n)})}},{key:"closeAllSubNavs",value:function(){this.subNavItems.forEach(function(t,e){t.closeSubNav()})}},{key:"closeSubNav",value:function(){this.closeAllSubNavs()}}])&&gt(t.prototype,e),r&&gt(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function m(t){return(m="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function St(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==m(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==m(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===m(t)?t:String(t)}(n.key),n)}}function Ot(t,e){return(Ot=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function jt(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=Pt(r),e=(t=n?(t=Pt(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===m(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function Pt(t){return(Pt=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var d=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&Ot(t,e);var r,n=jt(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){this.event.preventDefault();var t=this.getElement("first");t&&t.focus()}}])&&St(t.prototype,e),r&&St(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function g(t){return(g="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function Et(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==g(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==g(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===g(t)?t:String(t)}(n.key),n)}}function Nt(t,e){return(Nt=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function _t(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=kt(r),e=(t=n?(t=kt(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===g(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function kt(t){return(kt=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var xt=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&Nt(t,e);var r,n=_t(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){this.event.preventDefault();var t=this.getElement("next");t?t.focus():new d(this.item,this.event,this.target).init()}}])&&Et(t.prototype,e),r&&Et(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function w(t){return(w="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function Rt(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==w(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==w(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===w(t)?t:String(t)}(n.key),n)}}function Tt(t,e){return(Tt=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function Ct(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=At(r),e=(t=n?(t=At(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===w(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function At(t){return(At=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var S=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&Tt(t,e);var r,n=Ct(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){this.event.preventDefault();var t=this.getElement("last");t&&t.focus()}}])&&Rt(t.prototype,e),r&&Rt(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function O(t){return(O="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function Lt(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==O(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==O(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===O(t)?t:String(t)}(n.key),n)}}function Dt(t,e){return(Dt=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function It(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=Bt(r),e=(t=n?(t=Bt(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===O(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function Bt(t){return(Bt=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var Kt=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&Dt(t,e);var r,n=It(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){this.event.preventDefault();var t=this.getElement("prev");t?t.focus():new S(this.item,this.event,this.target).init()}}])&&Lt(t.prototype,e),r&&Lt(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function j(t){return(j="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function qt(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==j(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==j(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===j(t)?t:String(t)}(n.key),n)}}function Mt(t,e){return(Mt=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function Ut(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=Ft(r),e=(t=n?(t=Ft(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===j(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function Ft(t){return(Ft=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var Ht=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&Mt(t,e);var r,n=Ut(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){this.event.preventDefault(),1<this.item.getDepth()?this.nestedLeft():1===this.item.getDepth()&&this.firstLevelLeft()}},{key:"firstLevelLeft",value:function(){new Kt(this.item,this.event,this.target).init()}},{key:"nestedLeft",value:function(){var t=this.getElement("parentItem")||this.getElement("parentNavLast");this.parentNav.closeSubNav(),t&&t.focus()}}])&&qt(t.prototype,e),r&&qt(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function P(t){return(P="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function zt(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==P(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==P(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===P(t)?t:String(t)}(n.key),n)}}function Vt(t,e){return(Vt=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function Gt(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=Jt(r),e=(t=n?(t=Jt(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===P(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function Jt(t){return(Jt=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var Qt=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&Vt(t,e);var r,n=Gt(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){var t;1<this.item.getDepth()?(t=this.getElement("parentNavNext"),this.parentNav.closeSubNav(),(t?t.querySelector("a"):this.getElement("parentNavFirst")).focus()):new xt(this.item,this.event,this.target).init()}}])&&zt(t.prototype,e),r&&zt(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function E(t){return(E="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function Wt(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==E(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==E(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===E(t)?t:String(t)}(n.key),n)}}function Xt(t,e){return(Xt=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function Yt(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=Zt(r),e=(t=n?(t=Zt(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===E(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function Zt(t){return(Zt=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var $t=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&Xt(t,e);var r,n=Yt(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){this.event.stopPropagation(),this.event.preventDefault(),window.location=this.target.getAttribute("href")}}])&&Wt(t.prototype,e),r&&Wt(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function N(t){return(N="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function te(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==N(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==N(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===N(t)?t:String(t)}(n.key),n)}}function ee(t,e){return(ee=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function re(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=ne(r),e=(t=n?(t=ne(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===N(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function ne(t){return(ne=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var oe=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&ee(t,e);var r,n=re(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){var t=event.shiftKey,e=null,r=this.masterNav.elem.querySelector("a"),n=this.masterNav.elem.firstElementChild.lastElementChild.querySelector("li:last-child");if(t){if(e=this.getElement("prev"),this.target===r)return void this.masterNav.closeAllSubNavs()}else if(e=this.getElement("next"),this.target.parentNode===n)return void this.masterNav.closeAllSubNavs();e||1<this.item.getDepth()&&this.parentNav.closeSubNav()}}])&&te(t.prototype,e),r&&te(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function ie(t){return(ie="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function ue(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==ie(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==ie(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===ie(t)?t:String(t)}(n.key),n)}}var ce=function(){function u(t,e){var r=2<arguments.length&&void 0!==arguments[2]?arguments[2]:null,n=3<arguments.length&&void 0!==arguments[3]?arguments[3]:{},o=this,i=u;if(!(o instanceof i))throw new TypeError("Cannot call a class as a function");this.elem=t,this.item=t.parentNode,this.masterNav=e,this.parentNav=r,this.depth=n.depth||1,this.eventRegistry=this.createEventRegistry(n),this.dispatch=new l(t,this)}var t,e,r;return t=u,(e=[{key:"createEventRegistry",value:function(t){var e={onKeydownHome:d,onKeydownEnd:S,onKeydownTab:oe,onKeydownSpace:mt,onKeydownEnter:$t,onKeydownEscape:v,onKeydownArrowUp:Kt,onKeydownArrowRight:Qt,onKeydownArrowDown:xt,onKeydownArrowLeft:Ht};return Object.assign(e,t.eventRegistry)}},{key:"getDepth",value:function(){return this.depth}}])&&ue(t.prototype,e),r&&ue(t,r),Object.defineProperty(t,"prototype",{writable:!1}),u}();function _(t){return(_="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function ae(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==_(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==_(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===_(t)?t:String(t)}(n.key),n)}}function fe(t,e){return(fe=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function le(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=se(r),e=(t=n?(t=se(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===_(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function se(t){return(se=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var pe=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&fe(t,e);var r,n=le(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){this.event.stopPropagation(),this.event.preventDefault(),this.item.isExpanded()?(this.item.closeSubNav(),this.elem.blur(),this.elem.focus()):this.item.openSubNav()}}])&&ae(t.prototype,e),r&&ae(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function k(t){return(k="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function ye(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==k(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==k(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===k(t)?t:String(t)}(n.key),n)}}function be(t,e){return(be=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function ve(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=he(r),e=(t=n?(t=he(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===k(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function he(t){return(he=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var me=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&be(t,e);var r,n=ve(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){this.event.preventDefault(),new pe(this.item,this.event,this.target).init(),this.item.isExpanded()&&this.getElement("firstSubnavLink").focus()}}])&&ye(t.prototype,e),r&&ye(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function x(t){return(x="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function de(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==x(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==x(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===x(t)?t:String(t)}(n.key),n)}}function ge(t,e){return(ge=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function we(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=Se(r),e=(t=n?(t=Se(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===x(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function Se(t){return(Se=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var Oe=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&ge(t,e);var r,n=we(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){this.event.preventDefault(),this.item.openSubNav(),this.getElement("firstSubnavLink").focus()}}])&&de(t.prototype,e),r&&de(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function R(t){return(R="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function je(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==R(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==R(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===R(t)?t:String(t)}(n.key),n)}}function Pe(t,e){return(Pe=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function Ee(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=Ne(r),e=(t=n?(t=Ne(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===R(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function Ne(t){return(Ne=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var _e=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&Pe(t,e);var r,n=Ee(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){this.event.preventDefault();var t=this.getElement("parentItem");this.parentNav.closeSubNav(),t?t.focus():new Ht(this.item,this.event,this.target).init()}}])&&je(t.prototype,e),r&&je(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function ke(t){return(ke="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function xe(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==ke(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==ke(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===ke(t)?t:String(t)}(n.key),n)}}var Re=function(){function u(t,e){var r=2<arguments.length&&void 0!==arguments[2]?arguments[2]:null,n=3<arguments.length&&void 0!==arguments[3]?arguments[3]:{},o=this,i=u;if(!(o instanceof i))throw new TypeError("Cannot call a class as a function");this.elem=t,this.item=t.parentNode,this.masterNav=e,this.parentNav=r,this.depth=n.depth||1,this.options=Object.assign({itemExpandedClass:"su-secondary-nav__item--expanded"},n),this.eventRegistry=this.createEventRegistry(n),this.dispatch=new l(t,this)}var t,e,r;return t=u,(e=[{key:"createEventRegistry",value:function(t){var e={onClick:pe,onKeydownSpace:me,onKeydownEnter:me,onKeydownHome:d,onKeydownEnd:S,onKeydownTab:oe,onKeydownEscape:v,onKeydownArrowUp:Kt,onKeydownArrowRight:Oe,onKeydownArrowDown:xt,onKeydownArrowLeft:_e};return Object.assign(e,t.eventRegistry)}},{key:"isExpanded",value:function(){return"true"===this.elem.getAttribute("aria-expanded")}},{key:"openSubNav",value:function(){this.elem.setAttribute("aria-expanded","true"),this.item.classList.add(this.options.itemExpandedClass)}},{key:"closeSubNav",value:function(){this.elem.setAttribute("aria-expanded","false"),this.item.classList.remove(this.options.itemExpandedClass)}},{key:"getDepth",value:function(){return this.depth}}])&&xe(t.prototype,e),r&&xe(t,r),Object.defineProperty(t,"prototype",{writable:!1}),u}();function T(t){return(T="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function Te(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==T(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==T(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===T(t)?t:String(t)}(n.key),n)}}function Ce(t,e){return(Ce=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function Ae(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=Le(r),e=(t=n?(t=Le(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===T(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function Le(t){return(Le=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var De=function(){var t=i,e=wt;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&Ce(t,e);var r,o=Ae(i);function i(t){var e=1<arguments.length&&void 0!==arguments[1]?arguments[1]:{},r=this,n=i;if(r instanceof n)return(r=o.call(this,t,e)).createSubNavItems(),r.activePath.expandActivePath(),r;throw new TypeError("Cannot call a class as a function")}return t=i,(e=[{key:"expandActivePathItem",value:function(t){t.firstElementChild.setAttribute("aria-expanded","true")}},{key:"newParentItem",value:function(t,e,r){var n=this.options,e=(n.depth=e,new Re(t,this,r,n));return this.subNavItems.push(e),e}},{key:"newNavItem",value:function(t,e,r){var n=this.options,e=(n.depth=e,new ce(t,this,r,n));return this.navItems.push(e),e}}])&&Te(t.prototype,e),r&&Te(t,r),Object.defineProperty(t,"prototype",{writable:!1}),i}();function C(t){return(C="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function Ie(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==C(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==C(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===C(t)?t:String(t)}(n.key),n)}}function Be(t,e){return(Be=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function Ke(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=qe(r),e=(t=n?(t=qe(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===C(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function qe(t){return(qe=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}document.addEventListener("DOMContentLoaded",function(t){n.forEach(function(t,e){t.className.match(/su-secondary-nav--accordion/)&&new De(t)})});var Me=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&Be(t,e);var r,n=Ke(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){this.parentNav.isExpanded()?(this.parentNav.closeSubNav(),this.elem.blur(),this.elem.focus()):this.parentNav.openSubNav()}}])&&Ie(t.prototype,e),r&&Ie(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function A(t){return(A="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function Ue(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==A(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==A(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===A(t)?t:String(t)}(n.key),n)}}function Fe(t,e){return(Fe=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function He(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=ze(r),e=(t=n?(t=ze(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===A(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function ze(t){return(ze=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var Ve=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&Fe(t,e);var r,n=He(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){var t;this.event.preventDefault(),new Me(this.item,this.event,this.target).init(),this.parentNav.isExpanded()&&(t=this.getElement("firstSubnavLink"))&&t.focus()}}])&&Ue(t.prototype,e),r&&Ue(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function L(t){return(L="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function Ge(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==L(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==L(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===L(t)?t:String(t)}(n.key),n)}}function Je(t,e){return(Je=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function Qe(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=We(r),e=(t=n?(t=We(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===L(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function We(t){return(We=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var Xe=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&Je(t,e);var r,n=Qe(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){var t;this.event.preventDefault(),this.parentNav.isExpanded()?(event.stopPropagation(),event.preventDefault(),this.getElement("firstSubnavLink").focus()):(t=this.getElement("next")||this.getElement("parentNavNext")||this.getElement("last"))&&t.focus()}}])&&Ge(t.prototype,e),r&&Ge(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function D(t){return(D="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function Ye(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==D(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==D(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===D(t)?t:String(t)}(n.key),n)}}function Ze(t,e){return(Ze=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function $e(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=tr(r),e=(t=n?(t=tr(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===D(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function tr(t){return(tr=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var er=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&Ze(t,e);var r,n=$e(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){event.stopPropagation(),event.preventDefault(),this.parentNav.elem.focus()}}])&&Ye(t.prototype,e),r&&Ye(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function I(t){return(I="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function rr(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==I(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==I(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===I(t)?t:String(t)}(n.key),n)}}function nr(t,e){return(nr=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function or(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=ir(r),e=(t=n?(t=ir(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===I(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function ir(t){return(ir=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var ur=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&nr(t,e);var r,n=or(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){var t;this.event.preventDefault(),this.parentNav.isExpanded()?(event.stopPropagation(),event.preventDefault(),this.parentNav.closeSubNav(),this.getElement("parentItem").focus()):(t=this.getElement("prev")||this.getElement("parentNavPrev")||this.getElement("first"))&&t.focus()}}])&&rr(t.prototype,e),r&&rr(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function cr(t){return(cr="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function ar(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==cr(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==cr(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===cr(t)?t:String(t)}(n.key),n)}}var fr=function(){function n(t,e,r){if(!(this instanceof n))throw new TypeError("Cannot call a class as a function");this.parentNav=e,this.masterNav=e.masterNav,this.toggle=t,this.elem=t,this.options=r,this.eventRegistry=this.createEventRegistry(r),this.dispatch=new l(t,this)}var t,e,r;return t=n,(e=[{key:"createEventRegistry",value:function(t){var e={onClick:Me,onKeydownSpace:Ve,onKeydownEnter:Ve,onKeydownHome:d,onKeydownEnd:S,onKeydownEscape:v,onKeydownArrowUp:ur,onKeydownArrowRight:Ve,onKeydownArrowDown:Xe,onKeydownArrowLeft:er};return Object.assign(e,t.eventRegistry)}}])&&ar(t.prototype,e),r&&ar(t,r),Object.defineProperty(t,"prototype",{writable:!1}),n}();function B(t){return(B="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function lr(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==B(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==B(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===B(t)?t:String(t)}(n.key),n)}}function sr(t,e){return(sr=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function pr(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=yr(r),e=(t=n?(t=yr(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===B(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function yr(t){return(yr=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var br=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&sr(t,e);var r,n=pr(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){event.shiftKey?this.getElement("prev")||this.parentNav.closeSubNav():this.getElement("nextElement")||1!==this.item.getDepth()||this.masterNav.closeAllSubNavs()}}])&&lr(t.prototype,e),r&&lr(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function K(t){return(K="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function vr(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==K(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==K(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===K(t)?t:String(t)}(n.key),n)}}function hr(t,e){return(hr=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function mr(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=dr(r),e=(t=n?(t=dr(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===K(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function dr(t){return(dr=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var gr=function(){var t=o,e=y;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&hr(t,e);var r,n=mr(o);function o(){var t=this,e=o;if(t instanceof e)return n.apply(this,arguments);throw new TypeError("Cannot call a class as a function")}return t=o,(e=[{key:"exec",value:function(){this.item.toggleElement.focus()}}])&&vr(t.prototype,e),r&&vr(t,r),Object.defineProperty(t,"prototype",{writable:!1}),o}();function wr(t){return(wr="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function Sr(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==wr(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==wr(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===wr(t)?t:String(t)}(n.key),n)}}var Or=function(){function u(t,e){var r=2<arguments.length&&void 0!==arguments[2]?arguments[2]:null,n=3<arguments.length&&void 0!==arguments[3]?arguments[3]:{},o=this,i=u;if(!(o instanceof i))throw new TypeError("Cannot call a class as a function");this.elem=t,this.item=t.parentNode,this.masterNav=e,this.parentNav=r,this.depth=n.depth||1,this.options=Object.assign({itemExpandedClass:"su-secondary-nav__item--expanded",toggleClass:"su-nav-toggle",toggleLabel:"expand menu",subNavToggleText:"+"},n),this.eventRegistry=this.createEventRegistry(n),this.dispatch=new l(t,this),this.toggleElement=this.createToggleButton(),this.item.insertBefore(this.toggleElement,this.item.querySelector("ul")),this.toggle=new fr(this.toggleElement,this,n)}var t,e,r;return t=u,(e=[{key:"createEventRegistry",value:function(t){var e={onKeydownSpace:mt,onKeydownEnter:mt,onKeydownHome:d,onKeydownEnd:S,onKeydownTab:br,onKeydownEscape:v,onKeydownArrowUp:Kt,onKeydownArrowRight:gr,onKeydownArrowDown:xt,onKeydownArrowLeft:Ht};return Object.assign(e,t.eventRegistry)}},{key:"createToggleButton",value:function(){var t=document.createElement("button"),e=document.createTextNode(this.options.toggleText),r="toggle-"+Math.random().toString(36).substr(2,9);return t.setAttribute("class",this.options.toggleClass),t.setAttribute("aria-expanded","false"),t.setAttribute("aria-label",this.options.toggleLabel),t.setAttribute("id",r),t.appendChild(e),t}},{key:"isExpanded",value:function(){return"true"===this.toggleElement.getAttribute("aria-expanded")}},{key:"openSubNav",value:function(){this.toggleElement.setAttribute("aria-expanded",!0),this.item.classList.add(this.options.itemExpandedClass)}},{key:"closeSubNav",value:function(){this.toggleElement.setAttribute("aria-expanded",!1),this.item.classList.remove(this.options.itemExpandedClass)}},{key:"getDepth",value:function(){return this.depth}}])&&Sr(t.prototype,e),r&&Sr(t,r),Object.defineProperty(t,"prototype",{writable:!1}),u}();function q(t){return(q="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(t){return typeof t}:function(t){return t&&"function"==typeof Symbol&&t.constructor===Symbol&&t!==Symbol.prototype?"symbol":typeof t})(t)}function jr(t,e){for(var r=0;r<e.length;r++){var n=e[r];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(t,function(t){t=function(t,e){if("object"!==q(t)||null===t)return t;var r=t[Symbol.toPrimitive];if(void 0===r)return("string"===e?String:Number)(t);r=r.call(t,e||"default");if("object"!==q(r))return r;throw new TypeError("@@toPrimitive must return a primitive value.")}(t,"string");return"symbol"===q(t)?t:String(t)}(n.key),n)}}function Pr(t,e){return(Pr=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(t,e){return t.__proto__=e,t})(t,e)}function Er(r){var n=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(t){return!1}}();return function(){var t,e=Nr(r),e=(t=n?(t=Nr(this).constructor,Reflect.construct(e,arguments,t)):e.apply(this,arguments),this);if(t&&("object"===q(t)||"function"==typeof t))return t;if(void 0!==t)throw new TypeError("Derived constructors may only return object or undefined");if(void 0!==e)return e;throw new ReferenceError("this hasn't been initialised - super() hasn't been called")}}function Nr(t){return(Nr=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(t){return t.__proto__||Object.getPrototypeOf(t)})(t)}var _r=function(){var t=i,e=wt;if("function"!=typeof e&&null!==e)throw new TypeError("Super expression must either be null or a function");t.prototype=Object.create(e&&e.prototype,{constructor:{value:t,writable:!0,configurable:!0}}),Object.defineProperty(t,"prototype",{writable:!1}),e&&Pr(t,e);var r,o=Er(i);function i(t){var e=1<arguments.length&&void 0!==arguments[1]?arguments[1]:{},r=this,n=i;if(r instanceof n)return e=Object.assign({itemExpandedClass:"su-secondary-nav__item--expanded",toggleClass:"su-nav-toggle",toggleLabel:"expand menu",subNavToggleText:"+"},e),(r=o.call(this,t,e)).createSubNavItems(),r.activePath.expandActivePath(),r;throw new TypeError("Cannot call a class as a function")}return t=i,(e=[{key:"expandActivePathItem",value:function(t){t=t.querySelector("."+this.options.toggleClass);t&&t.setAttribute("aria-expanded","true")}},{key:"newParentItem",value:function(t,e,r){t=new Or(t,this,r,{itemExpandedClass:this.options.itemExpandedClass,depth:e});return this.subNavItems.push(t),t}},{key:"newNavItem",value:function(t,e,r){t=new ce(t,this,r,{depth:e});return this.navItems.push(t),t}}])&&jr(t.prototype,e),r&&jr(t,r),Object.defineProperty(t,"prototype",{writable:!1}),i}();document.addEventListener("DOMContentLoaded",function(t){n.forEach(function(t,e){t.className.match(/su-secondary-nav--buttons/)&&new _r(t)})})},,,,function(t,e,r){"use strict";r.r(e);r(3)}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = "./core/src/js/decanter-no-markup.js");
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./core/src/js/components/accordion/accordion.js":
+/*!*******************************************************!*\
+  !*** ./core/src/js/components/accordion/accordion.js ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+var accordions = document.querySelectorAll('.su-accordion');
+var titleButtons = document.querySelectorAll('.su-accordion__button');
+var expandButtons = document.querySelectorAll('.su-accordion__expand-all');
+var collapseButtons = document.querySelectorAll('.su-accordion__collapse-all');
+var isExpanded = function isExpanded(x) {
+  return x.getAttribute('aria-expanded') === 'true';
+};
+var setExpanded = function setExpanded(x, value) {
+  return x.setAttribute('aria-expanded', value);
+};
+var setHidden = function setHidden(x, value) {
+  return x.setAttribute('aria-hidden', value);
+};
+document.addEventListener('DOMContentLoaded', function (event) {
+  Array.prototype.forEach.call(accordions, function (acc) {
+    acc.classList.remove('no-js');
+  });
+  Array.prototype.forEach.call(titleButtons, function (btn) {
+    setExpanded(btn, 'false');
+    setHidden(btn.parentNode.nextElementSibling, 'true');
+  });
+});
+Array.prototype.forEach.call(titleButtons, function (btn) {
+  btn.addEventListener('click', function (e) {
+    if (!isExpanded(btn)) {
+      setExpanded(btn, 'true');
+      setHidden(btn.parentNode.nextElementSibling, 'false');
+    } else {
+      setExpanded(btn, 'false');
+      setHidden(btn.parentNode.nextElementSibling, 'true');
+    }
+  }, false);
+});
+Array.prototype.forEach.call(expandButtons, function (expandBtn) {
+  expandBtn.addEventListener('click', function (e) {
+    var closestAccordion = expandBtn.closest('.su-accordion');
+    var closestBtns = closestAccordion.querySelectorAll('.su-accordion__button');
+    Array.prototype.forEach.call(closestBtns, function (closestBtn) {
+      setExpanded(closestBtn, 'true');
+      setHidden(closestBtn.parentNode.nextElementSibling, 'false');
+    });
+  }, false);
+});
+Array.prototype.forEach.call(collapseButtons, function (collapseBtn) {
+  collapseBtn.addEventListener('click', function (e) {
+    var closestAccordion = collapseBtn.closest('.su-accordion');
+    var closestBtns = closestAccordion.querySelectorAll('.su-accordion__button');
+    Array.prototype.forEach.call(closestBtns, function (closestBtn) {
+      setExpanded(closestBtn, 'false');
+      setHidden(closestBtn.parentNode.nextElementSibling, 'true');
+    });
+  }, false);
+});
+
+/***/ }),
+
+/***/ "./core/src/js/components/alert/alert.js":
+/*!***********************************************!*\
+  !*** ./core/src/js/components/alert/alert.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Alert components.
+ **/
+var alertDismiss = document.querySelectorAll('.su-alert__dismiss-button');
+
+// Fire when ready.
+document.addEventListener('DOMContentLoaded', function (event) {
+  // Loop through each alert with a dismiss button.
+  Array.prototype.forEach.call(alertDismiss, function (alrt) {
+    alrt.addEventListener('click', function (e) {
+      // When a dismiss button is pressed. Find the nearest parent wrapper and
+      // remove it all from the dom.
+      e.target.closest('.su-alert').remove();
+    }, false);
+  });
+});
+
+/***/ }),
+
+/***/ "./core/src/js/components/components.js":
+/*!**********************************************!*\
+  !*** ./core/src/js/components/components.js ***!
+  \**********************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _alert_alert_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./alert/alert.js */ "./core/src/js/components/alert/alert.js");
+/* harmony import */ var _alert_alert_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_alert_alert_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _accordion_accordion_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./accordion/accordion.js */ "./core/src/js/components/accordion/accordion.js");
+/* harmony import */ var _accordion_accordion_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_accordion_accordion_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _main_nav_main_nav_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./main-nav/main-nav.js */ "./core/src/js/components/main-nav/main-nav.js");
+/* harmony import */ var _secondary_nav_secondary_nav_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./secondary-nav/secondary-nav.js */ "./core/src/js/components/secondary-nav/secondary-nav.js");
+/**
+ * Primary roll up file for all javascript components.
+ */
+
+// The Alert Component.
+
+// The Accordion Component.
+
+// The Primary Navigation Component.
+
+// The Secondary Navigation Component.
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/main-nav/Nav.js":
+/*!************************************************!*\
+  !*** ./core/src/js/components/main-nav/Nav.js ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Nav; });
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./core/src/js/components/main-nav/globals.js");
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
+/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
+/* harmony import */ var _NavItem__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./NavItem */ "./core/src/js/components/main-nav/NavItem.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+
+
+
+
+/**
+ * Represent a navigation menu. May be the top nav or a subnav.
+ *
+ * @prop {HTMLElement|NavItem} elem       - The element that is the nav. May
+ *                                          be a main nav (<nav>) or a subnav
+ *                                          (NavItem).
+ * @prop {Nav}                 topNav     - The instance of Nav that models
+ *                                          the top nav. If this is the top
+ *                                          nav, topNav === this.
+ * @prop {HTMLButtonElement}   toggle     - The <button> in the DOM that
+ *                                          toggles the menu on mobile. NULL
+ *                                          if this is a subnav.
+ * @prop {String}              toggleText - The initial text of the mobile
+ *                                          toggle (so we can reset it when
+ *                                          the mobile nav is closed).
+ * @prop {Array}               items      - Instances of NavItem that model
+ *                                          each element in the nav
+ */
+var Nav = /*#__PURE__*/function () {
+  /**
+   * Create a Nav
+   *
+   * @param {HTMLElement|NavItem} elem - The element that is the nav menu.
+   *                                     May be a main nav (<nav>) or a subnav
+   *                                     (NavItem).
+   */
+  function Nav(elem) {
+    var _this = this;
+    _classCallCheck(this, Nav);
+    this.elem = elem;
+    this.topNav = this.getTopNav();
+    // If this is a subnav, we need the correpsonding HTMLElement for
+    // .querySelector()
+    if (elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"]) {
+      elem = elem.item;
+    }
+    this.toggle = elem.querySelector(elem.tagName + ' > button');
+    this.toggleText = this.toggle ? this.toggle.innerText : '';
+    this.items = [];
+    // Add custom events to alert others when the mobile nav
+    // opens or closes.
+    // this.openEvent is dispatched in this.openMobileNav().
+    this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('openNav');
+    // this.closeEvent is dispatched in this.closeMobileNav().
+    this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_2__["createEvent"])('closeNav');
+
+    // Initialize items
+    var items = elem.querySelectorAll(elem.tagName + ' > ul > li');
+    items.forEach(function (item) {
+      _this.items.push(new _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"](item, _this));
+    });
+    elem.addEventListener('keydown', this);
+    if (this.toggle) {
+      this.toggle.addEventListener('click', this);
+    }
+  }
+
+  // -------------------------------------------------------------------------
+  // Helper Methods.
+  // -------------------------------------------------------------------------
+
+  /**
+   * Get the instance of Nav that represents the top level nav of this
+   * instance.
+   *
+   * @return {Nav}
+   *  Returns the navigation instance.
+   */
+  _createClass(Nav, [{
+    key: "getTopNav",
+    value: function getTopNav() {
+      var nav = this;
+      while (nav.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"]) {
+        // If nav is the main nav, nav.elem will be an HTMLElement
+        // (the <nav> element).
+        // If nav.elem is a NavItem, then this is a subNav, so get the Nav that
+        // contains the NavItem.
+        nav = nav.elem.nav;
+      }
+      return nav;
+    }
+
+    /**
+     * Get the instance of Nav that represents the parent of this instance.
+     * If this is the top nav, return this so you can safely call methods on it.
+     *
+     * @return {Nav}
+     *   Returns the navigation instance.
+     */
+  }, {
+    key: "getParentNav",
+    value: function getParentNav() {
+      return this.isSubNav() ? this.elem.nav : this;
+    }
+
+    /**
+     * Is this expanded?
+     * If this is a subnav, ask the subnav (NavItem) if it's expanded.
+     * Otherwise (this is the top nav), check aria-expanded.
+     *
+     * @return {Boolean}
+     *   Returns wether or not the item is expanded.
+     */
+  }, {
+    key: "isExpanded",
+    value: function isExpanded() {
+      if (this.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"]) {
+        return this.elem.isExpanded();
+      }
+      return this.elem.getAttribute('aria-expanded') === 'true';
+    }
+
+    /**
+     * Set whether or not this is expanded.
+     * If this is a subnav, let the subnav (NavItem) handled it.
+     * Otherwise (this is the top nav), set aria-expanded.
+     *
+     * @param {String} value - What to set the aria-expanded attribute of
+     *                         this's link to.
+     */
+  }, {
+    key: "setExpanded",
+    value: function setExpanded(value) {
+      if (this.elem instanceof _NavItem__WEBPACK_IMPORTED_MODULE_3__["default"]) {
+        this.elem.setExpanded(value);
+      } else {
+        this.elem.setAttribute('aria-expanded', value);
+        if (this.toggle) {
+          this.toggle.setAttribute('aria-expanded', value);
+        }
+      }
+    }
+
+    /**
+     * Is this rendering the desktop style for the nav?
+     *
+     * @return {Boolean}
+     *  Returns wether or not it is desktop navigation.
+     */
+  }, {
+    key: "isDesktopNav",
+    value: function isDesktopNav() {
+      return getComputedStyle(this.topNav.toggle).display === 'none';
+    }
+
+    /**
+     * Is this the top nav?
+     *
+     * @return {Boolean}
+     *  Returns wether or not it is the top nav item.
+     */
+  }, {
+    key: "isTopNav",
+    value: function isTopNav() {
+      return this.topNav === this;
+    }
+
+    /**
+     * Is this a subnav?
+     *
+     * @return {Boolean}
+     *  Returns wether or not this is a subnav item.
+     */
+  }, {
+    key: "isSubNav",
+    value: function isSubNav() {
+      return this.topNav !== this;
+    }
+
+    /**
+     * Get the first item in this nav.
+     *
+     * @return {NavItem}
+     *  Returns wether or not this is the first item.
+     */
+  }, {
+    key: "getFirstItem",
+    value: function getFirstItem() {
+      return this.items.length ? this.items[0] : null;
+    }
+
+    /**
+     * Get the last item in this nav.
+     *
+     * @return {NavItem}
+     *  Returns wether or not this is the last item.
+     */
+  }, {
+    key: "getLastItem",
+    value: function getLastItem() {
+      return this.items.length ? this.items[this.items.length - 1] : null;
+    }
+
+    /**
+     * Get the link associated with the first item in this nav.
+     *
+     * @return {HTMLAnchorElement}
+     *  Returns the very first link.
+     */
+  }, {
+    key: "getFirstLink",
+    value: function getFirstLink() {
+      return this.items.length ? this.getFirstItem().link : null;
+    }
+
+    /**
+     * Get the link associated with the last item in this nav.
+     *
+     * @return {HTMLAnchorElement}
+     *  Returns the very last link.
+     */
+  }, {
+    key: "getLastLink",
+    value: function getLastLink() {
+      return this.items.length ? this.getLastItem().link : null;
+    }
+
+    // -------------------------------------------------------------------------
+    // Functional methods
+    // -------------------------------------------------------------------------
+
+    /**
+     * Set the focus on the specified link in this nav.
+     *
+     * @param {String|Number} link - 'first' | 'last' | 'next'
+     *                                | 'prev' | numerical index
+     * @param {NavItem} currentItem - If link is 'next' or 'prev', currentItem
+     *                                is the NavItem that next / prev is
+     *                                relative to.
+     */
+  }, {
+    key: "focusOn",
+    value: function focusOn(link) {
+      var currentItem = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+      var currentIndex = null;
+      var lastIndex = null;
+      if (currentItem) {
+        currentIndex = this.items.indexOf(currentItem);
+        lastIndex = this.items.length - 1;
+      }
+      switch (link) {
+        case 'first':
+          this.getFirstLink().focus();
+          break;
+        case 'last':
+          this.getLastLink().focus();
+          break;
+        case 'next':
+          if (currentIndex === lastIndex) {
+            this.getFirstLink().focus();
+          } else {
+            this.items[currentIndex + 1].link.focus();
+          }
+          break;
+        case 'prev':
+          if (currentIndex === 0) {
+            this.getLastLink().focus();
+          } else {
+            this.items[currentIndex - 1].link.focus();
+          }
+          break;
+        default:
+          if (Number.isInteger(link) && link >= 0 && link < this.items.length) {
+            this.items[link].link.focus();
+          }
+          break;
+      }
+    }
+
+    /**
+     * Close any mobile navs that might be open, then mark this mobile nav open.
+     * Optionally force focus on the first element in the nav (for keyboard nav)
+     *
+     * @param {Boolean} focusOnFirst - Whether or not to also focus on the
+     *                                 first element in the subnav.
+     */
+  }, {
+    key: "openMobileNav",
+    value: function openMobileNav() {
+      var focusOnFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      Object(_globals__WEBPACK_IMPORTED_MODULE_0__["closeAllMobileNavs"])();
+      this.setExpanded('true');
+      this.toggle.innerText = 'Close';
+      if (focusOnFirst) {
+        // Focus on the first top level link.
+        this.focusOn('first');
+      }
+      // Alert others the mobile nav has opened.
+      this.elem.dispatchEvent(this.openEvent);
+    }
+
+    /**
+     * Mark this mobile closed, and restore the button text to what it was
+     * initially.
+     */
+  }, {
+    key: "closeMobileNav",
+    value: function closeMobileNav() {
+      if (this.isExpanded()) {
+        this.setExpanded('false');
+        this.toggle.innerText = this.toggleText;
+        // Alert others the mobile nav has closed.
+        this.elem.dispatchEvent(this.closeEvent);
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // Event handlers
+    // -------------------------------------------------------------------------
+
+    /**
+     * Handler for all events attached to an instance of this class. This method
+     * must exist when events are bound to an instance of a class
+     * (vs a function). This method is called for all events bound to an
+     * instance. It inspects the instance (this) for an appropriate handler
+     * based on the event type. If found, it dispatches the event to the
+     * appropriate handler.
+     *
+     * @param {KeyboardEvent} event - The keyboard event object.
+     *
+     * @return {*}
+     *  Whatever the dispatched handler returns (in our case nothing)
+     */
+  }, {
+    key: "handleEvent",
+    value: function handleEvent(event) {
+      event = event || window.event;
+      // If this class has an onEvent method, e.g. onClick, onKeydown,
+      // invoke it.
+      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);
+      if (typeof this[handler] === 'function') {
+        // The element that was clicked.
+        var target = event.target || event.srcElement;
+        return this[handler](event, target);
+      }
+    }
+
+    /**
+     * Handler for click events. click is only bound to the mobile toggle.
+     * Dispatched from this.handleEvent().
+     *
+     * @param {KeyboardEvent} event   - The keyboard event object.
+     * @param {HTMLElement}   target  - The HTML Element target object.
+     */
+  }, {
+    key: "onClick",
+    value: function onClick(event, target) {
+      if (target === this.toggle) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.isExpanded()) {
+          this.closeMobileNav();
+        } else {
+          this.openMobileNav(false);
+        }
+      }
+    }
+
+    /**
+     * Handler for keydown events. keydown is bound to all Nav's.
+     * Dispatched from this.handleEvent().
+     *
+     * @param {KeyboardEvent} event   - The keyboard event object.
+     * @param {HTMLElement}   target  - The HTML Element target object.
+     */
+  }, {
+    key: "onKeydown",
+    value: function onKeydown(event, target) {
+      var theKey = event.key || event.keyCode;
+      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isEsc"])(theKey)) {
+        if (this.isTopNav()) {
+          if (!this.isDesktopNav()) {
+            event.preventDefault();
+            event.stopPropagation();
+            this.closeMobileNav();
+            this.toggle.focus();
+          }
+        } else {
+          if (this.isExpanded()) {
+            event.preventDefault();
+            event.stopPropagation();
+            this.elem.closeSubNav(true);
+          }
+        }
+      } else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isEnter"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isSpace"])(theKey)) {
+        if (target === this.toggle) {
+          event.preventDefault();
+          event.stopPropagation();
+          if (!this.isExpanded()) {
+            this.openMobileNav();
+          }
+        }
+      }
+    }
+  }]);
+  return Nav;
+}();
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/main-nav/NavItem.js":
+/*!****************************************************!*\
+  !*** ./core/src/js/components/main-nav/NavItem.js ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return NavItem; });
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./globals */ "./core/src/js/components/main-nav/globals.js");
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
+/* harmony import */ var _utilities_events__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../utilities/events */ "./core/src/js/utilities/events.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+
+
+
+
+/**
+ * Represent an item in a navigation menu. May be a direct link or a subnav
+ * trigger.
+ *
+ * @prop {HTMLLIElement}   item   - the <li> in the DOM that is the NavItem
+ * @prop {HTMLElement|Nav} nav    - the Nav that contains the element.
+ *                                  May be a main nav (<nav>) or subnav (Nav).
+ * @prop {HTMLLIElement}   link   - the <a> in the DOM that is contained in
+ *                                  item (the <li>).
+ * @prop {Nav}             subNav - if item is the trigger for a subnav, this
+ *                                  is an instonce Nav that models the subnav.
+ */
+var NavItem = /*#__PURE__*/function () {
+  /**
+   * Create a NavItem
+   * @param {HTMLLIElement}   item  - The <li> that is the NavItem in the DOM.
+   * @param {HTMLElement|Nav} nav   - The Nav that contains the element. May
+   *                                  be a main nav (<nav>) or a subnav (Nav).
+   */
+  function NavItem(item, nav) {
+    _classCallCheck(this, NavItem);
+    this.item = item;
+    this.nav = nav;
+    this.link = this.item.querySelector('a');
+    this.subNav = null;
+    this.item.addEventListener('keydown', this);
+    if (this.isSubNavTrigger()) {
+      this.subNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](this);
+      // Add custom events to alert others when a subnav opens or closes.
+      // this.openEvent is dispatched in this.openSubNav().
+      this.openEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_3__["createEvent"])('openSubnav');
+      // this.closeEvent is dispatched in this.closeSubNav().
+      this.closeEvent = Object(_utilities_events__WEBPACK_IMPORTED_MODULE_3__["createEvent"])('closeSubnav');
+
+      // Maintain global list of subnavs for closeAllSubNavs().
+      _globals__WEBPACK_IMPORTED_MODULE_0__["theSubNavs"].push(this);
+      this.item.addEventListener('click', this);
+    }
+  }
+
+  // -------------------------------------------------------------------------
+  // Helper Methods.
+  // -------------------------------------------------------------------------
+
+  /**
+   * Is this the first item in the containing Nav?
+   *
+   * @return {Boolean}
+   *  Wether or not the item is the first item.
+   */
+  _createClass(NavItem, [{
+    key: "isFirstItem",
+    value: function isFirstItem() {
+      return this.nav.items.indexOf(this) === 0;
+    }
+
+    /**
+     * Is this the last item in the containing Nav?
+     *
+     * @return {Boolean}
+     *  Wether or not the item is the last item.
+     */
+  }, {
+    key: "isLastItem",
+    value: function isLastItem() {
+      return this.nav.items.indexOf(this) === this.nav.items.length - 1;
+    }
+
+    /**
+     * Is this a trigger that opens / closes a subnav?
+     *
+     * @return {Boolean}
+     *  Wether or not the item is the sub nav trigger item.
+     */
+  }, {
+    key: "isSubNavTrigger",
+    value: function isSubNavTrigger() {
+      return this.item.lastElementChild.tagName.toUpperCase() === 'UL';
+    }
+
+    /**
+     * Is this a component of a subnav - either the trigger or a nav item?
+     *
+     * @return {Boolean}
+     *  Wether or not the item is a subnav item.
+     */
+  }, {
+    key: "isSubNavItem",
+    value: function isSubNavItem() {
+      return this.isSubNavTrigger() || this.nav.isSubNav();
+    }
+
+    /**
+     * Is this expanded? Can only return TRUE if this is a subnav trigger.
+     *
+     * @return {Boolean}
+     *  Wether or not the item is expanded.
+     */
+  }, {
+    key: "isExpanded",
+    value: function isExpanded() {
+      return this.link.getAttribute('aria-expanded') === 'true';
+    }
+
+    /**
+     * Set whether or not this is expanded.
+     * Only meaningful if this is a subnav trigger.
+     *
+     * @param {String} value - What to set the aria-expanded attribute of this's
+     *                         link to.
+     */
+  }, {
+    key: "setExpanded",
+    value: function setExpanded(value) {
+      this.link.setAttribute('aria-expanded', value);
+    }
+
+    // -------------------------------------------------------------------------
+    // Functional Methods.
+    // -------------------------------------------------------------------------
+
+    /**
+     * Handles the opening of a sub-nav.
+     *
+     * If this is a subnav trigger, open the corresponding subnav.
+     * Optionally force focus on the first element in the subnav
+     * (for keyboard nav).
+     *
+     * @param {Boolean} focusOnFirst - whether or not to also focus on the first
+     *                                 element in the subnav
+     */
+  }, {
+    key: "openSubNav",
+    value: function openSubNav() {
+      var focusOnFirst = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      Object(_globals__WEBPACK_IMPORTED_MODULE_0__["closeAllSubNavs"])();
+      if (this.isSubNavTrigger()) {
+        this.item.classList.add('su-main-nav__item--expanded');
+        this.setExpanded('true');
+        if (focusOnFirst) {
+          this.subNav.focusOn('first');
+        }
+        this.item.dispatchEvent(this.openEvent);
+      }
+    }
+
+    /**
+     * Handles the closing of a subnav.
+     *
+     * If this is a subnav trigger or an item in a subnav, close the
+     * corresponding subnav. Optionally force focus on the trigger.
+     *
+     * @param {Boolean} focusOnTrigger - Whether or not to also focus on the
+     *                                 subnav's trigger.
+     */
+  }, {
+    key: "closeSubNav",
+    value: function closeSubNav() {
+      var focusOnTrigger = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+      if (this.isSubNavTrigger()) {
+        if (this.isExpanded()) {
+          this.item.classList.remove('su-main-nav__item--expanded');
+          this.setExpanded('false');
+          if (focusOnTrigger) {
+            this.link.focus();
+          }
+          this.item.dispatchEvent(this.closeEvent);
+        }
+      } else if (this.isSubNavItem()) {
+        // This.nav.elem should be a subNavTrigger.
+        this.nav.elem.closeSubNav(focusOnTrigger);
+      }
+    }
+
+    // -------------------------------------------------------------------------
+    // Event Handlers.
+    // -------------------------------------------------------------------------
+
+    /**
+     * Handler for all events attached to an instance of this class. This method
+     * must exist when events are bound to an instance of a class
+     * (vs a function). This method is called for all events bound to an
+     * instance. It inspects the instance (this) for an appropriate handler
+     * based on the event type. If found, it dispatches the event to the
+     * appropriate handler.
+     *
+     * @param {KeyboardEvent} event - The keyboard event.
+     *
+     * @return {*}
+     *   Whatever the dispatched handler returns (in our case nothing)
+     */
+  }, {
+    key: "handleEvent",
+    value: function handleEvent(event) {
+      event = event || window.event;
+
+      // If this class has an onEvent method (onClick, onKeydown) invoke it.
+      var handler = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);
+      if (typeof this[handler] === 'function') {
+        // The element that was clicked.
+        var target = event.target || event.srcElement;
+        return this[handler](event, target);
+      }
+    }
+
+    /**
+     * Handler for keydown events. keydown is bound to all NavItem's.
+     * Dispatched from this.handleEvent().
+     *
+     * @param {KeyboardEvent} event - The keyboard event object.
+     * @param {HTMLElement} target  - The HTML element target.
+     */
+  }, {
+    key: "onKeydown",
+    value: function onKeydown(event, target) {
+      var theKey = event.key || event.keyCode;
+
+      // Handler for the space and enter key.
+      if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isSpace"])(theKey) || Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isEnter"])(theKey)) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.isSubNavTrigger()) {
+          this.openSubNav();
+        } else {
+          window.location = this.link;
+        }
+      }
+      // Handler for the down arrow key.
+      else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isDownArrow"])(theKey)) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.nav.isDesktopNav()) {
+          if (this.isSubNavTrigger()) {
+            this.openSubNav();
+          } else {
+            this.nav.focusOn('next', this);
+          }
+        } else {
+          this.nav.focusOn('next', this);
+        }
+      }
+      // Handler for the up arrow key.
+      else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isUpArrow"])(theKey)) {
+        event.preventDefault();
+        event.stopPropagation();
+        this.nav.focusOn('prev', this);
+      }
+      // Handler for the left arrow key.
+      else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isLeftArrow"])(theKey)) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.nav.isDesktopNav()) {
+          if (this.nav.isSubNav()) {
+            this.closeSubNav();
+            var parent = this.nav.getParentNav();
+            // Focus on the previous item in the parent nav.
+            parent.focusOn('prev', this.nav.elem);
+          } else {
+            this.nav.focusOn('prev', this);
+          }
+        } else {
+          if (this.isSubNavItem()) {
+            // Close the subnav and put the focus on the trigger.
+            this.closeSubNav(true);
+          }
+        }
+      }
+      // Handler for the right arrow key.
+      else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isRightArrow"])(theKey)) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.nav.isDesktopNav()) {
+          if (this.nav.isSubNav()) {
+            this.closeSubNav();
+            var _parent = this.nav.getParentNav();
+            // Focus on the next item in the parent nav.
+            _parent.focusOn('next', this.nav.elem);
+          } else {
+            this.nav.focusOn('next', this);
+          }
+        } else {
+          if (this.isSubNavTrigger()) {
+            this.openSubNav();
+          }
+        }
+      }
+      // Handler for the home key.
+      else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isHome"])(theKey)) {
+        this.nav.focusOn('first');
+      }
+      // Handler for the end key.
+      else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isEnd"])(theKey)) {
+        this.nav.focusOn('last');
+      }
+      // Handler for the tab key.
+      else if (Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_1__["isTab"])(theKey)) {
+        event.stopPropagation();
+        var shifted = event.shiftKey;
+        if (this.isSubNavItem() && (!shifted && this.isLastItem() || shifted && this.isFirstItem())) {
+          this.closeSubNav(true);
+        }
+      }
+    }
+
+    /**
+     * Handler for click events.
+     *
+     * Dispatched from this.handleEvent().
+     * Click is only bound to subnav triggers. However, click bubbles up from
+     * subnav items to the trigger.
+     *
+     * @param {KeyboardEvent} event - The keyboard event object.
+     * @param {HTMLElement} target  - The HTML element target.
+     */
+  }, {
+    key: "onClick",
+    value: function onClick(event, target) {
+      if (this.isExpanded()) {
+        this.closeSubNav();
+      } else {
+        this.openSubNav(false);
+      }
+      // If the click is directly on the trigger, then we're done.
+      if (target === this.link) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    }
+  }]);
+  return NavItem;
+}();
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/main-nav/globals.js":
+/*!****************************************************!*\
+  !*** ./core/src/js/components/main-nav/globals.js ***!
+  \****************************************************/
+/*! exports provided: theNavs, theSubNavs, closeAllSubNavs, closeAllMobileNavs */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "theNavs", function() { return theNavs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "theSubNavs", function() { return theSubNavs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeAllSubNavs", function() { return closeAllSubNavs; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeAllMobileNavs", function() { return closeAllMobileNavs; });
+// ---------------------------------------------------------------------------
+// Global variables and functions shared amongst the nav code
+// ---------------------------------------------------------------------------
+
+// Variables
+
+/**
+ *  Global record of all main navs on the page
+ *  - populated in the document.ready function in main-nav.js
+ *  - used by closeAllMobileNavs
+ * @type {Array}
+ */
+var theNavs = [];
+
+/**
+ *  Global record of all sub navs on the page (may be in different main navs
+ *  - populated by the NavItem constructor
+ *  - used by closeAllSubNavs
+ * @type {Array}
+ */
+var theSubNavs = [];
+
+// Functions
+
+/**
+ * Close all subnavs on the page
+ */
+var closeAllSubNavs = function closeAllSubNavs() {
+  theSubNavs.forEach(function (subNav) {
+    subNav.closeSubNav();
+  });
+};
+
+/**
+ * Close all mobile navs on the page
+ */
+var closeAllMobileNavs = function closeAllMobileNavs() {
+  theNavs.forEach(function (theNav) {
+    theNav.closeMobileNav();
+  });
+};
+
+/***/ }),
+
+/***/ "./core/src/js/components/main-nav/main-nav.js":
+/*!*****************************************************!*\
+  !*** ./core/src/js/components/main-nav/main-nav.js ***!
+  \*****************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ "./core/src/js/core/core.js");
+/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./globals */ "./core/src/js/components/main-nav/globals.js");
+/* harmony import */ var _Nav__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Nav */ "./core/src/js/components/main-nav/Nav.js");
+
+
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  // The css class that this following behaviour is applied to.
+  var navClass = 'su-main-nav';
+  // All main navs.
+  var navs = document.querySelectorAll('.' + navClass);
+
+  // Process each nav.
+  var firstZindex;
+  navs.forEach(function (nav, index) {
+    // Remove the class that formats the nav for browsers with javascript disabled.
+    nav.classList.remove('no-js');
+
+    // Create an instance of Nav, which in turn creates appropriate instances of NavItem.
+    var theNav = new _Nav__WEBPACK_IMPORTED_MODULE_2__["default"](nav);
+
+    // Remember the nav for closeAllMobileNavs().
+    _globals__WEBPACK_IMPORTED_MODULE_1__["theNavs"].push(theNav);
+
+    // Manage zindexes in case there are multiple navs near enough for subnavs to overlap.
+    // Rare, but it happens in the styleguide.
+    if (index === 0) {
+      firstZindex = getComputedStyle(nav, null).zIndex;
+    } else {
+      nav.style.zIndex = firstZindex - 300 * index;
+    }
+  }); // navs.forEach
+
+  // Clicking anywhere outside a nav closes all navs.
+  document.addEventListener('click', function (event) {
+    // The element that was clicked.
+    var target = event.target || event.srcElement;
+    // If target is not under a main nav close all navs.
+    if (!target.matches('.' + navClass + ' ' + target.tagName)) {
+      Object(_globals__WEBPACK_IMPORTED_MODULE_1__["closeAllSubNavs"])();
+      Object(_globals__WEBPACK_IMPORTED_MODULE_1__["closeAllMobileNavs"])();
+    }
+  }, false);
+}); // on DOMContentLoaded.
+
+/***/ }),
+
+/***/ "./core/src/js/components/nav/ActivePath.js":
+/*!**************************************************!*\
+  !*** ./core/src/js/components/nav/ActivePath.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ActivePath; });
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+/**
+ * ActivePath
+ *
+ * This class contains features and functionality for handling the finding and
+ * setting of the active trail of a menu.
+ */
+var ActivePath = /*#__PURE__*/function () {
+  /**
+   * Initialize.
+   *
+   * @param {HTMLElement} element The DOM object of the navigation menu.
+   * @param {Mixed} item          The Navigation Class.
+   * @param {Object} options      An optional object of meta information.
+   */
+  function ActivePath(element, item) {
+    var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+    _classCallCheck(this, ActivePath);
+    this.elem = element;
+    this.item = item;
+    // CSS Class properties.
+    this.itemActiveClass = options.itemActiveClass || 'active';
+    this.itemActiveTrailClass = options.itemActiveTrailClass || 'active-trail';
+    this.itemExpandedClass = options.itemExpandedClass || 'expanded';
+  }
+
+  /**
+   * Dynamically add an active path to the menu tree.
+   *
+   * Find all links with the current window's url and add the
+   * options.itemActiveClass class to the LI element container all the way up
+   * the menu tree back to the root.
+   */
+  _createClass(ActivePath, [{
+    key: "setActivePath",
+    value: function setActivePath() {
+      var path = window.location.pathname;
+      var anchor = window.location.hash || '';
+      var query = window.location.search || '';
+      var currentItem = false;
+
+      // Queries to run to find matching active paths in order of unqiueness.
+      var finders = [this.elem.querySelector("a[href*='" + anchor + "']"), this.elem.querySelector("a[href*='" + query + "']"), this.elem.querySelector("a[href='" + path + query + anchor + "']"), this.elem.querySelector("a[href*='" + path + query + "']")];
+
+      // Go through the queries and see if we have any results.
+      finders.forEach(function (val) {
+        if (!currentItem && val) {
+          currentItem = val;
+        }
+      });
+
+      // Can't find anything. End.
+      if (!currentItem) {
+        return;
+      }
+
+      // While we have parents go up and add the active class.
+      while (currentItem) {
+        // If we are on a LI element we need to add the active class.
+        if (currentItem.tagName === 'LI') {
+          currentItem.classList.add(this.itemActiveClass);
+          break;
+        }
+
+        // Always increment.
+        currentItem = currentItem.parentNode;
+      }
+    }
+
+    /**
+     * Expand all menus in the active path.
+     *
+     * After this.setActivePath() has been run or the itemActiveClass has been set
+     * on all the appropriate menu items go through the nav and expand the
+     * subNavItems that contain activeClass items.
+     */
+  }, {
+    key: "expandActivePath",
+    value: function expandActivePath() {
+      var _this = this;
+      var actives = this.elem.querySelectorAll('.' + this.itemActiveClass);
+      if (actives.length) {
+        actives.forEach(function (element) {
+          // While we have parents go up and add the active class.
+          while (element) {
+            // End when we get to the parent nav item stop.
+            if (element === _this.elem) {
+              // Stop at the top most level.
+              break;
+            }
+
+            // If we are on a LI element we need to add the active class.
+            if (element.tagName === 'LI') {
+              element.classList.add(_this.itemExpandedClass);
+              element.classList.add(_this.itemActiveTrailClass);
+              // "Hook" of sorts.
+              if (typeof _this.item.expandActivePathItem == 'function') {
+                _this.item.expandActivePathItem(element);
+              }
+            }
+
+            // Always increment.
+            element = element.parentNode;
+          }
+        });
+      }
+    }
+  }]);
+  return ActivePath;
+}();
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/nav/ElementFetcher.js":
+/*!******************************************************!*\
+  !*** ./core/src/js/components/nav/ElementFetcher.js ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return ElementFetcher; });
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+/**
+ * ElementFetcher Class
+ *
+ * Provides a relative named DOM navigator for quickly getting elements relative
+ * to the provided context.
+ */
+var ElementFetcher = /*#__PURE__*/function () {
+  /**
+   * Initialize.
+   *
+   * @param {HTMLElement} element   The DOM object to use.
+   * @param {String} what           A named string.
+   */
+  function ElementFetcher(element, what) {
+    _classCallCheck(this, ElementFetcher);
+    this.item = element;
+    this.what = what;
+  }
+
+  /**
+   * Attempt to retrieve an item.
+   *
+   * @return {Boolean|HTMLElement} An element or false if `what` is not found.
+   */
+  _createClass(ElementFetcher, [{
+    key: "fetch",
+    value: function fetch() {
+      try {
+        switch (this.what) {
+          case 'first':
+            return this.item.parentNode.firstElementChild.firstChild;
+          case 'last':
+            return this.item.parentNode.lastElementChild.firstChild;
+          case 'firstElement':
+            return this.item.parentNode.firstElementChild;
+          case 'lastElement':
+            return this.item.parentNode.lastElementChild;
+          case 'next':
+            return this.item.nextElementSibling.querySelector('a');
+          case 'prev':
+            return this.item.previousElementSibling.querySelector('a');
+          case 'nextElement':
+            return this.item.nextElementSibling;
+          case 'prevElement':
+            return this.item.previousElementSibling;
+          case 'parentItem':
+            var node = this.item.parentNode.parentNode;
+            if (node.tagName === 'NAV') {
+              return false;
+            }
+            return node.querySelector('a');
+          case 'parentButton':
+            return this.item.parentNode.parentNode.querySelector('button');
+          case 'parentNav':
+            return this.item.parentNode.parentNode;
+          case 'parentNavLast':
+            return this.item.parentNode.parentNode.parentNode.lastElementChild.querySelector('a');
+          case 'parentNavFirst':
+            return this.item.parentNode.parentNode.parentNode.firstElementChild.querySelector('a');
+          case 'parentNavNext':
+            return this.item.parentNode.parentNode.nextElementSibling;
+          case 'parentNavNextItem':
+            return this.item.parentNode.parentNode.nextElementSibling.querySelector('a');
+          case 'parentNavPrev':
+            return this.item.parentNode.parentNode.previousElementSibling;
+          case 'parentNavPrevItem':
+            return this.item.parentNode.parentNode.previousElementSibling.querySelector('a');
+          case 'firstSubnavLink':
+            return this.item.querySelector(':scope > ul li a');
+          case 'firstSubnavItem':
+            return this.item.querySelector(':scope > ul li');
+          case 'subnav':
+            return this.item.querySelector(':scope > ul');
+          default:
+            return false;
+        }
+      } catch (err) {
+        return false;
+      }
+    }
+  }]);
+  return ElementFetcher;
+}();
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/nav/EventHandlerDispatch.js":
+/*!************************************************************!*\
+  !*** ./core/src/js/components/nav/EventHandlerDispatch.js ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EventHandlerDispatch; });
+/* harmony import */ var _utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../utilities/keyboard */ "./core/src/js/utilities/keyboard.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+
+/**
+ * EventHandlerDispatch Class
+ *
+ * This class provides dynamic handling of click and keyboard events and can be
+ * attached to any class/HTMLElement.
+ */
+var EventHandlerDispatch = /*#__PURE__*/function () {
+  /**
+   * Initialize.
+   *
+   * @param {HTMLElement} element   The HTMLElement to bind listeners to.
+   * @param {type}      handler   The Javascript Class instance with the
+   *                                eventRegistry property.
+   */
+  function EventHandlerDispatch(element, handler) {
+    _classCallCheck(this, EventHandlerDispatch);
+    this.elem = element;
+    this.handler = handler;
+    this.createEventListeners();
+  }
+
+  /**
+   * Create new event listeners.
+   */
+  _createClass(EventHandlerDispatch, [{
+    key: "createEventListeners",
+    value: function createEventListeners() {
+      // What to do when a key is down?
+      this.elem.addEventListener('keydown', this);
+
+      // Listen to the click so we can act on it.
+      this.elem.addEventListener('click', this);
+
+      // Listen to custom events so we can act on it.
+      this.elem.addEventListener('preOpenSubnav', this);
+
+      // Listen to custom events so we can act on it.
+      this.elem.addEventListener('postOpenSubnav', this);
+    }
+
+    /**
+     * Handler for all events attached to an instance of this class.
+     *
+     * This method must exist when events are bound to an instance of a class
+     * (vs a function). This method is called for all events bound to an
+     * instance. It inspects the instance (this) for an appropriate handler
+     * based on the event type. If found, it dispatches the event to the
+     * appropriate handler.
+     *
+     * @param {Event} event - The triggering event.
+     */
+  }, {
+    key: "handleEvent",
+    value: function handleEvent(event) {
+      event = event || window.event;
+
+      // Create an event signature.
+      var eventMethod = 'on' + event.type.charAt(0).toUpperCase() + event.type.slice(1);
+
+      // What was clicked.
+      var target = event.target || event.srcElement;
+      if (eventMethod === 'onKeydown') {
+        this.onKeydown(event, target);
+      } else if (eventMethod === 'onClick') {
+        this.onClick(event, target);
+      } else {
+        this.callEvent(eventMethod, event, target);
+      }
+    }
+
+    /**
+     * Handler for keydown events.
+     *
+     * @param {KeyboardEvent} event - The keyboard event object.
+     * @param {HTMLElement} target  - The HTML element target.
+     */
+  }, {
+    key: "onKeydown",
+    value: function onKeydown(event, target) {
+      var theKey = event.key || event.keyCode;
+      var normalized = Object(_utilities_keyboard__WEBPACK_IMPORTED_MODULE_0__["normalizeKey"])(theKey);
+
+      // We don't know or need to handle the key that was pressed.
+      if (!normalized) {
+        return;
+      }
+
+      // Prepare a dynamic handler.
+      var eventMethod = 'onKeydown' + normalized.charAt(0).toUpperCase() + normalized.slice(1);
+
+      // Do eet.
+      this.callEvent(eventMethod, event, target);
+    }
+
+    /**
+     * Handler for click events.
+     *
+     * @param  {Event} event  A Javascript event.
+     * @param  {HTMLElement} target The target of the event.
+     */
+  }, {
+    key: "onClick",
+    value: function onClick(event, target) {
+      this.callEvent('onClick', event, target);
+    }
+
+    /**
+     * The event handler
+     *
+     * Initializes and executes an object to handle the Javascript Event as
+     * defined by the handlers eventRegistry.
+     *
+     * @param  {String} eventMethod A string key for the eventRegistry;
+     * @param  {Event} event        The Javascript event.
+     * @param  {HTMLElement} target The DOM object that the event is triggered on.
+     */
+  }, {
+    key: "callEvent",
+    value: function callEvent(eventMethod, event, target) {
+      if (typeof this.handler.eventRegistry[eventMethod] === 'function') {
+        var eventObj = new this.handler.eventRegistry[eventMethod](this.handler, event, target);
+        eventObj.init();
+      }
+    }
+  }]);
+  return EventHandlerDispatch;
+}();
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/accordion/SecondaryNavAccordion.js":
+/*!*********************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/accordion/SecondaryNavAccordion.js ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SecondaryNavAccordion; });
+/* harmony import */ var _common_SecondaryNavAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common/SecondaryNavAbstract */ "./core/src/js/components/secondary-nav/common/SecondaryNavAbstract.js");
+/* harmony import */ var _common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/SecondaryNavItem */ "./core/src/js/components/secondary-nav/common/SecondaryNavItem.js");
+/* harmony import */ var _SecondarySubNavAccordion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SecondarySubNavAccordion */ "./core/src/js/components/secondary-nav/accordion/SecondarySubNavAccordion.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+/**
+ * A secondary menu with accordion buttons.
+ */
+var SecondaryNavAccordion = /*#__PURE__*/function (_SecondaryNavAbstract) {
+  _inherits(SecondaryNavAccordion, _SecondaryNavAbstract);
+  var _super = _createSuper(SecondaryNavAccordion);
+  /**
+   * Initialize.
+   *
+   * @param {HTMLElement} elem  The outermost wrapper for the Navigation.
+   * @param {Object} options    An object of metadata.
+   */
+  function SecondaryNavAccordion(elem) {
+    var _this;
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    _classCallCheck(this, SecondaryNavAccordion);
+    // Let super do what super does.
+    _this = _super.call(this, elem, options);
+
+    // Ok do the creation.
+    _this.createSubNavItems();
+
+    // Expand the active path.
+    _this.activePath.expandActivePath();
+    return _this;
+  }
+
+  /**
+   * Add the additional state handling after the abstract option has run.
+   *
+   * @param  {HTMLElement} item The HTMLElement being acted upon.
+   */
+  _createClass(SecondaryNavAccordion, [{
+    key: "expandActivePathItem",
+    value: function expandActivePathItem(item) {
+      item.firstElementChild.setAttribute('aria-expanded', 'true');
+    }
+
+    /**
+     * Function for creating a new nested navigation item.
+     *
+     * @param  {HTMLElement} item     The HTMLElement to attach a new subnav to.
+     * @param  {Integer} depth        The level of nesting. (starts at 1)
+     * @param  {Object|Mixed} parent  The parent subnav instance.
+     *
+     * @return {SecondarySubNavAccordion} A brand new instance.
+     */
+  }, {
+    key: "newParentItem",
+    value: function newParentItem(item, depth, parent) {
+      var opts = this.options;
+      opts.depth = depth;
+      var nav = new _SecondarySubNavAccordion__WEBPACK_IMPORTED_MODULE_2__["default"](item, this, parent, opts);
+      this.subNavItems.push(nav);
+      return nav;
+    }
+
+    /**
+     * Function for creating a new single tier navigation item.
+     *
+     * @param  {HTMLElement} item     The HTMLElement to attach a new subnav to.
+     * @param  {Integer} depth        The level of nesting. (starts at 1)
+     * @param  {Object|Mixed} parent  The parent subnav instance.
+     *
+     * @return {SecondaryNavItem} A brand new instance.
+     */
+  }, {
+    key: "newNavItem",
+    value: function newNavItem(item, depth, parent) {
+      var opts = this.options;
+      opts.depth = depth;
+      var nav = new _common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_1__["default"](item, this, parent, opts);
+      this.navItems.push(nav);
+      return nav;
+    }
+  }]);
+  return SecondaryNavAccordion;
+}(_common_SecondaryNavAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/accordion/SecondarySubNavAccordion.js":
+/*!************************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/accordion/SecondarySubNavAccordion.js ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SecondarySubNavAccordion; });
+/* harmony import */ var _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../nav/EventHandlerDispatch */ "./core/src/js/components/nav/EventHandlerDispatch.js");
+/* harmony import */ var _events_OnClick__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events/OnClick */ "./core/src/js/components/secondary-nav/accordion/events/OnClick.js");
+/* harmony import */ var _common_events_OnHome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/events/OnHome */ "./core/src/js/components/secondary-nav/common/events/OnHome.js");
+/* harmony import */ var _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/events/OnEnd */ "./core/src/js/components/secondary-nav/common/events/OnEnd.js");
+/* harmony import */ var _common_events_OnTab__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../common/events/OnTab */ "./core/src/js/components/secondary-nav/common/events/OnTab.js");
+/* harmony import */ var _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/events/OnEsc */ "./core/src/js/components/secondary-nav/common/events/OnEsc.js");
+/* harmony import */ var _events_OnSpace__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./events/OnSpace */ "./core/src/js/components/secondary-nav/accordion/events/OnSpace.js");
+/* harmony import */ var _common_events_OnArrowUp__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/events/OnArrowUp */ "./core/src/js/components/secondary-nav/common/events/OnArrowUp.js");
+/* harmony import */ var _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./events/OnArrowRight */ "./core/src/js/components/secondary-nav/accordion/events/OnArrowRight.js");
+/* harmony import */ var _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../common/events/OnArrowDown */ "./core/src/js/components/secondary-nav/common/events/OnArrowDown.js");
+/* harmony import */ var _events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./events/OnArrowLeft */ "./core/src/js/components/secondary-nav/accordion/events/OnArrowLeft.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+// Click handler.
+
+// Keyboard events.
+
+
+
+
+
+
+
+
+
+
+/**
+ * SecondarySubNavAccordion Class
+ *
+ * A sub menu class for creating a menu with accordion functionality.
+ */
+var SecondarySubNavAccordion = /*#__PURE__*/function () {
+  /**
+   * Initialize.
+   *
+   * @param {HTMLElement} element     The container wrapper for the nav.
+   * @param {Object|Mixed} masterNav  The top most level navigation.
+   * @param {Object|Mixed} parentNav  The parent navigation instance if this
+   *                                  instance is nested.
+   * @param {Object} options          A meta object of information and options.
+   */
+  function SecondarySubNavAccordion(element, masterNav) {
+    var parentNav = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+    var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
+    _classCallCheck(this, SecondarySubNavAccordion);
+    // Vars.
+    this.elem = element;
+    this.item = element.parentNode;
+    this.masterNav = masterNav;
+    this.parentNav = parentNav;
+    this.depth = options.depth || 1;
+
+    // Merge in defaults.
+    this.options = Object.assign({
+      itemExpandedClass: 'su-secondary-nav__item--expanded'
+    }, options);
+
+    // Assign the event dispatcher and event registry.
+    this.eventRegistry = this.createEventRegistry(options);
+    this.dispatch = new _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_0__["default"](element, this);
+  }
+
+  /**
+   * Creates an event registry for handling types of events.
+   *
+   * This registry is used by the EventHandlerDispatch class to bind and
+   * execute the events in the created property key.
+   *
+   * @param  {Object} options Options to merge in with the defaults.
+   *
+   * @return {Object} A key/value registry of events and handlers.
+   */
+  _createClass(SecondarySubNavAccordion, [{
+    key: "createEventRegistry",
+    value: function createEventRegistry(options) {
+      var registryDefaults = {
+        onClick: _events_OnClick__WEBPACK_IMPORTED_MODULE_1__["default"],
+        onKeydownSpace: _events_OnSpace__WEBPACK_IMPORTED_MODULE_6__["default"],
+        onKeydownEnter: _events_OnSpace__WEBPACK_IMPORTED_MODULE_6__["default"],
+        onKeydownHome: _common_events_OnHome__WEBPACK_IMPORTED_MODULE_2__["default"],
+        onKeydownEnd: _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_3__["default"],
+        onKeydownTab: _common_events_OnTab__WEBPACK_IMPORTED_MODULE_4__["default"],
+        onKeydownEscape: _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_5__["default"],
+        onKeydownArrowUp: _common_events_OnArrowUp__WEBPACK_IMPORTED_MODULE_7__["default"],
+        onKeydownArrowRight: _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_8__["default"],
+        onKeydownArrowDown: _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_9__["default"],
+        onKeydownArrowLeft: _events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_10__["default"]
+      };
+      return Object.assign(registryDefaults, options.eventRegistry);
+    }
+
+    /**
+     * Is this expanded? Can only return TRUE if this is a subnav trigger.
+     *
+     * @return {Boolean}
+     *  Wether or not the item is expanded.
+     */
+  }, {
+    key: "isExpanded",
+    value: function isExpanded() {
+      return this.elem.getAttribute('aria-expanded') === 'true';
+    }
+
+    /**
+     * Handles the opening of a sub-nav.
+     *
+     * If this is a subnav trigger, open the corresponding subnav.
+     * Optionally force focus on the first element in the subnav
+     * (for keyboard nav).
+     */
+  }, {
+    key: "openSubNav",
+    value: function openSubNav() {
+      this.elem.setAttribute('aria-expanded', 'true');
+      this.item.classList.add(this.options.itemExpandedClass);
+    }
+
+    /**
+     * Handles the closing of a subnav.
+     *
+     * If this is a subnav trigger or an item in a subnav, close the
+     * corresponding subnav. Optionally force focus on the trigger.
+     */
+  }, {
+    key: "closeSubNav",
+    value: function closeSubNav() {
+      this.elem.setAttribute('aria-expanded', 'false');
+      this.item.classList.remove(this.options.itemExpandedClass);
+    }
+
+    /**
+     * Get the level of nesting for this nav.
+     *
+     * @return {Integer} The integer of depth starting at 1.
+     */
+  }, {
+    key: "getDepth",
+    value: function getDepth() {
+      return this.depth;
+    }
+  }]);
+  return SecondarySubNavAccordion;
+}();
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/accordion/events/OnArrowLeft.js":
+/*!******************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/accordion/events/OnArrowLeft.js ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowLeft; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+/* harmony import */ var _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../common/events/OnArrowLeft */ "./core/src/js/components/secondary-nav/common/events/OnArrowLeft.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+/**
+ * OnArrowLeft
+ *
+ * Event action handler class.
+ */
+var OnArrowLeft = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(OnArrowLeft, _EventAbstract);
+  var _super = _createSuper(OnArrowLeft);
+  function OnArrowLeft() {
+    _classCallCheck(this, OnArrowLeft);
+    return _super.apply(this, arguments);
+  }
+  _createClass(OnArrowLeft, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      // Go up a level and close the nav.
+      this.event.preventDefault();
+
+      // Previous nav parents link item to focus on.
+      var node = this.getElement('parentItem');
+      this.parentNav.closeSubNav();
+
+      // If we found a previous item focus on it.
+      if (node) {
+        node.focus();
+      }
+      // Overwise do what the navigate left option does.
+      else {
+        var otherLeft = new _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
+        otherLeft.init();
+      }
+    }
+  }]);
+  return OnArrowLeft;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/accordion/events/OnArrowRight.js":
+/*!*******************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/accordion/events/OnArrowRight.js ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowRight; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+/**
+ * OnArrowRight
+ *
+ * Event action handler class.
+ */
+var OnArrowRight = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(OnArrowRight, _EventAbstract);
+  var _super = _createSuper(OnArrowRight);
+  function OnArrowRight() {
+    _classCallCheck(this, OnArrowRight);
+    return _super.apply(this, arguments);
+  }
+  _createClass(OnArrowRight, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      // Go down a level and open the SubNav.
+      this.event.preventDefault();
+      this.item.openSubNav();
+      this.getElement('firstSubnavLink').focus();
+    }
+  }]);
+  return OnArrowRight;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/accordion/events/OnClick.js":
+/*!**************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/accordion/events/OnClick.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnClick; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+/**
+ * OnClick
+ *
+ * Event action handler class.
+ */
+var OnClick = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(OnClick, _EventAbstract);
+  var _super = _createSuper(OnClick);
+  function OnClick() {
+    _classCallCheck(this, OnClick);
+    return _super.apply(this, arguments);
+  }
+  _createClass(OnClick, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      this.event.stopPropagation();
+      this.event.preventDefault();
+      if (this.item.isExpanded()) {
+        this.item.closeSubNav();
+        // We blur then focus so that the browser announces the collapse to
+        // those using screen readers and other assistive devices.
+        this.elem.blur();
+        this.elem.focus();
+      } else {
+        this.item.openSubNav();
+      }
+    }
+  }]);
+  return OnClick;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/accordion/events/OnSpace.js":
+/*!**************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/accordion/events/OnSpace.js ***!
+  \**************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnSpace; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+/* harmony import */ var _OnClick__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OnClick */ "./core/src/js/components/secondary-nav/accordion/events/OnClick.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+/**
+ * OnSpace
+ *
+ * Event action handler class.
+ */
+var OnSpace = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(OnSpace, _EventAbstract);
+  var _super = _createSuper(OnSpace);
+  function OnSpace() {
+    _classCallCheck(this, OnSpace);
+    return _super.apply(this, arguments);
+  }
+  _createClass(OnSpace, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      this.event.preventDefault();
+
+      // Do the rest of the stuff click does.
+      var eventClick = new _OnClick__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
+      eventClick.init();
+
+      // Focus on the first element for keyboard but not clicks.
+      if (this.item.isExpanded()) {
+        this.getElement('firstSubnavLink').focus();
+      }
+    }
+  }]);
+  return OnSpace;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/SecondaryNavButtons.js":
+/*!*****************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/SecondaryNavButtons.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SecondaryNavButtons; });
+/* harmony import */ var _common_SecondaryNavAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common/SecondaryNavAbstract */ "./core/src/js/components/secondary-nav/common/SecondaryNavAbstract.js");
+/* harmony import */ var _common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../common/SecondaryNavItem */ "./core/src/js/components/secondary-nav/common/SecondaryNavItem.js");
+/* harmony import */ var _SecondarySubNavButtons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SecondarySubNavButtons */ "./core/src/js/components/secondary-nav/buttons/SecondarySubNavButtons.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+/**
+ * A secondary menu with toggle buttons.
+ */
+var SecondaryNavButtons = /*#__PURE__*/function (_SecondaryNavAbstract) {
+  _inherits(SecondaryNavButtons, _SecondaryNavAbstract);
+  var _super = _createSuper(SecondaryNavButtons);
+  /**
+   * Initialize.
+   *
+   * @param {HTMLElement} elem  The outermost wrapper for the Navigation.
+   * @param {Object} options    An object of metadata.
+   */
+  function SecondaryNavButtons(elem) {
+    var _this;
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    _classCallCheck(this, SecondaryNavButtons);
+    // Merge with the default options.
+    options = Object.assign({
+      itemExpandedClass: 'su-secondary-nav__item--expanded',
+      toggleClass: 'su-nav-toggle',
+      toggleLabel: 'expand menu',
+      subNavToggleText: '+'
+    }, options);
+
+    // Call the super.
+    _this = _super.call(this, elem, options);
+
+    // Ok do the creation.
+    _this.createSubNavItems();
+
+    // Expand the path.
+    _this.activePath.expandActivePath();
+    return _this;
+  }
+
+  /**
+   * Add the additional state handling after the abstract option has run.
+   *
+   * @param  {HTMLElement} item The HTMLElement being acted upon.
+   */
+  _createClass(SecondaryNavButtons, [{
+    key: "expandActivePathItem",
+    value: function expandActivePathItem(item) {
+      var node = item.querySelector('.' + this.options.toggleClass);
+      if (node) {
+        node.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    /**
+     * Function for creating a new nested navigation item.
+     *
+     * @param  {HTMLElement} item     The HTMLElement to attach a new subnav to.
+     * @param  {Integer} depth        The level of nesting. (starts at 1)
+     * @param  {Object|Mixed} parent  The parent subnav instance.
+     *
+     * @return {SecondarySubNavButtons} A brand new instance.
+     */
+  }, {
+    key: "newParentItem",
+    value: function newParentItem(item, depth, parent) {
+      var nav = new _SecondarySubNavButtons__WEBPACK_IMPORTED_MODULE_2__["default"](item, this, parent, {
+        itemExpandedClass: this.options.itemExpandedClass,
+        depth: depth
+      });
+      this.subNavItems.push(nav);
+      return nav;
+    }
+
+    /**
+     * Function for creating a new single tier navigation item.
+     *
+     * @param  {HTMLElement} item     The HTMLElement to attach a new subnav to.
+     * @param  {Integer} depth        The level of nesting. (starts at 1)
+     * @param  {Object|Mixed} parent  The parent subnav instance.
+     *
+     * @return {SecondaryNavItem} A brand new instance.
+     */
+  }, {
+    key: "newNavItem",
+    value: function newNavItem(item, depth, parent) {
+      var nav = new _common_SecondaryNavItem__WEBPACK_IMPORTED_MODULE_1__["default"](item, this, parent, {
+        depth: depth
+      });
+      this.navItems.push(nav);
+      return nav;
+    }
+  }]);
+  return SecondaryNavButtons;
+}(_common_SecondaryNavAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/SecondarySubNavButtons.js":
+/*!********************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/SecondarySubNavButtons.js ***!
+  \********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SecondarySubNavButtons; });
+/* harmony import */ var _SubNavToggle__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SubNavToggle */ "./core/src/js/components/secondary-nav/buttons/SubNavToggle.js");
+/* harmony import */ var _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../nav/EventHandlerDispatch */ "./core/src/js/components/nav/EventHandlerDispatch.js");
+/* harmony import */ var _common_events_OnHome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/events/OnHome */ "./core/src/js/components/secondary-nav/common/events/OnHome.js");
+/* harmony import */ var _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/events/OnEnd */ "./core/src/js/components/secondary-nav/common/events/OnEnd.js");
+/* harmony import */ var _events_OnTab__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./events/OnTab */ "./core/src/js/components/secondary-nav/buttons/events/OnTab.js");
+/* harmony import */ var _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../common/events/OnEsc */ "./core/src/js/components/secondary-nav/common/events/OnEsc.js");
+/* harmony import */ var _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/events/OnSpace */ "./core/src/js/components/secondary-nav/common/events/OnSpace.js");
+/* harmony import */ var _common_events_OnArrowUp__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/events/OnArrowUp */ "./core/src/js/components/secondary-nav/common/events/OnArrowUp.js");
+/* harmony import */ var _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./events/OnArrowRight */ "./core/src/js/components/secondary-nav/buttons/events/OnArrowRight.js");
+/* harmony import */ var _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../common/events/OnArrowDown */ "./core/src/js/components/secondary-nav/common/events/OnArrowDown.js");
+/* harmony import */ var _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../common/events/OnArrowLeft */ "./core/src/js/components/secondary-nav/common/events/OnArrowLeft.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+// Events
+
+// Keyboard events.
+
+
+
+
+
+
+
+
+
+
+/**
+ * SecondarySubNavButtons Class
+ *
+ * A sub menu class for creating a menu with toggle button functionality.
+ */
+var SecondarySubNavButtons = /*#__PURE__*/function () {
+  /**
+   * Initialize.
+   *
+   * @param {HTMLElement} element     The container wrapper for the nav.
+   * @param {Object|Mixed} masterNav  The top most level navigation.
+   * @param {Object|Mixed} parentNav  The parent navigation instance if this
+   *                                  instance is nested.
+   * @param {Object} options          A meta object of information and options.
+   */
+  function SecondarySubNavButtons(element, masterNav) {
+    var parentNav = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+    var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
+    _classCallCheck(this, SecondarySubNavButtons);
+    // Vars.
+    this.elem = element;
+    this.item = element.parentNode;
+    this.masterNav = masterNav;
+    this.parentNav = parentNav;
+    this.depth = options.depth || 1;
+
+    // Merge in defaults.
+    this.options = Object.assign({
+      itemExpandedClass: 'su-secondary-nav__item--expanded',
+      toggleClass: 'su-nav-toggle',
+      toggleLabel: 'expand menu',
+      subNavToggleText: '+'
+    }, options);
+
+    // Assign the event dispatcher and event registry.
+    this.eventRegistry = this.createEventRegistry(options);
+    this.dispatch = new _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_1__["default"](element, this);
+
+    // Create the toggle buttons.
+    this.toggleElement = this.createToggleButton();
+    this.item.insertBefore(this.toggleElement, this.item.querySelector('ul'));
+    this.toggle = new _SubNavToggle__WEBPACK_IMPORTED_MODULE_0__["default"](this.toggleElement, this, options);
+  }
+
+  /**
+   * Creates an event registry for handling types of events.
+   *
+   * This registry is used by the EventHandlerDispatch class to bind and
+   * execute the events in the created property key.
+   *
+   * @param  {Object} options Options to merge in with the defaults.
+   *
+   * @return {Object} A key/value registry of events and handlers.
+   */
+  _createClass(SecondarySubNavButtons, [{
+    key: "createEventRegistry",
+    value: function createEventRegistry(options) {
+      var registryDefaults = {
+        onKeydownSpace: _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_6__["default"],
+        onKeydownEnter: _common_events_OnSpace__WEBPACK_IMPORTED_MODULE_6__["default"],
+        onKeydownHome: _common_events_OnHome__WEBPACK_IMPORTED_MODULE_2__["default"],
+        onKeydownEnd: _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_3__["default"],
+        onKeydownTab: _events_OnTab__WEBPACK_IMPORTED_MODULE_4__["default"],
+        onKeydownEscape: _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_5__["default"],
+        onKeydownArrowUp: _common_events_OnArrowUp__WEBPACK_IMPORTED_MODULE_7__["default"],
+        onKeydownArrowRight: _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_8__["default"],
+        onKeydownArrowDown: _common_events_OnArrowDown__WEBPACK_IMPORTED_MODULE_9__["default"],
+        onKeydownArrowLeft: _common_events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_10__["default"]
+      };
+      return Object.assign(registryDefaults, options.eventRegistry);
+    }
+
+    /**
+     * Create and a button for the expand/collapse actions.
+     *
+     * @return {HTMLElement} The button toggle.
+     */
+  }, {
+    key: "createToggleButton",
+    value: function createToggleButton() {
+      var element = document.createElement('button');
+      var label = document.createTextNode(this.options.toggleText);
+
+      // Give this instance a unique ID.
+      var id = 'toggle-' + Math.random().toString(36).substr(2, 9);
+      element.setAttribute('class', this.options.toggleClass);
+      element.setAttribute('aria-expanded', 'false');
+      // element.setAttribute('aria-controls', this.subNav.id);
+      element.setAttribute('aria-label', this.options.toggleLabel);
+      element.setAttribute('id', id);
+      element.appendChild(label);
+      return element;
+    }
+
+    /**
+     * Is this expanded? Can only return TRUE if this is a subnav trigger.
+     *
+     * @return {Boolean}
+     *  Wether or not the item is expanded.
+     */
+  }, {
+    key: "isExpanded",
+    value: function isExpanded() {
+      return this.toggleElement.getAttribute('aria-expanded') === 'true';
+    }
+
+    /**
+     * Handles the opening of a sub-nav.
+     *
+     * If this is a subnav trigger, open the corresponding subnav.
+     * Optionally force focus on the first element in the subnav
+     * (for keyboard nav).
+     */
+  }, {
+    key: "openSubNav",
+    value: function openSubNav() {
+      this.toggleElement.setAttribute('aria-expanded', true);
+      this.item.classList.add(this.options.itemExpandedClass);
+    }
+
+    /**
+     * Handles the closing of a subnav.
+     *
+     * If this is a subnav trigger or an item in a subnav, close the
+     * corresponding subnav. Optionally force focus on the trigger.
+     */
+  }, {
+    key: "closeSubNav",
+    value: function closeSubNav() {
+      this.toggleElement.setAttribute('aria-expanded', false);
+      this.item.classList.remove(this.options.itemExpandedClass);
+    }
+
+    /**
+     * Get the level of nesting for this nav.
+     *
+     * @return {Integer} The integer of depth starting at 1.
+     */
+  }, {
+    key: "getDepth",
+    value: function getDepth() {
+      return this.depth;
+    }
+  }]);
+  return SecondarySubNavButtons;
+}();
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/SubNavToggle.js":
+/*!**********************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/SubNavToggle.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SubNavToggle; });
+/* harmony import */ var _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../nav/EventHandlerDispatch */ "./core/src/js/components/nav/EventHandlerDispatch.js");
+/* harmony import */ var _events_SubNavToggleClick__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events/SubNavToggleClick */ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleClick.js");
+/* harmony import */ var _events_SubNavToggleSpace__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./events/SubNavToggleSpace */ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleSpace.js");
+/* harmony import */ var _events_SubNavToggleArrowDown__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./events/SubNavToggleArrowDown */ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowDown.js");
+/* harmony import */ var _events_SubNavToggleArrowLeft__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./events/SubNavToggleArrowLeft */ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowLeft.js");
+/* harmony import */ var _events_SubNavToggleArrowUp__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./events/SubNavToggleArrowUp */ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowUp.js");
+/* harmony import */ var _common_events_OnHome__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../common/events/OnHome */ "./core/src/js/components/secondary-nav/common/events/OnHome.js");
+/* harmony import */ var _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../common/events/OnEnd */ "./core/src/js/components/secondary-nav/common/events/OnEnd.js");
+/* harmony import */ var _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../common/events/OnEsc */ "./core/src/js/components/secondary-nav/common/events/OnEsc.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+// Events
+
+
+
+
+
+
+
+
+
+/**
+ * A stoggle button.
+ */
+var SubNavToggle = /*#__PURE__*/function () {
+  /**
+   * Initialize.
+   *
+   * @param {HTMLElement} element   The element to bind to.
+   * @param {Object|Mixed} item     The parent nav instance.
+   * @param {Object} options        Mixed meta information.
+   */
+  function SubNavToggle(element, item, options) {
+    _classCallCheck(this, SubNavToggle);
+    this.parentNav = item;
+    this.masterNav = item.masterNav;
+    this.toggle = element;
+    this.elem = element;
+    this.options = options;
+
+    // Assign the event dispatcher and event registry.
+    this.eventRegistry = this.createEventRegistry(options);
+    this.dispatch = new _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_0__["default"](element, this);
+  }
+
+  /**
+   * Creates an event registry for handling types of events.
+   *
+   * This registry is used by the EventHandlerDispatch class to bind and
+   * execute the events in the created property key.
+   *
+   * @param  {Object} options Options to merge in with the defaults.
+   *
+   * @return {Object} A key/value registry of events and handlers.
+   */
+  _createClass(SubNavToggle, [{
+    key: "createEventRegistry",
+    value: function createEventRegistry(options) {
+      var registryDefaults = {
+        onClick: _events_SubNavToggleClick__WEBPACK_IMPORTED_MODULE_1__["default"],
+        onKeydownSpace: _events_SubNavToggleSpace__WEBPACK_IMPORTED_MODULE_2__["default"],
+        onKeydownEnter: _events_SubNavToggleSpace__WEBPACK_IMPORTED_MODULE_2__["default"],
+        onKeydownHome: _common_events_OnHome__WEBPACK_IMPORTED_MODULE_6__["default"],
+        onKeydownEnd: _common_events_OnEnd__WEBPACK_IMPORTED_MODULE_7__["default"],
+        onKeydownEscape: _common_events_OnEsc__WEBPACK_IMPORTED_MODULE_8__["default"],
+        onKeydownArrowUp: _events_SubNavToggleArrowUp__WEBPACK_IMPORTED_MODULE_5__["default"],
+        onKeydownArrowRight: _events_SubNavToggleSpace__WEBPACK_IMPORTED_MODULE_2__["default"],
+        onKeydownArrowDown: _events_SubNavToggleArrowDown__WEBPACK_IMPORTED_MODULE_3__["default"],
+        onKeydownArrowLeft: _events_SubNavToggleArrowLeft__WEBPACK_IMPORTED_MODULE_4__["default"]
+      };
+      return Object.assign(registryDefaults, options.eventRegistry);
+    }
+  }]);
+  return SubNavToggle;
+}();
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/events/OnArrowRight.js":
+/*!*****************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/events/OnArrowRight.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowRight; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+/**
+ * OnArrowRight
+ *
+ * Event action handler class.
+ */
+var OnArrowRight = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(OnArrowRight, _EventAbstract);
+  var _super = _createSuper(OnArrowRight);
+  function OnArrowRight() {
+    _classCallCheck(this, OnArrowRight);
+    return _super.apply(this, arguments);
+  }
+  _createClass(OnArrowRight, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      this.item.toggleElement.focus();
+    }
+  }]);
+  return OnArrowRight;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/events/OnTab.js":
+/*!**********************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/events/OnTab.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnTab; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+/**
+ * OnTab
+ *
+ * Event action handler class.
+ */
+var OnTab = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(OnTab, _EventAbstract);
+  var _super = _createSuper(OnTab);
+  function OnTab() {
+    _classCallCheck(this, OnTab);
+    return _super.apply(this, arguments);
+  }
+  _createClass(OnTab, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      // Only act on backwards options as we want to allow the tab to go
+      // to the toggle.
+      var shifted = event.shiftKey;
+      if (!shifted) {
+        if (!this.getElement('nextElement') && this.item.getDepth() === 1) {
+          this.masterNav.closeAllSubNavs();
+        }
+        return;
+      }
+
+      // If no previous element we are going up a level and should close
+      // up behind us.
+      var node = this.getElement('prev');
+      if (!node) {
+        this.parentNav.closeSubNav();
+      }
+    }
+  }]);
+  return OnTab;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowDown.js":
+/*!**************************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowDown.js ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SubNavToggleArrowDown; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+/**
+ * SubNavToggleArrowDown
+ *
+ * Event action handler class.
+ */
+var SubNavToggleArrowDown = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(SubNavToggleArrowDown, _EventAbstract);
+  var _super = _createSuper(SubNavToggleArrowDown);
+  function SubNavToggleArrowDown() {
+    _classCallCheck(this, SubNavToggleArrowDown);
+    return _super.apply(this, arguments);
+  }
+  _createClass(SubNavToggleArrowDown, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      this.event.preventDefault();
+
+      // If on the toggle item and the menu is expanded go down in to the first
+      // menu item link as the focus.
+      if (this.parentNav.isExpanded()) {
+        event.stopPropagation();
+        event.preventDefault();
+        this.getElement('firstSubnavLink').focus();
+      }
+      // If current focus is on the toggle and the menu is not open, go to the
+      // next sibling menu item.
+      else {
+        var node = this.getElement('next') || this.getElement('parentNavNext') || this.getElement('last');
+        if (node) {
+          node.focus();
+        }
+      }
+    }
+  }]);
+  return SubNavToggleArrowDown;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowLeft.js":
+/*!**************************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowLeft.js ***!
+  \**************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SubNavToggleArrowLeft; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+/**
+ * SubNavToggleArrowLeft
+ *
+ * Event action handler class.
+ */
+var SubNavToggleArrowLeft = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(SubNavToggleArrowLeft, _EventAbstract);
+  var _super = _createSuper(SubNavToggleArrowLeft);
+  function SubNavToggleArrowLeft() {
+    _classCallCheck(this, SubNavToggleArrowLeft);
+    return _super.apply(this, arguments);
+  }
+  _createClass(SubNavToggleArrowLeft, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      event.stopPropagation();
+      event.preventDefault();
+      this.parentNav.elem.focus();
+    }
+  }]);
+  return SubNavToggleArrowLeft;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowUp.js":
+/*!************************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/events/SubNavToggleArrowUp.js ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SubNavToggleArrowUp; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+/**
+ * SubNavToggleArrowUp
+ *
+ * Event action handler class.
+ */
+var SubNavToggleArrowUp = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(SubNavToggleArrowUp, _EventAbstract);
+  var _super = _createSuper(SubNavToggleArrowUp);
+  function SubNavToggleArrowUp() {
+    _classCallCheck(this, SubNavToggleArrowUp);
+    return _super.apply(this, arguments);
+  }
+  _createClass(SubNavToggleArrowUp, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      this.event.preventDefault();
+
+      // If the current focus is on the toggle and the menu is expanded, close
+      // this nav menu and go to the parent list item.
+      if (this.parentNav.isExpanded()) {
+        event.stopPropagation();
+        event.preventDefault();
+        this.parentNav.closeSubNav();
+        this.getElement('parentItem').focus();
+      }
+      // If the focus is on the toggle and the menu is not expanded, go to the
+      // previous sibling item by calling the super method.
+      else {
+        var node = this.getElement('prev') || this.getElement('parentNavPrev') || this.getElement('first');
+        if (node) {
+          node.focus();
+        }
+      }
+    }
+  }]);
+  return SubNavToggleArrowUp;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleClick.js":
+/*!**********************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/events/SubNavToggleClick.js ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SubNavToggleClick; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+/**
+ * SubNavToggleClick
+ *
+ * Event action handler class.
+ */
+var SubNavToggleClick = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(SubNavToggleClick, _EventAbstract);
+  var _super = _createSuper(SubNavToggleClick);
+  function SubNavToggleClick() {
+    _classCallCheck(this, SubNavToggleClick);
+    return _super.apply(this, arguments);
+  }
+  _createClass(SubNavToggleClick, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      if (this.parentNav.isExpanded()) {
+        this.parentNav.closeSubNav();
+        this.elem.blur();
+        this.elem.focus();
+      } else {
+        this.parentNav.openSubNav();
+      }
+    }
+  }]);
+  return SubNavToggleClick;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleSpace.js":
+/*!**********************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/buttons/events/SubNavToggleSpace.js ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SubNavToggleSpace; });
+/* harmony import */ var _common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common/events/EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+/* harmony import */ var _SubNavToggleClick__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SubNavToggleClick */ "./core/src/js/components/secondary-nav/buttons/events/SubNavToggleClick.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+/**
+ * SubNavToggleSpace
+ *
+ * Event action handler class.
+ */
+var SubNavToggleSpace = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(SubNavToggleSpace, _EventAbstract);
+  var _super = _createSuper(SubNavToggleSpace);
+  function SubNavToggleSpace() {
+    _classCallCheck(this, SubNavToggleSpace);
+    return _super.apply(this, arguments);
+  }
+  _createClass(SubNavToggleSpace, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      // No jumping around.
+      this.event.preventDefault();
+
+      // Call the click because it is pretty much the same thing.
+      var eventClick = new _SubNavToggleClick__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
+      eventClick.init();
+
+      // Only focus on keyboard nav not on click.
+      if (this.parentNav.isExpanded()) {
+        var node = this.getElement('firstSubnavLink');
+        if (node) {
+          node.focus();
+        }
+      }
+    }
+  }]);
+  return SubNavToggleSpace;
+}(_common_events_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/common/SecondaryNavAbstract.js":
+/*!*****************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/common/SecondaryNavAbstract.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SecondaryNavAbstract; });
+/* harmony import */ var _nav_ActivePath__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../nav/ActivePath */ "./core/src/js/components/nav/ActivePath.js");
+/* harmony import */ var _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../nav/EventHandlerDispatch */ "./core/src/js/components/nav/EventHandlerDispatch.js");
+/* harmony import */ var _events_OnEsc__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./events/OnEsc */ "./core/src/js/components/secondary-nav/common/events/OnEsc.js");
+/* harmony import */ var _events_OnSpace__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./events/OnSpace */ "./core/src/js/components/secondary-nav/common/events/OnSpace.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+
+
+
+
+/**
+ * SecondaryNav Class
+ *
+ * The most abstract version of a SecondaryNav. All Nav types should extend
+ * this class in order to have a psuedo interface and default methods.
+ */
+var SecondaryNavAbstract = /*#__PURE__*/function () {
+  /**
+   * Nav Abstract Constructor class.
+   *
+   * @param {HTMLElement} element    The html element to use as the parent for the nav list.
+   * @param {Object} options      An object with key value pairs of configuration options.
+   */
+  function SecondaryNavAbstract(element) {
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    _classCallCheck(this, SecondaryNavAbstract);
+    // What HTML element this is bound to.
+    this.elem = element;
+
+    // Set some default options.
+    var defaultOptions = {
+      itemClass: 'su-secondary-nav__item',
+      itemExpandedClass: 'su-secondary-nav__item--expanded',
+      itemActiveClass: 'su-secondary-nav__item--current',
+      itemActiveTrailClass: 'su-secondary-nav__item--active-trail',
+      itemParentClass: 'su-secondary-nav__item--parent',
+      eventRegistry: {}
+    };
+
+    // Merge with passed in options.
+    this.options = Object.assign(defaultOptions, options);
+
+    // Remove the no-js class.
+    this.elem.classList.remove('no-js');
+
+    // Assign the event dispatcher and event registry.
+    this.eventRegistry = this.createEventRegistry(options);
+    this.dispatch = new _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_1__["default"](element, this);
+
+    // Handle the active state.
+    this.activePath = new _nav_ActivePath__WEBPACK_IMPORTED_MODULE_0__["default"](element, this, this.options);
+    this.activePath.setActivePath();
+
+    // Helper Item Variables.
+    this.navItems = [];
+    this.subNavItems = [];
+    this.parentItemSelector = ':scope > ul > .' + this.options.itemParentClass;
+    this.navItemSelector = ':scope > ul > .' + this.options.itemClass + ':not(.' + this.options.itemParentClass + ')';
+  }
+
+  /**
+   * Add the additional state handling after the abstract option has run.
+   *
+   * @param  {HTMLElement} item The HTMLElement being acted upon.
+   */
+  _createClass(SecondaryNavAbstract, [{
+    key: "expandActivePathItem",
+    value: function expandActivePathItem(item) {
+      // For any additional items outside of the core functions.
+    }
+
+    /**
+     * Creates an event registry for handling types of events.
+     *
+     * This registry is used by the EventHandlerDispatch class to bind and
+     * execute the events in the created property key.
+     *
+     * @param  {Object} options Options to merge in with the defaults.
+     *
+     * @return {Object} A key/value registry of events and handlers.
+     */
+  }, {
+    key: "createEventRegistry",
+    value: function createEventRegistry(options) {
+      var registryDefaults = {
+        onKeydownEscape: _events_OnEsc__WEBPACK_IMPORTED_MODULE_2__["default"],
+        onKeydownSpace: _events_OnSpace__WEBPACK_IMPORTED_MODULE_3__["default"]
+      };
+      return Object.assign(registryDefaults, options.eventRegistry);
+    }
+
+    /**
+     * Kickoff method for generating single and multi-tier nav instances.
+     */
+  }, {
+    key: "createSubNavItems",
+    value: function createSubNavItems() {
+      // Find all the single and multi-tier items.
+      var parentItems = this.elem.querySelectorAll(this.parentItemSelector);
+      var leafItems = this.elem.querySelectorAll(this.navItemSelector);
+
+      // Sub Nav Items.
+      if (parentItems.length >= 1) {
+        this.createParentItems(parentItems);
+      }
+
+      // Regular Ol Items.
+      if (leafItems.length >= 1) {
+        this.createNavItems(leafItems);
+      }
+    }
+
+    /**
+     * Recursive loop for creating nested navigation instances.
+     *
+     * @param  {NodeList} items A set of sibling parent menu items.
+     * @param  {Number} depth The current depth of recursion.
+     * @param  {Object|Mixed} parentMenu The instance of the parent menu.
+     */
+  }, {
+    key: "createParentItems",
+    value: function createParentItems(items) {
+      var _this = this;
+      var depth = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+      var parentMenu = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+      items.forEach(function (item) {
+        var itemLink = item.querySelector('a');
+        var parentItems = item.querySelectorAll(_this.parentItemSelector);
+        var leafItems = item.querySelectorAll(_this.navItemSelector);
+        var nextDepth = depth + 1;
+        var parentNav = null;
+
+        // If we have a link add to it.
+        if (itemLink) {
+          parentNav = _this.newParentItem(itemLink, depth, parentMenu);
+        }
+
+        // Nested Sub Nav Items.
+        if (parentItems.length >= 1) {
+          _this.createParentItems(parentItems, nextDepth, parentNav);
+        }
+
+        // Nested Nav Items.
+        if (leafItems.length >= 1) {
+          _this.createNavItems(leafItems, nextDepth, parentNav);
+        }
+      });
+    }
+
+    /**
+     * Recursive loop for creating single level navigation instances.
+     *
+     * @param  {NodeList} items A set of sibling parent menu items.
+     * @param  {Number} depth The current depth of recursion.
+     * @param  {Object|Mixed} parentMenu The instance of the parent menu.
+     */
+  }, {
+    key: "createNavItems",
+    value: function createNavItems(items) {
+      var _this2 = this;
+      var depth = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+      var parentMenu = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+      items.forEach(function (item) {
+        var itemLink = item.querySelector('a');
+        if (itemLink) {
+          _this2.newNavItem(itemLink, depth, parentMenu);
+        }
+      });
+    }
+
+    /**
+     * Close all subNavItems in this Nav.
+     */
+  }, {
+    key: "closeAllSubNavs",
+    value: function closeAllSubNavs() {
+      this.subNavItems.forEach(function (item, event) {
+        item.closeSubNav();
+      });
+    }
+
+    /**
+     * Close only this subnav.
+     */
+  }, {
+    key: "closeSubNav",
+    value: function closeSubNav() {
+      this.closeAllSubNavs();
+    }
+  }]);
+  return SecondaryNavAbstract;
+}();
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/common/SecondaryNavItem.js":
+/*!*************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/common/SecondaryNavItem.js ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SecondaryNavItem; });
+/* harmony import */ var _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../nav/EventHandlerDispatch */ "./core/src/js/components/nav/EventHandlerDispatch.js");
+/* harmony import */ var _events_OnArrowDown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./events/OnArrowDown */ "./core/src/js/components/secondary-nav/common/events/OnArrowDown.js");
+/* harmony import */ var _events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./events/OnArrowLeft */ "./core/src/js/components/secondary-nav/common/events/OnArrowLeft.js");
+/* harmony import */ var _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./events/OnArrowRight */ "./core/src/js/components/secondary-nav/common/events/OnArrowRight.js");
+/* harmony import */ var _events_OnArrowUp__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./events/OnArrowUp */ "./core/src/js/components/secondary-nav/common/events/OnArrowUp.js");
+/* harmony import */ var _events_OnEnd__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./events/OnEnd */ "./core/src/js/components/secondary-nav/common/events/OnEnd.js");
+/* harmony import */ var _events_OnEsc__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./events/OnEsc */ "./core/src/js/components/secondary-nav/common/events/OnEsc.js");
+/* harmony import */ var _events_OnHome__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./events/OnHome */ "./core/src/js/components/secondary-nav/common/events/OnHome.js");
+/* harmony import */ var _events_OnEnter__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./events/OnEnter */ "./core/src/js/components/secondary-nav/common/events/OnEnter.js");
+/* harmony import */ var _events_OnSpace__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./events/OnSpace */ "./core/src/js/components/secondary-nav/common/events/OnSpace.js");
+/* harmony import */ var _events_OnTab__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./events/OnTab */ "./core/src/js/components/secondary-nav/common/events/OnTab.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+
+// Keyboard control events.
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * SecondaryNav Class
+ */
+var SecondaryNavItem = /*#__PURE__*/function () {
+  /**
+   * Initialize.
+   *
+   * @param {HTMLElement} element      The HTMLElement to bind to.
+   * @param {Object|Mixed} masterNav   The top most navigation instance.
+   * @param {Object|Mixed} parentNav   The parent nav instance if available.
+   * @param {Object} options           An object of metadata.
+   */
+  function SecondaryNavItem(element, masterNav) {
+    var parentNav = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
+    var options = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : {};
+    _classCallCheck(this, SecondaryNavItem);
+    this.elem = element;
+    this.item = element.parentNode;
+    this.masterNav = masterNav;
+    this.parentNav = parentNav;
+    this.depth = options.depth || 1;
+
+    // Assign the event dispatcher and event registry.
+    this.eventRegistry = this.createEventRegistry(options);
+    this.dispatch = new _nav_EventHandlerDispatch__WEBPACK_IMPORTED_MODULE_0__["default"](element, this);
+  }
+
+  /**
+   * Creates an event registry for handling types of events.
+   *
+   * This registry is used by the EventHandlerDispatch class to bind and
+   * execute the events in the created property key.
+   *
+   * @param  {Object} options Options to merge in with the defaults.
+   *
+   * @return {Object} A key/value registry of events and handlers.
+   */
+  _createClass(SecondaryNavItem, [{
+    key: "createEventRegistry",
+    value: function createEventRegistry(options) {
+      var registryDefaults = {
+        onKeydownHome: _events_OnHome__WEBPACK_IMPORTED_MODULE_7__["default"],
+        onKeydownEnd: _events_OnEnd__WEBPACK_IMPORTED_MODULE_5__["default"],
+        onKeydownTab: _events_OnTab__WEBPACK_IMPORTED_MODULE_10__["default"],
+        onKeydownSpace: _events_OnSpace__WEBPACK_IMPORTED_MODULE_9__["default"],
+        onKeydownEnter: _events_OnEnter__WEBPACK_IMPORTED_MODULE_8__["default"],
+        onKeydownEscape: _events_OnEsc__WEBPACK_IMPORTED_MODULE_6__["default"],
+        onKeydownArrowUp: _events_OnArrowUp__WEBPACK_IMPORTED_MODULE_4__["default"],
+        onKeydownArrowRight: _events_OnArrowRight__WEBPACK_IMPORTED_MODULE_3__["default"],
+        onKeydownArrowDown: _events_OnArrowDown__WEBPACK_IMPORTED_MODULE_1__["default"],
+        onKeydownArrowLeft: _events_OnArrowLeft__WEBPACK_IMPORTED_MODULE_2__["default"]
+      };
+      return Object.assign(registryDefaults, options.eventRegistry);
+    }
+
+    /**
+     * Get the level of nesting for this nav.
+     *
+     * @return {Integer} The integer of depth starting at 1.
+     */
+  }, {
+    key: "getDepth",
+    value: function getDepth() {
+      return this.depth;
+    }
+  }]);
+  return SecondaryNavItem;
+}();
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js":
+/*!*****************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/common/events/EventAbstract.js ***!
+  \*****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return EventAbstract; });
+/* harmony import */ var _nav_ElementFetcher__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../nav/ElementFetcher */ "./core/src/js/components/nav/ElementFetcher.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+
+
+/**
+ * EventAbstract
+ *
+ * An abstract class for creating an interface for working with the
+ * EventHandlerDispatch class. This is the signature for all instances
+ * that are evoked through the eventRegistry.
+ */
+var EventAbstract = /*#__PURE__*/function () {
+  /**
+   * Initialize.
+   *
+   * @param {Object|Mixed} item The javascript object instance that this is bound to.
+   * @param {KeyboardEvent|MouseEvent} event - The event object.
+   * @param {HTMLElement} target  - The HTML element target.
+   */
+  function EventAbstract(item, event, target) {
+    _classCallCheck(this, EventAbstract);
+    this.item = item;
+    this.elem = item.elem;
+    this.masterNav = item.masterNav;
+    this.parentNav = item.parentNav;
+    this.target = target;
+    this.event = event;
+  }
+
+  /**
+   * A validation shorcut that should pass before running exec().
+   *
+   * @return {Boolean} Wether or not the event target is what this instance is bound to.
+   */
+  _createClass(EventAbstract, [{
+    key: "isOnTarget",
+    value: function isOnTarget() {
+      // Check to see if the event target is what this instance is bound to.
+      if (this.target === this.elem) {
+        return true;
+      }
+      return false;
+    }
+
+    /**
+     * A validation method that should pass before running exec().
+     *
+     * @return {Boolean} Wether or not validation passes.
+     */
+  }, {
+    key: "validate",
+    value: function validate() {
+      // Only act on me.
+      if (!this.isOnTarget()) {
+        return false;
+      }
+      return true;
+    }
+
+    /**
+     * Interface method.
+     *
+     * When evoking this abstract instance you should use this method as your
+     * iterface for calling the action.
+     */
+  }, {
+    key: "init",
+    value: function init() {
+      if (this.validate()) {
+        this.exec();
+      }
+    }
+
+    /**
+     * Shortcut function to find a DOM element.
+     *
+     * This is a helper function that uses a ElementFetcher instance to navigate
+     * and traverse the DOM relative to the current context.
+     *
+     * @param  {String} what A keyword for what we are trying to find.
+     * @param  {HTMLElement} context The relative starting location for the finder.
+     * @return {Boolean|HTMLElement} False if not found or an HTMLElement.
+     */
+  }, {
+    key: "getElement",
+    value: function getElement(what) {
+      var context = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.elem.parentNode;
+      var fetcher = new _nav_ElementFetcher__WEBPACK_IMPORTED_MODULE_0__["default"](context, what);
+      return fetcher.fetch();
+    }
+  }]);
+  return EventAbstract;
+}();
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/common/events/OnArrowDown.js":
+/*!***************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/common/events/OnArrowDown.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowDown; });
+/* harmony import */ var _EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+/* harmony import */ var _OnHome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OnHome */ "./core/src/js/components/secondary-nav/common/events/OnHome.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+/**
+ * OnArrowDown
+ *
+ * Event action handler class.
+ */
+var OnArrowDown = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(OnArrowDown, _EventAbstract);
+  var _super = _createSuper(OnArrowDown);
+  function OnArrowDown() {
+    _classCallCheck(this, OnArrowDown);
+    return _super.apply(this, arguments);
+  }
+  _createClass(OnArrowDown, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      this.event.preventDefault();
+
+      // Go to the next item.
+      var node = this.getElement('next');
+      if (node) {
+        node.focus();
+        return;
+      }
+
+      // If a node is not found go to home.
+      var eventHome = new _OnHome__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
+      eventHome.init();
+    }
+  }]);
+  return OnArrowDown;
+}(_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/common/events/OnArrowLeft.js":
+/*!***************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/common/events/OnArrowLeft.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowLeft; });
+/* harmony import */ var _EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+/* harmony import */ var _OnArrowUp__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OnArrowUp */ "./core/src/js/components/secondary-nav/common/events/OnArrowUp.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+/**
+ * OnArrowLeft
+ *
+ * Event action handler class.
+ */
+var OnArrowLeft = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(OnArrowLeft, _EventAbstract);
+  var _super = _createSuper(OnArrowLeft);
+  function OnArrowLeft() {
+    _classCallCheck(this, OnArrowLeft);
+    return _super.apply(this, arguments);
+  }
+  _createClass(OnArrowLeft, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      this.event.preventDefault();
+
+      // If this is a nested item. Go back up a level.
+      if (this.item.getDepth() > 1) {
+        this.nestedLeft();
+      }
+      // Otherwise just to to the previous sibling.
+      else if (this.item.getDepth() === 1) {
+        this.firstLevelLeft();
+      }
+    }
+
+    /**
+     * Action to take on a first level left key press.
+     */
+  }, {
+    key: "firstLevelLeft",
+    value: function firstLevelLeft() {
+      var upevent = new _OnArrowUp__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
+      upevent.init();
+    }
+
+    /**
+     * Action to take on a nested level left key press
+     */
+  }, {
+    key: "nestedLeft",
+    value: function nestedLeft() {
+      var node = this.getElement('parentItem') || this.getElement('parentNavLast');
+      this.parentNav.closeSubNav();
+      if (node) {
+        node.focus();
+      }
+    }
+  }]);
+  return OnArrowLeft;
+}(_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/common/events/OnArrowRight.js":
+/*!****************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/common/events/OnArrowRight.js ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowRight; });
+/* harmony import */ var _EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+/* harmony import */ var _OnArrowDown__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OnArrowDown */ "./core/src/js/components/secondary-nav/common/events/OnArrowDown.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+/**
+ * OnArrowRight
+ *
+ * Event action handler class.
+ */
+var OnArrowRight = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(OnArrowRight, _EventAbstract);
+  var _super = _createSuper(OnArrowRight);
+  function OnArrowRight() {
+    _classCallCheck(this, OnArrowRight);
+    return _super.apply(this, arguments);
+  }
+  _createClass(OnArrowRight, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      // If we are in the second level or more we check about traversing
+      // the parent.
+      if (this.item.getDepth() > 1) {
+        var node = this.getElement('parentNavNext');
+        this.parentNav.closeSubNav();
+        if (node) {
+          node.querySelector('a').focus();
+        }
+        // Go back to start.
+        else {
+          this.getElement('parentNavFirst').focus();
+        }
+      } else {
+        var eventDown = new _OnArrowDown__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
+        eventDown.init();
+      }
+    }
+  }]);
+  return OnArrowRight;
+}(_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/common/events/OnArrowUp.js":
+/*!*************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/common/events/OnArrowUp.js ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnArrowUp; });
+/* harmony import */ var _EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+/* harmony import */ var _OnEnd__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./OnEnd */ "./core/src/js/components/secondary-nav/common/events/OnEnd.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+/**
+ * OnArrowUp
+ *
+ * Event action handler class.
+ */
+var OnArrowUp = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(OnArrowUp, _EventAbstract);
+  var _super = _createSuper(OnArrowUp);
+  function OnArrowUp() {
+    _classCallCheck(this, OnArrowUp);
+    return _super.apply(this, arguments);
+  }
+  _createClass(OnArrowUp, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      this.event.preventDefault();
+
+      // Go to the previous item.
+      var node = this.getElement('prev');
+      if (node) {
+        node.focus();
+        return;
+      }
+
+      // Default to the end..
+      var eventEnd = new _OnEnd__WEBPACK_IMPORTED_MODULE_1__["default"](this.item, this.event, this.target);
+      eventEnd.init();
+    }
+  }]);
+  return OnArrowUp;
+}(_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/common/events/OnEnd.js":
+/*!*********************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/common/events/OnEnd.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnEnd; });
+/* harmony import */ var _EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+/**
+ * OnEnd
+ *
+ * Event action handler class.
+ */
+var OnEnd = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(OnEnd, _EventAbstract);
+  var _super = _createSuper(OnEnd);
+  function OnEnd() {
+    _classCallCheck(this, OnEnd);
+    return _super.apply(this, arguments);
+  }
+  _createClass(OnEnd, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      this.event.preventDefault();
+      var node = this.getElement('last');
+      if (node) {
+        node.focus();
+      }
+    }
+  }]);
+  return OnEnd;
+}(_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/common/events/OnEnter.js":
+/*!***********************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/common/events/OnEnter.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnEnter; });
+/* harmony import */ var _EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+/**
+ * OnEnter
+ *
+ * Event action handler class.
+ */
+var OnEnter = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(OnEnter, _EventAbstract);
+  var _super = _createSuper(OnEnter);
+  function OnEnter() {
+    _classCallCheck(this, OnEnter);
+    return _super.apply(this, arguments);
+  }
+  _createClass(OnEnter, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      this.event.stopPropagation();
+      this.event.preventDefault();
+      window.location = this.target.getAttribute('href');
+    }
+  }]);
+  return OnEnter;
+}(_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/common/events/OnEsc.js":
+/*!*********************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/common/events/OnEsc.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnEsc; });
+/* harmony import */ var _EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+/**
+ * OnEsc
+ *
+ * Event action handler class.
+ */
+var OnEsc = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(OnEsc, _EventAbstract);
+  var _super = _createSuper(OnEsc);
+  function OnEsc() {
+    _classCallCheck(this, OnEsc);
+    return _super.apply(this, arguments);
+  }
+  _createClass(OnEsc, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      this.event.preventDefault();
+      var node = false;
+      if (this.item.getDepth() > 1) {
+        this.event.stopPropagation();
+        this.parentNav.closeSubNav();
+        node = this.getElement('parentItem');
+      } else {
+        this.masterNav.closeAllSubNavs();
+        node = this.getElement('first', this.item.parentNode);
+      }
+      if (node) {
+        node.focus();
+      }
+    }
+  }]);
+  return OnEsc;
+}(_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/common/events/OnHome.js":
+/*!**********************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/common/events/OnHome.js ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnHome; });
+/* harmony import */ var _EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+/**
+ * OnHome
+ *
+ * Event action handler class.
+ */
+var OnHome = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(OnHome, _EventAbstract);
+  var _super = _createSuper(OnHome);
+  function OnHome() {
+    _classCallCheck(this, OnHome);
+    return _super.apply(this, arguments);
+  }
+  _createClass(OnHome, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      this.event.preventDefault();
+      var node = this.getElement('first');
+      if (node) {
+        node.focus();
+      }
+    }
+  }]);
+  return OnHome;
+}(_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/common/events/OnSpace.js":
+/*!***********************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/common/events/OnSpace.js ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnSpace; });
+/* harmony import */ var _EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+/**
+ * OnSpace
+ *
+ * Event action handler class.
+ */
+var OnSpace = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(OnSpace, _EventAbstract);
+  var _super = _createSuper(OnSpace);
+  function OnSpace() {
+    _classCallCheck(this, OnSpace);
+    return _super.apply(this, arguments);
+  }
+  _createClass(OnSpace, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      this.event.stopPropagation();
+      this.event.preventDefault();
+      window.location = this.target.getAttribute('href');
+    }
+  }]);
+  return OnSpace;
+}(_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/common/events/OnTab.js":
+/*!*********************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/common/events/OnTab.js ***!
+  \*********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return OnTab; });
+/* harmony import */ var _EventAbstract__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EventAbstract */ "./core/src/js/components/secondary-nav/common/events/EventAbstract.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+/**
+ * OnTab
+ *
+ * Event action handler class.
+ */
+var OnTab = /*#__PURE__*/function (_EventAbstract) {
+  _inherits(OnTab, _EventAbstract);
+  var _super = _createSuper(OnTab);
+  function OnTab() {
+    _classCallCheck(this, OnTab);
+    return _super.apply(this, arguments);
+  }
+  _createClass(OnTab, [{
+    key: "exec",
+    value:
+    /**
+     * Execute the action to the event.
+     */
+    function exec() {
+      var shifted = event.shiftKey;
+      var node = null;
+      var firstItem = this.masterNav.elem.querySelector('a');
+      var lastItem = this.masterNav.elem.firstElementChild.lastElementChild.querySelector('li:last-child');
+
+      // If shift key is held.
+      if (shifted) {
+        node = this.getElement('prev');
+        if (this.target === firstItem) {
+          this.masterNav.closeAllSubNavs();
+          return;
+        }
+      }
+      // No shift key, just regular ol tab.
+      else {
+        node = this.getElement('next');
+        if (this.target.parentNode === lastItem) {
+          this.masterNav.closeAllSubNavs();
+          return;
+        }
+      }
+
+      // No nodes were found. Close up behind us.
+      if (!node) {
+        if (this.item.getDepth() > 1) {
+          this.parentNav.closeSubNav();
+        }
+      }
+    }
+  }]);
+  return OnTab;
+}(_EventAbstract__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/common/globals.js":
+/*!****************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/common/globals.js ***!
+  \****************************************************************/
+/*! exports provided: secondaryNavs */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "secondaryNavs", function() { return secondaryNavs; });
+// The css class that this following behaviour is applied to.
+var secondaryNavClass = 'su-secondary-nav';
+
+// All Secondary navs.
+var secondaryNavs = document.querySelectorAll('.' + secondaryNavClass);
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/secondary-nav-accordion.js":
+/*!*************************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/secondary-nav-accordion.js ***!
+  \*************************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ "./core/src/js/core/core.js");
+/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _common_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/globals */ "./core/src/js/components/secondary-nav/common/globals.js");
+/* harmony import */ var _accordion_SecondaryNavAccordion__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./accordion/SecondaryNavAccordion */ "./core/src/js/components/secondary-nav/accordion/SecondaryNavAccordion.js");
+
+
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  // Process each secondary nav accordion.
+  _common_globals__WEBPACK_IMPORTED_MODULE_1__["secondaryNavs"].forEach(function (nav, index) {
+    if (nav.className.match(/su-secondary-nav--accordion/)) {
+      new _accordion_SecondaryNavAccordion__WEBPACK_IMPORTED_MODULE_2__["default"](nav);
+    }
+  });
+});
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/secondary-nav-buttons.js":
+/*!***********************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/secondary-nav-buttons.js ***!
+  \***********************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core/core */ "./core/src/js/core/core.js");
+/* harmony import */ var _core_core__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_core__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _common_globals__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/globals */ "./core/src/js/components/secondary-nav/common/globals.js");
+/* harmony import */ var _buttons_SecondaryNavButtons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./buttons/SecondaryNavButtons */ "./core/src/js/components/secondary-nav/buttons/SecondaryNavButtons.js");
+
+
+
+document.addEventListener('DOMContentLoaded', function (event) {
+  _common_globals__WEBPACK_IMPORTED_MODULE_1__["secondaryNavs"].forEach(function (nav, index) {
+    if (nav.className.match(/su-secondary-nav--buttons/)) {
+      new _buttons_SecondaryNavButtons__WEBPACK_IMPORTED_MODULE_2__["default"](nav);
+    }
+  });
+});
+
+/***/ }),
+
+/***/ "./core/src/js/components/secondary-nav/secondary-nav.js":
+/*!***************************************************************!*\
+  !*** ./core/src/js/components/secondary-nav/secondary-nav.js ***!
+  \***************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _secondary_nav_accordion_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./secondary-nav-accordion.js */ "./core/src/js/components/secondary-nav/secondary-nav-accordion.js");
+/* harmony import */ var _secondary_nav_buttons_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./secondary-nav-buttons.js */ "./core/src/js/components/secondary-nav/secondary-nav-buttons.js");
+// Get'm
+
+
+
+/***/ }),
+
+/***/ "./core/src/js/core/core.js":
+/*!**********************************!*\
+  !*** ./core/src/js/core/core.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// if NodeList doesn't support forEach, use Array's forEach()
+NodeList.prototype.forEach = NodeList.prototype.forEach || Array.prototype.forEach;
+
+/***/ }),
+
+/***/ "./core/src/js/decanter-no-markup.js":
+/*!*******************************************!*\
+  !*** ./core/src/js/decanter-no-markup.js ***!
+  \*******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_components_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/components.js */ "./core/src/js/components/components.js");
+
+
+/***/ }),
+
+/***/ "./core/src/js/utilities/events.js":
+/*!*****************************************!*\
+  !*** ./core/src/js/utilities/events.js ***!
+  \*****************************************/
+/*! exports provided: createEvent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createEvent", function() { return createEvent; });
+/**
+ * Create an event with the specified name in a browser-agnostic way.
+ *
+ * @param {string} eventName - the name of the event
+ * @param {Object} data - Additional data along with the event.
+ *
+ * @return {Event} - instance of event which can be dispatched / listened for
+ */
+var createEvent = function createEvent(eventName, data) {
+  if (typeof eventName !== 'string' || eventName.length <= 0) {
+    return null;
+  }
+  // Modern browsers.
+  if (typeof Event == 'function') {
+    return new Event(eventName, data);
+  }
+  // IE
+  else {
+    var ev = document.createEvent('UIEvent');
+    ev.initEvent(eventName, true, true, data);
+    return ev;
+  }
+};
+
+/***/ }),
+
+/***/ "./core/src/js/utilities/keyboard.js":
+/*!*******************************************!*\
+  !*** ./core/src/js/utilities/keyboard.js ***!
+  \*******************************************/
+/*! exports provided: isHome, isEnd, isTab, isEsc, isSpace, isEnter, isLeftArrow, isRightArrow, isUpArrow, isDownArrow, normalizeKey */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isHome", function() { return isHome; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isEnd", function() { return isEnd; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isTab", function() { return isTab; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isEsc", function() { return isEsc; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isSpace", function() { return isSpace; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isEnter", function() { return isEnter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isLeftArrow", function() { return isLeftArrow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isRightArrow", function() { return isRightArrow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isUpArrow", function() { return isUpArrow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isDownArrow", function() { return isDownArrow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "normalizeKey", function() { return normalizeKey; });
+// ---------------------------------------------------------------------------
+// Keyboard helper functions
+// ---------------------------------------------------------------------------
+
+var isHome = function isHome(theKey) {
+  return theKey === 'Home' || theKey === 122;
+};
+var isEnd = function isEnd(theKey) {
+  return theKey === 'End' || theKey === 123;
+};
+var isTab = function isTab(theKey) {
+  return theKey === 'Tab' || theKey === 9;
+};
+var isEsc = function isEsc(theKey) {
+  return theKey === 'Escape' || theKey === 'Esc' || theKey === 27;
+};
+var isSpace = function isSpace(theKey) {
+  return theKey === ' ' || theKey === 'Spacebar' || theKey === 32;
+};
+var isEnter = function isEnter(theKey) {
+  return theKey === 'Enter' || theKey === 13;
+};
+var isLeftArrow = function isLeftArrow(theKey) {
+  return theKey === 'ArrowLeft' || theKey === 'Left' || theKey === 37;
+};
+var isRightArrow = function isRightArrow(theKey) {
+  return theKey === 'ArrowRight' || theKey === 'Right' || theKey === 39;
+};
+var isUpArrow = function isUpArrow(theKey) {
+  return theKey === 'ArrowUp' || theKey === 'Up' || theKey === 38;
+};
+var isDownArrow = function isDownArrow(theKey) {
+  return theKey === 'ArrowDown' || theKey === 'Down' || theKey === 40;
+};
+
+/**
+ * Return a consistent string for each key validation.
+ *
+ * @param {*} theKey the code from a keypress event.
+ *
+ * @return {String} A string name for the key that was pressed.
+ */
+var normalizeKey = function normalizeKey(theKey) {
+  // Key Value Map of the normalized string and the check function.
+  var map = {
+    home: isHome,
+    end: isEnd,
+    tab: isTab,
+    escape: isEsc,
+    space: isSpace,
+    enter: isEnter,
+    arrowLeft: isLeftArrow,
+    arrowRight: isRightArrow,
+    arrowUp: isUpArrow,
+    arrowDown: isDownArrow
+  };
+
+  // Loop through the key/val object and run the check function (val) in order
+  // to return the normalized string (key)
+  for (var _i = 0, _Object$entries = Object.entries(map); _i < _Object$entries.length; _i++) {
+    var entry = _Object$entries[_i];
+    if (entry[1](theKey)) {
+      return entry[0];
+    }
+  }
+  return false;
+};
+
+/***/ })
+
+/******/ });
 //# sourceMappingURL=decanter-no-markup.js.map
