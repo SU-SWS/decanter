@@ -18,4 +18,4 @@
   {% endset %}
 {%- endif %}
 
-<a {{ attributes }} id="su-logo" class="su-logo {{ modifier_class }}" href="{{ href|default('https://www.stanford.edu') }}">{{ logo_text|default('Stanford<br>University')|raw }}{{ external_link_text }}</a>
+<a {{ attributes }} id="su-logo" class="su-logo {{ modifier_class }}" aria-hidden="true" tabindex="-1" href="{{ href|default('https://www.stanford.edu') }}">{{ logo_text|default('Stanford<br>University')|raw }}{{ external_link_text }}</a>
