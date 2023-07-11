@@ -17,7 +17,6 @@ module.exports = {
   theme: {
     // Overrides.
     fontFamily: require(`${dir}/theme/fontFamily.js`)(),
-    gap: require(`${dir}/theme/gap.js`)(),
     screens: require(`${dir}/theme/screens.js`)(),
     spacing: require(`${dir}/theme/spacing.js`)(),
     // Decanter Custom.
@@ -29,6 +28,7 @@ module.exports = {
       colors: require(`${dir}/theme/colors.js`)(),
       fontSize: require(`${dir}/theme/fontSize.js`)(),
       fontWeight: require(`${dir}/theme/fontWeight.js`)(),
+      gap: require(`${dir}/theme/gap.js`)(),
       lineClamp: require(`${dir}/theme/lineClamp.js`)(),
       lineHeight: require(`${dir}/theme/lineHeight.js`)(),
       maxWidth: require(`${dir}/theme/maxWidth.js`)(),
