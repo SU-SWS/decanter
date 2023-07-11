@@ -10,9 +10,6 @@ const plugin = require('tailwindcss/plugin');
 const dir = path.resolve(__dirname, 'src/plugins');
 
 module.exports = {
-  // Our own prefix.
-  prefix: 'su-',
-
   // The theme section is where you define your color palette, font stacks,
   // type scale, border sizes, breakpoints — anything related to the visual
   // design of your site.
@@ -54,6 +51,10 @@ module.exports = {
       ]);
       addVariant('group-hocus-visible', [
         ':merge(.group):focus-visible &',
+        ':merge(.group):hover &',
+      ]);
+      addVariant('group-hocus-within', [
+        ':merge(.group):focus-within &',
         ':merge(.group):hover &',
       ]);
       addVariant('children', '& > *');
