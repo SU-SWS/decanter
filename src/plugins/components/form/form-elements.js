@@ -33,7 +33,7 @@ module.exports = function () {
       '.textarea': {
         height: '16rem',
         display: 'block',
-        borderColor: theme('color.foggy-dark'),
+        borderColor: theme('colors.black.20'),
         color: theme('colors.black.DEFAULT'),
         fontSize: theme('decanter.base.inputFontSize'),
         lineHeight: theme('lineHeight.snug'),
@@ -41,11 +41,11 @@ module.exports = function () {
 
       '.select': {
         display: 'block',
-        borderColor: theme('color.foggy-dark'),
+        borderColor: theme('colors.black.20'),
         color: theme('colors.black.DEFAULT'),
         fontSize: theme('decanter.base.inputFontSize'),
         lineHeight: theme('lineHeight.snug'),
-        backgroundColor: theme('color.white'),
+        backgroundColor: theme('colors.white'),
       },
     };
 

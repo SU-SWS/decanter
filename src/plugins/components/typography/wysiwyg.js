@@ -3,7 +3,7 @@
  * within unstructured WYSIWYG content.
  */
 module.exports = function () {
-  return function ({ addComponents, theme }) {
+  return function ({ addComponents }) {
     const components = {
       '.wysiwyg': {
         '> *:first-child': {
@@ -13,7 +13,6 @@ module.exports = function () {
           marginBottom: '0',
         },
         'p, ol, ul, dl': {
-          color: theme('color.black.true'),
           marginBottom: '1.6em',
         },
         'li p': {

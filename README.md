@@ -1,5 +1,5 @@
 # [Decanter](https://github.com/SU-SWS/decanter)
-##### Version: 7.0.0-dev
+##### Version: 7.1.1
 
 Changelog: [CHANGELOG.md](CHANGELOG.md)
 
@@ -19,8 +19,10 @@ For Decanter v7, instead of using SASS/SCSS with the BEM naming convention, we u
 We have removed all assets from the repo in Decanter v7. Instead, we are using remote third party resources for our fonts and icons.
 
 ### Fonts
-- For Source Sans Pro, Source Serif Pro, Roboto Slab, Roboto Mono - we include them using the `@import` method from [Google Fonts](https://fonts.google.com/).
-- For the Stanford ligature font that we use for the logo, we link them from the [University Communications media CDN](https://www-media.stanford.edu/assets/fonts/stanford.woff).
+- We do not include any font assets with Decanter v7. If you want to use the Decanter fonts in your own projects, it is recommended that you use the font loading method that is optimized for your framework and only import the fonts that you need.
+- For Source Sans 3, Source Serif 4, Roboto Slab, Roboto Mono - we include them using the `@import` method from [Google Fonts](https://fonts.google.com/) for our preview site.
+- For the Stanford ligature font that we use for the logo in our preview site, we link them from the [University Communications media CDN](https://www-media.stanford.edu/assets/fonts/stanford.woff).
+
 
 ### Icons
 - We have removed FontAwesome (dependency and asset) completely from Decanter v7. For those who would like to continue using FontAwesome, please feel free to do so and include them using methods that are suitable for your own projects.

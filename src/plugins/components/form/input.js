@@ -6,7 +6,7 @@ module.exports = function () {
     const components = {
       '.input': {
         display: 'block',
-        borderColor: theme('color.foggy-dark'),
+        borderColor: theme('colors.black.20'),
         color: theme('colors.black.DEFAULT'),
         fontSize: theme('decanter.base.inputFontSize'),
         lineHeight: theme('lineHeight.snug'),
