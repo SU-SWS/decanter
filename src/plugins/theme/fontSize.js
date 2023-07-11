@@ -1,10 +1,10 @@
 /**
  * Font Size Defaults.
- * Also see our custom modular typography classes (.su-type-0 to .su-type-6).
+ * Also see our custom modular typography classes (.type-0 to .type-6).
  */
 module.exports = function () {
   return {
-    // su-text-11 to su-text-30 correspond to font sizes from 12px to 30px (in rem units)
+    // text-11 to text-30 correspond to font sizes from 12px to 30px (in rem units)
     11: '1.1rem',
     12: '1.2rem',
     13: '1.3rem',
@@ -28,12 +28,12 @@ module.exports = function () {
     /**
      * Font sizes classes for use in modular typography utilities.
      * To take full advantage of modular typography which inlude letter spacing adjustments propotional to font sizes,
-     * use su-type-0 to su-type-9 instead
+     * use type-0 to type-9 instead
      * See src/plugins/theme/decanter.js
      */
-    m0: '1em', // su-text-m0 equals to 1em (modular step 0 = base)
-    m1: '1.25em', // su-text-m1 = 1.25 x 1em (modular step 1)
-    m2: '1.56em', // su-text-m2 = 1.25 x 1.25 x 1em (modular step 2) and so on
+    m0: '1em', // text-m0 equals to 1em (modular step 0 = base)
+    m1: '1.25em', // text-m1 = 1.25 x 1em (modular step 1)
+    m2: '1.56em', // text-m2 = 1.25 x 1.25 x 1em (modular step 2) and so on
     m3: '1.95em',
     m4: '2.44em',
     m5: '3.05em',
@@ -41,7 +41,7 @@ module.exports = function () {
     m7: '4.77em',
     m8: '5.96em',
     m9: '7.45em',
-    // su-text--m1 doesn't use the 1.25 scale factor.
+    // text--m1 doesn't use the 1.25 scale factor.
     // Merely a convenience class for a slightly smaller font size than the base step
     '-m1': '0.9em',
   };

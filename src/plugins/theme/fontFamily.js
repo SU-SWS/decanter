@@ -5,6 +5,7 @@ module.exports = function () {
   return {
     mono: ['"Roboto Mono"', 'Menlo', '"Courier New"', 'monospace'],
     sans: [
+      '"Source Sans 3"',
       '"Source Sans Pro"',
       '"Helvetica Neue"',
       'Helvetica',
@@ -12,6 +13,7 @@ module.exports = function () {
       'sans-serif',
     ],
     serif: [
+      '"Source Serif 4"',
       '"Source Serif Pro"',
       'Georgia',
       'Times',
