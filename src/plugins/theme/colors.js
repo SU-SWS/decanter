@@ -10,6 +10,8 @@ module.exports = function () {
       DEFAULT: '#8C1515', // Stanford main brand color
       light: '#B83A4B',
       dark: '#820000',
+      xdark: '#7A0000', // Passed contrast test with digital-red-xlight as text
+      xxdark: '#541107', // Used for hover/focus color for xdark
     },
     // These replace the Tailwind default Black spectrum
     black: {
@@ -31,6 +33,7 @@ module.exports = function () {
     'digital-red': {
       DEFAULT: '#B1040E', // Same as old Bright Red in previous color palette
       light: '#E50808', // Same as old Vivid Red in previous color palette
+      xlight: '#F83535', // Passed contrast test as regular text on black background
       dark: '#820000', // Same as Dark Cardinal Red in previous color palette
     },
     'digital-blue': {
@@ -78,6 +81,9 @@ module.exports = function () {
       DEFAULT: '#007C92',
       light: '#009AB4',
       dark: '#006B81',
+      // Used for some form elements
+      20: '#CCEBF0',
+      40: '#8DD8E4',
     },
     poppy: {
       DEFAULT: '#E98300',
