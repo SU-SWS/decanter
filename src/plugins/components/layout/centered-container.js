@@ -5,39 +5,33 @@ module.exports = function () {
   return function ({ addComponents, theme }) {
     // Find and set the padding based on the screen margins
     const screens = theme('screens');
-    const maxWdiths = {};
-    let largestScreen = 0;
-    let largestGutter = 0;
-    let smallestGutter = 999999;
+    const padding = {};
 
-    // Create max widths for each screen size which equals to the screen margin
-    // setting.
+    // Create padding for each screen size which equals to the screen margin setting.
     const keys = Object.keys(screens);
     keys.forEach((key) => {
-      if (largestScreen < parseInt(screens[key])) largestScreen = parseInt(screens[key]);
-
-      if (theme(`decanter.screenMargins.${key}`)) {
-        const gutterWidth = parseInt(theme(`decanter.screenMargins.${key}`));
-        if (largestGutter < gutterWidth) largestGutter = gutterWidth;
-        if (smallestGutter > gutterWidth) smallestGutter = gutterWidth;
-
-        maxWdiths[`@screen ${key}`] = {
-          maxWidth: 'calc(100vw - ' + (gutterWidth * 2) + 'px)',
-        };
-      }
+      padding[`@screen ${key}`] = {
+        paddingLeft: theme(`decanter.screenMargins.${key}`),
+        paddingRight: theme(`decanter.screenMargins.${key}`),
+      };
     });
-      
-    const key = `@media only screen and (min-width: ${largestScreen + (largestGutter * 2)}px)`
+
     const components = {
       // Center an element horizontally.
       '.centered-container, .cc': {
-        maxWidth: 'calc(100vw - ' + (smallestGutter * 2) + 'px)',
-        width: '100%',
+        paddingLeft: theme('decanter.screenMargins.xs'),
+        paddingRight: theme('decanter.screenMargins.xs'),
         marginLeft: 'auto',
         marginRight: 'auto',
-        ...maxWdiths,
-        [key]: {
-          maxWidth: `${largestScreen}px`,
+        ...padding,
+        // At 1700px (2xl breakpoint + twice the screen margins at 2xl), the max container width stays at 1500px.
+        '@media only screen and (min-width: 1700px)': {
+          paddingLeft: 'calc((100% - 1500px)/2)',
+          paddingRight: 'calc((100% - 1500px)/2)',
+        },
+        '.cc': {
+          paddingLeft: 0,
+          paddingRight: 0,
         },
       },
     };

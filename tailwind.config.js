@@ -74,6 +74,7 @@ module.exports = {
     require(`${dir}/components/form/input.js`)(),
     require(`${dir}/components/form/buttons.js`)(),
     require(`${dir}/components/form/form-elements.js`)(),
+    require(`${dir}/components/layout/box.js`)(),
     require(`${dir}/components/layout/centered-container.js`)(),
     require(`${dir}/components/layout/grid-gap.js`)(),
     require(`${dir}/components/link/stretched-link.js`)(),
