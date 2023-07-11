@@ -18,8 +18,8 @@ module.exports = function () {
   const modtype = {};
 
   // Decanter's reponsive modular typography system
-  // su-type-0 is the base step = 1em
-  // su-type-1 to su-type-9 (largest) available
+  // type-0 is the base step = 1em
+  // type-1 to type-9 (largest) available
   // Each step includes difference font sizes and letterspacing for mobile, tablet and desktop breakpoints
   // Generate responsive modular typography steps from 1 to 9
   for (let i = 1; i < 10; i += 1) {
