@@ -4,7 +4,8 @@
  */
 module.exports = function () {
   return {
-    // text-11 to text-30 correspond to font sizes from 12px to 30px (in rem units)
+    // Font size under 10px (1rem) is not recommended
+    // text-11 to text-30 correspond to font sizes from 11px to 30px (in rem units)
     11: '1.1rem',
     12: '1.2rem',
     13: '1.3rem',
@@ -44,5 +45,6 @@ module.exports = function () {
     // text--m1 doesn't use the 1.25 scale factor.
     // Merely a convenience class for a slightly smaller font size than the base step
     '-m1': '0.9em',
+    '09em': '0.9em', // alias for text--m1
   };
 };

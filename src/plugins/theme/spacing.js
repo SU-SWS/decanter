@@ -4,6 +4,7 @@
  */
 module.exports = function () {
   return {
+    px: '1px',
     0: '0',
     // Spacing utilities in em units are mostly used for typography elements,
     // e.g., spacing below headings, between paragraphs, list items, etc.
