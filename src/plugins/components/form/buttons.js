@@ -10,7 +10,7 @@ module.exports = function () {
         cursor: 'pointer',
         display: 'inline-block',
         border: 'none',
-        fontWeight: config('theme.fontWeight.regular'),
+        fontWeight: config('theme.fontWeight.normal'),
         lineHeight: '1',
         textAlign: 'center',
         textDecoration: 'none',

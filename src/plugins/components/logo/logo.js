@@ -10,7 +10,7 @@ module.exports = function () {
       '.logo': {
         display: 'inline-block',
         fontFamily: stanford,
-        fontWeight: theme('fontWeight.regular'),
+        fontWeight: theme('fontWeight.normal'),
         lineHeight: '0.75',
         textDecoration: 'none',
         textTransform: 'none',

@@ -29,6 +29,10 @@ module.exports = function () {
           paddingLeft: 'calc((100% - 1500px)/2)',
           paddingRight: 'calc((100% - 1500px)/2)',
         },
+        '.centered-container, .cc': {
+          paddingLeft: 0,
+          paddingRight: 0,
+        },
       },
     };
 

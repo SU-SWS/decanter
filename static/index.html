@@ -12,18 +12,14 @@
 
   <!-- MAIN DEVELOPMENT AREA -->
   <a href="#top" class="skiplink">Skip to main content</a>
-  <div class="bg-digital-red pt-5 pb-1">
-    <div class="cc">
-      <a class="logo text-white hocus:text-white text-20" href="https://stanford.edu">Stanford
+  <div class="cc bg-digital-red pt-5 pb-1">
+    <a class="logo text-white hocus:text-white text-20" href="https://stanford.edu">Stanford
         University</a>
-    </div>
   </div>
-  <div role="banner" class="rs-py-6 bg-gradient-to-b from-black to-plum text-white">
-    <div class="centered-container">
-      <h1 class="splash-text">Decanter 7 With Tailwind Test Page.</h1>
-      <p class="intro-text">This is a test page filled with common HTML elements to be used to provide visual
-        feedback whilst building CSS systems and frameworks.</p>
-    </div>
+  <div role="banner" class="cc rs-py-6 bg-gradient-to-b from-black to-plum text-white">
+    <h1 class="splash-text">Decanter 7 With Tailwind Test Page.</h1>
+    <p class="intro-text">This is a test page filled with common HTML elements to be used to provide visual
+      feedback whilst building CSS systems and frameworks.</p>
   </div>
   <main id="top">
     <!-- Nav pills -->
@@ -141,6 +137,8 @@
             <li class="inline-block mb-12"><a href="#aspect-ratio"
                 class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">Aspect
                 Ratio Containers</a></li>
+            <li class="inline-block mb-12"><a href="#cc"
+                  class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">Centered Container</a></li>
           </ul>
         </nav>
       </div>
@@ -779,20 +777,20 @@ p q r s t u v w x y z { | } ~
             </div>
           </article>
 
-          <article id="color-palette-foggy" class="rs-mb-5">
+          <article id="color-palette-fog" class="rs-mb-5">
             <header>
-              <h3 class="type-5 text-lagunita-light">Foggy</h3>
+              <h3 class="type-5 text-lagunita-light">Fog</h3>
             </header>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
               <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-foggy">
+                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-fog">
                 Default</div>
               <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-foggy-dark">
-                foggy-dark</div>
+                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-fog-dark">
+                fog-dark</div>
               <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-foggy-light">
-                foggy-light</div>
+                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-fog-light">
+                fog-light</div>
             </div>
           </article>
 
@@ -1291,9 +1289,29 @@ p q r s t u v w x y z { | } ~
               </div>
             </div>
           </article>
+          <article id="cc" class="rs-mb-5">
+            <header>
+              <h3 class="type-5 text-lagunita-light">Centered container</h3>
+            </header>
+              <p class="max-w-prose-wide">
+                The centered container contains site content within a certain width. From the XS breakpoint up to 1700px device width, it creates a fluid container with spacing on each side of the screen (different for every breakpoint). At 1700px and above, it restricts the content within to a
+                box that maxes out at a width of 1500px, ie., at that point, it becomes a fixed-width container and is no longer fluid.
+              </p>
+            </header>
+            <div class="cc">
+              <div class="centered-container">
+                <div class="cc bg-spirited-light">
+                  <p class="rs-p-3">
+                    <strong>I'm a centered container.</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae condimentum sem. Phasellus a ornare eros, eu scelerisque diam. Etiam lacinia, dui sit amet euismod malesuada, eros ante suscipit neque, vitae eleifend urna augue ac nunc. Suspendisse posuere fringilla nisi vel blandit. Vivamus arcu nisl, fermentum ut erat quis, condimentum sodales nulla. Sed sit amet cursus ipsum. Aliquam eleifend, neque vitae vehicula varius, lorem dui tincidunt sapien, a lacinia sapien augue non felis. Donec gravida auctor imperdiet. Maecenas hendrerit commodo congue. Cras libero neque, convallis eu cursus vitae, commodo posuere nunc. Fusce id tortor ex. Nullam tristique velit id mauris consequat, et pretium magna vestibulum. Etiam fringilla arcu bibendum, ornare sapien eget, mollis enim. Aliquam erat volutpat. Nulla facilisi.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
+
 
   </main>
   <div
@@ -1382,13 +1400,11 @@ p q r s t u v w x y z { | } ~
       </div>
     </div>
   </div>
-  <footer role="contentinfo" class="bg-black text-white text-16 md:text-18 rs-py-2">
+  <footer role="contentinfo" class="cc bg-black text-white text-16 md:text-18 rs-py-2">
     <!-- HTML Test page based on sample provided by http://twitter.com/cbracco -->
-    <div class="cc">
-      <p class="mb-0">A TailwindCSS/Decanter v7 test page.</p>
-      <p><a href="https://www.netlify.com"><img src="https://www.netlify.com/img/global/badges/netlify-dark.svg"></a>
-      </p>
-    </div>
+    <p class="mb-0">A TailwindCSS/Decanter v7 test page.</p>
+    <p><a href="https://www.netlify.com"><img src="https://www.netlify.com/img/global/badges/netlify-dark.svg"></a>
+    </p>
     <a href="#top"
       class="hidden md:block fixed bottom-20 right-20 w-50 text-black hocus:text-plum transition-colors"><span
         class="sr-only">Back to top</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
