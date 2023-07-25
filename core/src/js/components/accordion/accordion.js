@@ -23,7 +23,8 @@ Array.prototype.forEach.call(titleButtons, btn => {
     if (!isExpanded(btn)) {
       setExpanded(btn, 'true');
       setHidden(btn.parentNode.nextElementSibling, 'false');
-    } else {
+    }
+    else {
       setExpanded(btn, 'false');
       setHidden(btn.parentNode.nextElementSibling, 'true');
     }
