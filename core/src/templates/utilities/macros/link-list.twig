@@ -4,7 +4,7 @@
  */
 #}
 {% macro link_list(items) %}
-  {% spaceless %}
+  {% apply spaceless %}
   {% for item in items %}
 
     {# Define the attributes vars fresh on each loop #}
@@ -42,5 +42,5 @@
       <a href="{{ item.href }}" {{ link_attributes }}>{{ item.text }}</a>
     </li>
   {% endfor %}
-  {% endspaceless %}
+  {% endapply %}
 {% endmacro %}
