@@ -6,7 +6,7 @@
 {% macro nav_menu(items, menu_level, class_prefix) %}
   {% import _self as menus %}
   <ul class="{{ class_prefix }}__menu-lv{{ menu_level }} {{ class_prefix }}__menu">
-  {% spaceless %}
+  {% apply spaceless %}
   {% for item in items %}
     {% set is_parent = item.children is empty ? false : true %}
     {% set list_classes = class_prefix ~ "__item " %}
@@ -36,6 +36,6 @@
       {% endif %}
     </li>
   {% endfor %}
-  {% endspaceless %}
+  {% endapply %}
   </ul>
 {% endmacro %}
