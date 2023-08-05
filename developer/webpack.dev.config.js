@@ -4,17 +4,12 @@
  */
 
  // Requires / Dependencies
-const path =                       require('path');
-const webpack =                    require('webpack');
-const autoprefixer =               require('autoprefixer')({ grid: true });
-const FileManagerPlugin =          require('filemanager-webpack-plugin');
-const UglifyJsPlugin =             require("uglifyjs-webpack-plugin");
-const MiniCssExtractPlugin =       require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin =    require("optimize-css-assets-webpack-plugin");
-const WebpackAssetsManifest =      require("webpack-assets-manifest");
-const ExtraWatchWebpackPlugin =    require("extra-watch-webpack-plugin");
-const FixStyleOnlyEntriesPlugin =  require("webpack-fix-style-only-entries");
-const HtmlWebpackPlugin =          require('html-webpack-plugin');
+const path = require('path');
+const FileManagerPlugin = require('filemanager-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const WebpackAssetsManifest = require("webpack-assets-manifest");
+const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // Paths
 const npmPackage = '../node_modules';
@@ -39,25 +34,31 @@ function recursiveIssuer(module) {
 module.exports = {
   name: "decanter-dev",
   // Define the entry points for which webpack builds a dependency graph.
-  entry: {
-    "decanter": srcDir + "/js/decanter.js",
-    "twig": path.resolve(__dirname, "twig.js"),
-    "local-js": path.resolve(__dirname, "index.js"),
-    "local-css": path.resolve(__dirname, "index.scss"),
-  },
+  entry: path.resolve(__dirname, "twig.js"),
   // Where should I output the assets.
   output: {
     filename: "[name].js",
-    path: path.resolve( __dirname, outputDir )
+    path: path.resolve( __dirname, outputDir ),
+    asyncChunks: true,
+    clean: true,
+    assetModuleFilename: '../assets/[name][ext]'
   },
   // Allows for map files.
   devtool: 'source-map',
   devServer: {
-    contentBase: path.resolve(__dirname),
-    watchContentBase: true,
+    static: [
+      { directory: path.resolve(__dirname) },
+    ],
+    watchFiles: [
+      path.resolve(__dirname, 'test.js'),
+      path.resolve(__dirname, 'test.scss'),
+      path.resolve(__dirname, 'test.twig'),
+      path.resolve(__dirname, 'test.json'),
+    ],
+    allowedHosts: 'all',
     compress: true,
     port: 9001,
-    hot: true
+    hot: true,
   },
   // Relative output paths for css assets.
   resolve: {
@@ -66,34 +67,8 @@ module.exports = {
       '@decanter-no-markup': path.resolve(__dirname, "../core/src/scss/decanter-no-markup.scss"),
     }
   },
-  // Optimizations that are triggered by production mode.
-  optimization: {
-    // Uglify the Javascript & and CSS.
-    minimizer: [
-      new UglifyJsPlugin( {
-        cache: true,
-        parallel: true,
-        sourceMap: true
-      } ),
-      new OptimizeCSSAssetsPlugin( {} )
-    ],
-    // Splitchunks plugin configuration.
-    // https://webpack.js.org/plugins/split-chunks-plugin/.
-    splitChunks: {
-      cacheGroups: {
-        'decanter': {
-          name: 'decanter',
-          test: ( module, chunks, entry = 'decanter' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
-          chunks: 'all',
-          enforce: true
-        }
-      }
-    }
-  },
   // Define and configure webpack plugins.
   plugins: [
-    // Remove JS files from render.
-    new FixStyleOnlyEntriesPlugin(),
     // This plugin extracts CSS into separate files. It creates a CSS file per
     // JS file which contains CSS. It supports On-Demand-Loading of CSS and
     // SourceMaps.
@@ -130,7 +105,6 @@ module.exports = {
       {
         test: /\.s[ac]ss$/,
         use: [
-          // Extract loader.
           MiniCssExtractPlugin.loader,
           // CSS Loader. Generate sourceMaps.
           {
@@ -145,47 +119,23 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               sourceMap: true,
-              plugins: () => [
-                autoprefixer
-              ]
             }
           },
           // SASS Loader. Add compile paths to include bourbon.
           {
             loader: 'sass-loader',
             options: {
-              includePaths: [
-                path.resolve( __dirname, npmPackage, "bourbon/core" ),
-                path.resolve( __dirname, srcDir, "scss" ),
-                path.resolve( __dirname, npmPackage )
-              ],
-              sourceMap: true,
-              lineNumbers: true,
-              outputStyle: 'nested',
-              precision: 10
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(woff2?|ttf|otf|eot)$/,
-        loader: 'file-loader',
-        options: {
-          name:"[name].[ext]",
-          publicPath: "/assets",
-          outputPath: "../assets"
-        }
-      },
-      // Apply plugins to image assets.
-      {
-        test: /\.(png|svg|jpg|gif)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              publicPath: "/assets",
-              outputPath: "../assets"
+              sassOptions: {
+                sourceMap: true,
+                lineNumbers: true,
+                outputStyle: 'nested',
+                precision: 10,
+                includePaths: [
+                  path.resolve( __dirname, npmPackage, "bourbon/core" ),
+                  path.resolve( __dirname, srcDir, "scss" ),
+                  path.resolve( __dirname, npmPackage )
+                ],
+              }
             }
           }
         ]

@@ -1,25 +1,18 @@
 /**
- * Webpack Configuration File
- * @type {[type]}
+ * Decanter 6 - Webpack Configuration
  */
 
- // Requires / Dependencies
+// Requires / Dependencies
 const path = require('path');
-const webpack = require('webpack');
-const autoprefixer = require('autoprefixer')({ grid: true });
 const FileManagerPlugin = require('filemanager-webpack-plugin');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const WebpackAssetsManifest = require("webpack-assets-manifest");
-const ExtraWatchWebpackPlugin = require("extra-watch-webpack-plugin");
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
+
 // Paths
 const npmPackage = 'node_modules';
 const srcDir = path.resolve( __dirname, 'core/src' );
 const outputDir = path.resolve( __dirname, 'core/dist' );
-
-// Other variables
 // process.env.NODE_ENV is NOT set, so use the name of the npm script as the clue.
 const devMode = process.env.npm_lifecycle_event !== 'dist';
 
@@ -49,11 +42,11 @@ module.exports = {
   // Where should I output the assets.
   output: {
     filename: devMode ? "[name].js" : "[name].[hash].js",
-    path: path.resolve( __dirname, outputDir + '/js' )
+    path: path.resolve( __dirname, outputDir + '/js' ),
+    asyncChunks: true,
+    clean: true,
+    assetModuleFilename: '../assets/[name][ext]'
   },
-  // Allows for map files.
-  devtool: 'source-map',
-  // Relative output paths for css assets.
   resolve: {
     alias: {
       './@fortawesome': path.resolve(__dirname, npmPackage, '@fortawesome')
@@ -61,15 +54,6 @@ module.exports = {
   },
   // Optimizations that are triggered by production mode.
   optimization: {
-    // Uglify the Javascript & and CSS.
-    minimizer: [
-      new UglifyJsPlugin( {
-        cache: true,
-        parallel: true,
-        sourceMap: true
-      } ),
-      new OptimizeCSSAssetsPlugin( {} )
-    ],
     // Splitchunks plugin configuration.
     // https://webpack.js.org/plugins/split-chunks-plugin/.
     splitChunks: {
@@ -89,7 +73,6 @@ module.exports = {
       }
     }
   },
-  // Define and configure webpack plugins.
   plugins: [
     // Remove JS files from render.
     new FixStyleOnlyEntriesPlugin(),
@@ -102,8 +85,10 @@ module.exports = {
     // the assets that need to be copied.
     // https://www.npmjs.com/package/filemanager-webpack-plugin
     new FileManagerPlugin( {
-      onStart: {
-        delete: [ outputDir + '/**/*' ]
+      events: {
+        onStart: {
+          delete: [ outputDir + '/**/*' ]
+        },
       }
     } ),
     // This plugin extracts CSS into separate files. It creates a CSS file per
@@ -123,7 +108,6 @@ module.exports = {
       output: 'assets.json'
     } ),
   ],
-  // Define modules.
   module: {
     rules: [
       // Apply babel ES6 compilation to JavaScript files.
@@ -141,7 +125,6 @@ module.exports = {
       {
         test: /\.s[ac]ss$/,
         use: [
-          // Extract loader.
           MiniCssExtractPlugin.loader,
           // CSS Loader. Generate sourceMaps.
           {
@@ -156,51 +139,31 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               sourceMap: true,
-              plugins: () => [
-                autoprefixer
-              ]
             }
           },
           // SASS Loader. Add compile paths to include bourbon.
           {
             loader: 'sass-loader',
             options: {
-              includePaths: [
-                path.resolve( __dirname, npmPackage, "bourbon/core" ),
-                path.resolve( __dirname, srcDir, "scss" ),
-                path.resolve( __dirname, npmPackage )
-              ],
-              sourceMap: true,
-              lineNumbers: true,
-              outputStyle: 'nested',
-              precision: 10
+              sassOptions: {
+                sourceMap: true,
+                lineNumbers: true,
+                outputStyle: 'nested',
+                precision: 10,
+                includePaths: [
+                  path.resolve( __dirname, npmPackage, "bourbon/core" ),
+                  path.resolve( __dirname, srcDir, "scss" ),
+                  path.resolve( __dirname, npmPackage )
+                ],
+              }
             }
           }
         ]
       },
       {
-        test: /\.(woff2?|ttf|otf|eot)$/,
-        loader: 'file-loader',
-        options: {
-          name: devMode ? "[name].[ext]" : "[hash:7].[ext]",
-          publicPath: "../assets",
-          outputPath: "../assets"
-        }
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
-      // Apply plugins to image assets.
-      {
-        test: /\.(png|svg|jpg|gif)$/i,
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: devMode ? "[name].[ext]" : "[hash:7].[ext]",
-              publicPath: "../assets",
-              outputPath: "../assets"
-            }
-          }
-        ]
-      }
-    ]
-  }
+    ],
+  },
 };
