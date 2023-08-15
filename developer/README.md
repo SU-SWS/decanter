@@ -1,3 +1,11 @@
-# DO NOT MODIFY THE FILES IN THIS FOLDER.
+# Get started
 
-Running `npm run dev` will copy these files to the parent directory. You can modify them there.
+From the root of the repository run
+
+```
+nvm use
+npm install
+npm run dev
+```
+
+Then you can go ahead and edit the files in `/developer` to play around with Decanter.
