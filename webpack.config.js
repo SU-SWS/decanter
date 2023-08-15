@@ -5,44 +5,30 @@
 // Requires / Dependencies
 const path = require('path');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const WebpackAssetsManifest = require("webpack-assets-manifest");
-const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const WebpackAssetsManifest = require('webpack-assets-manifest');
 
 // Paths
 const npmPackage = 'node_modules';
-const srcDir = path.resolve( __dirname, 'core/src' );
-const outputDir = path.resolve( __dirname, 'core/dist' );
+const srcDir = path.resolve(__dirname, 'core/src');
+const outputDir = path.resolve(__dirname, 'core/dist');
 // process.env.NODE_ENV is NOT set, so use the name of the npm script as the clue.
 const devMode = process.env.npm_lifecycle_event !== 'dist';
 
-// For MiniCssExtractPlugin
-// Loops through the module variable that is nested looking for a name.
-function recursiveIssuer(module) {
-  if (module.issuer) {
-    return recursiveIssuer(module.issuer);
-  }
-  else if (module.name) {
-    return module.name;
-  }
-  else {
-    return false;
-  }
-}
-
 // Module Exports.
 module.exports = {
-  name: "decanter",
+  name: 'decanter',
   // Define the entry points for which webpack builds a dependency graph.
   entry: {
-    "decanter": srcDir + "/js/decanter.js",
-    "decanter-grid": srcDir + "/scss/decanter-grid.scss",
-    "decanter-no-markup": srcDir + "/js/decanter-no-markup.js"
+    'decanter': srcDir + '/js/decanter.js',
+    'decanter-grid': srcDir + '/scss/decanter-grid.scss',
+    'decanter-no-markup': srcDir + '/js/decanter-no-markup.js'
   },
   // Where should I output the assets.
   output: {
-    filename: devMode ? "[name].js" : "[name].[hash].js",
-    path: path.resolve( __dirname, outputDir + '/js' ),
+    filename: devMode ? '[name].js' : '[name].[hash].js',
+    path: path.resolve(__dirname, outputDir + '/js'),
     asyncChunks: true,
     clean: true,
     assetModuleFilename: '../assets/[name][ext]'
@@ -54,28 +40,13 @@ module.exports = {
   },
   // Optimizations that are triggered by production mode.
   optimization: {
-    // Splitchunks plugin configuration.
-    // https://webpack.js.org/plugins/split-chunks-plugin/.
-    splitChunks: {
-      cacheGroups: {
-        'decanter': {
-          name: 'decanter',
-          test: ( module, chunks, entry = 'decanter' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
-          chunks: 'all',
-          enforce: true
-        },
-        'decanter-no-markup': {
-          name: 'decanter-no-markup',
-          test: ( module, chunks, entry = 'decanter-no-markup' ) => module.constructor.name === 'CssModule' && recursiveIssuer( module ) === entry,
-          chunks: 'all',
-          enforce: true
-        }
-      }
-    }
+    moduleIds: 'deterministic',
+    runtimeChunk: 'single',
+    minimizer: [
+      new CssMinimizerPlugin()
+    ]
   },
   plugins: [
-    // Remove JS files from render.
-    new FixStyleOnlyEntriesPlugin(),
     // A webpack plugin to manage files before or after the build.
     // Used here to:
     // - clean all generated files (js AND css) prior to building
@@ -84,29 +55,35 @@ module.exports = {
     // run asynchronously, and the kss build finishes before this build generates
     // the assets that need to be copied.
     // https://www.npmjs.com/package/filemanager-webpack-plugin
-    new FileManagerPlugin( {
+    new FileManagerPlugin({
       events: {
         onStart: {
-          delete: [ outputDir + '/**/*' ]
+          delete: [outputDir + '/**/*']
         },
+        onEnd: {
+          delete: [
+            outputDir + '/js/decanter-grid.js',
+            outputDir + '/js/runtime.js'
+          ]
+        }
       }
-    } ),
+    }),
     // This plugin extracts CSS into separate files. It creates a CSS file per
     // JS file which contains CSS. It supports On-Demand-Loading of CSS and
     // SourceMaps.
     // https://github.com/webpack-contrib/mini-css-extract-plugin
-    new MiniCssExtractPlugin( {
+    new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: devMode ? "../css/[name].css" : "../css/[name].[hash].css",
-      chunkFilename: "../css/[id].css"
-    } ),
+      filename: devMode ? '../css/[name].css' : '../css/[name].[hash].css',
+      chunkFilename: '../css/[id].css'
+    }),
     // This Webpack plugin will generate a JSON file that matches the original
     // filename with the hashed version.
     // https://github.com/webdeveric/webpack-assets-manifest
-    new WebpackAssetsManifest( {
+    new WebpackAssetsManifest({
       output: 'assets.json'
-    } ),
+    })
   ],
   module: {
     rules: [
@@ -117,7 +94,7 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: [ '@babel/preset-env' ]
+            presets: ['@babel/preset-env']
           }
         }
       },
@@ -138,7 +115,7 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              sourceMap: true,
+              sourceMap: true
             }
           },
           // SASS Loader. Add compile paths to include bourbon.
@@ -151,10 +128,10 @@ module.exports = {
                 outputStyle: 'nested',
                 precision: 10,
                 includePaths: [
-                  path.resolve( __dirname, npmPackage, "bourbon/core" ),
-                  path.resolve( __dirname, srcDir, "scss" ),
-                  path.resolve( __dirname, npmPackage )
-                ],
+                  path.resolve(__dirname, npmPackage, 'bourbon/core'),
+                  path.resolve(__dirname, srcDir, 'scss'),
+                  path.resolve(__dirname, npmPackage)
+                ]
               }
             }
           }
@@ -162,8 +139,8 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
-      },
-    ],
-  },
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
+      }
+    ]
+  }
 };
