@@ -8,6 +8,7 @@ const FileManagerPlugin = require('filemanager-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const WebpackAssetsManifest = require('webpack-assets-manifest');
+const TerserPlugin = require("terser-webpack-plugin");
 
 // Paths
 const npmPackage = 'node_modules';
@@ -31,7 +32,7 @@ module.exports = {
     path: path.resolve(__dirname, outputDir + '/js'),
     asyncChunks: true,
     clean: true,
-    assetModuleFilename: '../assets/[name][ext]'
+    assetModuleFilename: '../assets/[name][ext]',
   },
   resolve: {
     alias: {
@@ -42,8 +43,10 @@ module.exports = {
   optimization: {
     moduleIds: 'deterministic',
     runtimeChunk: 'single',
+    minimize: devMode,
     minimizer: [
-      new CssMinimizerPlugin()
+      new CssMinimizerPlugin(),
+      new TerserPlugin()
     ]
   },
   plugins: [
