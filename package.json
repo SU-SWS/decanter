@@ -11,7 +11,7 @@
     "eslint": "eslint -c .eslintrc 'core/src/'",
     "sasslint": "sass-lint -c .sass-lint.yml '**/*.scss' -v -q -i 'vendor/**/*.scss, node_modules/**/*.scss'",
     "dev": "npm run dev:setup && node developer/server.js",
-    "dev:setup": "rsync -aq developer/examples developer/",
+    "dev:setup": "rsync -ruq developer/examples/ developer",
     "launch": "node launch-preview.js",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
