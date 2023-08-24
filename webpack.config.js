@@ -32,12 +32,11 @@ module.exports = {
     filename: devMode ? '[name].js' : '[name].[hash].js',
     path: path.resolve(__dirname, outputDir + '/js'),
     clean: true,
-    asyncChunks: false,
-    chunkFormat: 'commonjs',
+    globalObject: 'this',
     assetModuleFilename: '../assets/[name][ext]',
     library: {
       name: 'decanter',
-      type: 'commonjs'
+      type: 'umd'
     }
   },
   // Allows for map files.
