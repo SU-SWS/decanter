@@ -16,7 +16,7 @@ const npmPackage = 'node_modules';
 const srcDir = path.resolve(__dirname, 'core/src');
 const outputDir = path.resolve(__dirname, 'core/dist');
 // process.env.NODE_ENV is NOT set, so use the name of the npm script as the clue.
-const devMode = process.env.npm_lifecycle_event !== 'dist';
+const devMode = process.env.npm_lifecycle_event !== 'publish';
 
 // Module Exports.
 module.exports = {
@@ -32,11 +32,7 @@ module.exports = {
     filename: devMode ? '[name].js' : '[name].[hash].js',
     path: path.resolve(__dirname, outputDir + '/js'),
     clean: true,
-    assetModuleFilename: '../assets/[name][ext]',
-    library: {
-      name: 'decanter',
-      type: 'var'
-    }
+    assetModuleFilename: '../assets/[name][ext]'
   },
   // Allows for map files.
   devtool: 'source-map',
@@ -48,8 +44,7 @@ module.exports = {
   // Optimizations that are triggered by production mode.
   optimization: {
     moduleIds: 'deterministic',
-    runtimeChunk: 'single',
-    minimize: !!devMode,
+    minimize: !devMode,
     minimizer: [
       new CssMinimizerPlugin(),
       new TerserPlugin()
