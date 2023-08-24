@@ -18,6 +18,7 @@ execSync('cd styleguide && git checkout task/package-updates');
 
 // Add this branch as a dependency.
 console.log('Adding dependency...');
+console.log('Running', `npm install github:SU-SWS/decanter# + ${branch}`);
 execSync('cd styleguide && npm install github:SU-SWS/decanter#' + branch);
 
 // Install.
