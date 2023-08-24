@@ -8,7 +8,10 @@ branch = execSync('git branch --show-current', {encoding: 'utf8'});
 execSync('rm -Rf ./styleguide');
 
 // Clone fresh.
-execSync('git clone --branch=task/package-updates https://github.com/su-sws/decanter-web.git styleguide');
+execSync('git clone https://github.com/su-sws/decanter-web.git styleguide');
+
+// Change to the testing branch.
+execSync('cd styleguide && git checkout task/package-updates');
 
 // Add this branch as a dependency.
 execSync('cd styleguide && npm install "https://github.com/su-sws/decanter.git#' + branch + '" --save --force');
