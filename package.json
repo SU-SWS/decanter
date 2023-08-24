@@ -8,7 +8,6 @@
   "scripts": {
     "build": "webpack --mode=development",
     "publish": "webpack --mode=production",
-    "eslint": "eslint -c .eslintrc 'core/src/'",
     "sasslint": "sass-lint -c .sass-lint.yml '**/*.scss' -v -q -i 'vendor/**/*.scss, node_modules/**/*.scss'",
     "dev": "npm run dev:setup && node developer/server.js",
     "dev:setup": "rsync -ruq --exclude='README.md' developer/examples/ developer",
@@ -42,7 +41,6 @@
     "css-loader": "^6.8.1",
     "css-minimizer-webpack-plugin": "^5.0.1",
     "custom-event-polyfill": "^1.0",
-    "eslint": "^8.46.0",
     "filemanager-webpack-plugin": "^8.0",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
