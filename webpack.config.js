@@ -29,7 +29,7 @@ module.exports = {
   },
   // Where should I output the assets.
   output: {
-    filename: devMode ? '[name].js' : '[name].[hash].js',
+    filename: '[name].js',
     path: path.resolve(__dirname, outputDir + '/js'),
     clean: true,
     assetModuleFilename: '../assets/[name][ext]'
@@ -79,7 +79,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: devMode ? '../css/[name].css' : '../css/[name].[hash].css',
+      filename: '../css/[name].css',
       chunkFilename: '../css/[id].css'
     }),
     // This Webpack plugin will generate a JSON file that matches the original
