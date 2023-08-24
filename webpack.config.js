@@ -35,7 +35,7 @@ module.exports = {
     assetModuleFilename: '../assets/[name][ext]',
     library: {
       name: 'decanter',
-      type: 'umd'
+      type: 'var'
     }
   },
   // Allows for map files.
@@ -49,7 +49,7 @@ module.exports = {
   optimization: {
     moduleIds: 'deterministic',
     runtimeChunk: 'single',
-    minimize: devMode,
+    minimize: !!devMode,
     minimizer: [
       new CssMinimizerPlugin(),
       new TerserPlugin()

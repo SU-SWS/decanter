@@ -1,1 +1,1 @@
-import './components/components.js';
+module.exports = require('./components/components.js');
