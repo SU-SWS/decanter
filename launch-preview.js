@@ -2,7 +2,8 @@ const {execSync} = require('child_process');
 let branch = 'master';
 
 // Get the Current Branch.
-branch = execSync('git branch --show-current', {encoding: 'utf8'});
+branch = execSync('git branch --show-current -v', {encoding: 'utf8'});
+console.log('Current Branch:', branch);
 
 // Try deleting the styleguide if it exists. (cache)
 console.log('Starting...');
