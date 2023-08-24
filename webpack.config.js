@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /**
  * Decanter 6 - Webpack Configuration
  */
@@ -6,9 +7,9 @@
 const path = require('path');
 const FileManagerPlugin = require('filemanager-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const WebpackAssetsManifest = require('webpack-assets-manifest');
-const TerserPlugin = require("terser-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
 
 // Paths
 const npmPackage = 'node_modules';
@@ -30,10 +31,17 @@ module.exports = {
   output: {
     filename: devMode ? '[name].js' : '[name].[hash].js',
     path: path.resolve(__dirname, outputDir + '/js'),
-    asyncChunks: true,
     clean: true,
+    asyncChunks: false,
+    chunkFormat: 'commonjs',
     assetModuleFilename: '../assets/[name][ext]',
+    library: {
+      name: 'decanter',
+      type: 'commonjs'
+    }
   },
+  // Allows for map files.
+  devtool: 'source-map',
   resolve: {
     alias: {
       './@fortawesome': path.resolve(__dirname, npmPackage, '@fortawesome')
