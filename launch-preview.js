@@ -14,7 +14,7 @@ execSync('git clone https://github.com/su-sws/decanter-web.git styleguide');
 execSync('cd styleguide && git checkout task/package-updates');
 
 // Add this branch as a dependency.
-execSync('cd styleguide && npm install github:SU-SWS/decanter#' + branch + '" --save --force');
+execSync('cd styleguide && npm install github:SU-SWS/decanter#' + branch + ' --save --force');
 
 // Install.
 execSync('cd styleguide && npm install');
