@@ -32,7 +32,6 @@ module.exports = {
     filename: devMode ? '[name].js' : '[name].[hash].js',
     path: path.resolve(__dirname, outputDir + '/js'),
     clean: true,
-    globalObject: 'this',
     assetModuleFilename: '../assets/[name][ext]',
     library: {
       name: 'decanter',
