@@ -1,7 +1,6 @@
-@charset "UTF-8";
 
 /// Converts a string to number.
-/// 
+///
 /// String to number converter.
 /// Returns a number value.
 ///
@@ -14,7 +13,7 @@
   @if type-of($value) == 'number' {
     @return $value;
   } @else if type-of($value) != 'string' {
-    $_: log('Value for `to-number` should be a number or a string.');
+    @error 'Value for `to-number` should be a number or a string.';
   }
 
   $result: 0;
