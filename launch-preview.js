@@ -11,11 +11,11 @@ execSync('rm -Rf ./styleguide');
 
 // Clone fresh.
 console.log('Cloning...');
-execSync('git clone -b task/package-updates https://github.com/su-sws/decanter-web.git styleguide');
+execSync(`git clone -b ${branch} https://github.com/su-sws/decanter-web.git styleguide`);
 
 // Change to the testing branch.
 console.log('Checking out...');
-execSync('cd styleguide && git checkout task/package-updates');
+execSync(`cd styleguide && git checkout ${branch}`);
 
 // Add this branch as a dependency.
 console.log('Adding dependency...');
