@@ -13,10 +13,6 @@ execSync('rm -Rf ./styleguide');
 console.log('Cloning...');
 execSync(`git clone -b ${branch} https://github.com/su-sws/decanter-web.git styleguide`);
 
-// Change to the testing branch.
-console.log('Checking out...');
-execSync(`cd styleguide && git checkout ${branch}`);
-
 // Add this branch as a dependency.
 console.log('Adding dependency...');
 console.log('Running', `npm install github:SU-SWS/decanter# + ${branch}`);
