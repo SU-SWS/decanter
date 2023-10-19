@@ -238,17 +238,25 @@
 
 // List and content block heading element styles.
 // ------------------------------------------------
-.su-local-footer__list-heading,
-.stanford-local-footer.su-wysiwyg-text h2 {
+.su-local-footer__list-heading {
   font-size: 18px;
   line-height: 140%;
 }
 
-.stanford-local-footer.su-wysiwyg-text h3,
-.stanford-local-footer.su-wysiwyg-text h4,
-.stanford-local-footer.su-wysiwyg-text h5 {
-  font-size: 16px;
-  line-height: 140%;
+.stanford-local-footer {
+  &.su-wysiwyg-text {
+    h2 {
+      font-size: 18px;
+      line-height: 140%;
+    }
+
+    h3,
+    h4,
+    h5 {
+      font-size: 16px;
+      line-height: 140%;
+    }
+  }
 }
 
 // Common styles for address and links.
