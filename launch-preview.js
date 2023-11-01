@@ -11,7 +11,7 @@ execSync('rm -Rf ./styleguide');
 
 // Clone fresh.
 console.log('Cloning...');
-execSync(`git clone https://github.com/su-sws/decanter-web.git#decanter6 styleguide`);
+execSync(`git clone -b decanter6 https://github.com/su-sws/decanter-web.git styleguide`);
 
 // Add this branch as a dependency.
 console.log('Adding dependency...');
