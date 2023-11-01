@@ -1,5 +1,5 @@
 const {execSync} = require('child_process');
-let branch = 'master';
+let branch = 'v6';
 
 // Get the Current Branch.
 branch = process.env.HEAD ?? execSync('git branch --show-current', {encoding: 'utf8'});
@@ -11,7 +11,7 @@ execSync('rm -Rf ./styleguide');
 
 // Clone fresh.
 console.log('Cloning...');
-execSync(`git clone https://github.com/su-sws/decanter-web.git styleguide`);
+execSync(`git clone https://github.com/su-sws/decanter-web.git#decanter6 styleguide`);
 
 // Add this branch as a dependency.
 console.log('Adding dependency...');
