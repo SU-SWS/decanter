@@ -6,9 +6,8 @@ Changelog: [CHANGELOG.md](CHANGELOG.md)
 [![Maintainability](https://api.codeclimate.com/v1/badges/5ad9555da4ffa2086204/maintainability)](https://codeclimate.com/github/SU-SWS/decanter/maintainability)
 
 ## Demo
-To see a live demo of Decanter v7 please [view the v7 styleguide](https://decanter-v7.netlify.app/).
-More documentation can be found at https://decanter.stanford.edu
-
+To see a live demo of Decanter v7 elements please [view the v7 demo site](https://decanter-v7.netlify.app/).
+For more documentation on Version 7 please visit https://decanter.stanford.edu
 
 ## Description
 Decanter is a web design and development system for Stanford University.
