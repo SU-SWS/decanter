@@ -7,6 +7,7 @@ Changelog: [CHANGELOG.md](CHANGELOG.md)
 
 ## Demo
 To see a live demo of Decanter v7 please [view the v7 styleguide](https://decanter-v7.netlify.app/).
+More documentation can be found at https://decanter.stanford.edu
 
 
 ## Description
