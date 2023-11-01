@@ -8,7 +8,7 @@ Changelog: [CHANGELOG.md](CHANGELOG.md)
 Demo
 ---
 
-To see a live demo of Decanter please [view the styleguide.](https://decanter.stanford.edu)
+To see a live demo of Decanter please [view the styleguide.](https://decanter6.stanford.edu)
 
 Description
 ---
