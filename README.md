@@ -3,8 +3,6 @@
 
 Changelog: [CHANGELOG.md](CHANGELOG.md)
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/5ad9555da4ffa2086204/maintainability)](https://codeclimate.com/github/SU-SWS/decanter/maintainability)
-
 ## Demo
 To see a live demo of Decanter v7 elements please [view the v7 demo site](https://decanter-v7.netlify.app/).
 For more documentation on Version 7 please visit https://decanter.stanford.edu
@@ -33,5 +31,4 @@ We have removed all assets from the repo in Decanter v7. Instead, we are using r
 ## Accessibility
 [![WCAG Conformance 2.0 AA Badge](https://www.w3.org/WAI/wcag2AA-blue.png)](https://www.w3.org/TR/WCAG20/)
 
-Evaluation Date: 2021-05-21
 This project conforms to level AA WCAG 2.0 standards as required by the university's accessibility policy. For more information on the policy please visit: [https://ucomm.stanford.edu/policies/accessibility-policy.html](https://ucomm.stanford.edu/policies/accessibility-policy.html).
