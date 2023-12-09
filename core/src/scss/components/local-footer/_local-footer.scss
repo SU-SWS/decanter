@@ -414,4 +414,38 @@
       }
     }
   }
+
+  .su-local-footer__social-google {
+    i {
+      &::before {
+        content: fa-content($fa-var-google-scholar);
+      }
+    }
+
+    &:hover,
+    &:focus {
+      i {
+        &::before {
+          color: color('Google', $su-social-brands);
+        }
+      }
+    }
+  }
+
+  .su-local-footer__social-mastodon {
+    i {
+      &::before {
+        content: fa-content($fa-var-mastodon);
+      }
+    }
+
+    &:hover,
+    &:focus {
+      i {
+        &::before {
+          color: color('Mastodon', $su-social-brands);
+        }
+      }
+    }
+  }
 }
