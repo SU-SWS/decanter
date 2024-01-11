@@ -2,6 +2,10 @@
  * Fluid type that increase font size smoothly and linearly between a min and max value
  * over the viewport width range 360px (XS) to 1500px (2XL)
  * See concept on https://www.aleksandrhovhannisyan.com/blog/fluid-type-scale-with-css-clamp/
+ *
+ * See google sheet for a plot of the font sizes over the viewport width range 360px (XS) to 1500px (2XL):
+ * https://docs.google.com/spreadsheets/d/1AN9eV_ECXc9MzTZUc10hiLjOHeOCDTutC5tMHOCPqgo/edit?usp=sharing
+ *
  * Good for use in hero banners and horizontal cards where UI looks better with a smooth transition of font size
  * Here we offer the sizes from fluid-type-4 to fluid-type-10. Their min and max values at the XS and 2XL breakpoints
  * are the same as the corresponding modular typography classes (type-4 to type-10).
