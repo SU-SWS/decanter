@@ -1,5 +1,6 @@
 /**
  * Note: these are in px not rem units
+ * 1, 2, 4 and 8px are already provided by Tailwind out of the box
  */
 module.exports = function () {
   return {

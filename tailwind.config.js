@@ -57,6 +57,11 @@ module.exports = {
         ':merge(.group):focus-within &',
         ':merge(.group):hover &',
       ]);
+      /**
+       * Note: in TW v3.4.0, the *: variant is added for targeting direct children
+       * https://github.com/tailwindlabs/tailwindcss/pull/12551
+       * Leaving these in for now for backwards compatibility.
+       */
       addVariant('children', '& > *');
       addVariant('children-hover', '& > *:hover');
       addVariant('children-focus', '& > *:focus');
