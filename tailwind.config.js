@@ -89,6 +89,7 @@ module.exports = {
     require(`${dir}/components/skiplink/skiplink.js`)(),
     require(`${dir}/components/tables/borderless.js`)(),
     require(`${dir}/components/typography/modular-typography.js`)(),
+    require(`${dir}/components/typography/fluid-typography.js`)(),
     require(`${dir}/components/typography/styles.js`)(),
     require(`${dir}/components/typography/wysiwyg.js`)(),
     require(`${dir}/components/shadow/text-shadow.js`)(),
