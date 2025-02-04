@@ -7,12 +7,25 @@
  * https://docs.google.com/spreadsheets/d/1AN9eV_ECXc9MzTZUc10hiLjOHeOCDTutC5tMHOCPqgo/edit?usp=sharing
  *
  * Good for use in hero banners and horizontal cards where UI looks better with a smooth transition of font size
- * Here we offer the sizes from fluid-type-4 to fluid-type-10. Their min and max values at the XS and 2XL breakpoints
- * are the same as the corresponding modular typography classes (type-4 to type-10).
+ * Here we offer the sizes from fluid-type-0 to fluid-type-10. Their min and max values at the XS and 2XL breakpoints
+ * are the same as the corresponding modular typography classes (type-0 to type-10) with base font sizes
+ * XS: 1.8rem, MD: 2.1rem, 2XL: 2.3rem
  */
 module.exports = function () {
   return function ({ addComponents }) {
     const components = {
+      '.fluid-type-0': {
+        fontSize: 'clamp(1.8rem, 0.44vw + 1.64rem, 2.3rem)',
+      },
+      '.fluid-type-1': {
+        fontSize: 'clamp(2.1rem, 0.7vw + 1.85rem, 2.9rem)',
+      },
+      '.fluid-type-2': {
+        fontSize: 'clamp(2.4rem, 1.05vw + 2.02rem, 3.6rem)',
+      },
+      '.fluid-type-3': {
+        fontSize: 'clamp(2.7rem, 1.58vw + 2.13rem, 4.5rem)',
+      },
       '.fluid-type-4': {
         fontSize: 'clamp(3.1rem, 2.19vw + 2.31rem, 5.6rem)',
       },
