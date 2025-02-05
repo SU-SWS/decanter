@@ -13,8 +13,8 @@
   ],
   "main": "tailwind.config.js",
   "scripts": {
-    "build": "tailwind -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --content static/*.html",
-    "watch": "tailwind -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --watch --content static/*.html",
+    "build": "npx @tailwindcss/cli -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --content static/*.html",
+    "watch": "npx @tailwindcss/cli -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --watch --content static/*.html",
     "serve": "light-server -s static -w static/*.html",
     "dev": "npm run watch && npm run serve",
     "lint": "eslint './src'",
@@ -31,11 +31,11 @@
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.7",
-    "tailwindcss": "^3.4.17"
+    "@tailwindcss/postcss": "^4.0.0",
+    "tailwindcss": "^4.0.0"
   },
   "devDependencies": {
     "auto-changelog": "^2.2.1",
-    "autoprefixer": "^10.4.20",
     "eslint": "^7.14",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
@@ -47,5 +47,8 @@
     "postcss-loader": "^4.0.0",
     "postcss-nested": "^5.0.1",
     "prettier": "^2.2.1"
+  },
+  "optionalDependencies": {
+    "@tailwindcss/cli": "^4.0.3"
   }
 }
