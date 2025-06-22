@@ -8,6 +8,7 @@ module.exports = function () {
     lg: '992px',
     xl: '1200px',
     '2xl': '1500px',
-    print: { raw: 'print' },
+    '3xl': '1700px',
+    '4xl': '2000px',
   };
 };
