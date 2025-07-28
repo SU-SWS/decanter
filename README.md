@@ -13,6 +13,28 @@ It includes a responsive layout system and a browsable collection of design patt
 that can be used in any Stanford project.
 For Decanter v7, instead of using SASS/SCSS with the BEM naming convention, we use [Tailwind CSS](https://tailwindcss.com/) to generate utility classes with some customization needed for our Stanford design system.
 
+### Usage
+When using Decanter, the package will automatically resolve to the correct module format:
+
+```javascript
+// CommonJS - In your tailwind.config.js
+module.exports = {
+  presets: [require('decanter')],
+  // your additional config...
+}
+
+// ES Module - In your tailwind.config.mjs  
+import decanter from 'decanter';
+export default {
+  presets: [decanter],
+  // your additional config...
+}
+```
+
+The package exports both CommonJS (`tailwind.config.js`) and ES Module (`tailwind.config.mjs`) versions to ensure compatibility with different bundlers and configurations.
+
+For detailed usage examples and configuration options, see [docs/usage.md](docs/usage.md).
+
 ## Assets
 We have removed all assets from the repo in Decanter v7. Instead, we are using remote third party resources for our fonts and icons.
 
