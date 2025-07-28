@@ -6,10 +6,6 @@
 
 The centered container plugin provides responsive container classes that center content horizontally with appropriate margins for different screen sizes. This plugin implements Stanford's layout guidelines for content width and spacing across different viewport sizes.
 
-## Purpose
-
-Creates `.centered-container` and `.cc` (shorthand) classes that provide consistent content centering with responsive margins that adapt to different screen sizes, following Stanford's design system for optimal reading widths and visual hierarchy.
-
 ## Generated CSS Classes
 
 ### `.centered-container` and `.cc`

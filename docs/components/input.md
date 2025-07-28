@@ -6,10 +6,6 @@
 
 The input plugin provides base styling for text input elements, compensating for font size differences between Tailwind CSS defaults and Decanter's design system. This plugin ensures consistent input field appearance across Stanford websites.
 
-## Purpose
-
-Creates a `.input` class that provides consistent styling for text input fields, maintaining Stanford design system typography and spacing standards while ensuring proper visual hierarchy and accessibility.
-
 ## Generated CSS Classes
 
 ### `.input`

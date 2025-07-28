@@ -6,10 +6,6 @@
 
 The buttons plugin provides base styles for interactive button elements, implementing Stanford design system guidelines for consistent button appearance and behavior across web interfaces.
 
-## Purpose
-
-Creates a `.button` class that can be applied to `<button>`, `<input type="button">`, `<input type="submit">`, and `<a>` elements to provide consistent styling that follows Stanford's visual identity and accessibility standards.
-
 ## Generated CSS Classes
 
 ### `.button`
@@ -54,24 +50,6 @@ The primary button class with Stanford brand styling.
               0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 ```
-
-## Design System Integration
-
-### Stanford Brand Colors
-- **Primary background**: `digital-red.DEFAULT` (#9D1C1C) - Stanford's digital red
-- **Hover/focus background**: `black.DEFAULT` (#2E2D29) - Stanford's primary text color
-- **Text color**: `white` for maximum contrast
-
-### Typography
-- **Font family**: Source Sans 3 (Stanford's primary sans-serif)
-- **Font weight**: Normal (400) for readability
-- **Line height**: 1 for compact button appearance
-
-### Accessibility Features
-- **Focus indicators**: Box shadow and underline for keyboard navigation
-- **Color contrast**: Meets WCAG AA standards (4.5:1 minimum)
-- **Smooth transitions**: 0.25s ease-in-out for comfortable visual feedback
-- **Cursor indication**: Pointer cursor shows interactive state
 
 ## Usage Examples
 

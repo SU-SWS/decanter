@@ -6,10 +6,6 @@
 
 The grid gap plugin provides responsive gap spacing for CSS Grid and Flexbox layouts. It creates a `.grid-gap` class that automatically adjusts gap spacing based on screen size, ensuring consistent spacing across different viewport sizes according to Stanford's design system.
 
-## Purpose
-
-Creates responsive gap utilities that adapt spacing between grid and flex items based on the current breakpoint. This ensures optimal spacing density on mobile devices while providing more generous spacing on larger screens.
-
 ## Generated CSS Classes
 
 ### `.grid-gap`

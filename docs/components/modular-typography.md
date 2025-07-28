@@ -6,9 +6,6 @@
 
 The modular typography plugin provides Stanford's responsive modular typography scale as utility classes. It creates `.type-0` through `.type-9` classes that offer consistent, scalable typography with different font sizes for mobile, tablet, and desktop breakpoints.
 
-## Purpose
-
-Implements Stanford's modular typography system where `type-0` represents the base step (1em) and each subsequent level (`type-1` through `type-9`) progressively scales up. Each type class includes responsive font sizes and letter spacing optimized for different screen sizes, ensuring optimal readability across all devices.
 
 ## Generated CSS Classes
 
