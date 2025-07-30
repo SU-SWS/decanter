@@ -1,9 +1,3 @@
-# Font Family Theme Plugin
-
-**File**: `/src/plugins/theme/fontFamily.js`
-
-## Overview
-
 # Font Family
 
 **File**: `/src/plugins/theme/fontFamily.js`

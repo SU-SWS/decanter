@@ -1,15 +1,3 @@
-# Border Radius Theme Plugin
-
-**File**: `/src/plugins/theme/borderRadius.js`
-
-## Overview
-
-The border radius theme plugin customizes Tailwind's default border radius scale to match Stanford's design system preferences. It specifically modifies the default border radius value to provide a slightly more pronounced rounding that aligns with Stanford's interface design standards.
-
-## Purpose
-
-Establishes Stanford's preferred border radius for form inputs and interface elements, providing a subtle but distinctive rounded corner treatment that enhances usability while maintaining visual consistency across all Stanford digital properties.
-
 # Border Radius
 
 **File**: `/src/plugins/theme/borderRadius.js`

@@ -3,83 +3,33 @@
 **File**: `/src/plugins/theme/maxWidth.js`
 
 ## Overview
-Provides extensive rem-based width constraints from small interface elements to massive content containers, including a special prose width optimized for reading comfort.
+Extended max-width utilities for responsive layout and content constraints.
 
 ## Generated CSS Classes
-
-### Rem-based Widths
-- **Small**: `.max-w-10` (1rem), `.max-w-20` (2rem), `.max-w-30` (3rem), `.max-w-40` (4rem), `.max-w-50` (5rem)
-- **Medium**: `.max-w-60` (6rem), `.max-w-70` (7rem), `.max-w-80` (8rem), `.max-w-90` (9rem), `.max-w-100` (10rem)
-- **Large**: `.max-w-120` (12rem), `.max-w-140` (14rem), `.max-w-160` (16rem), `.max-w-180` (18rem), `.max-w-200` (20rem)
-- **Content**: `.max-w-300` (30rem), `.max-w-400` (40rem), `.max-w-500` (50rem), `.max-w-600` (60rem), `.max-w-700` (70rem)
-- **Wide**: `.max-w-800` (80rem), `.max-w-900` (90rem), `.max-w-1000` (100rem), `.max-w-1200` (120rem), `.max-w-1500` (150rem)
-
-### Special Width
-- **Prose**: `.max-w-prose-wide` (75ch) - Character-based width for optimal reading
+- `.max-w-{size}`, where `size` includes:
+  - `10` … `100` (1rem to 10rem)
+  - `120` … `200` (12rem to 20rem)
+  - `300` … `1500` (30rem to 150rem)
+  - `prose-wide` (75ch)
 
 ## Usage
-
 ```html
-<!-- Button size variations -->
-<button class="bg-cardinal-red text-white px-4 py-2 rounded max-w-20">Small</button>
-<button class="bg-cardinal-red text-white px-6 py-3 rounded max-w-40">Standard</button>
-<button class="bg-cardinal-red text-white px-8 py-4 rounded max-w-60">Large</button>
-
-<!-- Form controls with appropriate widths -->
-<input type="text" class="border p-3 rounded max-w-40" placeholder="Student ID">
-<input type="email" class="border p-3 rounded max-w-120" placeholder="Email">
-<input type="text" class="border p-3 rounded max-w-200" placeholder="Full Address">
-
-<!-- Article with optimal reading width -->
-<article class="max-w-prose-wide mx-auto">
-  <h1 class="text-4xl font-bold mb-6">Research Article</h1>
-  <p class="text-lg leading-relaxed">
-    Content optimized for reading comfort with character-based width that adapts to font size changes...
-  </p>
-</article>
-
-<!-- Responsive width constraints -->
-<div class="max-w-120 md:max-w-200 lg:max-w-400 xl:max-w-600 mx-auto">
-  Container that expands progressively with screen size
-</div>
-
-<!-- Dashboard layout with ultra-wide container -->
-<div class="max-w-1200 mx-auto p-8">
-  <h1 class="text-3xl font-bold mb-8">Admin Dashboard</h1>
-  <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
-    <nav class="lg:max-w-80">
-      <!-- Navigation sidebar -->
-    </nav>
-    <main class="lg:col-span-3">
-      <!-- Main content -->
-    </main>
-  </div>
-</div>
+<div class="max-w-600 mx-auto">Centered content</div>
 ```
 
 ## Customization
-
-```javascript
-// In your tailwind.config.js
+```js
 module.exports = {
   theme: {
     extend: {
       maxWidth: {
-        // Add custom widths
-        '110': '11rem',
-        '350': '35rem',
-        '1100': '110rem',
-        // Add semantic widths
         'sidebar': '18rem',
-        'content': '45rem',
-        'dashboard': '100rem',
-        // Add character-based widths
-        'prose-narrow': '65ch',
-        'prose-extra-wide': '85ch',
+        // custom sizes
       },
     },
   },
-}
+};
+```
 
 ## Max Width Scale
 

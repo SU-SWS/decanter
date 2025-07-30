@@ -50,6 +50,7 @@ module.exports = {
     },
   },
 }
+```
 
 ### Modular Typography System
 

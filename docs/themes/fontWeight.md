@@ -1,15 +1,3 @@
-# Font Weight Theme Plugin
-
-**File**: `/src/plugins/theme/fontWeight.js`
-
-## Overview
-
-The font weight theme plugin extends Tailwind's default font weight system with Stanford-specific weight mappings, most notably adding the `font-regular` class as an alias for normal (400) weight. This provides compatibility with Decanter v6 conventions while maintaining Tailwind's standard font weight system.
-
-## Purpose
-
-Ensures backward compatibility for Stanford projects migrating from Decanter v6, where `font-regular` was the standard class name for normal weight text. This plugin allows teams to continue using familiar class names while transitioning to the updated Tailwind-based system.
-
 # Font Weight
 
 **File**: `/src/plugins/theme/fontWeight.js`

@@ -1,21 +1,3 @@
-# Colors Theme Plugin
-
-**File**: `/src/plugins/theme/colors.js`
-
-## Overview
-
-The colors theme plugin defines Stanford's official color palette from the Stanford Identity Guide. It provides a comprehensive set of brand colors, accent colors, and utility colors that replace and extend Tailwind's default color system with Stanford-specific values.
-
-## Purpose
-
-Implements Stanford University's official color palette to ensure brand consistency across all web properties. The plugin provides semantic color names that correspond to Stanford's visual identity guidelines while maintaining accessibility standards and providing sufficient color options for diverse design needs.
-
-## Official Stanford Color Categories
-
-### Primary Brand Colors
-
-#### Cardinal Red - Stanford's Signature Color
-```javascript
 # Colors
 
 **File**: `/src/plugins/theme/colors.js`

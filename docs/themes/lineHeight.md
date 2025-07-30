@@ -1,7 +1,3 @@
-# Line Height Theme Plugin
-
-**File**: `/src/plugins/theme/lineHeight.js`
-
 # Line Height
 
 **File**: `/src/plugins/theme/lineHeight.js`
