@@ -10,14 +10,59 @@ The border radius theme plugin customizes Tailwind's default border radius scale
 
 Establishes Stanford's preferred border radius for form inputs and interface elements, providing a subtle but distinctive rounded corner treatment that enhances usability while maintaining visual consistency across all Stanford digital properties.
 
-## Border Radius Configuration
+# Border Radius
 
-### Default Border Radius Override
+**File**: `/src/plugins/theme/borderRadius.js`
 
-#### Standard Radius (DEFAULT) - 0.3rem
-```javascript
-DEFAULT: '0.3rem'  // Replaces Tailwind's default 0.25rem
+## Overview
+Customizes the default border radius to 0.3rem (3px) instead of Tailwind's default 0.25rem, optimized for Stanford's form inputs and design system.
+
+## Generated CSS Classes
+
+- **Default radius**: `.rounded` (0.3rem instead of 0.25rem)
+- **Standard Tailwind radii**: `.rounded-none`, `.rounded-sm`, `.rounded-md`, `.rounded-lg`, `.rounded-xl`, `.rounded-2xl`, `.rounded-3xl`, `.rounded-full`
+
+## Usage
+
+```html
+<!-- Stanford's optimized default radius -->
+<input class="rounded border p-3">Form input with 0.3rem radius</input>
+<button class="rounded bg-cardinal-red text-white px-4 py-2">
+  Button with Stanford radius
+</button>
+
+<!-- Other radius options -->
+<div class="rounded-lg p-4 bg-fog">Card with large radius</div>
+<img class="rounded-full w-16 h-16" src="profile.jpg" alt="Profile">
+
+<!-- Form elements -->
+<div class="space-y-4">
+  <input class="rounded border border-cool-grey p-3 w-full">
+  <select class="rounded border border-cool-grey p-3 w-full">
+    <option>Choose option</option>
+  </select>
+  <textarea class="rounded border border-cool-grey p-3 w-full"></textarea>
+</div>
 ```
+
+## Customization
+
+```javascript
+// In your tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      borderRadius: {
+        // Add custom radius values
+        'xs': '0.2rem',
+        'stanford': '0.3rem', // Alias for default
+        '4xl': '2rem',
+        // Override default if needed
+        'DEFAULT': '0.4rem',
+      },
+    },
+  },
+}
 
 **Purpose**: Stanford's preferred border radius for form inputs and standard interface elements.
 

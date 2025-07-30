@@ -1,33 +1,67 @@
-# Gap Theme Plugin
+# Gap
 
 **File**: `/src/plugins/theme/gap.js`
 
 ## Overview
+Provides responsive gap utilities for CSS Grid and Flexbox layouts with Stanford's breakpoint-specific values (xs: 20px, lg: 36px, xl: 40px, 2xl: 48px) plus all spacing values.
 
-The gap theme plugin extends Tailwind's gap system with Stanford-specific responsive gap values designed for grid and flexbox layouts. It provides breakpoint-specific gap values that automatically adjust based on screen size, ensuring optimal spacing in responsive grid systems.
+## Generated CSS Classes
 
-## Purpose
+- **Responsive gaps**: `.gap-xs`, `.gap-lg`, `.gap-xl`, `.gap-2xl` (20px, 36px, 40px, 48px)
+- **All spacing gaps**: `.gap-1` through `.gap-1500` (inherits all spacing values)
+- **Directional gaps**: `.gap-x-*`, `.gap-y-*` for row/column specific spacing
+- **Special utility**: `.grid-gap` (responsive combination: xs→lg→xl→2xl)
 
-Establishes consistent spacing patterns for CSS Grid and Flexbox layouts that adapt to different screen sizes. The plugin provides both fine-grained control and a responsive utility class that automatically applies appropriate gaps based on the current breakpoint.
+## Usage
 
-## Gap Configuration
+```html
+<!-- Responsive gap utility -->
+<div class="grid grid-cols-3 grid-gap">
+  <div>Item 1</div>
+  <div>Item 2</div>
+  <div>Item 3</div>
+</div>
 
-### Responsive Gap Values
+<!-- Breakpoint-specific gaps -->
+<div class="flex flex-wrap gap-xs lg:gap-lg xl:gap-xl">
+  <div>Flexible item</div>
+  <div>Flexible item</div>
+  <div>Flexible item</div>
+</div>
 
-#### Extra Small (xs) - 20px
-```javascript
-xs: '20px'  // Mobile and small screen gap
+<!-- Directional gaps -->
+<div class="grid grid-cols-2 gap-x-lg gap-y-xs">
+  <div>Different horizontal and vertical gaps</div>
+  <div>Between grid items</div>
+</div>
+
+<!-- Flexbox spacing -->
+<div class="flex gap-xl">
+  <button>Button 1</button>
+  <button>Button 2</button>
+  <button>Button 3</button>
+</div>
 ```
 
-#### Large (lg) - 36px
-```javascript
-lg: '36px'  // Large screen gap
-```
+## Customization
 
-#### Extra Large (xl) - 40px
 ```javascript
-xl: '40px'  // Extra large screen gap
-```
+// In your tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      gap: {
+        // Add custom gap values
+        '3xl': '56px',
+        '4xl': '64px',
+        // Add semantic gaps
+        'card': '24px',
+        'section': '48px',
+        'component': '16px',
+      },
+    },
+  },
+}
 
 #### 2X Large (2xl) - 48px
 ```javascript

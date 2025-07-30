@@ -16,12 +16,64 @@ Implements Stanford University's official color palette to ensure brand consiste
 
 #### Cardinal Red - Stanford's Signature Color
 ```javascript
-'cardinal-red': {
-  DEFAULT: '#8C1515',    // Main Stanford brand color
-  light: '#B83A4B',      // Lighter variant for backgrounds
-  dark: '#820000',       // Darker variant for emphasis
-  xdark: '#7A0000',      // Extra dark - passes contrast with digital-red-xlight
-  xxdark: '#541107',     // Hover/focus color for xdark
+# Colors
+
+**File**: `/src/plugins/theme/colors.js`
+
+## Overview
+Provides Stanford's official color palette from the Identity Guide, including primary colors, web interactive colors, and accessible color variations with opacity modifiers.
+
+## Generated CSS Classes
+
+- **Cardinal Red**: `.text-cardinal-red`, `.bg-cardinal-red`, `.border-cardinal-red` (with variants: `light`, `dark`, `xdark`, `xxdark`)
+- **Black Spectrum**: `.text-black`, `.bg-black`, `.border-black` (with variants: `10`, `20`, `30`, `40`, `50`, `60`, `70`, `80`, `90`, `true`)
+- **Cool Grey**: `.text-cool-grey`, `.bg-cool-grey`, `.border-cool-grey`
+- **Digital Colors**: `.text-digital-red`, `.bg-digital-red`, `.border-digital-red` (with variants: `light`, `dark`)
+- **And many more** - All Stanford identity colors with Tailwind's standard color utilities
+
+## Usage
+
+```html
+<!-- Primary Stanford colors -->
+<div class="bg-cardinal-red text-white p-6">
+  <h1>Stanford Cardinal Red</h1>
+</div>
+
+<!-- Text colors with various weights -->
+<p class="text-black">Default black text</p>
+<p class="text-black-70">Lighter black text</p>
+<p class="text-cool-grey">Cool grey text</p>
+
+<!-- Interactive elements -->
+<button class="bg-digital-blue text-white hover:bg-digital-blue-dark">
+  Digital Blue Button
+</button>
+
+<!-- Borders and accents -->
+<div class="border-2 border-fog bg-stone p-4">
+  <p class="text-warm-grey">Subtle color combination</p>
+</div>
+```
+
+## Customization
+
+```javascript
+// In your tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        // Override or extend Stanford colors
+        'cardinal-red': {
+          DEFAULT: '#8C1515',
+          custom: '#A31B1B', // Custom variant
+        },
+        // Add your own colors
+        'custom-blue': '#0066CC',
+        'department-green': '#228B22',
+      },
+    },
+  },
 }
 ```
 

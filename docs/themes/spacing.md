@@ -1,103 +1,61 @@
-# Spacing Theme Plugin
+# Spacing
 
 **File**: `/src/plugins/theme/spacing.js`
 
 ## Overview
+Provides comprehensive spacing utilities from 1px to 1500px in rem/em units for margin, padding, gap, and width with both precise increments and responsive system values.
 
-The spacing theme plugin implements Stanford's comprehensive spacing system that balances typographic rhythm with layout flexibility. It provides both em-based spacing for typography-relative measurements and rem-based spacing for consistent layout patterns, creating a unified spatial system across all Stanford digital properties.
+## Generated CSS Classes
 
-## Purpose
+- **Pixel units**: `px` (1px)
+- **Em units**: `.01em` through `1em` (typography spacing)
+- **Small increments**: `1` through `50` (1px to 50px in 1px increments)
+- **Medium increments**: `55` through `100` (50px to 100px in 5px increments) 
+- **Large increments**: `110` through `300` (100px to 300px in 10px increments)
+- **XL increments**: `350` through `1000` (300px to 1000px in 50px increments)
+- **XXL increments**: `1100` through `1500` (1000px to 1500px in 100px increments)
 
-Establishes a systematic approach to spacing that maintains visual rhythm and consistency while accommodating Stanford's diverse content types. The dual-unit system ensures that spacing scales appropriately with text size (em units) while maintaining predictable layout patterns (rem units) across different screen sizes and contexts.
+## Usage
 
-## Spacing Scale Architecture
-
-### Typography-Relative Spacing (em units)
-
-#### Fine-Grained Typography Spacing (0.05em - 0.95em)
-```javascript
-// Ultra-fine spacing for typography
-'0.05': '0.05em',  // Letter-spacing adjustments
-'0.1': '0.1em',    // Tight letter spacing
-'0.15': '0.15em',  // Fine spacing
-'0.2': '0.2em',    // Small spacing
-'0.25': '0.25em',  // Quarter spacing
-'0.3': '0.3em',    // Typography margins
-'0.35': '0.35em',  // Fine margins
-'0.4': '0.4em',    // Small margins
-'0.45': '0.45em',  // Medium-small spacing
-'0.5': '0.5em',    // Half spacing
-'0.55': '0.55em',  // Medium spacing
-'0.6': '0.6em',    // Comfortable spacing
-'0.65': '0.65em',  // Medium-large spacing
-'0.7': '0.7em',    // Large typography spacing
-'0.75': '0.75em',  // Three-quarter spacing
-'0.8': '0.8em',    // Large spacing
-'0.85': '0.85em',  // Large-extra spacing
-'0.9': '0.9em',    // Nearly full spacing
-'0.95': '0.95em'   // Almost full spacing
-```
-
-**Usage Guidelines:**
-- **Letter spacing**: 0.05em - 0.15em for typography fine-tuning
-- **Word spacing**: 0.1em - 0.3em for readability adjustments
-- **Inline element spacing**: 0.2em - 0.5em for text-relative gaps
-- **Typography margins**: 0.5em - 0.95em for text-relative vertical rhythm
-
-**Usage Examples:**
 ```html
-<!-- Typography fine-tuning -->
-<h1 class="tracking-[0.05em] mb-[0.3em]">Stanford University</h1>
-<h2 class="tracking-[0.1em] mb-[0.25em] mt-[0.5em]">Research Excellence</h2>
+<!-- Common spacing patterns -->
+<div class="p-16 m-24">Padding 16px, margin 24px</div>
+<section class="py-60 px-20">Vertical 60px, horizontal 20px</section>
 
-<!-- Inline element spacing -->
-<p class="space-x-[0.2em]">
-  <span class="bg-cardinal-red text-white px-[0.3em] py-[0.1em] rounded">Tag</span>
-  <span class="bg-digital-blue text-white px-[0.3em] py-[0.1em] rounded">Category</span>
-</p>
+<!-- Typography spacing (em units) -->
+<h2 class="mb-05em">Heading with proportional bottom margin</h2>
+<p class="mt-1em">Paragraph with 1em top margin</p>
 
-<!-- Text-relative margins -->
-<article class="space-y-[0.75em]">
-  <p>First paragraph with em-based spacing that scales with text size...</p>
-  <p>Second paragraph maintains proportional spacing...</p>
-</article>
+<!-- Layout spacing -->
+<div class="space-y-32">Vertical spacing between children</div>
+<div class="gap-20">Grid/flex gap of 20px</div>
+
+<!-- Responsive spacing -->
+<div class="p-16 md:p-32 lg:p-48">
+  Responsive padding
+</div>
 ```
 
-#### Standard Typography Spacing (1em - 4em)
+## Customization
+
 ```javascript
-// Full em-based spacing
-'1': '1em',    // Full text size
-'1.25': '1.25em',  // Large spacing
-'1.5': '1.5em',    // Extra-large spacing
-'1.75': '1.75em',  // Double spacing minus
-'2': '2em',        // Double spacing
-'2.25': '2.25em',  // Large section spacing
-'2.5': '2.5em',    // Extra-large section spacing
-'2.75': '2.75em',  // Major spacing
-'3': '3em',        // Triple spacing
-'3.25': '3.25em',  // Large section breaks
-'3.5': '3.5em',    // Major section spacing
-'3.75': '3.75em',  // Extra-large breaks
-'4': '4em'         // Maximum em spacing
-```
-
-**Usage Guidelines:**
-- **Paragraph spacing**: 1em - 1.5em between paragraphs
-- **Section spacing**: 2em - 3em between content sections
-- **Major breaks**: 3em - 4em for significant content divisions
-- **Typography hierarchy**: Scaling margins based on heading sizes
-
-**Usage Examples:**
-```html
-<!-- Article with typography-scaled spacing -->
-<article class="font-source-serif-4">
-  <header class="mb-[2em]">
-    <h1 class="text-m8 mb-[0.5em]">Research Article Title</h1>
-    <div class="text-m1 text-black-60 mb-[1em]">
-      <span>Dr. Sarah Chen</span> • <span>March 2024</span>
-    </div>
-    <p class="text-m3 font-medium">Abstract summary that scales with text size...</p>
-  </header>
+// In your tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      spacing: {
+        // Add custom spacing values
+        '15': '1.5rem',
+        '128': '12.8rem',
+        '1600': '160rem',
+        // Add semantic spacing
+        'card': '2.4rem',
+        'section': '6rem',
+        'gutter': '2rem',
+      },
+    },
+  },
+}
   
   <main class="space-y-[1.5em]">
     <section>

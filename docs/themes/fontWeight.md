@@ -10,14 +10,60 @@ The font weight theme plugin extends Tailwind's default font weight system with 
 
 Ensures backward compatibility for Stanford projects migrating from Decanter v6, where `font-regular` was the standard class name for normal weight text. This plugin allows teams to continue using familiar class names while transitioning to the updated Tailwind-based system.
 
-## Font Weight Configuration
+# Font Weight
 
-### Stanford-Specific Weights
+**File**: `/src/plugins/theme/fontWeight.js`
 
-#### Regular Weight (400)
-```javascript
-regular: '400'  // Alias for font-normal (400 weight)
+## Overview
+Extends Tailwind's default font weights with `.font-regular` as an alias for normal (400) weight, maintaining compatibility with Decanter v6 users.
+
+## Generated CSS Classes
+
+- **Regular weight**: `.font-regular` (400 - alias for `.font-normal`)
+- **Standard Tailwind weights**: `.font-thin`, `.font-light`, `.font-normal`, `.font-medium`, `.font-semibold`, `.font-bold`, `.font-extrabold`, `.font-black`
+
+## Usage
+
+```html
+<!-- Using Decanter's regular alias -->
+<p class="font-regular">Regular weight text (400)</p>
+<p class="font-normal">Same as font-regular</p>
+
+<!-- Standard font weight scale -->
+<h1 class="font-bold">Bold heading</h1>
+<h2 class="font-semibold">Semibold subheading</h2>
+<p class="font-regular">Regular body text</p>
+<small class="font-light">Light helper text</small>
+
+<!-- Typography hierarchy -->
+<div class="font-serif">
+  <h1 class="font-black text-3xl">Stanford University</h1>
+  <h2 class="font-bold text-xl">School of Engineering</h2>
+  <p class="font-regular">Regular content text</p>
+</div>
 ```
+
+## Customization
+
+```javascript
+// In your tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      fontWeight: {
+        // Add custom weights
+        'hairline': 100,
+        'extra-light': 200,
+        'book': 350,
+        'heavy': 850,
+        // Add semantic weights
+        'heading': 700,
+        'subheading': 600,
+        'body': 400,
+      },
+    },
+  },
+}
 
 **Purpose**: Provides the `font-regular` class as an alternative to Tailwind's `font-normal`.
 

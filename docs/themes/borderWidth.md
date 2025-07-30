@@ -1,47 +1,58 @@
-# Border Width Theme Plugin
+# Border Width
 
 **File**: `/src/plugins/theme/borderWidth.js`
 
 ## Overview
+Extends Tailwind's default border widths (1px, 2px, 4px, 8px) with additional 3px, 5px, 6px, and 7px options for more precise border control.
 
-The border width theme plugin extends Tailwind's default border width system with additional pixel-based width options that provide more granular control over border thickness. These additional values are specifically chosen to complement Stanford's design system and interface requirements.
+## Generated CSS Classes
 
-## Purpose
+- **Extended widths**: `.border-3`, `.border-5`, `.border-6`, `.border-7` (3px, 5px, 6px, 7px)
+- **Standard Tailwind widths**: `.border`, `.border-2`, `.border-4`, `.border-8`, `.border-0`
+- **Directional borders**: Available for all sides (top, right, bottom, left)
 
-Provides precise border width control for Stanford's interface elements, allowing designers and developers to create subtle visual distinctions and hierarchy through varied border weights. The extended values fill gaps in Tailwind's default scale, offering more nuanced border styling options.
+## Usage
 
-## Complete Border Width System
+```html
+<!-- Extended border widths -->
+<div class="border-3 border-cardinal-red p-4">3px border</div>
+<div class="border-5 border-digital-blue p-4">5px border</div>
+<div class="border-6 border-cool-grey p-4">6px border</div>
+<div class="border-7 border-black p-4">7px border</div>
 
-When combined with Tailwind's default border widths, Stanford projects have access to:
+<!-- Directional borders -->
+<div class="border-t-3 border-cardinal-red">3px top border</div>
+<div class="border-l-5 border-digital-blue pl-4">5px left border</div>
 
-### Tailwind Default Widths
-```css
-border-0         /* 0px */
-border           /* 1px */
-border-2         /* 2px */
-border-4         /* 4px */
-border-8         /* 8px */
+<!-- Combined with other utilities -->
+<div class="border-6 border-cardinal-red rounded-lg p-6 bg-white shadow">
+  Card with 6px Stanford red border
+</div>
+
+<!-- Emphasis elements -->
+<blockquote class="border-l-5 border-poppy pl-6 py-4 bg-illuminating-yellow/10">
+  <p class="italic">Important quote with 5px accent border</p>
+</blockquote>
 ```
 
-### Stanford Extensions
-```css
-border-3         /* 3px */
-border-5         /* 5px */
-border-6         /* 6px */
-border-7         /* 7px */
-```
+## Customization
 
-### Complete Scale
-```css
-border-0         /* 0px - No border */
-border           /* 1px - Default thin border */
-border-2         /* 2px - Medium border */
-border-3         /* 3px - Stanford medium-plus border */
-border-4         /* 4px - Heavy border */
-border-5         /* 5px - Stanford heavy-plus border */
-border-6         /* 6px - Stanford extra-heavy border */
-border-7         /* 7px - Stanford ultra-heavy border */
-border-8         /* 8px - Maximum standard border */
-```
-
-This extended border width system provides Stanford's design system with the precise control needed to create clear visual hierarchy and emphasis while maintaining consistency across all digital properties.
+```javascript
+// In your tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      borderWidth: {
+        // Add more widths
+        '9': '9px',
+        '10': '10px',
+        '12': '12px',
+        // Add semantic widths
+        'thin': '1px',
+        'medium': '3px',
+        'thick': '6px',
+        'heavy': '8px',
+      },
+    },
+  },
+}

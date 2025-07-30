@@ -4,7 +4,56 @@
 
 ## Overview
 
-The font family theme plugin implements Stanford's official typography system by defining font stacks that prioritize Stanford-approved typefaces while providing robust fallbacks. It replaces Tailwind's default font families with Stanford Identity Guide-compliant options, ensuring consistent brand typography across all digital platforms.
+# Font Family
+
+**File**: `/src/plugins/theme/fontFamily.js`
+
+## Overview
+Provides Stanford's official typography stack with carefully curated font families including Source Sans 3, Source Serif 4, and Stanford's custom fonts with appropriate fallbacks.
+
+## Generated CSS Classes
+
+- **Sans serif**: `.font-sans` - Source Sans 3, Source Sans Pro, Helvetica Neue, Arial
+- **Serif**: `.font-serif` - Source Serif 4, Source Serif Pro, Georgia, Times
+- **Monospace**: `.font-mono` - Roboto Mono, Menlo, Courier New
+- **Slab serif**: `.font-slab` - Roboto Slab, Georgia, Times
+- **Stanford custom**: `.font-stanford` - Stanford, Source Serif Pro, Georgia
+
+## Usage
+
+```html
+<!-- Primary typography -->
+<h1 class="font-serif">Stanford University</h1>
+<p class="font-sans">Body text content</p>
+
+<!-- Specialized typography -->
+<code class="font-mono">console.log('Hello World')</code>
+<h2 class="font-slab">Bold section heading</h2>
+<div class="font-stanford">Official Stanford branding</div>
+
+<!-- Responsive typography -->
+<h1 class="font-sans md:font-serif">
+  Responsive font family
+</h1>
+```
+
+## Customization
+
+```javascript
+// In your tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      fontFamily: {
+        // Add custom font families
+        'custom-sans': ['Custom Sans', 'Arial', 'sans-serif'],
+        'department': ['Department Font', 'Georgia', 'serif'],
+        // Override existing families
+        'serif': ['Custom Serif', 'Georgia', 'serif'],
+      },
+    },
+  },
+}
 
 ## Purpose
 

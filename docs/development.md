@@ -44,22 +44,3 @@ tw.config.js                    # Shared configuration factory
 │       ├── theme/             # Theme configuration
 │       └── utilities/         # Utility classes
 ```
-
-### Testing Changes
-
-Always test both module formats after making changes:
-
-```bash
-# Test CommonJS
-node -e "const config = require('./tailwind.config.js'); console.log('Themes:', Object.keys(config.theme).length, 'Plugins:', config.plugins.length);"
-
-# Test ES Module  
-node --input-type=module -e "import config from './tailwind.config.mjs'; console.log('Themes:', Object.keys(config.theme).length, 'Plugins:', config.plugins.length);"
-
-# Test package imports
-node -e "console.log('require works:', !!require('decanter').theme);"
-node --input-type=module -e "import d from 'decanter'; console.log('import works:', !!d.theme);"
-
-# Test build
-npm run build
-```

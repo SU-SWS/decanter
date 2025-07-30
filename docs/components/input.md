@@ -1,26 +1,59 @@
-# Input Component Plugin
+# Input
 
 **File**: `/src/plugins/components/form/input.js`
 
 ## Overview
-
-The input plugin provides base styling for text input elements, compensating for font size differences between Tailwind CSS defaults and Decanter's design system. This plugin ensures consistent input field appearance across Stanford websites.
+Provides base styles for input elements to ensure consistent typography and appearance, compensating for HTML font size differences between Tailwind CSS and Decanter.
 
 ## Generated CSS Classes
 
-### `.input`
+- `.input` - Base input styling with Stanford design system colors, typography, and borders
 
-Base styling for text input elements with Stanford design system compliance.
+## Usage
 
-```css
-.input {
-  display: block;                       /* Full-width by default */
-  border-color: rgba(46, 45, 41, 0.2);  /* Subtle border (black.20) */
-  color: #2E2D29;                       /* Stanford black for text */
-  font-size: 1.8rem;                    /* 18px - optimal for readability */
-  line-height: 1.25;                    /* Snug line height for inputs */
-}
+```html
+<label for="email">Email Address</label>
+<input type="email" id="email" class="input" placeholder="Enter your email">
+
+<label for="name">Full Name</label>
+<input type="text" id="name" class="input" required>
+
+<label for="phone">Phone Number</label>
+<input type="tel" id="phone" class="input">
 ```
+
+## Customization
+
+```javascript
+// In your tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      decanter: {
+        base: {
+          inputFontSize: '2rem', // Larger input text
+        },
+      },
+      colors: {
+        black: {
+          20: 'rgba(0, 0, 0, 0.2)', // Custom border color
+        },
+      },
+    },
+  },
+  plugins: [
+    function({ addComponents, theme }) {
+      addComponents({
+        '.input-large': {
+          fontSize: '2.2rem',
+          padding: '1.2rem 1.6rem',
+        },
+      })
+    },
+  ],
+}
+
+
 
 ## Design System Integration
 

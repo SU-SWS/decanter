@@ -4,7 +4,73 @@
 
 ## Overview
 
-The centered container plugin provides responsive container classes that center content horizontally with appropriate margins for different screen sizes. This plugin implements Stanford's layout guidelines for content width and spacing across different viewport sizes.
+# Centered Container
+
+**File**: `/src/plugins/components/layout/centered-container.js`
+
+## Overview
+Provides responsive container components that center content horizontally with appropriate margins and padding for different screen sizes.
+
+## Generated CSS Classes
+
+- `.centered-container` - Full responsive centered container with screen-appropriate margins
+- `.cc` - Shorthand alias for `.centered-container`
+
+## Usage
+
+```html
+<!-- Main page container -->
+<div class="centered-container">
+  <h1>Page Title</h1>
+  <p>Page content with responsive margins</p>
+</div>
+
+<!-- Using shorthand alias -->
+<section class="cc">
+  <article>Article content</article>
+</section>
+
+<!-- Nested containers (inner container gets no padding) -->
+<div class="centered-container">
+  <div class="centered-container">
+    <p>Nested content without double padding</p>
+  </div>
+</div>
+```
+
+## Customization
+
+```javascript
+// In your tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      decanter: {
+        screenMargins: {
+          xs: '2rem',     // Custom mobile margins
+          sm: '3rem',     // Custom small screen margins
+          md: '4rem',     // Custom medium screen margins
+          lg: '5rem',     // Custom large screen margins
+          xl: '6rem',     // Custom extra large margins
+          '2xl': '8rem',  // Custom 2xl margins
+        },
+      },
+    },
+  },
+  plugins: [
+    function({ addComponents, theme }) {
+      addComponents({
+        '.narrow-container': {
+          maxWidth: '800px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          paddingLeft: theme('spacing.4'),
+          paddingRight: theme('spacing.4'),
+        },
+      })
+    },
+  ],
+}
 
 ## Generated CSS Classes
 

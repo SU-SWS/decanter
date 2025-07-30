@@ -1,14 +1,85 @@
-# Screens (Breakpoints) Theme Plugin
+# Screens
 
 **File**: `/src/plugins/theme/screens.js`
 
 ## Overview
+Defines responsive breakpoints for Stanford's design system, extending from small mobile devices to ultra-wide displays with precise pixel values.
 
-The screens theme plugin defines Stanford's responsive breakpoint system, providing a comprehensive set of screen size breakpoints optimized for Stanford's diverse content types and user interfaces. The system extends beyond standard mobile-first design to accommodate modern ultra-wide displays and specialized viewing contexts.
+## Generated CSS Classes
 
-## Purpose
+### Standard Breakpoints
+- **Small**: `sm:` - 576px and up (large phones, small tablets)
+- **Medium**: `md:` - 768px and up (tablets, small laptops)
+- **Large**: `lg:` - 992px and up (laptops, desktop)
+- **Extra Large**: `xl:` - 1200px and up (large desktop)
 
-Establishes consistent breakpoints across all Stanford digital properties, ensuring responsive designs work seamlessly from mobile devices to large desktop displays. The system supports everything from mobile phones to ultra-wide monitors used in research environments and digital signage.
+### Extended Breakpoints
+- **2X Large**: `2xl:` - 1500px and up (wide desktop monitors)
+- **3X Large**: `3xl:` - 1700px and up (ultra-wide monitors)
+- **4X Large**: `4xl:` - 2000px and up (4K displays, large screens)
+
+## Usage
+
+```html
+<!-- Responsive layout example -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+  <div class="bg-white p-4">Card 1</div>
+  <div class="bg-white p-4">Card 2</div>
+  <div class="bg-white p-4">Card 3</div>
+  <div class="bg-white p-4">Card 4</div>
+</div>
+
+<!-- Progressive text sizing -->
+<h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
+  Responsive Heading
+</h1>
+
+<!-- Responsive spacing -->
+<section class="py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 2xl:py-32">
+  <div class="px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+    Content with progressive spacing
+  </div>
+</section>
+
+<!-- Ultra-wide display optimization -->
+<div class="container mx-auto px-4 xl:px-8 2xl:px-12 3xl:px-16 4xl:px-24">
+  <div class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 4xl:grid-cols-4 gap-8">
+    <!-- Content optimized for various display sizes -->
+  </div>
+</div>
+
+<!-- Responsive navigation -->
+<nav class="block md:hidden">Mobile menu</nav>
+<nav class="hidden md:block lg:flex lg:space-x-8 xl:space-x-12 2xl:space-x-16">
+  <a href="#" class="text-black hover:text-cardinal-red">Home</a>
+  <a href="#" class="text-black hover:text-cardinal-red">About</a>
+  <a href="#" class="text-black hover:text-cardinal-red">Research</a>
+</nav>
+```
+
+## Customization
+
+```javascript
+// In your tailwind.config.js
+module.exports = {
+  theme: {
+    screens: {
+      // Override default breakpoints
+      'sm': '600px',
+      'md': '800px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1600px',
+      '3xl': '1800px',
+      '4xl': '2200px',
+      // Add custom breakpoints
+      'xs': '480px',
+      'tablet': '840px',
+      'desktop': '1440px',
+      'ultrawide': '2560px',
+    },
+  },
+}
 
 ## Breakpoint System
 

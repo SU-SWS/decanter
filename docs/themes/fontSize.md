@@ -1,54 +1,55 @@
-# Font Size Theme Plugin
+# Font Size
 
 **File**: `/src/plugins/theme/fontSize.js`
 
 ## Overview
+Provides precise font size utilities from 11px to 30px and modular typography scale (m0-m9) for consistent typographic hierarchy.
 
-The font size theme plugin defines Stanford's comprehensive typography scale, combining pixel-based sizes for precise control with a modular typography system for responsive design. It provides both traditional fixed sizes and a semantic modular scale that adapts to different screen sizes and reading contexts.
+## Generated CSS Classes
 
-## Purpose
+- **Pixel-based sizes**: `.text-11` through `.text-30` (11px to 30px in rem units)
+- **Modular scale**: `.text-m0` through `.text-m9` (1em to 7.45em using 1.25 ratio)
+- **Smaller variants**: `.text--m1`, `.text-09em` (0.9em for smaller text)
 
-Establishes a unified typography scale that serves Stanford's diverse content needs, from interface elements requiring precise sizing to editorial content that benefits from responsive, modular typography. The system balances design consistency with reading optimization across all device types.
+## Usage
 
-## Typography Scale Systems
-
-### Pixel-Based Font Sizes
-
-#### Precise Control Sizes (11px - 30px)
-```javascript
-// Fixed pixel sizes for interface elements
-'11': ['11px', { lineHeight: '1.5' }],
-'12': ['12px', { lineHeight: '1.5' }],
-'13': ['13px', { lineHeight: '1.5' }],
-'14': ['14px', { lineHeight: '1.5' }],
-'15': ['15px', { lineHeight: '1.5' }],
-'16': ['16px', { lineHeight: '1.5' }],
-'17': ['17px', { lineHeight: '1.5' }],
-'18': ['18px', { lineHeight: '1.5' }],
-'19': ['19px', { lineHeight: '1.4' }], // Cozy line-height for readability
-'20': ['20px', { lineHeight: '1.4' }],
-'21': ['21px', { lineHeight: '1.4' }],
-'22': ['22px', { lineHeight: '1.4' }],
-'23': ['23px', { lineHeight: '1.3' }], // Snug line-height for larger text
-'24': ['24px', { lineHeight: '1.3' }],
-'25': ['25px', { lineHeight: '1.3' }],
-'26': ['26px', { lineHeight: '1.3' }],
-'27': ['27px', { lineHeight: '1.2' }], // Display line-height for headers
-'28': ['28px', { lineHeight: '1.2' }],
-'29': ['29px', { lineHeight: '1.2' }],
-'30': ['30px', { lineHeight: '1.2' }]
-```
-
-**Usage Examples:**
 ```html
-<!-- Interface elements -->
-<nav class="text-14">
-  <ul class="space-x-6">
-    <li><a href="#" class="hover:text-digital-blue">Academics</a></li>
-    <li><a href="#" class="hover:text-digital-blue">Research</a></li>
-  </ul>
-</nav>
+<!-- Pixel-based font sizes -->
+<p class="text-16">Body text (16px)</p>
+<h3 class="text-24">Section heading (24px)</h3>
+<small class="text-12">Helper text (12px)</small>
+
+<!-- Modular typography scale -->
+<h1 class="text-m6">Large heading (3.81em)</h1>
+<h2 class="text-m4">Medium heading (2.44em)</h2>
+<p class="text-m0">Base text (1em)</p>
+<small class="text--m1">Small text (0.9em)</small>
+
+<!-- Responsive font sizes -->
+<h1 class="text-m4 md:text-m5 lg:text-m6">
+  Responsive heading
+</h1>
 ```
+
+## Customization
+
+```javascript
+// In your tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      fontSize: {
+        // Add custom sizes
+        '32': '3.2rem',
+        '36': '3.6rem',
+        // Add custom modular steps
+        'm10': '9.31em',
+        // Override existing sizes
+        'm6': '4em', // Custom large heading size
+      },
+    },
+  },
+}
 
 ### Modular Typography System
 
