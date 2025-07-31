@@ -52,25 +52,7 @@ module.exports = {
     },
   ],
 }
-
-
-
-## Design System Integration
-
-### Typography Standards
-- **Font size**: 1.8rem (18px) - Decanter's standard input font size
-- **Line height**: 1.25 (snug) - Optimized for single-line inputs
-- **Text color**: Stanford black (#2E2D29) for maximum readability
-
-### Visual Design
-- **Border color**: 20% opacity Stanford black for subtle definition
-- **Display**: Block-level for full-width behavior
-- **Consistency**: Matches other form elements in the system
-
-### Accessibility Features
-- **Readable font size**: 18px prevents zoom on mobile devices
-- **High contrast**: Text color provides excellent readability
-- **Touch-friendly**: Block display creates larger touch targets
+```
 
 ## Usage Examples
 
@@ -95,18 +77,6 @@ module.exports = {
 ```
 
 ## Customization Options
-
-### Size Variations
-```html
-<!-- Small input -->
-<input type="text" class="input text-sm py-2 px-3">
-
-<!-- Large input -->
-<input type="text" class="input text-xl py-4 px-4">
-
-<!-- Compact input for tight spaces -->
-<input type="text" class="input py-1 px-2 text-base">
-```
 
 ### Creating Input Variants
 ```javascript
