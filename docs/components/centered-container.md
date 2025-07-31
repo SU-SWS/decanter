@@ -38,52 +38,6 @@ Provides responsive container components that center content horizontally with a
 </div>
 ```
 
-## Generated CSS Classes
-
-### `.centered-container` and `.cc`
-
-Responsive container that centers content with screen-size appropriate margins.
-
-```css
-.centered-container, .cc {
-  /* Base mobile margins */
-  padding-left: 20px;                   /* xs screen margin */
-  padding-right: 20px;
-  margin-left: auto;                     /* Centers the container */
-  margin-right: auto;
-  
-  /* Responsive margins for each breakpoint */
-  @screen sm {
-    padding-left: 30px;                 /* sm screen margin */
-    padding-right: 30px;
-  }
-  
-  @screen md {
-    padding-left: 50px;                 /* md screen margin */
-    padding-right: 50px;
-  }
-  
-  @screen lg {
-    padding-left: 80px;                 /* lg screen margin */
-    padding-right: 80px;
-  }
-  
-  /* ... continues for all breakpoints */
-  
-  /* Maximum width constraint at 1700px+ */
-  @media only screen and (min-width: 1700px) {
-    padding-left: calc((100% - 1500px)/2);
-    padding-right: calc((100% - 1500px)/2);
-  }
-  
-  /* Nested containers don't add extra padding */
-  .centered-container, .cc {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-```
-
 ## Design System Integration
 
 ### Stanford Screen Margins
