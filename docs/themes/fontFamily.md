@@ -7,23 +7,23 @@ Provides Stanford's official typography stack with carefully curated font famili
 
 ## Generated CSS Classes
 
+- **Stanford ligature**: `.font-stanford` - Stanford, Source Serif Pro, Georgia
 - **Sans serif**: `.font-sans` - Source Sans 3, Source Sans Pro, Helvetica Neue, Arial
 - **Serif**: `.font-serif` - Source Serif 4, Source Serif Pro, Georgia, Times
 - **Monospace**: `.font-mono` - Roboto Mono, Menlo, Courier New
-- **Slab serif**: `.font-slab` - Roboto Slab, Georgia, Times
-- **Stanford custom**: `.font-stanford` - Stanford, Source Serif Pro, Georgia
+- **Slab**: `.font-slab` - Roboto Slab, Georgia, Times
 
 ## Usage
 
 ```html
 <!-- Primary typography -->
-<h1 class="font-serif">Stanford University</h1>
+<div class="font-stanford">Stanford University</div>
+<h2 class="font-serif">Serif section heading</h2>
 <p class="font-sans">Body text content</p>
 
 <!-- Specialized typography -->
 <code class="font-mono">console.log('Hello World')</code>
 <h2 class="font-slab">Bold section heading</h2>
-<div class="font-stanford">Official Stanford branding</div>
 
 <!-- Responsive typography -->
 <h1 class="font-sans md:font-serif">
@@ -55,75 +55,49 @@ Establishes a comprehensive font system that aligns with Stanford's visual ident
 
 ## Stanford Font Families
 
-### Sans Serif Fonts
-
-#### Source Sans 3
-```javascript
-'source-sans-3': [
-  'Source Sans 3', 
-  'Source Sans Pro',    // Fallback for older browsers
-  '"Helvetica Neue"', 
-  'Helvetica', 
-  'Arial', 
-  'sans-serif'
-]
-```
-
-#### Source Sans Pro - Legacy Support
-```javascript
-'source-sans-pro': [
-  'Source Sans Pro', 
-  '"Helvetica Neue"', 
-  'Helvetica', 
-  'Arial', 
-  'sans-serif'
-]
-```
-
-#### Stanford Sans
+### Stanford Ligature Font - Logo Wordmark Font
 ```javascript
 stanford: [
-  'Stanford', 
-  'Source Sans 3', 
-  'Source Sans Pro', 
-  '"Helvetica Neue"', 
-  'Helvetica', 
-  'Arial', 
+  'Stanford',
+  'Source Sans 3',
+  'Source Sans Pro',
+  '"Helvetica Neue"',
+  'Helvetica',
+  'Arial',
   'sans-serif'
 ]
 ```
 
-### Serif Fonts
-
-#### Source Serif 4 - Primary Serif Font
+### Source Sans 3 - Primary Sans Serif Font
 ```javascript
-'source-serif-4': [
-  'Source Serif 4', 
-  'Source Serif Pro',   // Fallback for older browsers
-  'Georgia', 
-  'Times', 
-  '"Times New Roman"', 
+sans: [
+  'Source Sans 3',
+  'Source Sans Pro',    // Backward compatibility
+  '"Helvetica Neue"',
+  'Helvetica',
+  'Arial',
+  'sans-serif'
+]
+```
+
+### Source Serif 4 - Primary Serif Font
+```javascript
+serif: [
+  'Source Serif 4',
+  'Source Serif Pro',   // Backward compatibility
+  'Georgia',
+  'Times',
+  '"Times New Roman"',
   'serif'
 ]
 ```
 
-#### Source Serif Pro - Legacy Serif Support
-```javascript
-'source-serif-pro': [
-  'Source Serif Pro', 
-  'Georgia', 
-  'Times', 
-  '"Times New Roman"', 
-  'serif'
-]
-```
-
-### Monospace Fonts
+### Monospace Font
 
 #### Roboto Mono - Code and Technical Content
 ```javascript
-'roboto-mono': [
-  'Roboto Mono', 
+mono: [
+  'Roboto Mono',
   '"SF Mono"',          // macOS system font
   'Monaco',             // macOS fallback
   '"Cascadia Code"',    // Windows terminal font
@@ -156,13 +130,13 @@ module.exports = {
           'Source Sans 3',
           'sans-serif'
         ],
-        
+
         'law-school': [
           'Custom Legal Font',
           'Source Serif 4',
           'serif'
         ],
-        
+
         // Department branding
         'engineering': [
           'Technical Display Font',
