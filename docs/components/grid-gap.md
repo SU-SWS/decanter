@@ -14,26 +14,22 @@ Responsive gap spacing that adapts to screen size.
 
 ```css
 .grid-gap {
-  /* Base gap for mobile */
-  grid-gap: 20px;                       /* xs gap value */
-  gap: 20px;                           /* Modern gap property */
-  
+  /* Base gap for mobile/tablet */       /* xs to md gap value */
+  gap: 20px;
+
   /* Responsive gap adjustments */
-  @screen sm {
-    grid-gap: 30px;                     /* sm gap value */
-    gap: 30px;
+  @screen lg {                           /* lg gap value */
+    gap: 36px;
   }
-  
-  @screen md {
-    grid-gap: 50px;                     /* md gap value */  
-    gap: 50px;
+
+  @screen xl {                           /* xl gap value */
+    gap: 40px;
   }
-  
-  @screen lg {
-    grid-gap: 80px;                     /* lg gap value */
-    gap: 80px;
+
+  @screen 2xl {                         /* 2xl gap value */
+    gap: 48px;
   }
-  
+
   /* Continues for all defined breakpoints */
 }
 ```
@@ -42,16 +38,10 @@ Responsive gap spacing that adapts to screen size.
 
 ### Responsive Gap Scale
 The plugin uses Stanford's gap scale defined in the theme configuration:
-- **xs (mobile)**: 20px - Compact spacing for mobile
-- **sm (large mobile)**: 30px - Slightly more breathing room
-- **md (tablet)**: 50px - Comfortable tablet spacing
-- **lg (desktop)**: 80px - Generous desktop spacing
-- **xl and above**: Continues the progression
-
-### Browser Compatibility
-- **Modern `gap` property**: For current browsers
-- **Legacy `grid-gap`**: Fallback for older browsers
-- **Dual declaration**: Ensures maximum compatibility
+- **xs to md (mobile to tablet)**: 20px - Compact spacing for mobile/tablet
+- **lg (large tablet/small desktop)**: 30px - Slightly more breathing room
+- **xl (small desktop)**: 40px - Comfortable spacing
+- **2xl (desktop) and above**: 48px - Generous desktop spacing
 
 ## Usage Examples
 
@@ -80,47 +70,20 @@ The plugin uses Stanford's gap scale defined in the theme configuration:
 </nav>
 ```
 
-## Customization Options
+## Grid Gap Customization Options
 
-### Creating Custom Gap Sizes
-```javascript
-// Add to your Tailwind configuration
-module.exports = {
-  presets: [require('decanter')],
-  plugins: [
-    function({ addComponents, theme }) {
-      addComponents({
-        '.grid-gap-sm': {
-          gap: theme('spacing.4'),
-          '@screen md': {
-            gap: theme('spacing.6'),
-          },
-          '@screen lg': {
-            gap: theme('spacing.8'),
-          }
-        },
-        '.grid-gap-lg': {
-          gap: theme('spacing.8'),
-          '@screen md': {
-            gap: theme('spacing.12'),
-          },
-          '@screen lg': {
-            gap: theme('spacing.16'),
-          }
-        },
-        '.grid-gap-xl': {
-          gap: theme('spacing.12'),
-          '@screen md': {
-            gap: theme('spacing.20'),
-          },
-          '@screen lg': {
-            gap: theme('spacing.24'),
-          }
-        }
-      })
-    }
-  ]
-}
+### Use Customized Responsive Grid Gaps
+```html
+
+<!-- Customized responsive grid gap -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-30 lg:gap-60">
+  <!-- Content -->
+</div>
+
+<!-- Responsive vertical gap override -->
+<div class="grid grid-cols-1 md:grid-cols-3 grid-gap gap-y-30 md:gap-y-60 xl:gap-y-80">
+  <!-- Content -->
+</div>
 ```
 
 ### Fixed Gap Utilities
@@ -131,17 +94,12 @@ module.exports = {
 </div>
 
 <!-- Medium fixed gap -->
-<div class="grid grid-cols-2 gap-8">
+<div class="grid grid-cols-2 gap-30">
   <!-- Content -->
 </div>
 
 <!-- Large fixed gap -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-  <!-- Content -->
-</div>
-
-<!-- Responsive gap override -->
-<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 lg:gap-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-50">
   <!-- Content -->
 </div>
 ```
