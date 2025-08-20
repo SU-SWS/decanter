@@ -24,6 +24,3 @@ Provides utilities to remove default list styles (`.list-unstyled`) and create h
   <li><a href="#">Link 3</a></li>
 </ul>
 ```
-
-## Customization
-No customization options; use as provided for list styling.

@@ -3,7 +3,7 @@
 **File**: `/src/plugins/components/logo/logo.js`
 
 ## Overview
-Provides the `.logo` class to display the Stanford University logo text using custom font glyphs, optimized typography, and brand-compliant color.
+Provides the `.logo` class to display the Stanford University logo text using the Stanford ligature font.
 
 ## Generated CSS Classes
 - `.logo`
@@ -11,13 +11,8 @@ Provides the `.logo` class to display the Stanford University logo text using cu
 ## Usage
 ```html
 <!-- Text-based logo -->
-<a href="/" class="logo text-4xl">Stanford University</a>
+<a class="logo text-white hocus:text-white text-20" href="https://stanford.edu">Stanford University</a>
 
-<!-- Image logo fallback -->
-<a href="/" class="logo">
-  <img src="/logo.svg" alt="Stanford University" class="h-8 w-auto">
-</a>
+<!-- Stacked logo -->
+<a class="logo type-3 hocus:text-white" href="https://www.stanford.edu">Stanford<br />University</a>
 ```
-
-## Customization
-No customization options; apply Tailwind color utilities to override text color.

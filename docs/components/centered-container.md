@@ -9,7 +9,7 @@
 **File**: `/src/plugins/components/layout/centered-container.js`
 
 ## Overview
-Provides responsive container components that center content horizontally with appropriate margins and padding for different screen sizes.
+Provides responsive container component that center content horizontally with appropriate spacing from the edges of the viewport and a maximum width of 1500px.
 
 ## Generated CSS Classes
 
@@ -30,7 +30,7 @@ Provides responsive container components that center content horizontally with a
   <article>Article content</article>
 </section>
 
-<!-- Nested containers (inner container gets no padding) -->
+<!-- Nested containers (inner container does not get inset further -->
 <div class="centered-container">
   <div class="centered-container">
     <p>Nested content without double padding</p>
@@ -43,10 +43,11 @@ Provides responsive container components that center content horizontally with a
 ### Stanford Screen Margins
 The plugin uses Stanford's screen margin system defined in the theme:
 - **xs (mobile)**: 20px margins
-- **sm (large mobile)**: 30px margins  
+- **sm (large mobile)**: 30px margins
 - **md (tablet)**: 50px margins
 - **lg (desktop)**: 80px margins
-- **xl and above**: Continues the progression
+- **xl to 3xl**: 100px margins
+- **3xl and larger**: container reaches max-width of 1500px with 100px margins
 
 ### Maximum Width Strategy
 At very large screens (1700px+), the container maintains a maximum content width of 1500px to preserve readability and prevent excessively long line lengths.
