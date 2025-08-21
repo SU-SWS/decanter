@@ -8,8 +8,8 @@ Decanter adds several custom variants in `tw.config.js` via `addVariant`. These 
 
 Usage example:
 ```html
-<button class="hocus:bg-cardinal-red">Hover or focus me</button>
-``` 
+<button class="hocus:bg-cardinal-red">Background changes to cardinal red on hover or focus</button>
+```
 
 ## Group Hocus Variants
 - **group-hocus**: Targets child when parent `.group` is hovered or focused (`:merge(.group):hover &`, `:merge(.group):focus &`).

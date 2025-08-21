@@ -3,7 +3,7 @@
 **File**: `/src/plugins/utilities/link/link-fontweight.js`
 
 ## Overview
-Adds responsive font-weight utilities for links: `.link-regular`, `.link-semibold`, and `.link-bold` to maintain typography hierarchy across content.
+Provides classes that can be applied to parent containers to control the font weight of links within.
 
 ## Generated CSS Classes
 - `.link-regular`
@@ -16,10 +16,7 @@ Adds responsive font-weight utilities for links: `.link-regular`, `.link-semibol
   <a href="/about">About Stanford</a>
 </p>
 
-<nav class="link-bold">
+<nav class="link-semibold md:link-bold">
   <a href="/research">Research</a>
 </nav>
 ```
-
-## Customization
-No customization options; uses responsive variants only.

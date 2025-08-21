@@ -5,7 +5,7 @@
 ## Overview
 Defines custom responsive breakpoints for Stanford’s design system.
 
-## Generated CSS Classes
+## Generated Tailwind utilities
 - Prefix utilities with `sm:`, `md:`, `lg:`, `xl:`, `2xl:`, `3xl:`, `4xl:`, corresponding to:
   - `sm` (576px)
   - `md` (768px)
@@ -21,16 +21,16 @@ Defines custom responsive breakpoints for Stanford’s design system.
 ```
 
 ## Customization
+Note: For adding a breakpoint smaller than `4xl`, it's better to override rather than extend to preserve proper ordering. To add a larger breakpoint, you can extend the theme as follows:
+
 ```js
 module.exports = {
   theme: {
     extend: {
       screens: {
-        'xs': '480px',
+        '5xl': '2500px',
       },
     },
   },
 };
 ```
-
-This streamlined documentation provides a concise reference for the breakpoint system used in Stanford's digital properties, facilitating efficient responsive design implementation.

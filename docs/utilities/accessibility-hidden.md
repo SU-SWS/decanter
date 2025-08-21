@@ -14,6 +14,3 @@ Provides `.accessibility-hidden` and `.a11y-hidden` classes to visually hide ele
 <span class="accessibility-hidden">Hidden text for screen readers</span>
 <a href="#main-content" class="a11y-hidden">Skip to main content</a>
 ```
-
-## Customization
-No customization; use as provided for accessibility patterns.

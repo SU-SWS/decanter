@@ -4,14 +4,21 @@ This index lists all custom CSS classes provided by the Decanter design system (
 
 ## Component Utilities
 
-### Form Components
-- `.btn`, `.btn-outline`, `.btn-ghost` — Button styles for primary, outline, and ghost buttons. (see Components > Buttons)
-- `.input` — Custom form input styling. (see Components > Input)
-- `.form-elements` — Unified styling for form elements (labels, selects, checkboxes). (see Components > Form Elements)
+-### Form Components (see Components > Form Elements, Components > Buttons, Components > Input)
+- `.button` — Default button style.
+- `.input` — Custom form input styling.
+- `.radio` — Styled radio control (2.4rem, 3px border, uses `digital-blue` border color).
+- `.checkbox` — Styled checkbox control (2.4rem, 3px border, uses `digital-blue` border color).
+- `.radio:checked`, `.checkbox:checked` — Checked state (fills control with `digital-blue`).
+- `.fieldset` — Removes default fieldset border (`border: 0`).
+- `.label` — Block label styling (uses Decanter input font size).
+- `.legend` — Legend styling (bold, display line-height).
+- `.textarea` — Styled textarea (16rem height, border + input font-size and line-height).
+- `.select` — Styled select control (border, white background, input font-size and line-height).
 
 ### Layout Components
-- `.centered-container` — Constrains content to centered max-width container. (see Components > Centered Container)
-- `.grid-gap` — Adds consistent gap between grid items. (see Components > Grid Gap)
+- `.centered-container`, `cc` — Constrains content to centered max-width container. (see Components > Centered Container)
+- `.grid-gap` — Adds responsive gap between grid items. (see Components > Grid Gap)
 - `.embed-container` — Maintains responsive aspect ratio for embedded media. (see Components > Embed Container)
 - `.rs-*` — Responsive spacing utilities (`rs-m-`, `rs-p-` variants). (see Components > Responsive Spacing)
   - `.rs-m-{scale}`: responsive margin (all sides)
@@ -27,27 +34,26 @@ This index lists all custom CSS classes provided by the Decanter design system (
 - `.skiplink`, `.skiplinks` — Hidden skip navigation links that appear on focus. (see Components > Skiplink)
 - `.stretched-link` — Expands a link to cover its parent container. (see Components > Stretched Link)
 
-### Brand & Typography Components
+### Brand Component
 - `.logo` — Displays Stanford logo text with custom glyphs. (see Components > Logo)
 
-- **Modular Typography Scale**:
-  - `.type-0` — Base text size (step 0).
-  - `.type-1` — Modular type step 1.
-  - `.type-2` — Modular type step 2.
-  - `.type-3` — Modular type step 3.
-  - `.type-4` — Modular type step 4.
-  - `.type-5` — Modular type step 5.
-  - `.type-6` — Modular type step 6.
-  - `.type-7` — Modular type step 7.
-  - `.type-8` — Modular type step 8.
-  - `.type-9` — Modular type step 9 (largest heading).
-- `.type-{steps}` — Fluid typography classes for custom scales. (see Components > Fluid Typography)
-- `.wysiwyg` — Rich text editor content styling. (see Components > WYSIWYG)
+### Typography Utilities
+- `.type-{n}` — Modular typography classes where `n` is a step from `0` to `9` (e.g. `.type-0`, `.type-1`, … `.type-9`). (see Components > Modular Typography)
+- `.fluid-type-{n}` — Fluid typography classes where `n` is a step from `0` to `10` (e.g. `.fluid-type-0` … `.fluid-type-10`). (see Fluid Typography)
+- `.types` — Base display styles (see Components > Styles)
+- `.intro-text` — Introductory paragraph style
+- `.splash-text` — Large display/splash typography
+- `.quote-text` — Block quote styling (italic)
+- `.caption`, `.credits` — Small caption and credit styles
+- `.subheading` — Subheading style
+- `.big-paragraph` — Slightly larger paragraph style for long-form
+- `.card-paragraph` — Compact paragraph style for cards
+- `.basefont-19`, `.basefont-20`, `.basefont-21`, `.basefont-22`, `.basefont-23` — Base font-size helpers (responsive)
+- `.wysiwyg` — Sets vertical rhythm (spacing) for unstructured rich text content (see Components > WYSIWYG)
 - `.text-shadow`, `.text-shadow-md`, `.text-shadow-lg` — Text shadow effects. (see Components > Text Shadow)
-- `.styles` — Core typography styles for decals and display text. (see Components > Styles)
 
-### Table & Media Components
-- `.borderless-table` — Table without borders. (see Components > Borderless)
+### Table utilities
+- `.table-borderless` — Table without borders. (see Components > Borderless)
 
 ## Utility Classes
 
@@ -175,3 +181,14 @@ Custom variants added by Decanter for enhanced styling:
 - `hocus-visible:` — Applies on hover and `focus-visible`.
 - `group-hocus:` / `group-hocus-visible:` / `group-hocus-within:` — Applies when parent `.group` is hovered/focused.
 - `children:` / `children-hover:` / `children-focus:` / `children-focus-visible:` — Targets direct children in given states.
+
+## Breakpoints
+
+Available breakpoints prefixes for Decanter:
+- `sm:` — min-width: 576px
+- `md:` — min-width: 768px
+- `lg:` — min-width: 992px
+- `xl:` — min-width: 1200px
+- `2xlv` — min-width: 1500px
+- `3xl:` — min-width: 1700px
+- `4xl:` — min-width: 2000px

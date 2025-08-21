@@ -3,7 +3,7 @@
 **File**: `/src/plugins/utilities/link/link-underline.js`
 
 ## Overview
-Provides `.link-underline` and `.link-no-underline` classes to control link text decoration within content areas.
+Provides `.link-underline` and `.link-no-underline` classes that can be applied to parent containers to add or remove underlines for links within.
 
 ## Generated CSS Classes
 - `.link-underline`
@@ -19,6 +19,3 @@ Provides `.link-underline` and `.link-no-underline` classes to control link text
   <p>Visit our <a href="/programs">Programs</a>.</p>
 </article>
 ```
-
-## Customization
-No customization options; use as provided for text decoration.

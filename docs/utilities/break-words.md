@@ -3,7 +3,7 @@
 **File**: `/src/plugins/utilities/typography/break-words.js`
 
 ## Overview
-Enhances `.break-words` utility by adding `word-break: break-word` for consistent text wrapping across browsers.
+Enhances Tailwind CSS's out of the box `.break-words` utility by adding `word-break: break-word` to prevent long words or email addresses from overflowing their parent containers.
 
 ## Generated CSS Classes
 - `.break-words`
@@ -11,9 +11,6 @@ Enhances `.break-words` utility by adding `word-break: break-word` for consisten
 ## Usage
 ```html
 <h1 class="break-words max-w-sm">
-  A very long title that needs proper wrapping to avoid overflow issues
+  A title WithAVeryLongWordThatNeedsProperWrapping to avoid overflow issues
 </h1>
 ```
-
-## Customization
-No customization options; uses enhanced browser compatibility by default.
