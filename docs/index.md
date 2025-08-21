@@ -17,7 +17,7 @@ This index lists all custom CSS classes provided by the Decanter design system (
 - `.select` — Styled select control (border, white background, input font-size and line-height).
 
 ### Layout Components
-- `.centered-container`, `cc` — Constrains content to centered max-width container. (see Components > Centered Container)
+- `.centered-container`, `.cc` — Constrains content to centered max-width container. (see Components > Centered Container)
 - `.grid-gap` — Adds responsive gap between grid items. (see Components > Grid Gap)
 - `.embed-container` — Maintains responsive aspect ratio for embedded media. (see Components > Embed Container)
 - `.rs-*` — Responsive spacing utilities (`rs-m-`, `rs-p-` variants). (see Components > Responsive Spacing)
@@ -189,6 +189,6 @@ Available breakpoints prefixes for Decanter:
 - `md:` — min-width: 768px
 - `lg:` — min-width: 992px
 - `xl:` — min-width: 1200px
-- `2xlv` — min-width: 1500px
+- `2xl:` — min-width: 1500px
 - `3xl:` — min-width: 1700px
 - `4xl:` — min-width: 2000px
