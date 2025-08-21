@@ -13,6 +13,37 @@ It includes a responsive layout system and a browsable collection of design patt
 that can be used in any Stanford project.
 For Decanter v7, instead of using SASS/SCSS with the BEM naming convention, we use [Tailwind CSS](https://tailwindcss.com/) to generate utility classes with some customization needed for our Stanford design system.
 
+# Comprehensive Documentation
+This repository includes extensive documentation to help you understand and use Decanter effectively. Places to start include:
+1. **[README.md](README.md)** - Overview of Decanter, installation instructions, and quick start guide.
+2. **[docs/README.md](docs/README.md)** - Main documentation index with links to detailed guides.
+
+### Usage
+When using Decanter, the package will automatically resolve to the correct module format:
+
+```javascript
+// CommonJS - In your tailwind.config.js
+module.exports = {
+  presets: [require('decanter')],
+  // your additional config...
+}
+
+// ES Module - In your tailwind.config.mjs  
+import decanter from 'decanter';
+export default {
+  presets: [decanter],
+  // your additional config...
+}
+```
+
+The package exports both CommonJS (`tailwind.config.js`) and ES Module (`tailwind.config.mjs`) versions to ensure compatibility with different bundlers and configurations.
+
+For detailed usage examples and configuration options, see [docs/usage.md](docs/usage.md).
+
+## CSS Class Index
+Comprehensive list of all custom CSS classes provided by Decanter.  
+See [docs/index.md](docs/index.md)
+
 ## Assets
 We have removed all assets from the repo in Decanter v7. Instead, we are using remote third party resources for our fonts and icons.
 
@@ -22,11 +53,9 @@ We have removed all assets from the repo in Decanter v7. Instead, we are using r
 - For Source Sans 3, Source Serif 4, Roboto Slab, Roboto Mono - we include them using the `@import` method from [Google Fonts](https://fonts.google.com/).
 - The Stanford ligature font that we use for the logo is linked from the [University Communications media CDN](https://www-media.stanford.edu/assets/fonts/stanford.woff).
 
-
 ### Icons
 - We have removed FontAwesome (dependency and asset) completely from Decanter v7. For those who would like to continue using FontAwesome, please feel free to do so and include them using methods that are suitable for your own projects.
 - We recommend using the [heroicons](https://github.com/tailwindlabs/heroicons) package as [Hero Icons](https://heroicons.com/) are created by the Tailwind CSS team and are open source. They can be included as SVG or JSX elements.
-
 
 ## Accessibility
 [![WCAG Conformance 2.0 AA Badge](https://www.w3.org/WAI/wcag2AA-blue.png)](https://www.w3.org/TR/WCAG20/)

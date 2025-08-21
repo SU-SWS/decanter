@@ -1,0 +1,34 @@
+name: Lint
+# Ensures only the latest run per branch is active
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    # Lint code on every push
+    branches: [ main, master ]
+  pull_request:
+    # Lint code on every pull request
+    branches: [ main, master ]
+
+jobs:
+  lint:
+    name: ESLint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+        # Fail if any lint errors found
