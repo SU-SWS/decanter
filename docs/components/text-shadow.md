@@ -13,5 +13,5 @@ Provides text-shadow utilities for : `.text-shadow`, `.text-shadow-md`, and `.te
 ## Usage
 ```html
 <h1 class="text-shadow-lg">Heading with large shadow</h1>
-<p class="text-shadow">Paragraph with smaller text shadow</p>
+<p class="subheading text-shadow">Subheading with smaller text shadow</p>
 ```

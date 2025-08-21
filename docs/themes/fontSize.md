@@ -3,13 +3,13 @@
 **File**: `/src/plugins/theme/fontSize.js`
 
 ## Overview
-Provides precise font size utilities from 11px to 30px and modular typography scale (m0-m9) for consistent typographic hierarchy.
+Provides a comprehensive font size system with pixel-based sizes, modular typography scales, and em-based sizes for use in different scenarios.
 
 ## Generated CSS Classes
 
 - **Pixel-based sizes**: `.text-11` through `.text-30` (11px to 30px in rem units)
 - **Modular scale**: `.text-m0` through `.text-m9` (1em to 7.45em using 1.25 ratio)
-- **Smaller variants**: `.text--m1`, `.text-09em` (0.9em for smaller text)
+- **Em-based sizes**: `.text-01em` through `.text-09em`
 
 ## Usage
 
@@ -93,32 +93,32 @@ The modular typography system provides responsive font sizes that adapt to scree
       Artificial Intelligence in Climate Research
     </h1>
     <div class="text-m1 text-black-60 mb-8">
-      <span>Published March 15, 2024</span> • 
+      <span>Published March 15, 2024</span> •
       <span>Dr. Sarah Chen, Environmental Science</span>
     </div>
   </header>
-  
+
   <div class="space-y-6">
     <p class="text-m3 font-medium text-black leading-relaxed">
       Stanford researchers have developed groundbreaking AI models that can predict climate patterns with unprecedented accuracy.
     </p>
-    
+
     <h2 class="text-m6 font-semibold text-black mt-12 mb-4">
       Research Methodology
     </h2>
-    
+
     <p class="text-m2 leading-relaxed text-black-90">
       The study utilized machine learning algorithms trained on decades of climate data from multiple sources...
     </p>
-    
+
     <h3 class="text-m5 font-medium text-black mt-8 mb-3">
       Data Collection Process
     </h3>
-    
+
     <p class="text-m2 leading-relaxed text-black-90">
       Our team collected atmospheric data from 150 monitoring stations worldwide...
     </p>
-    
+
     <aside class="text-m1 text-black-50 border-l-4 border-cardinal-red-light pl-4">
       For technical details, see the complete methodology in the supplementary materials.
     </aside>
