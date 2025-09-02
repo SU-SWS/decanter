@@ -2,7 +2,7 @@
   "name": "decanter",
   "description": "Design System Tailwind CSS Preset.",
   "author": "Stanford Web Services",
-  "version": "7.3.1",
+  "version": "7.4.0",
   "homepage": "https://github.com/SU-SWS/decanter",
   "license": "GPL-3.0-or-later",
   "keywords": [
@@ -12,6 +12,35 @@
     "TailWind CSS"
   ],
   "main": "tailwind.config.js",
+  "types": "tailwind.config.d.ts",
+  "exports": {
+    ".": {
+      "import": "./tailwind.config.mjs",
+      "require": "./tailwind.config.js",
+      "types": "./tailwind.config.d.ts"
+    },
+    "./tailwind.config.js": {
+      "import": "./tailwind.config.mjs",
+      "require": "./tailwind.config.js",
+      "types": "./tailwind.config.d.ts"
+    },
+    "./tailwind.config.mjs": "./tailwind.config.mjs",
+    "./tw.config.js": "./tw.config.js",
+    "./src/*": "./src/*",
+    "./package.json": "./package.json",
+    "./fonts-basic.css": "./fonts-basic.css",
+    "./fonts.css": "./fonts.css"
+  },
+  "files": [
+    "tailwind.config.js",
+    "tailwind.config.mjs",
+    "tailwind.config.d.ts",
+    "tw.config.js",
+    "src/",
+    "fonts.css",
+    "fonts-basic.css",
+    "docs/"
+  ],
   "scripts": {
     "build": "npx @tailwindcss/cli -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --content static/*.html",
     "watch": "npx @tailwindcss/cli -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --watch --content static/*.html",
@@ -31,24 +60,23 @@
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.7",
-    "@tailwindcss/postcss": "^4.0.0",
-    "tailwindcss": "^4.0.0"
+    "@tailwindcss/postcss": "^4.1.12",
+    "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
+    "@types/node": "^24.3.0",
     "auto-changelog": "^2.2.1",
     "eslint": "^7.14",
     "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-prettier": "^3.4.0",
     "light-server": "^2.9.1",
     "postcss": "^8.5.1",
     "postcss-import": "^13.0.0",
     "postcss-loader": "^4.0.0",
     "postcss-nested": "^5.0.1",
-    "prettier": "^2.2.1"
+    "typescript": "^5.9.2"
   },
-  "optionalDependencies": {
-    "@tailwindcss/cli": "^4.0.3"
+  "engines": {
+    "node": ">=18.0.0"
   }
 }
