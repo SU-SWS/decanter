@@ -1,3 +1,10 @@
+/**
+  Custom variants
+  https://tailwindcss.com/docs/adding-custom-styles#adding-custom-variants
+  By adding hocus, hocus-visible and hocus-within variants,
+  group-hocusm, group-hocus-visible and group-hocus-within are automatically supported.
+*/
+
 @custom-variant hocus {
   &:hover,
   &:focus {
@@ -8,6 +15,13 @@
 @custom-variant hocus-visible {
   &:hover,
   &:focus-visible {
+    @slot;
+  }
+}
+
+@custom-variant hocus-within {
+  &:hover,
+  &:focus-within {
     @slot;
   }
 }

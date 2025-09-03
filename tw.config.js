@@ -96,20 +96,6 @@ function createDecanterConfig(plugin, requireFn) {
     plugins: [
       // Add our own variants for convenience
       plugin(({ addVariant }) => {
-        addVariant('hocus', ['&:hover', '&:focus']);
-        addVariant('hocus-visible', ['&:hover', '&:focus-visible']);
-        addVariant('group-hocus', [
-          ':merge(.group):focus &',
-          ':merge(.group):hover &',
-        ]);
-        addVariant('group-hocus-visible', [
-          ':merge(.group):focus-visible &',
-          ':merge(.group):hover &',
-        ]);
-        addVariant('group-hocus-within', [
-          ':merge(.group):focus-within &',
-          ':merge(.group):hover &',
-        ]);
         /**
          * Note: in TW v3.4.0, the *: variant is added for targeting direct children
          * https://github.com/tailwindlabs/tailwindcss/pull/12551
