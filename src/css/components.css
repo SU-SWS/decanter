@@ -112,34 +112,29 @@
   /* Layout Components */
   .centered-container,
   .cc {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: var(--screen-margin-xs);
+    padding-right: var(--screen-margin-xs);
     margin-left: auto;
     margin-right: auto;
 
     @media (min-width: 576px) {
-      padding-left: 30px;
-      padding-right: 30px;
+      padding-left: var(--screen-margin-sm);
+      padding-right: var(--screen-margin-sm);
     }
 
     @media (min-width: 768px) {
-      padding-left: 50px;
-      padding-right: 50px;
+      padding-left: var(--screen-margin-md);
+      padding-right: var(--screen-margin-md);
     }
 
     @media (min-width: 992px) {
-      padding-left: 80px;
-      padding-right: 80px;
+      padding-left: var(--screen-margin-lg);
+      padding-right: var(--screen-margin-lg);
     }
 
     @media (min-width: 1200px) {
-      padding-left: 100px;
-      padding-right: 100px;
-    }
-
-    @media (min-width: 1500px) {
-      padding-left: 100px;
-      padding-right: 100px;
+      padding-left: var(--screen-margin-xl);
+      padding-right: var(--screen-margin-xl);
     }
 
     @media (min-width: 1700px) {
@@ -154,23 +149,24 @@
     }
   }
 
+  /* Responsive grid gap */
   .grid-gap {
-    gap: 20px;
+    gap: var(--gap-xs);
 
     @media (min-width: 992px) {
-      gap: 36px;
+      gap: var(--gap-lg);
     }
 
     @media (min-width: 1200px) {
-      gap: 40px;
+      gap: var(--gap-xl);
     }
 
     @media (min-width: 1500px) {
-      gap: 48px;
+      gap: var(--gap-2xl);
     }
   }
 
-  /* Link Components */
+  /* Stretched link */
   .stretched-link {
     &::after {
       display: block;
@@ -307,7 +303,21 @@
     }
   }
 
-  /* Fluid typography */
+  /**
+  * Fluid typography
+  *
+  * Typography with font size that increases smoothly and linearly between a min and max value
+  * over the viewport width range 360px (XS) to 1500px (2XL)
+  * See concept on https://www.aleksandrhovhannisyan.com/blog/fluid-type-scale-with-css-clamp/
+  *
+  * See google sheet for a plot of the font sizes over the viewport width range 360px (XS) to 1500px (2XL):
+  * https://docs.google.com/spreadsheets/d/1AN9eV_ECXc9MzTZUc10hiLjOHeOCDTutC5tMHOCPqgo/edit?usp=sharing
+  *
+  * Good for use in hero banners and horizontal cards where UI looks better with a smooth transition of font size
+  * Here we offer the sizes from fluid-type-0 to fluid-type-10. Their min and max values at the XS and 2XL breakpoints
+  * are the same as the corresponding modular typography classes (type-0 to type-10) with base font sizes
+  * XS: 1.8rem, MD: 2.1rem, 2XL: 2.3rem
+  */
   .fluid-type-0 {
     font-size: clamp(1.8rem, 0.44vw + 1.64rem, 2.3rem);
   }
