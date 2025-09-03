@@ -29,10 +29,16 @@
   html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 10px;
+    font-size: var(--text-root);
+    font-family: var(--font-sans);
+    color: var(--color-black);
+    line-height: 1.15;
   }
 
   body {
+    background-color: var(--color-white);
+    color: var(--color-black);
+    overflow-x: hidden;
     font-size: 1.8rem;
 
     @media (min-width: 768px) {
@@ -41,6 +47,166 @@
 
     @media (min-width: 1500px) {
       font-size: 2.1rem;
+    }
+  }
+
+  /* Shared heading styles */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    line-height: var(--leading-display);
+    margin-bottom: 0.6em;
+    clear: both;
+    font-weight: var(--font-weight-bold);
+  }
+
+  /* Individual heading sizes */
+  h1 {
+    font-size: 2.01em; /* type5 base */
+  }
+
+  h2 {
+    font-size: 1.75em; /* type4 base */
+  }
+
+  h3 {
+    font-size: 1.52em; /* type3 base */
+  }
+
+  h4 {
+    font-size: 1.32em; /* type2 base */
+  }
+
+  h5 {
+    font-size: 1.15em; /* type1 base */
+  }
+
+  h6 {
+    font-size: 1em; /* type0 base */
+  }
+
+  p {
+    line-height: var(--leading-cozy);
+    margin-top: 0;
+    margin-bottom: 1em;
+
+    @media (min-width: 768px) {
+      line-height: var(--leading-normal);
+    }
+  }
+
+  /* Semantic elements with normalized font-style */
+  cite,
+  var,
+  address,
+  dfn {
+    font-style: normal;
+  }
+
+  /* Code elements with consistent sizing */
+  pre,
+  code,
+  kbd,
+  samp {
+    font-size: 0.9em;
+  }
+
+  a {
+    color: var(--color-digital-blue);
+    text-decoration: underline;
+    font-weight: var(--font-weight-semibold);
+
+    &:hover,
+    &:focus {
+      color: var(--color-black);
+    }
+  }
+
+  ul {
+    padding-left: 1em;
+    list-style-type: disc;
+  }
+
+  ol {
+    padding-left: 1em;
+    list-style-type: decimal;
+  }
+
+  /* Common list item styles */
+  li,
+  dd {
+    line-height: var(--leading-normal);
+    margin-bottom: 0.5em;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  dt {
+    font-weight: var(--font-weight-bold);
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    margin-top: 0.4em;
+    font-size: max(1.6rem, 0.9em);
+    font-weight: var(--line-height-snug);
+    color: var(--color-cool-grey);
+  }
+
+  img {
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+
+  /* ==========================================================================
+     TABLES
+     ========================================================================== */
+  table {
+    margin: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+    min-width: 100%;
+    font-size: 1.6rem;
+
+    @media (min-width: 768px) {
+      font-size: 1.8rem;
+    }
+
+    caption {
+      margin-bottom: 0.6em;
+      font-size: 0.9em;
+      font-weight: var(--line-height-snug);
+      color: var(--color-cool-grey);
+    }
+
+    tr {
+      border-top: 1px solid var(--color-black-20);
+    }
+
+    th,
+    td {
+      padding: 1.5rem;
+    }
+
+    th {
+      color: var(--color-black);
+      font-weight: var(--font-weight-semibold);
+      text-align: left;
+    }
+
+    thead + tbody {
+      border-top: 1px solid var(--color-black-20);
     }
   }
 }

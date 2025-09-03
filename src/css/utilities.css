@@ -10,27 +10,61 @@
   writing-mode: vertical-lr;
 }
 
+/**
+  Link color utilities
+*/
 @utility link-* {
   a {
     color: --value(--color-*);
   }
 }
 
-/**
-  Responsive spacing
-*/
-@utility rs-m-* {
-  margin: --value(--responsive-spacing-xs-*);
-
-  @media (min-width: 768px) {
-    margin: --value(--responsive-spacing-md-*);
-  }
-
-  @media (min-width: 1500px) {
-    margin: --value(--responsive-spacing-2xl-*);
+@utility link-hocus-* {
+  a:hover,
+  a:focus {
+    color: --value(--color-*);
   }
 }
 
+/**
+  Link underline utilities
+*/
+@utility link-underline {
+  a {
+    text-decoration: underline;
+  }
+}
+
+@utility link-no-underline {
+  a {
+    text-decoration: none;
+  }
+}
+
+/**
+  Link font weight utilities
+*/
+@utility link-normal {
+  a {
+    font-weight: var(--font-weight-normal);
+  }
+}
+
+@utility link-semibold {
+  a {
+    font-weight: var(--font-weight-semibold);
+  }
+}
+
+@utility link-bold {
+  a {
+    font-weight: var(--font-weight-bold);
+  }
+}
+
+/**
+  Responsive spacing - padding
+*/
 @utility rs-p-* {
   padding: --value(--responsive-spacing-xs-*);
 
@@ -40,6 +74,36 @@
 
   @media (min-width: 1500px) {
     padding: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-px-* {
+  padding-left: --value(--responsive-spacing-xs-*);
+  padding-right: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    padding-left: --value(--responsive-spacing-md-*);
+    padding-right: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    padding-left: --value(--responsive-spacing-2xl-*);
+    padding-right: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-py-* {
+  padding-top: --value(--responsive-spacing-xs-*);
+  padding-bottom: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    padding-top: --value(--responsive-spacing-md-*);
+    padding-bottom: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    padding-top: --value(--responsive-spacing-2xl-*);
+    padding-bottom: --value(--responsive-spacing-2xl-*);
   }
 }
 
@@ -91,33 +155,48 @@
   }
 }
 
-@utility rs-py-* {
-  padding-top: --value(--responsive-spacing-xs-*);
-  padding-bottom: --value(--responsive-spacing-xs-*);
+/**
+  Responsive spacing - margin
+*/
+@utility rs-m-* {
+  margin: --value(--responsive-spacing-xs-*);
 
   @media (min-width: 768px) {
-    padding-top: --value(--responsive-spacing-md-*);
-    padding-bottom: --value(--responsive-spacing-md-*);
+    margin: --value(--responsive-spacing-md-*);
   }
 
   @media (min-width: 1500px) {
-    padding-top: --value(--responsive-spacing-2xl-*);
-    padding-bottom: --value(--responsive-spacing-2xl-*);
+    margin: --value(--responsive-spacing-2xl-*);
   }
 }
 
-@utility rs-px-* {
-  padding-left: --value(--responsive-spacing-xs-*);
-  padding-right: --value(--responsive-spacing-xs-*);
+@utility rs-mx-* {
+  margin-left: --value(--responsive-spacing-xs-*);
+  margin-right: --value(--responsive-spacing-xs-*);
 
   @media (min-width: 768px) {
-    padding-left: --value(--responsive-spacing-md-*);
-    padding-right: --value(--responsive-spacing-md-*);
+    margin-left: --value(--responsive-spacing-md-*);
+    margin-right: --value(--responsive-spacing-md-*);
   }
 
   @media (min-width: 1500px) {
-    padding-left: --value(--responsive-spacing-2xl-*);
-    padding-right: --value(--responsive-spacing-2xl-*);
+    margin-left: --value(--responsive-spacing-2xl-*);
+    margin-right: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-my-* {
+  margin-top: --value(--responsive-spacing-xs-*);
+  margin-bottom: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    margin-top: --value(--responsive-spacing-md-*);
+    margin-bottom: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    margin-top: --value(--responsive-spacing-2xl-*);
+    margin-bottom: --value(--responsive-spacing-2xl-*);
   }
 }
 
@@ -169,32 +248,41 @@
   }
 }
 
-@utility rs-my-* {
-  margin-top: --value(--responsive-spacing-xs-*);
-  margin-bottom: --value(--responsive-spacing-xs-*);
+/**
+  Responsive spacing - gap
+*/
+@utility rs-gap-* {
+  gap: --value(--responsive-spacing-xs-*);
 
   @media (min-width: 768px) {
-    margin-top: --value(--responsive-spacing-md-*);
-    margin-bottom: --value(--responsive-spacing-md-*);
+    gap: --value(--responsive-spacing-md-*);
   }
 
   @media (min-width: 1500px) {
-    margin-top: --value(--responsive-spacing-2xl-*);
-    margin-bottom: --value(--responsive-spacing-2xl-*);
+    gap: --value(--responsive-spacing-2xl-*);
   }
 }
 
-@utility rs-mx-* {
-  margin-left: --value(--responsive-spacing-xs-*);
-  margin-right: --value(--responsive-spacing-xs-*);
+@utility rs-gap-x-* {
+  column-gap: --value(--responsive-spacing-xs-*);
 
   @media (min-width: 768px) {
-    margin-left: --value(--responsive-spacing-md-*);
-    margin-right: --value(--responsive-spacing-md-*);
+    column-gap: --value(--responsive-spacing-md-*);
   }
 
   @media (min-width: 1500px) {
-    margin-left: --value(--responsive-spacing-2xl-*);
-    margin-right: --value(--responsive-spacing-2xl-*);
+    column-gap: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-gap-y-* {
+  row-gap: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    row-gap: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    row-gap: --value(--responsive-spacing-2xl-*);
   }
 }

@@ -4,15 +4,15 @@
     -moz-osx-font-smoothing: grayscale;
     display: inline-block;
     font-family: var(--font-stanford);
-    font-weight: 400;
-    line-height: var(--leading-half);
+    font-weight: var(--font-weight-normal);
+    line-height: var(--leading-trim);
     text-decoration: none;
     text-transform: none;
     color: var(--color-cardinal-red);
     transform: translateZ(0);
     font-style: normal;
     font-variant: normal;
-    letter-spacing: 0;
+    letter-spacing: var(--tracking-normal);
     font-feature-settings: "liga" 1;
     font-variant-ligatures: discretionary-ligatures;
 
@@ -28,7 +28,7 @@
     cursor: pointer;
     display: inline-block;
     border: none;
-    font-weight: 400;
+    font-weight: var(--font-weight-normal);
     line-height: 1;
     text-align: center;
     text-decoration: none;
@@ -36,7 +36,7 @@
     transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
     padding: 1rem 2rem;
     background-color: var(--color-digital-red);
-    color: white;
+    color: var(--color-white);
 
     &:active,
     &:hover,
@@ -47,7 +47,7 @@
     &:hover,
     &:focus {
       background-color: var(--color-black);
-      color: white;
+      color: var(--color-white);
     }
 
     &:focus {
@@ -60,12 +60,12 @@
     border-color: var(--color-black-20);
     color: var(--color-black);
     font-size: 1.8rem;
-    line-height: 1.3;
+    font-weight: var(--line-height-snug);
   }
 
   .radio,
   .checkbox {
-    background-color: white;
+    background-color: var(--color-white);
     border-width: 3px;
     border-color: var(--color-digital-blue);
     width: 2.4rem;
@@ -87,8 +87,8 @@
   }
 
   .legend {
-    font-weight: 700;
-    line-height: 1.2;
+    font-weight: var(--font-weight-bold);
+    font-weight: var(--line-height-display);
   }
 
   .textarea {
@@ -97,7 +97,7 @@
     border-color: var(--color-black-20);
     color: var(--color-black);
     font-size: 1.8rem;
-    line-height: 1.3;
+    font-weight: var(--line-height-snug);
   }
 
   .select {
@@ -105,7 +105,7 @@
     border-color: var(--color-black-20);
     color: var(--color-black);
     font-size: 1.8rem;
-    line-height: 1.3;
+    font-weight: var(--line-height-snug);
     background-color: white;
   }
 
@@ -171,10 +171,7 @@
     &::after {
       display: block;
       position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+      inset: 0;
       z-index: 1;
       pointer-events: auto;
       content: "";
@@ -252,16 +249,16 @@
     overflow: hidden;
     white-space: nowrap;
     background-color: var(--color-black);
-    color: white;
+    color: var(--color-white);
     font-size: 2rem;
-    font-weight: 400;
+    font-weight: var(--font-weight-normal);
     text-decoration: none;
 
     &:hover,
     &:visited {
       width: 1px;
       height: 1px;
-      color: white;
+      color: var(--color-white);
       overflow: hidden;
       white-space: nowrap;
     }
@@ -273,7 +270,7 @@
       padding: 0.4em 0.8em;
       width: auto;
       height: auto;
-      color: white;
+      color: var(--color-white);
       border-style: solid;
       border-width: 1px;
       border-color: var(--color-cool-grey);
@@ -465,38 +462,20 @@
     }
   }
 
-  .types {
-    line-height: 1.2;
+  .types
+  .splash-text {
+    line-height: var(--line-height-display);
+    font-weight: var(--font-weight-bold);
     margin-bottom: 0.6em;
     clear: both;
-    font-weight: 700;
 
     a {
       text-decoration: none;
-      font-weight: 700;
-    }
-  }
-
-  .intro-text {
-    font-size: 1.32em;
-    letter-spacing: -0.012em;
-    line-height: 1.5;
-    max-width: 75ch;
-
-    @media (min-width: 768px) {
-      font-size: 1.44em;
-    }
-
-    @media (min-width: 992px) {
-      font-size: 1.56em;
+      font-weight: var(--font-weight-bold);
     }
   }
 
   .splash-text {
-    line-height: 1.2;
-    margin-bottom: 0.6em;
-    clear: both;
-    font-weight: 700;
     font-size: 2.31em;
     letter-spacing: -0.02em;
 
@@ -510,7 +489,22 @@
 
     a {
       text-decoration: none;
-      font-weight: 700;
+      font-weight: var(--font-weight-bold);
+    }
+  }
+
+  .intro-text {
+    font-size: 1.32em;
+    letter-spacing: -0.012em;
+    font-weight: var(--line-height-normal);
+    max-width: var(--max-width-prose);
+
+    @media (min-width: 768px) {
+      font-size: 1.44em;
+    }
+
+    @media (min-width: 992px) {
+      font-size: 1.56em;
     }
   }
 
@@ -522,7 +516,7 @@
   .caption,
   .credits {
     font-size: max(1.6rem, 0.9em);
-    line-height: 1.3;
+    font-weight: var(--line-height-snug);
     color: var(--color-cool-grey);
   }
 
@@ -549,19 +543,19 @@
 
   .big-paragraph {
     font-size: 1.15em;
-    line-height: 1.4;
+    font-weight: var(--line-height-cozy);
 
     @media (min-width: 768px) {
-      line-height: 1.5;
+      font-weight: var(--line-height-normal);
     }
   }
 
   .card-paragraph {
     font-size: max(1.6rem, 0.93em);
-    line-height: 1.3;
+    font-weight: var(--line-height-snug);
 
     @media (min-width: 768px) {
-      line-height: 1.4;
+      font-weight: var(--line-height-cozy);
     }
   }
 

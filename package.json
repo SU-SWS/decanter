@@ -42,8 +42,8 @@
     "docs/"
   ],
   "scripts": {
-    "build": "npx @tailwindcss/cli -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --content static/*.html",
-    "watch": "npx @tailwindcss/cli -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --watch --content static/*.html",
+    "build": "npx @tailwindcss/cli -i static/css/index.css -o static/css/decanter.css --content static/*.html",
+    "watch": "npx @tailwindcss/cli -i static/css/index.css -o static/css/decanter.css --watch --content static/*.html",
     "serve": "light-server -s static -w static/*.html",
     "dev": "npm run watch && npm run serve",
     "lint": "eslint './src'",
@@ -71,9 +71,6 @@
     "eslint-config-standard": "^16.0.2",
     "light-server": "^2.9.1",
     "postcss": "^8.5.1",
-    "postcss-import": "^13.0.0",
-    "postcss-loader": "^4.0.0",
-    "postcss-nested": "^5.0.1",
     "typescript": "^5.9.2"
   },
   "optionalDependencies": {
