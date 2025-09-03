@@ -1,4 +1,13 @@
 @theme {
+  /* Breakpoints */
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+  --breakpoint-2xl: 1500px;
+  --breakpoint-3xl: 1700px;
+  --breakpoint-4xl: 2000px;
+
   --spacing: 0.1rem;
   --spacing-prose-wide: 75ch;
 
@@ -14,13 +23,17 @@
   --spacing-09em: 0.9em;
   --spacing-1em: 1em;
 
-  /* Stanford Identity colors */
-  --color-cardinal-red: #8C1515;
+  /**
+    Stanford Identity primary colors
+    https://identity.stanford.edu/design-elements/color/primary-colors/
+  */
+  --color-cardinal-red: #8C1515; /* Stanford brand color */
   --color-cardinal-red-light: #B83A4B;
   --color-cardinal-red-dark: #820000;
-  --color-cardinal-red-xdark: #7A0000;
+  --color-cardinal-red-xdark: #7A0000; /* Passed contrast test with digital-red-xlight as text */
   --color-cardinal-red-xxdark: #541107;
 
+  /* Grayscale */
   --color-black: #2E2D29;
   --color-black-90: #43423E;
   --color-black-80: #585754;
@@ -32,27 +45,31 @@
   --color-black-20: #D5D5D4;
   --color-black-10: #EAEAEA;
   --color-black-true: #000000;
-
   --color-cool-grey: #53565A;
 
-  /*
+  /**
     Web interactive colors
     https://identity.stanford.edu/design-elements/color/web/
   */
   --color-digital-red: #B1040E;
   --color-digital-red-light: #E50808;
-  --color-digital-red-xlight: #F83535;
-  --color-digital-red-dark: #820000;
+  --color-digital-red-xlight: #F83535; /* Passed contrast test as regular text on black background */
+  --color-digital-red-dark: var(--color-cardinal-red-dark);
+
   --color-digital-blue: #006CB8;
   --color-digital-blue-light: #85CCFF;
   --color-digital-blue-dark: #00548F;
   --color-digital-blue-vivid: #0597FF;
+
   --color-digital-green: #008566;
   --color-digital-green-light: #1AECBA;
   --color-digital-green-dark: #006F54;
   --color-digital-green-bright: #009B76;
 
-  /* Accent colors */
+  /**
+    Accent colors
+    https://identity.stanford.edu/design-elements/color/accent-colors/
+  */
   --color-palo-alto: #175E54;
   --color-palo-alto-light: #2D716F;
   --color-palo-alto-dark: #014240;
@@ -71,6 +88,7 @@
   --color-lagunita: #007C92;
   --color-lagunita-light: #009AB4;
   --color-lagunita-dark: #006B81;
+  /* Lagunita 20 and 40 are used for form elements */
   --color-lagunita-20: #CCEBF0;
   --color-lagunita-40: #8DD8E4;
   --color-poppy: #E98300;
@@ -136,6 +154,7 @@
   --text-28: 2.8rem;
   --text-29: 2.9rem;
   --text-30: 3rem;
+
   --text-1em: 1em;
   --text-09em: 0.9em;
   --text-root: 62.5%;
