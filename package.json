@@ -9,7 +9,7 @@
     "CSS",
     "Decanter",
     "Stanford",
-    "TailWind CSS"
+    "Tailwind CSS"
   ],
   "exports": {
     "./src/*": "./src/*",
@@ -28,8 +28,6 @@
     "watch": "npx @tailwindcss/cli -i src/css/dev.css -o static/css/decanter.css --watch",
     "serve": "light-server -s static -w static/*.html",
     "dev": "concurrently \"npm:serve\" \"npm:watch\"",
-    "lint": "eslint './src'",
-    "lint:fix": "eslint './src' --fix",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "repository": {
@@ -48,9 +46,6 @@
   "devDependencies": {
     "auto-changelog": "^2.2.1",
     "concurrently": "^9.2.1",
-    "eslint": "^7.14",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-standard": "^16.0.2",
     "light-server": "^2.9.1"
   },
   "optionalDependencies": {

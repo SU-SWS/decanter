@@ -3,6 +3,8 @@
 Upgrade from version 7.x to 8.0.0-alpha.x
 -------------------------------------------
 
+.break-words => .wrap-anywhere
+
 ### Grid Systems
 
 There are now two grid systems available in this project, one of which is built

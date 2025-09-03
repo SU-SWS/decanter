@@ -16,6 +16,5 @@ This directory contains detailed documentation for each utility plugin in the St
 - **[link-underline.md](./link-underline.md)** - Link underline controls (`.link-underline`, `.link-no-underline`)
 
 ### Typography
-- **[break-words.md](./break-words.md)** - Enhanced word breaking utility (`.break-words`)
 - **[writing-mode.md](./writing-mode.md)** - Text direction and orientation (`.text-vertical-lr`)
 
