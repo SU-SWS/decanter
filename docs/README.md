@@ -30,7 +30,6 @@ Welcome to the Decanter design system documentation. Decanter is Stanford Univer
    - Breakpoints: screens, transitionDuration
 
 5. **Utility Plugins**: [utilities/README.md](utilities/README.md) - Documentation for utility classes
-   - Accessibility: `.accessibility-hidden`, `.a11y-hidden`
    - Visual Effects: `.backface-hidden`
    - Link styling: `.link-{color}`, `.link-underline`, `.link-no-underline`, `.link-regular`, `.link-bold`
    - Typography helpers: `.break-words`, `.text-vertical-lr`

@@ -57,9 +57,6 @@ This index lists all custom CSS classes provided by the Decanter design system (
 
 ## Utility Classes
 
-### Accessibility
-- `.accessibility-hidden`, `.a11y-hidden` — Visually hides content but keeps it available to screen readers. (see Utilities > Accessibility Hidden)
-
 ### Visual Effects
 - `.backface-hidden` — Hides the back face of elements during 3D transforms. (see Utilities > Backface Visibility)
 

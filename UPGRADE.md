@@ -4,6 +4,7 @@ Upgrade from version 7.x to 8.0.0-alpha.x
 -------------------------------------------
 
 .break-words => .wrap-anywhere
+.a11y-hidden, .accessibility-hidden => aria-hidden:hidden
 
 ### Grid Systems
 

@@ -5,7 +5,6 @@ This directory contains detailed documentation for each utility plugin in the St
 ## Available Utilities
 
 ### Accessibility
-- **[accessibility-hidden.md](./accessibility-hidden.md)** - Screen reader-only content utilities (`.accessibility-hidden`, `.a11y-hidden`)
 
 ### Visual Effects
 - **[backface-visibility.md](./backface-visibility.md)** - 3D transform backface control (`.backface-hidden`)
