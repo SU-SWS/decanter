@@ -11,31 +11,13 @@
     "Stanford",
     "TailWind CSS"
   ],
-  "main": "tailwind.config.js",
-  "types": "tailwind.config.d.ts",
   "exports": {
-    ".": {
-      "import": "./tailwind.config.mjs",
-      "require": "./tailwind.config.js",
-      "types": "./tailwind.config.d.ts"
-    },
-    "./tailwind.config.js": {
-      "import": "./tailwind.config.mjs",
-      "require": "./tailwind.config.js",
-      "types": "./tailwind.config.d.ts"
-    },
-    "./tailwind.config.mjs": "./tailwind.config.mjs",
-    "./tw.config.js": "./tw.config.js",
     "./src/*": "./src/*",
     "./package.json": "./package.json",
     "./fonts-basic.css": "./fonts-basic.css",
     "./fonts.css": "./fonts.css"
   },
   "files": [
-    "tailwind.config.js",
-    "tailwind.config.mjs",
-    "tailwind.config.d.ts",
-    "tw.config.js",
     "src/",
     "fonts.css",
     "fonts-basic.css",
@@ -45,9 +27,9 @@
     "build": "npx @tailwindcss/cli -i src/css/dev.css -o static/css/decanter.css",
     "watch": "npx @tailwindcss/cli -i src/css/dev.css -o static/css/decanter.css --watch",
     "serve": "light-server -s static -w static/*.html",
-    "dev": "npm run watch & npm run serve",
+    "dev": "concurrently \"npm:serve\" \"npm:watch\"",
     "lint": "eslint './src'",
-    "lint:fix": "eslint './src'  --fix",
+    "lint:fix": "eslint './src' --fix",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "repository": {
@@ -64,14 +46,12 @@
     "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
-    "@types/node": "^24.3.0",
     "auto-changelog": "^2.2.1",
+    "concurrently": "^9.2.1",
     "eslint": "^7.14",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-standard": "^16.0.2",
-    "light-server": "^2.9.1",
-    "postcss": "^8.5.1",
-    "typescript": "^5.9.2"
+    "light-server": "^2.9.1"
   },
   "optionalDependencies": {
     "@tailwindcss/cli": "^4.1.12"
