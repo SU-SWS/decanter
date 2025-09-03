@@ -44,9 +44,6 @@ For detailed usage examples and configuration options, see [docs/usage.md](docs/
 Comprehensive list of all custom CSS classes provided by Decanter.  
 See [docs/index.md](docs/index.md)
 
-## Assets
-We have removed all assets from the repo in Decanter v7. Instead, we are using remote third party resources for our fonts and icons.
-
 ### Fonts
 - We do not include any font assets with Decanter v7. If you want to use the Decanter fonts in your own projects, it is recommended that you use the font loading method that is optimized for your framework and only import the fonts that you need.
 - We provided two font css files that you can import into your own project so you get the latest update from us. `font.css` includes all the fonts that are referenced in the Decanter design system (sans-serif, serif, slab, monospace, Stanford ligature font for the logo). `font-basic.css` includes only the essential sans-serif, serif and Stanford ligature fonts.
@@ -54,7 +51,6 @@ We have removed all assets from the repo in Decanter v7. Instead, we are using r
 - The Stanford ligature font that we use for the logo is linked from the [University Communications media CDN](https://www-media.stanford.edu/assets/fonts/stanford.woff).
 
 ### Icons
-- We have removed FontAwesome (dependency and asset) completely from Decanter v7. For those who would like to continue using FontAwesome, please feel free to do so and include them using methods that are suitable for your own projects.
 - We recommend using the [heroicons](https://github.com/tailwindlabs/heroicons) package as [Hero Icons](https://heroicons.com/) are created by the Tailwind CSS team and are open source. They can be included as SVG or JSX elements.
 
 ## Accessibility
