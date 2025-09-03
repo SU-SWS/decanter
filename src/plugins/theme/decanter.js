@@ -1,7 +1,6 @@
 /**
  * Decanter Variables.
  */
-const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = function () {
   // Shared vars.
@@ -54,16 +53,6 @@ module.exports = function () {
     },
     // Shared settings between base and components.
     typography: {
-      headings: {
-        lineHeight: theme.lineHeight.display,
-        marginBottom: '0.6em',
-        clear: 'both',
-        fontWeight: defaultTheme.fontWeight.bold,
-        a: {
-          textDecoration: 'none',
-          fontWeight: defaultTheme.fontWeight.bold,
-        },
-      },
       type0: {
         fontSize: '1em', // Base step for our modular typography system
       },
