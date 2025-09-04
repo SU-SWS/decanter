@@ -11,7 +11,13 @@
     "Stanford",
     "Tailwind CSS"
   ],
+  "main": "src/css/index.css",
+  "style": "src/css/index.css",
   "exports": {
+    ".": {
+      "style": "./src/css/index.css",
+      "default": "./src/css/index.css"
+    },
     "./src/*": "./src/*",
     "./package.json": "./package.json",
     "./fonts-basic.css": "./fonts-basic.css",
@@ -21,7 +27,8 @@
     "src/",
     "fonts.css",
     "fonts-basic.css",
-    "docs/"
+    "README.md",
+    "license.md"
   ],
   "scripts": {
     "build": "npx @tailwindcss/cli -i src/css/dev.css -o static/css/decanter.css",

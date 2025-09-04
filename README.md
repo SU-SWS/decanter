@@ -18,30 +18,54 @@ This repository includes extensive documentation to help you understand and use 
 1. **[README.md](README.md)** - Overview of Decanter, installation instructions, and quick start guide.
 2. **[docs/README.md](docs/README.md)** - Main documentation index with links to detailed guides.
 
-### Usage
-When using Decanter, the package will automatically resolve to the correct module format:
+## Installation
 
-```javascript
-// CommonJS - In your tailwind.config.js
-module.exports = {
-  presets: [require('decanter')],
-  // your additional config...
-}
+### As an npm package
 
-// ES Module - In your tailwind.config.mjs  
-import decanter from 'decanter';
-export default {
-  presets: [decanter],
-  // your additional config...
-}
+Install Decanter in your project:
+
+```bash
+npm install decanter
+# or
+yarn add decanter
 ```
 
-The package exports both CommonJS (`tailwind.config.js`) and ES Module (`tailwind.config.mjs`) versions to ensure compatibility with different bundlers and configurations.
+### Usage
+
+#### Import the entire design system
+
+In your main CSS file:
+
+```css
+@import 'decanter';
+```
+
+This imports all of Decanter's styles including theme variables, components, utilities, and base styles.
+
+#### Import specific parts
+
+You can also import specific parts of the design system:
+
+```css
+@import 'decanter/src/css/theme.css';      /* custom CSS variables */
+@import 'decanter/src/css/components.css'; /* Component styles */
+@import 'decanter/src/css/utilities.css';  /* Utility classes */
+@import 'decanter/src/css/base.css';       /* Base element styles */
+```
+
+#### With Tailwind CSS
+
+If you're using Tailwind CSS in your project, you can import Decanter's CSS alongside your Tailwind directives:
+
+```css
+@import 'decanter';
+@theme 'myproject/theme.css';
+```
 
 For detailed usage examples and configuration options, see [docs/usage.md](docs/usage.md).
 
 ## CSS Class Index
-Comprehensive list of all custom CSS classes provided by Decanter.  
+Comprehensive list of all custom CSS classes provided by Decanter.
 See [docs/index.md](docs/index.md)
 
 ### Fonts
