@@ -1,30 +1,8 @@
-@charset "UTF-8";
-
-/** Source Sans 3, Source Serif 4, Roboto Slab, Roboto Mono (regular only) */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto+Slab:wght@300;400;700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
-
-@font-face {
-  font-family: "Stanford";
-  src: url("https://www-media.stanford.edu/assets/fonts/stanford.woff") format("woff"), url("https://www-media.stanford.edu/assets/fonts/stanford.ttf") format("truetype");
-  font-weight: 300;
-  font-display: swap;
-}
-
-/**
- * This injects Tailwind's base styles and any base styles registered by
- * plugins.
- */
-@tailwind base;
-
-/**
- * This injects Tailwind's component classes and any component classes
- * registered by plugins.
- */
-@tailwind components;
-
-/**
- * This injects Tailwind's utility classes and any utility classes registered
- * by plugins.
- */
-@tailwind utilities;
-
+@import 'tailwindcss';
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/aspect-ratio";
+@import './theme/all.css';
+@import './components/all.css';
+@import './utilities.css';
+@import './custom-variants.css';
+@import './base.css';

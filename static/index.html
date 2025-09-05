@@ -8,8 +8,7 @@
   <link rel="stylesheet" href="./css/decanter.css">
 </head>
 
-<body class="debug-screens">
-
+<body>
   <!-- MAIN DEVELOPMENT AREA -->
   <a href="#top" class="skiplink">Skip to main content</a>
   <div class="cc bg-digital-red pt-5 pb-1">
@@ -17,8 +16,8 @@
         University</a>
   </div>
   <div role="banner" class="cc rs-py-6 bg-gradient-to-b from-black to-plum text-white">
-    <h1 class="splash-text">Decanter 7 With Tailwind Test Page.</h1>
-    <p class="intro-text">This is a test page filled with common HTML elements to be used to provide visual
+    <h1 class="splash-text 4xl:text-90">Decanter 7 With Tailwind Test Page.</h1>
+    <p class="intro-text leading-base">This is a test page filled with common HTML elements to be used to provide visual
       feedback whilst building CSS systems and frameworks.</p>
   </div>
   <main id="top">
@@ -185,6 +184,10 @@
           <article id="text__fluid-type" class="rs-mb-5 lg:w-[140%] lg:-ml-[20%]">
             <h3 class="type-5 text-lagunita-light">Fluid Typography</h3>
             <div>
+              <div class="fluid-type-0">Fluid type 0</div>
+              <div class="fluid-type-1">Fluid type 1</div>
+              <div class="fluid-type-2">Fluid type 2</div>
+              <div class="fluid-type-3">Fluid type 3</div>
               <div class="fluid-type-4">Fluid type 4</div>
               <div class="fluid-type-5">Fluid type 5</div>
               <div class="fluid-type-6">Fluid type 6</div>
@@ -197,7 +200,7 @@
           <article id="text__paragraphs" class="rs-mb-5">
             <div>
               <h3 class="type-5 text-lagunita-light">Paragraphs</h3>
-              <div class="rs-mb-4">
+              <div class="rs-mb-4 link-digital-red">
                 <h4 class="type-4">Intro and Paragraph (Base Font Size 21px)</h4>
                 <p class="intro-text">Intro text max-width is 65ch. A paragraph (from the Greek paragraphos, “to
                   write beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
@@ -219,7 +222,7 @@
                   used to organize longer prose.</p>
               </div>
               <h2>Comparison of Different Base Font Size Options</h2>
-              <div class="basefont-19 rs-mb-4">
+              <div class="basefont-19 rs-mb-4 link-plum">
                 <h3 class="font-serif">H3 .basefont-19</h3>
                 <p class="intro-text">Intro text max-width is 65ch. A paragraph (from the Greek paragraphos, “to
                   write beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
@@ -1276,31 +1279,23 @@ p q r s t u v w x y z { | } ~
               width decorator class, you'll need to add a parent container that wraps around your aspect ratio
               container. Below are a few commonly used ones.</p>
             <div class="w-full md:w-1/3 rs-mb-2">
-              <div class="aspect-w-1 aspect-h-1 bg-illuminating-dark text-black">
-                <div class="rs-p-4 grid justify-center content-center">
-                  <h3 class="mb-0">Square</h3>
-                </div>
+              <div class="flex items-center justify-center rs-p-4 aspect-1 bg-illuminating-dark text-black ">
+                <span class="font-bold type-3">Square</span>
               </div>
             </div>
             <div class="w-full md:w-1/3 rs-mb-2">
-              <div class="aspect-w-4 aspect-h-3 bg-plum-light text-white">
-                <div class="rs-p-4 grid justify-center content-center">
-                  <h3 class="mb-0">4 x 3 Box</h3>
-                </div>
+              <div class="flex items-center justify-center rs-p-4 aspect-4/3 bg-plum-light text-white">
+                <span class="font-bold type-3">4 x 3 Box</span>
               </div>
             </div>
             <div class="w-full md:w-1/2 rs-mb-2">
-              <div class="aspect-w-16 aspect-h-9 bg-bay-dark text-white">
-                <div class="rs-p-4 grid justify-center content-center">
-                  <h3 class="mb-0">16 x 9 Box</h3>
-                </div>
+              <div class="flex items-center justify-center rs-p-4 aspect-16/9 bg-bay-dark text-white">
+                <span class="font-bold type-3">16 x 9 Box</span>
               </div>
             </div>
             <div class="w-full md:w-1/2 rs-mb-2">
-              <div class="aspect-w-2 aspect-h-1 bg-poppy-dark text-white">
-                <div class="rs-p-4 grid justify-center content-center">
-                  <h3 class="mb-0">2 x 1 Box</h3>
-                </div>
+              <div class="flex items-center justify-center rs-p-4 aspect-2 bg-poppy-dark text-white">
+                <span class="font-bold type-3">2 x 1 Box</span>
               </div>
             </div>
           </article>
@@ -1333,9 +1328,9 @@ p q r s t u v w x y z { | } ~
     class='global-footer basefont-21 bg-cardinal-red rs-py-1 text-white link-white'>
     <div class='cc flex flex-col lg:flex-row' title='Common Stanford resources'>
       <div class='text-center mt-5 mb-9'>
-        <a class='logo type-3 hocus:text-white' href='https://www.stanford.edu'>Stanford<br />University</a>
+        <a class='logo type-3 text-white hocus:text-white' href='https://www.stanford.edu'>Stanford<br />University</a>
       </div>
-      <div class='lg:pl-45 xl:pl-50 text-left sm:text-center lg:text-left flex-grow'>
+      <div class='lg:pl-45 xl:pl-50 text-left sm:text-center lg:text-left grow'>
         <nav aria-label='global footer menu'
           class='flex flex-row sm:flex-col justify-center sm:items-center lg:items-start mb-10 link-no-underline'>
           <ul
@@ -1417,11 +1412,11 @@ p q r s t u v w x y z { | } ~
   </div>
   <footer role="contentinfo" class="cc bg-black text-white text-16 md:text-18 rs-py-2">
     <!-- HTML Test page based on sample provided by http://twitter.com/cbracco -->
-    <p class="mb-0">A TailwindCSS/Decanter v7 test page.</p>
+    <p class="mb-0">A TailwindCSS/Decanter v8 test page.</p>
     <p><a href="https://www.netlify.com"><img src="https://www.netlify.com/img/global/badges/netlify-dark.svg"></a>
     </p>
     <a href="#top"
-      class="hidden md:block fixed bottom-20 right-20 w-50 text-black hocus:text-plum transition-colors"><span
+      class="hidden md:block fixed bottom-20 right-20 w-50 text-digital-blue hocus:text-plum transition-colors"><span
         class="sr-only">Back to top</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
         fill="currentColor">
         <path fill-rule="evenodd"

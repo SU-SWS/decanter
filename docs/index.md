@@ -57,9 +57,6 @@ This index lists all custom CSS classes provided by the Decanter design system (
 
 ## Utility Classes
 
-### Accessibility
-- `.accessibility-hidden`, `.a11y-hidden` — Visually hides content but keeps it available to screen readers. (see Utilities > Accessibility Hidden)
-
 ### Visual Effects
 - `.backface-hidden` — Hides the back face of elements during 3D transforms. (see Utilities > Backface Visibility)
 
@@ -152,7 +149,6 @@ This index lists all custom CSS classes provided by the Decanter design system (
 - `.link-regular`, `.link-semibold`, `.link-bold` — Sets link font weight. (see Utilities > Link Font Weight)
 
 ### Typography Helpers
-- `.break-words` — Enhanced `word-break: break-word` utility. (see Utilities > Break Words)
 - `.text-vertical-lr` — Sets vertical left-to-right text orientation. (see Utilities > Writing Mode)
 
 ## Theme Extensions

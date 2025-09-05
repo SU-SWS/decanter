@@ -9,45 +9,29 @@
     "CSS",
     "Decanter",
     "Stanford",
-    "TailWind CSS"
+    "Tailwind CSS"
   ],
-  "main": "tailwind.config.js",
-  "types": "tailwind.config.d.ts",
+  "main": "src/css/index.css",
+  "style": "src/css/index.css",
   "exports": {
-    ".": {
-      "import": "./tailwind.config.mjs",
-      "require": "./tailwind.config.js",
-      "types": "./tailwind.config.d.ts"
-    },
-    "./tailwind.config.js": {
-      "import": "./tailwind.config.mjs",
-      "require": "./tailwind.config.js",
-      "types": "./tailwind.config.d.ts"
-    },
-    "./tailwind.config.mjs": "./tailwind.config.mjs",
-    "./tw.config.js": "./tw.config.js",
+    ".": "./src/css/index.css",
     "./src/*": "./src/*",
     "./package.json": "./package.json",
-    "./fonts-basic.css": "./fonts-basic.css",
-    "./fonts.css": "./fonts.css"
+    "./fonts-basic": "./fonts-basic.css",
+    "./fonts": "./fonts.css"
   },
   "files": [
-    "tailwind.config.js",
-    "tailwind.config.mjs",
-    "tailwind.config.d.ts",
-    "tw.config.js",
-    "src/",
+    "src/css",
     "fonts.css",
     "fonts-basic.css",
-    "docs/"
+    "README.md",
+    "license.md"
   ],
   "scripts": {
-    "build": "tailwind -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --content static/*.html",
-    "watch": "tailwind -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --watch --content static/*.html",
+    "build": "npx @tailwindcss/cli -i src/css/dev.css -o static/css/decanter.css",
+    "watch": "npx @tailwindcss/cli -i src/css/dev.css -o static/css/decanter.css --watch",
     "serve": "light-server -s static -w static/*.html",
-    "dev": "npm run watch && npm run serve",
-    "lint": "eslint './src'",
-    "lint:fix": "eslint './src'  --fix",
+    "dev": "concurrently \"npm:serve\" \"npm:watch\"",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "repository": {
@@ -60,21 +44,16 @@
   "dependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.7",
-    "tailwindcss": "^3.4.17"
+    "@tailwindcss/postcss": "^4.1.12",
+    "tailwindcss": "^4.1.12"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
     "auto-changelog": "^2.2.1",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^7.14",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-standard": "^16.0.2",
-    "light-server": "^2.9.1",
-    "postcss": "^8.5.1",
-    "postcss-import": "^13.0.0",
-    "postcss-loader": "^4.0.0",
-    "postcss-nested": "^5.0.1",
-    "typescript": "^5.0.0"
+    "concurrently": "^9.2.1",
+    "light-server": "^2.9.1"
+  },
+  "optionalDependencies": {
+    "@tailwindcss/cli": "^4.1.12"
   },
   "engines": {
     "node": ">=18.0.0"

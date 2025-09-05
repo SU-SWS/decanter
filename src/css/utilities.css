@@ -1,0 +1,300 @@
+@utility backface-hidden {
+  backface-visibility: hidden;
+}
+
+@utility text-vertical-lr {
+  writing-mode: vertical-lr;
+}
+
+/**
+  Link color utilities
+*/
+@utility link-* {
+  a {
+    color: --value(--color-*);
+  }
+}
+
+@utility link-hocus-* {
+  a:hover,
+  a:focus {
+    color: --value(--color-*);
+  }
+}
+
+/**
+  Link underline utilities
+*/
+@utility link-underline {
+  a {
+    text-decoration: underline;
+  }
+}
+
+@utility link-no-underline {
+  a {
+    text-decoration: none;
+  }
+}
+
+/**
+  Link font weight utilities
+*/
+@utility link-normal {
+  a {
+    font-weight: var(--font-weight-normal);
+  }
+}
+
+@utility link-semibold {
+  a {
+    font-weight: var(--font-weight-semibold);
+  }
+}
+
+@utility link-bold {
+  a {
+    font-weight: var(--font-weight-bold);
+  }
+}
+
+/**
+  Responsive spacing - padding
+*/
+@utility rs-p-* {
+  padding: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    padding: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    padding: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-px-* {
+  padding-left: --value(--responsive-spacing-xs-*);
+  padding-right: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    padding-left: --value(--responsive-spacing-md-*);
+    padding-right: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    padding-left: --value(--responsive-spacing-2xl-*);
+    padding-right: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-py-* {
+  padding-top: --value(--responsive-spacing-xs-*);
+  padding-bottom: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    padding-top: --value(--responsive-spacing-md-*);
+    padding-bottom: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    padding-top: --value(--responsive-spacing-2xl-*);
+    padding-bottom: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-pt-* {
+  padding-top: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    padding-top: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    padding-top: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-pr-* {
+  padding-right: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    padding-right: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    padding-right: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-pb-* {
+  padding-bottom: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    padding-bottom: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    padding-bottom: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-pl-* {
+  padding-left: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    padding-left: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    padding-left: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+/**
+  Responsive spacing - margin
+*/
+@utility rs-m-* {
+  margin: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    margin: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    margin: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-mx-* {
+  margin-left: --value(--responsive-spacing-xs-*);
+  margin-right: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    margin-left: --value(--responsive-spacing-md-*);
+    margin-right: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    margin-left: --value(--responsive-spacing-2xl-*);
+    margin-right: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-my-* {
+  margin-top: --value(--responsive-spacing-xs-*);
+  margin-bottom: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    margin-top: --value(--responsive-spacing-md-*);
+    margin-bottom: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    margin-top: --value(--responsive-spacing-2xl-*);
+    margin-bottom: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-mt-* {
+  margin-top: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    margin-top: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    margin-top: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-mr-* {
+  margin-right: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    margin-right: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    margin-right: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-mb-* {
+  margin-bottom: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    margin-bottom: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    margin-bottom: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-ml-* {
+  margin-left: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    margin-left: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    margin-left: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+/**
+  Responsive spacing - gap
+*/
+@utility rs-gap-* {
+  gap: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    gap: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    gap: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-gap-x-* {
+  column-gap: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    column-gap: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    column-gap: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility rs-gap-y-* {
+  row-gap: --value(--responsive-spacing-xs-*);
+
+  @media (min-width: 768px) {
+    row-gap: --value(--responsive-spacing-md-*);
+  }
+
+  @media (min-width: 1500px) {
+    row-gap: --value(--responsive-spacing-2xl-*);
+  }
+}
+
+@utility text-* {
+  font-size: calc(--value(integer) * var(--font-size));
+}
+
+@utility text-shadow-legacy {
+  text-shadow: rgba(0, 0, 0, 40%) 0 0 6px, rgba(0, 0, 0, 60%) 0 0 2px;
+}
+
+@utility text-shadow-legacy-md {
+  text-shadow: rgba(0, 0, 0, 40%) 0 0 8px, rgba(0, 0, 0, 60%) 0 0 3px;
+}
+
+@utility text-shadow-legacy-lg {
+  text-shadow: rgba(0, 0, 0, 30%) 0 0 12px;
+}

@@ -5,7 +5,6 @@ This directory contains detailed documentation for each utility plugin in the St
 ## Available Utilities
 
 ### Accessibility
-- **[accessibility-hidden.md](./accessibility-hidden.md)** - Screen reader-only content utilities (`.accessibility-hidden`, `.a11y-hidden`)
 
 ### Visual Effects
 - **[backface-visibility.md](./backface-visibility.md)** - 3D transform backface control (`.backface-hidden`)
@@ -16,6 +15,5 @@ This directory contains detailed documentation for each utility plugin in the St
 - **[link-underline.md](./link-underline.md)** - Link underline controls (`.link-underline`, `.link-no-underline`)
 
 ### Typography
-- **[break-words.md](./break-words.md)** - Enhanced word breaking utility (`.break-words`)
 - **[writing-mode.md](./writing-mode.md)** - Text direction and orientation (`.text-vertical-lr`)
 
