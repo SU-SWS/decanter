@@ -1,0 +1,24 @@
+@layer components {
+  .list-unstyled {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    list-style-type: none;
+  }
+
+  .list-horizontal {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    overflow: hidden;
+
+    > li {
+      display: block;
+      float: left;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
