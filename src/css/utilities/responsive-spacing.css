@@ -1,63 +1,3 @@
-@utility backface-hidden {
-  backface-visibility: hidden;
-}
-
-@utility text-vertical-lr {
-  writing-mode: vertical-lr;
-}
-
-/**
-  Link color utilities
-*/
-@utility link-* {
-  a {
-    color: --value(--color-*);
-  }
-}
-
-@utility link-hocus-* {
-  a:hover,
-  a:focus {
-    color: --value(--color-*);
-  }
-}
-
-/**
-  Link underline utilities
-*/
-@utility link-underline {
-  a {
-    text-decoration: underline;
-  }
-}
-
-@utility link-no-underline {
-  a {
-    text-decoration: none;
-  }
-}
-
-/**
-  Link font weight utilities
-*/
-@utility link-normal {
-  a {
-    font-weight: var(--font-weight-normal);
-  }
-}
-
-@utility link-semibold {
-  a {
-    font-weight: var(--font-weight-semibold);
-  }
-}
-
-@utility link-bold {
-  a {
-    font-weight: var(--font-weight-bold);
-  }
-}
-
 /**
   Responsive spacing - padding
 */
@@ -281,20 +221,4 @@
   @media (min-width: 1500px) {
     row-gap: --value(--responsive-spacing-2xl-*);
   }
-}
-
-@utility text-* {
-  font-size: calc(--value(integer) * var(--font-size));
-}
-
-@utility text-shadow-legacy {
-  text-shadow: rgba(0, 0, 0, 40%) 0 0 6px, rgba(0, 0, 0, 60%) 0 0 2px;
-}
-
-@utility text-shadow-legacy-md {
-  text-shadow: rgba(0, 0, 0, 40%) 0 0 8px, rgba(0, 0, 0, 60%) 0 0 3px;
-}
-
-@utility text-shadow-legacy-lg {
-  text-shadow: rgba(0, 0, 0, 30%) 0 0 12px;
 }
