@@ -1,6 +1,6 @@
 {
   "name": "decanter",
-  "description": "Design System Tailwind CSS Preset.",
+  "description": "Design System TailwindCSS Preset.",
   "author": "Stanford Web Services",
   "version": "7.4.0",
   "homepage": "https://github.com/SU-SWS/decanter",
@@ -9,28 +9,25 @@
     "CSS",
     "Decanter",
     "Stanford",
-    "Tailwind CSS"
+    "TailwindCSS"
   ],
   "main": "src/css/index.css",
   "style": "src/css/index.css",
   "exports": {
     ".": "./src/css/index.css",
+    "./minimal": "./src/css/index-minimal.css",
     "./colors": "./src/css/theme/colors.css",
     "./src/*": "./src/*",
-    "./package.json": "./package.json",
-    "./fonts-basic": "./fonts-basic.css",
-    "./fonts": "./fonts.css"
+    "./package.json": "./package.json"
   },
   "files": [
     "src/css",
-    "fonts.css",
-    "fonts-basic.css",
     "README.md",
     "license.md"
   ],
   "scripts": {
-    "build": "npx @tailwindcss/cli -i src/css/dev.css -o static/css/decanter.css",
-    "watch": "npx @tailwindcss/cli -i src/css/dev.css -o static/css/decanter.css --watch",
+    "build": "npx @tailwindcss/cli -i src/css/dev/dev.css -o static/css/decanter.css",
+    "watch": "npx @tailwindcss/cli -i src/css/dev/dev.css -o static/css/decanter.css --watch",
     "serve": "light-server -s static -w static/*.html",
     "dev": "concurrently \"npm:serve\" \"npm:watch\"",
     "version": "auto-changelog -p && git add CHANGELOG.md"
