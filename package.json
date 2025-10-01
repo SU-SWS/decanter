@@ -26,8 +26,8 @@
     "license.md"
   ],
   "scripts": {
-    "build": "npx @tailwindcss/cli -i src/css/dev/dev.css -o static/css/decanter.css",
-    "watch": "npx @tailwindcss/cli -i src/css/dev/dev.css -o static/css/decanter.css --watch",
+    "build": "npx @tailwindcss/cli -i dev/dev.css -o static/css/decanter.css",
+    "watch": "npx @tailwindcss/cli -i dev/dev.css -o static/css/decanter.css --watch",
     "serve": "light-server -s static -w static/*.html",
     "dev": "concurrently \"npm:serve\" \"npm:watch\"",
     "version": "auto-changelog -p && git add CHANGELOG.md"
