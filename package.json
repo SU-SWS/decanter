@@ -15,6 +15,7 @@
   "style": "src/css/index.css",
   "exports": {
     ".": "./src/css/index.css",
+    "./base16": "./src/css/index-base16.css",
     "./minimal": "./src/css/index-minimal.css",
     "./colors": "./src/css/theme/colors.css",
     "./src/*": "./src/*",
@@ -26,8 +27,8 @@
     "license.md"
   ],
   "scripts": {
-    "build": "npx @tailwindcss/cli -i dev/dev.css -o static/css/decanter.css",
-    "watch": "npx @tailwindcss/cli -i dev/dev.css -o static/css/decanter.css --watch",
+    "build": "npx @tailwindcss/cli -i dev/dev-base16.css -o static/css/decanter.css",
+    "watch": "npx @tailwindcss/cli -i dev/dev-base16.css -o static/css/decanter.css --watch",
     "serve": "light-server -s static -w static/*.html",
     "dev": "concurrently \"npm:serve\" \"npm:watch\"",
     "version": "auto-changelog -p && git add CHANGELOG.md"

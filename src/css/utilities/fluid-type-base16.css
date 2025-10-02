@@ -1,0 +1,59 @@
+/**
+  * Fluid typography
+  *
+  * Typography with font size that increases smoothly and linearly between a min and max value
+  * over the viewport width range 360px (XS) to 1500px (2XL)
+  * See concept on https://www.aleksandrhovhannisyan.com/blog/fluid-type-scale-with-css-clamp/
+  *
+  * See google sheet for a plot of the font sizes over the viewport width range 360px (XS) to 1500px (2XL):
+  * https://docs.google.com/spreadsheets/d/1AN9eV_ECXc9MzTZUc10hiLjOHeOCDTutC5tMHOCPqgo/edit?usp=sharing
+  *
+  * Good for use in hero banners and horizontal cards where UI looks better with a smooth transition of font size
+  * Here we offer the sizes from fluid-type-0 to fluid-type-10. Their min and max values at the XS and 2XL breakpoints
+  * are the same as the corresponding modular typography classes (type-0 to type-10) with base font sizes
+   * XS: 1.125rem (18px), MD: 1.313rem (21px), 2XL: 1.438rem (23px)
+  */
+
+@utility fluid-type-0 {
+  font-size: clamp(1.125rem, 0.44vw + 1.025rem, 1.438rem);
+}
+
+@utility fluid-type-1 {
+  font-size: clamp(1.313rem, 0.7vw + 1.156rem, 1.8125rem);
+}
+
+@utility fluid-type-2 {
+  font-size: clamp(1.5rem, 1.05vw + 1.263rem, 2.25rem);
+}
+
+@utility fluid-type-3 {
+  font-size: clamp(1.688rem, 1.58vw + 1.331rem, 2.8125rem);
+}
+
+@utility fluid-type-4 {
+  font-size: clamp(1.938rem, 2.19vw + 1.444rem, 3.5rem);
+}
+
+@utility fluid-type-5 {
+  font-size: clamp(2.25rem, 2.98vw + 1.581rem, 4.375rem);
+}
+
+@utility fluid-type-6 {
+  font-size: clamp(2.625rem, 4.04vw + 1.719rem, 5.5rem);
+}
+
+@utility fluid-type-7 {
+  font-size: clamp(3rem, 5.44vw + 1.775rem, 6.875rem);
+}
+
+@utility fluid-type-8 {
+  font-size: clamp(3.438rem, 7.19vw + 1.8188rem, 8.563rem);
+}
+
+@utility fluid-type-9 {
+  font-size: clamp(3.938rem, 9.47vw + 1.806rem, 10.688rem);
+}
+
+@utility fluid-type-10 {
+  font-size: clamp(4.563rem, 12.37vw + 1.781rem, 13.375rem);
+}
