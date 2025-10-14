@@ -9,13 +9,15 @@ Tailwind CSS does provide a tool to help with upgrading from Tailwind v3 to v4:
 https://tailwindcss.com/docs/upgrade-guide#using-the-upgrade-tool
 
 
-## Decanater custom class name changes
+## Decanter custom class name changes
 Some custom utilities have been updated or deprecated to better align with updated Tailwind CSS conventions:
 
-.break-words => .wrap-anywhere
-.a11y-hidden, .accessibility-hidden => aria-hidden:hidden
-.rounded => rounded-[0.3rem]
-.embed-container => Use aspect-[16/9] to maintain the 16x9 aspect ratio and add width/height classes as needed.
+- `break-words` => `wrap-anywhere`
+- `a11y-hidden`, `accessibility-hidden` => `aria-hidden:hidden`
+- `rounded` => `rounded-[0.3rem]`
+- embed-container => Use `aspect-[16/9]` to maintain the 16x9 aspect ratio and add width/height classes as needed.
+- `credit` => `text-[max(1.6rem,0.9em)] leading-snug italic`
+`credit` has been removed because small italic text is not recommended for accessibility reasons. To achieve same styling as `credit` in v7, use the following classes => `text-[max(1.6rem,0.9em)] leading-snug italic`
 
 Upgrade from version 7.0.0-beta.0 to 7.0.0-beta.1
 -------------------------------------------
