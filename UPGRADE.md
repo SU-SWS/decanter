@@ -18,6 +18,9 @@ Some custom utilities have been updated or deprecated to better align with updat
 - embed-container => Use `aspect-[16/9]` to maintain the 16x9 aspect ratio and add width/height classes as needed.
 - `credit` => `text-[max(1.6rem,0.9em)] leading-snug italic`
 `credit` has been removed because small italic text is not recommended for accessibility reasons. To achieve same styling as `credit` in v7, use the following classes => `text-[max(1.6rem,0.9em)] leading-snug italic`
+- The 2 negative responsive spacing steps, e.g., `rs-m-neg1`, `rs-p-neg2` have been removed. Instead, use breakpoint modifiers with these values instead:
+  - `rs-m-neg1` => `p-11 md:p-12 2xl:p-13`
+  - `rs-p-neg2` => `p-8 md:p-9 2xl:p-10`
 
 Upgrade from version 7.0.0-beta.0 to 7.0.0-beta.1
 -------------------------------------------
