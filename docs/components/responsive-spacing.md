@@ -10,7 +10,7 @@ Format: `.rs-{m|p}{side}-{scale}`
 - Prefix: `rs-`
 - Properties: `m` (margin), `p` (padding)
 - Sides: `t` (top), `r` (right), `b` (bottom), `l` (left), `x` (horizontal), `y` (vertical), or none (all sides)
-- Scales: `neg2`, `neg1`, `0`, `1` … `10`
+- Scales: `0`, `1` … `10` (`neg2`, `neg1` are deprecated and will be removed in v8)
 
 ## Usage
 ```html

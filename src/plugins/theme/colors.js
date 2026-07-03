@@ -3,6 +3,13 @@
  * https://identity.stanford.edu/design-elements/color/
  */
 module.exports = function () {
+  // "Fog" from the Identity Guide. In Decanter v6 this color was named "foggy" to
+  // avoid a class-name conflict; that conflict is gone, so "fog" is canonical.
+  const fog = {
+    DEFAULT: '#DAD7CB',
+    light: '#F4F4F4', // Same as old Fog in previous color palette
+    dark: '#B6B1A9', // Same as old Driftwood in previous color palette
+  };
   return {
     // Primary Colors
     // https://identity.stanford.edu/design-elements/color/primary-colors/
@@ -121,18 +128,9 @@ module.exports = function () {
       light: '#D4D1D1',
       dark: '#544948', // Same as old Stone in previous color palette
     },
-    foggy: {
-      DEFAULT: '#DAD7CB',
-      light: '#F4F4F4', // Same as old Fog in previous color palette
-      dark: '#B6B1A9', // Same as old Driftwood in previous color palette
-    },
-    // "fog" is same color as foggy above; in Decanter v6 we named this color foggy to avoid a class name conflict
-    // This is the same as the color "Fog" in the Identity Guide
-    fog: {
-      DEFAULT: '#DAD7CB',
-      light: '#F4F4F4',
-      dark: '#B6B1A9',
-    },
+    // @deprecated Use `fog` instead (identical color). Will be removed in v8.
+    foggy: fog,
+    fog,
     // Commonly used social media brand colors
     facebook: '#4267B2',
     twitter: '#1DA1F2',

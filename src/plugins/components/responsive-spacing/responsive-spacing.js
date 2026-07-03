@@ -19,6 +19,7 @@ module.exports = function () {
 
     // Curated Map.
     const map = {
+      // @deprecated `neg2` and `neg1` scales will be removed in v8. Use scale `0`+ instead.
       neg2: {
         xs: '0.8rem',
         md: '0.9rem',

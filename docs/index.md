@@ -135,7 +135,7 @@ This index lists all custom CSS classes provided by the Decanter design system (
   - **Stone**: `.text-stone`, `.bg-stone`, `.border-stone`
     - `.text-stone-light`, `.bg-stone-light`, `.border-stone-light`
     - `.text-stone-dark`, `.bg-stone-dark`, `.border-stone-dark`
-  - **Foggy**: `.text-foggy`, `.bg-foggy`, `.border-foggy`
+  - **Foggy** _(deprecated — use Fog; will be removed in v8)_: `.text-foggy`, `.bg-foggy`, `.border-foggy`
     - `.text-foggy-light`, `.bg-foggy-light`, `.border-foggy-light`
     - `.text-foggy-dark`, `.bg-foggy-dark`, `.border-foggy-dark`
   - **Fog**: `.text-fog`, `.bg-fog`, `.border-fog`
