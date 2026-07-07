@@ -45,9 +45,9 @@
     "build": "tailwind -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --content static/*.html",
     "watch": "tailwind -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --watch --content static/*.html",
     "serve": "light-server -s static -w static/*.html",
-    "dev": "npm run watch && npm run serve",
+    "dev": "npm run watch & npm run serve",
     "lint": "eslint './src'",
-    "lint:fix": "eslint './src'  --fix",
+    "lint:fix": "eslint './src' --fix",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "repository": {
