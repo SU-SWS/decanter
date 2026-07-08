@@ -24,6 +24,13 @@ Note that `decanter/forms` is not standalone &mdash; import it alongside `decant
 which provide the theme variables and root font size the form styles depend on.
 
 
+## Slab and monospace fonts removed
+Decanter no longer supports the slab or monospace font families:
+
+- `font-slab` (Roboto Slab) is **removed** — the utility no longer exists. Use `font-serif`, or define your own font family if you need a slab typeface.
+- `font-mono` is **no longer overridden** by Decanter. It remains a core Tailwind utility but now resolves to Tailwind's default system monospace stack instead of Roboto Mono. If you need Roboto Mono specifically, load it and set `--font-mono` in your own `@theme`.
+
+
 ## Decanter custom class name changes
 Some custom utilities have been updated or deprecated to better align with updated Tailwind CSS conventions:
 

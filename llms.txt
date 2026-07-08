@@ -10,6 +10,7 @@ Key facts that differ from stock Tailwind CSS:
 - A single `@import 'decanter';` is the complete setup — it includes Tailwind CSS internally. Do NOT also write `@import 'tailwindcss';`; the duplicate is not removed and ships Tailwind's preflight reset twice.
 - Custom variants `hocus:`, `hocus-visible:`, `hocus-within:` (and `group-*` forms) combine hover with a focus state.
 - Bare headings h1–h6 follow the responsive modular type scale (h1 = type-5 … h6 = type-0).
+- Fonts are NOT bundled or loaded. Decanter only provides font-family utilities (font-sans = Source Sans 3, font-serif = Source Serif 4, font-stanford = the Stanford wordmark font, used by .logo). The consuming project loads the actual font files (Google Fonts + the Stanford media CDN); unloaded families fall back down their stack. See docs/typography.md. (The v7 font-slab/Roboto Slab and font-mono/Roboto Mono families were removed in v8; font-mono still resolves to Tailwind's default system monospace stack.)
 
 ## Docs
 
@@ -19,9 +20,9 @@ Key facts that differ from stock Tailwind CSS:
 - [Typography](docs/typography.md): Font families, modular type scale (type-0…type-10), fluid type scale, font-size utilities, text styles, line heights
 - [Spacing & Layout](docs/spacing-and-layout.md): Spacing scale, responsive spacing (rs-*) value tables, gaps, centered container, breakpoints
 - [Components](docs/components.md): button, logo, skiplink, stretched-link, lists, tables, wysiwyg
-- [Forms](docs/forms.md): The opt-in decanter/forms entry — input, select, textarea, checkbox, radio, label, legend, fieldset
 - [Utilities](docs/utilities.md): Nested link utilities (link-*), legacy text shadows, writing mode
 - [Variants](docs/variants.md): hocus, hocus-visible, hocus-within and their group forms
+- [Forms](docs/forms.md): The opt-in decanter/forms entry — input, select, textarea, checkbox, radio, label, legend, fieldset
 
 ## Optional
 

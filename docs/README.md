@@ -27,7 +27,7 @@ Everything below is *in addition to* core Tailwind CSS v4 utilities. Where Decan
 | Category | Classes / tokens | Doc |
 |---|---|---|
 | Colors | `cardinal-red`, `digital-red/blue/green`, 14 accent families, grayscale (`black-10`…`black-true`), social media colors — usable with any color utility (`bg-*`, `text-*`, `border-*`, …) | [Colors](colors.md) |
-| Font families | `font-sans`, `font-serif`, `font-slab`, `font-mono`, `font-stanford` | [Typography](typography.md) |
+| Font families | `font-sans`, `font-serif`, `font-stanford` | [Typography](typography.md) |
 | Modular type scale | `type-0` … `type-10` (responsive, em-based) | [Typography](typography.md) |
 | Fluid type scale | `fluid-type-0` … `fluid-type-10` (viewport-clamped) | [Typography](typography.md) |
 | Font sizes | `text-<integer>` (0.1rem steps: `text-18` = 1.8rem), `text-1em`, `text-09em`, `text-input` | [Typography](typography.md) |

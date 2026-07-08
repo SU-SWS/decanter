@@ -47,10 +47,9 @@ Decanter includes Tailwind CSS itself — don't add a separate `@import 'tailwin
 See [Getting Started](docs/getting-started.md) for details, including the 62.5% root font size convention (spacing and font-size class numbers read as pixels: `p-16` = 16px, `text-18` = 18px).
 
 ## Fonts
-- Decanter does not bundle font assets. Load fonts with the method optimized for your framework, importing only what you need.
-- Two convenience CSS files are provided at the repo root: `fonts.css` (all Decanter fonts: sans, serif, slab, mono, and the Stanford ligature font for the logo) and `fonts-basic.css` (sans, serif, and the Stanford font only).
-- Source Sans 3, Source Serif 4, Roboto Slab, and Roboto Mono are loaded from [Google Fonts](https://fonts.google.com/).
-- The Stanford ligature font used by `.logo` is served from the [University Communications media CDN](https://www-media.stanford.edu/assets/fonts/stanford.woff).
+Decanter provides font-family **utilities** (`font-sans`, `font-serif`, `font-stanford`) but does not bundle or load the font files — how fonts are loaded is framework-specific, so that's left to you. Load only the families you use; if one isn't loaded, its class falls back gracefully down the stack.
+
+See [Loading the fonts](docs/typography.md#loading-the-fonts) for which families and weights to load and copy-paste examples (`<link>`, `@import`, self-hosting, and framework tooling), plus the `@font-face` snippet for the Stanford wordmark font used by `.logo`.
 
 ## Icons
 We recommend the [heroicons](https://github.com/tailwindlabs/heroicons) package — [Hero Icons](https://heroicons.com/) are created by the Tailwind CSS team, open source, and usable as SVG or JSX.

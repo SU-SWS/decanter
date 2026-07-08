@@ -8,11 +8,48 @@ Sources: `src/css/theme/font-family.css`, `theme/font-size.css`, `theme/line-hei
 |---|---|---|
 | `font-sans` | Source Sans 3, Helvetica Neue, Helvetica, Arial, sans-serif | Default body font |
 | `font-serif` | Source Serif 4, Georgia, Times, serif | Display and editorial |
-| `font-slab` | Roboto Slab, Georgia, Times, serif | Slab display |
-| `font-mono` | Roboto Mono, Menlo, Courier New, monospace | Code |
 | `font-stanford` | Stanford, Source Serif 4, Georgia, serif | The Stanford wordmark only (see `.logo`) |
 
-Fonts are not bundled. Load Source Sans 3, Source Serif 4, Roboto Slab, and Roboto Mono from Google Fonts (or self-host); the Stanford wordmark font is served by Stanford web infrastructure.
+> The `font-slab` (Roboto Slab) and `font-mono` (Roboto Mono) families were removed in v8. `font-slab` no longer exists; `font-mono` still works as a core Tailwind utility but resolves to the default system monospace stack. See [UPGRADE.md](../UPGRADE.md).
+
+### Loading the fonts
+
+Decanter references fonts by name but **does not bundle or load them** — font loading is framework-specific, so you choose the method. Load only the families whose classes you actually use; the Stanford wordmark font is only needed if you use `.logo` / `font-stanford`.
+
+| Family | Source | Weights Decanter uses |
+|---|---|---|
+| Source Sans 3 | Google Fonts | 400, 600, 700 (+ italics) |
+| Source Serif 4 | Google Fonts | 400, 600, 700 (+ italics) |
+| Stanford (wordmark) | [Stanford media CDN](https://www-media.stanford.edu/assets/fonts/stanford.woff2) | 300 |
+
+**Option A — `<link>` in your HTML `<head>`** (good default; `preconnect` speeds up the CDN handshake):
+
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap">
+```
+
+**Option B — CSS `@import`** (simplest; render-blocking, so prefer Option A or C for production):
+
+```css
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap');
+```
+
+**Option C — self-host or framework tooling** (best performance): download the woff2 files and declare your own `@font-face`, or use your framework's font system — e.g. Next.js [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts), a Vite font plugin, or Astro. This avoids the CDN round-trip and reduces layout shift.
+
+**Stanford wordmark font** — only needed for `.logo`. Declare it once (self-host the file for production rather than hotlinking the CDN):
+
+```css
+@font-face {
+  font-family: Stanford;
+  src: url('https://www-media.stanford.edu/assets/fonts/stanford.woff2') format('woff2');
+  font-weight: 300;
+  font-display: swap;
+}
+```
+
+If a family isn't loaded, its class falls back to the next font in the stack (e.g. `font-stanford` → Source Serif 4) — nothing breaks, so you can ship only the fonts you need.
 
 ## Base body and heading behavior
 
