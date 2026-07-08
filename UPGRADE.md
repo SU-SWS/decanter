@@ -31,7 +31,7 @@ Some custom utilities have been updated or deprecated to better align with updat
 - `break-words` => `wrap-anywhere`
 - `a11y-hidden`, `accessibility-hidden` => `aria-hidden:hidden`
 - `rounded` => `rounded-[0.3rem]`
-- embed-container => Use `aspect-[16/9]` to maintain the 16x9 aspect ratio and add width/height classes as needed.
+- embed-container => Use `aspect-video` or `aspect-16/9` to maintain the 16x9 aspect ratio and add width/height classes as needed.
 - `credit` => `text-[max(1.6rem,0.9em)] leading-snug italic`
 `credit` has been removed because small italic text is not recommended for accessibility reasons. To achieve same styling as `credit` in v7, use the following classes => `text-[max(1.6rem,0.9em)] leading-snug italic`
 - The 2 negative responsive spacing steps, e.g., `rs-m-neg1`, `rs-p-neg2` have been removed. Instead, use breakpoint modifiers with these values instead:
