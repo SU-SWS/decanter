@@ -31,6 +31,10 @@ Some custom utilities have been updated or deprecated to better align with updat
 - `break-words` => `wrap-anywhere`
 - `a11y-hidden`, `accessibility-hidden` => `aria-hidden:hidden`
 - `rounded` => `rounded-[0.3rem]`
+- `foggy`, `foggy-light`, `foggy-dark` => `fog`, `fog-light`, `fog-dark` (same values; the duplicate `foggy` name from v6 has been dropped)
+- `link-regular` => `link-normal` (matches Tailwind's `font-normal` naming)
+- `text-shadow`, `text-shadow-md`, `text-shadow-lg` => `text-shadow-legacy`, `text-shadow-legacy-md`, `text-shadow-legacy-lg` (Tailwind v4.1 ships its own `text-shadow-*` scale, which is preferred for new work)
+- Modular em font sizes `text-m0` through `text-m9` and `text--m1` => removed; use the modular type classes `type-0` through `type-10`, or arbitrary values such as `text-[1.25em]`
 - embed-container => Use `aspect-video` or `aspect-16/9` to maintain the 16x9 aspect ratio and add width/height classes as needed.
 - `credit` => `text-[max(1.6rem,0.9em)] leading-snug italic`
 `credit` has been removed because small italic text is not recommended for accessibility reasons. To achieve same styling as `credit` in v7, use the following classes => `text-[max(1.6rem,0.9em)] leading-snug italic`

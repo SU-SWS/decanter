@@ -1,79 +1,55 @@
-# Decanter Documentation
+# Decanter v8 Documentation
 
-Welcome to the Decanter design system documentation. Decanter is Stanford University's design system built on Tailwind CSS.
+Decanter is Stanford University's design system, delivered as a CSS-first preset for **Tailwind CSS v4**. It provides the Stanford Identity color palette, typography scales, spacing system, components, and utilities as plain CSS you import into your own Tailwind build.
 
-## Getting Started
+- Repository: https://github.com/SU-SWS/decanter
+- Identity guide: https://identity.stanford.edu
+- Live test page: `static/index.html` in this repo demonstrates every feature
 
-1. **[Installation & Configuration Guide](installation.md)** - Complete guide on how to install and use Decanter in your projects
-   - Installation instructions
-   - Basic configuration examples
-   - Stanford colors and typography
-   - Framework-specific setups (Next.js, Vite, SvelteKit)
-   - Advanced configuration options
+## Documentation map
 
-2. **[Development Guide](development.md)** - Guide for developers working on the Decanter package itself
-   - Architecture overview
-   - Configuration factory pattern
-   - Making changes and testing
+| Page | Covers |
+|---|---|
+| [Getting Started](getting-started.md) | Installation, entry points, composition rules, requirements |
+| [Colors](colors.md) | Full Stanford palette: tokens, hex values, usage guidance |
+| [Typography](typography.md) | Font families, modular & fluid type scales, font-size utilities, text styles, line heights |
+| [Spacing & Layout](spacing-and-layout.md) | Spacing scale, responsive spacing (`rs-*`), gaps, centered container, breakpoints |
+| [Components](components.md) | `.button`, `.logo`, `.skiplink`, `.stretched-link`, lists, tables, `.wysiwyg` |
+| [Forms](forms.md) | The opt-in `decanter/forms` entry: `.input`, `.select`, `.checkbox`, etc. |
+| [Utilities](utilities.md) | Nested link utilities (`link-*`), legacy text shadows, writing mode |
+| [Variants](variants.md) | Custom variants: `hocus:`, `hocus-visible:`, `hocus-within:` and group forms |
+| [Development](development.md) | Working on Decanter itself: repo layout, build scripts, test page |
 
-3. **Component Plugins**: [components/README.md](components/README.md) - Documentation for UI components
-   - Form controls: buttons, inputs, form elements
-   - Layout components: centered-container, grid-gap, embed-container
-   - Navigation helpers: lists, stretched-link, skiplink
-   - Typography components: modular-typography, fluid-typography, wysiwyg, text-shadow
+## Quick reference: what Decanter adds to Tailwind
 
-4. **Theme Plugins**: [themes/README.md](themes/README.md) - Documentation for design tokens and theme extensions
-   - Colors: Stanford palette with light/dark variants
-   - Typography: fontFamily, fontSize, fontWeight, lineHeight, lineClamp
-   - Spacing: spacing scale, gap utilities, maxWidth
-   - Borders: borderRadius, borderWidth
-   - Breakpoints: screens, transitionDuration
+Everything below is *in addition to* core Tailwind CSS v4 utilities. Where Decanter overrides a Tailwind default (spacing scale, breakpoints, line heights, fonts), that is called out in the relevant page.
 
-5. **Utility Plugins**: [utilities/README.md](utilities/README.md) - Documentation for utility classes
-   - Visual Effects: `.backface-hidden`
-   - Link styling: `.link-{color}`, `.link-underline`, `.link-no-underline`, `.link-regular`, `.link-bold`
-   - Typography helpers: `.break-words`, `.text-vertical-lr`
+| Category | Classes / tokens | Doc |
+|---|---|---|
+| Colors | `cardinal-red`, `digital-red/blue/green`, 14 accent families, grayscale (`black-10`…`black-true`), social media colors — usable with any color utility (`bg-*`, `text-*`, `border-*`, …) | [Colors](colors.md) |
+| Font families | `font-sans`, `font-serif`, `font-slab`, `font-mono`, `font-stanford` | [Typography](typography.md) |
+| Modular type scale | `type-0` … `type-10` (responsive, em-based) | [Typography](typography.md) |
+| Fluid type scale | `fluid-type-0` … `fluid-type-10` (viewport-clamped) | [Typography](typography.md) |
+| Font sizes | `text-<integer>` (0.1rem steps: `text-18` = 1.8rem), `text-1em`, `text-09em`, `text-input` | [Typography](typography.md) |
+| Base font | `basefont-19` … `basefont-23` (responsive container base size) | [Typography](typography.md) |
+| Text styles | `splash-text`, `intro-text`, `big-paragraph`, `card-paragraph`, `subheading`, `quote-text`, `caption`, `types` | [Typography](typography.md) |
+| Line heights | `leading-half`, `leading-trim`, `leading-tight`, `leading-display`, `leading-snug`, `leading-cozy`, `leading-normal` | [Typography](typography.md) |
+| Spacing scale | `--spacing: 0.1rem` — numeric utilities read as pixels (`p-16` = 1.6rem); em steps `*-01em` … `*-1em`; `prose-wide` (75ch) | [Spacing & Layout](spacing-and-layout.md) |
+| Responsive spacing | `rs-p-*`, `rs-px-*`, `rs-py-*`, `rs-pt/pr/pb/pl-*`, `rs-m-*` (+ sides), `rs-gap-*`, `rs-gap-x/y-*` — steps 0–10 | [Spacing & Layout](spacing-and-layout.md) |
+| Gaps | `gap-xs`, `gap-lg`, `gap-xl`, `gap-2xl`, and the responsive `grid-gap` shorthand | [Spacing & Layout](spacing-and-layout.md) |
+| Container | `centered-container` / `cc` (Stanford screen margins, 1500px cap) | [Spacing & Layout](spacing-and-layout.md) |
+| Breakpoints | `sm` 576 / `md` 768 / `lg` 992 / `xl` 1200 / `2xl` 1500 / `3xl` 1700 / `4xl` 2000 (px) | [Spacing & Layout](spacing-and-layout.md) |
+| Components | `button`, `logo`, `skiplink`, `stretched-link`, `list-unstyled`, `list-horizontal`, `table-borderless`, `wysiwyg` | [Components](components.md) |
+| Form classes | `input`, `textarea`, `select`, `checkbox`, `radio`, `label`, `legend`, `fieldset` — via `decanter/forms` only | [Forms](forms.md) |
+| Link utilities | `link-<color>`, `link-hocus-<color>`, `link-underline`, `link-no-underline`, `link-normal`, `link-semibold`, `link-bold` | [Utilities](utilities.md) |
+| Text shadows | `text-shadow-legacy`, `text-shadow-legacy-md`, `text-shadow-legacy-lg` | [Utilities](utilities.md) |
+| Writing mode | `text-vertical-lr` | [Utilities](utilities.md) |
+| Variants | `hocus:`, `hocus-visible:`, `hocus-within:`, `group-hocus:`, `group-hocus-visible:`, `group-hocus-within:` | [Variants](variants.md) |
 
-6. **Base Plugins**: [base-plugins.md](base-plugins.md) - Documentation for foundational styles
-   - Preflight reset and base layer
-   - Core typography resets
-   - Base component styling and utility layers
+## Base styles
 
-7. **CSS Reference**: [css-files.md](css-files.md) - Overview of generated CSS files
-   - `index.css`: compiled CSS entry point
-   - `decanter.js`: JavaScript entry for custom properties
-   - Layer outputs: base, components, utilities
+Importing `decanter` (the full entry) also styles bare HTML elements: headings `h1`–`h6` follow the modular type scale, plus opinionated defaults for `p`, `a`, lists, `table`, `figcaption`, and code elements. Import `decanter/minimal` to skip element opinions and keep only the essentials (root font size, border-color compat, list markers). See [Getting Started](getting-started.md#entry-points).
 
-8. **CSS Class Index**: Comprehensive list of all custom CSS classes provided by Decanter. (see [index.md](index.md))
+## Upgrading from v7
 
-
-## Quick Start
-
-```bash
-npm install decanter
-```
-
-```javascript
-// tailwind.config.js (CommonJS)
-module.exports = {
-  presets: [require('decanter')],
-  content: ['./src/**/*.{js,ts,jsx,tsx}'],
-}
-```
-
-```javascript
-// tailwind.config.mjs (ES Module)
-import decanter from 'decanter';
-
-export default {
-  presets: [decanter],
-  content: ['./src/**/*.{js,ts,jsx,tsx}'],
-};
-```
-
-## Links
-
-- **Demo Site**: [decanter-v7.netlify.app](https://decanter-v7.netlify.app/)
-- **Main Documentation**: [decanter.stanford.edu](https://decanter.stanford.edu)
-- **GitHub Repository**: [github.com/SU-SWS/decanter](https://github.com/SU-SWS/decanter)
-- **NPM Package**: [npmjs.com/package/decanter](https://www.npmjs.com/package/decanter)
+See [UPGRADE.md](../UPGRADE.md) for the v7 → v8 migration guide, including renamed and removed classes.
