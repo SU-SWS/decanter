@@ -26,9 +26,9 @@
     "license.md"
   ],
   "scripts": {
-    "build": "npx @tailwindcss/cli -i dev/dev.css -o static/css/decanter.css",
-    "watch": "npx @tailwindcss/cli -i dev/dev.css -o static/css/decanter.css --watch",
-    "serve": "light-server -s static -w static/*.html",
+    "build": "tailwindcss -i dev/dev.css -o static/css/decanter.css",
+    "watch": "tailwindcss -i dev/dev.css -o static/css/decanter.css --watch",
+    "serve": "light-server -s static -w \"static/*.html,static/css/*.css\"",
     "dev": "concurrently \"npm:serve\" \"npm:watch\"",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
@@ -39,18 +39,16 @@
   "bugs": {
     "url": "https://github.com/SU-SWS/decanter/issues"
   },
-  "dependencies": {
-    "@tailwindcss/forms": "^0.5.10",
-    "@tailwindcss/postcss": "^4.1.16",
+  "peerDependencies": {
     "tailwindcss": "^4.1.16"
   },
   "devDependencies": {
-    "auto-changelog": "^2.2.1",
-    "concurrently": "^9.2.1",
-    "light-server": "^2.9.1"
-  },
-  "optionalDependencies": {
-    "@tailwindcss/cli": "^4.1.16"
+    "@tailwindcss/cli": "^4.3.2",
+    "@tailwindcss/forms": "^0.5.11",
+    "auto-changelog": "^2.6.0",
+    "concurrently": "^10.0.3",
+    "light-server": "^2.9.1",
+    "tailwindcss": "^4.3.2"
   },
   "engines": {
     "node": ">=18.0.0"
