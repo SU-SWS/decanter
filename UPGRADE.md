@@ -9,6 +9,22 @@ Tailwind CSS does provide a tool to help with upgrading from Tailwind v3 to v4:
 https://tailwindcss.com/docs/upgrade-guide#using-the-upgrade-tool
 
 
+## Form styles are now opt-in
+Form classes (`.input`, `.select`, `.textarea`, `.checkbox`, `.radio`, `.label`, `.legend`, `.fieldset`) and the
+`@tailwindcss/forms` reset they depend on have moved to a separate entry point. If your site has forms, add one import:
+
+```css
+@import 'tailwindcss';
+@import 'decanter';
+@import 'decanter/forms';
+```
+
+Sites without forms no longer carry the form classes or the global form-element reset.
+
+Note that `decanter/forms` is not standalone &mdash; import it alongside `decanter` (or `decanter/minimal`),
+which provide the theme variables and root font size the form styles depend on.
+
+
 ## Decanter custom class name changes
 Some custom utilities have been updated or deprecated to better align with updated Tailwind CSS conventions:
 

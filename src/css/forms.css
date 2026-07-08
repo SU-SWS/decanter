@@ -1,0 +1,17 @@
+/**
+  Decanter form styles — opt-in entry point.
+
+  Form classes (.input, .select, .textarea, .checkbox, .radio, .label,
+  .legend, .fieldset) depend on the @tailwindcss/forms reset, so the plugin
+  and the classes ship together here. Import only if your site has forms:
+
+    @import 'tailwindcss';
+    @import 'decanter';
+    @import 'decanter/forms';
+
+  NOT standalone: this entry composes with 'decanter' (or 'decanter/minimal').
+  It relies on Decanter theme variables and the 62.5% root font size — imported
+  alone, form controls render unstyled and oversized.
+*/
+@plugin '@tailwindcss/forms';
+@import './components/form.css';
