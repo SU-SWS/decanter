@@ -14,7 +14,6 @@ Form classes (`.input`, `.select`, `.textarea`, `.checkbox`, `.radio`, `.label`,
 `@tailwindcss/forms` reset they depend on have moved to a separate entry point. If your site has forms, add one import:
 
 ```css
-@import 'tailwindcss';
 @import 'decanter';
 @import 'decanter/forms';
 ```

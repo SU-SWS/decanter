@@ -10,7 +10,6 @@ Source: `src/css/forms.css`, `src/css/components/form.css`.
 ## Setup
 
 ```css
-@import 'tailwindcss';
 @import 'decanter';        /* or 'decanter/minimal' */
 @import 'decanter/forms';  /* adds form reset + classes */
 ```

@@ -6,8 +6,8 @@ Key facts that differ from stock Tailwind CSS:
 
 - Decanter sets the root font size to 62.5%, so rem-based class numbers read as pixels: `text-18` = 18px, `p-16` = 16px, `w-300` = 300px. The spacing unit is `--spacing: 0.1rem`, not Tailwind's default 0.25rem.
 - Breakpoints are custom: sm 576px, md 768px, lg 992px, xl 1200px, 2xl 1500px, 3xl 1700px, 4xl 2000px.
-- Entry points: `decanter` (everything), `decanter/minimal` (no element base styles), `decanter/forms` (opt-in form styles; requires the main entry), `decanter/colors` (palette only, standalone).
-- Always import Tailwind first: `@import 'tailwindcss'; @import 'decanter';`
+- Entry points: `decanter` (everything), `decanter/minimal` (no element base styles), `decanter/forms` (opt-in form styles; requires the main entry), `decanter/colors` (palette tokens only, for projects with their own Tailwind import).
+- A single `@import 'decanter';` is the complete setup — it includes Tailwind CSS internally. Do NOT also write `@import 'tailwindcss';`; the duplicate is not removed and ships Tailwind's preflight reset twice.
 - Custom variants `hocus:`, `hocus-visible:`, `hocus-within:` (and `group-*` forms) combine hover with a focus state.
 - Bare headings h1–h6 follow the responsive modular type scale (h1 = type-5 … h6 = type-0).
 

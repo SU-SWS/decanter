@@ -8,7 +8,7 @@ The complete Stanford Identity palette, defined as Tailwind `@theme` tokens in `
 <div class="from-cardinal-red to-plum bg-linear-to-r">…</div>
 ```
 
-Tokens are also available as CSS variables (`var(--color-cardinal-red)`), and via `decanter/colors` as a standalone import for stock Tailwind projects.
+Tokens are also available as CSS variables (`var(--color-cardinal-red)`), and via `decanter/colors` as a tokens-only import for stock Tailwind projects (pair it with your project's own `@import 'tailwindcss'`).
 
 ## Accessibility
 

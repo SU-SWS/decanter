@@ -28,12 +28,11 @@ npm install decanter tailwindcss
 In your project's main CSS file:
 
 ```css
-@import 'tailwindcss';
 @import 'decanter';
 @import 'decanter/forms'; /* optional — only if your site has forms */
 ```
 
-Build with any Tailwind v4 integration (`@tailwindcss/cli`, `@tailwindcss/vite`, or `@tailwindcss/postcss`).
+Decanter includes Tailwind CSS itself — don't add a separate `@import 'tailwindcss'`, or your output will contain the preflight reset twice. Build with any Tailwind v4 integration (`@tailwindcss/cli`, `@tailwindcss/vite`, or `@tailwindcss/postcss`).
 
 ### Entry points
 

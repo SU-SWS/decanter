@@ -18,35 +18,37 @@ npm install decanter tailwindcss
 In your project's main CSS file:
 
 ```css
-@import 'tailwindcss';
 @import 'decanter';
 ```
+
+That's the only import you need — Decanter's main entries include `@import 'tailwindcss'` internally. **Do not also import `tailwindcss` yourself**: it isn't deduplicated, and your output CSS will contain Tailwind's preflight reset twice.
 
 Build with your Tailwind integration as usual. Tailwind v4 detects the classes you use in your templates automatically; Decanter's utilities are generated on demand just like core utilities.
 
 ## Entry points
 
-| Import | What you get | When to use |
-|---|---|---|
-| `decanter` | Theme + components + utilities + variants + full base styles (element defaults for headings, paragraphs, links, lists, tables) | Default choice for Stanford sites |
-| `decanter/minimal` | Same, but with minimal base styles: root font size, border-color compatibility, and list markers only — no element typography opinions | Embedding Decanter into a site that has its own base styles |
-| `decanter/forms` | Form classes (`.input`, `.select`, …) plus the `@tailwindcss/forms` reset they depend on | Add alongside `decanter` or `decanter/minimal` when your site has forms |
-| `decanter/colors` | The Stanford color palette only, as `@theme` tokens | Using Stanford colors on an otherwise stock Tailwind setup |
-| `decanter/src/*` | Direct access to any source file, e.g. `decanter/src/css/utilities/modular-type.css` | À-la-carte composition |
+| Import | What you get | Includes Tailwind? | When to use |
+|---|---|---|---|
+| `decanter` | Theme + components + utilities + variants + full base styles (element defaults for headings, paragraphs, links, lists, tables) | Yes | Default choice for Stanford sites |
+| `decanter/minimal` | Same, but with minimal base styles: root font size, border-color compatibility, and list markers only — no element typography opinions | Yes | Embedding Decanter into a site that has its own base styles |
+| `decanter/forms` | Form classes (`.input`, `.select`, …) plus the `@tailwindcss/forms` reset they depend on | No — composes with a main entry | Add alongside `decanter` or `decanter/minimal` when your site has forms |
+| `decanter/colors` | The Stanford color palette only, as `@theme` tokens | No — pair with your own `@import 'tailwindcss'` | Using Stanford colors on an otherwise stock Tailwind setup |
+| `decanter/src/*` | Direct access to any source file, e.g. `decanter/src/css/utilities/modular-type.css` | No | À-la-carte composition |
 
 ### Composition rules
 
 1. **`decanter/forms` is not standalone.** It relies on theme variables and the root font size supplied by `decanter` or `decanter/minimal`. Imported alone, form controls render unstyled and oversized.
 
    ```css
-   @import 'tailwindcss';
    @import 'decanter';
    @import 'decanter/forms'; /* only if your site has forms */
    ```
 
-2. **`decanter/colors` is standalone.** It is pure `@theme`, adds zero bytes until you use a color, and does not change Tailwind's spacing scale, breakpoints, or element styles.
+2. **`decanter/colors` is standalone tokens.** It is pure `@theme`, adds zero bytes until you use a color, and does not change Tailwind's spacing scale, breakpoints, or element styles. Use it in a project that already has its own `@import 'tailwindcss'`.
 
 3. **`decanter` and `decanter/minimal` are mutually exclusive** — import one, not both.
+
+4. **Never add your own `@import 'tailwindcss'` next to `decanter` or `decanter/minimal`** — they already include it, and the duplicate is not removed.
 
 ## The 62.5% root font size
 
@@ -85,7 +87,6 @@ Tailwind v4 generates utilities on demand, so unused Decanter utilities and them
 
 ```css
 /* src/styles.css */
-@import 'tailwindcss';
 @import 'decanter';
 ```
 
