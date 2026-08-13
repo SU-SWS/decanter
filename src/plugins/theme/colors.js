@@ -131,7 +131,9 @@ module.exports = function () {
     // @deprecated Use `fog` instead (identical color). Will be removed in v8.
     foggy: fog,
     fog,
-    // Commonly used social media brand colors
+    // @deprecated Third-party brand colors, not part of the Stanford Identity
+    // palette, and they go stale as the platforms rebrand (`twitter` predates X).
+    // Define the ones you need in your own project config. Will be removed in v8.
     facebook: '#4267B2',
     twitter: '#1DA1F2',
     instagram: '#E1306C',

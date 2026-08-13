@@ -19,7 +19,7 @@ This index lists all custom CSS classes provided by the Decanter design system (
 ### Layout Components
 - `.centered-container`, `.cc` — Constrains content to centered max-width container. (see Components > Centered Container)
 - `.grid-gap` — Adds responsive gap between grid items. (see Components > Grid Gap)
-- `.embed-container` — Maintains responsive aspect ratio for embedded media. (see Components > Embed Container)
+- `.embed-container` — Maintains responsive aspect ratio for embedded media. _(deprecated — use `aspect-[16/9]` with `size-full` on the embed; will be removed in v8)_ (see Components > Embed Container)
 - `.rs-*` — Responsive spacing utilities (`rs-m-`, `rs-p-` variants). (see Components > Responsive Spacing)
   - `.rs-m-{scale}`: responsive margin (all sides)
   - `.rs-p-{scale}`: responsive padding (all sides)
@@ -44,7 +44,7 @@ This index lists all custom CSS classes provided by the Decanter design system (
 - `.intro-text` — Introductory paragraph style
 - `.splash-text` — Large display/splash typography
 - `.quote-text` — Block quote styling (italic)
-- `.caption`, `.credits` — Small caption and credit styles
+- `.caption`, `.credits` — Small caption and credit styles. `.credits` _(deprecated — small italic text is not recommended for accessibility; use `text-[max(1.6rem,0.9em)] leading-snug italic text-cool-grey`; will be removed in v8)_
 - `.subheading` — Subheading style
 - `.big-paragraph` — Slightly larger paragraph style for long-form
 - `.card-paragraph` — Compact paragraph style for cards
@@ -56,9 +56,6 @@ This index lists all custom CSS classes provided by the Decanter design system (
 - `.table-borderless` — Table without borders. (see Components > Borderless)
 
 ## Utility Classes
-
-### Accessibility
-- `.accessibility-hidden`, `.a11y-hidden` — Visually hides content but keeps it available to screen readers. (see Utilities > Accessibility Hidden)
 
 ### Visual Effects
 - `.backface-hidden` — Hides the back face of elements during 3D transforms. (see Utilities > Backface Visibility)
@@ -141,7 +138,7 @@ This index lists all custom CSS classes provided by the Decanter design system (
   - **Fog**: `.text-fog`, `.bg-fog`, `.border-fog`
     - `.text-fog-light`, `.bg-fog-light`, `.border-fog-light`
     - `.text-fog-dark`, `.bg-fog-dark`, `.border-fog-dark`
-  - **Social Media Colors**: `.text-facebook`, `.bg-facebook`, `.border-facebook`
+  - **Social Media Colors** _(deprecated — define these in your own project config; will be removed in v8)_: `.text-facebook`, `.bg-facebook`, `.border-facebook`
     - `.text-twitter`, `.bg-twitter`, `.border-twitter`
     - `.text-instagram`, `.bg-instagram`, `.border-instagram`
     - `.text-linkedin`, `.bg-linkedin`, `.border-linkedin`
@@ -153,7 +150,7 @@ This index lists all custom CSS classes provided by the Decanter design system (
 
 ### Typography Helpers
 - `.break-words` — Enhanced `word-break: break-word` utility. (see Utilities > Break Words)
-- `.text-vertical-lr` — Sets vertical left-to-right text orientation. (see Utilities > Writing Mode)
+- `.text-vertical-lr` — Sets vertical left-to-right text orientation. _(deprecated — use `[writing-mode:vertical-lr]`; will be removed in v8)_ (see Utilities > Writing Mode)
 
 ## Theme Extensions
 
@@ -166,7 +163,7 @@ This index lists all custom CSS classes provided by the Decanter design system (
 - **Border Radius** — `.rounded` default set to `0.3rem` (see Theme > Border Radius)
 - **Gap Scale** — `xs` (20px), `lg` (36px), `xl` (40px), `2xl` (48px) (see Theme > Gap)
 - **Font Size Scale** — `.text-11` – `.text-30`, `.text-m0` – `.text-m9`, `.text--m1`, `.text-09em` (see Theme > Font Size)
-- **Font Weight Scale** — `.font-regular` (alias for `font-normal`) (see Theme > Font Weight)
+- **Font Weight Scale** — `.font-regular` _(deprecated — use `.font-normal`; will be removed in v8)_ (see Theme > Font Weight)
 - **Line Clamp** — `.line-clamp-7` – `.line-clamp-12` (see Theme > Line Clamp)
 - **Line Height** — `.leading-tight`, `.leading-display`, `.leading-snug`, `.leading-cozy`, `.leading` (default), `.leading-half`, `.leading-trim` (see Theme > Line Height)
 - **Max Width** — `.max-w-10` – `.max-w-1000`, `.max-w-prose-wide` (see Theme > Max Width)
@@ -181,6 +178,28 @@ Custom variants added by Decanter for enhanced styling:
 - `hocus-visible:` — Applies on hover and `focus-visible`.
 - `group-hocus:` / `group-hocus-visible:` / `group-hocus-within:` — Applies when parent `.group` is hovered/focused.
 - `children:` / `children-hover:` / `children-focus:` / `children-focus-visible:` — Targets direct children in given states.
+
+## Removed Classes
+
+Classes that existed in an earlier v7 release and no longer generate any CSS.
+
+### `.accessibility-hidden`, `.a11y-hidden`
+
+**Removed in v7.5.0.** Use Tailwind's [`aria-hidden:` variant](https://tailwindcss.com/docs/hover-focus-and-other-states#aria-states) instead — it compiles to the same `[aria-hidden="true"] { display: none }` these classes produced, so the swap is exact.
+
+```html
+<!-- Before -->
+<span class="a11y-hidden" aria-hidden="true">Text</span>
+
+<!-- After -->
+<span class="aria-hidden:hidden" aria-hidden="true">Text</span>
+```
+
+**Check your markup before upgrading.** This removal does not break the build — any element that relied on these classes simply becomes visible. Search your templates for `a11y-hidden` and `accessibility-hidden`.
+
+These were removed outright rather than deprecated because they were almost never used, and the class alone did nothing.
+
+Note that earlier documentation described these as hiding content visually while keeping it available to screen readers. That was never their behavior — they hid content from everyone. If that screen-reader behavior is what you were after, use Tailwind's `sr-only` (with `focus:not-sr-only` for skip links) rather than a substitute for these classes.
 
 ## Breakpoints
 

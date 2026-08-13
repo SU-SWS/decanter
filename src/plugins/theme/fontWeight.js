@@ -4,7 +4,8 @@
 
 module.exports = function () {
   return {
-    // TW class for normal font weight is font-normal, but Decanter v6 users are used to font-regular for the same thing
+    // @deprecated Back-compat alias for Decanter v6 users; identical to Tailwind's
+    // `font-normal`. Use `font-normal` instead. Will be removed in v8.
     regular: '400',
   };
 };
