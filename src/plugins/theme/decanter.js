@@ -13,7 +13,7 @@ module.exports = function () {
   // Psuedo storage since we don't have access to the `theme()` at this point.
   const theme = {};
   // eslint-disable-next-line global-require
-  theme.lineHeight = require('./lineHeight')();
+  theme.lineHeight = require('./lineHeight.js')();
 
   const modtype = {};
 

@@ -24,10 +24,14 @@
     "function-paren-newline": "off",
     "space-before-function-paren": 0,
     "func-names": 0,
+    // Relative imports must carry their file extension: this package ships both a
+    // CommonJS and an ES module entry point, and Node's ESM resolver requires them.
+    "import/extensions": ["error", "ignorePackages"],
     "semi": [1, "always"] // 1 is for warning
   },
   "parserOptions": {
-    "ecmaVersion": 2018,
+    // 2020 or later is required to parse `import.meta` in tailwind.config.mjs.
+    "ecmaVersion": 2020,
     "sourceType": "module"
   },
   "settings": {
