@@ -60,13 +60,15 @@ Preparing for Decanter 8
 The following still work in v7 and emit unchanged CSS, but will be removed in v8.
 Migrating now makes the v8 upgrade a no-op.
 
-| Deprecated | Replacement | Available in v7? |
+| Deprecated | Replace with | Still available in v7? |
 | --- | --- | --- |
 | `.credits` | `text-[max(1.6rem,0.9em)] leading-snug italic text-cool-grey` | Yes |
 | `.embed-container` | `aspect-[16/9]` on the wrapper, `size-full` on the embed | Yes |
 | `.text-vertical-lr` | `[writing-mode:vertical-lr]` | Yes |
 | `font-regular` | `font-normal` | Yes |
-| Social brand colors (`facebook`, `twitter`, `instagram`, `linkedin`, `youtube`) | Define in your own project config or use the square bracket | Yes |
+| `font-slab` | Leave alone now and update when v8 is out | Yes |
+| `font-mono` | Leave alone now and update when v8 is out | Yes |
+| Social brand colors (`facebook`, `twitter`, `instagram`, `linkedin`, `youtube`) | Use the square bracket notation | Yes |
 | Color `foggy` | `fog` (identical color) | Yes |
 | `rs-m-neg1`, `rs-p-neg2` and the other negative responsive spacing steps | Breakpoint modifiers, e.g. `rs-m-neg1` → `p-11 md:p-12 2xl:p-13`, `rs-p-neg2` → `p-8 md:p-9 2xl:p-10` | Yes |
 
