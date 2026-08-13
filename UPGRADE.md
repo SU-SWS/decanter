@@ -7,8 +7,8 @@ full list of everything that shipped in each release, see [CHANGELOG.md](CHANGEL
 Upgrade notes for Decanter 6 and earlier are archived at
 [UPGRADE.md as of tag 6.3.3](https://github.com/SU-SWS/decanter/blob/6.3.3/UPGRADE.md).
 
-Unreleased
-----------
+Upgrade from version 7.4.0 to 7.5.0
+-----------------------------------
 
 ### Removed: `.accessibility-hidden` and `.a11y-hidden`
 
@@ -37,6 +37,22 @@ keeping it available to screen readers. That was never their behavior; they hid
 content from everyone. If that screen-reader behavior is what you wanted, use
 Tailwind's `sr-only` (with `focus:not-sr-only` for skip links) rather than a
 substitute for these classes.
+
+### `@tailwindcss/forms` updated to 0.5.11
+
+Its base styles now use `input:where([type='…'])` and `select:where([multiple])` in
+place of bare attribute selectors. No declaration changed, and most projects will see
+no difference. Two cases can:
+
+- **Bare `input { … }` rules.** `:where()` contributes no specificity, so these
+  selectors are now weaker than the attribute selectors they replaced. A bare element
+  rule that previously lost to the forms base styles now ties on specificity and wins
+  on source order.
+- **`<input type="file" multiple>`.** The old `[multiple]` selector matched any
+  element with that attribute, so file inputs were picking up `select` styling. Fixed,
+  but visible if you have that markup.
+
+Decanter's own `.input`, `.select`, and `.textarea` are unaffected.
 
 Preparing for Decanter 8
 ------------------------
