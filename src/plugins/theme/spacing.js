@@ -50,7 +50,7 @@ module.exports = function () {
     28: '2.8rem',
     29: '2.9rem',
     30: '3rem',
-    31: '3.1em',
+    31: '3.1rem',
     32: '3.2rem',
     33: '3.3rem',
     34: '3.4rem',

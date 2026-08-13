@@ -27,7 +27,7 @@ module.exports = function () {
 
       '.legend': {
         fontWeight: theme('fontWeight.bold'),
-        lineHeight: theme('decanter.base.displayLineHeight'),
+        lineHeight: theme('lineHeight.display'),
       },
 
       '.textarea': {
