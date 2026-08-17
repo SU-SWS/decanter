@@ -27,7 +27,47 @@ To add new plugins, themes, or modify existing configuration:
 
 1. Edit `tw.config.js` only
 2. Both CommonJS and ES Module exports will automatically inherit the changes
-3. Test both formats: `npm run build` and `node test-commands`
+3. Test both formats load and agree:
+
+```bash
+node -e "require('./tailwind.config.js')"
+node -e "import('./tailwind.config.mjs')"
+```
+
+## Local Development
+
+```bash
+npm install
+npm run dev
+```
+
+`npm run dev` starts the Tailwind watcher and serves the preview page at
+[http://localhost:4000](http://localhost:4000).
+
+There is no live reload. The watcher regenerates the CSS, but the browser is not
+notified, so **refresh the page manually** to see any change.
+
+| Command | What it does |
+| --- | --- |
+| `npm run dev` | Watch and serve the preview page together |
+| `npm run build` | Build `static/css/decanter.css` once |
+| `npm run watch` | Rebuild on change, without a server |
+| `npm run serve` | Serve `static/` on port 4000, without a watcher |
+| `npm run lint` | ESLint over `src/` (`lint:fix` to autofix) |
+
+### What the watcher does and does not pick up
+
+The watcher rebuilds automatically when you edit `src/css/index.css` or
+`static/index.html`.
+
+It does **not** notice changes to plugin files under `src/plugins/`. Tailwind
+discovers config dependencies by statically scanning the config for literal
+`require('...')` calls, and `tw.config.js` loads the plugins through an injected
+`requireFn(...)` so that absolute-path resolution works in bundlers such as
+Turbopack. That indirection is invisible to the scan.
+
+After editing anything under `src/plugins/`, run `npm run build` to regenerate
+the CSS, then refresh the browser.
 
 ### File Structure
 

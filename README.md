@@ -18,6 +18,16 @@ This repository includes extensive documentation to help you understand and use 
 1. **[README.md](README.md)** - Overview of Decanter, installation instructions, and quick start guide.
 2. **[docs/README.md](docs/README.md)** - Main documentation index with links to detailed guides.
 
+If you want to work on Decanter itself rather than use it in a project:
+- **[docs/development.md](docs/development.md)** - Architecture, the shared config factory, and how to run the package locally.
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** - Issue reporting, feature requests, and pull request guidelines.
+
+### Installation
+
+```bash
+npm install decanter
+```
+
 ### Usage
 When using Decanter, the package will automatically resolve to the correct module format:
 
@@ -28,7 +38,7 @@ module.exports = {
   // your additional config...
 }
 
-// ES Module - In your tailwind.config.mjs  
+// ES Module - In your tailwind.config.mjs
 import decanter from 'decanter';
 export default {
   presets: [decanter],
@@ -38,10 +48,10 @@ export default {
 
 The package exports both CommonJS (`tailwind.config.js`) and ES Module (`tailwind.config.mjs`) versions to ensure compatibility with different bundlers and configurations.
 
-For detailed usage examples and configuration options, see [docs/usage.md](docs/usage.md).
+For detailed usage examples and configuration options, see [docs/installation.md](docs/installation.md).
 
 ## CSS Class Index
-Comprehensive list of all custom CSS classes provided by Decanter.  
+Comprehensive list of all custom CSS classes provided by Decanter.
 See [docs/index.md](docs/index.md)
 
 ## Assets
@@ -49,7 +59,7 @@ We have removed all assets from the repo in Decanter v7. Instead, we are using r
 
 ### Fonts
 - We do not include any font assets with Decanter v7. If you want to use the Decanter fonts in your own projects, it is recommended that you use the font loading method that is optimized for your framework and only import the fonts that you need.
-- We provided two font css files that you can import into your own project so you get the latest update from us. `font.css` includes all the fonts that are referenced in the Decanter design system (sans-serif, serif, slab, monospace, Stanford ligature font for the logo). `font-basic.css` includes only the essential sans-serif, serif and Stanford ligature fonts.
+- We provided two font css files that you can import into your own project so you get the latest update from us. `fonts.css` includes all the fonts that are referenced in the Decanter design system (sans-serif, serif, slab, monospace, Stanford ligature font for the logo). `fonts-basic.css` includes only the essential sans-serif, serif and Stanford ligature fonts.
 - For Source Sans 3, Source Serif 4, Roboto Slab, Roboto Mono - we include them using the `@import` method from [Google Fonts](https://fonts.google.com/).
 - The Stanford ligature font that we use for the logo is linked from the [University Communications media CDN](https://www-media.stanford.edu/assets/fonts/stanford.woff).
 
@@ -60,4 +70,4 @@ We have removed all assets from the repo in Decanter v7. Instead, we are using r
 ## Accessibility
 [![WCAG Conformance 2.0 AA Badge](https://www.w3.org/WAI/wcag2AA-blue.png)](https://www.w3.org/TR/WCAG20/)
 
-This project conforms to level AA WCAG 2.0 standards as required by the university's accessibility policy. For more information on the policy please visit: [https://ucomm.stanford.edu/policies/accessibility-policy.html](https://ucomm.stanford.edu/policies/accessibility-policy.html).
+This project conforms to level AA WCAG 2.0 standards as required by the university's accessibility policy. For more information on the policy please visit: [https://www.stanford.edu/accessibility](https://www.stanford.edu/accessibility).
