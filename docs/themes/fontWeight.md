@@ -2,12 +2,16 @@
 
 **File**: `/src/plugins/theme/fontWeight.js`
 
+> **Deprecated.** `.font-regular` will be removed in v8. Replace it with Tailwind's
+> `.font-normal`, which is identical (400) and available today. The examples below
+> still show `.font-regular` for reference, but new code should not use it.
+
 ## Overview
 Extends Tailwind's default font weights with `.font-regular` as an alias for normal (400) weight, maintaining compatibility with Decanter v6 users.
 
 ## Generated CSS Classes
 
-- **Regular weight**: `.font-regular` (400 - alias for `.font-normal`)
+- **Regular weight**: `.font-regular` _(deprecated — use `.font-normal`)_ (400 - alias for `.font-normal`)
 - **Standard Tailwind weights**: `.font-thin`, `.font-light`, `.font-normal`, `.font-medium`, `.font-semibold`, `.font-bold`, `.font-extrabold`, `.font-black`
 
 ## Usage

@@ -7,7 +7,7 @@ A set of composable typography utility classes used across the design system for
 - `.intro-text` — Introductory paragraph style
 - `.splash-text` — Large display text
 - `.quote-text` — Italic text for quotes; slightly larger than body text
-- `.caption`, `.credits` — Smaller text for captions and credits. `.caption` includes `margin-top: 0.4em` and `.credits` is italic
+- `.caption`, `.credits` — Smaller text for captions and credits. `.caption` includes `margin-top: 0.4em` and `.credits` is italic. `.credits` is **deprecated** and will be removed in v8, because small italic text is not recommended for accessibility. To reproduce the v7 styling, use `text-[max(1.6rem,0.9em)] leading-snug italic text-cool-grey`
 - `.subheading` — Larger font size for subheadings
 - `.big-paragraph` — For slightly larger paragraph with looser line-height
 - `.card-paragraph` — Paragraph style intended for card UI with smaller font size and tighter line-height

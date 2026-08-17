@@ -54,7 +54,6 @@ function createDecanterConfig(plugin, requireFn) {
   const textShadow = requireFn('./src/plugins/components/shadow/text-shadow.js');
 
   // Utility imports
-  const accessibilityHidden = requireFn('./src/plugins/utilities/accessibility/accessibility-hidden.js');
   const backfaceVisibility = requireFn('./src/plugins/utilities/backface-visibility/backface-visibility.js');
   const link = requireFn('./src/plugins/utilities/link/link.js');
   const linkUnderline = requireFn('./src/plugins/utilities/link/link-underline.js');
@@ -134,7 +133,6 @@ function createDecanterConfig(plugin, requireFn) {
       textShadow(),
 
       // @tailwind utilities;
-      accessibilityHidden(),
       backfaceVisibility(),
       link(),
       linkUnderline(),

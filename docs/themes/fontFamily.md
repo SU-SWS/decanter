@@ -2,6 +2,17 @@
 
 **File**: `/src/plugins/theme/fontFamily.js`
 
+> **Deprecated in v8: `font-slab` and `font-mono`.** Neither is part of the Stanford
+> Identity type system. Both still work in v7 and are unchanged. The two behave
+> differently when they go:
+>
+> - **`font-slab`** is Decanter-only, so the class disappears entirely in v8. If you need
+>   Roboto Slab, add `slab` to your own project config.
+> - **`font-mono`** is a core Tailwind class that Decanter currently overrides. The
+>   class stays; only Decanter's Roboto Mono stack goes, and `font-mono` falls back to
+>   Tailwind's default system monospace stack. Add `mono` to your own config if you
+>   need Roboto Mono specifically.
+
 ## Overview
 Provides Stanford's official typography stack with carefully curated font families including the Stanford ligature font used for the logo wordmark, Source Sans 3, Source Serif 4 with appropriate fallbacks.
 
@@ -10,8 +21,8 @@ Provides Stanford's official typography stack with carefully curated font famili
 - **Stanford ligature**: `.font-stanford` - Stanford ligature font for the logo with serif fallback
 - **Sans serif**: `.font-sans` - Source Sans 3 with sans serif fallback
 - **Serif**: `.font-serif` - Source Serif 4 with serif fallback
-- **Monospace**: `.font-mono` - Roboto Mono with monospace fallback
-- **Slab**: `.font-slab` - Roboto Slab with serif fallback
+- **Monospace**: `.font-mono` - Roboto Mono with monospace fallback _(deprecated — Decanter's stack is removed in v8; the class remains with Tailwind's default stack)_
+- **Slab**: `.font-slab` - Roboto Slab with serif fallback _(deprecated — removed in v8)_
 
 ## Usage
 
