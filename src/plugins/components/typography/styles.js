@@ -31,6 +31,9 @@ module.exports = function () {
       '.caption': {
         marginTop: '0.4em',
       },
+      // @deprecated Removed in v8 — small italic text is not recommended for
+      // accessibility. To reproduce the v7 styling:
+      // `text-[max(1.6rem,0.9em)] leading-snug italic text-cool-grey`
       '.credits': {
         fontStyle: 'italic',
       },
