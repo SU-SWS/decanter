@@ -43,8 +43,8 @@
   ],
   "scripts": {
     "build": "tailwind -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --content static/*.html",
-    "watch": "tailwind -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --watch --content static/*.html",
-    "serve": "light-server -s static -w static/*.html",
+    "watch": "tailwind -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --watch=always --content static/*.html",
+    "serve": "serve static -l 4000",
     "dev": "npm run watch & npm run serve",
     "lint": "eslint './src'",
     "lint:fix": "eslint './src' --fix",
@@ -67,8 +67,8 @@
     "autoprefixer": "^10.5.4",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
-    "light-server": "^2.9.1",
-    "postcss": "^8.5.26"
+    "postcss": "^8.5.26",
+    "serve": "^14.2.6"
   },
   "engines": {
     "node": ">=18.0.0"
