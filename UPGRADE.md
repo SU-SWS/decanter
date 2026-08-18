@@ -32,7 +32,7 @@ which provide the theme variables and root font size the form styles depend on.
 
 
 ## Slab and monospace fonts removed
-Decanter no longer supports the slab or monospace font families:
+Decanter no longer provides font utilities for Roboto Slab and Roboto Mono font families:
 
 - `font-slab` (Roboto Slab) is **removed** — the utility no longer exists. Use `font-serif`, or define your own font family if you need a slab typeface.
 - `font-mono` is **no longer overridden** by Decanter. It remains a core Tailwind utility but now resolves to Tailwind's default system monospace stack instead of Roboto Mono. If you need Roboto Mono specifically, load it and set `--font-mono` in your own `@theme`.
@@ -42,15 +42,16 @@ Decanter no longer supports the slab or monospace font families:
 Some custom utilities have been updated or deprecated to better align with updated Tailwind CSS conventions:
 
 - `break-words` => `wrap-anywhere`
-- `a11y-hidden`, `accessibility-hidden` => `aria-hidden:hidden`
 - `rounded` => `rounded-[0.3rem]`
 - `foggy`, `foggy-light`, `foggy-dark` => `fog`, `fog-light`, `fog-dark` (same values; the duplicate `foggy` name from v6 has been dropped)
+- `text-vertical-lr` => `[writing-mode:vertical-lr]`
+- `font-regular` => `font-normal`
 - `link-regular` => `link-normal` (matches Tailwind's `font-normal` naming)
 - `text-shadow`, `text-shadow-md`, `text-shadow-lg` => `text-shadow-legacy`, `text-shadow-legacy-md`, `text-shadow-legacy-lg` (Tailwind v4.1 ships its own `text-shadow-*` scale, which is preferred for new work)
 - Modular em font sizes `text-m0` through `text-m9` and `text--m1` => removed; use the modular type classes `type-0` through `type-10`, or arbitrary values such as `text-[1.25em]`
 - embed-container => Use `aspect-video` or `aspect-16/9` to maintain the 16x9 aspect ratio and add width/height classes as needed.
 - `credit` => `text-[max(1.6rem,0.9em)] leading-snug italic`
-`credit` has been removed because small italic text is not recommended for accessibility reasons. To achieve same styling as `credit` in v7, use the following classes => `text-[max(1.6rem,0.9em)] leading-snug italic`
+`credit` has been removed because small italic text is not recommended for accessibility reasons. To achieve same styling as `credit` in v7, use the following classes => `text-[max(1.6rem,0.9em)] leading-snug italic text-cool-grey`
 - The 2 negative responsive spacing steps, e.g., `rs-m-neg1`, `rs-p-neg2` have been removed. Instead, use breakpoint modifiers with these values instead:
   - `rs-m-neg1` => `p-11 md:p-12 2xl:p-13`
   - `rs-p-neg2` => `p-8 md:p-9 2xl:p-10`
