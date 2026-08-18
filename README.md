@@ -17,7 +17,7 @@ Full documentation lives in [docs/](docs/README.md):
 - [Components](docs/components.md) &middot; [Forms](docs/forms.md) &middot; [Utilities](docs/utilities.md) &middot; [Variants](docs/variants.md)
 - [Development](docs/development.md) — working on Decanter itself
 
-The [docs/README.md](docs/README.md) index includes a quick-reference table of everything Decanter adds to Tailwind. For AI tools and coding agents, [llms.txt](llms.txt) summarizes the system and links the docs — it ships with the npm package, so agents can read it from `node_modules/decanter/`.
+The [docs/README.md](docs/README.md) index includes a quick-reference table of everything Decanter adds to Tailwind.
 
 ## Installation
 
