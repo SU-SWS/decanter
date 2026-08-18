@@ -177,15 +177,6 @@ https://identity.stanford.edu/design-elements/color/accent-colors/
 | `fog-light` | `#F4F4F4` |  |
 | `fog-dark` | `#B6B1A9` |  |
 
-## Social media colors
-| Token | Hex | Notes |
-|---|---|---|
-| `facebook` | `#0866FF` |  |
-| `twitter` | `#1DA1F2` |  |
-| `instagram` | `#FF0069` |  |
-| `linkedin` | `#0077B5` |  |
-| `youtube` | `#FF0033` |  |
-
 ## Renames from v7
 
 `foggy`/`foggy-light`/`foggy-dark` were removed in v8 — use `fog`/`fog-light`/`fog-dark` (identical values). See [UPGRADE.md](../UPGRADE.md).

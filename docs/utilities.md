@@ -47,14 +47,6 @@ Typical use: white text over photography.
 <h1 class="text-white text-shadow-legacy-md">Readable over an image</h1>
 ```
 
-## Writing mode — `text-vertical-lr`
-
-Sets `writing-mode: vertical-lr` for vertical left-to-right text.
-
-```html
-<p class="text-vertical-lr">Vertical label</p>
-```
-
 ## Removed in v8
 
-`break-words`, `a11y-hidden`/`accessibility-hidden`, `backface-hidden`, and `embed-container` have core Tailwind replacements — see [UPGRADE.md](../UPGRADE.md).
+`break-words`, `a11y-hidden`/`accessibility-hidden`, `backface-hidden`, and `embed-container` have core Tailwind replacements. `text-vertical-lr` should be replaced with `[writing-mode:vertical-lr]`. — see [UPGRADE.md](../UPGRADE.md).

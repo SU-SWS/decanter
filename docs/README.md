@@ -16,7 +16,7 @@ Decanter is Stanford University's design system, delivered as a CSS-first preset
 | [Spacing & Layout](spacing-and-layout.md) | Spacing scale, responsive spacing (`rs-*`), gaps, centered container, breakpoints |
 | [Components](components.md) | `.button`, `.logo`, `.skiplink`, `.stretched-link`, lists, tables, `.wysiwyg` |
 | [Forms](forms.md) | The opt-in `decanter/forms` entry: `.input`, `.select`, `.checkbox`, etc. |
-| [Utilities](utilities.md) | Nested link utilities (`link-*`), legacy text shadows, writing mode |
+| [Utilities](utilities.md) | Nested link utilities (`link-*`), legacy text shadows |
 | [Variants](variants.md) | Custom variants: `hocus:`, `hocus-visible:`, `hocus-within:` and group forms |
 | [Development](development.md) | Working on Decanter itself: repo layout, build scripts, test page |
 
@@ -26,7 +26,7 @@ Everything below is *in addition to* core Tailwind CSS v4 utilities. Where Decan
 
 | Category | Classes / tokens | Doc |
 |---|---|---|
-| Colors | `cardinal-red`, `digital-red/blue/green`, 14 accent families, grayscale (`black-10`…`black-true`), social media colors — usable with any color utility (`bg-*`, `text-*`, `border-*`, …) | [Colors](colors.md) |
+| Colors | `cardinal-red`, `digital-red/blue/green`, 14 accent families, grayscale (`black-10`…`black-true`) — usable with any color utility (`bg-*`, `text-*`, `border-*`, …) | [Colors](colors.md) |
 | Font families | `font-sans`, `font-serif`, `font-stanford` | [Typography](typography.md) |
 | Modular type scale | `type-0` … `type-10` (responsive, em-based) | [Typography](typography.md) |
 | Fluid type scale | `fluid-type-0` … `fluid-type-10` (viewport-clamped) | [Typography](typography.md) |
