@@ -1,24 +1,8 @@
+/* Shared essentials (border-color compat, root font size, list markers) */
+@import './base-minimal.css';
+
 @layer base {
-  /*
-    The default border color has changed to `currentColor` in Tailwind CSS v4,
-    so we've added these compatibility styles to make sure everything still
-    looks the same as it did with Tailwind CSS v3.
-
-    If we ever want to remove these styles, we need to add an explicit border
-    color utility to any element that depends on these defaults.
-  */
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-
   html {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: var(--text-root);
     font-family: var(--font-sans);
     color: var(--color-black);
     line-height: 1.15;
@@ -27,7 +11,6 @@
   body {
     background-color: var(--color-white);
     color: var(--color-black);
-    overflow-x: hidden;
     font-size: 1.8rem;
 
     @media (min-width: 768px) {
@@ -57,29 +40,30 @@
     }
   }
 
-  /* Individual heading sizes */
+  /* Individual heading sizes follow the responsive modular type scale.
+     @apply keeps the scale values in one place (utilities/modular-type.css). */
   h1 {
-    font-size: 2.01em; /* type5 base */
+    @apply type-5;
   }
 
   h2 {
-    font-size: 1.75em; /* type4 base */
+    @apply type-4;
   }
 
   h3 {
-    font-size: 1.52em; /* type3 base */
+    @apply type-3;
   }
 
   h4 {
-    font-size: 1.32em; /* type2 base */
+    @apply type-2;
   }
 
   h5 {
-    font-size: 1.15em; /* type1 base */
+    @apply type-1;
   }
 
   h6 {
-    font-size: 1em; /* type0 base */
+    @apply type-0;
   }
 
   p {
@@ -116,16 +100,6 @@
     &:focus {
       color: var(--color-black);
     }
-  }
-
-  ul {
-    padding-left: 1em;
-    list-style-type: disc;
-  }
-
-  ol {
-    padding-left: 1em;
-    list-style-type: decimal;
   }
 
   /* Common list item styles */

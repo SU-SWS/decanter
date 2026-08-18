@@ -1,83 +1,60 @@
 # [Decanter](https://github.com/SU-SWS/decanter)
-##### Version: 7
+##### Version: 8 (alpha)
 
-Changelog: [CHANGELOG.md](CHANGELOG.md)
-
-## Demo
-To see a live demo of Decanter v7 elements please [view the v7 demo site](https://decanter-v7.netlify.app/).
-For more documentation on Version 7 please visit https://decanter.stanford.edu
+Changelog: [CHANGELOG.md](CHANGELOG.md) &middot; Upgrading from v7? See [UPGRADE.md](UPGRADE.md)
 
 ## Description
-Decanter is a web design and development system for Stanford University.
-It includes a responsive layout system and a browsable collection of design patterns
-that can be used in any Stanford project.
-For Decanter v7, instead of using SASS/SCSS with the BEM naming convention, we use [Tailwind CSS](https://tailwindcss.com/) to generate utility classes with some customization needed for our Stanford design system.
+Decanter is a web design and development system for Stanford University. Version 8 is a **CSS-first preset for [Tailwind CSS v4](https://tailwindcss.com/)**: you import plain CSS and get the Stanford Identity color palette, typography scales, spacing system, components, utilities, and custom variants on top of core Tailwind.
 
-# Comprehensive Documentation
-This repository includes extensive documentation to help you understand and use Decanter effectively. Places to start include:
-1. **[README.md](README.md)** - Overview of Decanter, installation instructions, and quick start guide.
-2. **[docs/README.md](docs/README.md)** - Main documentation index with links to detailed guides.
+## Demo
+The test page in this repository ([static/index.html](static/index.html)) demonstrates every custom Decanter feature. Run it locally with `npm install && npm run dev`.
+
+## Documentation
+Full documentation lives in [docs/](docs/README.md):
+
+- [Getting Started](docs/getting-started.md) — installation, entry points, composition rules
+- [Colors](docs/colors.md) &middot; [Typography](docs/typography.md) &middot; [Spacing & Layout](docs/spacing-and-layout.md)
+- [Components](docs/components.md) &middot; [Forms](docs/forms.md) &middot; [Utilities](docs/utilities.md) &middot; [Variants](docs/variants.md)
+- [Development](docs/development.md) — working on Decanter itself
+
+The [docs/README.md](docs/README.md) index includes a quick-reference table of everything Decanter adds to Tailwind.
 
 ## Installation
 
-### As an npm package
-
-Install Decanter in your project:
-
 ```bash
-npm install decanter
-# or
-yarn add decanter
+npm install decanter tailwindcss
 ```
 
-### Usage
-
-#### Import the entire design system
-
-In your main CSS file:
+In your project's main CSS file:
 
 ```css
 @import 'decanter';
+@import 'decanter/forms'; /* optional — only if your site has forms */
 ```
 
-This imports all of Decanter's styles including theme variables, components, utilities, and base styles.
+Decanter includes Tailwind CSS itself — don't add a separate `@import 'tailwindcss'`, or your output will contain the preflight reset twice. Build with any Tailwind v4 integration (`@tailwindcss/cli`, `@tailwindcss/vite`, or `@tailwindcss/postcss`).
 
-#### Import specific parts
+### Entry points
 
-You can also import specific parts of the design system:
+| Import | Contents |
+|---|---|
+| `decanter` | Everything: theme, components, utilities, variants, full base styles |
+| `decanter/minimal` | Same, without element-level base opinions |
+| `decanter/forms` | Opt-in form classes + the bundled `@tailwindcss/forms` reset (requires `decanter` or `decanter/minimal`) |
+| `decanter/colors` | Stanford color palette only — standalone, works on stock Tailwind |
+| `decanter/src/*` | Any individual source file, for à-la-carte composition |
 
-```css
-@import 'decanter/src/css/theme.css';      /* custom CSS variables */
-@import 'decanter/src/css/components.css'; /* Component styles */
-@import 'decanter/src/css/utilities.css';  /* Utility classes */
-@import 'decanter/src/css/base.css';       /* Base element styles */
-```
+See [Getting Started](docs/getting-started.md) for details, including the 62.5% root font size convention (spacing and font-size class numbers read as pixels: `p-16` = 16px, `text-18` = 18px).
 
-#### With Tailwind CSS
+## Fonts
+Decanter provides font-family **utilities** (`font-sans`, `font-serif`, `font-stanford`) but does not bundle or load the font files — how fonts are loaded is framework-specific, so that's left to you. Load only the families you use; if one isn't loaded, its class falls back gracefully down the stack.
 
-If you're using Tailwind CSS in your project, you can import Decanter's CSS alongside your Tailwind directives:
+See [Loading the fonts](docs/typography.md#loading-the-fonts) for which families and weights to load and copy-paste examples (`<link>`, `@import`, self-hosting, and framework tooling), plus the `@font-face` snippet for the Stanford wordmark font used by `.logo`.
 
-```css
-@import 'decanter';
-@theme 'myproject/theme.css';
-```
-
-For detailed usage examples and configuration options, see [docs/usage.md](docs/usage.md).
-
-## CSS Class Index
-Comprehensive list of all custom CSS classes provided by Decanter.
-See [docs/index.md](docs/index.md)
-
-### Fonts
-- We do not include any font assets with Decanter v7. If you want to use the Decanter fonts in your own projects, it is recommended that you use the font loading method that is optimized for your framework and only import the fonts that you need.
-- We provided two font css files that you can import into your own project so you get the latest update from us. `font.css` includes all the fonts that are referenced in the Decanter design system (sans-serif, serif, slab, monospace, Stanford ligature font for the logo). `font-basic.css` includes only the essential sans-serif, serif and Stanford ligature fonts.
-- For Source Sans 3, Source Serif 4, Roboto Slab, Roboto Mono - we include them using the `@import` method from [Google Fonts](https://fonts.google.com/).
-- The Stanford ligature font that we use for the logo is linked from the [University Communications media CDN](https://www-media.stanford.edu/assets/fonts/stanford.woff).
-
-### Icons
-- We recommend using the [heroicons](https://github.com/tailwindlabs/heroicons) package as [Hero Icons](https://heroicons.com/) are created by the Tailwind CSS team and are open source. They can be included as SVG or JSX elements.
+## Icons
+We recommend the [heroicons](https://github.com/tailwindlabs/heroicons) package — [Hero Icons](https://heroicons.com/) are created by the Tailwind CSS team, open source, and usable as SVG or JSX.
 
 ## Accessibility
 [![WCAG Conformance 2.0 AA Badge](https://www.w3.org/WAI/wcag2AA-blue.png)](https://www.w3.org/TR/WCAG20/)
 
-This project conforms to level AA WCAG 2.0 standards as required by the university's accessibility policy. For more information on the policy please visit: [https://ucomm.stanford.edu/policies/accessibility-policy.html](https://ucomm.stanford.edu/policies/accessibility-policy.html).
+This project conforms to level AA WCAG 2.0 standards as required by the university's accessibility policy. For more information please visit: [https://ucomm.stanford.edu/policies/accessibility-policy.html](https://ucomm.stanford.edu/policies/accessibility-policy.html).

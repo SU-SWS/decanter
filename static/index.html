@@ -1,1354 +1,1408 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="smooth-scroll">
+<html lang="en" dir="ltr" class="scroll-smooth">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Decanter Preview Environment</title>
+  <meta name="description"
+    content="Decanter v8 (Tailwind CSS v4) test page covering all custom Decanter theme tokens, components, utilities, and variants.">
+  <title>Decanter v8 Test Page</title>
   <link rel="stylesheet" href="./css/decanter.css">
 </head>
 
 <body>
-  <!-- MAIN DEVELOPMENT AREA -->
-  <a href="#top" class="skiplink">Skip to main content</a>
-  <div class="cc bg-digital-red pt-5 pb-1">
-    <a class="logo text-white hocus:text-white text-20" href="https://stanford.edu">Stanford
-        University</a>
-  </div>
-  <div role="banner" class="cc rs-py-6 bg-gradient-to-b from-black to-plum text-white">
-    <h1 class="splash-text 4xl:text-90">Decanter 7 With Tailwind Test Page.</h1>
-    <p class="intro-text leading-base">This is a test page filled with common HTML elements to be used to provide visual
-      feedback whilst building CSS systems and frameworks.</p>
-  </div>
-  <main id="top">
-    <!-- Nav pills -->
-    <header class="bg-black-20 text-white rs-py-4">
-      <div class="cc">
-        <nav aria-label="table of content">
-          <h2 class="type-5"><a href="#text"
-              class="text-black hover:underline focus:underline">Typography</a></h2>
-          <ul class="list-unstyled text-16 md:text-20 rs-mb-4">
-            <li class="inline-block mb-12"><a href="#logo"
-                class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">Stanford
-                Logos</a></li>
-            <li class="inline-block mb-12"><a href="#text__headings"
-                class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">Headings</a>
-            </li>
-            <li class="inline-block mb-12"><a href="#text__fluid-type"
-                class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">Fluid Typography</a>
-            </li>
-            <li class="inline-block mb-12"><a href="#text__paragraphs"
-                class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">Paragraphs</a>
-            </li>
-            <li class="inline-block mb-12"><a href="#text__blockquotes"
-                class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">Blockquotes</a>
-            </li>
-            <li class="inline-block mb-12"><a href="#text__lists"
-                class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">Lists</a>
-            </li>
-            <li class="inline-block mb-12"><a href="#text__code"
-                class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">Code</a>
-            </li>
-            <li class="inline-block mb-12"><a href="#text__wysiwyg"
-                class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">WYSIWYG
-                Text</a></li>
-            <li class="inline-block mb-12"><a href="#text__inline"
-                class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">Inline
-                elements</a></li>
-          </ul>
+  <!-- Brand bar -->
+  <header class="cc bg-cardinal-red pt-5 pb-1">
+    <a class="logo text-white hocus:text-white text-20 leading-none" href="https://stanford.edu">Stanford University</a>
+  </header>
 
-          <h2 class="type-5"><a href="#color-palette"
-              class="text-black hover:underline focus:underline">Colors</a></h2>
-          <ul class="list-unstyled text-16 md:text-20 rs-mb-4">
-            <li class="inline-block mb-12"><a href="#color-palette"
-                class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">Colors</a>
-            </li>
-          </ul>
-
-          <h2 class="type-5"><a href="#html-elements"
-              class="text-black hover:underline focus:underline">HTML Elements</a></h2>
-          <ul class="list-unstyled text-16 md:text-20 rs-mb-4">
-            <li class="inline-block mb-12"><a href="#drop-shadows"
-                class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">Drop
-                Shadows</a></li>
-            <li class="inline-block mb-12"><a href="#text__tables"
-                class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">Tables</a>
-            </li>
-            <li class="inline-block mb-12 mr-12"><a
-                class="inline-block py-8 px-20 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors"
-                href="#embedded__images">Images</a></li>
-            <li class="inline-block mb-12 mr-12"><a
-                class="inline-block py-8 px-20 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors"
-                href="#embedded__youtube">Embed Streaming Video</a></li>
-            <li class="inline-block mb-12 mr-12"><a
-                class="inline-block py-8 px-20 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors"
-                href="#embedded__audio">Audio</a></li>
-            <li class="inline-block mb-12 mr-12"><a
-                class="inline-block py-8 px-20 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors"
-                href="#embedded__video">Video</a></li>
-            <li class="inline-block mb-12"><a href="#text__hr"
-                class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">Horizontal
-                rules</a></li>
-            <li class="inline-block mb-12 mr-12"><a
-                class="inline-block py-8 px-20 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors"
-                href="#embedded__meter">Meter</a></li>
-            <li class="inline-block mb-12 mr-12"><a
-                class="inline-block py-8 px-20 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors"
-                href="#embedded__progress">Progress</a></li>
-            <li class="inline-block mb-12 mr-12"><a
-                class="inline-block py-8 px-20 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors"
-                href="#embedded__svg">Inline SVG</a></li>
-            <li class="inline-block mb-12 mr-12"><a
-                class="inline-block py-8 px-20 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors"
-                href="#embedded__iframe">Iframes</a></li>
-          </ul>
-          <h2 class="type-5"><a href="#forms" class="text-black hover:underline focus:underline">Form
-              elements</a></h2>
-          <ul class="list-unstyled text-16 md:text-20 rs-mb-4">
-            <li class="inline-block mb-12 mr-12"><a
-                class="inline-block py-8 px-20 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors"
-                href="#forms__input">Input fields</a></li>
-            <li class="inline-block mb-12 mr-12"><a
-                class="inline-block py-8 px-20 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors"
-                href="#forms__select">Select menus</a></li>
-            <li class="inline-block mb-12 mr-12"><a
-                class="inline-block py-8 px-20 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors"
-                href="#forms__checkbox">Checkboxes</a></li>
-            <li class="inline-block mb-12 mr-12"><a
-                class="inline-block py-8 px-20 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors"
-                href="#forms__radio">Radio buttons</a></li>
-            <li class="inline-block mb-12 mr-12"><a
-                class="inline-block py-8 px-20 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors"
-                href="#forms__textareas">Textareas</a></li>
-            <li class="inline-block mb-12 mr-12"><a
-                class="inline-block py-8 px-20 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors"
-                href="#forms__html5">HTML5 inputs</a></li>
-            <li class="inline-block mb-12 mr-12"><a
-                class="inline-block py-8 px-20 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors"
-                href="#forms__action">Action buttons</a></li>
-          </ul>
-          <h2 class="type-5"><a href="#layouts" class="text-black hover:underline focus:underline">Layouts &
-              Grids</a></h2>
-          <ul class="list-unstyled text-16 md:text-20 rs-mb-4">
-            <li class="inline-block mb-12"><a href="#css-grid"
-                class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">CSS
-                Grid</a></li>
-            <li class="inline-block mb-12"><a href="#flex-grid"
-                class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">Flex
-                Grid</a></li>
-            <li class="inline-block mb-12"><a href="#aspect-ratio"
-                class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">Aspect
-                Ratio Containers</a></li>
-            <li class="inline-block mb-12"><a href="#cc"
-                  class="inline-block py-8 px-20 mr-12 bg-spirited-dark hocus:bg-archway-dark rounded-full text-white hocus:text-white no-underline transition-colors">Centered Container</a></li>
-          </ul>
-        </nav>
+  <main>
+    <!-- Hero -->
+    <section class="relative overflow-hidden bg-linear-to-br from-plum via-plum-dark to-black text-white rs-py-5">
+      <div class="absolute inset-0 bg-radial-[at_85%_15%] from-spirited/60 via-transparent to-transparent"
+        aria-hidden="true"></div>
+      <div class="cc relative">
+        <h1 class="fluid-type-6 mb-02em bg-linear-to-r text-white font-serif">Decanter v8</h1>
+        <p class="intro-text text-white mb-1em text-pretty">A test page for the Decanter design system on Tailwind CSS
+          v4.
+          Every custom Decanter theme token, component, utility, and variant is demonstrated below &mdash;
+          core Tailwind features are only shown where Decanter changes their defaults.</p>
+        <p class="inline-block text-16 font-mono mb-0 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-16 py-6"
+          aria-hidden="true">breakpoint:
+          <span class="sm:hidden">xs</span>
+          <span class="hidden sm:inline md:hidden">sm</span>
+          <span class="hidden md:inline lg:hidden">md</span>
+          <span class="hidden lg:inline xl:hidden">lg</span>
+          <span class="hidden xl:inline 2xl:hidden">xl</span>
+          <span class="hidden 2xl:inline 3xl:hidden">2xl</span>
+          <span class="hidden 3xl:inline 4xl:hidden">3xl</span>
+          <span class="hidden 4xl:inline">4xl</span>
+        </p>
       </div>
-    </header>
-    <!-- Typography section -->
-    <section class="rs-mb-3">
-      <header id="text" class="rs-py-4 bg-black-90">
-        <div class="cc">
-          <h2 class="type-6 text-white mb-0 text-center">Typography</h2>
-        </div>
-      </header>
-      <div class="cc flex flex-col md:flex-row rs-py-6 overflow-x-hidden">
-        <div class="mx-auto w-full lg:w-8/12">
-          <section id="logo" class="rs-mb-5">
-            <h3 class="type-5 text-lagunita-light">Stanford Logos</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 grid-gap">
-              <div>
-                <h4 class="type-3">Horizontal Version</h4>
-                <a class="logo text-cardinal-red hocus:text-cardinal-red type-3"
-                  href="https://stanford.edu">Stanford University</a>
-              </div>
-              <div>
-                <h4 class="type-3">Stacked Version</h4>
-                <a class="logo text-cardinal-red hocus:text-cardinal-red type-3"
-                  href="https://stanford.edu">Stanford<br>University</a>
-              </div>
-            </div>
-          </section>
-          <section id="text__headings" class="rs-mb-5">
-            <h3 class="type-5 text-lagunita-light">Headings & Display Type</h3>
-            <div>
-              <span class="splash-text rs-mb-0">Splash Text</span>
-              <h1>Heading 1</h1>
-              <h2>Heading 2</h2>
-              <h3>Heading 3</h3>
-              <h4>Heading 4</h4>
-              <h5>Heading 5</h5>
-              <h6>Heading 6</h6>
-            </div>
-          </section>
-          <section id="text__fluid-type" class="rs-mb-5 lg:w-[140%] lg:-ml-[20%]">
-            <h3 class="type-5 text-lagunita-light">Fluid Typography</h3>
-            <div>
-              <div class="fluid-type-0">Fluid type 0</div>
-              <div class="fluid-type-1">Fluid type 1</div>
-              <div class="fluid-type-2">Fluid type 2</div>
-              <div class="fluid-type-3">Fluid type 3</div>
-              <div class="fluid-type-4">Fluid type 4</div>
-              <div class="fluid-type-5">Fluid type 5</div>
-              <div class="fluid-type-6">Fluid type 6</div>
-              <div class="fluid-type-7">Fluid type 7</div>
-              <div class="fluid-type-8">Fluid type 8</div>
-              <div class="fluid-type-9">Fluid type 9</div>
-              <div class="fluid-type-10">Fluid type 10</div>
-            </div>
-          </section>
-          <section id="text__paragraphs" class="rs-mb-5">
-            <div>
-              <h3 class="type-5 text-lagunita-light">Paragraphs</h3>
-              <div class="rs-mb-4 link-digital-red">
-                <h4 class="type-4">Intro and Paragraph (Base Font Size 21px)</h4>
-                <p class="intro-text">Intro text max-width is 65ch. A paragraph (from the Greek paragraphos, “to
-                  write beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea.</p>
-                <p><strong>Regular paragraph</strong> (from the Greek paragraphos, “to write beside” or “written
-                  beside”) is a <a href="#">self-contained unit of a discourse</a> in writing dealing with a particular
-                  point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any
-                  language, paragraphs are usually an expected part of formal writing, used to organize longer prose.
-                </p>
-                <p class="big-paragraph"><strong>Big paragraph</strong> (from the Greek paragraphos, “to write
-                  beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not
-                  required by the syntax of any language, paragraphs are usually an expected part of formal writing,
-                  used to organize longer prose.</p>
-                <p class="card-paragraph"><strong>Card paragraph</strong> (from the Greek paragraphos, “to write
-                  beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not
-                  required by the syntax of any language, paragraphs are usually an expected part of formal writing,
-                  used to organize longer prose.</p>
-              </div>
-              <h2>Comparison of Different Base Font Size Options</h2>
-              <div class="basefont-19 rs-mb-4 link-plum">
-                <h3 class="font-serif">H3 .basefont-19</h3>
-                <p class="intro-text">Intro text max-width is 65ch. A paragraph (from the Greek paragraphos, “to
-                  write beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea.</p>
-                <p><strong>Regular paragraph</strong> (from the Greek paragraphos, “to write beside” or “written
-                  beside”) is a <a href="#">self-contained unit of a discourse</a> in writing dealing with a particular
-                  point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any
-                  language, paragraphs are usually an expected part of formal writing, used to organize longer prose.
-                </p>
-                <p class="big-paragraph"><strong>Big paragraph</strong> (from the Greek paragraphos, “to write
-                  beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not
-                  required by the syntax of any language, paragraphs are usually an expected part of formal writing,
-                  used to organize longer prose.</p>
-                <p class="card-paragraph"><strong>Card paragraph</strong> (from the Greek paragraphos, “to write
-                  beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not
-                  required by the syntax of any language, paragraphs are usually an expected part of formal writing,
-                  used to organize longer prose.</p>
-              </div>
+    </section>
 
-              <div class="basefont-20 rs-mb-4">
-                <h3 class="font-serif">H3 .basefont-20</h3>
-                <p class="intro-text">Intro text max-width is 65ch. A paragraph (from the Greek paragraphos, “to
-                  write beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea.</p>
-                <p><strong>Regular paragraph</strong> (from the Greek paragraphos, “to write beside” or “written
-                  beside”) is a <a href="#">self-contained unit of a discourse</a> in writing dealing with a particular
-                  point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any
-                  language, paragraphs are usually an expected part of formal writing, used to organize longer prose.
-                </p>
-                <p class="big-paragraph"><strong>Big paragraph</strong> (from the Greek paragraphos, “to write
-                  beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not
-                  required by the syntax of any language, paragraphs are usually an expected part of formal writing,
-                  used to organize longer prose.</p>
-                <p class="card-paragraph"><strong>Card paragraph</strong> (from the Greek paragraphos, “to write
-                  beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not
-                  required by the syntax of any language, paragraphs are usually an expected part of formal writing,
-                  used to organize longer prose.</p>
-              </div>
-
-              <div class="rs-mb-4">
-                <h3 class="font-serif">H3 Default body font size (21px)</h3>
-                <p class="intro-text">Intro text max-width is 65ch. A paragraph (from the Greek paragraphos, “to
-                  write beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea.</p>
-                <p><strong>Regular paragraph</strong> (from the Greek paragraphos, “to write beside” or “written
-                  beside”) is a <a href="#">self-contained unit of a discourse</a> in writing dealing with a particular
-                  point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any
-                  language, paragraphs are usually an expected part of formal writing, used to organize longer prose.
-                </p>
-                <p class="big-paragraph"><strong>Big paragraph</strong> (from the Greek paragraphos, “to write
-                  beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not
-                  required by the syntax of any language, paragraphs are usually an expected part of formal writing,
-                  used to organize longer prose.</p>
-                <p class="card-paragraph"><strong>Card paragraph</strong> (from the Greek paragraphos, “to write
-                  beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not
-                  required by the syntax of any language, paragraphs are usually an expected part of formal writing,
-                  used to organize longer prose.</p>
-              </div>
-
-              <div class="basefont-22 rs-mb-4">
-                <h3 class="font-serif">H3 .basefont-22</h3>
-                <p class="intro-text">Intro text max-width is 65ch. A paragraph (from the Greek paragraphos, “to
-                  write beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea.</p>
-                <p><strong>Regular paragraph</strong> (from the Greek paragraphos, “to write beside” or “written
-                  beside”) is a <a href="#">self-contained unit of a discourse</a> in writing dealing with a particular
-                  point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any
-                  language, paragraphs are usually an expected part of formal writing, used to organize longer prose.
-                </p>
-                <p class="big-paragraph"><strong>Big paragraph</strong> (from the Greek paragraphos, “to write
-                  beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not
-                  required by the syntax of any language, paragraphs are usually an expected part of formal writing,
-                  used to organize longer prose.</p>
-                <p class="card-paragraph"><strong>Card paragraph</strong> (from the Greek paragraphos, “to write
-                  beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not
-                  required by the syntax of any language, paragraphs are usually an expected part of formal writing,
-                  used to organize longer prose.</p>
-              </div>
-
-              <div class="basefont-23 rs-mb-4">
-                <h3 class="font-serif">H3 .basefont-23</h3>
-                <p class="intro-text">Intro text max-width is 65ch. A paragraph (from the Greek paragraphos, “to
-                  write beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea.</p>
-                <p><strong>Regular paragraph</strong> (from the Greek paragraphos, “to write beside” or “written
-                  beside”) is a <a href="#">self-contained unit of a discourse</a> in writing dealing with a particular
-                  point or idea. A paragraph consists of one or more sentences. Though not required by the syntax of any
-                  language, paragraphs are usually an expected part of formal writing, used to organize longer prose.
-                </p>
-                <p class="big-paragraph"><strong>Big paragraph</strong> (from the Greek paragraphos, “to write
-                  beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not
-                  required by the syntax of any language, paragraphs are usually an expected part of formal writing,
-                  used to organize longer prose.</p>
-                <p class="card-paragraph"><strong>Card paragraph</strong> (from the Greek paragraphos, “to write
-                  beside” or “written beside”) is a <a href="#">self-contained unit of a discourse</a> in writing
-                  dealing with a particular point or idea. A paragraph consists of one or more sentences. Though not
-                  required by the syntax of any language, paragraphs are usually an expected part of formal writing,
-                  used to organize longer prose.</p>
-              </div>
-            </div>
-          </section>
-          <section id="text__blockquotes" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Blockquotes</h3>
-            </header>
-            <div>
-              <blockquote>
-                <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document,
-                  that is set off from the main text as a paragraph, or block of text.</p>
-                <p>It is typically distinguished visually using indentation and a different typeface or smaller size
-                  quotation. It may or may not include a citation, usually placed at the bottom.</p>
-                <cite>Said no one, ever</cite>
-              </blockquote>
-            </div>
-          </section>
-          <section id="text__lists" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Lists</h3>
-            </header>
-            <h4 class="type-4">Definition List</h4>
-            <dl class="rs-mb-3">
-              <dt>Definition List Title 1</dt>
-              <dd>This is a definition list division.</dd>
-              <dt>Definition List Title 2</dt>
-              <dd>This is a definition list division.</dd>
-            </dl>
-            <h4 class="type-4">Ordered List</h4>
-            <ol class="rs-mb-3">
-              <li>List Item 1</li>
-              <li>List Item 2</li>
-              <li>List Item 3</li>
-            </ol>
-            <h4 class="type-4">Unordered List</h4>
-            <ul class="rs-mb-3">
-              <li>List Item 1</li>
-              <li>List Item 2</li>
-              <li>List Item 3</li>
+    <!-- Table of contents -->
+    <nav id="menu" aria-label="Table of contents"
+      class="relative bg-linear-to-b from-fog-light to-white border-b rs-py-3">
+      <div class="cc">
+        <h2 class="fluid-type-1 mb-1em inline-block">On this page</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-40 gap-y-20">
+          <div>
+            <h3 class="text-18 font-semibold uppercase tracking-wide mb-8 border-l-4 border-lagunita pl-8"><a
+                href="#typography"
+                class="text-black no-underline hocus:text-cardinal-red hocus:underline">Typography</a>
+            </h3>
+            <ul class="list-unstyled text-18 link-black link-normal link-no-underline">
+              <li class="mb-4"><a href="#font-families" class="hocus:underline hocus:text-cardinal-red">Font
+                  Families</a>
+              </li>
+              <li class="mb-4"><a href="#headings" class="hocus:underline hocus:text-cardinal-red">Headings &amp;
+                  Display</a></li>
+              <li class="mb-4"><a href="#modular-type" class="hocus:underline hocus:text-cardinal-red">Modular Type
+                  Scale</a></li>
+              <li class="mb-4"><a href="#fluid-type" class="hocus:underline hocus:text-cardinal-red">Fluid Type
+                  Scale</a>
+              </li>
+              <li class="mb-4"><a href="#font-sizes" class="hocus:underline hocus:text-cardinal-red">Font Size
+                  Utilities</a></li>
+              <li class="mb-4"><a href="#basefont" class="hocus:underline hocus:text-cardinal-red">Base Font Classes</a>
+              </li>
+              <li class="mb-4"><a href="#text-styles" class="hocus:underline hocus:text-cardinal-red">Text Styles</a>
+              </li>
+              <li class="mb-4"><a href="#line-heights" class="hocus:underline hocus:text-cardinal-red">Line Heights</a>
+              </li>
+              <li class="mb-4"><a href="#inline-elements" class="hocus:underline hocus:text-cardinal-red">Inline
+                  Elements
+                  &amp; Code</a></li>
+              <li class="mb-4"><a href="#lists" class="hocus:underline hocus:text-cardinal-red">Lists</a></li>
+              <li class="mb-4"><a href="#wysiwyg" class="hocus:underline hocus:text-cardinal-red">WYSIWYG</a></li>
             </ul>
-          </section>
-          <section id="text__code" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Code & Preformatted Text</h3>
-            </header>
-            <div>
-              <p><strong>Keyboard input:</strong> <kbd>Cmd</kbd></p>
-              <p><strong>Inline code:</strong> <code>&lt;div&gt;code&lt;/div&gt;</code></p>
-              <p><strong>Sample output:</strong> <samp>This is sample output from a computer program.</samp></p>
-              <h4 class="type-4">Pre-formatted Text</h4>
-              <pre>
-P R E F O R M A T T E D T E X T
-! " # $ % &amp; ' ( ) * + , - . /
-0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
-@ A B C D E F G H I J K L M N O
-P Q R S T U V W X Y Z [ \ ] ^ _
-` a b c d e f g h i j k l m n o
-p q r s t u v w x y z { | } ~
-</pre>
+          </div>
+          <div>
+            <h3 class="text-18 font-semibold uppercase tracking-wide mb-8 border-l-4 border-poppy pl-8"><a
+                href="#colors" class="text-black no-underline hocus:text-cardinal-red hocus:underline">Colors</a></h3>
+            <ul class="list-unstyled text-18 link-black link-normal link-no-underline rs-mb-1">
+              <li class="mb-4"><a href="#color-primary" class="hocus:underline hocus:text-cardinal-red">Primary &amp;
+                  Grayscale</a></li>
+              <li class="mb-4"><a href="#color-web" class="hocus:underline hocus:text-cardinal-red">Web Interactive</a>
+              </li>
+              <li class="mb-4"><a href="#color-accent" class="hocus:underline hocus:text-cardinal-red">Accent</a></li>
+            </ul>
+            <h3 class="text-18 font-semibold uppercase tracking-wide mb-8 border-l-4 border-palo-verde pl-8"><a
+                href="#layout" class="text-black no-underline hocus:text-cardinal-red hocus:underline">Layout &amp;
+                Spacing</a></h3>
+            <ul class="list-unstyled text-18 link-black link-normal link-no-underline">
+              <li class="mb-4"><a href="#centered-container" class="hocus:underline hocus:text-cardinal-red">Centered
+                  Container</a></li>
+              <li class="mb-4"><a href="#grid-gap" class="hocus:underline hocus:text-cardinal-red">Grid Gap</a></li>
+              <li class="mb-4"><a href="#responsive-spacing" class="hocus:underline hocus:text-cardinal-red">Responsive
+                  Spacing</a></li>
+              <li class="mb-4"><a href="#spacing-scale" class="hocus:underline hocus:text-cardinal-red">Spacing
+                  Scale</a>
+              </li>
+              <li class="mb-4"><a href="#aspect-ratios" class="hocus:underline hocus:text-cardinal-red">Aspect
+                  Ratios</a>
+              </li>
+              <li class="mb-4"><a href="#breakpoints" class="hocus:underline hocus:text-cardinal-red">Breakpoints</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-18 font-semibold uppercase tracking-wide mb-8 border-l-4 border-plum pl-8"><a
+                href="#components"
+                class="text-black no-underline hocus:text-cardinal-red hocus:underline">Components</a>
+            </h3>
+            <ul class="list-unstyled text-18 link-black link-normal link-no-underline rs-mb-1">
+              <li class="mb-4"><a href="#logo" class="hocus:underline hocus:text-cardinal-red">Stanford Logo</a></li>
+              <li class="mb-4"><a href="#buttons" class="hocus:underline hocus:text-cardinal-red">Buttons</a></li>
+              <li class="mb-4"><a href="#tables" class="hocus:underline hocus:text-cardinal-red">Tables</a></li>
+              <li class="mb-4"><a href="#forms" class="hocus:underline hocus:text-cardinal-red">Forms</a></li>
+              <li class="mb-4"><a href="#images" class="hocus:underline hocus:text-cardinal-red">Images &amp;
+                  Captions</a>
+              </li>
+              <li class="mb-4"><a href="#stretched-link" class="hocus:underline hocus:text-cardinal-red">Stretched
+                  Link</a></li>
+              <li class="mb-4"><a href="#skiplink-info" class="hocus:underline hocus:text-cardinal-red">Skip Link</a>
+              </li>
+            </ul>
+            <h3 class="text-18 font-semibold uppercase tracking-wide mb-8 border-l-4 border-spirited pl-8"><a
+                href="#utilities" class="text-black no-underline hocus:text-cardinal-red hocus:underline">Utilities
+                &amp;
+                Variants</a></h3>
+            <ul class="list-unstyled text-18 link-black link-normal link-no-underline">
+              <li class="mb-4"><a href="#link-utilities" class="hocus:underline hocus:text-cardinal-red">Link
+                  Utilities</a></li>
+              <li class="mb-4"><a href="#text-shadow" class="hocus:underline hocus:text-cardinal-red">Text Shadow
+                  (Legacy)</a></li>
+              <li class="mb-4"><a href="#custom-variants" class="hocus:underline hocus:text-cardinal-red">Custom
+                  Variants</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div>
+      <!-- ============================================================ -->
+      <!-- TYPOGRAPHY -->
+      <!-- ============================================================ -->
+      <section id="typography" class="scroll-mt-30">
+        <header class="bg-fog-light border-b-4 border-cardinal-red rs-py-2">
+          <div class="cc">
+            <h2 class="type-4 font-serif mb-0">Typography</h2>
+          </div>
+        </header>
+        <div class="cc rs-py-3">
+
+          <article id="font-families" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Font Families</h3>
+            <div class="grid gap-20">
+              <div>
+                <p class="text-16 font-mono text-cool-grey mb-2">.font-sans &mdash; Source Sans 3</p>
+                <p class="font-sans type-2 mb-0">The quick brown fox jumps over the lazy dog.</p>
+              </div>
+              <div>
+                <p class="text-16 font-mono text-cool-grey mb-2">.font-serif &mdash; Source Serif 4</p>
+                <p class="font-serif type-2 mb-0">The quick brown fox jumps over the lazy dog.</p>
+              </div>
+              <div>
+                <p class="text-16 font-mono text-cool-grey mb-2">.font-stanford &mdash; Stanford (wordmark only)</p>
+                <p class="font-stanford type-2 text-cardinal-red mb-0">Stanford University</p>
+              </div>
             </div>
-          </section>
-          <section id="text__wysiwyg" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">WYSIWYG Content</h3>
-            </header>
-            <div class="wysiwyg">
+          </article>
+
+          <article id="headings" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Headings &amp; Display Type</h3>
+            <p class="max-w-prose-wide">Headings <code>h1</code>&ndash;<code>h6</code> are styled by the Decanter base
+              layer.
+              <code>.splash-text</code> is for hero banners, and <code>.types</code> applies heading styles
+              (weight, line height, spacing) to any element without changing its size.
+            </p>
+            <p class="splash-text">Splash Text</p>
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            <h6>Heading 6</h6>
+            <p class="types type-3">A paragraph with <code>.types .type-3</code> styled like a heading</p>
+          </article>
+
+          <article id="modular-type" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Modular Type Scale</h3>
+            <p class="max-w-prose-wide"><code>.type-0</code> through <code>.type-10</code>. Each step scales
+              responsively at the <code>md</code> and <code>lg</code> breakpoints with letter spacing
+              proportional to size. <code>.type-0</code> equals the base font size (1em).</p>
+            <div class="overflow-x-hidden">
+              <p class="type-0 mb-02em">.type-0</p>
+              <p class="type-1 mb-02em">.type-1</p>
+              <p class="type-2 mb-02em">.type-2</p>
+              <p class="type-3 mb-02em">.type-3</p>
+              <p class="type-4 mb-02em">.type-4</p>
+              <p class="type-5 mb-02em">.type-5</p>
+              <p class="type-6 mb-02em">.type-6</p>
+              <p class="type-7 mb-02em">.type-7</p>
+              <p class="type-8 mb-02em">.type-8</p>
+              <p class="type-9 mb-02em">.type-9</p>
+              <p class="type-10 mb-02em">.type-10</p>
+            </div>
+          </article>
+
+          <article id="fluid-type" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Fluid Type Scale</h3>
+            <p class="max-w-prose-wide"><code>.fluid-type-0</code> through <code>.fluid-type-10</code> scale
+              smoothly and linearly with the viewport between 360px and 1500px using <code>clamp()</code>
+              &mdash; resize the window to see it. Min/max sizes match the modular scale. Good for hero
+              banners and horizontal cards.</p>
+            <div class="overflow-x-hidden">
+              <p class="fluid-type-0 mb-02em">.fluid-type-0</p>
+              <p class="fluid-type-1 mb-02em">.fluid-type-1</p>
+              <p class="fluid-type-2 mb-02em">.fluid-type-2</p>
+              <p class="fluid-type-3 mb-02em">.fluid-type-3</p>
+              <p class="fluid-type-4 mb-02em">.fluid-type-4</p>
+              <p class="fluid-type-5 mb-02em">.fluid-type-5</p>
+              <p class="fluid-type-6 mb-02em">.fluid-type-6</p>
+              <p class="fluid-type-7 mb-02em">.fluid-type-7</p>
+              <p class="fluid-type-8 mb-02em">.fluid-type-8</p>
+              <p class="fluid-type-9 mb-02em">.fluid-type-9</p>
+              <p class="fluid-type-10 mb-02em">.fluid-type-10</p>
+            </div>
+          </article>
+
+          <article id="font-sizes" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Font Size Utilities</h3>
+            <p class="max-w-prose-wide"><code>.text-&lt;number&gt;</code> sets the font size in 0.1rem
+              steps, so the number reads as pixels at the default root size &mdash; <code>.text-18</code>
+              is 1.8rem. Any integer works. <code>.text-1em</code>, <code>.text-09em</code>, and
+              <code>.text-input</code> (1.8rem, for form fields) are also available.
+            </p>
+            <p class="text-14 mb-4">.text-14 &mdash; The quick brown fox jumps over the lazy dog.</p>
+            <p class="text-16 mb-4">.text-16 &mdash; The quick brown fox jumps over the lazy dog.</p>
+            <p class="text-18 mb-4">.text-18 &mdash; The quick brown fox jumps over the lazy dog.</p>
+            <p class="text-21 mb-4">.text-21 &mdash; The quick brown fox jumps over the lazy dog.</p>
+            <p class="text-24 mb-4">.text-24 &mdash; The quick brown fox jumps over the lazy dog.</p>
+            <p class="text-30 mb-4">.text-30 &mdash; The quick brown fox jumps over the lazy dog.</p>
+            <p class="text-1em mb-4">.text-1em &mdash; Exactly 1em of the parent font size.</p>
+            <p class="text-09em mb-4">.text-09em &mdash; 0.9em of the parent font size.</p>
+          </article>
+
+          <article id="basefont" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Base Font Classes</h3>
+            <p class="max-w-prose-wide"><code>.basefont-19</code> through <code>.basefont-23</code> set a
+              responsive base font size on a container so all em-based typography inside scales together.
+              The default body base is 21 (1.8rem &rarr; 1.9rem &rarr; 2.1rem).</p>
+            <div class="basefont-19 border-l-4 border-black-20 pl-16 mb-16">
+              <p class="mb-0"><strong>.basefont-19</strong> &mdash; A paragraph consists of one or more sentences
+                dealing
+                with a particular point or idea.</p>
+            </div>
+            <div class="basefont-20 border-l-4 border-black-20 pl-16 mb-16">
+              <p class="mb-0"><strong>.basefont-20</strong> &mdash; A paragraph consists of one or more sentences
+                dealing
+                with a particular point or idea.</p>
+            </div>
+            <div class="basefont-21 border-l-4 border-black-20 pl-16 mb-16">
+              <p class="mb-0"><strong>.basefont-21</strong> &mdash; A paragraph consists of one or more sentences
+                dealing
+                with a particular point or idea.</p>
+            </div>
+            <div class="basefont-22 border-l-4 border-black-20 pl-16 mb-16">
+              <p class="mb-0"><strong>.basefont-22</strong> &mdash; A paragraph consists of one or more sentences
+                dealing
+                with a particular point or idea.</p>
+            </div>
+            <div class="basefont-23 border-l-4 border-black-20 pl-16 mb-16">
+              <p class="mb-0"><strong>.basefont-23</strong> &mdash; A paragraph consists of one or more sentences
+                dealing
+                with a particular point or idea.</p>
+            </div>
+          </article>
+
+          <article id="text-styles" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Text Styles</h3>
+            <p class="intro-text"><code>.intro-text</code> &mdash; Larger opening text with a comfortable
+              reading measure.</p>
+            <p class="big-paragraph"><code>.big-paragraph</code> &mdash; Slightly larger than body text.
+              Though not required by the syntax of any language, paragraphs are usually an expected part of
+              formal writing, used to organize longer prose.</p>
+            <p class="card-paragraph"><code>.card-paragraph</code> &mdash; Slightly smaller, tighter text
+              for card teasers, with a 1.6rem floor so it never becomes too small to read.</p>
+            <p class="subheading"><code>.subheading</code> &mdash; A subheading introduces or supports the heading above
+              it.</p>
+            <p class="quote-text"><code>.quote-text</code> &mdash; &ldquo;A quotation styled with the quote-text
+              class.&rdquo;</p>
+            <p class="caption max-w-prose"><code>.caption</code> &mdash; Caption styling for any element;
+              same look as a native figcaption but usable anywhere.</p>
+          </article>
+
+          <article id="line-heights" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Line Heights</h3>
+            <p class="max-w-prose-wide">Decanter's leading scale. <code>half</code> and <code>trim</code>
+              are for tightly cropped display text like the wordmark.</p>
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-20">
+              <div class="border border-black-20 rounded-[0.3rem] p-16 leading-half">
+                <p class="text-16 font-mono text-cool-grey mb-6">.leading-half (0.5)</p>Two lines of sample text to show
+                the line height value.
+              </div>
+              <div class="border border-black-20 rounded-[0.3rem] p-16 leading-trim">
+                <p class="text-16 font-mono text-cool-grey mb-6">.leading-trim (0.75)</p>Two lines of sample text to
+                show
+                the line height value.
+              </div>
+              <div class="border border-black-20 rounded-[0.3rem] p-16 leading-tight">
+                <p class="text-16 font-mono text-cool-grey mb-6">.leading-tight (1.1)</p>Two lines of sample text to
+                show
+                the line height value.
+              </div>
+              <div class="border border-black-20 rounded-[0.3rem] p-16 leading-display">
+                <p class="text-16 font-mono text-cool-grey mb-6">.leading-display (1.2)</p>Two lines of sample text to
+                show the line height value.
+              </div>
+              <div class="border border-black-20 rounded-[0.3rem] p-16 leading-snug">
+                <p class="text-16 font-mono text-cool-grey mb-6">.leading-snug (1.3)</p>Two lines of sample text to show
+                the line height value.
+              </div>
+              <div class="border border-black-20 rounded-[0.3rem] p-16 leading-cozy">
+                <p class="text-16 font-mono text-cool-grey mb-6">.leading-cozy (1.4)</p>Two lines of sample text to show
+                the line height value.
+              </div>
+              <div class="border border-black-20 rounded-[0.3rem] p-16 leading-normal">
+                <p class="text-16 font-mono text-cool-grey mb-6">.leading-normal (1.5)</p>Two lines of sample text to
+                show
+                the line height value.
+              </div>
+            </div>
+          </article>
+
+          <article id="inline-elements" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Inline Elements &amp; Code</h3>
+            <p><a href="#!">This is a text link</a> &mdash; digital blue, semibold, underlined; black on hover/focus.
+            </p>
+            <p><strong>Strong importance</strong>, <em>emphasis</em>, <b>bold</b>, <i>italic</i>, and <u>underlined
+                annotation</u>.</p>
+            <p><del>Deleted text</del>, <ins>inserted text</ins>, and <s>strikethrough</s>.</p>
+            <p>Superscript<sup>&reg;</sup> and subscript for H<sub>2</sub>O. <small>Small text for fine print.</small>
+            </p>
+            <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr>, a <q>short inline quotation</q>,
+              a <cite>citation</cite>, and a <dfn>definition</dfn> &mdash; cite, var, dfn, and address render
+              unitalicized by design.</p>
+            <p>The <mark>mark element</mark> highlights, and <var>x</var> = <var>y</var> uses the var element.</p>
+            <p>The time element: <time datetime="2026-07-07">July 7, 2026</time></p>
+            <p>Keyboard input <kbd>Cmd</kbd>, inline code <code>&lt;div&gt;code&lt;/div&gt;</code>, and sample
+              output <samp>program output</samp> render at 0.9em in the mono stack.</p>
+            <h4 class="type-1">Preformatted Text</h4>
+            <pre>
+  P R E F O R M A T T E D T E X T
+  ! " # $ % &amp; ' ( ) * + , - . /
+  0 1 2 3 4 5 6 7 8 9 : ; &lt; = &gt; ?
+  </pre>
+          </article>
+
+          <article id="lists" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Lists</h3>
+            <div class="grid md:grid-cols-2 gap-x-40">
+              <div>
+                <h4 class="type-1">Unordered</h4>
+                <ul class="rs-mb-2">
+                  <li>List item one</li>
+                  <li>List item two
+                    <ul>
+                      <li>Nested item</li>
+                    </ul>
+                  </li>
+                  <li>List item three</li>
+                </ul>
+                <h4 class="type-1">Ordered</h4>
+                <ol class="rs-mb-2">
+                  <li>List item one</li>
+                  <li>List item two</li>
+                  <li>List item three</li>
+                </ol>
+              </div>
+              <div>
+                <h4 class="type-1">Definition List</h4>
+                <dl class="rs-mb-2">
+                  <dt>Definition list title</dt>
+                  <dd>This is a definition list description.</dd>
+                  <dt>Another title</dt>
+                  <dd>Another description.</dd>
+                </dl>
+                <h4 class="type-1"><code>.list-unstyled</code></h4>
+                <ul class="list-unstyled rs-mb-2">
+                  <li>No bullets</li>
+                  <li>No padding</li>
+                  <li>No list styling at all</li>
+                </ul>
+                <h4 class="type-1"><code>.list-horizontal</code></h4>
+                <ul class="list-horizontal rs-mb-2">
+                  <li class="mr-20">Item one</li>
+                  <li class="mr-20">Item two</li>
+                  <li class="mr-20">Item three</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article id="wysiwyg" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">WYSIWYG</h3>
+            <p class="max-w-prose-wide">The <code>.wysiwyg</code> wrapper sets vertical rhythm for
+              unstructured rich text such as CMS output &mdash; heading top margins, paragraph and list
+              spacing, and trimmed first/last children.</p>
+            <div class="wysiwyg border border-black-20 rounded-[0.3rem] rs-p-2 max-w-prose-wide">
               <h2>Heading Level 2</h2>
-              <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document,
-                that is set off from the main text as a paragraph, or block of text.</p>
-              <p>It is typically distinguished visually using indentation and a different typeface or smaller size
-                quotation. It may or may not include a citation, usually placed at the bottom.</p>
-              <h2>Heading Level 2 (Stacking)</h2>
-              <h3>Heading Level 3</h3>
-              <p>It is typically distinguished visually using indentation and a different typeface or smaller size
-                quotation. It may or may not include a citation, usually placed at the bottom.</p>
+              <p>A block of rich text as it might come out of a CMS editor, with a
+                <a href="#!">link inside a paragraph</a> and sensible spacing between elements.
+              </p>
+              <h3>Heading Level 3 (stacked directly after content)</h3>
+              <p>Headings that follow content get extra top margin; stacked headings get less.</p>
               <ul>
-                <li>List Item 1</li>
-                <li>List Item 2</li>
-                <li>List Item 3</li>
+                <li>List item one</li>
+                <li>List item two</li>
               </ul>
               <h4>Heading Level 4</h4>
-              <p>It is typically distinguished visually using indentation and a different typeface or smaller size
-                quotation. It may or may not include a citation, usually placed at the bottom.</p>
               <ol>
-                <li>List Item 1</li>
-                <li>List Item 2</li>
-                <li>List Item 3</li>
+                <li>Ordered item one</li>
+                <li>Ordered item two</li>
               </ol>
-              <h5>Heading Level 5</h5>
-              <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document,
-                that is set off from the main text as a paragraph, or block of text.</p>
-              <p>It is typically distinguished visually using indentation and a different typeface or smaller size
-                quotation. It may or may not include a citation, usually placed at the bottom.</p>
-              <h6>Heading Level 6</h6>
-              <p>A block quotation (also known as a long quotation or extract) is a quotation in a written document,
-                that is set off from the main text as a paragraph, or block of text.</p>
+              <p>The last child of the wrapper has its bottom margin removed.</p>
             </div>
-          </section>
-          <section id="text__inline" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Inline Styles</h3>
-            </header>
-            <div>
-              <p><a href="#!">This is a text link</a>.</p>
-              <p><strong>Strong is used to indicate strong importance.</strong></p>
-              <p><em>This text has added emphasis.</em></p>
-              <p>The <b>b element</b> is stylistically different text from normal text, without any special importance.
-              </p>
-              <p>The <i>i element</i> is text that is offset from the normal text.</p>
-              <p>The <u>u element</u> is text with an unarticulated, though explicitly rendered, non-textual annotation.
-              </p>
-              <p><del>This text is deleted</del> and <ins>This text is inserted</ins>.</p>
-              <p><s>This text has a strikethrough</s>.</p>
-              <p>Superscript<sup>®</sup>.</p>
-              <p>Subscript for things like H<sub>2</sub>O.</p>
-              <p><small>This small text is small for for fine print, etc.</small></p>
-              <p>Abbreviation: <abbr title="HyperText Markup Language">HTML</abbr></p>
-              <p><q cite="https://developer.mozilla.org/en-US/docs/HTML/Element/q">This text is a short inline
-                  quotation.</q></p>
-              <p><cite>This is a citation.</cite></p>
-              <p>The <dfn>dfn element</dfn> indicates a definition.</p>
-              <p>The <mark>mark element</mark> indicates a highlight.</p>
-              <p>The <var>variable element</var>, such as <var>x</var> = <var>y</var>.</p>
-              <p>The time element: <time datetime="2013-04-06T12:32+00:00">2 weeks ago</time></p>
-            </div>
-          </section>
-        </div>
-      </div>
-    </section>
-
-    <section class="rs-mb-3">
-      <header id="color-palette" class="rs-py-4 bg-black-90">
-        <div class="cc">
-          <h2 class="type-6 text-white mb-0 text-center">Colors</h2>
-        </div>
-      </header>
-      <div class="cc flex flex-col md:flex-row rs-py-6 overflow-x-hidden">
-        <div class="mx-auto w-full lg:w-8/12">
-          <section id="color-palette-black" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Greyscale</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-black-true">
-                black-true</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-black">
-                black</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-black-90">
-                black-90</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-black-80">
-                black-80</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-black-70">
-                black-70</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-black-60">
-                black-60</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-black-50">
-                black-50</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-black-40">
-                black-40</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-black-30">
-                black-30</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-black-20">
-                black-20</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-black-10">
-                black-10
-              </div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-cool-grey">
-                cool-grey
-              </div>
-            </div>
-          </section>
-
-          <section id="color-palette-white" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">White</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-white">
-                white</div>
-            </div>
-          </section>
-
-          <section id="color-palette-digital-red" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Cardinal Red & Digital Red</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-cardinal-red">
-                cardinal-red
-              </div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-cardinal-red-dark">
-                cardinal-red-dark
-              </div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-cardinal-red-xdark">
-                cardinal-red-xdark
-              </div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-cardinal-red-xxdark">
-                cardinal-red-xxdark
-              </div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-cardinal-red-light">
-                cardinal-red-light
-              </div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-digital-red">
-                digital-red
-              </div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-digital-red-dark">
-                digital-red-dark
-              </div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-digital-red-light">
-                digital-red-light
-              </div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black-true bg-digital-red-xlight">
-                digital-red-xlight
-              </div>
-            </div>
-          </section>
-
-          <section id="color-palette-digital-blue" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Digital Blue</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-digital-blue">
-                Default</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-digital-blue-dark">
-                digital-blue-dark</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black-true bg-digital-blue-light">
-                digital-blue-light</div>
-            </div>
-          </section>
-
-          <section id="color-palette-digital-green" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Digital Green</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-digital-green">
-                Default</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-digital-green-dark">
-                digital-green-dark</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black-true bg-digital-green-light">
-                digital-green-light</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-digital-green-bright">
-                digital-green-bright</div>
-            </div>
-          </section>
-
-          <section id="color-palette-palo-alto" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Palo Alto</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-palo-alto">
-                Default</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-palo-alto-dark">
-                palo-alto-dark</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-palo-alto-light">
-                palo-alto-light</div>
-            </div>
-          </section>
-
-          <section id="color-palette-palo-verde" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Palo Verde</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-palo-verde">
-                Default</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-palo-verde-dark">
-                palo-verde-dark</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black-true bg-palo-verde-light">
-                palo-verde-light</div>
-            </div>
-          </section>
-
-          <section id="color-palette-olive" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Olive</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-olive">
-                Default</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-olive-dark">
-                olive-dark</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black-true bg-olive-light">
-                olive-light</div>
-            </div>
-          </section>
-
-          <section id="color-palette-bay" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Bay</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-bay">
-                Default</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-bay-dark">
-                bay-dark</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black-true bg-bay-light">
-                bay-light</div>
-            </div>
-          </section>
-
-          <section id="color-palette-sky" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Sky</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-sky">
-                Default</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-sky-dark">
-                sky-dark</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black-true bg-sky-light">
-                sky-light</div>
-            </div>
-          </section>
-
-          <section id="color-palette-lagunita" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Lagunita</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-lagunita">
-                Default</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-lagunita-dark">
-                lagunita-dark</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-lagunita-light">
-                lagunita-light</div>
-            </div>
-          </section>
-
-          <section id="color-palette-poppy" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Poppy</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-poppy">
-                Default</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-poppy-dark">
-                poppy-dark</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black-true bg-poppy-light">
-                poppy-light</div>
-            </div>
-          </section>
-
-          <section id="color-palette-spirited" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Spirited</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-spirited">
-                Default</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-spirited-dark">
-                spirited-dark</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black-true bg-spirited-light">
-                spirited-light</div>
-            </div>
-          </section>
-
-          <section id="color-palette-illuminating" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Illuminating</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-illuminating">
-                Default</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-illuminating-dark">
-                illuminating-dark</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-illuminating-light">
-                illuminating-light</div>
-            </div>
-          </section>
-
-          <section id="color-palette-plum" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Plum</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-plum">
-                Default</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-plum-dark">
-                plum-dark</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-plum-light">
-                plum-light</div>
-            </div>
-          </section>
-
-          <section id="color-palette-brick" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Brick</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-brick">
-                Default</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-brick-dark">
-                brick-dark</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-brick-light">
-                brick-light</div>
-            </div>
-          </section>
-
-          <section id="color-palette-archway" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Archway</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-archway">
-                Default</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-archway-dark">
-                archway-dark</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-archway-light">
-                archway-light</div>
-            </div>
-          </section>
-
-          <section id="color-palette-stone" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Stone</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-stone">
-                Default</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-white bg-stone-dark">
-                stone-dark</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-stone-light">
-                stone-light</div>
-            </div>
-          </section>
-
-          <section id="color-palette-fog" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Fog</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-fog">
-                Default</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-fog-dark">
-                fog-dark</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center font-semibold border border-black-10 text-black bg-fog-light">
-                fog-light</div>
-            </div>
-          </section>
+          </article>
 
         </div>
-      </div>
-    </section>
+      </section>
 
-
-    <!-- HTML Elements section -->
-    <section class="rs-mb-3">
-      <header id="html-elements" class="rs-py-4 bg-black-90">
-        <div class="cc">
-          <h2 class="type-6 text-white mb-0 text-center">HTML Elements</h2>
-        </div>
-      </header>
-      <div class="cc flex flex-col md:flex-row rs-py-6 overflow-x-hidden">
-        <div class="mx-auto w-full lg:w-8/12">
-          <section id="drop-shadows" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Drop Shadows</h3>
-            </header>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-xl md:gap-lg 2xl:gap-2xl">
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center text-plum font-semibold bg-white border border-black-10 shadow-none">
-                .shadow-none</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center text-plum font-semibold bg-white border border-black-10 shadow-sm">
-                .shadow-sm</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center text-plum font-semibold bg-white border border-black-10 shadow">
-                .shadow</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center text-plum font-semibold bg-white border border-black-10 shadow-md">
-                .shadow-md</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center text-plum font-semibold bg-white border border-black-10 shadow-lg">
-                .shadow-lg</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center text-plum font-semibold bg-white border border-black-10 shadow-xl">
-                .shadow-xl</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center text-plum font-semibold bg-white border border-black-10 shadow-2xl">
-                .shadow-2xl</div>
-              <div
-                class="rs-py-4 rs-px-1 flex justify-center content-center text-plum font-semibold bg-white border border-black-10 shadow-inner">
-                .shadow-inner</div>
+      <!-- ============================================================ -->
+      <!-- COLORS -->
+      <!-- ============================================================ -->
+      <section id="colors" class="scroll-mt-30">
+        <header class="bg-fog-light border-b-4 border-cardinal-red rs-py-2">
+          <div class="cc">
+            <h2 class="type-4 font-serif mb-0">Colors</h2>
+          </div>
+        </header>
+        <div class="cc rs-py-3">
+          <p class="max-w-prose-wide rs-mb-2">The full Stanford Identity palette from
+            <a href="https://identity.stanford.edu/design-elements/color/">identity.stanford.edu</a>.
+            Each swatch lists its Tailwind token and hex value.
+          </p>
+          <article id="color-primary" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Primary &amp; Grayscale</h3>
+            <h4 class="type-1">Cardinal Red</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-cardinal-red-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">cardinal-red-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#B83A4B</p>
+              </div>
+              <div>
+                <div class="bg-cardinal-red h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">cardinal-red</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#8C1515</p>
+              </div>
+              <div>
+                <div class="bg-cardinal-red-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">cardinal-red-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#820000</p>
+              </div>
+              <div>
+                <div class="bg-cardinal-red-xdark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">cardinal-red-xdark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#7A0000</p>
+              </div>
+              <div>
+                <div class="bg-cardinal-red-xxdark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">cardinal-red-xxdark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#541107</p>
+              </div>
             </div>
-          </section>
-          <section id="text__tables" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Tables</h3>
-            </header>
-            <h4 class="type-3">Default Table</h4>
-            <table class="rs-mb-4">
-              <caption>Table Caption</caption>
+            <h4 class="type-1">Grayscale</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-black-true h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">black-true</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#000000</p>
+              </div>
+              <div>
+                <div class="bg-black h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">black</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#2E2D29</p>
+              </div>
+              <div>
+                <div class="bg-black-90 h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">black-90</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#43423E</p>
+              </div>
+              <div>
+                <div class="bg-black-80 h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">black-80</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#585754</p>
+              </div>
+              <div>
+                <div class="bg-black-70 h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">black-70</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#6D6C69</p>
+              </div>
+              <div>
+                <div class="bg-black-60 h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">black-60</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#767674</p>
+              </div>
+              <div>
+                <div class="bg-black-50 h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">black-50</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#979694</p>
+              </div>
+              <div>
+                <div class="bg-black-40 h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">black-40</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#ABABA9</p>
+              </div>
+              <div>
+                <div class="bg-black-30 h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">black-30</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#C0C0BF</p>
+              </div>
+              <div>
+                <div class="bg-black-20 h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">black-20</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#D5D5D4</p>
+              </div>
+              <div>
+                <div class="bg-black-10 h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">black-10</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#EAEAEA</p>
+              </div>
+              <div>
+                <div class="bg-white h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">white</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#FFFFFF</p>
+              </div>
+              <div>
+                <div class="bg-cool-grey h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">cool-grey</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#53565A</p>
+              </div>
+            </div>
+          </article>
+          <article id="color-web" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Web Interactive</h3>
+            <h4 class="type-1">Digital Red</h4>
+            <p class="card-paragraph text-cool-grey">digital-red-dark shares its value with cardinal-red-dark.</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-digital-red-xlight h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">digital-red-xlight</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#F83535</p>
+              </div>
+              <div>
+                <div class="bg-digital-red-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">digital-red-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#E50808</p>
+              </div>
+              <div>
+                <div class="bg-digital-red h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">digital-red</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#B1040E</p>
+              </div>
+              <div>
+                <div class="bg-digital-red-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">digital-red-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#820000</p>
+              </div>
+            </div>
+            <h4 class="type-1">Digital Blue</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-digital-blue-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">digital-blue-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#85CCFF</p>
+              </div>
+              <div>
+                <div class="bg-digital-blue h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">digital-blue</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#006CB8</p>
+              </div>
+              <div>
+                <div class="bg-digital-blue-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">digital-blue-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#00548F</p>
+              </div>
+              <div>
+                <div class="bg-digital-blue-vivid h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">digital-blue-vivid</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#0597FF</p>
+              </div>
+            </div>
+            <h4 class="type-1">Digital Green</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-digital-green-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">digital-green-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#1AECBA</p>
+              </div>
+              <div>
+                <div class="bg-digital-green h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">digital-green</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#008566</p>
+              </div>
+              <div>
+                <div class="bg-digital-green-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">digital-green-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#006F54</p>
+              </div>
+              <div>
+                <div class="bg-digital-green-bright h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">digital-green-bright</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#009B76</p>
+              </div>
+            </div>
+          </article>
+          <article id="color-accent" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Accent</h3>
+            <h4 class="type-1">Palo Alto</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-palo-alto-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">palo-alto-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#2D716F</p>
+              </div>
+              <div>
+                <div class="bg-palo-alto h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">palo-alto</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#175E54</p>
+              </div>
+              <div>
+                <div class="bg-palo-alto-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">palo-alto-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#014240</p>
+              </div>
+            </div>
+            <h4 class="type-1">Palo Verde</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-palo-verde-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">palo-verde-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#59B3A9</p>
+              </div>
+              <div>
+                <div class="bg-palo-verde h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">palo-verde</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#279989</p>
+              </div>
+              <div>
+                <div class="bg-palo-verde-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">palo-verde-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#017E7C</p>
+              </div>
+            </div>
+            <h4 class="type-1">Olive</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-olive-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">olive-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#A6B168</p>
+              </div>
+              <div>
+                <div class="bg-olive h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">olive</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#8F993E</p>
+              </div>
+              <div>
+                <div class="bg-olive-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">olive-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#7A863B</p>
+              </div>
+            </div>
+            <h4 class="type-1">Bay</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-bay-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">bay-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#8AB8A7</p>
+              </div>
+              <div>
+                <div class="bg-bay h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">bay</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#6FA287</p>
+              </div>
+              <div>
+                <div class="bg-bay-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">bay-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#417865</p>
+              </div>
+            </div>
+            <h4 class="type-1">Sky</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-sky-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">sky-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#67AFD2</p>
+              </div>
+              <div>
+                <div class="bg-sky h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">sky</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#4298B5</p>
+              </div>
+              <div>
+                <div class="bg-sky-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">sky-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#016895</p>
+              </div>
+            </div>
+            <h4 class="type-1">Lagunita</h4>
+            <p class="card-paragraph text-cool-grey">Lagunita 20 and 40 are used for form elements.</p>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-lagunita-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">lagunita-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#009AB4</p>
+              </div>
+              <div>
+                <div class="bg-lagunita h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">lagunita</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#007C92</p>
+              </div>
+              <div>
+                <div class="bg-lagunita-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">lagunita-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#006B81</p>
+              </div>
+              <div>
+                <div class="bg-lagunita-20 h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">lagunita-20</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#CCEBF0</p>
+              </div>
+              <div>
+                <div class="bg-lagunita-40 h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">lagunita-40</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#8DD8E4</p>
+              </div>
+            </div>
+            <h4 class="type-1">Poppy</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-poppy-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">poppy-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#F9A44A</p>
+              </div>
+              <div>
+                <div class="bg-poppy h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">poppy</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#E98300</p>
+              </div>
+              <div>
+                <div class="bg-poppy-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">poppy-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#D1660F</p>
+              </div>
+            </div>
+            <h4 class="type-1">Spirited</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-spirited-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">spirited-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#F4795B</p>
+              </div>
+              <div>
+                <div class="bg-spirited h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">spirited</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#E04F39</p>
+              </div>
+              <div>
+                <div class="bg-spirited-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">spirited-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#C74632</p>
+              </div>
+            </div>
+            <h4 class="type-1">Illuminating</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-illuminating-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">illuminating-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#FFE781</p>
+              </div>
+              <div>
+                <div class="bg-illuminating h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">illuminating</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#FEDD5C</p>
+              </div>
+              <div>
+                <div class="bg-illuminating-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">illuminating-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#FEC51D</p>
+              </div>
+            </div>
+            <h4 class="type-1">Plum</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-plum-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">plum-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#734675</p>
+              </div>
+              <div>
+                <div class="bg-plum h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">plum</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#620059</p>
+              </div>
+              <div>
+                <div class="bg-plum-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">plum-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#350D36</p>
+              </div>
+            </div>
+            <h4 class="type-1">Brick</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-brick-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">brick-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#7F2D48</p>
+              </div>
+              <div>
+                <div class="bg-brick h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">brick</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#651C32</p>
+              </div>
+              <div>
+                <div class="bg-brick-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">brick-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#42081B</p>
+              </div>
+            </div>
+            <h4 class="type-1">Archway</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-archway-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">archway-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#766253</p>
+              </div>
+              <div>
+                <div class="bg-archway h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">archway</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#5D4B3C</p>
+              </div>
+              <div>
+                <div class="bg-archway-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">archway-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#2F2424</p>
+              </div>
+            </div>
+            <h4 class="type-1">Stone</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-stone-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">stone-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#D4D1D1</p>
+              </div>
+              <div>
+                <div class="bg-stone h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">stone</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#7F7776</p>
+              </div>
+              <div>
+                <div class="bg-stone-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">stone-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#544948</p>
+              </div>
+            </div>
+            <h4 class="type-1">Fog</h4>
+            <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-x-14 gap-y-20 rs-mb-2">
+              <div>
+                <div class="bg-fog-light h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">fog-light</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#F4F4F4</p>
+              </div>
+              <div>
+                <div class="bg-fog h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">fog</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#DAD7CB</p>
+              </div>
+              <div>
+                <div class="bg-fog-dark h-70 rounded-[0.3rem] border border-black-20 shadow-sm"></div>
+                <p class="mt-8 mb-2 text-16 font-semibold leading-snug">fog-dark</p>
+                <p class="mb-0 text-14 font-mono text-black-80">#B6B1A9</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- LAYOUT & SPACING -->
+      <!-- ============================================================ -->
+      <section id="layout" class="scroll-mt-30">
+        <header class="bg-fog-light border-b-4 border-cardinal-red rs-py-2">
+          <div class="cc">
+            <h2 class="type-4 font-serif mb-0">Layout &amp; Spacing</h2>
+          </div>
+        </header>
+        <div class="cc rs-py-3">
+
+          <article id="centered-container" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Centered Container</h3>
+            <p class="max-w-prose-wide"><code>.centered-container</code> (alias <code>.cc</code>) applies
+              Stanford's responsive screen margins on both sides &mdash; 20px at XS up to 100px at XL &mdash;
+              and caps content at 1500px, centered, above the 3XL breakpoint. Every section of this page is
+              wrapped in one. Nested containers get no extra padding.</p>
+            <div class="bg-fog-light border border-black-20 rounded-[0.3rem]">
+              <div class="cc py-20">
+                <div class="bg-white border border-dashed border-black-40 p-10 text-16 font-mono text-center">content
+                  edge
+                  follows the screen margins</div>
+              </div>
+            </div>
+          </article>
+
+          <article id="grid-gap" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Grid Gap</h3>
+            <p class="max-w-prose-wide"><code>.grid-gap</code> applies Decanter's responsive gutters in one
+              class: <code>gap-xs</code> (2rem) &rarr; <code>gap-lg</code> (3.6rem) at LG &rarr;
+              <code>gap-xl</code> (4rem) at XL &rarr; <code>gap-2xl</code> (4.8rem) at 2XL. The four gap
+              tokens can also be used directly, e.g. <code>gap-xs lg:gap-lg</code>.
+            </p>
+            <div class="grid grid-cols-3 grid-gap rs-mb-2">
+              <div class="bg-sky-light flex justify-center items-center py-30 type-2 font-bold">1</div>
+              <div class="bg-sky-light flex justify-center items-center py-30 type-2 font-bold">2</div>
+              <div class="bg-sky-light flex justify-center items-center py-30 type-2 font-bold">3</div>
+              <div class="col-span-2 bg-sky-dark text-white flex justify-center items-center py-30 type-2 font-bold">4
+              </div>
+              <div class="bg-sky-light flex justify-center items-center py-30 type-2 font-bold">5</div>
+              <div class="col-span-3 bg-lagunita text-white flex justify-center items-center py-30 type-2 font-bold">6
+              </div>
+            </div>
+          </article>
+
+          <article id="responsive-spacing" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Responsive Spacing</h3>
+            <p class="max-w-prose-wide">The <code>rs-*</code> utilities apply spacing that grows at the
+              <code>md</code> and <code>2xl</code> breakpoints in steps <code>0</code> through
+              <code>10</code>. Available for padding (<code>rs-p</code>, <code>rs-px</code>,
+              <code>rs-py</code>, <code>rs-pt</code>, <code>rs-pr</code>, <code>rs-pb</code>,
+              <code>rs-pl</code>), margin (<code>rs-m</code> and friends), and gap (<code>rs-gap</code>,
+              <code>rs-gap-x</code>, <code>rs-gap-y</code>). The shaded area below is the padding &mdash;
+              resize the window to watch it change.
+            </p>
+            <div class="bg-fog rs-p-0 mb-10">
+              <div class="bg-white border border-black-20 px-10 py-5 text-16 font-mono">rs-p-0</div>
+            </div>
+            <div class="bg-fog rs-p-1 mb-10">
+              <div class="bg-white border border-black-20 px-10 py-5 text-16 font-mono">rs-p-1</div>
+            </div>
+            <div class="bg-fog rs-p-2 mb-10">
+              <div class="bg-white border border-black-20 px-10 py-5 text-16 font-mono">rs-p-2</div>
+            </div>
+            <div class="bg-fog rs-p-3 mb-10">
+              <div class="bg-white border border-black-20 px-10 py-5 text-16 font-mono">rs-p-3</div>
+            </div>
+            <div class="bg-fog rs-p-4 mb-10">
+              <div class="bg-white border border-black-20 px-10 py-5 text-16 font-mono">rs-p-4</div>
+            </div>
+            <div class="bg-fog rs-p-5 mb-10">
+              <div class="bg-white border border-black-20 px-10 py-5 text-16 font-mono">rs-p-5</div>
+            </div>
+            <div class="bg-fog rs-p-6 mb-10">
+              <div class="bg-white border border-black-20 px-10 py-5 text-16 font-mono">rs-p-6</div>
+            </div>
+            <div class="bg-fog rs-p-7 mb-10">
+              <div class="bg-white border border-black-20 px-10 py-5 text-16 font-mono">rs-p-7</div>
+            </div>
+            <div class="bg-fog rs-p-8 mb-10">
+              <div class="bg-white border border-black-20 px-10 py-5 text-16 font-mono">rs-p-8</div>
+            </div>
+            <div class="bg-fog rs-p-9 mb-10">
+              <div class="bg-white border border-black-20 px-10 py-5 text-16 font-mono">rs-p-9</div>
+            </div>
+            <div class="bg-fog rs-p-10 rs-mb-2">
+              <div class="bg-white border border-black-20 px-10 py-5 text-16 font-mono">rs-p-10</div>
+            </div>
+            <h4 class="type-1"><code>.rs-gap-2</code></h4>
+            <div class="grid grid-cols-3 rs-gap-2">
+              <div class="bg-bay-light py-20 text-center font-semibold">1</div>
+              <div class="bg-bay-light py-20 text-center font-semibold">2</div>
+              <div class="bg-bay-light py-20 text-center font-semibold">3</div>
+            </div>
+          </article>
+
+          <article id="spacing-scale" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Spacing Scale</h3>
+            <p class="max-w-prose-wide">Decanter sets <code>--spacing: 0.1rem</code>, so numeric spacing
+              utilities read as pixels at the default root size: <code>p-16</code> is 1.6rem,
+              <code>w-300</code> is 30rem. Em-based steps <code>01em</code>&ndash;<code>1em</code> are for
+              typography rhythm (e.g. <code>mb-05em</code>), and <code>prose-wide</code> (75ch) complements
+              the core <code>prose</code> (65ch) measure.
+            </p>
+            <div class="text-16 font-mono">
+              <div class="h-20 w-100 bg-lagunita mb-6"></div>
+              <p class="mb-10">.w-100 = 10rem</p>
+              <div class="h-20 w-200 bg-lagunita mb-6"></div>
+              <p class="mb-10">.w-200 = 20rem</p>
+              <div class="h-20 w-300 bg-lagunita mb-6"></div>
+              <p class="mb-10">.w-300 = 30rem</p>
+            </div>
+            <div class="border border-black-20 rounded-[0.3rem] rs-p-1">
+              <p class="mb-02em font-semibold">This heading uses .mb-02em</p>
+              <p class="mb-0 card-paragraph">so the space above this line is 0.2em of the heading's font size.</p>
+            </div>
+          </article>
+
+          <article id="aspect-ratios" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Aspect Ratios</h3>
+            <p class="max-w-prose-wide">Tailwind v4 accepts bare ratios &mdash; no brackets needed:
+              e.g., <code>aspect-3/2</code> just works. <code>aspect-square</code> covers 1x1. <code>aspect-video</code>
+              covers 16x9.</p>
+            <div class="grid md:grid-cols-2 xl:grid-cols-3 grid-gap items-start">
+              <div class="aspect-video bg-lagunita text-white rounded-[0.3rem] flex items-center justify-center">
+                <p class="mb-0 font-mono text-16">aspect-video</p>
+              </div>
+              <div class="aspect-square bg-plum text-white rounded-[0.3rem] flex items-center justify-center">
+                <p class="mb-0 font-mono text-16">aspect-square</p>
+              </div>
+              <div class="aspect-4/3 bg-palo-verde text-white rounded-[0.3rem] flex items-center justify-center">
+                <p class="mb-0 font-mono text-16">aspect-4/3</p>
+              </div>
+              <div class="aspect-3/2 bg-brick text-white rounded-[0.3rem] flex items-center justify-center">
+                <p class="mb-0 font-mono text-16">aspect-3/2</p>
+              </div>
+              <div class="aspect-2/1 bg-sky-dark text-white rounded-[0.3rem] flex items-center justify-center">
+                <p class="mb-0 font-mono text-16">aspect-2/1</p>
+              </div>
+              <div class="aspect-3/4 bg-archway text-white rounded-[0.3rem] flex items-center justify-center">
+                <p class="mb-0 font-mono text-16">aspect-3/4</p>
+              </div>
+            </div>
+          </article>
+
+          <article id="breakpoints" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Breakpoints</h3>
+            <p class="max-w-prose-wide">Decanter's breakpoints differ from Tailwind's defaults and add
+              <code>3xl</code> and <code>4xl</code>.
+            </p>
+            <p class="type-2 font-semibold">Current breakpoint:
+              <span class="sm:hidden">XS &lt;576px</span>
+              <span class="hidden sm:inline md:hidden">SM &ge;576px</span>
+              <span class="hidden md:inline lg:hidden">MD &ge;768px</span>
+              <span class="hidden lg:inline xl:hidden">LG &ge;992px</span>
+              <span class="hidden xl:inline 2xl:hidden">XL &ge;1200px</span>
+              <span class="hidden 2xl:inline 3xl:hidden">2XL &ge;1500px</span>
+              <span class="hidden 3xl:inline 4xl:hidden">3XL &ge;1700px</span>
+              <span class="hidden 4xl:inline">4XL &ge;2000px</span>
+            </p>
+            <table class="max-w-500">
+              <caption class="text-left">Breakpoint tokens</caption>
               <thead>
                 <tr>
-                  <th>Table Heading 1</th>
-                  <th>Table Heading 2</th>
-                  <th>Table Heading 3</th>
-                  <th>Table Heading 4</th>
-                  <th>Table Heading 5</th>
+                  <th>Token</th>
+                  <th>Min width</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th>Table Heading</th>
-                  <td>Table Cell 2</td>
-                  <td>Table Cell 3</td>
-                  <td>Table Cell 4</td>
-                  <td>Table Cell 5</td>
+                  <td><code>sm</code></td>
+                  <td>576px</td>
                 </tr>
                 <tr>
-                  <th>Table Heading</th>
-                  <td>Table Cell 2</td>
-                  <td>Table Cell 3</td>
-                  <td>Table Cell 4</td>
-                  <td>Table Cell 5</td>
+                  <td><code>md</code></td>
+                  <td>768px</td>
                 </tr>
                 <tr>
-                  <th>Table Heading</th>
-                  <td>Table Cell 2</td>
-                  <td>Table Cell 3</td>
-                  <td>Table Cell 4</td>
-                  <td>Table Cell 5</td>
+                  <td><code>lg</code></td>
+                  <td>992px</td>
                 </tr>
                 <tr>
-                  <th>Table Heading</th>
-                  <td>Table Cell 2</td>
-                  <td>Table Cell 3</td>
-                  <td>Table Cell 4</td>
-                  <td>Table Cell 5</td>
+                  <td><code>xl</code></td>
+                  <td>1200px</td>
+                </tr>
+                <tr>
+                  <td><code>2xl</code></td>
+                  <td>1500px</td>
+                </tr>
+                <tr>
+                  <td><code>3xl</code></td>
+                  <td>1700px</td>
+                </tr>
+                <tr>
+                  <td><code>4xl</code></td>
+                  <td>2000px</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- COMPONENTS -->
+      <!-- ============================================================ -->
+      <section id="components" class="scroll-mt-30">
+        <header class="bg-fog-light border-b-4 border-cardinal-red rs-py-2">
+          <div class="cc">
+            <h2 class="type-4 font-serif mb-0">Components</h2>
+          </div>
+        </header>
+        <div class="cc rs-py-3">
+
+          <article id="logo" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Stanford Logo</h3>
+            <p class="max-w-prose-wide">The <code>.logo</code> component sets the Stanford wordmark font,
+              trim line height, and cardinal red. Override the color for dark backgrounds.</p>
+            <div class="grid md:grid-cols-3 gap-20 items-start">
+              <div>
+                <h4 class="type-1">Horizontal</h4>
+                <a class="logo type-2" href="https://stanford.edu">Stanford University</a>
+              </div>
+              <div>
+                <h4 class="type-1">Stacked</h4>
+                <a class="logo type-2" href="https://stanford.edu">Stanford<br>University</a>
+              </div>
+              <div class="bg-cardinal-red rounded-[0.3rem] p-20">
+                <h4 class="type-1 text-white">On cardinal red</h4>
+                <a class="logo type-2 text-white hocus:text-white" href="https://stanford.edu">Stanford University</a>
+              </div>
+            </div>
+          </article>
+
+          <article id="buttons" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Buttons</h3>
+            <p class="max-w-prose-wide">The <code>.button</code> component works on buttons, inputs, and
+              links. Hover/focus transitions use Decanter's default 0.25s duration.</p>
+            <p class="flex flex-wrap gap-10 items-center">
+              <button class="button" type="submit">Button element</button>
+              <a class="button" href="#!">Link styled as button</a>
+              <input class="button" type="submit" value="Submit input">
+            </p>
+          </article>
+
+          <article id="tables" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Tables</h3>
+            <h4 class="type-1">Default table (base styles)</h4>
+            <table class="rs-mb-3">
+              <caption>Table caption is muted and left-aligned</caption>
+              <thead>
+                <tr>
+                  <th>Heading 1</th>
+                  <th>Heading 2</th>
+                  <th>Heading 3</th>
+                  <th>Heading 4</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th>Row heading</th>
+                  <td>Cell 2</td>
+                  <td>Cell 3</td>
+                  <td>Cell 4</td>
+                </tr>
+                <tr>
+                  <th>Row heading</th>
+                  <td>Cell 2</td>
+                  <td>Cell 3</td>
+                  <td>Cell 4</td>
+                </tr>
+                <tr>
+                  <th>Row heading</th>
+                  <td>Cell 2</td>
+                  <td>Cell 3</td>
+                  <td>Cell 4</td>
                 </tr>
               </tbody>
               <tfoot>
                 <tr>
-                  <td>Table Footer 1</td>
-                  <td>Table Footer 2</td>
-                  <td>Table Footer 3</td>
-                  <td>Table Footer 4</td>
-                  <td>Table Footer 5</td>
+                  <td>Footer 1</td>
+                  <td>Footer 2</td>
+                  <td>Footer 3</td>
+                  <td>Footer 4</td>
                 </tr>
               </tfoot>
             </table>
-
-            <h4 class="type-3">Borderless Table</h4>
+            <h4 class="type-1"><code>.table-borderless</code></h4>
             <table class="table-borderless">
-              <caption>Table Caption</caption>
               <thead>
                 <tr>
-                  <th>Table Heading 1</th>
-                  <th>Table Heading 2</th>
-                  <th>Table Heading 3</th>
-                  <th>Table Heading 4</th>
-                  <th>Table Heading 5</th>
+                  <th>Heading 1</th>
+                  <th>Heading 2</th>
+                  <th>Heading 3</th>
+                  <th>Heading 4</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <th>Table Heading</th>
-                  <td>Table Cell 2</td>
-                  <td>Table Cell 3</td>
-                  <td>Table Cell 4</td>
-                  <td>Table Cell 5</td>
+                  <th>Row heading</th>
+                  <td>Cell 2</td>
+                  <td>Cell 3</td>
+                  <td>Cell 4</td>
                 </tr>
                 <tr>
-                  <th>Table Heading</th>
-                  <td>Table Cell 2</td>
-                  <td>Table Cell 3</td>
-                  <td>Table Cell 4</td>
-                  <td>Table Cell 5</td>
-                </tr>
-                <tr>
-                  <th>Table Heading</th>
-                  <td>Table Cell 2</td>
-                  <td>Table Cell 3</td>
-                  <td>Table Cell 4</td>
-                  <td>Table Cell 5</td>
-                </tr>
-                <tr>
-                  <th>Table Heading</th>
-                  <td>Table Cell 2</td>
-                  <td>Table Cell 3</td>
-                  <td>Table Cell 4</td>
-                  <td>Table Cell 5</td>
+                  <th>Row heading</th>
+                  <td>Cell 2</td>
+                  <td>Cell 3</td>
+                  <td>Cell 4</td>
                 </tr>
               </tbody>
-              <tfoot>
-                <tr>
-                  <td>Table Footer 1</td>
-                  <td>Table Footer 2</td>
-                  <td>Table Footer 3</td>
-                  <td>Table Footer 4</td>
-                  <td>Table Footer 5</td>
-                </tr>
-              </tfoot>
             </table>
-          </section>
-          <section id="embedded__images" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Images</h3>
-            </header>
-            <div>
-              <h4 class="type-4">Plain <code>&lt;img&gt;</code> element</h4>
-              <p class="rs-mb-3"><img src="https://placecats.com/600/400" alt="Image alt text"></p>
-              <h4 class="type-4">Wrapped in a <code>&lt;figure&gt;</code> element, no <code>&lt;figcaption&gt;</code>
-              </h4>
-              <figure class="rs-mb-3 w-full max-w-600"><img src="https://placecats.com/600/400"
-                  alt="Image alt text"></figure>
-              <h4 class="type-4">Wrapped in a <code>&lt;figure&gt;</code> element, with a
-                <code>&lt;figcaption&gt;</code>
-              </h4>
-              <figure class="rs-mb-3 w-full max-w-600">
-                <img src="https://placecats.com/600/400" alt="Image alt text">
-                <figcaption>Here is a caption for this image. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Aliquam a mauris in augue cursus finibus. Curabitur hendrerit iaculis lectus, egestas ultricies orci.
-                  Vestibulum volutpat ante nisl, ut bibendum leo aliquam sed. Maecenas sagittis vehicula tellus sit amet
-                  fermentum.</figcaption>
-              </figure>
-            </div>
-          </section>
-          <section id="embedded__youtube" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Embed YouTube</h3>
-            </header>
-            <div class="aspect-[16/9] w-fit"><iframe width="560" height="315"
-                src="https://www.youtube.com/embed/0qHWub21h5c" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe></div>
-          </section>
-          <section id="embedded__audio" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Audio</h3>
-            </header>
-            <div><audio controls="">audio</audio></div>
-          </section>
-          <section id="embedded__video" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Video</h3>
-            </header>
-            <div><video controls="">video</video></div>
-          </section>
-          <section id="text__hr" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Horizontal Rule</h3>
-            </header>
-            <div>
-              <hr>
-            </div>
-          </section>
-          <section id="embedded__meter" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Meter</h3>
-            </header>
-            <div><meter value="2" min="0" max="10">2 out of 10</meter></div>
-          </section>
-          <section id="embedded__progress" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Progress</h3>
-            </header>
-            <div><progress value="32" max="100">progress</progress></div>
-          </section>
-          <section id="embedded__svg" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Inline SVG</h3>
-            </header>
-            <div><svg width="100px" height="100px">
-                <circle cx="100" cy="100" r="100" fill="#1fa3ec"></circle>
-              </svg></div>
-          </section>
-          <section id="embedded__iframe" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">iframe</h3>
-            </header>
-            <div><iframe src="index.html" height="300" width="100%"></iframe></div>
-          </section>
-        </div>
-      </div>
-    </section>
-    <!-- Form Elements section -->
-    <section class="rs-mb-3">
-      <header id="forms" class="rs-py-4 bg-black-90">
-        <div class="cc">
-          <h2 class="type-6 text-white mb-0 text-center">Form Elements</h2>
-        </div>
-      </header>
-      <div class="cc flex flex-col md:flex-row rs-py-6 overflow-x-hidden">
-        <div class="mx-auto w-full lg:w-8/12">
-          <form>
-            <fieldset id="forms__input" class="fieldset rs-mb-3">
-              <legend class="legend">Input fields</legend>
-              <p>
-                <label for="input__text" class="label">Text Input</label>
-                <input class="input" id="input__text" type="text">
-              </p>
-              <p>
-                <label for="input__password" class="label">Password</label>
-                <input class="input" id="input__password" type="password">
-              </p>
-              <p>
-                <label for="input__webaddress" class="label">Web Address</label>
-                <input class="input" id="input__webaddress" type="url">
-              </p>
-              <p>
-                <label for="input__emailaddress" class="label">Email Address</label>
-                <input class="input" id="input__emailaddress" type="email">
-              </p>
-              <p>
-                <label for="input__phone" class="label">Phone Number</label>
-                <input class="input" id="input__phone" type="tel">
-              </p>
-              <p>
-                <label for="input__search" class="label">Search</label>
-                <input class="input" id="input__search" type="search">
-              </p>
-              <p>
-                <label for="input__text2" class="label">Number Input</label>
-                <input class="input" id="input__text2" type="number">
-              </p>
-              <p>
-                <label for="input__text3" class="label error">Error</label>
-                <input class="input is-error" id="input__text3" type="text">
-              </p>
-              <p>
-                <label for="input__text4" class="label valid">Valid</label>
-                <input class="input is-valid" id="input__text4" type="text">
-              </p>
-            </fieldset>
+          </article>
 
-            <fieldset id="forms__select" class="fieldset rs-mb-3">
-              <legend class="legend">Select menus</legend>
-              <p>
-                <label for="select" class="label">Select</label>
-                <select class="select" id="select">
-                  <optgroup label="Option Group">
-                    <option>Option One</option>
-                    <option>Option Two</option>
-                    <option>Option Three</option>
-                  </optgroup>
-                </select>
-              </p>
-            </fieldset>
+          <article id="forms" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Forms</h3>
+            <p class="max-w-prose-wide">Decanter's form classes (<code>.input</code>, <code>.select</code>,
+              <code>.textarea</code>, <code>.checkbox</code>, <code>.radio</code>, <code>.label</code>,
+              <code>.legend</code>, <code>.fieldset</code>) are opt-in: they ship together with the
+              <code>@tailwindcss/forms</code> reset via <code>@import 'decanter/forms'</code>.
+            </p>
+            <form class="max-w-600">
+              <fieldset class="fieldset rs-mb-2">
+                <legend class="legend rs-mb-0">Input fields</legend>
+                <p>
+                  <label for="input-text" class="label">Text</label>
+                  <input class="input" id="input-text" type="text" placeholder="Placeholder text">
+                </p>
+                <p>
+                  <label for="input-email" class="label">Email</label>
+                  <input class="input" id="input-email" type="email">
+                </p>
+                <p>
+                  <label for="input-search" class="label">Search</label>
+                  <input class="input" id="input-search" type="search">
+                </p>
+                <p>
+                  <label for="input-date" class="label">Date</label>
+                  <input class="input" id="input-date" type="date" value="2026-07-07">
+                </p>
+              </fieldset>
+              <fieldset class="fieldset rs-mb-2">
+                <legend class="legend rs-mb-0">Select</legend>
+                <p>
+                  <label for="select-demo" class="label">Choose an option</label>
+                  <select class="select" id="select-demo">
+                    <optgroup label="Option group">
+                      <option>Option one</option>
+                      <option>Option two</option>
+                      <option>Option three</option>
+                    </optgroup>
+                  </select>
+                </p>
+              </fieldset>
+              <fieldset class="fieldset rs-mb-2">
+                <legend class="legend rs-mb-0">Checkboxes</legend>
+                <ul class="list-unstyled">
+                  <li class="flex items-center gap-8"><input class="checkbox" id="check-a" type="checkbox"
+                      checked><label class="label mb-0" for="check-a">Choice A</label></li>
+                  <li class="flex items-center gap-8"><input class="checkbox" id="check-b" type="checkbox"><label
+                      class="label mb-0" for="check-b">Choice B</label></li>
+                </ul>
+              </fieldset>
+              <fieldset class="fieldset rs-mb-2">
+                <legend class="legend rs-mb-0">Radio buttons</legend>
+                <ul class="list-unstyled">
+                  <li class="flex items-center gap-8"><input class="radio" id="radio-a" name="radio-demo" type="radio"
+                      checked><label class="label mb-0" for="radio-a">Option 1</label></li>
+                  <li class="flex items-center gap-8"><input class="radio" id="radio-b" name="radio-demo"
+                      type="radio"><label class="label mb-0" for="radio-b">Option 2</label></li>
+                </ul>
+              </fieldset>
+              <fieldset class="fieldset rs-mb-2">
+                <legend class="legend rs-mb-0">Textarea</legend>
+                <p>
+                  <label class="label" for="textarea-demo">Message</label>
+                  <textarea class="textarea" id="textarea-demo" rows="8" cols="48"
+                    placeholder="Enter your message here"></textarea>
+                </p>
+              </fieldset>
+            </form>
+          </article>
 
-            <fieldset id="forms__checkbox" class="fieldset rs-mb-3">
-              <legend class="legend">Checkboxes</legend>
-              <ul>
-                <li><input class="checkbox" id="checkbox1" name="checkbox" type="checkbox" checked="checked" /><label
-                    class="label" for="checkbox1">Choice A</label></li>
-                <li><input class="checkbox" id="checkbox2" name="checkbox" type="checkbox" /><label class="label"
-                    for="checkbox2">Choice B</label></li>
-                <li><input class="checkbox" id="checkbox3" name="checkbox" type="checkbox" /><label class="label"
-                    for="checkbox3">Choice C</label></li>
-                <li><input class="checkbox" id="checkbox4" name="checkbox" type="checkbox" /><label class="label"
-                    for="checkbox3">Choice D</label></li>
-              </ul>
-            </fieldset>
+          <article id="images" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Images &amp; Captions</h3>
+            <p class="max-w-prose-wide">The base layer styles <code>figcaption</code> automatically;
+              <code>.caption</code> gives any element the same treatment.
+            </p>
+            <figure class="w-full md:w-1/2 rs-mb-2">
+              <img src="https://picsum.photos/seed/decanter/600/400" alt="Placeholder landscape photograph" width="600"
+                height="400">
+              <figcaption>A native figcaption &mdash; muted, snug, and slightly smaller than body text.</figcaption>
+            </figure>
+          </article>
 
-            <fieldset id="forms__radio" class="fieldset rs-mb-3">
-              <legend class="legend">Radio buttons</legend>
-              <ul>
-                <li><input class="radio" id="radio1" name="radio" type="radio" class="radio"
-                    checked="checked" /><label class="label" for="radio1">Option 1</label></li>
-                <li><input class="radio" id="radio2" name="radio" type="radio" class="radio" /><label
-                    class="label" for="radio2">Option 2</label>
-                </li>
-                <li><input class="radio" id="radio3" name="radio" type="radio" class="radio" /><label
-                    class="label" for="radio3">Option 3</label>
-                </li>
-              </ul>
-            </fieldset>
-
-            <fieldset id="forms__textareas" class="fieldset rs-mb-3">
-              <legend class="legend">Textareas</legend>
-              <p>
-                <label class="label" for="textarea">Textarea</label>
-                <textarea id="textarea" rows="8" cols="48" placeholder="Enter your message here"
-                  class="textarea"></textarea>
-              </p>
-            </fieldset>
-
-            <fieldset id="forms__html5" class="fieldset rs-mb-3">
-              <legend class="legend">HTML5 inputs</legend>
-              <p>
-                <label class="label" for="ic">Color input</label>
-                <input class="input" type="color" id="ic" value="#000000">
-              </p>
-              <p>
-                <label class="label" for="in">Number input</label>
-                <input class="input" type="number" id="in" min="0" max="10" value="5">
-              </p>
-              <p>
-                <label class="label" for="ir">Range input</label>
-                <input class="input" type="range" id="ir" value="10">
-              </p>
-              <p>
-                <label class="label" for="idd">Date input</label>
-                <input class="input" type="date" id="idd" value="1970-01-01">
-              </p>
-              <p>
-                <label class="label" for="idm">Month input</label>
-                <input class="input" type="month" id="idm" value="1970-01">
-              </p>
-              <p>
-                <label class="label" for="idw">Week input</label>
-                <input class="input" type="week" id="idw" value="1970-W01">
-              </p>
-              <p>
-                <label class="label" for="idt">Datetime input</label>
-                <input class="input" type="datetime" id="idt" value="1970-01-01T00:00:00Z">
-              </p>
-              <p>
-                <label class="label" for="idtl">Datetime-local input</label>
-                <input class="input" type="datetime-local" id="idtl" value="1970-01-01T00:00">
-              </p>
-            </fieldset>
-
-            <fieldset id="forms__action" class="fieldset rs-mb-3">
-              <legend class="legend">Action buttons</legend>
-              <p>
-                <input class="button" type="submit" value="<input type=submit>">
-                <input class="button" type="button" value="<input type=button>">
-                <input class="button" type="reset" value="<input type=reset>">
-                <input class="button" type="submit" value="<input disabled>" disabled>
-              </p>
-              <p>
-                <button class="button" type="submit">&lt;button type=submit&gt;</button>
-                <button class="button" type="button">&lt;button type=button&gt;</button>
-                <button class="button" type="reset">&lt;button type=reset&gt;</button>
-                <button class="button" type="button" disabled>&lt;button disabled&gt;</button>
-              </p>
-            </fieldset>
-          </form>
-        </div>
-      </div>
-    </section>
-    <!-- Layouts section -->
-    <section class="rs-mb-3">
-      <header id="layouts" class="rs-py-4 bg-black-90">
-        <div class="cc">
-          <h2 class="type-6 text-white mb-0 text-center">Layouts and Grids</h2>
-        </div>
-      </header>
-      <div class="cc flex flex-col md:flex-row rs-py-6">
-        <div class="mx-auto w-full">
-          <section id="css-grid" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">CSS Grid</h3>
-            </header>
-            <div class="overflow-hidden">
-              <div class="grid grid-cols-3 grid-gap">
-                <div class="bg-sky-light flex justify-center items-center rs-p-3 type-3 font-bold">
-                  1</div>
-                <div class="bg-sky-light flex justify-center items-center rs-p-3 type-3 font-bold">
-                  2</div>
-                <div class="bg-sky-light flex justify-center items-center rs-p-3 type-3 font-bold">
-                  3</div>
-                <div
-                  class="col-span-2 bg-sky-dark text-white flex justify-center items-center rs-p-3 type-3 font-bold">
-                  4</div>
-                <div class="bg-sky-light flex justify-center items-center rs-p-3 type-3 font-bold">
-                  5</div>
-                <div class="bg-sky-light flex justify-center items-center rs-p-3 type-3 font-bold">
-                  6</div>
-                <div
-                  class="col-span-2 bg-sky-dark text-white flex justify-center items-center rs-p-3 type-3 font-bold">
-                  7</div>
-                <div
-                  class="col-span-3 bg-sky text-white flex justify-center items-center rs-p-3 type-3 font-bold">
-                  8</div>
-              </div>
-            </div>
-          </section>
-          <section id="flex-grid" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Flex Grid</h3>
-            </header>
+          <article id="stretched-link" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Stretched Link</h3>
+            <p class="max-w-prose-wide">Add <code>.stretched-link</code> to a link inside a
+              <code>relative</code> container to make the whole container clickable.
+            </p>
             <div
-              class="flex flex-col md:flex-row gap-xs lg:gap-lg xl:gap-xl 2xl:gap-2xl text-white rs-mb-2">
-              <div class="w-full md:w-1/2 bg-palo-verde-light rs-p-2">
-                <h3>6 of 12 columns</h3>
-                <p class="card-paragraph">This column stacks vertically for XS-SM breakpoints and spans 6 of 12
-                  columns for MD and up; responsive grid gaps.</p>
-              </div>
-              <div class="w-full md:w-1/2 bg-palo-verde-dark rs-p-2">
-                <h3>6 of 12 columns</h3>
-                <p class="card-paragraph">This column stacks vertically for XS-SM breakpoints and spans 6 of 12
-                  columns for MD and up; responsive grid gaps.</p>
-              </div>
-            </div>
-            <div class="flex flex-col sm:flex-row grid-gap rs-mb-2 text-white">
-              <div class="w-full sm:w-1/2 lg:w-3/4 bg-spirited rs-p-2">
-                <h3>8 of 12 columns</h3>
-                <p class="card-paragraph">This column stacks vertically for XS breakpoint; spans 6 of 12 columns for
-                  SM-MD; spans 8 of 12 columns for LG and up; responsive column gaps using .grid-gap class.</p>
-              </div>
-              <div class="w-full sm:w-1/2 lg:w-1/4 bg-spirited-dark rs-p-2">
-                <h3>4 of 12 columns</h3>
-                <p class="card-paragraph">This column stacks vertically for XS breakpoint; spans 6 of 12 columns for
-                  SM-MD; spans 4 of 12 columns for LG and up; responsive column gaps using .grid-gap class.</p>
-              </div>
-            </div>
-          </section>
-          <section id="aspect-ratio" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Aspect Ratio Containers</h3>
-            </header>
-            <div class="w-full md:w-1/3 rs-mb-2 flex items-center justify-center rs-p-4 aspect-square bg-illuminating-dark text-black ">
-              <span class="font-bold type-3">Square</span>
-            </div>
-            <div class="w-full md:w-1/3 rs-mb-2 flex items-center justify-center rs-p-4 aspect-[4/3] bg-plum-light text-white">
-              <span class="font-bold type-3">4 x 3 Box</span>
-            </div>
-            <div class="w-full md:w-1/3 rs-mb-2 flex items-center justify-center rs-p-4 aspect-[16/9] bg-bay-dark text-white">
-              <span class="font-bold type-3">16 x 9 Box</span>
-            </div>
-            <div class="w-full md:w-1/3 rs-mb-2 flex items-center justify-center rs-p-4 aspect-[2] bg-poppy-dark text-white">
-              <span class="font-bold type-3">2 x 1 Box</span>
-            </div>
-          </section>
-          <section id="cc" class="rs-mb-5">
-            <header>
-              <h3 class="type-5 text-lagunita-light">Centered container</h3>
-            </header>
-              <p class="max-w-prose-wide">
-                The centered container contains site content within a certain width. From the XS breakpoint up to 1700px device width, it creates a fluid container with spacing on each side of the screen (different for every breakpoint). At 1700px and above, it restricts the content within to a
-                box that maxes out at a width of 1500px, ie., at that point, it becomes a fixed-width container and is no longer fluid.
+              class="relative w-full md:w-1/3 border border-black-30 rounded-[0.3rem] shadow-md rs-p-2 hocus-within:border-cardinal-red">
+              <h4 class="type-1"><a href="#!" class="stretched-link no-underline hocus:underline text-black">Card
+                  headline</a></h4>
+              <p class="card-paragraph mb-0">The entire card is clickable via the stretched-link class on the headline.
               </p>
-            </header>
-            <div class="cc">
-              <div class="centered-container">
-                <div class="cc bg-spirited-light">
-                  <p class="rs-p-3">
-                    <strong>I'm a centered container.</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae condimentum sem. Phasellus a ornare eros, eu scelerisque diam. Etiam lacinia, dui sit amet euismod malesuada, eros ante suscipit neque, vitae eleifend urna augue ac nunc. Suspendisse posuere fringilla nisi vel blandit. Vivamus arcu nisl, fermentum ut erat quis, condimentum sodales nulla. Sed sit amet cursus ipsum. Aliquam eleifend, neque vitae vehicula varius, lorem dui tincidunt sapien, a lacinia sapien augue non felis. Donec gravida auctor imperdiet. Maecenas hendrerit commodo congue. Cras libero neque, convallis eu cursus vitae, commodo posuere nunc. Fusce id tortor ex. Nullam tristique velit id mauris consequat, et pretium magna vestibulum. Etiam fringilla arcu bibendum, ornare sapien eget, mollis enim. Aliquam erat volutpat. Nulla facilisi.
-                  </p>
-                </div>
-              </div>
             </div>
-          </section>
+          </article>
+
+          <article id="skiplink-info" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Skip Link</h3>
+            <p class="max-w-prose-wide">This page starts with
+              <code>&lt;a href="#main-content" class="skiplink"&gt;</code>. It is visually hidden until
+              focused &mdash; reload and press <kbd>Tab</kbd> to reveal it in the top left corner.
+            </p>
+          </article>
+
         </div>
-      </div>
-    </section>
+      </section>
+
+      <!-- ============================================================ -->
+      <!-- UTILITIES & VARIANTS -->
+      <!-- ============================================================ -->
+      <section id="utilities" class="scroll-mt-30">
+        <header class="bg-fog-light border-b-4 border-cardinal-red rs-py-2">
+          <div class="cc">
+            <h2 class="type-4 font-serif mb-0">Utilities &amp; Variants</h2>
+          </div>
+        </header>
+        <div class="cc rs-py-3">
+
+          <article id="link-utilities" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Link Utilities</h3>
+            <p class="max-w-prose-wide">These utilities style <code>&lt;a&gt;</code> tags <em>nested inside</em>
+              the element they are applied to &mdash; ideal for WYSIWYG content and components with open
+              fields. <code>.link-*</code> and <code>.link-hocus-*</code> accept any palette color.</p>
+            <p class="link-digital-green"><code>.link-digital-green</code> &mdash; <a href="#!">a link colored digital
+                green</a>.</p>
+            <p class="link-plum"><code>.link-plum</code> &mdash; <a href="#!">a link colored plum</a>.</p>
+            <p class="link-hocus-poppy-dark"><code>.link-hocus-poppy-dark</code> &mdash; <a href="#!">turns poppy dark
+                on
+                hover/focus</a>.</p>
+            <div class="bg-black rounded-[0.3rem] p-20 rs-mb-1">
+              <p class="link-white link-hocus-illuminating text-white mb-0">
+                <code>.link-white .link-hocus-illuminating</code> &mdash;
+                <a href="#!">a white link that turns illuminating on hover</a>.
+              </p>
+            </div>
+            <p class="link-no-underline"><code>.link-no-underline</code> &mdash; <a href="#!">a link with no
+                underline</a>.</p>
+            <p class="link-underline"><code>.link-underline</code> &mdash; <a href="#!">a link with an underline</a>.
+            </p>
+            <p class="link-normal"><code>.link-normal</code> &mdash; <a href="#!">a normal weight link</a>.</p>
+            <p class="link-semibold"><code>.link-semibold</code> &mdash; <a href="#!">a semibold link</a>.</p>
+            <p class="link-bold"><code>.link-bold</code> &mdash; <a href="#!">a bold link</a>.</p>
+          </article>
+
+          <article id="text-shadow" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Text Shadow (Legacy)</h3>
+            <p class="max-w-prose-wide">Decanter's v7 text shadows are kept as
+              <code>.text-shadow-legacy*</code>; Tailwind v4 now ships its own
+              <code>text-shadow-*</code> scale.
+            </p>
+            <div
+              class="grid md:grid-cols-3 gap-xs md:gap-lg bg-sky-dark text-white rounded-[0.3rem] rs-p-2 type-1 font-semibold">
+              <p class="text-shadow-legacy mb-0">.text-shadow-legacy</p>
+              <p class="text-shadow-legacy-md mb-0">.text-shadow-legacy-md</p>
+              <p class="text-shadow-legacy-lg mb-0">.text-shadow-legacy-lg</p>
+            </div>
+          </article>
+
+          <article id="custom-variants" class="rs-mb-4 scroll-mt-30">
+            <h3 class="type-2 font-serif border-b border-black-20 pb-8">Custom Variants</h3>
+            <p class="max-w-prose-wide">Decanter adds <code>hocus:</code> (hover or focus),
+              <code>hocus-visible:</code>, and <code>hocus-within:</code>. The group versions
+              (<code>group-hocus:</code> etc.) come along automatically. Hover or tab through the cards:
+            </p>
+            <div class="grid md:grid-cols-2 gap-20">
+              <a href="#!"
+                class="block border-2 border-black-20 rounded-[0.3rem] rs-p-1 no-underline text-black font-normal hocus:bg-cardinal-red hocus:text-white transition-colors">
+                <p class="text-16 font-mono mb-6">hocus:bg-cardinal-red hocus:text-white</p>
+                <p class="card-paragraph mb-0">Hover or focus turns this card cardinal red.</p>
+              </a>
+              <a href="#!"
+                class="block border-2 border-black-20 rounded-[0.3rem] rs-p-1 no-underline text-black font-normal hocus-visible:bg-digital-blue hocus-visible:text-white transition-colors">
+                <p class="text-16 font-mono mb-6">hocus-visible:bg-digital-blue</p>
+                <p class="card-paragraph mb-0">Hover works, but focus only triggers via keyboard (focus-visible).</p>
+              </a>
+              <div
+                class="border-2 border-black-20 rounded-[0.3rem] rs-p-1 hocus-within:border-digital-green transition-colors">
+                <p class="text-16 font-mono mb-6">hocus-within:border-digital-green</p>
+                <label class="label" for="variant-input">Hover or focus this input to outline the card</label>
+                <input class="input" id="variant-input" type="text">
+              </div>
+              <a href="#!"
+                class="group block border-2 border-black-20 rounded-[0.3rem] rs-p-1 no-underline text-black font-normal hocus:border-plum transition-colors">
+                <p class="text-16 font-mono mb-6">group + group-hocus:text-plum</p>
+                <p class="card-paragraph mb-0 group-hocus:text-plum transition-colors">This text changes color when the
+                  whole card is hovered or focused.</p>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+    </div>
   </main>
+
+  <!-- Global footer -->
   <footer>
-    <div
-      class='global-footer basefont-21 bg-cardinal-red rs-py-1 text-white link-white'>
+    <div class='global-footer basefont-21 bg-cardinal-red rs-py-1 text-white link-white'>
       <div class='cc flex flex-col lg:flex-row' title='Common Stanford resources'>
         <div class='text-center mt-5 mb-9'>
-          <a class='logo type-3 text-white hocus:text-white' href='https://www.stanford.edu'>Stanford<br />University</a>
+          <a class='logo type-3 text-white hocus:text-white'
+            href='https://www.stanford.edu'>Stanford<br />University</a>
         </div>
         <div class='lg:pl-45 xl:pl-50 text-left sm:text-center lg:text-left grow'>
           <nav aria-label='global footer menu'
@@ -1362,7 +1416,7 @@ p q r s t u v w x y z { | } ~
                 </a>
               </li>
               <li class="sm:mr-10 md:mr-20 lg:mr-27">
-                <a href='https://visit.stanford.edu/plan/' class='hover:underline focus:underline'>
+                <a href='https://visit.stanford.edu/basics/' class='hover:underline focus:underline'>
                   Maps &amp; Directions
                   <span class="sr-only">(link is external)</span>
                 </a>
@@ -1381,15 +1435,17 @@ p q r s t u v w x y z { | } ~
               </li>
             </ul>
             <ul
-              class='list-unstyled mb-10 sm:mb-0 ml-19 sm:ml-0 p-0 text-15 sm:text-14 md:text-15 xl:text-16 flex flex-col sm:flex-row sm:link-regular'>
+              class='list-unstyled mb-10 sm:mb-0 ml-19 sm:ml-0 p-0 text-15 sm:text-14 md:text-15 xl:text-16 flex flex-col sm:flex-row sm:link-normal'>
               <li class="sm:mr-10 md:mr-20 lg:mr-27">
-                <a href='https://www.stanford.edu/site/terms/' title='Terms of use for sites' class='hover:underline focus:underline'>
+                <a href='https://www.stanford.edu/terms/' title='Terms of use for sites'
+                  class='hover:underline focus:underline'>
                   Terms of Use
                   <span class="sr-only">(link is external)</span>
                 </a>
               </li>
               <li class="sm:mr-10 md:mr-20 lg:mr-27">
-                <a href='https://www.stanford.edu/site/privacy/' title='Privacy and cookie policy' class='hover:underline focus:underline'>
+                <a href='https://www.stanford.edu/privacy/' title='Privacy and cookie policy'
+                  class='hover:underline focus:underline'>
                   Privacy
                   <span class="sr-only">(link is external)</span>
                 </a>
@@ -1416,7 +1472,8 @@ p q r s t u v w x y z { | } ~
                 </a>
               </li>
               <li>
-                <a href='https://www.stanford.edu/site/accessibility' title='Report web accessibility issues' class='hover:underline focus:underline'>
+                <a href='https://www.stanford.edu/accessibility' title='Report web accessibility issues'
+                  class='hover:underline focus:underline'>
                   Accessibility
                   <span class="sr-only">(link is external)</span>
                 </a>
@@ -1424,8 +1481,8 @@ p q r s t u v w x y z { | } ~
             </ul>
           </nav>
           <div class='text-13 sm:text-14 text-center lg:text-left'>
-            <span class="whitespace-no-wrap">&copy; Stanford University.</span>
-            <span class="whitespace-no-wrap">&nbsp; Stanford, California 94305.</span>
+            <span class="whitespace-nowrap">&copy; Stanford University.</span>
+            <span class="whitespace-nowrap">&nbsp; Stanford, California 94305.</span>
           </div>
         </div>
       </div>
@@ -1433,18 +1490,21 @@ p q r s t u v w x y z { | } ~
     <div class="cc bg-black text-white text-16 md:text-18 rs-py-2">
       <!-- HTML Test page based on sample provided by http://twitter.com/cbracco -->
       <p class="mb-0">A TailwindCSS/Decanter v8 test page.</p>
-      <p><a href="https://www.netlify.com"><img src="https://www.netlify.com/img/global/badges/netlify-dark.svg"></a>
+      <p><a href="https://www.netlify.com"><img src="https://www.netlify.com/img/global/badges/netlify-dark.svg"
+            alt="Deploys by Netlify"></a>
       </p>
-      <a href="#top"
-        class="hidden md:block fixed bottom-20 right-20 w-50 text-digital-blue hocus:text-plum transition-colors"><span
-          class="sr-only">Back to top</span><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
-          fill="currentColor">
-          <path fill-rule="evenodd"
-            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"
-            clip-rule="evenodd" />
-        </svg></a>
     </div>
   </footer>
-  <!-- END DEVELOPMENT AREA -->
+
+  <a href="#menu"
+    class="hidden md:block fixed bottom-20 right-20 w-50 bg-white rounded-full shadow-md text-black hocus:text-cardinal-red transition-colors">
+    <span class="sr-only">Back to table of content</span>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+      <path fill-rule="evenodd"
+        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"
+        clip-rule="evenodd" />
+    </svg>
+  </a>
 </body>
+
 </html>
