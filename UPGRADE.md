@@ -16,6 +16,19 @@ Tailwind CSS does provide a tool to help with upgrading from Tailwind v3 to v4:
 https://tailwindcss.com/docs/upgrade-guide#using-the-upgrade-tool
 
 
+## The JavaScript preset is gone
+Decanter no longer ships `tailwind.config.js` or its TypeScript declarations — the whole package is now CSS.
+You can delete the tailwind.config.js file and import the CSS instead:
+
+```css
+/* your stylesheet */
+@import 'decanter';
+```
+
+Anything you had in `theme.extend` moves to your own `@theme` block. The Tailwind upgrade guide linked above
+covers the v3 to v4 migration in full.
+
+
 ## Form styles are now opt-in
 Form classes (`.input`, `.select`, `.textarea`, `.checkbox`, `.radio`, `.label`, `.legend`, `.fieldset`) and the
 `@tailwindcss/forms` reset they depend on have moved to a separate entry point. If your site has forms, add one import:
