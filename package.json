@@ -33,9 +33,9 @@
   ],
   "scripts": {
     "build": "tailwindcss -i dev/dev.css -o static/css/decanter.css",
-    "watch": "tailwindcss -i dev/dev.css -o static/css/decanter.css --watch",
-    "serve": "light-server -s static -w \"static/*.html,static/css/*.css\"",
-    "dev": "concurrently \"npm:serve\" \"npm:watch\"",
+    "watch": "tailwindcss -i dev/dev.css -o static/css/decanter.css --watch=always",
+    "serve": "serve static -l 4000",
+    "dev": "concurrently --names css,web --prefix-colors cyan,green \"npm:watch\" \"npm:serve\"",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "repository": {
@@ -55,7 +55,7 @@
     "@tailwindcss/cli": "^4.3.3",
     "auto-changelog": "^2.6.0",
     "concurrently": "^10.0.3",
-    "light-server": "^2.9.1",
+    "serve": "^14.2.6",
     "tailwindcss": "^4.3.3"
   },
   "engines": {

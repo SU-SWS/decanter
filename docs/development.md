@@ -17,9 +17,12 @@ npm run dev   # builds CSS in watch mode + serves the test page at http://localh
 |---|---|
 | `npm run build` | Compiles `dev/dev.css` → `static/css/decanter.css` once |
 | `npm run watch` | Same, in watch mode |
-| `npm run serve` | Serves `static/` on port 4000 with live reload on HTML/CSS changes |
-| `npm run dev` | `watch` + `serve` together (via concurrently) |
+| `npm run serve` | Serves `static/` on http://localhost:4000 |
+| `npm run dev` | `watch` + `serve` together; Ctrl-C stops both |
 | `npm version <bump>` | Regenerates CHANGELOG.md via auto-changelog |
+
+There is no live reload. The watcher rebuilds `static/css/decanter.css` as soon as
+you save, but you have to **refresh the browser manually** to see it.
 
 ## Repository layout
 
