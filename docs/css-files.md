@@ -17,9 +17,12 @@ import './css/index.css';
 ```javascript
 // In your main application file
 import 'decanter/src/decanter.js';
-// or
-import 'decanter/dist/decanter.css'; // if using built version
+// or import the stylesheet directly
+import 'decanter/src/css/index.css';
 ```
+
+> Decanter ships source only — there is no prebuilt or bundled stylesheet in the
+> package. Your own build step compiles the Tailwind output.
 
 ### `src/css/index.css`
 **Purpose**: Core CSS file containing font imports and Tailwind CSS directives.
@@ -34,7 +37,7 @@ The file imports Stanford-approved web fonts from Google Fonts and Stanford's se
 /* Stanford brand font */
 @font-face {
   font-family: "Stanford";
-  src: url("https://www-media.stanford.edu/assets/fonts/stanford.woff") format("woff"), 
+  src: url("https://www-media.stanford.edu/assets/fonts/stanford.woff") format("woff"),
        url("https://www-media.stanford.edu/assets/fonts/stanford.ttf") format("truetype");
   font-weight: 300;
   font-display: swap;
@@ -114,14 +117,6 @@ The font families are configured in the theme system and can be accessed via Tai
 
 ## Usage Patterns
 
-### Direct CSS Import
-When you need the CSS without using Tailwind configuration:
-
-```javascript
-// Import the CSS directly
-import 'decanter/src/css/index.css';
-```
-
 ### With Tailwind Configuration
 Most common usage - let Tailwind process the CSS through the plugin system:
 
@@ -132,6 +127,14 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   // Tailwind will process the CSS through Decanter's plugins
 }
+```
+
+### Direct CSS Import
+When you need the CSS without using Tailwind configuration:
+
+```javascript
+// Import the CSS directly
+import 'decanter/src/css/index.css';
 ```
 
 ### Custom Font Loading

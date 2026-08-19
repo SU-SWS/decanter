@@ -19,6 +19,11 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
+    # id-token is required for NPM trusted publishing (OIDC).
+    permissions:
+      contents: write
+      id-token: write
+
     # Only run on merged PRs with an appropriate label.
     if: |
       github.event.pull_request.merged &&
@@ -34,15 +39,20 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.base_ref }}
           fetch-depth: 0
 
       - name: Setup node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v7
         with:
           node-version-file: '.nvmrc'
+          registry-url: 'https://registry.npmjs.org'
+
+      # Trusted publishing needs npm >= 11.5.1.
+      - name: Update npm
+        run: npm install -g npm@latest
 
       # Uses 'npm ci' instead of 'npm install'. See https://docs.npmjs.com/cli/v7/commands/npm-ci
       - name: Install dependencies
@@ -102,12 +112,14 @@ jobs:
         run: |
           # Scrape release notes for this release from the full changelog.
           release_notes=$(./node_modules/.bin/auto-changelog --stdout | awk "/\[$RELEASE_TAG\]/{flag=1; next} /\[$PREVIOUS_TAG\]/{flag=0} flag")
-          # Escape whitespace characters to ensure that multiline content outputs correctly.
-          release_notes="${release_notes//'%'/'%25'}"
-          release_notes="${release_notes//$'\n'/'%0A'}"
-          releast_notes="${release_notes//$'\r'/'%0D'}"
-          # Expose the release notes as an output variable.
-          echo "::set-output name=release_notes::$release_notes"
+          # Expose the release notes as an output variable. $GITHUB_OUTPUT does no
+          # percent-decoding, so multiline values need the heredoc form instead of
+          # the escaping set-output used to require.
+          {
+            echo "release_notes<<DECANTER_EOF"
+            echo "$release_notes"
+            echo "DECANTER_EOF"
+          } >> $GITHUB_OUTPUT
 
       - name: Update Github Release with changelog notes.
         uses: meeDamian/github-release@2.0
@@ -118,9 +130,10 @@ jobs:
           allow_override: true
           prerelease: ${{ env.PRERELEASE }}
 
-      # Publish updated package to NPM.
+      # Publish updated package to NPM via trusted publishing (OIDC, no token).
       - name: Publish to NPM
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          access: "public"
+        # ponytail: prerelease versions get their preid as the dist-tag so they
+        # never clobber `latest` (8.0.0-alpha.1 -> alpha).
+        run: |
+          tag=$(node -p "(require('./package.json').version.split('-')[1]||'').split('.')[0]||'latest'")
+          npm publish --access public --tag "$tag"
