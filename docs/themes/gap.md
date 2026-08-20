@@ -125,8 +125,8 @@ This utility automatically applies:
 ```html
 <!-- Navigation with adaptive spacing -->
 <nav class="flex flex-wrap gap-xs lg:gap-lg items-center">
-  <div class="font-stanford text-m4 text-cardinal-red">Stanford</div>
-  <ul class="flex gap-xs lg:gap-lg text-m2">
+  <div class="font-stanford type-4 text-cardinal-red">Stanford</div>
+  <ul class="flex gap-xs lg:gap-lg type-2">
     <li><a href="#" class="hover:text-cardinal-red">Academics</a></li>
     <li><a href="#" class="hover:text-cardinal-red">Research</a></li>
     <li><a href="#" class="hover:text-cardinal-red">Campus Life</a></li>

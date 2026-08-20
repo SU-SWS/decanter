@@ -31,6 +31,11 @@ module.exports = function () {
      * To take full advantage of modular typography which inlude letter spacing adjustments propotional to font sizes,
      * use type-0 to type-9 instead
      * See src/plugins/theme/decanter.js
+     *
+     * @deprecated The em-based `m*` scale below is removed in v8. Use the modular
+     * type classes `type-0` to `type-9`, which are responsive and include the
+     * proportional letter spacing these plain font sizes lack. For a one-off
+     * size, use an arbitrary value such as `text-[1.25em]`.
      */
     m0: '1em', // text-m0 equals to 1em (modular step 0 = base)
     m1: '1.25em', // text-m1 = 1.25 x 1em (modular step 1)
@@ -42,9 +47,13 @@ module.exports = function () {
     m7: '4.77em',
     m8: '5.96em',
     m9: '7.45em',
-    // text--m1 doesn't use the 1.25 scale factor.
-    // Merely a convenience class for a slightly smaller font size than the base step
+    // -m1 Doesn't use the 1.25 scale factor. Merely a convenience value for a slightly
+    // smaller font size than the base step.
+    // NOTE: this key does not produce `text--m1`. Tailwind reads the leading `-` as a
+    // negative modifier and emits `.-text-m1`.
+    // @deprecated Removed in v8.
     '-m1': '0.9em',
-    '09em': '0.9em', // alias for text--m1
+    // Working alias for the `-m1` above. @deprecated Removed in v8.
+    '09em': '0.9em',
   };
 };

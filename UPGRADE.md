@@ -71,6 +71,8 @@ Migrating now makes the v8 upgrade a no-op.
 | Social brand colors (`facebook`, `twitter`, `instagram`, `linkedin`, `youtube`) | Use the square bracket notation | Yes |
 | Color `foggy` | `fog` (identical color) | Yes |
 | `rs-m-neg1`, `rs-p-neg2` and the other negative responsive spacing steps | Breakpoint modifiers, e.g. `rs-m-neg1` → `p-11 md:p-12 2xl:p-13`, `rs-p-neg2` → `p-8 md:p-9 2xl:p-10` | Yes |
+| `text-m0` – `text-m9` | `type-0` – `type-9` (includes responsive font sizes and letter spacing adjustments), or the exact equivalent arbitrary value such as `text-[1.25em]` | Yes |
+| `text-09em`, `-text-m1` | `text-[.9em]` | Yes |
 
 Two notes on the replacements:
 
