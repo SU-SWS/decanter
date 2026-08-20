@@ -7,7 +7,7 @@ Provides Stanford-optimized line height values that override Tailwind defaults w
 
 ## Generated CSS Classes
 
-- **Button text**: `.leading-tight` (1.1 - overrides Tailwind's 1.25)
+- **Button label/headings**: `.leading-tight` (1.1 - overrides Tailwind's 1.25)
 - **Display/headings**: `.leading-display` (1.2)
 - **Card text**: `.leading-snug` (1.3 - overrides Tailwind's 1.375)
 - **Small paragraphs**: `.leading-cozy` (1.4)
@@ -24,12 +24,12 @@ Provides Stanford-optimized line height values that override Tailwind defaults w
 </button>
 
 <!-- Headings and display text -->
-<h1 class="leading-display text-4xl font-bold">
+<h1 class="leading-display fluid-type-6 font-bold">
   Display Line Height
 </h1>
 
 <!-- Card content -->
-<div class="leading-snug p-4 bg-white rounded">
+<div class="leading-snug rs-p-2 bg-white rounded">
   <p>Card content with snug line height for compact layouts</p>
 </div>
 
@@ -41,12 +41,11 @@ Provides Stanford-optimized line height values that override Tailwind defaults w
 <!-- Logo lockups -->
 <div class="leading-half">
   <div>Stanford</div>
-  <div>University</div>
 </div>
 
-<!-- Source Sans Pro trimmed -->
+<!-- Source Sans 3 trimmed -->
 <p class="font-sans leading-trim">
-  Trimmed leading for Source Sans Pro typography
+  Trimmed leading for Source Sans 3 typography
 </p>
 ```
 

@@ -10,6 +10,10 @@ module.exports = function () {
     mono: ['"Roboto Mono"', 'Menlo', '"Courier New"', 'monospace'],
     sans: [
       '"Source Sans 3"',
+      // @deprecated The Source Sans Pro fallback is removed in v8. Decanter's
+      // fonts.css/fonts-basic.css only load Source Sans 3, so this entry only takes
+      // effect for projects loading Source Sans Pro themselves. Make sure Source
+      // Sans 3 is loaded; the next fallback becomes Helvetica Neue.
       '"Source Sans Pro"',
       '"Helvetica Neue"',
       'Helvetica',
@@ -18,6 +22,8 @@ module.exports = function () {
     ],
     serif: [
       '"Source Serif 4"',
+      // @deprecated The Source Serif Pro fallback is removed in v8. See the note on
+      // `sans` above; the next fallback becomes Georgia.
       '"Source Serif Pro"',
       'Georgia',
       'Times',

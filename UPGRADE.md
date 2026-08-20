@@ -67,6 +67,7 @@ Migrating now makes the v8 upgrade a no-op.
 | `.text-vertical-lr` | `[writing-mode:vertical-lr]` | Yes |
 | `font-regular` | `font-normal` | Yes |
 | `font-slab` | Leave alone now and update when v8 is out | Yes |
+| The `Source Sans Pro` / `Source Serif Pro` fallbacks in `font-sans` / `font-serif` | Make sure Source Sans 3 and Source Serif 4 are loaded — see the note below | Yes |
 | `font-mono` | Leave alone now and update when v8 is out | Yes |
 | Social brand colors (`facebook`, `twitter`, `instagram`, `linkedin`, `youtube`) | Use the square bracket notation | Yes |
 | Color `foggy` | `fog` (identical color) | Yes |
@@ -74,7 +75,15 @@ Migrating now makes the v8 upgrade a no-op.
 | `text-m0` – `text-m9` | `type-0` – `type-9` (includes responsive font sizes and letter spacing adjustments), or the exact equivalent arbitrary value such as `text-[1.25em]` | Yes |
 | `text-09em`, `-text-m1` | `text-[.9em]` | Yes |
 
-Two notes on the replacements:
+Three notes on the replacements:
+
+- **The Pro font fallbacks are inert for most projects.** `font-sans` and `font-serif`
+  keep leading with Source Sans 3 and Source Serif 4; v8 only drops the superseded
+  `Source Sans Pro` / `Source Serif Pro` entry sitting behind each. Decanter's
+  `fonts.css` and `fonts-basic.css` load only Source Sans 3 and Source Serif 4, so
+  those entries never match unless you load the Pro families yourself. If you do, or
+  you depend on them being installed locally, ensure Source Sans 3 and Source Serif 4
+  are available — otherwise text falls through to Helvetica Neue and Georgia.
 
 - **`.credits` is being removed for accessibility reasons** — small italic text is not
   recommended. The replacement above reproduces the v7 styling if you need it, but

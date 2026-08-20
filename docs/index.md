@@ -169,7 +169,7 @@ This index lists all custom CSS classes provided by the Decanter design system (
 - **Max Width** — `.max-w-10` – `.max-w-1000`, `.max-w-prose-wide` (see Theme > Max Width)
 - **Transition Duration** — sets the duration implied by `.transition`, `.transition-colors` and the other `transition-*` utilities to 250ms (Tailwind's default is 150ms). This adds no class of its own; to set a duration explicitly use Tailwind's `.duration-*` scale or an arbitrary value like `.duration-[400ms]`. (see Theme > Transition Duration)
 - **Screens (Breakpoints)** — `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl` (see Theme > Screens)
-- **Font Family** — `font-mono` _(deprecated — Decanter's Roboto Mono stack is removed in v8; the class remains with Tailwind's default stack)_, `font-sans`, `font-serif`, `font-slab` _(deprecated — removed in v8)_, `font-stanford` (see Theme > Font Family)
+- **Font Family** — `font-mono` _(deprecated — Decanter's Roboto Mono stack is removed in v8; the class remains with Tailwind's default stack)_, `font-sans`, `font-serif` _(both keep Source Sans 3 / Source Serif 4; their deprecated Source Sans Pro / Source Serif Pro fallbacks are removed in v8)_, `font-slab` _(deprecated — removed in v8)_, `font-stanford` (see Theme > Font Family)
 
 ## Variants
 
