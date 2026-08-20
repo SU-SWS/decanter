@@ -2,24 +2,31 @@
 
 **File**: `/src/plugins/theme/fontSize.js`
 
-> **Deprecated.** The em-based scale — `.text-m0` through `.text-m9`, `.text-09em`, `.-text-m1`
-> — will be removed in v8. Use the modular type classes `.type-0`
+> **Deprecated.** The em-based sizes — `.text-m0` through `.text-m9`, `.text-09em` and
+> `.-text-m1` — will be removed in v8. Use the modular typography classes `.type-0`
 > through `.type-9` instead: they are responsive and carry the proportional letter
 > spacing these plain font sizes lack. For a one-off size, use an arbitrary value
 > such as `text-[1.25em]`. The pixel-based `.text-11` – `.text-30` sizes are not
 > deprecated.
 
 ## Overview
-Provides a comprehensive font size system with pixel-based sizes, modular typography scales, and em-based sizes for use in different scenarios.
+Provides a comprehensive font size system with pixel-based sizes and em-based sizes for
+use in different scenarios.
+
+Not to be confused with [Modular Typography](../components/modular-typography.md), which
+is the `.type-0` – `.type-9` component scale. The em-based sizes below are plain
+`font-size` utilities with no responsive steps or letter spacing.
 
 ## Generated CSS Classes
 
 - **Pixel-based sizes**: `.text-11` through `.text-30` (11px to 30px in rem units)
-- **Modular scale**: `.text-m0` through `.text-m9` (1em to 7.45em using 1.25 ratio) _(deprecated — use `.type-0` – `.type-9`, or the square bracket notation, e.g. `text-[1.25em]`)_
-- **Em-based sizes**: `.text-09em` (0.9em) _(deprecated — use `text-[.9em]`)_
-  - The `-m1` theme key generates `.-text-m1`, not `.text--m1` — Tailwind reads the
-    leading `-` as a negative modifier. It is the same 0.9em as `.text-09em`.
-    _(deprecated — use `text-[.9em]`)_
+- **Em-based sizes** _(all deprecated — see above)_
+  - `.text-m0` through `.text-m9` — 1em to 7.45em, each step 1.25× the previous
+    _(use `.type-0` – `.type-9`, or the square bracket notation, e.g. `text-[1.25em]`)_
+  - `.text-09em` — 0.9em _(use `text-[.9em]`)_
+  - `.-text-m1` — the same 0.9em. Note the `-m1` theme key generates `.-text-m1`, not
+    `.text--m1`: Tailwind reads the leading `-` as a negative modifier.
+    _(use `text-[.9em]`)_
 
 ## Customization
 
