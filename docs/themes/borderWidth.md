@@ -30,7 +30,7 @@ Extends Tailwind's default border widths (1px, 2px, 4px, 8px) with additional 3p
 </div>
 
 <!-- Emphasis elements -->
-<blockquote class="border-l-5 border-poppy pl-6 py-4 bg-illuminating-yellow/10">
+<blockquote class="border-l-5 border-poppy pl-6 py-4 bg-illuminating/10">
   <p class="italic">Important quote with 5px accent border</p>
 </blockquote>
 ```

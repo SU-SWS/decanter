@@ -48,7 +48,7 @@ module.exports = {
 **Usage Examples:**
 ```html
 <!-- Academic article structure -->
-<article class="prose">
+<article>
   <header>
     <h1 class="text-30 font-bold text-cardinal-red mb-4">
       Artificial Intelligence in Climate Research

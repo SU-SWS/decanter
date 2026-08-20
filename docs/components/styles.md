@@ -24,4 +24,4 @@ A set of composable typography utility classes used across the design system for
 
 ## Notes
 - These classes use the `decanter.typography` theme tokens so they will update when project-specific theme extensions are applied.
-- The `.basefont-XX` utilities are intended for quick base-size overrides for sections that need a slightly larger base font.
+- The `.basefont-19` – `.basefont-23` utilities are intended for quick base-size overrides for sections that need a slightly larger base font.
