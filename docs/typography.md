@@ -115,8 +115,6 @@ Unlike `type-*` (em-based, relative to container), `fluid-type-*` is rem-based �
 | Class | Value | Notes |
 |---|---|---|
 | `text-<integer>` | integer × 0.1rem | Reads as pixels: `text-18` = 1.8rem = 18px. Any integer works. |
-| `text-1em` | 1em | Matches parent font size |
-| `text-09em` | 0.9em | Slightly smaller than parent |
 | `text-input` | 1.8rem | The form-field font size |
 
 Core Tailwind named sizes (`text-sm`, `text-lg`, …) remain available.
@@ -139,11 +137,11 @@ Set a responsive base font size on a container so all em-based typography inside
 |---|---|---|
 | `splash-text` | Hero banner display text | `type-6` sizing + heading styles |
 | `intro-text` | Opening paragraph | `type-2` sizing, `leading-normal`, max-width 65ch |
-| `big-paragraph` | Emphasized body text | 1.15em, cozy → normal leading |
+| `big-paragraph` | Copy slight larger than body text | 1.15em, cozy → normal leading |
 | `card-paragraph` | Card teaser text | `max(1.6rem, 0.93em)`, snug → cozy leading — never shrinks below 16px |
-| `subheading` | Supporting line under a heading | `type-1` sizing |
+| `subheading` | Supporting text under a heading | `type-1` sizing |
 | `quote-text` | Pull quotes | 1.25em italic |
-| `caption` | Caption styling for any element | `max(1.6rem, 0.9em)`, snug leading — same look the base layer gives `figcaption` |
+| `caption` | Caption styling for any element | `max(1.6rem, 0.9em)`, snug leading — same look the base layer gives `figcaption` without the Cool Grey color |
 | `types` | Heading styles without a size | `leading-display`, bold, 0.6em bottom margin, undecorated bold links — combine with `type-*` |
 
 ```html
@@ -161,5 +159,5 @@ Decanter overrides Tailwind's leading scale:
 | `leading-tight` | 1.1 | Very large display text |
 | `leading-display` | 1.2 | Headings (base default) |
 | `leading-snug` | 1.3 | Captions, card text |
-| `leading-cozy` | 1.4 | Body text at small viewports |
-| `leading-normal` | 1.5 | Body text at `md` and up |
+| `leading-cozy` | 1.4 | Smaller body text |
+| `leading-normal` | 1.5 | Body text |

@@ -30,7 +30,7 @@ Everything below is *in addition to* core Tailwind CSS v4 utilities. Where Decan
 | Font families | `font-sans`, `font-serif`, `font-stanford` | [Typography](typography.md) |
 | Modular type scale | `type-0` … `type-10` (responsive, em-based) | [Typography](typography.md) |
 | Fluid type scale | `fluid-type-0` … `fluid-type-10` (viewport-clamped) | [Typography](typography.md) |
-| Font sizes | `text-<integer>` (0.1rem steps: `text-18` = 1.8rem), `text-1em`, `text-09em`, `text-input` | [Typography](typography.md) |
+| Font sizes | `text-<integer>` (0.1rem steps: `text-18` = 1.8rem), `text-input` | [Typography](typography.md) |
 | Base font | `basefont-19` … `basefont-23` (responsive container base size) | [Typography](typography.md) |
 | Text styles | `splash-text`, `intro-text`, `big-paragraph`, `card-paragraph`, `subheading`, `quote-text`, `caption`, `types` | [Typography](typography.md) |
 | Line heights | `leading-half`, `leading-trim`, `leading-tight`, `leading-display`, `leading-snug`, `leading-cozy`, `leading-normal` | [Typography](typography.md) |

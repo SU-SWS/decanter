@@ -7,7 +7,8 @@ Working on Decanter itself. Consumers of the package don't need anything here â€
 ```bash
 git clone https://github.com/SU-SWS/decanter.git
 cd decanter
-npm install
+nvm use
+npm ci
 npm run dev   # builds CSS in watch mode + serves the test page at http://localhost:4000
 ```
 
