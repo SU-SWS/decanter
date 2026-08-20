@@ -12,8 +12,8 @@ Stanford's theme plugins extend Tailwind CSS with carefully crafted design token
 - **[colors.md](./colors.md)** - Stanford's official color palette including Cardinal Red, digital accent colors, grayscale system, and semantic color applications
 
 ### Typography System
-- **[fontFamily.md](./fontFamily.md)** - Stanford brand typography using Source Sans Pro with system font fallbacks
-- **[fontSize.md](./fontSize.md)** - Modular type scale from m1 (14px) to m8 (48px) with responsive line heights
+- **[fontFamily.md](./fontFamily.md)** - Stanford brand typography using Source Sans 3 and Source Serif 4 with system font fallbacks
+- **[fontSize.md](./fontSize.md)** - Pixel-based sizes `.text-11` – `.text-30`, plus the deprecated em-based sizes
 - **[fontWeight.md](./fontWeight.md)** - Typography weight scale from light (300) to black (900) with semantic naming
 - **[lineHeight.md](./lineHeight.md)** - Optimized line spacing system for readability and vertical rhythm
 

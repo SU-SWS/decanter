@@ -10,7 +10,7 @@ Provides the `.backface-hidden` class to hide the back face of elements during 3
 
 ## Usage
 ```html
-<div class="transform-style-preserve-3d backface-hidden">
+<div class="[transform-style:preserve-3d] backface-hidden">
   <!-- 3D element content -->
 </div>
 ```

@@ -91,12 +91,12 @@ font-regular     /* 400 - Same as font-normal */
 ### Legacy Compatibility
 ```html
 <!-- Decanter v6 style (still supported) -->
-<p class="font-regular text-m2">
+<p class="font-regular">
   Body text using legacy font-regular class
 </p>
 
 <!-- Modern Tailwind style (recommended) -->
-<p class="font-normal text-m2">
+<p class="font-normal">
   Body text using standard font-normal class
 </p>
 ```
@@ -104,33 +104,33 @@ font-regular     /* 400 - Same as font-normal */
 ### Stanford Typography Hierarchy
 ```html
 <!-- Complete weight hierarchy using both systems -->
-<article class="font-source-sans-3">
+<article>
   <!-- Hero heading -->
-  <h1 class="text-m8 font-bold text-cardinal-red">
+  <h1 class="type-6 font-bold">
     Major Heading - Bold (700)
   </h1>
-  
+
   <!-- Section headings -->
-  <h2 class="text-m6 font-semibold text-black mt-[2em] mb-[0.75em]">
+  <h2 class="type-4 font-semibold">
     Section Heading - Semibold (600)
   </h2>
-  
+
   <!-- Subheadings -->
-  <h3 class="text-m5 font-medium text-black mt-[1.5em] mb-[0.5em]">
+  <h3 class="type-3 font-medium">
     Subheading - Medium (500)
   </h3>
-  
+
   <!-- Body text with both options -->
-  <p class="text-m2 font-regular leading-relaxed mb-[1.5em]">
+  <p class="type-0 font-regular leading-normal">
     Body text using legacy font-regular class (400 weight)
   </p>
-  
-  <p class="text-m2 font-normal leading-relaxed mb-[1.5em]">
+
+  <p class="type-0 font-normal leading-normal">
     Body text using standard font-normal class (400 weight)
   </p>
-  
+
   <!-- Light emphasis -->
-  <p class="text-m2 font-light text-black-70">
+  <p class="type-0 font-light text-black-70">
     Supporting text with light weight (300)
   </p>
 </article>

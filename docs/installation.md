@@ -127,14 +127,14 @@ With Decanter imported, you have access to all Stanford brand colors:
 <code class="font-mono">Roboto Mono (Monospace)</code>
 <div class="font-stanford">Stanford Font (Logo)</div>
 
-<!-- Modular Typography Scale -->
-<h1 class="text-modular-5xl">Modular 5XL Heading</h1>
-<h2 class="text-modular-4xl">Modular 4XL Heading</h2>
-<p class="text-modular-base">Modular Base Text</p>
+<!-- Modular Typography Scale (.type-0 through .type-9) -->
+<h1 class="type-5">Step 5 Heading</h1>
+<h2 class="type-4">Step 4 Heading</h2>
+<p class="type-0">Base Text</p>
 
-<!-- Fluid Typography (Responsive) -->
-<h1 class="text-fluid-5xl">Fluid 5XL (Scales with viewport)</h1>
-<p class="text-fluid-base">Fluid Base Text</p>
+<!-- Fluid Typography (.fluid-type-0 through .fluid-type-10) -->
+<h1 class="fluid-type-5">Fluid step 5 (Scales with viewport)</h1>
+<p class="fluid-type-0">Fluid Base Text</p>
 ```
 
 ## Framework-Specific Examples

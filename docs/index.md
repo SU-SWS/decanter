@@ -162,14 +162,14 @@ This index lists all custom CSS classes provided by the Decanter design system (
 - **Border Width** — `.border-3`, `.border-5`, `.border-6`, `.border-7` (see Theme > Border Width)
 - **Border Radius** — `.rounded` default set to `0.3rem` (see Theme > Border Radius)
 - **Gap Scale** — `xs` (20px), `lg` (36px), `xl` (40px), `2xl` (48px) (see Theme > Gap)
-- **Font Size Scale** — `.text-11` – `.text-30`, `.text-m0` – `.text-m9`, `.text--m1`, `.text-09em` (see Theme > Font Size)
+- **Font Size Scale** — `.text-11` – `.text-30` (see Theme > Font Size), `.text-m0` – `.text-m9`, `.text-09em`, `.-text-m1` _(deprecated — use `.type-0` – `.type-9`, or an arbitrary value such as `text-[.9em]`; will be removed in v8)_
 - **Font Weight Scale** — `.font-regular` _(deprecated — use `.font-normal`; will be removed in v8)_ (see Theme > Font Weight)
 - **Line Clamp** — `.line-clamp-7` – `.line-clamp-12` (see Theme > Line Clamp)
 - **Line Height** — `.leading-tight`, `.leading-display`, `.leading-snug`, `.leading-cozy`, `.leading` (default), `.leading-half`, `.leading-trim` (see Theme > Line Height)
 - **Max Width** — `.max-w-10` – `.max-w-1000`, `.max-w-prose-wide` (see Theme > Max Width)
-- **Transition Duration** — `.duration` (default 250ms) (see Theme > Transition Duration)
+- **Transition Duration** — sets the duration implied by `.transition`, `.transition-colors` and the other `transition-*` utilities to 250ms (Tailwind's default is 150ms). This adds no class of its own; to set a duration explicitly use Tailwind's `.duration-*` scale or an arbitrary value like `.duration-[400ms]`. (see Theme > Transition Duration)
 - **Screens (Breakpoints)** — `sm`, `md`, `lg`, `xl`, `2xl`, `3xl`, `4xl` (see Theme > Screens)
-- **Font Family** — `font-mono` _(deprecated — Decanter's Roboto Mono stack is removed in v8; the class remains with Tailwind's default stack)_, `font-sans`, `font-serif`, `font-slab` _(deprecated — removed in v8)_, `font-stanford` (see Theme > Font Family)
+- **Font Family** — `font-mono` _(deprecated — Decanter's Roboto Mono stack is removed in v8; the class remains with Tailwind's default stack)_, `font-sans`, `font-serif` _(both keep Source Sans 3 / Source Serif 4; their deprecated Source Sans Pro / Source Serif Pro fallbacks are removed in v8)_, `font-slab` _(deprecated — removed in v8)_, `font-stanford` (see Theme > Font Family)
 
 ## Variants
 

@@ -8,7 +8,14 @@ Overrides Tailwind's default transition duration from 150ms to a smoother 250ms 
 
 ## Generated CSS Classes
 
-- `.duration` — 250ms (Stanford default)
+This sets Tailwind's `DEFAULT` transition duration, which generates **no class of its
+own** — Tailwind's `transitionDuration` plugin is registered with `filterDefault`, so
+there is no `.duration` utility. What the 250ms does is change the duration *implied*
+by the `transition-*` utilities, which emit `transition-duration: 250ms` instead of
+Tailwind's stock 150ms:
+
+- `.transition`, `.transition-all`, `.transition-colors`, `.transition-opacity`,
+  `.transition-shadow`, `.transition-transform` — all imply 250ms
 - Default Tailwind durations (preserved):
   - `.duration-0` — 0ms
   - `.duration-75` — 75ms
@@ -22,14 +29,20 @@ Overrides Tailwind's default transition duration from 150ms to a smoother 250ms 
 
 ## Usage
 
-Apply the class to enable transitions with the default 250ms duration:
+Add a `transition-*` utility and you get the 250ms default with no duration class:
 ```html
-<button class="transition duration hover:bg-cardinal-red">Action</button>
+<button class="transition hover:bg-cardinal-red">Action</button>
 ```
 
-Combine with other duration utilities:
+Add a `duration-*` utility to override it:
 ```html
 <div class="transition duration-500 hover:scale-105">Animated</div>
+```
+
+250ms is not on Tailwind's duration scale, so to state it explicitly use an arbitrary
+value:
+```html
+<div class="transition duration-[250ms] hover:scale-105">Animated</div>
 ```
 
 ## Customization

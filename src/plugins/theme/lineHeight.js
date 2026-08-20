@@ -9,6 +9,6 @@ module.exports = function () {
     cozy: '1.4', // Normal for slightly smaller paragraph font sizes (eg, 19px)
     DEFAULT: '1.5', // Normal for regular paragraphs
     half: '0.5', // Useful for logo lockup
-    trim: '0.75', // Trim leading for Source Sans Pro
+    trim: '0.75', // Trim leading for Source Sans 3
   };
 };
