@@ -7,6 +7,68 @@ full list of everything that shipped in each release, see [CHANGELOG.md](CHANGEL
 Upgrade notes for Decanter 6 and earlier are archived at
 [UPGRADE.md as of tag 6.3.3](https://github.com/SU-SWS/decanter/blob/6.3.3/UPGRADE.md).
 
+Upgrade from version 7.x to 8.0.0-alpha.x
+-------------------------------------------
+Decanter v8 uses Tailwind CSS v4. There are some breaking changes in Tailwind v4 that may affect your project. Please refer to the official Tailwind CSS v4 upgrade guide for detailed information:
+https://tailwindcss.com/docs/upgrade-guide
+
+Tailwind CSS does provide a tool to help with upgrading from Tailwind v3 to v4:
+https://tailwindcss.com/docs/upgrade-guide#using-the-upgrade-tool
+
+
+## The JavaScript preset is gone
+Decanter no longer ships `tailwind.config.js` or its TypeScript declarations — the whole package is now CSS.
+You can delete the tailwind.config.js file and import the CSS instead:
+
+```css
+/* your stylesheet */
+@import 'decanter';
+```
+
+Anything you had in `theme.extend` moves to your own `@theme` block. The Tailwind upgrade guide linked above
+covers the v3 to v4 migration in full.
+
+
+## Form styles are now opt-in
+Form classes (`.input`, `.select`, `.textarea`, `.checkbox`, `.radio`, `.label`, `.legend`, `.fieldset`) and the
+`@tailwindcss/forms` reset they depend on have moved to a separate entry point. If your site has forms, add one import:
+
+```css
+@import 'decanter';
+@import 'decanter/forms';
+```
+
+Sites without forms no longer carry the form classes or the global form-element reset.
+
+Note that `decanter/forms` is not standalone &mdash; import it alongside `decanter` (or `decanter/minimal`),
+which provide the theme variables and root font size the form styles depend on.
+
+
+## Slab and monospace fonts removed
+Decanter no longer provides font utilities for Roboto Slab and Roboto Mono font families:
+
+- `font-slab` (Roboto Slab) is **removed** — the utility no longer exists. Use `font-serif`, or define your own font family if you need a slab typeface.
+- `font-mono` is **no longer overridden** by Decanter. It remains a core Tailwind utility but now resolves to Tailwind's default system monospace stack instead of Roboto Mono. If you need Roboto Mono specifically, load it and set `--font-mono` in your own `@theme`.
+
+
+## Decanter custom class name changes
+Some custom utilities have been updated or deprecated to better align with updated Tailwind CSS conventions:
+
+- `break-words` => `wrap-anywhere`
+- `rounded` => `rounded-[0.3rem]`
+- `foggy`, `foggy-light`, `foggy-dark` => `fog`, `fog-light`, `fog-dark` (same values; the duplicate `foggy` name from v6 has been dropped)
+- `text-vertical-lr` => `[writing-mode:vertical-lr]`
+- `font-regular` => `font-normal`
+- `link-regular` => `link-normal` (matches Tailwind's `font-normal` naming)
+- `text-shadow`, `text-shadow-md`, `text-shadow-lg` => `text-shadow-legacy`, `text-shadow-legacy-md`, `text-shadow-legacy-lg` (Tailwind v4.1 ships its own `text-shadow-*` scale, which is preferred for new work)
+- Modular em font sizes `text-m0` through `text-m9` and `text--m1` => removed; use the modular type classes `type-0` through `type-10`, or arbitrary values such as `text-[1.25em]`
+- embed-container => Use `aspect-video` or `aspect-16/9` to maintain the 16x9 aspect ratio and add width/height classes as needed.
+- `credit` => `text-[max(1.6rem,0.9em)] leading-snug italic`
+`credit` has been removed because small italic text is not recommended for accessibility reasons. To achieve same styling as `credit` in v7, use the following classes => `text-[max(1.6rem,0.9em)] leading-snug italic text-cool-grey`
+- The 2 negative responsive spacing steps, e.g., `rs-m-neg1`, `rs-p-neg2` have been removed. Instead, use breakpoint modifiers with these values instead:
+  - `rs-m-neg1` => `p-11 md:p-12 2xl:p-13`
+  - `rs-p-neg2` => `p-8 md:p-9 2xl:p-10`
+
 Upgrade from version 7.4.0 to 7.5.0
 -----------------------------------
 

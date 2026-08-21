@@ -1,53 +1,41 @@
 {
   "name": "decanter",
-  "description": "Design System Tailwind CSS Preset.",
+  "description": "Stanford University's design system as a CSS-first Tailwind CSS v4 preset: color palette, typography, spacing, components, and utilities.",
   "author": "Stanford Web Services",
-  "version": "7.5.3",
+  "version": "8.0.0-alpha.1",
   "homepage": "https://github.com/SU-SWS/decanter",
   "license": "GPL-3.0-or-later",
   "keywords": [
     "CSS",
     "Decanter",
     "Stanford",
-    "TailWind CSS"
+    "TailwindCSS",
+    "Tailwind CSS",
+    "Tailwind CSS v4",
+    "Design System"
   ],
-  "main": "tailwind.config.js",
-  "types": "tailwind.config.d.ts",
+  "main": "src/css/index.css",
+  "style": "src/css/index.css",
   "exports": {
-    ".": {
-      "import": "./tailwind.config.mjs",
-      "require": "./tailwind.config.js",
-      "types": "./tailwind.config.d.ts"
-    },
-    "./tailwind.config.js": {
-      "import": "./tailwind.config.mjs",
-      "require": "./tailwind.config.js",
-      "types": "./tailwind.config.d.ts"
-    },
-    "./tailwind.config.mjs": "./tailwind.config.mjs",
-    "./tw.config.js": "./tw.config.js",
+    ".": "./src/css/index.css",
+    "./minimal": "./src/css/index-minimal.css",
+    "./colors": "./src/css/theme/colors.css",
+    "./forms": "./src/css/forms.css",
     "./src/*": "./src/*",
-    "./package.json": "./package.json",
-    "./fonts-basic.css": "./fonts-basic.css",
-    "./fonts.css": "./fonts.css"
+    "./package.json": "./package.json"
   },
   "files": [
-    "tailwind.config.js",
-    "tailwind.config.mjs",
-    "tailwind.config.d.ts",
-    "tw.config.js",
-    "src/",
-    "fonts.css",
-    "fonts-basic.css",
-    "docs/"
+    "src/css",
+    "docs",
+    "README.md",
+    "UPGRADE.md",
+    "license.md"
   ],
   "scripts": {
-    "build": "tailwind -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --content static/*.html",
-    "watch": "tailwind -c tailwind.config.js -i src/css/index.css -o static/css/decanter.css --watch=always --content static/*.html",
+    "build": "tailwindcss -i dev/dev.css -o static/css/decanter.css",
+    "watch": "tailwindcss -i dev/dev.css -o static/css/decanter.css --watch=always",
     "serve": "serve static -l 4000",
-    "dev": "npm run watch & npm run serve",
-    "lint": "eslint './src'",
-    "lint:fix": "eslint './src' --fix",
+    "dev": "concurrently --names css,web --prefix-colors cyan,green \"npm:watch\" \"npm:serve\"",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "repository": {
@@ -57,20 +45,20 @@
   "bugs": {
     "url": "https://github.com/SU-SWS/decanter/issues"
   },
+  "peerDependencies": {
+    "tailwindcss": "^4.1.16"
+  },
   "dependencies": {
-    "@tailwindcss/aspect-ratio": "^0.4.2",
-    "@tailwindcss/forms": "^0.5.11",
-    "tailwindcss": "^3.4.17"
+    "@tailwindcss/forms": "^0.5.11"
   },
   "devDependencies": {
-    "auto-changelog": "^2.4.0",
-    "autoprefixer": "^10.5.4",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "postcss": "^8.5.26",
-    "serve": "^14.2.6"
+    "@tailwindcss/cli": "^4.3.3",
+    "auto-changelog": "^2.6.0",
+    "concurrently": "^10.0.3",
+    "serve": "^14.2.6",
+    "tailwindcss": "^4.3.3"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   }
 }

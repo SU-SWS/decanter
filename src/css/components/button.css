@@ -1,0 +1,33 @@
+@layer components {
+  .button {
+    font-family: var(--font-sans);
+    cursor: pointer;
+    display: inline-block;
+    border: none;
+    font-weight: var(--font-weight-normal);
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    width: auto;
+    transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+    padding: 1rem 2rem;
+    background-color: var(--color-digital-red);
+    color: var(--color-white);
+
+    &:active,
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: var(--color-black);
+      color: var(--color-white);
+    }
+
+    &:focus {
+      box-shadow: var(--shadow-md);
+    }
+  }
+}
