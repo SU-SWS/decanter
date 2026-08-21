@@ -129,19 +129,64 @@ Migrating now makes the v8 upgrade a no-op.
 | `.text-vertical-lr` | `[writing-mode:vertical-lr]` | Yes |
 | `font-regular` | `font-normal` | Yes |
 | `font-slab` | Leave alone now and update when v8 is out | Yes |
+| The `Source Sans Pro` / `Source Serif Pro` fallbacks in `font-sans` / `font-serif` | Make sure Source Sans 3 and Source Serif 4 are loaded — see the note below | Yes |
 | `font-mono` | Leave alone now and update when v8 is out | Yes |
 | Social brand colors (`facebook`, `twitter`, `instagram`, `linkedin`, `youtube`) | Use the square bracket notation | Yes |
 | Color `foggy` | `fog` (identical color) | Yes |
 | `rs-m-neg1`, `rs-p-neg2` and the other negative responsive spacing steps | Breakpoint modifiers, e.g. `rs-m-neg1` → `p-11 md:p-12 2xl:p-13`, `rs-p-neg2` → `p-8 md:p-9 2xl:p-10` | Yes |
+| `text-m0` | `type-0`, or `text-[1em]` | Yes |
+| `text-m1` | `type-1`, or `text-[1.25em]` | Yes |
+| `text-m2` | `type-2`, or `text-[1.56em]` | Yes |
+| `text-m3` | `type-3`, or `text-[1.95em]` | Yes |
+| `text-m4` | `type-4`, or `text-[2.44em]` | Yes |
+| `text-m5` | `type-5`, or `text-[3.05em]` | Yes |
+| `text-m6` | `type-6`, or `text-[3.81em]` | Yes |
+| `text-m7` | `type-7`, or `text-[4.77em]` | Yes |
+| `text-m8` | `type-8`, or `text-[5.96em]` | Yes |
+| `text-m9` | `type-9`, or `text-[7.45em]` | Yes |
+| `text-09em`, `-text-m1` | `text-[.9em]` (no `type-*` equivalent — the 0.9em step is not on the scale) | Yes |
+| `aspect-w-*` / `aspect-h-*` (e.g. `aspect-w-16 aspect-h-9`), `aspect-none` | `aspect-[16/9]` on the wrapper, `size-full` on the child | Yes |
+| `children:`, `children-hover:`, `children-focus:`, `children-focus-visible:` | `*:`, `hover:*:`, `focus:*:`, `focus-visible:*:` — mind the order, see the note below | Yes |
 
-Two notes on the replacements:
+Five notes on the replacements:
+
+- **The two font size replacements are not equivalent — pick deliberately.** `type-N`
+  is the recommended target, but it matches `text-mN` only at the `lg` breakpoint and
+  up; below that it is deliberately smaller (`1.15^N` at mobile, `1.2^N` at `md`,
+  against `text-mN`'s flat `1.25^N`), and it adds proportional letter spacing. So
+  `type-6` is 3.81em on desktop like `text-m6`, but 2.31em on mobile. Use `type-N` if
+  you want that responsive behavior — it is why the scale exists. Use the arbitrary
+  value if you need the current rendering preserved byte-for-byte at every breakpoint.
+  `type-0` and `text-m0` are identical (both a flat 1em).
+
+- **The Pro font fallbacks are inert for most projects.** `font-sans` and `font-serif`
+  keep leading with Source Sans 3 and Source Serif 4; v8 only drops the superseded
+  `Source Sans Pro` / `Source Serif Pro` entry sitting behind each. Decanter's
+  `fonts.css` and `fonts-basic.css` load only Source Sans 3 and Source Serif 4, so
+  those entries never match unless you load the Pro families yourself. If you do, or
+  you depend on them being installed locally, ensure Source Sans 3 and Source Serif 4
+  are available — otherwise text falls through to Helvetica Neue and Georgia.
 
 - **`.credits` is being removed for accessibility reasons** — small italic text is not
   recommended. The replacement above reproduces the v7 styling if you need it, but
   prefer non-italic body-size text where you can.
 - **Use `aspect-[16/9]`, not `aspect-video`.** Decanter v7 loads
-  `@tailwindcss/aspect-ratio`, which suppresses Tailwind's core `aspect-*` utilities,
-  so `aspect-video` generates no CSS in v7. `aspect-[16/9]` works in both v7 and v8.
+  `@tailwindcss/aspect-ratio`, which replaces Tailwind's `theme.aspectRatio`, so
+  `aspect-auto`, `aspect-square` and `aspect-video` generate no CSS in v7. Arbitrary
+  values such as `aspect-[16/9]` work in both v7 and v8. v8 drops the plugin: the named
+  core utilities start working, and `aspect-w-*` / `aspect-h-*` / `aspect-none` stop
+  generating anything. Also note `aspect-w-*` absolutely positioned direct children to
+  fill the box — the `aspect-ratio` property does not, so add `size-full` to the child.
+  The brackets become optional in v8, which accepts bare fractions — `aspect-[3/2]` can
+  be shortened to `aspect-3/2` then — but the bracketed form keeps working, so migrate
+  now and drop the brackets later if you want.
+
+- **The `children:` replacements reverse the variant order.** `hover:*:underline`
+  compiles to `& > *:hover`, which is what `children-hover:` did. `*:hover:underline`
+  compiles to `&:hover > *` — every child of a hovered *parent*, a different thing. The
+  intuitive-looking form is the wrong one. Plain `children:` → `*:` is exact, and
+  prefixes and stacking carry over unchanged (`sm:children:` → `sm:*:`,
+  `last:children:` → `last:*:`).
 
 Upgrade from version 7.0.0-beta.1 to 7.0.0
 ------------------------------------------
