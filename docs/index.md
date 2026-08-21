@@ -20,6 +20,7 @@ This index lists all custom CSS classes provided by the Decanter design system (
 - `.centered-container`, `.cc` — Constrains content to centered max-width container. (see Components > Centered Container)
 - `.grid-gap` — Adds responsive gap between grid items. (see Components > Grid Gap)
 - `.embed-container` — Maintains responsive aspect ratio for embedded media. _(deprecated — use `aspect-[16/9]` with `size-full` on the embed; will be removed in v8)_ (see Components > Embed Container)
+- `.aspect-w-{1–16}`, `.aspect-h-{1–16}`, `.aspect-none` — Aspect-ratio boxes from `@tailwindcss/aspect-ratio`, using the `padding-bottom` hack with absolutely positioned children. _(deprecated — the dependency is dropped in v8; use `aspect-[16/9]` with `size-full` on the child)_
 - `.rs-*` — Responsive spacing utilities (`rs-m-`, `rs-p-` variants). (see Components > Responsive Spacing)
   - `.rs-m-{scale}`: responsive margin (all sides)
   - `.rs-p-{scale}`: responsive padding (all sides)
@@ -177,7 +178,7 @@ Custom variants added by Decanter for enhanced styling:
 - `hocus:` — Applies on hover and focus.
 - `hocus-visible:` — Applies on hover and `focus-visible`.
 - `group-hocus:` / `group-hocus-visible:` / `group-hocus-within:` — Applies when parent `.group` is hovered/focused.
-- `children:` / `children-hover:` / `children-focus:` / `children-focus-visible:` — Targets direct children in given states.
+- `children:` / `children-hover:` / `children-focus:` / `children-focus-visible:` — Targets direct children in given states. _(deprecated — use Tailwind's `*:` variant: `*:`, `hover:*:`, `focus:*:`, `focus-visible:*:`; will be removed in v8)_ (see Custom Variants)
 
 ## Removed Classes
 

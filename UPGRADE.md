@@ -83,8 +83,10 @@ Migrating now makes the v8 upgrade a no-op.
 | `text-m8` | `type-8`, or `text-[5.96em]` | Yes |
 | `text-m9` | `type-9`, or `text-[7.45em]` | Yes |
 | `text-09em`, `-text-m1` | `text-[.9em]` (no `type-*` equivalent — the 0.9em step is not on the scale) | Yes |
+| `aspect-w-*` / `aspect-h-*` (e.g. `aspect-w-16 aspect-h-9`), `aspect-none` | `aspect-[16/9]` on the wrapper, `size-full` on the child | Yes |
+| `children:`, `children-hover:`, `children-focus:`, `children-focus-visible:` | `*:`, `hover:*:`, `focus:*:`, `focus-visible:*:` — mind the order, see the note below | Yes |
 
-Four notes on the replacements:
+Five notes on the replacements:
 
 - **The two font size replacements are not equivalent — pick deliberately.** `type-N`
   is the recommended target, but it matches `text-mN` only at the `lg` breakpoint and
@@ -107,8 +109,22 @@ Four notes on the replacements:
   recommended. The replacement above reproduces the v7 styling if you need it, but
   prefer non-italic body-size text where you can.
 - **Use `aspect-[16/9]`, not `aspect-video`.** Decanter v7 loads
-  `@tailwindcss/aspect-ratio`, which suppresses Tailwind's core `aspect-*` utilities,
-  so `aspect-video` generates no CSS in v7. `aspect-[16/9]` works in both v7 and v8.
+  `@tailwindcss/aspect-ratio`, which replaces Tailwind's `theme.aspectRatio`, so
+  `aspect-auto`, `aspect-square` and `aspect-video` generate no CSS in v7. Arbitrary
+  values such as `aspect-[16/9]` work in both v7 and v8. v8 drops the plugin: the named
+  core utilities start working, and `aspect-w-*` / `aspect-h-*` / `aspect-none` stop
+  generating anything. Also note `aspect-w-*` absolutely positioned direct children to
+  fill the box — the `aspect-ratio` property does not, so add `size-full` to the child.
+  The brackets become optional in v8, which accepts bare fractions — `aspect-[3/2]` can
+  be shortened to `aspect-3/2` then — but the bracketed form keeps working, so migrate
+  now and drop the brackets later if you want.
+
+- **The `children:` replacements reverse the variant order.** `hover:*:underline`
+  compiles to `& > *:hover`, which is what `children-hover:` did. `*:hover:underline`
+  compiles to `&:hover > *` — every child of a hovered *parent*, a different thing. The
+  intuitive-looking form is the wrong one. Plain `children:` → `*:` is exact, and
+  prefixes and stacking carry over unchanged (`sm:children:` → `sm:*:`,
+  `last:children:` → `last:*:`).
 
 Upgrade from version 7.0.0-beta.1 to 7.0.0
 ------------------------------------------
