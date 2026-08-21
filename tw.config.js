@@ -112,7 +112,12 @@ function createDecanterConfig(plugin, requireFn) {
         /**
          * Note: in TW v3.4.0, the *: variant is added for targeting direct children
          * https://github.com/tailwindlabs/tailwindcss/pull/12551
-         * Leaving these in for now for backwards compatibility.
+         *
+         * @deprecated Removed in v8. Use Tailwind's `*:` variant, which generates the
+         * same selectors: `children:` -> `*:`, `children-hover:` -> `hover:*:`,
+         * `children-focus:` -> `focus:*:`, `children-focus-visible:` ->
+         * `focus-visible:*:`. The state variant goes first: `hover:*:` is `& > *:hover`,
+         * while `*:hover:` is `&:hover > *` (all children of a hovered parent).
          */
         addVariant('children', '& > *');
         addVariant('children-hover', '& > *:hover');
@@ -121,6 +126,13 @@ function createDecanterConfig(plugin, requireFn) {
       }),
 
       // 3rd Party Plugins;
+      // @deprecated This dependency is dropped in v8, removing `aspect-w-1` through
+      // `aspect-w-16`, `aspect-h-1` through `aspect-h-16`, and `aspect-none`. Use
+      // `aspect-[16/9]` on the wrapper with `size-full` on the child (the padding-bottom
+      // hack positioned children absolutely). The plugin replaces Tailwind's
+      // `theme.aspectRatio`, so `aspect-auto`, `aspect-square` and `aspect-video`
+      // generate nothing in v7 and start working again in v8; arbitrary values such as
+      // `aspect-[16/9]` work in both.
       requireFn('@tailwindcss/aspect-ratio'),
       requireFn('@tailwindcss/forms'),
 

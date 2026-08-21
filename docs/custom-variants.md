@@ -24,6 +24,24 @@ Usage example:
 ```
 
 ## Children Variants
+
+> **Deprecated.** These are removed in v8. Tailwind added the `*:` variant in v3.4.0,
+> which generates the same selectors:
+>
+> | Deprecated | Use instead | Selector |
+> | --- | --- | --- |
+> | `children:` | `*:` | `& > *` |
+> | `children-hover:` | `hover:*:` | `& > *:hover` |
+> | `children-focus:` | `focus:*:` | `& > *:focus` |
+> | `children-focus-visible:` | `focus-visible:*:` | `& > *:focus-visible` |
+>
+> Prefixes and stacking carry over unchanged — `sm:children:` becomes `sm:*:`,
+> `last:children:` becomes `last:*:`.
+>
+> **Put the state variant first.** `hover:*:` is `& > *:hover` (what `children-hover:`
+> did); `*:hover:` is `&:hover > *` — every child of a hovered *parent*, which is a
+> different thing.
+
 - **children**: Targets all direct children (`& > *`).
 - **children-hover**: Targets direct children on hover (`& > *:hover`).
 - **children-focus**: Direct children when focused (`& > *:focus`).
@@ -31,7 +49,14 @@ Usage example:
 
 Usage example:
 ```html
+<!-- Deprecated -->
 <div class="children-hover:text-cardinal-red">
+  <button>Child 1</button>
+  <button>Child 2</button>
+</div>
+
+<!-- Use instead -->
+<div class="hover:*:text-cardinal-red">
   <button>Child 1</button>
   <button>Child 2</button>
 </div>

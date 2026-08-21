@@ -15,7 +15,8 @@
 > Use `aspect-[16/9]`, not `aspect-video`. Decanter v7 loads
 > `@tailwindcss/aspect-ratio`, which suppresses Tailwind's core `aspect-*` utilities,
 > so `aspect-video` generates no CSS here. `aspect-[16/9]` works today and continues
-> to work in v8 once that plugin is dropped.
+> to work in v8 once that plugin is dropped. v8 also accepts bare fractions, so
+> `aspect-[16/9]` can be written `aspect-16/9` there — no need to change anything now.
 
 ## Overview
 
