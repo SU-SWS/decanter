@@ -1,0 +1,48 @@
+@layer components {
+  .skiplink,
+  .skiplinks {
+    position: absolute;
+    top: -500px;
+    left: 0.8em;
+    min-height: 1px;
+    transition: top 0.25s ease-in-out;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-size: 2rem;
+    font-weight: var(--font-weight-normal);
+    text-decoration: none;
+
+    &:hover,
+    &:visited {
+      width: 1px;
+      height: 1px;
+      color: var(--color-white);
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    &:active,
+    &:focus {
+      position: fixed;
+      top: 0.8em;
+      padding: 0.4em 0.8em;
+      width: auto;
+      height: auto;
+      color: var(--color-white);
+      border-style: solid;
+      border-width: 1px;
+      border-color: var(--color-cool-grey);
+      border-radius: 3px;
+      z-index: 10000;
+    }
+
+    @media print {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@layer components {
+  .centered-container,
+  .cc {
+    padding-left: var(--screen-margin-xs);
+    padding-right: var(--screen-margin-xs);
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (min-width: 576px) {
+      padding-left: var(--screen-margin-sm);
+      padding-right: var(--screen-margin-sm);
+    }
+
+    @media (min-width: 768px) {
+      padding-left: var(--screen-margin-md);
+      padding-right: var(--screen-margin-md);
+    }
+
+    @media (min-width: 992px) {
+      padding-left: var(--screen-margin-lg);
+      padding-right: var(--screen-margin-lg);
+    }
+
+    @media (min-width: 1200px) {
+      padding-left: var(--screen-margin-xl);
+      padding-right: var(--screen-margin-xl);
+    }
+
+    @media (min-width: 1700px) {
+      padding-left: calc((100% - 1500px) / 2);
+      padding-right: calc((100% - 1500px) / 2);
+    }
+
+    .centered-container,
+    .cc {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

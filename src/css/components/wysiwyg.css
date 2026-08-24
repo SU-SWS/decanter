@@ -1,0 +1,56 @@
+/**
+  Sets vertical rhythm (spacing) for unstructured rich text content such as CMS WYSIWYG output.
+*/
+@layer components {
+  .wysiwyg {
+    > *:first-child {
+      margin-top: -0.25em;
+    }
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
+    p,
+    ol,
+    ul,
+    dl {
+      margin-bottom: 1.6em;
+    }
+
+    li p {
+      margin-bottom: 0.4em;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin-bottom: 0.7em;
+      clear: both;
+
+      &:not(:first-child) {
+        margin-top: 1.6em;
+      }
+
+      a {
+        text-decoration: none;
+
+        &:hover,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    h2 + h3,
+    h3 + h4,
+    h4 + h5,
+    h5 + h6 {
+      &:not(:first-child) {
+        margin-top: 1em;
+      }
+    }
+  }
+}
