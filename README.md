@@ -1,5 +1,5 @@
 # [Decanter](https://github.com/SU-SWS/decanter)
-##### Version: 8 (alpha)
+##### Version: 8 (beta)
 
 Changelog: [CHANGELOG.md](CHANGELOG.md) &middot; Upgrading from v7? See [UPGRADE.md](UPGRADE.md)
 
@@ -19,10 +19,10 @@ The test page in this repository ([static/index.html](static/index.html)) demons
 ## Installation
 You first need to install Tailwind CSS v4. See the [Tailwind CSS website](https://tailwindcss.com/docs/installation) for your framework's recommended installation method.
 
-For example, for use with Next.js v16, install Tailwind CSS v4, @tailwindcss/postcss and Decanter (alpha release) as dev dependencies:
+For example, for use with Next.js v16, install Tailwind CSS v4, @tailwindcss/postcss and Decanter (beta release) as dev dependencies:
 
 ```bash
-npm install -D tailwindcss @tailwindcss/postcss decanter@alpha
+npm install -D tailwindcss @tailwindcss/postcss decanter@beta
 ```
 
 In your project's main CSS file:
