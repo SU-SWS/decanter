@@ -7,14 +7,13 @@ full list of everything that shipped in each release, see [CHANGELOG.md](CHANGEL
 Upgrade notes for Decanter 6 and earlier are archived at
 [UPGRADE.md as of tag 6.3.3](https://github.com/SU-SWS/decanter/blob/6.3.3/UPGRADE.md).
 
-Upgrade from version 7.x to 8.0.0-alpha.x
+Upgrade from version 7.x to 8.x
 -------------------------------------------
 Decanter v8 uses Tailwind CSS v4. There are some breaking changes in Tailwind v4 that may affect your project. Please refer to the official Tailwind CSS v4 upgrade guide for detailed information:
 https://tailwindcss.com/docs/upgrade-guide
 
 Tailwind CSS does provide a tool to help with upgrading from Tailwind v3 to v4:
 https://tailwindcss.com/docs/upgrade-guide#using-the-upgrade-tool
-
 
 ## The JavaScript preset is gone
 Decanter no longer ships `tailwind.config.js` or its TypeScript declarations — the whole package is now CSS.
@@ -28,7 +27,6 @@ You can delete the tailwind.config.js file and import the CSS instead:
 Anything you had in `theme.extend` moves to your own `@theme` block. The Tailwind upgrade guide linked above
 covers the v3 to v4 migration in full.
 
-
 ## Form styles are now opt-in
 Form classes (`.input`, `.select`, `.textarea`, `.checkbox`, `.radio`, `.label`, `.legend`, `.fieldset`) and the
 `@tailwindcss/forms` reset they depend on have moved to a separate entry point. If your site has forms, add one import:
@@ -38,36 +36,97 @@ Form classes (`.input`, `.select`, `.textarea`, `.checkbox`, `.radio`, `.label`,
 @import 'decanter/forms';
 ```
 
-Sites without forms no longer carry the form classes or the global form-element reset.
+Sites without the form import no longer carry the form classes or the global form-element reset.
 
 Note that `decanter/forms` is not standalone &mdash; import it alongside `decanter` (or `decanter/minimal`),
 which provide the theme variables and root font size the form styles depend on.
 
 
-## Slab and monospace fonts removed
-Decanter no longer provides font utilities for Roboto Slab and Roboto Mono font families:
+## Font family changes
+Decanter no longer ships Roboto Slab or Roboto Mono, and the superseded Source Pro families
+have been dropped from the sans and serif stacks:
 
-- `font-slab` (Roboto Slab) is **removed** — the utility no longer exists. Use `font-serif`, or define your own font family if you need a slab typeface.
-- `font-mono` is **no longer overridden** by Decanter. It remains a core Tailwind utility but now resolves to Tailwind's default system monospace stack instead of Roboto Mono. If you need Roboto Mono specifically, load it and set `--font-mono` in your own `@theme`.
+- `font-slab` (Roboto Slab) is **removed** — the utility no longer exists. Use `font-serif`, or
+  define your own font family if you need a slab typeface.
+- `font-mono` is **no longer overridden** by Decanter. It remains a core Tailwind utility but now
+  resolves to Tailwind's default system monospace stack instead of Roboto Mono. If you need Roboto
+  Mono specifically, load it and set `--font-mono` in your own `@theme`.
+- `font-sans` and `font-serif` still lead with **Source Sans 3** and **Source Serif 4**, but the
+  `Source Sans Pro` / `Source Serif Pro` entries sitting behind them are gone. Decanter's
+  `fonts.css` and `fonts-basic.css` only ever loaded the current families, so this is inert for
+  most projects. If you load the Pro families yourself, make sure Source Sans 3 and Source Serif 4
+  are also available — otherwise text falls through to Helvetica Neue and Georgia.
 
 
 ## Decanter custom class name changes
-Some custom utilities have been updated or deprecated to better align with updated Tailwind CSS conventions:
+Some custom classes have been renamed, replaced by a Tailwind core equivalent, or removed
+outright to better align with updated Tailwind CSS conventions. Font utilities are covered in
+the section above.
 
-- `break-words` => `wrap-anywhere`
-- `rounded` => `rounded-[0.3rem]`
-- `foggy`, `foggy-light`, `foggy-dark` => `fog`, `fog-light`, `fog-dark` (same values; the duplicate `foggy` name from v6 has been dropped)
-- `text-vertical-lr` => `[writing-mode:vertical-lr]`
-- `font-regular` => `font-normal`
-- `link-regular` => `link-normal` (matches Tailwind's `font-normal` naming)
-- `text-shadow`, `text-shadow-md`, `text-shadow-lg` => `text-shadow-legacy`, `text-shadow-legacy-md`, `text-shadow-legacy-lg` (Tailwind v4.1 ships its own `text-shadow-*` scale, which is preferred for new work)
-- Modular em font sizes `text-m0` through `text-m9` and `text--m1` => removed; use the modular type classes `type-0` through `type-10`, or arbitrary values such as `text-[1.25em]`
-- embed-container => Use `aspect-video` or `aspect-16/9` to maintain the 16x9 aspect ratio and add width/height classes as needed.
-- `credit` => `text-[max(1.6rem,0.9em)] leading-snug italic`
-`credit` has been removed because small italic text is not recommended for accessibility reasons. To achieve same styling as `credit` in v7, use the following classes => `text-[max(1.6rem,0.9em)] leading-snug italic text-cool-grey`
-- The 2 negative responsive spacing steps, e.g., `rs-m-neg1`, `rs-p-neg2` have been removed. Instead, use breakpoint modifiers with these values instead:
-  - `rs-m-neg1` => `p-11 md:p-12 2xl:p-13`
-  - `rs-p-neg2` => `p-8 md:p-9 2xl:p-10`
+| v7 | v8 |
+| --- | --- |
+| `break-words` | `wrap-anywhere` |
+| `font-regular` | `font-normal` |
+| `link-regular` | `link-normal` |
+| `foggy`, `foggy-light`, `foggy-dark` | `fog`, `fog-light`, `fog-dark` (identical values; the duplicate `foggy` name from v6 has been dropped) |
+| Social brand colors: `facebook`, `twitter`, `instagram`, `linkedin`, `youtube` | Arbitrary values — `#4267B2`, `#1DA1F2`, `#E1306C`, `#0077B5`, `#FF0000`, e.g. `bg-[#4267B2]` |
+| `text-shadow`, `text-shadow-md`, `text-shadow-lg` | `text-shadow-legacy`, `text-shadow-legacy-md`, `text-shadow-legacy-lg` |
+| `rounded` | `rounded-[0.3rem]` |
+| `text-vertical-lr` | `[writing-mode:vertical-lr]` |
+| `text-m0` | `type-0` |
+| `text-m1` | `type-1`, or `text-[1.25em]` |
+| `text-m2` | `type-2`, or `text-[1.56em]` |
+| `text-m3` | `type-3`, or `text-[1.95em]` |
+| `text-m4` | `type-4`, or `text-[2.44em]` |
+| `text-m5` | `type-5`, or `text-[3.05em]` |
+| `text-m6` | `type-6`, or `text-[3.81em]` |
+| `text-m7` | `type-7`, or `text-[4.77em]` |
+| `text-m8` | `type-8`, or `text-[5.96em]` |
+| `text-m9` | `type-9`, or `text-[7.45em]` |
+| `text-09em`, `-text-m1` | `text-[.9em]` |
+| `rs-p-neg1`, `rs-m-neg1` | `p-11 md:p-12 2xl:p-13`, `m-11 md:m-12 2xl:m-13` |
+| `rs-p-neg2`, `rs-m-neg2` | `p-8 md:p-9 2xl:p-10`, `m-8 md:m-9 2xl:m-10` |
+| `embed-container` | `aspect-video` (or `aspect-16/9`) on the wrapper, `size-full` on the embed |
+| `aspect-w-*`, `aspect-h-*` | `aspect-<w>/<h>`, e.g. `aspect-w-4 aspect-h-3` → `aspect-4/3` |
+| `aspect-none` | `aspect-auto` |
+| `credits` | `text-[max(1.6rem,0.9em)] leading-snug italic text-cool-grey` |
+| `children:`, `children-hover:`, `children-focus:`, `children-focus-visible:` | `*:`, `hover:*:`, `focus:*:`, `focus-visible:*:` |
+
+### Notes on the replacements
+
+- **`break-words` still exists — it just is not Decanter's anymore.** Core Tailwind's
+  `break-words` (`overflow-wrap: break-word`) only breaks a word when it has nowhere else to go,
+  which was not enough for something like a long email address in a narrow card. v7 amended the
+  class with `word-break: break-word` to force the break onto a second line. v8 drops that
+  override. Instead, you can use core `wrap-anywhere` (`overflow-wrap: anywhere`), which produces the
+  same result. `break-words` left in your markup keeps working as plain Tailwind — without the v7
+  behavior.
+
+- **`type-N` and `text-mN` are not equivalent — pick deliberately.** `type-N` is the recommended
+  target, but it matches `text-mN` only at the `lg` breakpoint and up; below that it is
+  deliberately smaller (`1.15^N` at mobile, `1.2^N` at `md`, against `text-mN`'s flat `1.25^N`),
+  and it adds proportional letter spacing. So `type-6` is 3.81em on desktop like `text-m6`, but
+  2.31em on mobile. Use the arbitrary values with the square brackets if you need the v7 rendering preserved at every
+  breakpoint. `type-0` and `text-m0` are identical (both a flat 1em).
+
+- **The `rs-p-neg1`, `rs-m-neg1`, `rs-p-neg2`, `rs-m-neg2` replacement include all variants of margin and padding.** Includes pt, pr, pb, pl, px, py, mt, mr, mb, ml, mx, my.
+
+- **`credits` was removed for accessibility reasons** — small italic text is not recommended. The
+  replacement above reproduces the v7 styling if you need it, but prefer non-italic body-size text
+  where you can.
+
+- **The aspect-ratio utilities changed hands.** v7 loaded `@tailwindcss/aspect-ratio`, which
+  suppressed Tailwind's core `aspect-*` utilities; v8 drops the plugin, so `aspect-auto`,
+  `aspect-square` and `aspect-video` now generate CSS and `aspect-w-*` / `aspect-h-*` /
+  `aspect-none` generate nothing. Note that `aspect-w-*` absolutely positioned direct children to
+  fill the box — the `aspect-ratio` property does not, so add `size-full` to the child if needed.
+  v8 aspect ratio classes accept bare fraction such as `aspect-4/3`.
+
+- **The `children:` replacements reverse the variant order.** `hover:*:underline` compiles to
+  `& > *:hover`, which is what `children-hover:` did. `*:hover:underline` compiles to
+  `&:hover > *` — every child of a hovered *parent*, a different thing. The intuitive-looking form
+  is the wrong one. Plain `children:` → `*:` is exact, and prefixes and stacking carry over
+  unchanged (`sm:children:` → `sm:*:`, `last:children:` → `last:*:`).
 
 Upgrade from version 7.4.0 to 7.5.0
 -----------------------------------
@@ -134,7 +193,7 @@ Migrating now makes the v8 upgrade a no-op.
 | Social brand colors (`facebook`, `twitter`, `instagram`, `linkedin`, `youtube`) | Use the square bracket notation | Yes |
 | Color `foggy` | `fog` (identical color) | Yes |
 | `rs-m-neg1`, `rs-p-neg2` and the other negative responsive spacing steps | Breakpoint modifiers, e.g. `rs-m-neg1` → `p-11 md:p-12 2xl:p-13`, `rs-p-neg2` → `p-8 md:p-9 2xl:p-10` | Yes |
-| `text-m0` | `type-0`, or `text-[1em]` | Yes |
+| `text-m0` | `type-0` | Yes |
 | `text-m1` | `type-1`, or `text-[1.25em]` | Yes |
 | `text-m2` | `type-2`, or `text-[1.56em]` | Yes |
 | `text-m3` | `type-3`, or `text-[1.95em]` | Yes |
