@@ -92,21 +92,21 @@ Em-based steps that scale up at the `md` (768px) and `lg` (992px) breakpoints, w
 
 ## Fluid type scale — `fluid-type-0` … `fluid-type-10`
 
-Font sizes that scale smoothly and linearly with the viewport between 360px and 1500px using `clamp()`. Min/max match the modular scale at the XS and 2XL breakpoints. Good for hero banners and horizontal cards where stepped sizes look jumpy.
+Font sizes that scale smoothly and linearly with the viewport between 360px and 1500px using `clamp()`. Min/max match the modular scale at the XS and 2XL breakpoints, and letter-spacing tightens proportionally to size, matching the same steps as `type-1`…`type-10`. Good for hero banners and horizontal cards where stepped sizes look jumpy.
 
-| Class | Value |
-|---|---|
-| `fluid-type-0` | `clamp(1.8rem, 0.44vw + 1.64rem, 2.3rem)` |
-| `fluid-type-1` | `clamp(2.1rem, 0.7vw + 1.85rem, 2.9rem)` |
-| `fluid-type-2` | `clamp(2.4rem, 1.05vw + 2.02rem, 3.6rem)` |
-| `fluid-type-3` | `clamp(2.7rem, 1.58vw + 2.13rem, 4.5rem)` |
-| `fluid-type-4` | `clamp(3.1rem, 2.19vw + 2.31rem, 5.6rem)` |
-| `fluid-type-5` | `clamp(3.6rem, 2.98vw + 2.53rem, 7rem)` |
-| `fluid-type-6` | `clamp(4.2rem, 4.04vw + 2.75rem, 8.8rem)` |
-| `fluid-type-7` | `clamp(4.8rem, 5.44vw + 2.84rem, 11rem)` |
-| `fluid-type-8` | `clamp(5.5rem, 7.19vw + 2.91rem, 13.7rem)` |
-| `fluid-type-9` | `clamp(6.3rem, 9.47vw + 2.89rem, 17.1rem)` |
-| `fluid-type-10` | `clamp(7.3rem, 12.37vw + 2.85rem, 21.4rem)` |
+| Class | Value | Letter spacing |
+|---|---|---|
+| `fluid-type-0` | `clamp(1.8rem, 0.44vw + 1.64rem, 2.3rem)` | — |
+| `fluid-type-1` | `clamp(2.1rem, 0.7vw + 1.85rem, 2.9rem)` | -0.01em |
+| `fluid-type-2` | `clamp(2.4rem, 1.05vw + 2.02rem, 3.6rem)` | -0.012em |
+| `fluid-type-3` | `clamp(2.7rem, 1.58vw + 2.13rem, 4.5rem)` | -0.014em |
+| `fluid-type-4` | `clamp(3.1rem, 2.19vw + 2.31rem, 5.6rem)` | -0.016em |
+| `fluid-type-5` | `clamp(3.6rem, 2.98vw + 2.53rem, 7rem)` | -0.018em |
+| `fluid-type-6` | `clamp(4.2rem, 4.04vw + 2.75rem, 8.8rem)` | -0.02em |
+| `fluid-type-7` | `clamp(4.8rem, 5.44vw + 2.84rem, 11rem)` | -0.022em |
+| `fluid-type-8` | `clamp(5.5rem, 7.19vw + 2.91rem, 13.7rem)` | -0.024em |
+| `fluid-type-9` | `clamp(6.3rem, 9.47vw + 2.89rem, 17.1rem)` | -0.026em |
+| `fluid-type-10` | `clamp(7.3rem, 12.37vw + 2.85rem, 21.4rem)` | -0.028em |
 
 Unlike `type-*` (em-based, relative to container), `fluid-type-*` is rem-based — it ignores the container's font size.
 
