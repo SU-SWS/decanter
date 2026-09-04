@@ -41,7 +41,6 @@ Sites without the form import no longer carry the form classes or the global for
 Note that `decanter/forms` is not standalone &mdash; import it alongside `decanter` (or `decanter/minimal`),
 which provide the theme variables and root font size the form styles depend on.
 
-
 ## Font family changes
 Decanter no longer ships Roboto Slab or Roboto Mono, and the superseded Source Pro families
 have been dropped from the sans and serif stacks:
@@ -57,9 +56,14 @@ have been dropped from the sans and serif stacks:
   most projects. If you load the Pro families yourself, make sure Source Sans 3 and Source Serif 4
   are also available — otherwise text falls through to Helvetica Neue and Georgia.
 
+## Fluid type now has letter-spacing adjustments
+`fluid-type-1` through `fluid-type-10` now apply the same negative letter-spacing as
+their `type-*` counterparts (e.g. `fluid-type-5` gets `-0.018em`, matching `type-5`).
+v7's fluid type classes only set `font-size`. If you prefer the unadjusted
+letter-spacing behavior in v7, override it explicitly (e.g. `fluid-type-5 tracking-normal`).
 
-## Decanter custom class name changes
-Some custom classes have been renamed, replaced by a Tailwind core equivalent, or removed
+## Decanter custom utilities changes
+Some custom utilities have been renamed, replaced by a Tailwind core equivalent, or removed
 outright to better align with updated Tailwind CSS conventions. Font utilities are covered in
 the section above.
 
@@ -91,6 +95,7 @@ the section above.
 | `aspect-none` | `aspect-auto` |
 | `credits` | `text-[max(1.6rem,0.9em)] leading-snug italic text-cool-grey` |
 | `children:`, `children-hover:`, `children-focus:`, `children-focus-visible:` | `*:`, `hover:*:`, `focus:*:`, `focus-visible:*:` |
+| `fluid-type-1`…`fluid-type-10` | Use with `tracking-normal` if you prefer the unadjusted letter-spacing in v7 |
 
 ### Notes on the replacements
 
