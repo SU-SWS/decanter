@@ -10,22 +10,22 @@ Source: `src/css/forms.css`, `src/css/components/form.css`.
 ## Setup
 
 ```css
-@import 'decanter';        /* or 'decanter/minimal' */
+@import 'decanter';        /* or another full/minimal main entry */
 @import 'decanter/forms';  /* adds form reset + classes */
 ```
 
-**`decanter/forms` is not standalone.** It depends on theme variables and the 62.5% root font size from the main entry; imported alone, controls render unstyled and oversized. Sites without forms simply omit the import and carry zero form CSS — including none of the plugin's global `input`/`select`/`textarea` reset.
+**`decanter/forms` is not standalone.** It depends on theme variables from `decanter`, `decanter/minimal`, `decanter/base16`, or `decanter/base16/minimal`; imported alone, controls render unstyled. Sites without forms simply omit the import and carry zero form CSS — including none of the plugin's global `input`/`select`/`textarea` reset.
 
 ## Class reference
 
 | Class | Element | Styles |
 |---|---|---|
-| `input` | `<input>` | Block, `black-20` border, `black` text, 1.8rem font, snug leading |
-| `textarea` | `<textarea>` | Same as `input`, 16rem tall |
+| `input` | `<input>` | Block, `black-20` border, `black` text, 18px-equivalent font, snug leading |
+| `textarea` | `<textarea>` | Same as `input`, 160px-equivalent tall |
 | `select` | `<select>` | Same as `input`, white background |
 | `checkbox` | `<input type="checkbox">` | 24×24px, 3px `digital-blue` border; `digital-blue` fill when checked |
 | `radio` | `<input type="radio">` | Same as `checkbox` |
-| `label` | `<label>` | Block, 1.8rem font |
+| `label` | `<label>` | Block, 18px-equivalent font |
 | `legend` | `<legend>` | Display line height |
 | `fieldset` | `<fieldset>` | Borderless |
 

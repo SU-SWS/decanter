@@ -2,6 +2,8 @@
 
 Sources: `src/css/theme/font-family.css`, `theme/font-size.css`, `theme/line-height.css`, `utilities/modular-type.css`, `utilities/fluid-type.css`, `utilities/font-size.css`, `utilities/typography-styles.css`, `base/base.css`.
 
+Pixel values below are the rendered sizes at standard browser settings. Decanter calculates them from `--decanter-px`, so they stay equivalent in both the legacy 10px-root and base16 entry points while still respecting browser font-size preferences.
+
 ## Font families
 
 | Class | Stack | Use |
@@ -53,11 +55,11 @@ If a family isn't loaded, its class falls back to the next font in the stack (e.
 
 ## Base body and heading behavior
 
-The full `decanter` entry sets a responsive body font size and heading sizes that follow the modular scale:
+The full `decanter` and `decanter/base16` entries set a responsive body font size and heading sizes that follow the modular scale:
 
 | Element | Behavior |
 |---|---|
-| `body` | 1.8rem (18px) → 1.9rem at `md` → 2.1rem at `2xl` |
+| `body` | 18px → 19px at `md` → 21px at `2xl` |
 | `h1` | `type-5` styles (see scale below) |
 | `h2` | `type-4` |
 | `h3` | `type-3` |
@@ -94,28 +96,28 @@ Em-based steps that scale up at the `md` (768px) and `lg` (992px) breakpoints, w
 
 Font sizes that scale smoothly and linearly with the viewport between 360px and 1500px using `clamp()`. Min/max match the modular scale at the XS and 2XL breakpoints, and letter-spacing tightens proportionally to size, matching the same steps as `type-1`…`type-10`. Good for hero banners and horizontal cards where stepped sizes look jumpy.
 
-| Class | Value | Letter spacing |
+| Class | Size from 360px → 1500px viewport | Letter spacing |
 |---|---|---|
-| `fluid-type-0` | `clamp(1.8rem, 0.44vw + 1.64rem, 2.3rem)` | — |
-| `fluid-type-1` | `clamp(2.1rem, 0.7vw + 1.85rem, 2.9rem)` | -0.01em |
-| `fluid-type-2` | `clamp(2.4rem, 1.05vw + 2.02rem, 3.6rem)` | -0.012em |
-| `fluid-type-3` | `clamp(2.7rem, 1.58vw + 2.13rem, 4.5rem)` | -0.014em |
-| `fluid-type-4` | `clamp(3.1rem, 2.19vw + 2.31rem, 5.6rem)` | -0.016em |
-| `fluid-type-5` | `clamp(3.6rem, 2.98vw + 2.53rem, 7rem)` | -0.018em |
-| `fluid-type-6` | `clamp(4.2rem, 4.04vw + 2.75rem, 8.8rem)` | -0.02em |
-| `fluid-type-7` | `clamp(4.8rem, 5.44vw + 2.84rem, 11rem)` | -0.022em |
-| `fluid-type-8` | `clamp(5.5rem, 7.19vw + 2.91rem, 13.7rem)` | -0.024em |
-| `fluid-type-9` | `clamp(6.3rem, 9.47vw + 2.89rem, 17.1rem)` | -0.026em |
-| `fluid-type-10` | `clamp(7.3rem, 12.37vw + 2.85rem, 21.4rem)` | -0.028em |
+| `fluid-type-0` | 18px → 23px | — |
+| `fluid-type-1` | 21px → 29px | -0.01em |
+| `fluid-type-2` | 24px → 36px | -0.012em |
+| `fluid-type-3` | 27px → 45px | -0.014em |
+| `fluid-type-4` | 31px → 56px | -0.016em |
+| `fluid-type-5` | 36px → 70px | -0.018em |
+| `fluid-type-6` | 42px → 88px | -0.02em |
+| `fluid-type-7` | 48px → 110px | -0.022em |
+| `fluid-type-8` | 55px → 137px | -0.024em |
+| `fluid-type-9` | 63px → 171px | -0.026em |
+| `fluid-type-10` | 73px → 214px | -0.028em |
 
-Unlike `type-*` (em-based, relative to container), `fluid-type-*` is rem-based — it ignores the container's font size.
+Unlike `type-*` (em-based, relative to its container), `fluid-type-*` uses `--decanter-px` plus a viewport-relative term, so it ignores the container's font size.
 
 ## Font size utilities
 
 | Class | Value | Notes |
 |---|---|---|
-| `text-<integer>` | integer × 0.1rem | Reads as pixels: `text-18` = 1.8rem = 18px. Any integer works. |
-| `text-input` | 1.8rem | The form-field font size |
+| `text-<integer>` | integer × `--decanter-px` | Reads as pixels at standard browser settings: `text-18` = 18px. Any integer works. |
+| `text-input` | 18px-equivalent | The form-field font size |
 
 Core Tailwind named sizes (`text-sm`, `text-lg`, …) remain available.
 
@@ -125,11 +127,11 @@ Set a responsive base font size on a container so all em-based typography inside
 
 | Class | Base | ≥ md | ≥ 2xl |
 |---|---|---|---|
-| `basefont-19` | 1.6rem | 1.8rem | 1.9rem |
-| `basefont-20` | 1.8rem | 1.9rem | 2rem |
-| `basefont-21` | 1.8rem | 1.9rem | 2.1rem |
-| `basefont-22` | 1.8rem | 2rem | 2.2rem |
-| `basefont-23` | 1.8rem | 2.1rem | 2.3rem |
+| `basefont-19` | 16px | 18px | 19px |
+| `basefont-20` | 18px | 19px | 20px |
+| `basefont-21` | 18px | 19px | 21px |
+| `basefont-22` | 18px | 20px | 22px |
+| `basefont-23` | 18px | 21px | 23px |
 
 ## Text styles
 
@@ -138,10 +140,10 @@ Set a responsive base font size on a container so all em-based typography inside
 | `splash-text` | Hero banner display text | `type-6` sizing + heading styles |
 | `intro-text` | Opening paragraph | `type-2` sizing, `leading-normal`, max-width 65ch |
 | `big-paragraph` | Copy slight larger than body text | 1.15em, cozy → normal leading |
-| `card-paragraph` | Card teaser text | `max(1.6rem, 0.93em)`, snug → cozy leading — never shrinks below 16px |
+| `card-paragraph` | Card teaser text | `max(16px-equivalent, 0.93em)`, snug → cozy leading — never shrinks below the scale's 16px floor |
 | `subheading` | Supporting text under a heading | `type-1` sizing |
 | `quote-text` | Pull quotes | 1.25em italic |
-| `caption` | Caption styling for any element | `max(1.6rem, 0.9em)`, snug leading — same look the base layer gives `figcaption` without the Cool Grey color |
+| `caption` | Caption styling for any element | `max(16px-equivalent, 0.9em)`, snug leading — same look the base layer gives `figcaption` without the Cool Grey color |
 | `types` | Heading styles without a size | `leading-display`, bold, 0.6em bottom margin, undecorated bold links — combine with `type-*` |
 
 ```html

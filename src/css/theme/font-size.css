@@ -1,5 +1,7 @@
 @theme {
-  --font-size: 0.1rem;
+  /* One pixel-equivalent Decanter unit. The base16 entries override only this value. */
+  --decanter-px: 0.1rem;
+  --font-size: var(--decanter-px);
   --text-root: 62.5%;
-  --text-input: 1.8rem;
+  --text-input: calc(var(--decanter-px) * 18);
 }

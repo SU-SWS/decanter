@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth">
+<html lang="en" dir="ltr" class="scroll-smooth" data-root-size="10">
 
 <head>
   <meta charset="utf-8">
@@ -7,15 +7,62 @@
   <meta name="description"
     content="Decanter v8 (Tailwind CSS v4) test page covering all custom Decanter theme tokens, components, utilities, and variants.">
   <title>Decanter v8 Test Page</title>
-  <link rel="stylesheet" href="./css/decanter.css">
+  <link id="decanter-stylesheet" rel="stylesheet" href="./css/decanter.css">
+  <script>
+    if (new URLSearchParams(window.location.search).get('root') === '16') {
+      document.documentElement.dataset.rootSize = '16';
+      document.getElementById('decanter-stylesheet').href = './css/decanter-base16.css';
+    }
+  </script>
 </head>
 
 <body>
   <!-- Brand bar -->
-  <header class="cc bg-cardinal-red pt-5 pb-1">
+  <header class="cc bg-cardinal-red pt-5 pb-1 flex flex-wrap items-center justify-between gap-10">
     <a href="#main-content" class="skiplink">Skip to main content</a>
     <a class="logo text-white hocus:text-white text-20 leading-none" href="https://stanford.edu">Stanford University</a>
+    <div class="flex items-center gap-8 text-16 text-white" role="group" aria-label="Preview root font size">
+      <span>10px</span>
+      <button id="root-size-toggle" type="button" role="switch" aria-checked="false"
+        aria-label="Use 16px root sizing"
+        class="group border-0 bg-transparent p-0 rounded-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
+        <span class="relative block h-24 w-44 rounded-full bg-black-20 transition-colors group-aria-checked:bg-digital-green"
+          aria-hidden="true">
+          <span
+            class="absolute left-3 top-3 size-18 rounded-full bg-white shadow-sm transition-transform group-aria-checked:translate-x-20"></span>
+        </span>
+      </button>
+      <span>16px</span>
+    </div>
   </header>
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const stylesheet = document.getElementById('decanter-stylesheet');
+      const toggle = document.getElementById('root-size-toggle');
+
+      const setRootSize = (useBase16, updateUrl = true) => {
+        root.dataset.rootSize = useBase16 ? '16' : '10';
+        stylesheet.href = useBase16 ? './css/decanter-base16.css' : './css/decanter.css';
+        toggle.setAttribute('aria-checked', String(useBase16));
+
+        if (updateUrl) {
+          const url = new URL(window.location.href);
+          if (useBase16) {
+            url.searchParams.set('root', '16');
+          } else {
+            url.searchParams.delete('root');
+          }
+          window.history.replaceState(null, '', url);
+        }
+      };
+
+      setRootSize(root.dataset.rootSize === '16', false);
+      toggle.addEventListener('click', () => {
+        setRootSize(toggle.getAttribute('aria-checked') !== 'true');
+      });
+    })();
+  </script>
 
   <main id="main-content" tabindex="-1">
     <!-- Hero -->
@@ -233,10 +280,10 @@
 
           <article id="font-sizes" class="rs-mb-4 scroll-mt-30">
             <h3 class="type-2 font-serif border-b border-black-20 pb-8">Font Size Utilities</h3>
-            <p class="max-w-prose-wide"><code>.text-&lt;number&gt;</code> sets the font size in 0.1rem
-              steps, so the number reads as pixels at the default root size &mdash; <code>.text-18</code>
-              is 1.8rem. Any integer works. <code>.text-1em</code>, <code>.text-09em</code>, and
-              <code>.text-input</code> (1.8rem, for form fields) are also available.
+            <p class="max-w-prose-wide"><code>.text-&lt;number&gt;</code> uses one pixel-equivalent step,
+              so the number reads as pixels under either root-size entry &mdash; <code>.text-18</code>
+              is 18px at the browser's default font size. Any integer works. <code>.text-1em</code>,
+              <code>.text-09em</code>, and <code>.text-input</code> (18px) are also available.
             </p>
             <p class="text-14 mb-4">.text-14 &mdash; The quick brown fox jumps over the lazy dog.</p>
             <p class="text-16 mb-4">.text-16 &mdash; The quick brown fox jumps over the lazy dog.</p>
@@ -251,7 +298,7 @@
             <h3 class="type-2 font-serif border-b border-black-20 pb-8">Base Font Classes</h3>
             <p class="max-w-prose-wide"><code>.basefont-19</code> through <code>.basefont-23</code> set a
               responsive base font size on a container so all em-based typography inside scales together.
-              The default body base is 21 (1.8rem &rarr; 1.9rem &rarr; 2.1rem).</p>
+              The default body base is 21 (18px &rarr; 19px &rarr; 21px).</p>
             <div class="basefont-19 border-l-4 border-black-20 pl-16 mb-16">
               <p class="mb-0"><strong>.basefont-19</strong> &mdash; A paragraph consists of one or more sentences
                 dealing
@@ -287,7 +334,7 @@
               Though not required by the syntax of any language, paragraphs are usually an expected part of
               formal writing, used to organize longer prose.</p>
             <p class="card-paragraph"><code>.card-paragraph</code> &mdash; Slightly smaller, tighter text
-              for card teasers, with a 1.6rem floor so it never becomes too small to read.</p>
+              for card teasers, with a 16px floor so it never becomes too small to read.</p>
             <p class="subheading"><code>.subheading</code> &mdash; A subheading introduces or supports the heading above
               it.</p>
             <p class="quote-text"><code>.quote-text</code> &mdash; &ldquo;A quotation styled with the quote-text
@@ -916,8 +963,8 @@
           <article id="grid-gap" class="rs-mb-4 scroll-mt-30">
             <h3 class="type-2 font-serif border-b border-black-20 pb-8">Grid Gap</h3>
             <p class="max-w-prose-wide"><code>.grid-gap</code> applies Decanter's responsive gutters in one
-              class: <code>gap-xs</code> (2rem) &rarr; <code>gap-lg</code> (3.6rem) at LG &rarr;
-              <code>gap-xl</code> (4rem) at XL &rarr; <code>gap-2xl</code> (4.8rem) at 2XL. The gap
+              class: <code>gap-xs</code> (20px) &rarr; <code>gap-lg</code> (36px) at LG &rarr;
+              <code>gap-xl</code> (40px) at XL &rarr; <code>gap-2xl</code> (48px) at 2XL. The gap
               tokens can also be used directly, e.g. <code>gap-xs lg:gap-lg</code>.
             </p>
             <div class="grid grid-cols-3 grid-gap rs-mb-2">
@@ -985,19 +1032,20 @@
 
           <article id="spacing-scale" class="rs-mb-4 scroll-mt-30">
             <h3 class="type-2 font-serif border-b border-black-20 pb-8">Spacing Scale</h3>
-            <p class="max-w-prose-wide">Decanter sets <code>--spacing: 0.1rem</code>, so numeric spacing
-              utilities read as pixels at the default root size: <code>p-16</code> is 1.6rem,
-              <code>w-300</code> is 30rem. Em-based steps <code>01em</code>&ndash;<code>1em</code> are for
+            <p class="max-w-prose-wide">Decanter sets <code>--spacing</code> to one pixel-equivalent
+              unit, so numeric spacing utilities read as pixels under either entry:
+              <code>p-16</code> is 16px and <code>w-300</code> is 300px. Em-based steps
+              <code>01em</code>&ndash;<code>1em</code> are for
               typography rhythm (e.g. <code>mb-05em</code>), and <code>prose-wide</code> (75ch) complements
               the core <code>prose</code> (65ch) measure.
             </p>
             <div class="text-16 font-mono">
               <div class="h-20 w-100 bg-lagunita mb-6"></div>
-              <p class="mb-10">.w-100 = 10rem</p>
+              <p class="mb-10">.w-100 = 100px</p>
               <div class="h-20 w-200 bg-lagunita mb-6"></div>
-              <p class="mb-10">.w-200 = 20rem</p>
+              <p class="mb-10">.w-200 = 200px</p>
               <div class="h-20 w-300 bg-lagunita mb-6"></div>
-              <p class="mb-10">.w-300 = 30rem</p>
+              <p class="mb-10">.w-300 = 300px</p>
             </div>
             <div class="border border-black-20 rounded-[0.3rem] rs-p-1">
               <p class="mb-02em font-semibold">This heading uses .mb-02em</p>

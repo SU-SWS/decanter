@@ -30,11 +30,11 @@ Everything below is *in addition to* core Tailwind CSS v4 utilities. Where Decan
 | Font families | `font-sans`, `font-serif`, `font-stanford` | [Typography](typography.md) |
 | Modular type scale | `type-0` … `type-10` (responsive, em-based) | [Typography](typography.md) |
 | Fluid type scale | `fluid-type-0` … `fluid-type-10` (viewport-clamped) | [Typography](typography.md) |
-| Font sizes | `text-<integer>` (0.1rem steps: `text-18` = 1.8rem), `text-input` | [Typography](typography.md) |
+| Font sizes | `text-<integer>` (pixel-equivalent steps: `text-18` = 18px by default), `text-input` | [Typography](typography.md) |
 | Base font | `basefont-19` … `basefont-23` (responsive container base size) | [Typography](typography.md) |
 | Text styles | `splash-text`, `intro-text`, `big-paragraph`, `card-paragraph`, `subheading`, `quote-text`, `caption`, `types` | [Typography](typography.md) |
 | Line heights | `leading-half`, `leading-trim`, `leading-tight`, `leading-display`, `leading-snug`, `leading-cozy`, `leading-normal` | [Typography](typography.md) |
-| Spacing scale | `--spacing: 0.1rem` — numeric utilities read as pixels (`p-16` = 1.6rem); em steps `*-01em` … `*-1em`; `prose-wide` (75ch) | [Spacing & Layout](spacing-and-layout.md) |
+| Spacing scale | `--spacing: var(--decanter-px)` — numeric utilities read as pixels (`p-16` = 16px by default); em steps `*-01em` … `*-1em`; `prose-wide` (75ch) | [Spacing & Layout](spacing-and-layout.md) |
 | Responsive spacing | `rs-p-*`, `rs-px-*`, `rs-py-*`, `rs-pt/pr/pb/pl-*`, `rs-m-*` (+ sides), `rs-gap-*`, `rs-gap-x/y-*` — steps 0–10 | [Spacing & Layout](spacing-and-layout.md) |
 | Gaps | `gap-xs`, `gap-lg`, `gap-xl`, `gap-2xl`, and the responsive `grid-gap` shorthand | [Spacing & Layout](spacing-and-layout.md) |
 | Container | `centered-container` / `cc` (Stanford screen margins, 1500px cap) | [Spacing & Layout](spacing-and-layout.md) |
@@ -48,7 +48,7 @@ Everything below is *in addition to* core Tailwind CSS v4 utilities. Where Decan
 
 ## Base styles
 
-Importing `decanter` (the full entry) also styles bare HTML elements: headings `h1`–`h6` follow the modular type scale, plus opinionated defaults for `p`, `a`, lists, `table`, `figcaption`, and code elements. Import `decanter/minimal` to skip element opinions and keep only the essentials (root font size, border-color compat, list markers). See [Getting Started](getting-started.md#entry-points).
+Importing `decanter` (the full entry) also styles bare HTML elements: headings `h1`–`h6` follow the modular type scale, plus opinionated defaults for `p`, `a`, lists, `table`, `figcaption`, and code elements. Import `decanter/minimal` to skip element opinions and keep only the essentials. The corresponding `decanter/base16` entries leave the HTML root font size unchanged. See [Getting Started](getting-started.md#entry-points).
 
 ## Upgrading from v7
 

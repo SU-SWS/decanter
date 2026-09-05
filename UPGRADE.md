@@ -38,8 +38,8 @@ Form classes (`.input`, `.select`, `.textarea`, `.checkbox`, `.radio`, `.label`,
 
 Sites without the form import no longer carry the form classes or the global form-element reset.
 
-Note that `decanter/forms` is not standalone &mdash; import it alongside `decanter` (or `decanter/minimal`),
-which provide the theme variables and root font size the form styles depend on.
+Note that `decanter/forms` is not standalone &mdash; import it alongside one of the full or minimal main entries,
+which provide the theme variables the form styles depend on. The `decanter/base16` entries are also supported.
 
 ## Font family changes
 Decanter no longer ships Roboto Slab or Roboto Mono, and the superseded Source Pro families
