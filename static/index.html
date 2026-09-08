@@ -21,49 +21,7 @@
   <header class="cc bg-cardinal-red pt-5 pb-1 flex flex-wrap items-center justify-between gap-10">
     <a href="#main-content" class="skiplink">Skip to main content</a>
     <a class="logo text-white hocus:text-white text-20 leading-none" href="https://stanford.edu">Stanford University</a>
-    <div class="flex items-center gap-8 text-15 text-white" role="group" aria-label="Choose root font size">
-      <span>10px</span>
-      <button id="root-size-toggle" type="button" role="switch" aria-checked="false"
-        aria-label="Use 16px root font size"
-        class="group border-0 bg-transparent p-0 rounded-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
-        <span
-          class="relative -top-2 block h-20 w-44 rounded-full bg-black-20 transition-colors group-aria-checked:bg-lagunita-light"
-          aria-hidden="true">
-          <span
-            class="absolute left-3 top-2 size-16 rounded-full bg-white shadow-sm transition-transform group-aria-checked:translate-x-20"></span>
-        </span>
-      </button>
-      <span>16px</span>
-    </div>
   </header>
-  <script>
-    (() => {
-      const root = document.documentElement;
-      const stylesheet = document.getElementById('decanter-stylesheet');
-      const toggle = document.getElementById('root-size-toggle');
-
-      const setRootSize = (useBase16, updateUrl = true) => {
-        root.dataset.rootSize = useBase16 ? '16' : '10';
-        stylesheet.href = useBase16 ? './css/decanter-base16.css' : './css/decanter.css';
-        toggle.setAttribute('aria-checked', String(useBase16));
-
-        if (updateUrl) {
-          const url = new URL(window.location.href);
-          if (useBase16) {
-            url.searchParams.set('root', '16');
-          } else {
-            url.searchParams.delete('root');
-          }
-          window.history.replaceState(null, '', url);
-        }
-      };
-
-      setRootSize(root.dataset.rootSize === '16', false);
-      toggle.addEventListener('click', () => {
-        setRootSize(toggle.getAttribute('aria-checked') !== 'true');
-      });
-    })();
-  </script>
 
   <main id="main-content" tabindex="-1">
     <!-- Hero -->
@@ -89,6 +47,41 @@
         </p>
       </div>
     </section>
+
+    <!-- Root font size switcher -->
+    <div class="bg-fog-light border-b rs-py-1">
+      <div class="cc flex flex-wrap items-center gap-x-20 gap-y-4" role="group" aria-labelledby="root-size-label">
+        <span id="root-size-label" class="text-18 font-semibold">Choose root font size:</span>
+        <span class="flex items-center gap-8 text-18">
+          <span aria-hidden="true">10px</span>
+          <input id="root-size-toggle" type="checkbox" role="switch" aria-label="Use 16px root font size"
+            class="relative h-28 w-56 shrink-0 cursor-pointer appearance-none rounded-full border-0 bg-black-70 transition-colors checked:bg-lagunita checked:bg-none focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-digital-blue before:absolute before:top-3 before:left-3 before:size-22 before:rounded-full before:bg-white before:shadow-sm before:transition-transform before:content-[''] checked:before:translate-x-28">
+          <span aria-hidden="true">16px</span>
+        </span>
+      </div>
+    </div>
+    <script>
+      (() => {
+        const root = document.documentElement;
+        const stylesheet = document.getElementById('decanter-stylesheet');
+        const toggle = document.getElementById('root-size-toggle');
+
+        const setRootSize = (useBase16, updateUrl = true) => {
+          root.dataset.rootSize = useBase16 ? '16' : '10';
+          stylesheet.href = useBase16 ? './css/decanter-base16.css' : './css/decanter.css';
+          toggle.checked = useBase16;
+
+          if (updateUrl) {
+            const url = new URL(window.location.href);
+            useBase16 ? url.searchParams.set('root', '16') : url.searchParams.delete('root');
+            window.history.replaceState(null, '', url);
+          }
+        };
+
+        setRootSize(root.dataset.rootSize === '16', false);
+        toggle.addEventListener('change', () => setRootSize(toggle.checked));
+      })();
+    </script>
 
     <!-- Table of contents -->
     <nav id="menu" aria-label="Table of contents"

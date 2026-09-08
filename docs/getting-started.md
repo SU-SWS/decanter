@@ -9,8 +9,16 @@ Decanter v8 is a CSS-first preset for Tailwind CSS v4. There is no JavaScript co
 
 ## Installation
 
+Generally you will install Decanter alongside Tailwind CSS v4:
+
 ```bash
-npm install decanter tailwindcss
+npm install decanter@beta tailwindcss
+```
+
+The Tailwind v4 integration is framework-specific. See the [Tailwind CSS website](https://tailwindcss.com/docs/installation) for your framework's recommended installation method. For use with Next.js v16, install Tailwind CSS v4, @tailwindcss/postcss and Decanter (beta release) as dev dependencies:
+
+```bash
+npm install -D tailwindcss @tailwindcss/postcss decanter@beta
 ```
 
 ## Basic usage
@@ -66,7 +74,7 @@ Decanter-specific lengths use one shared `--decanter-px` unit, so their rendered
 | `p-16` | 16px-equivalent | 16px-equivalent |
 | `w-300` | 300px-equivalent | 300px-equivalent |
 
-The base16 mode is the better fit for use with third-party libraries such as MUI that use ordinary rem values and assume the browser default. Browser font-size preferences continue to scale both modes proportionally, making it fully accessible.
+The default base10 mode still has the advantage of simpler math for developers who need custom utilities in rem units, since calculating rem values is easier when dividing by 10 instead of 16. The base16 mode is the better fit for use with third-party libraries such as MUI that use ordinary rem values and assume the browser default. Browser font-size preferences continue to scale both modes proportionally, making it fully accessible.
 
 Decanter still overrides Tailwind's numeric spacing scale in either mode: `p-4` means 4px-equivalent, not stock Tailwind's 16px (in Tailwind v3). The base16 mode changes the root rem basis; it does not replace Decanter's spacing API.
 
