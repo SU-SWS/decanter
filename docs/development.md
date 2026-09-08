@@ -39,6 +39,7 @@ src/css/                  The published package (everything consumers import)
   forms.css               Opt-in forms entry (plugin + form classes)
   custom-variants.css     hocus / hocus-visible / hocus-within
   theme/                  @theme tokens (colors, spacing, breakpoints, fonts, …)
+    decanter-px.css       --decanter-px, the unit every fixed Decanter length derives from
     base16.css            The sole base16 override: --decanter-px
   components/             Plain CSS component classes (@layer components)
   utilities/              @utility definitions (generated on demand)
