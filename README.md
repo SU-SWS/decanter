@@ -46,7 +46,7 @@ There is no need to add a separate `@import 'tailwindcss'`, or your output will 
 | `decanter/colors` | Stanford color palette only — standalone, works on stock Tailwind |
 | `decanter/src/*` | Any individual source file, for à-la-carte composition |
 
-Both sizing modes keep Decanter-owned numeric utilities, tokens, and fixed component dimensions at the same rendered pixel sizes: `p-16` is 16px and `text-18` is 18px at standard browser settings. Choose a `base16` entry when Tailwind core or another library expects the browser's usual 16px rem basis. See [Getting Started](docs/getting-started.md) for details.
+Both sizing modes keep Decanter-owned numeric utilities, tokens, and fixed component dimensions at the same rendered pixel sizes in rem units: `p-16` is 16px and `text-18` is 18px at standard browser settings. Choose a `base16` entry when Tailwind core or another library expects the browser's usual 16px rem basis. See [Getting Started](docs/getting-started.md) for details.
 
 ## Fonts
 Decanter provides font-family **utilities** (`font-sans`, `font-serif`, `font-stanford`) but does not bundle or load the font files — how fonts are loaded is framework-specific, so that's left to you. Load only the families you use; if one isn't loaded, its class falls back gracefully down the stack.

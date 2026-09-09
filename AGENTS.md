@@ -34,3 +34,4 @@ Full layout and conventions: [docs/development.md](docs/development.md).
   file under `src/css/` is a breaking change — note it in [UPGRADE.md](UPGRADE.md).
 - **Docs are shipped** (`docs/` is in the `files` allowlist). Changing behaviour
   means updating the relevant `docs/*.md`.
+- **Prefers rem-based sizing for accessibility**: Most Decanter-owned numeric utilities, tokens, and fixed component spacing and font sizes are rem-based and scale with the browser's root font size. The default 10px-root entries set `html { font-size: 62.5% }` so that `1rem = 10px`. The base16 entries leave the root font size unchanged (`1rem = 16px`), but all Decanter-owned lengths still render at the same pixel-equivalent sizes in either mode. See [Getting Started](docs/getting-started.md) for details.
