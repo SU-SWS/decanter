@@ -1,0 +1,71 @@
+/*
+  Modular spacing scale — steps 0-10, each step the previous one multiplied by
+  a per-breakpoint ratio, in the manner of utilities/modular-type.css. Values
+  are pixel-equivalents built from --decanter-px, so they render at the same
+  size under either root-size entry.
+
+    Set   Base   Ratio   Applies from
+    xs    18px   1.15    all widths (also covers the sm breakpoint)
+    md    19px   1.2     768px (also covers the lg breakpoint)
+    xl    19px   1.25    1200px
+    2xl   21px   1.25    1500px
+
+  The design scale gives sm the same values as xs and lg the same values as md,
+  so those two breakpoints get no token set and no media query.
+*/
+@theme {
+  --modular-spacing-xs-0: calc(var(--decanter-px) * 18);
+  --modular-spacing-md-0: calc(var(--decanter-px) * 19);
+  --modular-spacing-xl-0: calc(var(--decanter-px) * 19);
+  --modular-spacing-2xl-0: calc(var(--decanter-px) * 21);
+
+  --modular-spacing-xs-1: calc(var(--decanter-px) * 21);
+  --modular-spacing-md-1: calc(var(--decanter-px) * 23);
+  --modular-spacing-xl-1: calc(var(--decanter-px) * 24);
+  --modular-spacing-2xl-1: calc(var(--decanter-px) * 26);
+
+  --modular-spacing-xs-2: calc(var(--decanter-px) * 24);
+  --modular-spacing-md-2: calc(var(--decanter-px) * 27);
+  --modular-spacing-xl-2: calc(var(--decanter-px) * 30);
+  --modular-spacing-2xl-2: calc(var(--decanter-px) * 33);
+
+  --modular-spacing-xs-3: calc(var(--decanter-px) * 27);
+  --modular-spacing-md-3: calc(var(--decanter-px) * 33);
+  --modular-spacing-xl-3: calc(var(--decanter-px) * 37);
+  --modular-spacing-2xl-3: calc(var(--decanter-px) * 41);
+
+  --modular-spacing-xs-4: calc(var(--decanter-px) * 31);
+  --modular-spacing-md-4: calc(var(--decanter-px) * 39);
+  --modular-spacing-xl-4: calc(var(--decanter-px) * 46);
+  --modular-spacing-2xl-4: calc(var(--decanter-px) * 51);
+
+  --modular-spacing-xs-5: calc(var(--decanter-px) * 36);
+  --modular-spacing-md-5: calc(var(--decanter-px) * 47);
+  --modular-spacing-xl-5: calc(var(--decanter-px) * 58);
+  --modular-spacing-2xl-5: calc(var(--decanter-px) * 64);
+
+  --modular-spacing-xs-6: calc(var(--decanter-px) * 42);
+  --modular-spacing-md-6: calc(var(--decanter-px) * 57);
+  --modular-spacing-xl-6: calc(var(--decanter-px) * 72);
+  --modular-spacing-2xl-6: calc(var(--decanter-px) * 80);
+
+  --modular-spacing-xs-7: calc(var(--decanter-px) * 48);
+  --modular-spacing-md-7: calc(var(--decanter-px) * 68);
+  --modular-spacing-xl-7: calc(var(--decanter-px) * 91);
+  --modular-spacing-2xl-7: calc(var(--decanter-px) * 100);
+
+  --modular-spacing-xs-8: calc(var(--decanter-px) * 55);
+  --modular-spacing-md-8: calc(var(--decanter-px) * 82);
+  --modular-spacing-xl-8: calc(var(--decanter-px) * 113);
+  --modular-spacing-2xl-8: calc(var(--decanter-px) * 125);
+
+  --modular-spacing-xs-9: calc(var(--decanter-px) * 63);
+  --modular-spacing-md-9: calc(var(--decanter-px) * 98);
+  --modular-spacing-xl-9: calc(var(--decanter-px) * 142);
+  --modular-spacing-2xl-9: calc(var(--decanter-px) * 156);
+
+  --modular-spacing-xs-10: calc(var(--decanter-px) * 73);
+  --modular-spacing-md-10: calc(var(--decanter-px) * 118);
+  --modular-spacing-xl-10: calc(var(--decanter-px) * 177);
+  --modular-spacing-2xl-10: calc(var(--decanter-px) * 196);
+}
