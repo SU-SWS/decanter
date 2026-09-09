@@ -64,19 +64,19 @@ Build with your Tailwind integration as usual. Tailwind v4 detects the classes y
 
 The original entries (`decanter` and `decanter/minimal`) keep Decanter's long-standing `html { font-size: 62.5% }` rule, which results in `1rem = 10px` for default browser settings. The base16 entries (`decanter/base16` or `decanter/base16/minimal`) leave the HTML font size entirely to the browser. At standard browser settings, the new base16 mode results in `1rem = 16px`.
 
-Decanter-specific lengths use one shared `--decanter-px` unit, so their rendered sizes remain equivalent in both modes:
+Decanter-specific lengths use one shared `--decanter-px` unit, so their rendered sizes in pixel remain equivalent in both modes even though the rem unit is used and the root font sizes differ:
 
 | | `decanter` / `decanter/minimal` | `decanter/base16` / `decanter/base16/minimal` |
 |---|---|---|
 | HTML root rule | `font-size: 62.5%` | No font-size declaration |
 | `--decanter-px` | `0.1rem` | `0.0625rem` |
-| `text-18` | 18px-equivalent | 18px-equivalent |
-| `p-16` | 16px-equivalent | 16px-equivalent |
-| `w-300` | 300px-equivalent | 300px-equivalent |
+| `text-18` | 18px | 18px |
+| `p-16` | 16px | 16px |
+| `w-300` | 300px | 300px |
 
 The default base10 mode still has the advantage of simpler math for developers who need custom utilities in rem units, since calculating rem values is easier when dividing by 10 instead of 16. The base16 mode is the better fit for use with third-party libraries such as MUI that use ordinary rem values and assume the browser default. Browser font-size preferences continue to scale both modes proportionally, making it fully accessible.
 
-Decanter still overrides Tailwind's numeric spacing scale in either mode: `p-4` means 4px-equivalent, not stock Tailwind's 16px (in Tailwind v3). The base16 mode changes the root rem basis; it does not replace Decanter's spacing API.
+Decanter still overrides Tailwind's numeric spacing scale in either mode: `p-4` means 4px, not stock Tailwind's 16px (in Tailwind v3). The base16 mode changes the root rem basis; it does not replace Decanter's spacing API.
 
 ```css
 /* Use one of these, not both. */

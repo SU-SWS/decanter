@@ -20,12 +20,12 @@ Source: `src/css/forms.css`, `src/css/components/form.css`.
 
 | Class | Element | Styles |
 |---|---|---|
-| `input` | `<input>` | Block, `black-20` border, `black` text, 18px-equivalent font, snug leading |
-| `textarea` | `<textarea>` | Same as `input`, 160px-equivalent tall |
+| `input` | `<input>` | Block, `black-20` border, `black` text, 18px font, snug leading |
+| `textarea` | `<textarea>` | Same as `input`, 160px tall |
 | `select` | `<select>` | Same as `input`, white background |
 | `checkbox` | `<input type="checkbox">` | 24×24px, 3px `digital-blue` border; `digital-blue` fill when checked |
 | `radio` | `<input type="radio">` | Same as `checkbox` |
-| `label` | `<label>` | Block, 18px-equivalent font |
+| `label` | `<label>` | Block, 18px font |
 | `legend` | `<legend>` | Display line height |
 | `fieldset` | `<fieldset>` | Borderless |
 

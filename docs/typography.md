@@ -117,7 +117,7 @@ Unlike `type-*` (em-based, relative to its container), `fluid-type-*` uses `--de
 | Class | Value | Notes |
 |---|---|---|
 | `text-<integer>` | integer × `--decanter-px` | Reads as pixels at standard browser settings: `text-18` = 18px. Any integer works. |
-| `text-input` | 18px-equivalent | The form-field font size |
+| `text-input` | 18px | The form-field font size |
 
 Core Tailwind named sizes (`text-sm`, `text-lg`, …) remain available.
 
@@ -140,10 +140,10 @@ Set a responsive base font size on a container so all em-based typography inside
 | `splash-text` | Hero banner display text | `type-6` sizing + heading styles |
 | `intro-text` | Opening paragraph | `type-2` sizing, `leading-normal`, max-width 65ch |
 | `big-paragraph` | Copy slight larger than body text | 1.15em, cozy → normal leading |
-| `card-paragraph` | Card teaser text | `max(16px-equivalent, 0.93em)`, snug → cozy leading — never shrinks below the scale's 16px floor |
+| `card-paragraph` | Card teaser text slightly smaller than body text | `max(16px, 0.93em)`, snug → cozy leading — never shrinks below the scale's 16px floor |
 | `subheading` | Supporting text under a heading | `type-1` sizing |
 | `quote-text` | Pull quotes | 1.25em italic |
-| `caption` | Caption styling for any element | `max(16px-equivalent, 0.9em)`, snug leading — same look the base layer gives `figcaption` without the Cool Grey color |
+| `caption` | Caption styling for any element | `max(16px, 0.9em)`, snug leading — same look the base layer gives `figcaption` without the Cool Grey color, never shrinks below the scale's 16px floor |
 | `types` | Heading styles without a size | `leading-display`, bold, 0.6em bottom margin, undecorated bold links — combine with `type-*` |
 
 ```html

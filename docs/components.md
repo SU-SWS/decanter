@@ -8,7 +8,7 @@ Source: `src/css/components/`.
 
 Cardinal-red action button for `<button>`, `<a>`, and `<input type="submit|button|reset">`.
 
-- Background `digital-red`, white text, 10px × 20px-equivalent padding, no border
+- Background `digital-red`, white text, no border
 - Hover/focus: background `black`, underline; focus adds `shadow-md`
 - Transitions use Decanter's default 0.25s duration
 
@@ -74,7 +74,7 @@ The base layer styles plain `ul`/`ol` with disc/decimal markers and `1em` paddin
 
 ## Tables
 
-The base layer styles plain `<table>` elements: full width, row borders in `black-20`, left-aligned semibold headers, 15px-equivalent cell padding, muted caption, responsive font size (16px → 18px at `md`).
+The base layer styles plain `<table>` elements: full width, row borders in `black-20`, left-aligned semibold headers, cell padding, muted caption, responsive font size.
 
 | Class | Behavior |
 |---|---|

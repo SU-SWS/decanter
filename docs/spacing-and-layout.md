@@ -4,15 +4,15 @@ Sources: `src/css/theme/spacing.css`, `theme/responsive-spacing.css`, `theme/gap
 
 ## Spacing scale: numbers read as pixels
 
-Decanter sets `--spacing: var(--decanter-px)`, so every numeric spacing utility is the class number multiplied by one pixel-equivalent unit. `--decanter-px` is `0.1rem` in the legacy 10px-root entries and `0.0625rem` in the base16 entries. At standard browser settings, **the class number equals pixels in either mode**:
+Decanter sets `--spacing: var(--decanter-px)`, so every numeric spacing utility is the class number multiplied by one pixel-equivalent unit. `--decanter-px` is `0.1rem` in the default 10px-root entries and `0.0625rem` in the base16 entries. At standard browser settings, **the class number equals pixels in either mode**:
 
-| Class | Calculation | Default rendered size |
+| Class | Default rendered size |
 |---|---|---|
-| `p-16` | `16 × --decanter-px` | 16px |
-| `mb-24` | `24 × --decanter-px` | 24px |
-| `w-300` | `300 × --decanter-px` | 300px |
-| `max-w-600` | `600 × --decanter-px` | 600px |
-| `gap-10` | `10 × --decanter-px` | 10px |
+| `p-42` | 42px |
+| `mb-24` | 24px |
+| `w-321` | 321px |
+| `max-w-630` | 630px |
+| `gap-12` | 12px |
 
 This applies to padding, margin, width, height, gap, inset, and every other spacing-driven utility. **This differs from stock Tailwind**, where `p-4` = 1rem. Browser font-size preferences still scale these rem-based values proportionally.
 
@@ -65,14 +65,16 @@ The v7 negative steps (`rs-*-neg1`, `rs-*-neg2`) were removed — see [UPGRADE.m
 
 ## Grid gaps
 
-Four gap tokens sized for page-level grids, plus a shorthand that applies them responsively:
+Gap tokens sized for grids, plus a shorthand that applies them responsively. Note: for simplicity we show the values in pixel in the below table, but the actual CSS uses the rem unit for gaps, so they scale with browser font-size preferences:
 
 | Token | Value |
 |---|---|
-| `gap-xs` | 20px-equivalent |
-| `gap-lg` | 36px-equivalent |
-| `gap-xl` | 40px-equivalent |
-| `gap-2xl` | 48px-equivalent |
+| `gap-xs` | 20px |
+| `gap-sm` | 20px |
+| `gap-md` | 20px |
+| `gap-lg` | 36px |
+| `gap-xl` | 40px |
+| `gap-2xl` | 48px |
 
 | Class | Behavior |
 |---|---|

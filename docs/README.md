@@ -30,11 +30,11 @@ Everything below is *in addition to* core Tailwind CSS v4 utilities. Where Decan
 | Font families | `font-sans`, `font-serif`, `font-stanford` | [Typography](typography.md) |
 | Modular type scale | `type-0` … `type-10` (responsive, em-based) | [Typography](typography.md) |
 | Fluid type scale | `fluid-type-0` … `fluid-type-10` (viewport-clamped) | [Typography](typography.md) |
-| Font sizes | `text-<integer>` (pixel-equivalent steps: `text-18` = 18px), `text-input` | [Typography](typography.md) |
+| Font sizes | `text-<integer>` (`text-18` = 18px in rem), `text-input` | [Typography](typography.md) |
 | Base font | `basefont-19` … `basefont-23` (responsive container base size) | [Typography](typography.md) |
 | Text styles | `splash-text`, `intro-text`, `big-paragraph`, `card-paragraph`, `subheading`, `quote-text`, `caption`, `types` | [Typography](typography.md) |
 | Line heights | `leading-half`, `leading-trim`, `leading-tight`, `leading-display`, `leading-snug`, `leading-cozy`, `leading-normal` | [Typography](typography.md) |
-| Spacing scale | `--spacing: var(--decanter-px)` — numeric utilities read as pixels (`p-16` = 16px); em steps `*-01em` … `*-1em`; `prose-wide` (75ch) | [Spacing & Layout](spacing-and-layout.md) |
+| Spacing scale | `--spacing: var(--decanter-px)` — numeric utilities read as pixels (`p-16` = 16px, `h-42` = 42px); em steps `*-01em` … `*-1em`; `prose-wide` (75ch) | [Spacing & Layout](spacing-and-layout.md) |
 | Responsive spacing | `rs-p-*`, `rs-px-*`, `rs-py-*`, `rs-pt/pr/pb/pl-*`, `rs-m-*` (+ sides), `rs-gap-*`, `rs-gap-x/y-*` — steps 0–10 | [Spacing & Layout](spacing-and-layout.md) |
 | Gaps | `gap-xs`, `gap-lg`, `gap-xl`, `gap-2xl`, and the responsive `grid-gap` shorthand | [Spacing & Layout](spacing-and-layout.md) |
 | Container | `centered-container` / `cc` (Stanford screen margins, 1500px cap) | [Spacing & Layout](spacing-and-layout.md) |
