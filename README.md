@@ -38,7 +38,7 @@ There is no need to add a separate `@import 'tailwindcss'`, or your output will 
 
 | Import | Contents |
 |---|---|
-| `decanter` | Everything, including full base styles and the legacy 62.5% root font size |
+| `decanter` | Everything, including full base styles and the default 62.5% root font size |
 | `decanter/minimal` | Same sizing mode, without element-level base opinions such as link colors |
 | `decanter/base16` | Everything, but leaves the HTML root font size unchanged |
 | `decanter/base16/minimal` | The base16 sizing mode with minimal base styles |

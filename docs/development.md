@@ -31,8 +31,8 @@ you save, but you have to **refresh the browser manually** to see them.
 
 ```
 src/css/                  The published package (everything consumers import)
-  index.css               Legacy 10px-root entry with full base styles
-  index-minimal.css       Legacy 10px-root entry with minimal base styles
+  index.css               Default 10px-root entry with full base styles
+  index-minimal.css       Default 10px-root entry with minimal base styles
   index-base16.css        No-root-override entry with full base styles
   index-base16-minimal.css  No-root-override entry with minimal base styles
   core.css                Shared theme + components + utilities + variants
@@ -44,13 +44,13 @@ src/css/                  The published package (everything consumers import)
   components/             Plain CSS component classes (@layer components)
   utilities/              @utility definitions (generated on demand)
   base/
-    root-font-size.css    Legacy 62.5% HTML root override
+    root-font-size.css    Default 62.5% HTML root override
     shared.css            Root-neutral essentials (font smoothing, border compat, lists)
     opinionated.css       Root-neutral full base; imports shared.css
-    base-minimal.css      Legacy wrapper: root font size + shared.css
-    base.css              Legacy wrapper: root font size + opinionated.css
+    base-minimal.css      Default wrapper: root font size + shared.css
+    base.css              Default wrapper: root font size + opinionated.css
 dev/
-  dev.css                 Legacy-root test-page build entry
+  dev.css                 Default-root test-page build entry
   dev-base16.css          No-root-override test-page build entry
   dev-base-stanford-font.css  Local @font-face for the Stanford wordmark
 static/
@@ -64,7 +64,7 @@ docs/                     This documentation
 - **Theme values** go in `src/css/theme/*.css` as `@theme` tokens — one concern per file, imported by `theme/all.css`.
 - **Utilities** use `@utility` (functional utilities use `--value(…)`), so they're generated only when used.
 - **Components** are plain classes in `@layer components` and are always emitted — keep them lean.
-- **Single source of truth**: don't duplicate values across files. Fixed Decanter lengths derive from `--decanter-px`; base headings `@apply type-5`…`type-0` rather than repeating the scale; the legacy and base16 wrappers import the root-neutral base files rather than copying them.
+- **Single source of truth**: don't duplicate values across files. Fixed Decanter lengths derive from `--decanter-px`; base headings `@apply type-5`…`type-0` rather than repeating the scale; the default base10 and base16 wrappers import the root-neutral base files rather than copying them.
 - **Source detection**: `dev/dev.css` excludes `docs/` and root markdown from Tailwind's content scanning (`@source not`), so class names mentioned in prose don't leak into the build.
 
 ## The test page

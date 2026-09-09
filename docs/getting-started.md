@@ -37,10 +37,10 @@ Build with your Tailwind integration as usual. Tailwind v4 detects the classes y
 
 | Import | What you get | Includes Tailwind? | When to use |
 |---|---|---|---|
-| `decanter` | Theme + components + utilities + variants + full base styles; sets the legacy 62.5% root font size | Yes | Default choice for existing Decanter sites |
-| `decanter/minimal` | The same root sizing with only border-color compatibility, font smoothing, list markers, and other essentials — no element typography opinions | Yes | Embedding legacy-sized Decanter into a site that has its own base styles |
-| `decanter/base16` | The full entry, but does not set `html`'s font size | Yes | Sites whose own CSS or component libraries expect the browser's normal 16px rem basis |
-| `decanter/base16/minimal` | The base16 sizing mode with minimal base styles | Yes | Embedding Decanter without changing the root size or adding element typography opinions |
+| `decanter` | Theme + components + utilities + variants + full base styles; sets the default 62.5% root font size | Yes | Default choice for existing Decanter sites |
+| `decanter/minimal` | The same root sizing with only border-color compatibility, font smoothing, list markers, and other essentials — no element typography opinions | Yes | Using Decanter for a site that has its own base HTML element styles |
+| `decanter/base16` | Same as `decanter`, but does not set `html`'s font size | Yes | Sites whose own CSS or component libraries expect the browser's normal 16px rem basis |
+| `decanter/base16/minimal` | The base16 counterpart for `decanter/minimal` | Yes | Using Decanter without changing the root size or adding base HTML element styles |
 | `decanter/forms` | Form classes (`.input`, `.select`, …) plus the `@tailwindcss/forms` reset they depend on | No — composes with a main entry | Add alongside whichever full or minimal entry your site uses |
 | `decanter/colors` | The Stanford color palette only, as `@theme` tokens | No — pair with your own `@import 'tailwindcss'` | Using Stanford colors on an otherwise stock Tailwind setup |
 | `decanter/src/*` | Direct access to any source file, e.g. `decanter/src/css/utilities/modular-type.css` | No | À-la-carte composition |
@@ -80,8 +80,8 @@ Decanter still overrides Tailwind's numeric spacing scale in either mode: `p-4` 
 
 ```css
 /* Use one of these, not both. */
-@import 'decanter';        /* legacy 62.5% root */
-@import 'decanter/base16'; /* no HTML font-size override */
+@import 'decanter';        /* Default, 62.5% HTML root font-size so 1rem = 10px */
+@import 'decanter/base16'; /* Alternative entry point, no HTML font-size override so 1rem = 16px for default browser settings */
 ```
 
 ## What gets emitted to your CSS

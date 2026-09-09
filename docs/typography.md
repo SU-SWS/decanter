@@ -2,7 +2,7 @@
 
 Sources: `src/css/theme/font-family.css`, `theme/font-size.css`, `theme/line-height.css`, `utilities/modular-type.css`, `utilities/fluid-type.css`, `utilities/font-size.css`, `utilities/typography-styles.css`, `base/base.css`.
 
-Pixel values below are the rendered sizes at standard browser settings. Decanter calculates them from `--decanter-px`, so they stay equivalent in both the legacy 10px-root and base16 entry points while still respecting browser font-size preferences.
+Pixel values below are the rendered sizes at standard browser settings. Decanter calculates them from `--decanter-px`, so they stay equivalent in both the default 10px-root and base16 entry points while still respecting browser font-size preferences.
 
 ## Font families
 
