@@ -4,17 +4,17 @@ Sources: `src/css/theme/spacing.css`, `theme/responsive-spacing.css`, `theme/gap
 
 ## Spacing scale: numbers read as pixels
 
-Decanter sets `--spacing: 0.1rem`, so every numeric spacing utility is the number × 0.1rem. Combined with the 62.5% root font size, **the class number equals pixels**:
+Decanter sets `--spacing: var(--decanter-px)`, so every numeric spacing utility is the class number multiplied by one pixel-equivalent unit. `--decanter-px` is `0.1rem` in the default 10px-root entries and `0.0625rem` in the base16 entries. At standard browser settings, **the class number equals pixels in either mode**:
 
-| Class | Computed | Pixels |
+| Class | Default rendered size |
 |---|---|---|
-| `p-16` | 1.6rem | 16px |
-| `mb-24` | 2.4rem | 24px |
-| `w-300` | 30rem | 300px |
-| `max-w-600` | 60rem | 600px |
-| `gap-10` | 1rem | 10px |
+| `p-42` | 42px |
+| `mb-24` | 24px |
+| `w-321` | 321px |
+| `max-w-630` | 630px |
+| `gap-12` | 12px |
 
-This applies to padding, margin, width, height, gap, inset, and every other spacing-driven utility. **This differs from stock Tailwind**, where `p-4` = 1rem.
+This applies to padding, margin, width, height, gap, inset, and every other spacing-driven utility. **This differs from stock Tailwind**, where `p-4` = 1rem. Browser font-size preferences still scale these rem-based values proportionally.
 
 ### Em-based spacing
 
@@ -44,17 +44,17 @@ Steps and values:
 
 | Step | Base (XS) | ≥ md | ≥ 2xl |
 |---|---|---|---|
-| 0 | 1.5rem | 1.8rem | 1.9rem |
-| 1 | 2rem | 2.6rem | 2.7rem |
-| 2 | 3rem | 3.6rem | 3.8rem |
-| 3 | 3.2rem | 4.5rem | 4.8rem |
-| 4 | 3.4rem | 5.8rem | 6.1rem |
-| 5 | 3.8rem | 7.2rem | 7.6rem |
-| 6 | 4.5rem | 9rem | 9.5rem |
-| 7 | 5rem | 10.8rem | 11.4rem |
-| 8 | 6rem | 12.6rem | 13.3rem |
-| 9 | 7rem | 16.2rem | 17.1rem |
-| 10 | 8rem | 21.6rem | 22.8rem |
+| 0 | 15px | 18px | 19px |
+| 1 | 20px | 26px | 27px |
+| 2 | 30px | 36px | 38px |
+| 3 | 32px | 45px | 48px |
+| 4 | 34px | 58px | 61px |
+| 5 | 38px | 72px | 76px |
+| 6 | 45px | 90px | 95px |
+| 7 | 50px | 108px | 114px |
+| 8 | 60px | 126px | 133px |
+| 9 | 70px | 162px | 171px |
+| 10 | 80px | 216px | 228px |
 
 ```html
 <section class="rs-py-4">Vertical padding: 34px → 58px → 61px</section>
@@ -65,14 +65,16 @@ The v7 negative steps (`rs-*-neg1`, `rs-*-neg2`) were removed — see [UPGRADE.m
 
 ## Grid gaps
 
-Four gap tokens sized for page-level grids, plus a shorthand that applies them responsively:
+Gap tokens sized for grids, plus a shorthand that applies them responsively. Note: for simplicity we show the values in pixel in the below table, but the actual CSS uses the rem unit for gaps, so they scale with browser font-size preferences:
 
 | Token | Value |
 |---|---|
-| `gap-xs` | 2rem (20px) |
-| `gap-lg` | 3.6rem (36px) |
-| `gap-xl` | 4rem (40px) |
-| `gap-2xl` | 4.8rem (48px) |
+| `gap-xs` | 20px |
+| `gap-sm` | 20px |
+| `gap-md` | 20px |
+| `gap-lg` | 36px |
+| `gap-xl` | 40px |
+| `gap-2xl` | 48px |
 
 | Class | Behavior |
 |---|---|

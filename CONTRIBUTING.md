@@ -54,14 +54,12 @@ Example:
 > causing the bug, and potential solutions (and your opinions on their
 > merits).
 
-
 ## Feature requests
 
 Feature requests are welcome. But take a moment to find out whether your idea
 fits with the scope and aims of the project. It's up to *you* to make a strong
 case to convince the project's developers of the merits of this feature. Please
 provide as much detail and context as possible.
-
 
 ## Pull requests
 
@@ -71,8 +69,7 @@ commits.
 
 Please adhere to the coding conventions used throughout a project (whitespace,
 accurate comments, etc.) and any other requirements (such as test coverage).
-Linting is preformed on every pull request. Please see STANDARDS.md for more
-information on standards, conventions, and best practices.
+Please see [docs/development.md](docs/development.md) for more information on setup, process and conventions.
 
 **IMPORTANT**: By submitting a patch, you agree to allow the project owner to
 license your work under the same license as that used by the project.
@@ -85,10 +82,9 @@ cutting new releases.
 ### Accepting PRs
 
 1. Check that a PR is within the scope and philosophy of the project.
-2. Test the patch locally.
-3. Run PR against linter
-4. Ensure all documentation and commenting is in place.
-5. Squash and merge using command line or Github's merge button.
+2. Test the patch locally and the static Netlify preview page.
+3. Ensure all documentation and commenting is in place.
+4. Squash and merge using command line or Github's merge button.
 
 ### Releasing a new version
 

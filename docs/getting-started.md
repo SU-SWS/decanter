@@ -9,8 +9,16 @@ Decanter v8 is a CSS-first preset for Tailwind CSS v4. There is no JavaScript co
 
 ## Installation
 
+Generally you will install Decanter alongside Tailwind CSS v4:
+
 ```bash
-npm install decanter tailwindcss
+npm install decanter@beta tailwindcss
+```
+
+The Tailwind v4 integration is framework-specific. See the [Tailwind CSS website](https://tailwindcss.com/docs/installation) for your framework's recommended installation method. For use with Next.js v16, install Tailwind CSS v4, @tailwindcss/postcss and Decanter (beta release) as dev dependencies:
+
+```bash
+npm install -D tailwindcss @tailwindcss/postcss decanter@beta
 ```
 
 ## Basic usage
@@ -29,15 +37,17 @@ Build with your Tailwind integration as usual. Tailwind v4 detects the classes y
 
 | Import | What you get | Includes Tailwind? | When to use |
 |---|---|---|---|
-| `decanter` | Theme + components + utilities + variants + full base styles (element defaults for headings, paragraphs, links, lists, tables) | Yes | Default choice for Stanford sites |
-| `decanter/minimal` | Same, but with minimal base styles: root font size, border-color compatibility, and list markers only — no element typography opinions | Yes | Embedding Decanter into a site that has its own base styles |
-| `decanter/forms` | Form classes (`.input`, `.select`, …) plus the `@tailwindcss/forms` reset they depend on | No — composes with a main entry | Add alongside `decanter` or `decanter/minimal` when your site has forms |
+| `decanter` | Theme + components + utilities + variants + full base styles; sets the default 62.5% root font size | Yes | Default choice for existing Decanter sites |
+| `decanter/minimal` | The same root sizing with only border-color compatibility, font smoothing, list markers, and other essentials — no element typography opinions | Yes | Using Decanter for a site that has its own base HTML element styles |
+| `decanter/base16` | Same as `decanter`, but does not set `html`'s font size | Yes | Sites whose own CSS or component libraries expect the browser's normal 16px rem basis |
+| `decanter/base16/minimal` | The base16 counterpart for `decanter/minimal` | Yes | Using Decanter without changing the root size or adding base HTML element styles |
+| `decanter/forms` | Form classes (`.input`, `.select`, …) plus the `@tailwindcss/forms` reset they depend on | No — composes with a main entry | Add alongside whichever full or minimal entry your site uses |
 | `decanter/colors` | The Stanford color palette only, as `@theme` tokens | No — pair with your own `@import 'tailwindcss'` | Using Stanford colors on an otherwise stock Tailwind setup |
 | `decanter/src/*` | Direct access to any source file, e.g. `decanter/src/css/utilities/modular-type.css` | No | À-la-carte composition |
 
 ### Composition rules
 
-1. **`decanter/forms` is not standalone.** It relies on theme variables and the root font size supplied by `decanter` or `decanter/minimal`. Imported alone, form controls render unstyled and oversized.
+1. **`decanter/forms` is not standalone.** It relies on theme variables supplied by one of the four main entries. Imported alone, form controls render unstyled.
 
    ```css
    @import 'decanter';
@@ -46,19 +56,33 @@ Build with your Tailwind integration as usual. Tailwind v4 detects the classes y
 
 2. **`decanter/colors` is standalone tokens.** It is pure `@theme`, adds zero bytes until you use a color, and does not change Tailwind's spacing scale, breakpoints, or element styles. Use it in a project that already has its own `@import 'tailwindcss'`.
 
-3. **`decanter` and `decanter/minimal` are mutually exclusive** — import one, not both.
+3. **The four main entries are mutually exclusive** — import exactly one full or minimal entry in one sizing mode.
 
-4. **Never add your own `@import 'tailwindcss'` next to `decanter` or `decanter/minimal`** — they already include it, and the duplicate is not removed.
+4. **Never add your own `@import 'tailwindcss'` next to a main Decanter entry** — all four already include it, and the duplicate is not removed.
 
-## The 62.5% root font size
+## Choose a root font size mode
 
-Decanter sets `html { font-size: 62.5% }`, making `1rem` = 10px at default browser settings. Every rem-based token is chosen so the number reads as pixels:
+The original entries (`decanter` and `decanter/minimal`) keep Decanter's long-standing `html { font-size: 62.5% }` rule, which results in `1rem = 10px` for default browser settings. The base16 entries (`decanter/base16` or `decanter/base16/minimal`) leave the HTML font size entirely to the browser. At standard browser settings, the new base16 mode results in `1rem = 16px`.
 
-- `text-18` → 1.8rem → **18px**
-- `p-16` → 1.6rem → **16px** (spacing unit is `--spacing: 0.1rem`)
-- `w-300` → 30rem → **300px**
+Decanter-specific lengths use one shared `--decanter-px` unit, so their rendered sizes in pixel remain equivalent in both modes even though the rem unit is used and the root font sizes differ:
 
-This differs from stock Tailwind (where `p-4` = 1rem = 16px). If you mix Decanter with existing Tailwind markup, re-check numeric spacing classes — the same class name produces a much smaller size under Decanter.
+| | `decanter` / `decanter/minimal` | `decanter/base16` / `decanter/base16/minimal` |
+|---|---|---|
+| HTML root rule | `font-size: 62.5%` | No font-size declaration |
+| `--decanter-px` | `0.1rem` | `0.0625rem` |
+| `text-18` | 18px | 18px |
+| `p-16` | 16px | 16px |
+| `w-300` | 300px | 300px |
+
+The default base10 mode still has the advantage of simpler math for developers who need custom utilities in rem units, since calculating rem values is easier when dividing by 10 instead of 16. The base16 mode is the better fit for use with third-party libraries such as MUI that use ordinary rem values and assume the browser default. Browser font-size preferences continue to scale both modes proportionally, making it fully accessible.
+
+Decanter still overrides Tailwind's numeric spacing scale in either mode: `p-4` means 4px, not stock Tailwind's 16px (in Tailwind v3). The base16 mode changes the root rem basis; it does not replace Decanter's spacing API.
+
+```css
+/* Use one of these, not both. */
+@import 'decanter';        /* Default, 62.5% HTML root font-size so 1rem = 10px */
+@import 'decanter/base16'; /* Alternative entry point, no HTML font-size override so 1rem = 16px for default browser settings */
+```
 
 ## What gets emitted to your CSS
 

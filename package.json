@@ -19,6 +19,8 @@
   "exports": {
     ".": "./src/css/index.css",
     "./minimal": "./src/css/index-minimal.css",
+    "./base16": "./src/css/index-base16.css",
+    "./base16/minimal": "./src/css/index-base16-minimal.css",
     "./colors": "./src/css/theme/colors.css",
     "./forms": "./src/css/forms.css",
     "./src/*": "./src/*",
@@ -32,8 +34,12 @@
     "license.md"
   ],
   "scripts": {
-    "build": "tailwindcss -i dev/dev.css -o static/css/decanter.css",
-    "watch": "tailwindcss -i dev/dev.css -o static/css/decanter.css --watch=always",
+    "build": "npm run build:base10 && npm run build:base16",
+    "build:base10": "tailwindcss -i dev/dev.css -o static/css/decanter.css",
+    "build:base16": "tailwindcss -i dev/dev-base16.css -o static/css/decanter-base16.css",
+    "watch": "concurrently --names base10,base16 --prefix-colors cyan,magenta \"npm:watch:base10\" \"npm:watch:base16\"",
+    "watch:base10": "tailwindcss -i dev/dev.css -o static/css/decanter.css --watch=always",
+    "watch:base16": "tailwindcss -i dev/dev-base16.css -o static/css/decanter-base16.css --watch=always",
     "serve": "serve static -l 4000",
     "dev": "concurrently --names css,web --prefix-colors cyan,green \"npm:watch\" \"npm:serve\"",
     "version": "auto-changelog -p && git add CHANGELOG.md"

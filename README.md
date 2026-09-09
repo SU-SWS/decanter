@@ -38,13 +38,15 @@ There is no need to add a separate `@import 'tailwindcss'`, or your output will 
 
 | Import | Contents |
 |---|---|
-| `decanter` | Everything: theme, components, utilities, variants, full base styles |
-| `decanter/minimal` | Same, without element-level base opinions such as link colors |
-| `decanter/forms` | Opt-in form classes + the bundled `@tailwindcss/forms` reset (requires `decanter` or `decanter/minimal`) |
+| `decanter` | Everything, including full base styles and the default 62.5% root font size |
+| `decanter/minimal` | Same sizing mode, without element-level base opinions such as link colors |
+| `decanter/base16` | Everything, but leaves the HTML root font size unchanged |
+| `decanter/base16/minimal` | The base16 sizing mode with minimal base styles |
+| `decanter/forms` | Opt-in form classes + the bundled `@tailwindcss/forms` reset (requires one of the four main entries above) |
 | `decanter/colors` | Stanford color palette only — standalone, works on stock Tailwind |
 | `decanter/src/*` | Any individual source file, for à-la-carte composition |
 
-See [Getting Started](docs/getting-started.md) for details, including the 62.5% root font size convention (spacing and font-size class numbers read as pixels: `p-16` = 16px, `text-18` = 18px).
+Both sizing modes keep Decanter-owned numeric utilities, tokens, and fixed component dimensions at the same rendered pixel sizes in rem units: `p-16` is 16px and `text-18` is 18px at standard browser settings. Choose a `base16` entry when Tailwind core or another library expects the browser's usual 16px rem basis. See [Getting Started](docs/getting-started.md) for details.
 
 ## Fonts
 Decanter provides font-family **utilities** (`font-sans`, `font-serif`, `font-stanford`) but does not bundle or load the font files — how fonts are loaded is framework-specific, so that's left to you. Load only the families you use; if one isn't loaded, its class falls back gracefully down the stack.
