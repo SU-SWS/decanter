@@ -295,6 +295,17 @@ than using `fonts.css` or `fonts-basic.css`, update your font imports to match.
 
 Additive, no action required.
 
+### New utilities: modular spacing — `ms-*`
+
+A ratio-generated spacing scale (steps `0`&ndash;`10`) for padding, margin, and gap, sitting
+alongside the existing hand-tuned `rs-*` scale. Additive, no action required &mdash; see
+[Spacing & Layout](docs/spacing-and-layout.md#modular-spacing--ms-) for the values and for when to
+reach for `ms-*` over `rs-*`.
+
+Note that Tailwind core's `ms-<number>` (`margin-inline-start`) is unaffected: `ms-4` is still
+logical start margin, while the Decanter utilities all carry a property segment (`ms-m-4`,
+`ms-p-4`, `ms-gap-4`).
+
 Upgrade from version 7.0.0-beta.0 to 7.0.0-beta.1
 -------------------------------------------------
 

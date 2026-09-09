@@ -1,6 +1,6 @@
 # Spacing & Layout
 
-Sources: `src/css/theme/spacing.css`, `theme/responsive-spacing.css`, `theme/gap.css`, `theme/screen-margins.css`, `theme/breakpoint.css`, `utilities/responsive-spacing.css`, `utilities/grid-gap.css`, `components/centered-container.css`.
+Sources: `src/css/theme/spacing.css`, `theme/responsive-spacing.css`, `theme/modular-spacing.css`, `theme/gap.css`, `theme/screen-margins.css`, `theme/breakpoint.css`, `utilities/responsive-spacing.css`, `utilities/modular-spacing.css`, `utilities/grid-gap.css`, `components/centered-container.css`.
 
 ## Spacing scale: numbers read as pixels
 
@@ -62,6 +62,67 @@ Steps and values:
 ```
 
 The v7 negative steps (`rs-*-neg1`, `rs-*-neg2`) were removed — see [UPGRADE.md](../UPGRADE.md).
+
+## Modular spacing — `ms-*`
+
+The spacing counterpart to the [modular type scale](typography.md): steps `0` through `10`, where each
+step is the previous one multiplied by a ratio. Both the starting size and the ratio open up as the
+viewport grows, so the high steps gain far more between breakpoints than the low ones.
+
+| Set | Base | Ratio | Applies from |
+|---|---|---|---|
+| xs | 18px | 1.15 | all widths (base) |
+| md | 19px | 1.2 | `768px` (`md`) |
+| xl | 19px | 1.25 | `1200px` (`xl`) |
+| 2xl | 21px | 1.25 | `1500px` (`2xl`) |
+
+The design scale gives `sm` the same values as `xs` and `lg` the same values as `md`, so those two
+breakpoints get no separate token set and emit no media query.
+
+Available for padding, margin, and gap, matching the `rs-*` shape:
+
+- Padding: `ms-p-*`, `ms-px-*`, `ms-py-*`, `ms-pt-*`, `ms-pr-*`, `ms-pb-*`, `ms-pl-*`
+- Margin: `ms-m-*`, `ms-mx-*`, `ms-my-*`, `ms-mt-*`, `ms-mr-*`, `ms-mb-*`, `ms-ml-*`
+- Gap: `ms-gap-*`, `ms-gap-x-*`, `ms-gap-y-*`
+
+Steps and values:
+
+| Step | Base (xs, sm) | ≥ md (md, lg) | ≥ xl | ≥ 2xl |
+|---|---|---|---|---|
+| 0 | 18px | 19px | 19px | 21px |
+| 1 | 21px | 23px | 24px | 26px |
+| 2 | 24px | 27px | 30px | 33px |
+| 3 | 27px | 33px | 37px | 41px |
+| 4 | 31px | 39px | 46px | 51px |
+| 5 | 36px | 47px | 58px | 64px |
+| 6 | 42px | 57px | 72px | 80px |
+| 7 | 48px | 68px | 91px | 100px |
+| 8 | 55px | 82px | 113px | 125px |
+| 9 | 63px | 98px | 142px | 156px |
+| 10 | 73px | 118px | 177px | 196px |
+
+```html
+<section class="ms-py-4">Vertical padding: 31px → 39px → 46px → 51px</section>
+<div class="grid grid-cols-3 ms-gap-2">Modular gutters</div>
+```
+
+Values are pixel-equivalents built from `--decanter-px`, so they render at the same size under either
+root-size entry and still scale with browser font-size preferences.
+
+### `ms-*` vs `rs-*`
+
+Both step spacing up across breakpoints in a single class. Pick by where the numbers come from:
+
+- **`rs-*`** is a hand-tuned scale with three stops (base, `md`, `2xl`). Its low steps are tighter (15px at step 0)
+  and its top steps are larger (228px at step 10) than the modular scale — built for full-bleed section
+  rhythm.
+- **`ms-*`** is generated from a ratio with four stops (base, `md`, `xl`, `2xl`), so adjacent steps stay in a
+  consistent proportion to each other and to the modular type scale. Reach for it when spacing should feel
+  proportional to the type it surrounds.
+
+Note that `ms-*` here is a Decanter utility group and is unrelated to Tailwind core's `ms-<number>`
+(`margin-inline-start`), which remains available — `ms-4` is still logical start margin, while `ms-m-4`
+is modular spacing.
 
 ## Grid gaps
 
